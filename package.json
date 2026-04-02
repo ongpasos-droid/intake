@@ -1,0 +1,12 @@
+{
+  "name": "intake",
+  "version": "1.0.0",
+  "description": "Intake app - formulario de entrada de datos",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.0"
+  }
+}
