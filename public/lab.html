@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Lab Visual — E+ Tools</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Manrope',sans-serif;-webkit-font-smoothing:antialiased;background:#0a0a1a;color:#fff;min-height:100vh}
+  .material-symbols-outlined{font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24;display:inline-block;line-height:1}
+
+  /* Lab header */
+  .lab-header{position:sticky;top:0;z-index:100;background:rgba(10,10,26,0.9);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,0.08);padding:16px 32px;display:flex;align-items:center;gap:16px}
+  .lab-header h1{font-size:14px;font-weight:800;letter-spacing:-0.03em}
+  .lab-header .tag{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.15em;padding:3px 8px;border-radius:4px;background:rgba(231,235,0,0.15);color:#e7eb00}
+  .lab-header a{font-size:12px;color:rgba(255,255,255,0.5);text-decoration:none;margin-left:auto}
+  .lab-header a:hover{color:#fff}
+
+  /* Variant selector */
+  .variant-tabs{display:flex;gap:0;background:rgba(255,255,255,0.05);border-radius:8px;padding:3px;margin:24px 32px 0}
+  .variant-tab{flex:1;text-align:center;padding:10px 16px;font-size:12px;font-weight:700;border-radius:6px;cursor:pointer;transition:all 0.2s;color:rgba(255,255,255,0.5)}
+  .variant-tab:hover{color:#fff}
+  .variant-tab.active{background:rgba(255,255,255,0.1);color:#fff}
+  .variant-tab .dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px}
+
+  /* Preview frame */
+  .preview-area{padding:24px 32px 48px}
+  .preview-frame{border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,0.08);background:#fff;position:relative}
+  .preview-label{position:absolute;top:12px;right:12px;z-index:10;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;padding:4px 10px;border-radius:4px;background:rgba(0,0,0,0.7);color:#fff;backdrop-filter:blur(4px)}
+  .preview-content{display:flex;min-height:600px}
+
+  /* Description */
+  .variant-desc{padding:0 32px 24px;display:flex;gap:24px}
+  .desc-card{flex:1;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:8px;padding:16px}
+  .desc-card h3{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:0.12em;margin-bottom:8px;color:rgba(255,255,255,0.4)}
+  .desc-card p{font-size:13px;line-height:1.6;color:rgba(255,255,255,0.7)}
+  .swatch{display:inline-block;width:16px;height:16px;border-radius:3px;vertical-align:middle;margin-right:4px;border:1px solid rgba(255,255,255,0.1)}
+
+  /* Comparison strip */
+  .compare-strip{display:flex;gap:16px;padding:0 32px 48px}
+  .compare-card{flex:1;border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,0.08)}
+
+  /* Mini sidebar for previews */
+  .mini-sidebar{width:180px;min-height:100%;display:flex;flex-direction:column;padding:16px 0;flex-shrink:0}
+  .mini-sidebar .logo{padding:0 16px;margin-bottom:20px}
+  .mini-sidebar .logo h2{font-size:13px;font-weight:900;letter-spacing:-0.04em;color:#fff}
+  .mini-sidebar .logo p{font-size:8px;text-transform:uppercase;letter-spacing:0.2em;opacity:0.5;color:#fff;margin-top:2px}
+  .mini-sidebar .nav-item{display:flex;align-items:center;gap:8px;padding:8px 12px;margin:1px 8px;border-radius:6px;font-size:12px;font-weight:600;transition:all 0.15s}
+  .mini-sidebar .nav-item .material-symbols-outlined{font-size:18px}
+  .mini-sidebar .sep{height:1px;margin:12px 16px;opacity:0.1}
+
+  /* Mini topbar */
+  .mini-topbar{height:48px;display:flex;align-items:center;padding:0 20px;gap:16px;border-bottom-width:1px;border-bottom-style:solid}
+  .mini-topbar .nav-link{font-size:11px;font-weight:600;padding-bottom:4px}
+  .mini-topbar .nav-link.active{font-weight:700;border-bottom:2px solid}
+  .mini-topbar .spacer{flex:1}
+  .mini-topbar .search{padding:6px 12px 6px 28px;border-radius:99px;font-size:10px;border:none;width:140px;outline:none}
+
+  /* Mini content */
+  .mini-content{flex:1;display:flex;flex-direction:column}
+  .mini-main{flex:1;padding:24px 20px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+  .mini-main .hero{font-size:22px;font-weight:800;letter-spacing:-0.04em;line-height:1.2;margin-bottom:8px}
+  .mini-main .sub{font-size:11px;line-height:1.5;max-width:300px;margin:0 auto 16px}
+  .mini-main .cta{display:inline-flex;align-items:center;gap:6px;padding:10px 24px;border-radius:6px;font-size:12px;font-weight:700;border:none;cursor:pointer;transition:transform 0.15s}
+  .mini-main .cta:hover{transform:scale(1.02)}
+  .mini-cards{display:flex;gap:12px;margin-top:20px;width:100%;max-width:400px}
+  .mini-card{flex:1;padding:14px;text-align:left;border-bottom:2px solid transparent;transition:border-color 0.3s}
+  .mini-card:hover{border-bottom-color:var(--accent)}
+  .mini-card .icon-box{width:32px;height:32px;border-radius:6px;display:flex;align-items:center;justify-content:center;margin-bottom:8px}
+  .mini-card .icon-box .material-symbols-outlined{font-size:18px}
+  .mini-card h4{font-size:12px;font-weight:700;margin-bottom:4px}
+  .mini-card p{font-size:10px;line-height:1.4;opacity:0.6}
+
+  /* Footer */
+  .mini-footer{padding:8px 20px;display:flex;justify-content:space-between;font-size:8px;text-transform:uppercase;letter-spacing:0.15em;opacity:0.4}
+
+  /* Palette display */
+  .palette-row{display:flex;gap:4px;margin-top:12px;flex-wrap:wrap}
+  .palette-chip{padding:4px 8px;border-radius:4px;font-size:9px;font-weight:700;letter-spacing:0.05em}
+</style>
+</head>
+<body>
+
+<!-- Lab Header -->
+<div class="lab-header">
+  <h1>E+ Tools</h1>
+  <span class="tag">Design Lab</span>
+  <span style="font-size:11px;opacity:0.4">Comparador de paleta de color — 3 variantes de azul</span>
+  <a href="/">← Volver al Intake</a>
+</div>
+
+<!-- Variant Tabs -->
+<div class="variant-tabs" id="tabs">
+  <div class="variant-tab active" onclick="showVariant(0)">
+    <span class="dot" style="background:#1B1464"></span>A — Sidebar Azul
+  </div>
+  <div class="variant-tab" onclick="showVariant(1)">
+    <span class="dot" style="background:#2563EB"></span>B — Azul Acento
+  </div>
+  <div class="variant-tab" onclick="showVariant(2)">
+    <span class="dot" style="background:#EFF6FF"></span>C — Fondo Azul
+  </div>
+</div>
+
+<!-- Variant A: Sidebar Azul -->
+<div class="variant-section" id="v0">
+  <div class="variant-desc">
+    <div class="desc-card">
+      <h3>Qu&eacute; cambia</h3>
+      <p>El sidebar pasa de <strong>&iacute;ndigo oscuro</strong> <span class="swatch" style="background:#1B1464"></span> a un <strong>azul europeo reconocible</strong> <span class="swatch" style="background:#1e3a5f"></span>. El resto de la interfaz se mantiene id&eacute;ntica al dise&ntilde;o actual. El azul es m&aacute;s "institucional EU" sin perder la sobriedad.</p>
+    </div>
+    <div class="desc-card">
+      <h3>D&oacute;nde se ve el azul</h3>
+      <p>Solo en el sidebar (navegaci&oacute;n lateral). Todo lo dem&aacute;s — topbar, contenido, cards, botones — queda exactamente como est&aacute;.</p>
+    </div>
+    <div class="desc-card">
+      <h3>Identidad</h3>
+      <p>Azul EU cl&aacute;sico + amarillo EU para CTAs. Combinaci&oacute;n que evoca inmediatamente la bandera europea sin ser literal.</p>
+    </div>
+  </div>
+  <div class="preview-area">
+    <div class="preview-frame">
+      <span class="preview-label">Variante A</span>
+      <div class="preview-content">
+        <!-- Sidebar A -->
+        <div class="mini-sidebar" style="background:#1e3a5f">
+          <div class="logo"><h2>EU Funding SaaS</h2><p>Professional Suite</p></div>
+          <div class="nav-item" style="background:#E7EB00;color:#1e3a5f"><span class="material-symbols-outlined">edit_note</span>Redactor</div>
+          <div class="nav-item" style="color:rgba(255,255,255,0.65)"><span class="material-symbols-outlined">fact_check</span>Evaluador</div>
+          <div class="nav-item" style="color:rgba(255,255,255,0.65)"><span class="material-symbols-outlined">groups</span>Entidades</div>
+          <div class="nav-item" style="color:rgba(255,255,255,0.65)"><span class="material-symbols-outlined">history_edu</span>Escribas</div>
+          <div class="sep" style="background:#fff"></div>
+          <div class="nav-item" style="color:rgba(255,255,255,0.65)"><span class="material-symbols-outlined">person</span>Profile</div>
+          <div class="nav-item" style="color:rgba(255,255,255,0.65)"><span class="material-symbols-outlined">settings</span>Settings</div>
+        </div>
+        <div class="mini-content" style="background:#f7f9fb">
+          <div class="mini-topbar" style="background:rgba(255,255,255,0.8);border-color:rgba(30,58,95,0.1)">
+            <span class="nav-link active" style="color:#1e3a5f;border-color:#E7EB00">Dashboard</span>
+            <span class="nav-link" style="color:#474551">Projects</span>
+            <span class="nav-link" style="color:#474551">Analytics</span>
+            <span class="spacer"></span>
+            <input class="search" style="background:#f2f4f6" placeholder="Search projects...">
+          </div>
+          <div class="mini-main">
+            <div class="hero" style="color:#1e3a5f">Initialize your Architectural Authority</div>
+            <div class="sub" style="color:#474551">Transform your grant proposals into masterfully structured instruments of success.</div>
+            <button class="cta" style="background:#E7EB00;color:#1e3a5f">
+              <span class="material-symbols-outlined" style="font-size:16px">add_circle</span>
+              Create your first project
+            </button>
+            <div class="mini-cards">
+              <div class="mini-card" style="background:#fff;--accent:#E7EB00">
+                <div class="icon-box" style="background:#f2f4f6;color:#1e3a5f"><span class="material-symbols-outlined">edit_document</span></div>
+                <h4 style="color:#1e3a5f">Start from Scratch</h4>
+                <p style="color:#474551">Begin with a clean structural blueprint</p>
+              </div>
+              <div class="mini-card" style="background:#fff;--accent:#E7EB00">
+                <div class="icon-box" style="background:#f2f4f6;color:#1e3a5f"><span class="material-symbols-outlined">upload_file</span></div>
+                <h4 style="color:#1e3a5f">Upload Draft</h4>
+                <p style="color:#474551">Import and restructure existing documents</p>
+              </div>
+            </div>
+          </div>
+          <div class="mini-footer" style="color:#474551"><span>v4.2.0-Alpha · EU-West-1</span><span>&copy; 2026 E+ Tools</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Variant B: Azul Acento -->
+<div class="variant-section" id="v1" style="display:none">
+  <div class="variant-desc">
+    <div class="desc-card">
+      <h3>Qu&eacute; cambia</h3>
+      <p>El sidebar se mantiene &iacute;ndigo oscuro <span class="swatch" style="background:#1B1464"></span>, pero se a&ntilde;ade un <strong>azul vivo</strong> <span class="swatch" style="background:#2563EB"></span> como color de acento: links, iconos activos, bordes de focus, badges. El amarillo sigue para CTAs principales.</p>
+    </div>
+    <div class="desc-card">
+      <h3>D&oacute;nde se ve el azul</h3>
+      <p>Links de navegaci&oacute;n activos en topbar, bordes de focus en inputs, iconos de acci&oacute;n, badges de estado, progress indicators. Peque&ntilde;os toques distribuidos por toda la interfaz.</p>
+    </div>
+    <div class="desc-card">
+      <h3>Identidad</h3>
+      <p>M&aacute;s vibrante y moderna. El azul a&ntilde;ade un nivel de jerarqu&iacute;a visual que el dise&ntilde;o actual no tiene — permite distinguir "informativo" (azul) de "acci&oacute;n" (amarillo).</p>
+    </div>
+  </div>
+  <div class="preview-area">
+    <div class="preview-frame">
+      <span class="preview-label">Variante B</span>
+      <div class="preview-content">
+        <!-- Sidebar B -->
+        <div class="mini-sidebar" style="background:#1B1464">
+          <div class="logo"><h2>EU Funding SaaS</h2><p>Professional Suite</p></div>
+          <div class="nav-item" style="background:#E7EB00;color:#1B1464"><span class="material-symbols-outlined">edit_note</span>Redactor</div>
+          <div class="nav-item" style="color:rgba(255,255,255,0.65)"><span class="material-symbols-outlined">fact_check</span>Evaluador</div>
+          <div class="nav-item" style="color:rgba(255,255,255,0.65)"><span class="material-symbols-outlined">groups</span>Entidades</div>
+          <div class="nav-item" style="color:rgba(255,255,255,0.65)"><span class="material-symbols-outlined">history_edu</span>Escribas</div>
+          <div class="sep" style="background:#fff"></div>
+          <div class="nav-item" style="color:rgba(255,255,255,0.65)"><span class="material-symbols-outlined">person</span>Profile</div>
+          <div class="nav-item" style="color:rgba(255,255,255,0.65)"><span class="material-symbols-outlined">settings</span>Settings</div>
+        </div>
+        <div class="mini-content" style="background:#f7f9fb">
+          <div class="mini-topbar" style="background:rgba(255,255,255,0.8);border-color:rgba(27,20,100,0.1)">
+            <span class="nav-link active" style="color:#2563EB;border-color:#2563EB;font-weight:700">Dashboard</span>
+            <span class="nav-link" style="color:#474551">Projects</span>
+            <span class="nav-link" style="color:#474551">Analytics</span>
+            <span class="spacer"></span>
+            <input class="search" style="background:#f2f4f6" placeholder="Search projects...">
+          </div>
+          <div class="mini-main">
+            <div class="hero" style="color:#06003e">Initialize your Architectural Authority</div>
+            <div class="sub" style="color:#474551">Transform your grant proposals into masterfully structured instruments of success.</div>
+            <button class="cta" style="background:#E7EB00;color:#1B1464">
+              <span class="material-symbols-outlined" style="font-size:16px">add_circle</span>
+              Create your first project
+            </button>
+            <div class="mini-cards">
+              <div class="mini-card" style="background:#fff;--accent:#2563EB">
+                <div class="icon-box" style="background:#EFF6FF;color:#2563EB"><span class="material-symbols-outlined">edit_document</span></div>
+                <h4 style="color:#06003e">Start from Scratch</h4>
+                <p style="color:#474551">Begin with a clean structural blueprint</p>
+              </div>
+              <div class="mini-card" style="background:#fff;--accent:#2563EB">
+                <div class="icon-box" style="background:#EFF6FF;color:#2563EB"><span class="material-symbols-outlined">upload_file</span></div>
+                <h4 style="color:#06003e">Upload Draft</h4>
+                <p style="color:#474551">Import and restructure existing documents</p>
+              </div>
+            </div>
+          </div>
+          <div class="mini-footer" style="color:#474551"><span>v4.2.0-Alpha · EU-West-1</span><span>&copy; 2026 E+ Tools</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Variant C: Fondo Azul -->
+<div class="variant-section" id="v2" style="display:none">
+  <div class="variant-desc">
+    <div class="desc-card">
+      <h3>Qu&eacute; cambia</h3>
+      <p>El fondo general pasa de gris fr&iacute;o <span class="swatch" style="background:#f7f9fb"></span> a un <strong>azul muy muy claro</strong> <span class="swatch" style="background:#f0f4fa"></span>. El sidebar se mantiene oscuro. Las cards y el topbar siguen en blanco, creando contraste sutil.</p>
+    </div>
+    <div class="desc-card">
+      <h3>D&oacute;nde se ve el azul</h3>
+      <p>En el fondo de toda la aplicaci&oacute;n. Es tan sutil que casi parece gris, pero le da una temperatura fr&iacute;a "institucional" que el gris neutro no tiene. Los inputs tambi&eacute;n adoptan un tono ligeramente azulado.</p>
+    </div>
+    <div class="desc-card">
+      <h3>Identidad</h3>
+      <p>La m&aacute;s sutil de las tres. Evoca el azul europeo de forma ambiental, sin ning&uacute;n elemento azul expl&iacute;cito. Estilo institucional elegante, similar a documentos oficiales de la CE.</p>
+    </div>
+  </div>
+  <div class="preview-area">
+    <div class="preview-frame">
+      <span class="preview-label">Variante C</span>
+      <div class="preview-content">
+        <!-- Sidebar C -->
+        <div class="mini-sidebar" style="background:#1B1464">
+          <div class="logo"><h2>EU Funding SaaS</h2><p>Professional Suite</p></div>
+          <div class="nav-item" style="background:#E7EB00;color:#1B1464"><span class="material-symbols-outlined">edit_note</span>Redactor</div>
+          <div class="nav-item" style="color:rgba(255,255,255,0.65)"><span class="material-symbols-outlined">fact_check</span>Evaluador</div>
+          <div class="nav-item" style="color:rgba(255,255,255,0.65)"><span class="material-symbols-outlined">groups</span>Entidades</div>
+          <div class="nav-item" style="color:rgba(255,255,255,0.65)"><span class="material-symbols-outlined">history_edu</span>Escribas</div>
+          <div class="sep" style="background:#fff"></div>
+          <div class="nav-item" style="color:rgba(255,255,255,0.65)"><span class="material-symbols-outlined">person</span>Profile</div>
+          <div class="nav-item" style="color:rgba(255,255,255,0.65)"><span class="material-symbols-outlined">settings</span>Settings</div>
+        </div>
+        <div class="mini-content" style="background:#f0f4fa">
+          <div class="mini-topbar" style="background:rgba(255,255,255,0.85);border-color:rgba(27,20,100,0.08)">
+            <span class="nav-link active" style="color:#1B1464;border-color:#E7EB00;font-weight:700">Dashboard</span>
+            <span class="nav-link" style="color:#474551">Projects</span>
+            <span class="nav-link" style="color:#474551">Analytics</span>
+            <span class="spacer"></span>
+            <input class="search" style="background:#e8edf5" placeholder="Search projects...">
+          </div>
+          <div class="mini-main">
+            <div class="hero" style="color:#06003e">Initialize your Architectural Authority</div>
+            <div class="sub" style="color:#474551">Transform your grant proposals into masterfully structured instruments of success.</div>
+            <button class="cta" style="background:#E7EB00;color:#1B1464">
+              <span class="material-symbols-outlined" style="font-size:16px">add_circle</span>
+              Create your first project
+            </button>
+            <div class="mini-cards">
+              <div class="mini-card" style="background:#fff;--accent:#E7EB00">
+                <div class="icon-box" style="background:#e8edf5;color:#1B1464"><span class="material-symbols-outlined">edit_document</span></div>
+                <h4 style="color:#06003e">Start from Scratch</h4>
+                <p style="color:#474551">Begin with a clean structural blueprint</p>
+              </div>
+              <div class="mini-card" style="background:#fff;--accent:#E7EB00">
+                <div class="icon-box" style="background:#e8edf5;color:#1B1464"><span class="material-symbols-outlined">upload_file</span></div>
+                <h4 style="color:#06003e">Upload Draft</h4>
+                <p style="color:#474551">Import and restructure existing documents</p>
+              </div>
+            </div>
+          </div>
+          <div class="mini-footer" style="color:#474551"><span>v4.2.0-Alpha · EU-West-1</span><span>&copy; 2026 E+ Tools</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Comparison Strip (always visible) -->
+<div style="padding:0 32px 12px">
+  <h2 style="font-size:13px;font-weight:800;letter-spacing:-0.02em;margin-bottom:16px;opacity:0.6">Comparaci&oacute;n r&aacute;pida — Las tres variantes</h2>
+</div>
+<div class="compare-strip">
+  <!-- Mini A -->
+  <div class="compare-card">
+    <div style="padding:8px 12px;background:rgba(255,255,255,0.05);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;display:flex;align-items:center;gap:6px">
+      <span class="dot" style="background:#1e3a5f;width:8px;height:8px;border-radius:50%;display:inline-block"></span> A — Sidebar Azul
+    </div>
+    <div style="display:flex;height:200px">
+      <div style="width:60px;background:#1e3a5f;padding:8px 0">
+        <div style="padding:0 8px;font-size:7px;font-weight:900;color:#fff;letter-spacing:-0.03em">E+ Tools</div>
+        <div style="margin:8px 4px;padding:4px 6px;background:#E7EB00;border-radius:3px;font-size:7px;font-weight:700;color:#1e3a5f">Redactor</div>
+        <div style="margin:1px 4px;padding:4px 6px;font-size:7px;color:rgba(255,255,255,0.5)">Evaluador</div>
+        <div style="margin:1px 4px;padding:4px 6px;font-size:7px;color:rgba(255,255,255,0.5)">Entidades</div>
+      </div>
+      <div style="flex:1;background:#f7f9fb;padding:12px;display:flex;flex-direction:column;align-items:center;justify-content:center">
+        <div style="font-size:10px;font-weight:800;color:#1e3a5f;letter-spacing:-0.03em;text-align:center">Initialize your Authority</div>
+        <div style="margin-top:6px;padding:4px 12px;background:#E7EB00;border-radius:3px;font-size:8px;font-weight:700;color:#1e3a5f">Create project</div>
+      </div>
+    </div>
+  </div>
+  <!-- Mini B -->
+  <div class="compare-card">
+    <div style="padding:8px 12px;background:rgba(255,255,255,0.05);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;display:flex;align-items:center;gap:6px">
+      <span class="dot" style="background:#2563EB;width:8px;height:8px;border-radius:50%;display:inline-block"></span> B — Azul Acento
+    </div>
+    <div style="display:flex;height:200px">
+      <div style="width:60px;background:#1B1464;padding:8px 0">
+        <div style="padding:0 8px;font-size:7px;font-weight:900;color:#fff;letter-spacing:-0.03em">E+ Tools</div>
+        <div style="margin:8px 4px;padding:4px 6px;background:#E7EB00;border-radius:3px;font-size:7px;font-weight:700;color:#1B1464">Redactor</div>
+        <div style="margin:1px 4px;padding:4px 6px;font-size:7px;color:rgba(255,255,255,0.5)">Evaluador</div>
+        <div style="margin:1px 4px;padding:4px 6px;font-size:7px;color:rgba(255,255,255,0.5)">Entidades</div>
+      </div>
+      <div style="flex:1;background:#f7f9fb;padding:12px;display:flex;flex-direction:column;align-items:center;justify-content:center">
+        <div style="font-size:10px;font-weight:800;color:#06003e;letter-spacing:-0.03em;text-align:center">Initialize your Authority</div>
+        <div style="margin-top:6px;padding:4px 12px;background:#E7EB00;border-radius:3px;font-size:8px;font-weight:700;color:#1B1464">Create project</div>
+        <div style="margin-top:8px;display:flex;gap:6px">
+          <div style="width:8px;height:8px;border-radius:50%;background:#2563EB"></div>
+          <div style="width:8px;height:8px;border-radius:50%;background:#2563EB;opacity:0.4"></div>
+          <div style="width:8px;height:8px;border-radius:50%;background:#2563EB;opacity:0.4"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Mini C -->
+  <div class="compare-card">
+    <div style="padding:8px 12px;background:rgba(255,255,255,0.05);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;display:flex;align-items:center;gap:6px">
+      <span class="dot" style="background:#f0f4fa;width:8px;height:8px;border-radius:50%;display:inline-block;border:1px solid rgba(255,255,255,0.2)"></span> C — Fondo Azul
+    </div>
+    <div style="display:flex;height:200px">
+      <div style="width:60px;background:#1B1464;padding:8px 0">
+        <div style="padding:0 8px;font-size:7px;font-weight:900;color:#fff;letter-spacing:-0.03em">E+ Tools</div>
+        <div style="margin:8px 4px;padding:4px 6px;background:#E7EB00;border-radius:3px;font-size:7px;font-weight:700;color:#1B1464">Redactor</div>
+        <div style="margin:1px 4px;padding:4px 6px;font-size:7px;color:rgba(255,255,255,0.5)">Evaluador</div>
+        <div style="margin:1px 4px;padding:4px 6px;font-size:7px;color:rgba(255,255,255,0.5)">Entidades</div>
+      </div>
+      <div style="flex:1;background:#f0f4fa;padding:12px;display:flex;flex-direction:column;align-items:center;justify-content:center">
+        <div style="font-size:10px;font-weight:800;color:#06003e;letter-spacing:-0.03em;text-align:center">Initialize your Authority</div>
+        <div style="margin-top:6px;padding:4px 12px;background:#E7EB00;border-radius:3px;font-size:8px;font-weight:700;color:#1B1464">Create project</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+function showVariant(n) {
+  document.querySelectorAll('.variant-section').forEach((el, i) => {
+    el.style.display = i === n ? 'block' : 'none';
+  });
+  document.querySelectorAll('.variant-tab').forEach((el, i) => {
+    el.classList.toggle('active', i === n);
+  });
+}
+</script>
+</body>
+</html>
