@@ -39,7 +39,7 @@ tailwind.config = {
 }
 </script>
 
-<!-- Google Sign-In -->
+<!-- Google Sign-In (loaded only when GOOGLE_CLIENT_ID is set) -->
 <script src="https://accounts.google.com/gsi/client" async defer></script>
 
 <link rel="stylesheet" href="/css/main.css">
@@ -47,7 +47,7 @@ tailwind.config = {
 
 <body class="bg-surface text-on-surface font-body text-sm font-medium tracking-tight min-h-screen">
 
-<!-- ═══ AUTH SCREENS ═══════════════════════════════════════════ -->
+<!-- ═══ AUTH SCREENS (visible when not logged in) ═══════════════ -->
 <div id="auth-screen" class="hidden">
 
   <!-- Decorative gradients -->
@@ -66,188 +66,256 @@ tailwind.config = {
       <!-- Auth Card -->
       <div class="bg-white rounded-xl shadow-lg shadow-primary/5 p-8 border border-outline-variant/30">
 
-        <!-- Tab switcher -->
+        <!-- Tab switcher (Login / Register) -->
         <div class="flex border-b border-outline-variant/40 mb-6">
-          <button id="tab-login" onclick="App.showAuthTab('login')"
+          <button type="button" id="tab-login"
             class="flex-1 pb-3 text-sm font-bold text-primary border-b-2 border-secondary-fixed transition-colors">
             Sign In
           </button>
-          <button id="tab-register" onclick="App.showAuthTab('register')"
+          <button type="button" id="tab-register"
             class="flex-1 pb-3 text-sm font-bold text-on-surface-variant border-b-2 border-transparent transition-colors hover:text-primary">
             Create Account
           </button>
         </div>
 
-        <!-- LOGIN FORM -->
-        <form id="form-login" onsubmit="Auth.login(event)" class="space-y-4">
+        <!-- ── LOGIN FORM ──────────────────────────────────── -->
+        <form id="form-login" class="space-y-4">
           <div>
             <label class="block text-xs font-semibold text-on-surface-variant mb-1.5" for="login-email">Email</label>
             <input id="login-email" name="email" type="email" required autocomplete="email"
-              class="w-full px-4 py-3 rounded-lg bg-surface-container-low border border-outline-variant/50 text-on-surface text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors"
+              class="w-full px-4 py-3 rounded-lg bg-surface-container-low border border-outline-variant/50 text-on-surface text-sm
+                     focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors"
               placeholder="you@organization.eu">
           </div>
           <div>
             <label class="block text-xs font-semibold text-on-surface-variant mb-1.5" for="login-password">Password</label>
             <input id="login-password" name="password" type="password" required autocomplete="current-password"
-              class="w-full px-4 py-3 rounded-lg bg-surface-container-low border border-outline-variant/50 text-on-surface text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors"
+              class="w-full px-4 py-3 rounded-lg bg-surface-container-low border border-outline-variant/50 text-on-surface text-sm
+                     focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors"
               placeholder="Min. 8 characters">
           </div>
           <div id="login-error" class="hidden text-xs text-error font-semibold"></div>
           <button type="submit" id="btn-login"
-            class="w-full py-3 rounded-lg bg-secondary-fixed text-primary-container text-sm font-bold hover:scale-[1.02] active:scale-[0.98] transition-transform shadow-md shadow-primary/10">
+            class="w-full py-3 rounded-lg bg-secondary-fixed text-primary-container text-sm font-bold
+                   hover:scale-[1.02] active:scale-[0.98] transition-transform shadow-md shadow-primary/10">
             Sign In
           </button>
         </form>
 
-        <!-- REGISTER FORM -->
-        <form id="form-register" onsubmit="Auth.register(event)" class="space-y-4 hidden">
+        <!-- ── REGISTER FORM ───────────────────────────────── -->
+        <form id="form-register" class="space-y-4 hidden">
           <div>
             <label class="block text-xs font-semibold text-on-surface-variant mb-1.5" for="reg-name">Full Name</label>
             <input id="reg-name" name="name" type="text" required autocomplete="name"
-              class="w-full px-4 py-3 rounded-lg bg-surface-container-low border border-outline-variant/50 text-on-surface text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors"
-              placeholder="Ana Garcia">
+              class="w-full px-4 py-3 rounded-lg bg-surface-container-low border border-outline-variant/50 text-on-surface text-sm
+                     focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors"
+              placeholder="Ana García">
           </div>
           <div>
             <label class="block text-xs font-semibold text-on-surface-variant mb-1.5" for="reg-email">Email</label>
             <input id="reg-email" name="email" type="email" required autocomplete="email"
-              class="w-full px-4 py-3 rounded-lg bg-surface-container-low border border-outline-variant/50 text-on-surface text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors"
+              class="w-full px-4 py-3 rounded-lg bg-surface-container-low border border-outline-variant/50 text-on-surface text-sm
+                     focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors"
               placeholder="you@organization.eu">
           </div>
           <div>
             <label class="block text-xs font-semibold text-on-surface-variant mb-1.5" for="reg-password">Password</label>
             <input id="reg-password" name="password" type="password" required minlength="8" autocomplete="new-password"
-              class="w-full px-4 py-3 rounded-lg bg-surface-container-low border border-outline-variant/50 text-on-surface text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors"
+              class="w-full px-4 py-3 rounded-lg bg-surface-container-low border border-outline-variant/50 text-on-surface text-sm
+                     focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors"
               placeholder="Min. 8 characters">
           </div>
           <div id="reg-error" class="hidden text-xs text-error font-semibold"></div>
           <button type="submit" id="btn-register"
-            class="w-full py-3 rounded-lg bg-secondary-fixed text-primary-container text-sm font-bold hover:scale-[1.02] active:scale-[0.98] transition-transform shadow-md shadow-primary/10">
+            class="w-full py-3 rounded-lg bg-secondary-fixed text-primary-container text-sm font-bold
+                   hover:scale-[1.02] active:scale-[0.98] transition-transform shadow-md shadow-primary/10">
             Create Account
           </button>
         </form>
 
-        <!-- Divider -->
+        <!-- ── Divider ─────────────────────────────────────── -->
         <div class="flex items-center gap-3 my-5">
           <div class="flex-1 h-px bg-outline-variant/40"></div>
           <span class="text-xs text-on-surface-variant font-medium">or</span>
           <div class="flex-1 h-px bg-outline-variant/40"></div>
         </div>
 
-        <!-- Google Sign-In -->
+        <!-- ── Google Sign-In Button ───────────────────────── -->
         <div id="google-btn-container" class="flex justify-center">
-          <div id="g_id_onload" data-client_id="" data-callback="Auth.handleGoogleResponse" data-auto_prompt="false"></div>
-          <div class="g_id_signin" data-type="standard" data-shape="rectangular" data-theme="outline"
-            data-text="continue_with" data-size="large" data-logo_alignment="center" data-width="360"></div>
-          <button id="google-fallback-btn" class="hidden w-full py-3 rounded-lg border border-outline-variant/50 bg-white text-on-surface text-sm font-semibold hover:bg-surface-container-low transition-colors flex items-center justify-center gap-2"
-            onclick="alert('Google Sign-In will be available once the Client ID is configured.')">
+          <div id="g_id_onload"
+            data-client_id=""
+            data-callback="Auth.handleGoogleResponse"
+            data-auto_prompt="false">
+          </div>
+          <div class="g_id_signin"
+            data-type="standard"
+            data-shape="rectangular"
+            data-theme="outline"
+            data-text="continue_with"
+            data-size="large"
+            data-logo_alignment="center"
+            data-width="360">
+          </div>
+          <!-- Fallback button if Google SDK not loaded -->
+          <button type="button" id="google-fallback-btn" class="hidden w-full py-3 rounded-lg border border-outline-variant/50 bg-white text-on-surface text-sm font-semibold
+                   hover:bg-surface-container-low transition-colors flex items-center justify-center gap-2">
             <svg width="18" height="18" viewBox="0 0 18 18"><path fill="#4285F4" d="M17.64 9.2c0-.637-.057-1.251-.164-1.84H9v3.481h4.844a4.14 4.14 0 01-1.796 2.716v2.259h2.908c1.702-1.567 2.684-3.875 2.684-6.615z"/><path fill="#34A853" d="M9 18c2.43 0 4.467-.806 5.956-2.18l-2.908-2.259c-.806.54-1.837.86-3.048.86-2.344 0-4.328-1.584-5.036-3.711H.957v2.332A8.997 8.997 0 009 18z"/><path fill="#FBBC05" d="M3.964 10.71A5.41 5.41 0 013.682 9c0-.593.102-1.17.282-1.71V4.958H.957A8.996 8.996 0 000 9c0 1.452.348 2.827.957 4.042l3.007-2.332z"/><path fill="#EA4335" d="M9 3.58c1.321 0 2.508.454 3.44 1.345l2.582-2.58C13.463.891 11.426 0 9 0A8.997 8.997 0 00.957 4.958L3.964 7.29C4.672 5.163 6.656 3.58 9 3.58z"/></svg>
             Continue with Google
           </button>
         </div>
+
       </div>
 
-      <p class="text-center text-xs text-on-surface-variant/60 mt-6">By signing in you agree to our Terms of Service</p>
+      <p class="text-center text-xs text-on-surface-variant/60 mt-6">
+        By signing in you agree to our Terms of Service
+      </p>
     </div>
   </div>
 </div>
 
-<!-- ═══ APP SHELL ════════════════════════════════════════════════ -->
+<!-- ═══ APP SHELL (visible when logged in) ═══════════════════════ -->
 <div id="app-shell" class="hidden">
 
   <!-- Sidebar -->
   <aside id="sidebar" class="fixed top-0 left-0 bottom-0 w-60 bg-primary-container z-40 flex flex-col transition-all duration-300">
+
+    <!-- Logo -->
     <div class="h-16 flex items-center gap-2 px-5 border-b border-white/10">
       <span class="font-headline text-base font-extrabold tracking-tighter text-white">E+ Tools</span>
       <span class="text-[10px] font-semibold tracking-[.2em] uppercase text-on-primary-container/60">SaaS</span>
     </div>
 
+    <!-- Nav links -->
     <nav class="flex-1 py-4 px-3 space-y-1 overflow-y-auto" id="sidebar-nav">
-      <a href="#dashboard" onclick="App.navigate('dashboard')" class="nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-white/70 hover:bg-white/10 transition-colors text-sm font-medium" data-route="dashboard">
-        <span class="material-symbols-outlined text-[20px]">dashboard</span> Dashboard
+      <a href="#dashboard"
+        class="nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-white/70 hover:bg-white/10 transition-colors text-sm font-medium"
+        data-route="dashboard">
+        <span class="material-symbols-outlined text-[20px]">dashboard</span>
+        Dashboard
       </a>
-      <a href="#intake" onclick="App.navigate('intake')" class="nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-white/70 hover:bg-white/10 transition-colors text-sm font-medium" data-route="intake">
-        <span class="material-symbols-outlined text-[20px]">add_circle</span> Intake
+      <a href="#intake"
+        class="nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-white/70 hover:bg-white/10 transition-colors text-sm font-medium"
+        data-route="intake">
+        <span class="material-symbols-outlined text-[20px]">add_circle</span>
+        Intake
       </a>
-      <a href="#calculator" class="nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-white/70 hover:bg-white/10 transition-colors text-sm font-medium opacity-40 pointer-events-none" data-route="calculator">
-        <span class="material-symbols-outlined text-[20px]">calculate</span> Calculator
+      <a href="#calculator"
+        class="nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-white/70 hover:bg-white/10 transition-colors text-sm font-medium opacity-40 pointer-events-none"
+        data-route="calculator">
+        <span class="material-symbols-outlined text-[20px]">calculate</span>
+        Calculator
       </a>
-      <a href="#planner" class="nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-white/70 hover:bg-white/10 transition-colors text-sm font-medium opacity-40 pointer-events-none" data-route="planner">
-        <span class="material-symbols-outlined text-[20px]">calendar_month</span> Planner
+      <a href="#planner"
+        class="nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-white/70 hover:bg-white/10 transition-colors text-sm font-medium opacity-40 pointer-events-none"
+        data-route="planner">
+        <span class="material-symbols-outlined text-[20px]">calendar_month</span>
+        Planner
       </a>
-      <a href="#developer" class="nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-white/70 hover:bg-white/10 transition-colors text-sm font-medium opacity-40 pointer-events-none" data-route="developer">
-        <span class="material-symbols-outlined text-[20px]">edit_document</span> Developer
+      <a href="#developer"
+        class="nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-white/70 hover:bg-white/10 transition-colors text-sm font-medium opacity-40 pointer-events-none"
+        data-route="developer">
+        <span class="material-symbols-outlined text-[20px]">edit_document</span>
+        Developer
       </a>
-      <a href="#evaluator" class="nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-white/70 hover:bg-white/10 transition-colors text-sm font-medium opacity-40 pointer-events-none" data-route="evaluator">
-        <span class="material-symbols-outlined text-[20px]">fact_check</span> Evaluator
+      <a href="#evaluator"
+        class="nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-white/70 hover:bg-white/10 transition-colors text-sm font-medium opacity-40 pointer-events-none"
+        data-route="evaluator">
+        <span class="material-symbols-outlined text-[20px]">fact_check</span>
+        Evaluator
       </a>
-      <a href="#partners" class="nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-white/70 hover:bg-white/10 transition-colors text-sm font-medium opacity-40 pointer-events-none" data-route="partners">
-        <span class="material-symbols-outlined text-[20px]">groups</span> Partners
+      <a href="#partners"
+        class="nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-white/70 hover:bg-white/10 transition-colors text-sm font-medium opacity-40 pointer-events-none"
+        data-route="partners">
+        <span class="material-symbols-outlined text-[20px]">groups</span>
+        Partners
       </a>
     </nav>
 
+    <!-- User section at bottom -->
     <div class="p-3 border-t border-white/10">
       <div class="flex items-center gap-3 px-3 py-2">
-        <div id="user-avatar" class="w-8 h-8 rounded-full bg-on-primary-container flex items-center justify-center text-xs font-bold text-primary-container">?</div>
+        <div id="user-avatar" class="w-8 h-8 rounded-full bg-on-primary-container flex items-center justify-center text-xs font-bold text-primary-container">
+          ?
+        </div>
         <div class="flex-1 min-w-0">
           <div id="user-name" class="text-sm font-semibold text-white truncate">Loading...</div>
           <div id="user-email" class="text-[11px] text-white/50 truncate">...</div>
         </div>
-        <button onclick="Auth.logout()" title="Sign out" class="text-white/50 hover:text-white transition-colors">
+        <button type="button" id="btn-logout" title="Sign out"
+          class="text-white/50 hover:text-white transition-colors">
           <span class="material-symbols-outlined text-[20px]">logout</span>
         </button>
       </div>
     </div>
   </aside>
 
-  <!-- Main content -->
+  <!-- Main content area (offset by sidebar width) -->
   <div class="ml-60 min-h-screen transition-all duration-300" id="main-wrapper">
+
+    <!-- Top bar -->
     <header class="sticky top-0 z-30 h-16 flex items-center gap-4 px-8 bg-white/80 backdrop-blur-md border-b border-primary-container/10">
-      <button onclick="App.toggleSidebar()" class="lg:hidden text-on-surface-variant">
+      <!-- Mobile hamburger -->
+      <button type="button" id="btn-toggle-sidebar" class="lg:hidden text-on-surface-variant">
         <span class="material-symbols-outlined">menu</span>
       </button>
+
       <div id="topbar-title" class="font-headline text-base font-bold tracking-tight text-primary">Dashboard</div>
       <div class="flex-1"></div>
+
+      <!-- Search (placeholder) -->
       <div class="hidden md:flex items-center gap-2 px-3 py-2 rounded-lg bg-surface-container-low border border-outline-variant/30 text-on-surface-variant text-xs w-56">
         <span class="material-symbols-outlined text-base">search</span>
         <span class="opacity-50">Search projects...</span>
       </div>
+
+      <!-- Notification bell -->
       <button class="text-on-surface-variant hover:text-primary transition-colors relative">
         <span class="material-symbols-outlined text-[22px]">notifications</span>
       </button>
     </header>
 
+    <!-- Content panels (one per module) -->
     <main class="p-8" id="content-area">
-      <!-- Dashboard -->
+
+      <!-- Dashboard panel -->
       <section id="panel-dashboard" class="panel active">
         <div class="flex flex-col items-center justify-center py-20 text-center">
           <span class="material-symbols-outlined text-6xl text-primary-container/50 mb-4">rocket_launch</span>
           <h2 class="font-headline text-2xl font-extrabold tracking-tight text-primary mb-2">Welcome to E+ Tools</h2>
-          <p class="text-on-surface-variant text-base max-w-md mb-8">Your workspace for building Erasmus+ project proposals. Start by creating your first project in Intake.</p>
-          <button onclick="App.navigate('intake')"
-            class="inline-flex items-center gap-2 px-10 py-4 rounded-md bg-secondary-fixed text-primary-container text-sm font-bold hover:scale-[1.02] active:scale-[0.98] transition-transform shadow-lg shadow-primary/10">
-            <span class="material-symbols-outlined text-base">add_circle</span> Create New Project
+          <p class="text-on-surface-variant text-base max-w-md mb-8">
+            Your workspace for building Erasmus+ project proposals. Start by creating your first project in Intake.
+          </p>
+          <button type="button" id="btn-new-project"
+            class="inline-flex items-center gap-2 px-10 py-4 rounded-md bg-secondary-fixed text-primary-container text-sm font-bold
+                   hover:scale-[1.02] active:scale-[0.98] transition-transform shadow-lg shadow-primary/10">
+            <span class="material-symbols-outlined text-base">add_circle</span>
+            Create New Project
           </button>
         </div>
       </section>
 
-      <!-- Intake (placeholder) -->
+      <!-- Intake panel (placeholder) -->
       <section id="panel-intake" class="panel">
         <div class="flex flex-col items-center justify-center py-20 text-center">
           <span class="material-symbols-outlined text-6xl text-primary-container/50 mb-4">description</span>
           <h2 class="font-headline text-2xl font-extrabold tracking-tight text-primary mb-2">Intake</h2>
-          <p class="text-on-surface-variant text-base max-w-md">Create and configure your Erasmus+ project proposals. Module coming soon.</p>
+          <p class="text-on-surface-variant text-base max-w-md">
+            Create and configure your Erasmus+ project proposals. This module is coming soon.
+          </p>
         </div>
       </section>
+
     </main>
   </div>
 </div>
 
-<!-- Toast -->
+<!-- ═══ TOAST ═══════════════════════════════════════════════════ -->
 <div id="toast"></div>
 
-<!-- Scripts -->
+<!-- ═══ Scripts ═════════════════════════════════════════════════ -->
 <script src="/js/api.js"></script>
 <script src="/js/auth.js"></script>
 <script src="/js/app.js"></script>
+
 </body>
 </html>
