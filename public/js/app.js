@@ -143,7 +143,8 @@ const App = (() => {
       planner:    'Planner',
       developer:  'Developer',
       evaluator:  'Evaluator',
-      partners:   'Partners'
+      partners:   'Partners',
+      admin:      'Admin — Data E+'
     };
     document.getElementById('topbar-title').textContent = titles[route] || 'E+ Tools';
 

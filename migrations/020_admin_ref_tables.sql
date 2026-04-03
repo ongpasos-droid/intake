@@ -16,8 +16,8 @@ CREATE TABLE IF NOT EXISTS ref_countries (
   updated_at      DATETIME     NOT NULL DEFAULT NOW() ON UPDATE NOW()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-CREATE INDEX idx_ref_countries_iso2 ON ref_countries(iso2);
-CREATE INDEX idx_ref_countries_zone ON ref_countries(perdiem_zone);
+CREATE INDEX IF NOT EXISTS idx_ref_countries_iso2 ON ref_countries(iso2);
+CREATE INDEX IF NOT EXISTS idx_ref_countries_zone ON ref_countries(perdiem_zone);
 
 -- ── Seed: países más comunes en proyectos Erasmus+ ───────────────
 INSERT INTO ref_countries (id, iso2, name_es, name_en, eu_member, erasmus_eligible, perdiem_zone) VALUES
@@ -72,7 +72,7 @@ CREATE TABLE IF NOT EXISTS ref_perdiem_rates (
   updated_at  DATETIME      NOT NULL DEFAULT NOW() ON UPDATE NOW()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-CREATE INDEX idx_perdiem_zone ON ref_perdiem_rates(zone);
+CREATE INDEX IF NOT EXISTS idx_perdiem_zone ON ref_perdiem_rates(zone);
 
 -- Seed: tarifas 2024-2026 (guía de programas Erasmus+)
 INSERT INTO ref_perdiem_rates (id, zone, amount_day, valid_from, notes) VALUES

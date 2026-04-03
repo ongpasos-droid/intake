@@ -154,14 +154,14 @@ const Admin = (() => {
 
   function openEdit(section, id) {
     // Simple prompt-based editing — full modal can be built in next iteration
-    Toast.show('Editor en construcción. Usa la API directamente por ahora.', 'info');
+    Toast.show('Editor en construcción. Próximamente.', 'ok');
   }
 
   async function confirmDelete(section, id) {
     if (!confirm('¿Eliminar este registro? Esta acción no se puede deshacer.')) return;
     try {
       const endpoints = { programs: 'programs', countries: 'countries', perdiem: 'perdiem', workers: 'workers' };
-      await API.delete(`/admin/data/${endpoints[section]}/${id}`);
+      await API.del(`/admin/data/${endpoints[section]}/${id}`);
       Toast.show('Eliminado correctamente', 'ok');
       loadSection(section);
     } catch (e) {
