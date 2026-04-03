@@ -229,6 +229,17 @@ tailwind.config = {
         <span class="material-symbols-outlined text-[20px]">groups</span>
         Partners
       </a>
+
+      <!-- Separator -->
+      <div class="h-px bg-white/10 my-3"></div>
+      <div class="px-3 mb-1 text-[10px] font-bold uppercase tracking-[.2em] text-white/30">Business</div>
+
+      <a href="#funnel"
+        class="nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-white/70 hover:bg-white/10 transition-colors text-sm font-medium"
+        data-route="funnel">
+        <span class="material-symbols-outlined text-[20px]">filter_alt</span>
+        Sales Funnel
+      </a>
     </nav>
 
     <!-- User section at bottom -->
@@ -563,6 +574,180 @@ tailwind.config = {
               <button type="button" id="intake-btn-save-server-2" class="inline-flex items-center gap-2 px-8 py-4 rounded-md bg-secondary-fixed text-primary-container font-bold text-base shadow-[0_24px_48px_rgba(27,20,100,0.1)] hover:scale-[1.02] active:scale-95 transition-transform">
                 <span class="material-symbols-outlined text-lg">cloud_upload</span> Guardar en servidor
               </button>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Sales Funnel panel -->
+      <section id="panel-funnel" class="panel">
+        <div class="max-w-5xl mx-auto">
+
+          <h1 class="font-headline text-3xl font-extrabold tracking-tighter text-primary mb-1">Sales Funnel</h1>
+          <p class="text-on-surface-variant text-base mb-10">Plan de embudo de ventas para E+ Tools. Estrategia completa desde la captacion hasta la conversion.</p>
+
+          <!-- Funnel visual -->
+          <div class="flex flex-col items-center gap-0 mb-12">
+            <!-- Stage 1: Awareness -->
+            <div class="w-full max-w-2xl bg-primary text-white rounded-t-xl px-6 py-4 text-center">
+              <div class="text-[11px] font-bold uppercase tracking-widest opacity-70 mb-1">Etapa 1</div>
+              <div class="font-headline text-lg font-bold">Awareness — Darse a conocer</div>
+            </div>
+            <!-- Stage 2: Interest -->
+            <div class="w-full max-w-xl bg-primary-container text-white px-6 py-4 text-center">
+              <div class="text-[11px] font-bold uppercase tracking-widest opacity-70 mb-1">Etapa 2</div>
+              <div class="font-headline text-lg font-bold">Interest — Generar interes</div>
+            </div>
+            <!-- Stage 3: Consideration -->
+            <div class="w-full max-w-md bg-surface-tint text-white px-6 py-4 text-center">
+              <div class="text-[11px] font-bold uppercase tracking-widest opacity-70 mb-1">Etapa 3</div>
+              <div class="font-headline text-lg font-bold">Consideration — Evaluar</div>
+            </div>
+            <!-- Stage 4: Conversion -->
+            <div class="w-full max-w-sm bg-secondary-fixed text-primary-container rounded-b-xl px-6 py-4 text-center">
+              <div class="text-[11px] font-bold uppercase tracking-widest opacity-70 mb-1">Etapa 4</div>
+              <div class="font-headline text-lg font-bold">Conversion — Comprar</div>
+            </div>
+          </div>
+
+          <!-- Detail cards per stage -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+            <!-- Card: Awareness -->
+            <div class="bg-white rounded-xl border border-outline-variant/30 shadow-sm p-6">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-10 h-10 rounded-lg bg-primary flex items-center justify-center">
+                  <span class="material-symbols-outlined text-white text-xl">campaign</span>
+                </div>
+                <div>
+                  <h3 class="font-headline text-base font-bold text-primary">Awareness</h3>
+                  <p class="text-[11px] text-on-surface-variant">Darse a conocer al publico objetivo</p>
+                </div>
+              </div>
+              <div class="text-xs font-bold uppercase tracking-widest text-on-surface-variant mb-2">Publico objetivo</div>
+              <p class="text-sm text-on-surface mb-4">Coordinadores de proyectos Erasmus+, oficinas de relaciones internacionales, universidades y ONGs europeas.</p>
+              <div class="text-xs font-bold uppercase tracking-widest text-on-surface-variant mb-2">Canales</div>
+              <ul class="space-y-1.5 text-sm text-on-surface">
+                <li class="flex items-start gap-2"><span class="material-symbols-outlined text-primary text-base mt-0.5">check_circle</span> LinkedIn orgánico + ads segmentados por sector educativo</li>
+                <li class="flex items-start gap-2"><span class="material-symbols-outlined text-primary text-base mt-0.5">check_circle</span> SEO: blog con guías sobre convocatorias Erasmus+</li>
+                <li class="flex items-start gap-2"><span class="material-symbols-outlined text-primary text-base mt-0.5">check_circle</span> Webinars gratuitos "Cómo preparar tu propuesta Erasmus+"</li>
+                <li class="flex items-start gap-2"><span class="material-symbols-outlined text-primary text-base mt-0.5">check_circle</span> Partnerships con agencias nacionales y redes europeas</li>
+              </ul>
+              <div class="mt-4 text-xs font-bold uppercase tracking-widest text-on-surface-variant mb-2">KPIs</div>
+              <div class="flex gap-3">
+                <span class="px-2.5 py-1 rounded-md bg-surface-container-low text-xs font-semibold text-on-surface-variant">Visitas web</span>
+                <span class="px-2.5 py-1 rounded-md bg-surface-container-low text-xs font-semibold text-on-surface-variant">Impresiones LinkedIn</span>
+                <span class="px-2.5 py-1 rounded-md bg-surface-container-low text-xs font-semibold text-on-surface-variant">Asistentes webinar</span>
+              </div>
+            </div>
+
+            <!-- Card: Interest -->
+            <div class="bg-white rounded-xl border border-outline-variant/30 shadow-sm p-6">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-10 h-10 rounded-lg bg-primary-container flex items-center justify-center">
+                  <span class="material-symbols-outlined text-white text-xl">visibility</span>
+                </div>
+                <div>
+                  <h3 class="font-headline text-base font-bold text-primary">Interest</h3>
+                  <p class="text-[11px] text-on-surface-variant">Captar leads cualificados</p>
+                </div>
+              </div>
+              <div class="text-xs font-bold uppercase tracking-widest text-on-surface-variant mb-2">Estrategia</div>
+              <p class="text-sm text-on-surface mb-4">Ofrecer valor gratuito a cambio de registro. Demostrar que E+ Tools simplifica el trabajo real del coordinador.</p>
+              <div class="text-xs font-bold uppercase tracking-widest text-on-surface-variant mb-2">Acciones</div>
+              <ul class="space-y-1.5 text-sm text-on-surface">
+                <li class="flex items-start gap-2"><span class="material-symbols-outlined text-primary text-base mt-0.5">check_circle</span> Registro gratuito con acceso limitado (plan Free)</li>
+                <li class="flex items-start gap-2"><span class="material-symbols-outlined text-primary text-base mt-0.5">check_circle</span> Lead magnet: plantilla de presupuesto Erasmus+ descargable</li>
+                <li class="flex items-start gap-2"><span class="material-symbols-outlined text-primary text-base mt-0.5">check_circle</span> Email nurturing: secuencia de 5 emails con tips de propuestas</li>
+                <li class="flex items-start gap-2"><span class="material-symbols-outlined text-primary text-base mt-0.5">check_circle</span> Demo interactiva del Calculator dentro de la app</li>
+              </ul>
+              <div class="mt-4 text-xs font-bold uppercase tracking-widest text-on-surface-variant mb-2">KPIs</div>
+              <div class="flex gap-3">
+                <span class="px-2.5 py-1 rounded-md bg-surface-container-low text-xs font-semibold text-on-surface-variant">Registros Free</span>
+                <span class="px-2.5 py-1 rounded-md bg-surface-container-low text-xs font-semibold text-on-surface-variant">Descargas lead magnet</span>
+                <span class="px-2.5 py-1 rounded-md bg-surface-container-low text-xs font-semibold text-on-surface-variant">Open rate emails</span>
+              </div>
+            </div>
+
+            <!-- Card: Consideration -->
+            <div class="bg-white rounded-xl border border-outline-variant/30 shadow-sm p-6">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-10 h-10 rounded-lg bg-surface-tint flex items-center justify-center">
+                  <span class="material-symbols-outlined text-white text-xl">psychology</span>
+                </div>
+                <div>
+                  <h3 class="font-headline text-base font-bold text-primary">Consideration</h3>
+                  <p class="text-[11px] text-on-surface-variant">Convencer de que E+ Tools es la solucion</p>
+                </div>
+              </div>
+              <div class="text-xs font-bold uppercase tracking-widest text-on-surface-variant mb-2">Propuesta de valor</div>
+              <p class="text-sm text-on-surface mb-4">Mostrar ROI claro: "Con E+ Tools tu propuesta tarda 3 semanas en vez de 3 meses". Casos de exito reales.</p>
+              <div class="text-xs font-bold uppercase tracking-widest text-on-surface-variant mb-2">Acciones</div>
+              <ul class="space-y-1.5 text-sm text-on-surface">
+                <li class="flex items-start gap-2"><span class="material-symbols-outlined text-primary text-base mt-0.5">check_circle</span> Casos de estudio: "Universidad X preparó su KA220 en 15 dias"</li>
+                <li class="flex items-start gap-2"><span class="material-symbols-outlined text-primary text-base mt-0.5">check_circle</span> Comparativa: E+ Tools vs Excel vs consultoría tradicional</li>
+                <li class="flex items-start gap-2"><span class="material-symbols-outlined text-primary text-base mt-0.5">check_circle</span> Trial Premium de 14 dias con todas las funcionalidades</li>
+                <li class="flex items-start gap-2"><span class="material-symbols-outlined text-primary text-base mt-0.5">check_circle</span> Onboarding call 1:1 para cuentas con potencial alto</li>
+              </ul>
+              <div class="mt-4 text-xs font-bold uppercase tracking-widest text-on-surface-variant mb-2">KPIs</div>
+              <div class="flex gap-3">
+                <span class="px-2.5 py-1 rounded-md bg-surface-container-low text-xs font-semibold text-on-surface-variant">Trials activados</span>
+                <span class="px-2.5 py-1 rounded-md bg-surface-container-low text-xs font-semibold text-on-surface-variant">Engagement in-app</span>
+                <span class="px-2.5 py-1 rounded-md bg-surface-container-low text-xs font-semibold text-on-surface-variant">Calls agendadas</span>
+              </div>
+            </div>
+
+            <!-- Card: Conversion -->
+            <div class="bg-white rounded-xl border border-outline-variant/30 shadow-sm p-6">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-10 h-10 rounded-lg bg-secondary-fixed flex items-center justify-center">
+                  <span class="material-symbols-outlined text-primary-container text-xl">paid</span>
+                </div>
+                <div>
+                  <h3 class="font-headline text-base font-bold text-primary">Conversion</h3>
+                  <p class="text-[11px] text-on-surface-variant">Cerrar la venta y fidelizar</p>
+                </div>
+              </div>
+              <div class="text-xs font-bold uppercase tracking-widest text-on-surface-variant mb-2">Modelo de pricing</div>
+              <p class="text-sm text-on-surface mb-4">Freemium → Premium (mensual/anual). Descuento por pago anual. Pricing especial para consorcios (+3 partners).</p>
+              <div class="text-xs font-bold uppercase tracking-widest text-on-surface-variant mb-2">Acciones</div>
+              <ul class="space-y-1.5 text-sm text-on-surface">
+                <li class="flex items-start gap-2"><span class="material-symbols-outlined text-primary text-base mt-0.5">check_circle</span> Upgrade in-app con un click (Stripe checkout)</li>
+                <li class="flex items-start gap-2"><span class="material-symbols-outlined text-primary text-base mt-0.5">check_circle</span> Urgencia: "Tu trial expira en 3 dias" + descuento early-bird</li>
+                <li class="flex items-start gap-2"><span class="material-symbols-outlined text-primary text-base mt-0.5">check_circle</span> Referral program: invita a un colega y ambos obtienen 1 mes gratis</li>
+                <li class="flex items-start gap-2"><span class="material-symbols-outlined text-primary text-base mt-0.5">check_circle</span> Soporte prioritario para Premium (chat + email &lt;24h)</li>
+              </ul>
+              <div class="mt-4 text-xs font-bold uppercase tracking-widest text-on-surface-variant mb-2">KPIs</div>
+              <div class="flex gap-3">
+                <span class="px-2.5 py-1 rounded-md bg-surface-container-low text-xs font-semibold text-on-surface-variant">Conversion rate</span>
+                <span class="px-2.5 py-1 rounded-md bg-surface-container-low text-xs font-semibold text-on-surface-variant">MRR</span>
+                <span class="px-2.5 py-1 rounded-md bg-surface-container-low text-xs font-semibold text-on-surface-variant">Churn rate</span>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Metrics summary -->
+          <div class="mt-10 bg-white rounded-xl border border-outline-variant/30 shadow-sm p-6">
+            <h3 class="font-headline text-base font-bold text-primary mb-4">Metricas objetivo (6 meses)</h3>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+              <div class="text-center">
+                <div class="font-headline text-2xl font-extrabold text-primary">10K</div>
+                <div class="text-[11px] font-bold uppercase tracking-widest text-on-surface-variant">Visitas/mes</div>
+              </div>
+              <div class="text-center">
+                <div class="font-headline text-2xl font-extrabold text-primary">500</div>
+                <div class="text-[11px] font-bold uppercase tracking-widest text-on-surface-variant">Registros Free</div>
+              </div>
+              <div class="text-center">
+                <div class="font-headline text-2xl font-extrabold text-primary">50</div>
+                <div class="text-[11px] font-bold uppercase tracking-widest text-on-surface-variant">Trials Premium</div>
+              </div>
+              <div class="text-center">
+                <div class="font-headline text-2xl font-extrabold text-primary">25</div>
+                <div class="text-[11px] font-bold uppercase tracking-widest text-on-surface-variant">Clientes de pago</div>
+              </div>
             </div>
           </div>
 
