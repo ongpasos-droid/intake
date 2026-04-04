@@ -33,8 +33,13 @@ async function run() {
       await conn.query(sql);
       console.log(`  ✓ ${file} done`);
     } catch (err) {
-      console.error(`  ✗ ${file} failed:`, err.message);
-      process.exit(1);
+      // Tolerate "already exists" and "duplicate entry" errors — migrations are re-run on every deploy
+      if (err.code === 'ER_TABLE_EXISTS_ERROR' || err.code === 'ER_DUP_ENTRY' || err.code === 'ER_DUP_KEYNAME') {
+        console.log(`  ⊘ ${file} skipped (already applied): ${err.message}`);
+      } else {
+        console.error(`  ✗ ${file} failed:`, err.message);
+        process.exit(1);
+      }
     }
   }
 

@@ -4,5 +4,4 @@ COPY package*.json ./
 RUN npm install --production
 COPY . .
 EXPOSE 3000
-CMD ["node", "server.js"]
-# rebuild: 2026-04-03
+CMD ["sh", "-c", "node scripts/migrate.js && node server.js"]
