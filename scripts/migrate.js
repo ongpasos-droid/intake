@@ -34,7 +34,7 @@ async function run() {
       console.log(`  ✓ ${file} done`);
     } catch (err) {
       // Tolerate "already exists" and "duplicate entry" errors — migrations are re-run on every deploy
-      if (err.code === 'ER_TABLE_EXISTS_ERROR' || err.code === 'ER_DUP_ENTRY' || err.code === 'ER_DUP_KEYNAME') {
+      if (err.code === 'ER_TABLE_EXISTS_ERROR' || err.code === 'ER_DUP_ENTRY' || err.code === 'ER_DUP_KEYNAME' || err.code === 'ER_DUP_FIELDNAME') {
         console.log(`  ⊘ ${file} skipped (already applied): ${err.message}`);
       } else {
         console.error(`  ✗ ${file} failed:`, err.message);
