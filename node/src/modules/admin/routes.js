@@ -43,6 +43,10 @@ router.post  ('/data/entities',        guard, ctrl.upsertEntity);
 router.patch ('/data/entities/:id',    guard, ctrl.upsertEntity);
 router.delete('/data/entities/:id',    guard, ctrl.deleteEntity);
 
+/* ── Worker matrix ───────────────────────────────────────────── */
+router.get  ('/data/workers/matrix',       guard, ctrl.listWorkerMatrix);
+router.patch('/data/workers/zone/:id',     guard, ctrl.upsertWorkerZoneRate);
+
 /* ── Elegibilidad Erasmus+ ────────────────────────────────────── */
 router.get('/data/eligibility',        guard, ctrl.listEligibility);
 router.get('/data/eligibility/regions',guard, ctrl.listRegions);

@@ -188,8 +188,20 @@ const Admin = (() => {
 
   async function loadCountries() {
     setLoading('admin-countries-tbody');
+
+    // Bind filters once
+    ['countries-filter-eu','countries-filter-zone'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el && !el.dataset.bound) { el.dataset.bound = '1'; el.addEventListener('change', loadCountries); }
+    });
+
     try {
-      const rows = await API.get('/admin/data/countries');
+      const eu   = document.getElementById('countries-filter-eu')?.value   || '';
+      const zone = document.getElementById('countries-filter-zone')?.value || '';
+      let allRows = await API.get('/admin/data/countries');
+      if (eu)   allRows = allRows.filter(r => String(r.eu_member) === eu);
+      if (zone) allRows = allRows.filter(r => r.perdiem_zone === zone);
+      const rows = allRows;
       const tbody = document.getElementById('admin-countries-tbody');
       tbody.innerHTML = rows.map(r => `
         <tr data-id="${r.id}" class="border-b border-outline-variant/30 hover:bg-surface-container-low/50 transition-colors">
@@ -254,35 +266,39 @@ const Admin = (() => {
     } catch (e) { setError('admin-perdiem-tbody', 'Error: ' + e.message); }
   }
 
-  /* ══ PERSONAL ════════════════════════════════════════════════ */
+  /* ══ PERSONAL (matriz categoría × zona) ═════════════════════ */
 
   async function loadWorkers() {
     setLoading('admin-workers-tbody');
     try {
-      const rows = await API.get('/admin/data/workers');
+      const rows = await API.get('/admin/data/workers/matrix');
       const tbody = document.getElementById('admin-workers-tbody');
       tbody.innerHTML = rows.map(r => `
         <tr data-id="${r.id}" class="border-b border-outline-variant/30 hover:bg-surface-container-low/50 transition-colors">
           <td class="px-4 py-3 font-mono text-sm font-bold text-primary">${r.code}</td>
           <td class="px-4 py-3 font-medium">${r.name_es}</td>
-          <td class="px-4 py-3 text-sm text-on-surface-variant">${r.name_en}</td>
-          <td class="px-4 py-3 font-bold text-primary">€${Number(r.rate_day).toFixed(2)}<span class="text-xs text-on-surface-variant font-normal">/día</span></td>
+          ${['A','B','C','D'].map(z => `
+            <td class="px-4 py-2 text-center">
+              <span class="zone-rate font-bold text-primary text-sm cursor-pointer hover:underline"
+                    data-zone-id="${r.zones[z]?.id}" data-rate="${r.zones[z]?.rate_day}">
+                €${r.zones[z]?.rate_day ?? '—'}
+              </span>
+            </td>`).join('')}
           <td class="px-4 py-3">${badge(r.active)}</td>
-          <td class="px-4 py-3 text-right">${actionBtns(r.id, 'workers')}</td>
         </tr>`).join('');
 
-      tbody.querySelectorAll('tr[data-id]').forEach(tr => {
-        const id = tr.dataset.id;
-        const row = rows.find(r => String(r.id) === id);
-        tr.querySelector('[onclick*="openEdit"]')?.addEventListener('click', e => {
-          e.preventDefault(); e.stopImmediatePropagation();
-          makeRowEditable(tr, [
-            { key: 'name_es',  type: 'text',   tdIndex: 1, value: row.name_es },
-            { key: 'name_en',  type: 'text',   tdIndex: 2, value: row.name_en },
-            { key: 'rate_day', type: 'number', tdIndex: 3, value: row.rate_day },
-            { key: 'active',   type: 'bool',   tdIndex: 4, value: row.active },
-          ], `/admin/data/workers/${id}`, loadWorkers);
-        }, { once: true });
+      // Inline edit per zone cell
+      tbody.querySelectorAll('.zone-rate').forEach(span => {
+        span.addEventListener('click', async () => {
+          const current = span.dataset.rate;
+          const val = prompt('Nueva tarifa (€/día):', current);
+          if (!val || isNaN(val) || Number(val) <= 0) return;
+          try {
+            await API.patch(`/admin/data/workers/zone/${span.dataset.zoneId}`, { rate_day: Number(val) });
+            Toast.show('Tarifa actualizada', 'ok');
+            loadWorkers();
+          } catch(e) { Toast.show('Error: ' + e.message, 'error'); }
+        });
       });
     } catch (e) { setError('admin-workers-tbody', 'Error: ' + e.message); }
   }

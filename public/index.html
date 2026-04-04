@@ -805,9 +805,22 @@ tailwind.config = {
           <!-- ── Países ─────────────────────────────────────────── -->
           <div id="admin-sec-countries" class="admin-section hidden">
             <div class="bg-white rounded-xl border border-outline-variant/30 overflow-hidden">
-              <div class="px-5 py-4 border-b border-outline-variant/20 flex items-center justify-between">
+              <div class="px-5 py-4 border-b border-outline-variant/20 flex items-center justify-between flex-wrap gap-3">
                 <h2 class="font-semibold text-primary">Países elegibles</h2>
-                <span class="text-xs text-on-surface-variant">ref_countries</span>
+                <div class="flex gap-2">
+                  <select id="countries-filter-eu" class="text-xs border border-outline rounded px-2 py-1 bg-surface focus:outline-none focus:ring-1 focus:ring-primary">
+                    <option value="">Todos</option>
+                    <option value="1">Solo UE</option>
+                    <option value="0">No UE</option>
+                  </select>
+                  <select id="countries-filter-zone" class="text-xs border border-outline rounded px-2 py-1 bg-surface focus:outline-none focus:ring-1 focus:ring-primary">
+                    <option value="">Todas las zonas</option>
+                    <option value="A">Zona A</option>
+                    <option value="B">Zona B</option>
+                    <option value="C">Zona C</option>
+                    <option value="D">Zona D</option>
+                  </select>
+                </div>
               </div>
               <div class="overflow-x-auto">
                 <table class="w-full text-sm">
@@ -901,11 +914,12 @@ tailwind.config = {
                   <thead class="bg-surface-container-low text-xs text-on-surface-variant uppercase tracking-wide">
                     <tr>
                       <th class="px-4 py-3 text-left">Código</th>
-                      <th class="px-4 py-3 text-left">Categoría (ES)</th>
-                      <th class="px-4 py-3 text-left">Categoría (EN)</th>
-                      <th class="px-4 py-3 text-left">Tarifa/día</th>
+                      <th class="px-4 py-3 text-left">Categoría</th>
+                      <th class="px-4 py-3 text-center">Zona A</th>
+                      <th class="px-4 py-3 text-center">Zona B</th>
+                      <th class="px-4 py-3 text-center">Zona C</th>
+                      <th class="px-4 py-3 text-center">Zona D</th>
                       <th class="px-4 py-3 text-left">Estado</th>
-                      <th class="px-4 py-3 text-right">Acciones</th>
                     </tr>
                   </thead>
                   <tbody id="admin-workers-tbody"></tbody>

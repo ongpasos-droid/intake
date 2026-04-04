@@ -201,6 +201,28 @@ async function deleteEntity(id) {
   await pool.query('DELETE FROM ref_entities WHERE id=?', [id]);
 }
 
+/* ══ Worker matrix (category × zone) ════════════════════════════ */
+
+async function listWorkerMatrix() {
+  const [rows] = await pool.query(`
+    SELECT c.id, c.code, c.name_es, c.name_en, c.active,
+           z.zone, z.rate_day, z.id AS zone_rate_id
+    FROM ref_worker_categories c
+    JOIN ref_worker_zone_rates z ON z.category_id = c.id
+    ORDER BY c.code, z.zone
+  `);
+  const map = {};
+  rows.forEach(r => {
+    if (!map[r.code]) map[r.code] = { id: r.id, code: r.code, name_es: r.name_es, name_en: r.name_en, active: r.active, zones: {} };
+    map[r.code].zones[r.zone] = { rate_day: r.rate_day, id: r.zone_rate_id };
+  });
+  return Object.values(map);
+}
+
+async function upsertWorkerZoneRate(zoneRateId, rate_day) {
+  await pool.query('UPDATE ref_worker_zone_rates SET rate_day=? WHERE id=?', [rate_day, zoneRateId]);
+}
+
 /* ══ ref_erasmus_regions + eligibility ═══════════════════════════ */
 
 async function listEligibility({ type, region } = {}) {
@@ -231,5 +253,6 @@ module.exports = {
   listPerdiem, upsertPerdiem, deletePerdiem,
   listWorkerCategories, upsertWorkerCategory, deleteWorkerCategory,
   listEntities, upsertEntity, deleteEntity,
-  listEligibility, listRegions
+  listEligibility, listRegions,
+  listWorkerMatrix, upsertWorkerZoneRate
 };
