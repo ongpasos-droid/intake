@@ -15,9 +15,7 @@ CREATE TABLE IF NOT EXISTS ref_entities (
   updated_at    DATETIME     NOT NULL DEFAULT NOW() ON UPDATE NOW()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-CREATE INDEX idx_ref_entities_name ON ref_entities(name);
-CREATE INDEX idx_ref_entities_country ON ref_entities(country_iso2);
-CREATE INDEX idx_ref_entities_type ON ref_entities(type);
+-- Indexes (safe: migrate.js tolerates ER_DUP_KEYNAME)
 
 -- ── Seed: organizaciones reales habituales en proyectos Erasmus+ ──
 INSERT IGNORE INTO ref_entities (id, name, city, country_iso2, type, pic_number) VALUES

@@ -16,11 +16,10 @@ CREATE TABLE IF NOT EXISTS ref_countries (
   updated_at      DATETIME     NOT NULL DEFAULT NOW() ON UPDATE NOW()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-CREATE INDEX IF NOT EXISTS idx_ref_countries_iso2 ON ref_countries(iso2);
-CREATE INDEX IF NOT EXISTS idx_ref_countries_zone ON ref_countries(perdiem_zone);
+-- Indexes: iso2 already has UNIQUE constraint; perdiem_zone index added inline or skipped if exists
 
 -- ── Seed: países más comunes en proyectos Erasmus+ ───────────────
-INSERT INTO ref_countries (id, iso2, name_es, name_en, eu_member, erasmus_eligible, perdiem_zone) VALUES
+INSERT IGNORE INTO ref_countries (id, iso2, name_es, name_en, eu_member, erasmus_eligible, perdiem_zone) VALUES
   (UUID(), 'DE', 'Alemania',       'Germany',        1, 1, 'A'),
   (UUID(), 'AT', 'Austria',        'Austria',         1, 1, 'A'),
   (UUID(), 'BE', 'Bélgica',        'Belgium',         1, 1, 'A'),
@@ -72,10 +71,10 @@ CREATE TABLE IF NOT EXISTS ref_perdiem_rates (
   updated_at  DATETIME      NOT NULL DEFAULT NOW() ON UPDATE NOW()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-CREATE INDEX IF NOT EXISTS idx_perdiem_zone ON ref_perdiem_rates(zone);
+-- Index on zone created by table definition
 
 -- Seed: tarifas 2024-2026 (guía de programas Erasmus+)
-INSERT INTO ref_perdiem_rates (id, zone, amount_day, valid_from, notes) VALUES
+INSERT IGNORE INTO ref_perdiem_rates (id, zone, amount_day, valid_from, notes) VALUES
   (UUID(), 'A', 180.00, '2024-01-01', 'Zona A — países con coste de vida más alto'),
   (UUID(), 'B', 160.00, '2024-01-01', 'Zona B — países con coste de vida medio-alto'),
   (UUID(), 'C', 140.00, '2024-01-01', 'Zona C — países con coste de vida medio'),
@@ -95,7 +94,7 @@ CREATE TABLE IF NOT EXISTS ref_worker_categories (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Seed: categorías estándar Erasmus+
-INSERT INTO ref_worker_categories (id, code, name_es, name_en, rate_day, notes) VALUES
+INSERT IGNORE INTO ref_worker_categories (id, code, name_es, name_en, rate_day, notes) VALUES
   (UUID(), 'R1', 'Investigador / Profesional senior', 'Researcher / Senior professional', 294.00, 'Categoría R1 — máxima tarifa estándar'),
   (UUID(), 'R2', 'Profesional reconocido',            'Recognised professional',          241.00, 'Categoría R2'),
   (UUID(), 'R3', 'Técnico / Profesional junior',      'Technician / Junior professional', 195.00, 'Categoría R3'),
