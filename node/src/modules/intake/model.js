@@ -411,17 +411,29 @@ async function updateContextFields(contextId, userId, updates) {
 
 /* ── ENTITY SEARCH ─────────────────────────────────────────────── */
 
-async function searchEntities(query) {
-  const like = `%${query || ''}%`;
-  const sql = `
+async function searchEntities({ q, country, type } = {}) {
+  let sql = `
     SELECT e.id, e.name, e.city, e.country_iso2, e.type, e.pic_number,
            c.name_es AS country_name
     FROM ref_entities e
     LEFT JOIN ref_countries c ON c.iso2 = e.country_iso2
-    WHERE e.active = 1 AND (e.name LIKE ? OR e.city LIKE ? OR e.pic_number LIKE ?)
-    ORDER BY e.name ASC LIMIT 10
-  `;
-  const [rows] = await db.query(sql, [like, like, like]);
+    WHERE e.active = 1`;
+  const params = [];
+  if (q) {
+    const like = `%${q}%`;
+    sql += ' AND (e.name LIKE ? OR e.city LIKE ? OR e.pic_number LIKE ?)';
+    params.push(like, like, like);
+  }
+  if (country) {
+    sql += ' AND e.country_iso2 = ?';
+    params.push(country);
+  }
+  if (type) {
+    sql += ' AND e.type = ?';
+    params.push(type);
+  }
+  sql += ' ORDER BY e.name ASC LIMIT 50';
+  const [rows] = await db.query(sql, params);
   return rows;
 }
 

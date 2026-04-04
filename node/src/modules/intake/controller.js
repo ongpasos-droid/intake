@@ -292,7 +292,8 @@ async function updateContext(req, res, next) {
 /* ── GET /v1/intake/entities/search?q=... ──────────────────────── */
 async function searchEntities(req, res, next) {
   try {
-    const results = await model.searchEntities(req.query.q || '');
+    const { q, country, type } = req.query;
+    const results = await model.searchEntities({ q, country, type });
     res.json({ ok: true, data: results });
   } catch (err) {
     next(err);

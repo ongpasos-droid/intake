@@ -22,11 +22,14 @@ const Intake = (() => {
   /* ── Init ────────────────────────────────────────────────────── */
   function init() {
     if (initialized) {
+      setStep(step);
+      loadPrograms();
       loadServerProjects();
       return;
     }
     initialized = true;
     bindEvents();
+    setStep(0);
     loadPrograms();
     loadServerProjects();
   }
@@ -475,7 +478,7 @@ const Intake = (() => {
     list.querySelectorAll('.intake-search-entity').forEach(btn => {
       btn.addEventListener('click', (e) => {
         e.stopPropagation();
-        openEntitySearch(parseInt(btn.dataset.idx), btn);
+        openEntitySearch(parseInt(btn.dataset.idx));
       });
     });
 
@@ -491,62 +494,127 @@ const Intake = (() => {
     });
   }
 
-  /* ── Entity search dropdown ─────────────────────────────────── */
-  let entityDropdown = null;
+  /* ── Entity search modal ─────────────────────────────────────── */
+  let entityModal = null;
   let entityDebounce = null;
 
   function closeEntitySearch() {
-    if (entityDropdown) { entityDropdown.remove(); entityDropdown = null; }
-    document.removeEventListener('click', onDocClickEntity);
+    if (entityModal) { entityModal.remove(); entityModal = null; }
   }
 
-  function onDocClickEntity(e) {
-    if (entityDropdown && !entityDropdown.contains(e.target)) closeEntitySearch();
-  }
-
-  function openEntitySearch(partnerIdx, anchorEl) {
+  function openEntitySearch(partnerIdx) {
     closeEntitySearch();
 
-    const rect = anchorEl.getBoundingClientRect();
-    const dd = document.createElement('div');
-    dd.className = 'fixed z-50 bg-white rounded-xl border border-outline-variant shadow-lg p-3 w-80';
-    dd.style.top = (rect.bottom + 4) + 'px';
-    dd.style.left = Math.max(8, rect.left - 140) + 'px';
-    dd.innerHTML = `
-      <input type="text" placeholder="Buscar entidad..." autofocus
-        class="w-full px-3 py-2 rounded-lg bg-surface border border-outline-variant text-sm focus:border-primary focus:ring-2 focus:ring-secondary-fixed outline-none mb-2">
-      <div class="entity-results max-h-48 overflow-y-auto"></div>
+    const overlay = document.createElement('div');
+    overlay.className = 'fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm';
+    overlay.innerHTML = `
+      <div class="entity-modal bg-white rounded-2xl shadow-2xl w-[640px] max-w-[90vw] max-h-[80vh] flex flex-col overflow-hidden border border-outline-variant/30">
+        <div class="px-6 py-4 border-b border-outline-variant/30 flex items-center justify-between">
+          <div>
+            <h3 class="font-headline text-lg font-bold text-primary">Directorio de entidades</h3>
+            <p class="text-xs text-on-surface-variant mt-0.5">Selecciona una entidad para a\u00F1adirla al consorcio</p>
+          </div>
+          <button type="button" class="entity-modal-close w-9 h-9 flex items-center justify-center rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors">
+            <span class="material-symbols-outlined">close</span>
+          </button>
+        </div>
+        <div class="px-6 py-3 border-b border-outline-variant/20 flex flex-col gap-2">
+          <input type="text" placeholder="Buscar por nombre, ciudad o PIC..." autofocus
+            class="entity-search-input w-full px-4 py-2.5 rounded-lg bg-surface-container-low border border-outline-variant text-sm focus:border-primary focus:ring-2 focus:ring-secondary-fixed outline-none transition-all">
+          <div class="flex gap-2">
+            <select class="entity-filter-country flex-1 px-3 py-2 rounded-lg bg-surface-container-low border border-outline-variant text-sm text-on-surface-variant cursor-pointer outline-none focus:border-primary">
+              <option value="">Todos los pa\u00EDses</option>
+            </select>
+            <select class="entity-filter-type flex-1 px-3 py-2 rounded-lg bg-surface-container-low border border-outline-variant text-sm text-on-surface-variant cursor-pointer outline-none focus:border-primary">
+              <option value="">Todos los tipos</option>
+              <option value="university">Universidad</option>
+              <option value="ngo">ONG</option>
+              <option value="public_body">Organismo p\u00FAblico</option>
+              <option value="enterprise">Empresa</option>
+              <option value="research">Centro investigaci\u00F3n</option>
+              <option value="other">Otro</option>
+            </select>
+          </div>
+        </div>
+        <div class="entity-results flex-1 overflow-y-auto px-2 py-2"></div>
+      </div>
     `;
-    document.body.appendChild(dd);
-    entityDropdown = dd;
+    document.body.appendChild(overlay);
+    entityModal = overlay;
 
-    const input = dd.querySelector('input');
-    const results = dd.querySelector('.entity-results');
+    const input = overlay.querySelector('.entity-search-input');
+    const filterCountry = overlay.querySelector('.entity-filter-country');
+    const filterType = overlay.querySelector('.entity-filter-type');
+    const results = overlay.querySelector('.entity-results');
 
-    // Load all on open
-    searchAndRender('');
-
-    input.addEventListener('input', () => {
-      clearTimeout(entityDebounce);
-      entityDebounce = setTimeout(() => searchAndRender(input.value.trim()), 300);
+    // Close on overlay click or close button
+    overlay.addEventListener('click', (e) => {
+      if (e.target === overlay) closeEntitySearch();
+    });
+    overlay.querySelector('.entity-modal-close').addEventListener('click', closeEntitySearch);
+    overlay.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeEntitySearch();
     });
 
-    async function searchAndRender(q) {
+    // Load country options from ref_countries
+    (async () => {
       try {
-        const entities = await API.get('/intake/entities/search?q=' + encodeURIComponent(q));
+        const countries = await API.get('/admin/data/countries');
+        countries.sort((a, b) => a.name_es.localeCompare(b.name_es));
+        countries.forEach(c => {
+          const opt = document.createElement('option');
+          opt.value = c.iso2;
+          opt.textContent = c.iso2 + ' \u2014 ' + c.name_es;
+          filterCountry.appendChild(opt);
+        });
+      } catch { /* ignore — filter just won't have options */ }
+    })();
+
+    function doSearch() {
+      clearTimeout(entityDebounce);
+      entityDebounce = setTimeout(() => {
+        searchAndRender(input.value.trim(), filterCountry.value, filterType.value);
+      }, 200);
+    }
+
+    // Load all on open
+    searchAndRender('', '', '');
+
+    input.addEventListener('input', doSearch);
+    filterCountry.addEventListener('change', doSearch);
+    filterType.addEventListener('change', doSearch);
+
+    async function searchAndRender(q, country, type) {
+      results.innerHTML = '<p class="text-sm text-on-surface-variant py-8 text-center">Buscando...</p>';
+      try {
+        const params = new URLSearchParams();
+        if (q) params.set('q', q);
+        if (country) params.set('country', country);
+        if (type) params.set('type', type);
+        const entities = await API.get('/intake/entities/search?' + params.toString());
         if (!entities.length) {
-          results.innerHTML = '<p class="text-xs text-on-surface-variant py-2 text-center">Sin resultados</p>';
+          results.innerHTML = '<p class="text-sm text-on-surface-variant py-8 text-center">Sin resultados</p>';
           return;
         }
-        results.innerHTML = entities.map(e => `
-          <div class="entity-pick flex items-center gap-2 p-2 rounded-lg hover:bg-primary/5 cursor-pointer transition-colors" data-id="${e.id}">
-            <div class="flex-1 min-w-0">
-              <div class="text-sm font-semibold text-on-surface truncate">${esc(e.name)}</div>
-              <div class="text-xs text-on-surface-variant">${esc(e.city || '')}${e.city && e.country_name ? ', ' : ''}${esc(e.country_name || e.country_iso2)} &middot; <span class="font-mono">${esc(e.type)}</span></div>
-            </div>
-            <span class="material-symbols-outlined text-primary text-base">add_circle</span>
-          </div>
-        `).join('');
+        results.innerHTML = '<table class="w-full text-sm"><thead class="sticky top-0 bg-white"><tr>' +
+          '<th class="px-4 py-2 text-left text-[11px] font-bold uppercase tracking-widest text-on-surface-variant">Nombre</th>' +
+          '<th class="px-3 py-2 text-left text-[11px] font-bold uppercase tracking-widest text-on-surface-variant">Ciudad</th>' +
+          '<th class="px-3 py-2 text-left text-[11px] font-bold uppercase tracking-widest text-on-surface-variant">Pa\u00EDs</th>' +
+          '<th class="px-3 py-2 text-left text-[11px] font-bold uppercase tracking-widest text-on-surface-variant">Tipo</th>' +
+          '<th class="px-3 py-2 text-left text-[11px] font-bold uppercase tracking-widest text-on-surface-variant">PIC</th>' +
+          '<th class="px-2 py-2"></th>' +
+          '</tr></thead><tbody>' +
+          entities.map(e => `
+            <tr class="entity-pick border-b border-outline-variant/20 hover:bg-primary/5 cursor-pointer transition-colors" data-id="${e.id}">
+              <td class="px-4 py-2.5 font-semibold text-on-surface">${esc(e.name)}</td>
+              <td class="px-3 py-2.5 text-on-surface-variant">${esc(e.city || '\u2014')}</td>
+              <td class="px-3 py-2.5"><span class="font-mono text-xs font-bold text-primary">${esc(e.country_iso2)}</span> ${esc(e.country_name || '')}</td>
+              <td class="px-3 py-2.5"><span class="px-2 py-0.5 rounded bg-primary/10 text-primary text-xs font-bold">${esc(e.type)}</span></td>
+              <td class="px-3 py-2.5 font-mono text-xs text-on-surface-variant">${esc(e.pic_number || '\u2014')}</td>
+              <td class="px-2 py-2.5"><span class="material-symbols-outlined text-primary text-lg">add_circle</span></td>
+            </tr>
+          `).join('') +
+          '</tbody></table>';
 
         results.querySelectorAll('.entity-pick').forEach(el => {
           el.addEventListener('click', () => {
@@ -561,14 +629,11 @@ const Intake = (() => {
           });
         });
       } catch (err) {
-        results.innerHTML = '<p class="text-xs text-error py-2 text-center">Error al buscar</p>';
+        results.innerHTML = '<p class="text-sm text-error py-8 text-center">Error al buscar entidades</p>';
       }
     }
 
-    setTimeout(() => {
-      input.focus();
-      document.addEventListener('click', onDocClickEntity);
-    }, 50);
+    setTimeout(() => input.focus(), 50);
   }
 
   function addPartner() {
