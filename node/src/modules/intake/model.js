@@ -100,7 +100,7 @@ async function findProjectsByUserId(userId, page = 1, perPage = 20) {
     ORDER BY updated_at DESC
     LIMIT ? OFFSET ?
   `;
-  const [rows] = await db.execute(sql, [userId, limit, offset]);
+  const [rows] = await db.execute(sql, [userId, String(limit), String(offset)]);
 
   return {
     data: rows,
