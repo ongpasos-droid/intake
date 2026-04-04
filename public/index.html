@@ -590,50 +590,51 @@ tailwind.config = {
 
           <!-- STEP 1: Proyecto -->
           <div class="intake-step hidden" id="intake-p1">
-            <h1 class="font-headline text-3xl font-extrabold tracking-tighter text-primary mb-1">Proyecto</h1>
-            <p class="text-on-surface-variant text-base mb-8">Nombre del proyecto y composici&oacute;n del consorcio.</p>
+            <h1 class="font-headline text-3xl font-extrabold tracking-tighter text-primary mb-1">Project</h1>
+            <p class="text-on-surface-variant text-base mb-8">Define your project identity and build the consortium.</p>
 
             <div class="flex items-center gap-2 text-[11px] font-bold uppercase tracking-widest text-on-surface-variant mb-3">
-              <span>Identificaci&oacute;n</span><div class="flex-1 h-px bg-outline-variant"></div>
+              <span>Identification</span><div class="flex-1 h-px bg-outline-variant"></div>
             </div>
             <div class="grid grid-cols-2 gap-4 mb-4">
               <div class="flex flex-col gap-1.5">
-                <label class="text-xs font-semibold text-on-surface-variant">Acr&oacute;nimo <span class="text-primary">*</span></label>
-                <input type="text" id="intake-f-name" placeholder="ej. FOCUS" maxlength="50" class="w-full px-3 py-2.5 rounded-lg bg-white border border-outline-variant text-on-surface font-body text-sm focus:border-primary focus:ring-2 focus:ring-secondary-fixed outline-none transition-all">
+                <label class="text-xs font-semibold text-on-surface-variant">Project name <span class="text-primary">*</span></label>
+                <input type="text" id="intake-f-fullname" placeholder="e.g. Action for Resilience and Innovation in Europe" class="w-full px-3 py-2.5 rounded-lg bg-white border border-outline-variant text-on-surface font-body text-sm focus:border-primary focus:ring-2 focus:ring-secondary-fixed outline-none transition-all">
+                <input type="hidden" id="intake-f-type">
               </div>
               <div class="flex flex-col gap-1.5">
-                <label class="text-xs font-semibold text-on-surface-variant">Tipo de acci&oacute;n</label>
-                <input type="text" id="intake-f-type" readonly class="w-full px-3 py-2.5 rounded-lg bg-surface-container-low border border-outline-variant text-on-surface-variant font-body text-sm cursor-not-allowed">
+                <label class="text-xs font-semibold text-on-surface-variant">Acronym <span class="text-primary">*</span></label>
+                <input type="text" id="intake-f-name" placeholder="e.g. ARISE" maxlength="20" class="w-full px-3 py-2.5 rounded-lg bg-white border border-outline-variant text-on-surface font-body text-sm focus:border-primary focus:ring-2 focus:ring-secondary-fixed outline-none transition-all">
               </div>
             </div>
             <div class="flex flex-col gap-1.5 mb-8">
-              <label class="text-xs font-semibold text-on-surface-variant">Descripci&oacute;n breve</label>
-              <textarea id="intake-f-desc" rows="3" placeholder="Describe brevemente el proyecto..." class="w-full px-3 py-2.5 rounded-lg bg-white border border-outline-variant text-on-surface font-body text-sm focus:border-primary focus:ring-2 focus:ring-secondary-fixed outline-none transition-all resize-vertical leading-relaxed"></textarea>
+              <label class="text-xs font-semibold text-on-surface-variant">Short description</label>
+              <textarea id="intake-f-desc" rows="3" placeholder="Briefly describe the project goals and expected impact (2-3 sentences)." class="w-full px-3 py-2.5 rounded-lg bg-white border border-outline-variant text-on-surface font-body text-sm focus:border-primary focus:ring-2 focus:ring-secondary-fixed outline-none transition-all resize-vertical leading-relaxed"></textarea>
             </div>
 
             <div class="flex items-center gap-2 text-[11px] font-bold uppercase tracking-widest text-on-surface-variant mb-4">
-              <span>Consorcio</span><div class="flex-1 h-px bg-outline-variant"></div>
+              <span>Consortium</span><div class="flex-1 h-px bg-outline-variant"></div>
             </div>
             <div class="grid gap-2 items-center mb-2 pb-2 border-b border-outline-variant" style="grid-template-columns:28px 1fr 100px 110px 32px 80px 32px">
               <span></span>
-              <span class="text-[11px] font-bold uppercase tracking-widest text-on-surface-variant">Organizaci&oacute;n</span>
-              <span class="text-[11px] font-bold uppercase tracking-widest text-on-surface-variant">Ciudad</span>
-              <span class="text-[11px] font-bold uppercase tracking-widest text-on-surface-variant">Pa&iacute;s</span>
+              <span class="text-[11px] font-bold uppercase tracking-widest text-on-surface-variant">Organisation</span>
+              <span class="text-[11px] font-bold uppercase tracking-widest text-on-surface-variant">City</span>
+              <span class="text-[11px] font-bold uppercase tracking-widest text-on-surface-variant">Country</span>
               <span></span>
-              <span class="text-[11px] font-bold uppercase tracking-widest text-on-surface-variant">Rol</span>
+              <span class="text-[11px] font-bold uppercase tracking-widest text-on-surface-variant">Role</span>
               <span></span>
             </div>
             <div id="intake-pt-list"></div>
             <button type="button" id="intake-btn-add-partner" class="inline-flex items-center gap-1.5 mt-3 px-3 py-2 rounded-lg text-xs font-semibold text-on-surface-variant border border-dashed border-outline bg-transparent hover:bg-surface-container-low transition-colors">
-              <span class="material-symbols-outlined text-base">add</span> A&ntilde;adir socio
+              <span class="material-symbols-outlined text-base">add</span> Add partner
             </button>
 
             <div class="flex justify-between items-center mt-10 pt-5 border-t border-outline-variant">
               <button type="button" class="intake-btn-prev inline-flex items-center gap-2 px-5 py-3 rounded-md text-on-surface-variant font-semibold text-sm border border-outline-variant hover:bg-surface-container-low transition-colors">
-                <span class="material-symbols-outlined text-base">arrow_back</span> Anterior
+                <span class="material-symbols-outlined text-base">arrow_back</span> Back
               </button>
               <button type="button" class="intake-btn-next inline-flex items-center gap-2 px-8 py-4 rounded-md bg-secondary-fixed text-primary-container font-bold text-base shadow-[0_24px_48px_rgba(27,20,100,0.1)] hover:scale-[1.02] active:scale-95 transition-transform">
-                Siguiente <span class="material-symbols-outlined text-lg">arrow_forward</span>
+                Next <span class="material-symbols-outlined text-lg">arrow_forward</span>
               </button>
             </div>
           </div>

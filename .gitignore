@@ -6,3 +6,5 @@ node_modules/
 .secrets/
 .claude/
 core-sync.json
+
+.claude/settings.local.json

@@ -6,48 +6,61 @@ Este repo tiene dos Claudes trabajando en paralelo:
 
 | Claude | Rama | Cuándo trabaja |
 |---|---|---|
-| Claude Local (PC) | `dev-local` | Día, sesiones presenciales |
+| Claude Local (PC) | `main` (directo) | Día, sesiones presenciales |
 | Claude VPS (Bot Telegram) | `dev-vps` | Noche, sesiones asíncronas |
 
 ### Reglas absolutas
-1. **NUNCA** hacer push directo a `main`
-2. **NUNCA** hacer push a la rama del otro Claude
-3. **NUNCA** hacer force push en ninguna rama
-4. **NUNCA** hacer rebase de ramas compartidas
-5. **SIEMPRE** hacer pull antes de empezar a trabajar
-6. **SIEMPRE** hacer merge de main en tu rama antes de empezar
+1. **NUNCA** hacer force push en ninguna rama
+2. **NUNCA** hacer rebase de ramas compartidas
+3. **SIEMPRE** hacer pull/fetch antes de empezar a trabajar
 
-### Antes de trabajar
-```bash
-git checkout <tu-rama>        # dev-local o dev-vps
-git pull origin <tu-rama>
-git merge origin/main         # incorporar cambios de producción
-```
-
-### Merge a main
-- Solo **Claude Local** hace merge a `main`, cuando **Oscar lo indique**.
-- Antes de fusionar, revisar si `dev-vps` tiene cambios pendientes que también deban entrar.
-- Coolify despliega automáticamente cada push a `main`.
+### Proceso MERGE (cuando Oscar dice "MERGE")
+1. Commit cambios locales pendientes
+2. `git fetch origin` + `git merge origin/dev-vps`
+3. Resolver conflictos (mantener cambios de ambos lados)
+4. `git push origin main`
+- Coolify despliega automáticamente cada push a `main`
 
 ### Resolución de conflictos
 - **Técnicos** (imports, config, estructura) → la mejor lógica gana.
-- **Funcionales** (dos implementaciones del mismo feature) → la mejor solución gana. En empate, prevalece `dev-local`.
+- **Funcionales** (dos implementaciones del mismo feature) → la mejor solución gana.
 - **Negocio** (flujo de usuario, decisiones de producto) → siempre preguntar a Oscar.
+
+## Desarrollo local
+
+Oscar trabaja en local con Laragon antes de hacer push:
+- **MySQL:** Laragon (`/c/laragon`), MySQL 8.4, user `root`, sin password
+- **BD:** `eplus_tools`
+- **Servidor:** `node server.js` → `http://localhost:3000`
+- **Usuario:** `oscarargumosa@gmail.com` con `role=admin`
+- Tras cambios en código, reiniciar servidor para que Oscar pruebe
+- Solo push cuando Oscar lo pida o diga MERGE
+
+## Migraciones
+
+- Las migraciones se ejecutan automáticamente al desplegar (Dockerfile CMD)
+- **SIEMPRE** escribir migraciones idempotentes:
+  - Tablas: `CREATE TABLE IF NOT EXISTS`
+  - Inserts: `INSERT IGNORE` o `ON DUPLICATE KEY UPDATE`
+  - Columnas: comprobar con `information_schema.COLUMNS` antes de `ALTER TABLE ADD COLUMN`
+  - **NUNCA** usar `CREATE INDEX IF NOT EXISTS` (no existe en MySQL)
+  - **NUNCA** usar `ADD COLUMN IF NOT EXISTS` (no existe en MySQL 8.x)
 
 ## Stack técnico
 - **Backend:** Node.js + Express, MySQL (mysql2), JWT auth
 - **Frontend:** Vanilla JS (SPA), Tailwind CDN, Material Symbols
 - **Deploy:** Coolify desde `main` → `intake.eufundingschool.com`
-- **BD:** `eplus_tools` en MySQL del contenedor WordPress
+- **BD producción:** `eplus_tools` en MySQL del contenedor `wordpress-eufunding-db-1`
 
 ## Estructura del proyecto
 ```
 server.js                     → Entry point Express
-node/src/modules/             → Módulos backend (auth, intake, calculator)
+node/src/modules/             → Módulos backend (auth, intake, calculator, admin)
 node/src/middleware/           → Auth middleware (JWT)
 node/src/utils/               → DB connection, UUID helper
 public/                       → SPA frontend
-public/js/                    → api.js, auth.js, app.js, intake.js
+public/js/                    → api.js, auth.js, app.js, intake.js, admin.js
 public/css/                   → main.css
-migrations/                   → SQL migrations (ejecutar con node scripts/migrate.js)
+migrations/                   → SQL migrations (auto-ejecutadas al deploy)
+scripts/migrate.js            → Runner de migraciones (tolerante a duplicados)
 ```

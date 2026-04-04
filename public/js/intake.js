@@ -446,11 +446,11 @@ const Intake = (() => {
       row.style.gridTemplateColumns = '28px 1fr 100px 110px 32px 80px 32px';
       row.innerHTML = `
         <span class="text-xs font-bold text-on-surface-variant text-center">${i + 1}</span>
-        <input type="text" placeholder="Nombre" value="${esc(p.name)}" data-idx="${i}" data-field="name"
+        <input type="text" placeholder="Organisation name" value="${esc(p.name)}" data-idx="${i}" data-field="name"
           class="px-2.5 py-2 rounded-lg bg-white border border-outline-variant text-on-surface text-sm focus:border-primary focus:ring-2 focus:ring-secondary-fixed outline-none transition-all">
-        <input type="text" placeholder="Ciudad" value="${esc(p.city)}" data-idx="${i}" data-field="city"
+        <input type="text" placeholder="City" value="${esc(p.city)}" data-idx="${i}" data-field="city"
           class="px-2.5 py-2 rounded-lg bg-white border border-outline-variant text-on-surface text-sm focus:border-primary focus:ring-2 focus:ring-secondary-fixed outline-none transition-all">
-        <input type="text" placeholder="Pa\u00EDs" value="${esc(p.country)}" data-idx="${i}" data-field="country"
+        <input type="text" placeholder="Country" value="${esc(p.country)}" data-idx="${i}" data-field="country"
           class="px-2.5 py-2 rounded-lg bg-white border border-outline-variant text-on-surface text-sm focus:border-primary focus:ring-2 focus:ring-secondary-fixed outline-none transition-all">
         <button type="button" class="intake-search-entity w-8 h-8 flex items-center justify-center rounded-lg text-on-surface-variant hover:bg-primary/10 hover:text-primary transition-colors" data-idx="${i}" title="Buscar entidad">
           <span class="material-symbols-outlined text-base">search</span>
