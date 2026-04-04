@@ -187,8 +187,20 @@ const Admin = (() => {
 
   async function loadCountries() {
     setLoading('admin-countries-tbody');
+
+    // Bind filters once
+    ['countries-filter-eu','countries-filter-zone'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el && !el.dataset.bound) { el.dataset.bound = '1'; el.addEventListener('change', loadCountries); }
+    });
+
     try {
-      const rows = await API.get('/admin/data/countries');
+      const eu   = document.getElementById('countries-filter-eu')?.value   || '';
+      const zone = document.getElementById('countries-filter-zone')?.value || '';
+      let allRows = await API.get('/admin/data/countries');
+      if (eu)   allRows = allRows.filter(r => String(r.eu_member) === eu);
+      if (zone) allRows = allRows.filter(r => r.perdiem_zone === zone);
+      const rows = allRows;
       const tbody = document.getElementById('admin-countries-tbody');
       tbody.innerHTML = rows.map(r => `
         <tr data-id="${r.id}" class="border-b border-outline-variant/30 hover:bg-surface-container-low/50 transition-colors">
