@@ -35,3 +35,7 @@ exports.listEligibility = async (req, res) => {
 exports.listRegions = async (req, res) => {
   try { ok(res, await m.listRegions()); } catch(e) { err(res, e.message, 500); }
 };
+
+/* ── Worker matrix ────────────────────────────────────────────── */
+exports.listWorkerMatrix   = async (req, res) => { try { ok(res, await m.listWorkerMatrix()); } catch(e) { err(res, e.message, 500); } };
+exports.upsertWorkerZoneRate = async (req, res) => { try { await m.upsertWorkerZoneRate(req.params.id, req.body.rate_day); ok(res, null); } catch(e) { err(res, e.message, 500); } };
