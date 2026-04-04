@@ -2,12 +2,20 @@
 -- Añade participation_type y erasmus_region a ref_countries
 -- Seed completo de países por región según Programme Guide 2024
 
-ALTER TABLE ref_countries
-  ADD COLUMN IF NOT EXISTS participation_type ENUM('eu_member','associated','third_partial') NOT NULL DEFAULT 'eu_member',
-  ADD COLUMN IF NOT EXISTS erasmus_region     TINYINT UNSIGNED NULL COMMENT '1-14: región Erasmus+ para terceros países';
+-- Add columns safely (check if they exist first)
+SET @db = DATABASE();
 
-CREATE INDEX IF NOT EXISTS idx_ref_countries_participation ON ref_countries(participation_type);
-CREATE INDEX IF NOT EXISTS idx_ref_countries_region        ON ref_countries(erasmus_region);
+SET @has_pt = (SELECT COUNT(*) FROM information_schema.COLUMNS WHERE TABLE_SCHEMA=@db AND TABLE_NAME='ref_countries' AND COLUMN_NAME='participation_type');
+SET @sql1 = IF(@has_pt = 0, "ALTER TABLE ref_countries ADD COLUMN participation_type ENUM('eu_member','associated','third_partial') NOT NULL DEFAULT 'eu_member'", 'SELECT 1');
+PREPARE stmt1 FROM @sql1;
+EXECUTE stmt1;
+DEALLOCATE PREPARE stmt1;
+
+SET @has_er = (SELECT COUNT(*) FROM information_schema.COLUMNS WHERE TABLE_SCHEMA=@db AND TABLE_NAME='ref_countries' AND COLUMN_NAME='erasmus_region');
+SET @sql2 = IF(@has_er = 0, 'ALTER TABLE ref_countries ADD COLUMN erasmus_region TINYINT UNSIGNED NULL', 'SELECT 1');
+PREPARE stmt2 FROM @sql2;
+EXECUTE stmt2;
+DEALLOCATE PREPARE stmt2;
 
 -- ── Actualizar países EU ya existentes ───────────────────────────
 UPDATE ref_countries SET participation_type='eu_member' WHERE eu_member=1;
