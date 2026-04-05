@@ -815,6 +815,16 @@ tailwind.config = {
                     class="w-full px-3 py-2 rounded-lg border border-outline-variant/40 text-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none resize-none"></textarea>
                 </div>
                 <div>
+                  <label class="block text-sm font-medium text-on-surface mb-1">Document type</label>
+                  <select id="doc-type-input"
+                    class="w-full px-3 py-2 rounded-lg border border-outline-variant/40 text-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none bg-surface">
+                    <option value="support">Support document</option>
+                    <option value="project">Project proposal</option>
+                    <option value="evaluation">Evaluation</option>
+                    <option value="call">Call / Programme guide</option>
+                  </select>
+                </div>
+                <div>
                   <label class="block text-sm font-medium text-on-surface mb-1">Tags</label>
                   <input type="text" id="doc-tags-input" placeholder="e.g. cv, partner, study (comma separated)"
                     class="w-full px-3 py-2 rounded-lg border border-outline-variant/40 text-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none"/>
@@ -856,6 +866,7 @@ tailwind.config = {
             <button data-section="workers"      class="px-4 py-2.5 text-sm border-b-2 border-transparent text-on-surface-variant transition-colors hover:text-primary">Personal</button>
             <button data-section="entities"    class="px-4 py-2.5 text-sm border-b-2 border-transparent text-on-surface-variant transition-colors hover:text-primary">Entidades</button>
             <button data-section="eligibility" class="px-4 py-2.5 text-sm border-b-2 border-transparent text-on-surface-variant transition-colors hover:text-primary">Elegibilidad</button>
+            <button data-section="all-docs" class="px-4 py-2.5 text-sm border-b-2 border-transparent text-on-surface-variant transition-colors hover:text-primary">Todos los docs</button>
             <button data-section="platform-docs" class="px-4 py-2.5 text-sm border-b-2 border-transparent text-on-surface-variant transition-colors hover:text-primary">Docs oficiales</button>
           </div>
 
@@ -1064,6 +1075,46 @@ tailwind.config = {
           </div>
 
           <!-- ── Docs oficiales ─────────────────────────────── -->
+          <div id="admin-sec-all-docs" class="admin-section hidden">
+            <div class="bg-white rounded-xl border border-outline-variant/30 overflow-hidden">
+              <div class="px-5 py-4 border-b border-outline-variant/20 flex items-center justify-between">
+                <h2 class="font-semibold text-primary">Todos los documentos</h2>
+                <div class="flex items-center gap-3">
+                  <input type="text" id="admin-docs-search" placeholder="Buscar por nombre, propietario, tag..."
+                    class="px-3 py-1.5 rounded-lg border border-outline-variant/40 text-xs focus:border-primary focus:ring-1 focus:ring-primary outline-none w-64"/>
+                  <select id="admin-docs-filter-type"
+                    class="px-3 py-1.5 rounded-lg border border-outline-variant/40 text-xs focus:border-primary outline-none bg-surface">
+                    <option value="">Todos los tipos</option>
+                    <option value="support">Support</option>
+                    <option value="project">Project</option>
+                    <option value="evaluation">Evaluation</option>
+                    <option value="call">Call</option>
+                  </select>
+                </div>
+              </div>
+              <div class="overflow-x-auto">
+                <table class="w-full text-xs">
+                  <thead>
+                    <tr class="bg-surface-container-low text-on-surface-variant text-left">
+                      <th class="px-4 py-3 font-semibold">Nombre</th>
+                      <th class="px-4 py-3 font-semibold">Tipo</th>
+                      <th class="px-4 py-3 font-semibold">Propietario</th>
+                      <th class="px-4 py-3 font-semibold">Tags</th>
+                      <th class="px-4 py-3 font-semibold">Vectorizado</th>
+                      <th class="px-4 py-3 font-semibold">Proyectos</th>
+                      <th class="px-4 py-3 font-semibold">Tamaño</th>
+                      <th class="px-4 py-3 font-semibold">Fecha</th>
+                      <th class="px-4 py-3 font-semibold">Acciones</th>
+                    </tr>
+                  </thead>
+                  <tbody id="admin-all-docs-tbody">
+                    <tr><td colspan="9" class="text-center py-8 text-on-surface-variant">Cargando...</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
           <div id="admin-sec-platform-docs" class="admin-section hidden">
             <div class="bg-white rounded-xl border border-outline-variant/30 overflow-hidden">
               <div class="px-5 py-4 border-b border-outline-variant/20 flex items-center justify-between">

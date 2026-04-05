@@ -14,8 +14,14 @@ function requireAdmin(req, res, next) {
   next();
 }
 
+/* ── Admin: all documents ────────────────────────────────────── */
+router.get   ('/admin/all',  requireAuth, requireAdmin, ctrl.listAllDocs);
+
 /* ── Semantic Search ─────────────────────────────────────────── */
 router.post  ('/search',     requireAuth, ctrl.searchDocuments);
+
+/* ── Download ────────────────────────────────────────────────── */
+router.get   ('/download/:id', requireAuth, ctrl.downloadDoc);
 
 /* ── My Documents (user private) ─────────────────────────────── */
 router.get   ('/my',         requireAuth, ctrl.listMyDocs);

@@ -29,16 +29,16 @@ async function getDocument(id) {
 async function createDocument(doc) {
   const tags = JSON.stringify(doc.tags || []);
   const [result] = await db.execute(
-    `INSERT INTO documents (owner_type, owner_id, title, description, file_type, file_size_bytes, storage_path, tags, status)
-     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-    [doc.owner_type, doc.owner_id || null, doc.title, doc.description || null,
+    `INSERT INTO documents (owner_type, owner_id, doc_type, title, description, file_type, file_size_bytes, storage_path, tags, status)
+     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+    [doc.owner_type, doc.owner_id || null, doc.doc_type || 'support', doc.title, doc.description || null,
      doc.file_type || null, doc.file_size_bytes || 0, doc.storage_path || null, tags, doc.status || 'active']
   );
   return getDocument(result.insertId);
 }
 
 async function updateDocument(id, fields) {
-  const allowed = ['title', 'description', 'tags', 'status'];
+  const allowed = ['title', 'description', 'tags', 'status', 'doc_type'];
   const sets = []; const params = [];
   for (const key of allowed) {
     if (fields[key] !== undefined) {

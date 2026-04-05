@@ -42,6 +42,7 @@ const Admin = (() => {
       case 'entities':    loadEntities(); break;
       case 'eligibility': loadEligibility(); break;
       case 'evaluator':   loadEvaluator(); break;
+      case 'all-docs':      loadAllDocs(); break;
       case 'platform-docs': loadPlatformDocs(); break;
     }
   }
@@ -1341,6 +1342,148 @@ const Admin = (() => {
     });
   }
 
+  /* ══════════════════════════════════════════════════════��═══════
+     ALL DOCS — admin view of every document in the system
+     ══════════════════════════════════════════════════════════════ */
+
+  let allDocs = [];
+
+  async function loadAllDocs() {
+    const tbody = document.getElementById('admin-all-docs-tbody');
+    tbody.innerHTML = '<tr><td colspan="9" class="text-center py-8 text-on-surface-variant text-sm">Cargando...</td></tr>';
+    try {
+      allDocs = await API.get('/documents/admin/all');
+      renderAllDocs();
+      bindAllDocsFilters();
+    } catch (e) {
+      tbody.innerHTML = `<tr><td colspan="9" class="text-center py-8 text-red-500 text-sm">Error: ${e.message}</td></tr>`;
+    }
+  }
+
+  function renderAllDocs(filter) {
+    const tbody = document.getElementById('admin-all-docs-tbody');
+    let filtered = allDocs;
+
+    const search = (filter?.search || document.getElementById('admin-docs-search')?.value || '').toLowerCase();
+    const typeFilter = filter?.type ?? (document.getElementById('admin-docs-filter-type')?.value || '');
+
+    if (search) {
+      filtered = filtered.filter(d =>
+        (d.title || '').toLowerCase().includes(search) ||
+        (d.owner_name || '').toLowerCase().includes(search) ||
+        (d.owner_email || '').toLowerCase().includes(search) ||
+        (d.tags || []).some(t => t.toLowerCase().includes(search))
+      );
+    }
+    if (typeFilter) {
+      filtered = filtered.filter(d => d.doc_type === typeFilter);
+    }
+
+    if (!filtered.length) {
+      tbody.innerHTML = '<tr><td colspan="9" class="text-center py-8 text-on-surface-variant text-sm">No se encontraron documentos.</td></tr>';
+      return;
+    }
+
+    const typeLabels = { support: 'Support', project: 'Project', evaluation: 'Evaluation', call: 'Call' };
+    const typeBadge = (t) => {
+      const cls = {
+        support: 'bg-primary/8 text-primary',
+        project: 'bg-tertiary/10 text-tertiary',
+        evaluation: 'bg-warning/10 text-warning',
+        call: 'bg-secondary/10 text-secondary',
+      };
+      return `<span class="inline-block px-2 py-0.5 rounded text-[10px] font-medium ${cls[t] || cls.support}">${typeLabels[t] || t || 'Support'}</span>`;
+    };
+
+    const fmtSize = (b) => {
+      if (!b) return '-';
+      if (b < 1024) return b + ' B';
+      if (b < 1024 * 1024) return (b / 1024).toFixed(0) + ' KB';
+      return (b / (1024 * 1024)).toFixed(1) + ' MB';
+    };
+
+    const fmtDate = (iso) => iso ? new Date(iso).toLocaleDateString('es-ES', { day: '2-digit', month: 'short', year: 'numeric' }) : '-';
+
+    const esc = (s) => { if (!s) return ''; const d = document.createElement('div'); d.textContent = s; return d.innerHTML; };
+
+    tbody.innerHTML = filtered.map(d => {
+      const tags = (d.tags || []).map(t => `<span class="inline-block px-1.5 py-0.5 rounded-full bg-primary/10 text-primary text-[10px]">${esc(t)}</span>`).join(' ');
+      const owner = d.owner_name
+        ? `<span title="${esc(d.owner_email)}">${esc(d.owner_name)}</span>`
+        : (d.owner_type === 'platform' ? '<span class="text-primary font-medium">Plataforma</span>' : '-');
+      const vecIcon = d.vectorized
+        ? '<span class="material-symbols-outlined text-[16px] text-green-600" title="Vectorizado">check_circle</span>'
+        : '<span class="material-symbols-outlined text-[16px] text-on-surface-variant/40" title="No vectorizado">cancel</span>';
+      const projects = (d.projects || []).map(p => `<span class="inline-block px-1.5 py-0.5 rounded bg-tertiary/10 text-tertiary text-[10px]">${esc(p.name)}</span>`).join(' ') || '<span class="text-on-surface-variant/40">—</span>';
+
+      return `<tr class="border-b border-outline-variant/10 hover:bg-surface-container-low/50">
+        <td class="px-4 py-3 font-medium text-on-surface max-w-[200px] truncate" title="${esc(d.title)}">${esc(d.title)}</td>
+        <td class="px-4 py-3">${typeBadge(d.doc_type)}</td>
+        <td class="px-4 py-3">${owner}</td>
+        <td class="px-4 py-3">${tags || '-'}</td>
+        <td class="px-4 py-3 text-center">${vecIcon}</td>
+        <td class="px-4 py-3">${projects}</td>
+        <td class="px-4 py-3 text-on-surface-variant">${fmtSize(d.file_size_bytes)}</td>
+        <td class="px-4 py-3 text-on-surface-variant">${fmtDate(d.created_at)}</td>
+        <td class="px-4 py-3">
+          <div class="flex items-center gap-1">
+            <button class="adm-doc-download p-1 rounded hover:bg-primary/10 text-on-surface-variant hover:text-primary transition-colors" data-id="${d.id}" title="Descargar">
+              <span class="material-symbols-outlined text-[16px]">download</span>
+            </button>
+            <button class="adm-doc-delete p-1 rounded hover:bg-error/10 text-on-surface-variant hover:text-error transition-colors" data-id="${d.id}" title="Eliminar">
+              <span class="material-symbols-outlined text-[16px]">delete</span>
+            </button>
+          </div>
+        </td>
+      </tr>`;
+    }).join('');
+
+    // Bind actions
+    tbody.querySelectorAll('.adm-doc-download').forEach(btn => {
+      btn.addEventListener('click', async () => {
+        try {
+          const res = await fetch(`/v1/documents/download/${btn.dataset.id}`, {
+            headers: { 'Authorization': `Bearer ${API.getToken()}` },
+          });
+          if (!res.ok) throw new Error('Download failed');
+          const blob = await res.blob();
+          const disp = res.headers.get('Content-Disposition') || '';
+          const m = disp.match(/filename="?(.+?)"?$/);
+          const fname = m ? decodeURIComponent(m[1]) : 'document';
+          const a = document.createElement('a');
+          a.href = URL.createObjectURL(blob);
+          a.download = fname;
+          a.click();
+          URL.revokeObjectURL(a.href);
+        } catch (e) { Toast.show('Error: ' + e.message, 'error'); }
+      });
+    });
+    tbody.querySelectorAll('.adm-doc-delete').forEach(btn => {
+      btn.addEventListener('click', async () => {
+        if (!confirm('¿Eliminar este documento?')) return;
+        try {
+          await API.del('/documents/my/' + btn.dataset.id);
+          Toast.show('Documento eliminado', 'ok');
+          loadAllDocs();
+        } catch (e) { Toast.show('Error: ' + e.message, 'error'); }
+      });
+    });
+  }
+
+  function bindAllDocsFilters() {
+    const search = document.getElementById('admin-docs-search');
+    const typeFilter = document.getElementById('admin-docs-filter-type');
+    if (!search || search._bound) return;
+    search._bound = true;
+
+    let debounce;
+    search.addEventListener('input', () => {
+      clearTimeout(debounce);
+      debounce = setTimeout(() => renderAllDocs(), 300);
+    });
+    typeFilter.addEventListener('change', () => renderAllDocs());
+  }
+
   /* ══════════════════════════════════════════════════════════════
      PLATFORM DOCS — official documents management
      ══════════════════════════════════════════════════════════════ */
@@ -1351,8 +1494,7 @@ const Admin = (() => {
     const container = document.getElementById('admin-docs-list');
     container.innerHTML = '<p class="text-center py-8 text-on-surface-variant text-sm">Loading...</p>';
     try {
-      const res = await API.get('/documents/official');
-      platformDocs = res.data || [];
+      platformDocs = await API.get('/documents/official');
       renderPlatformDocs();
     } catch (e) {
       container.innerHTML = `<p class="text-center py-8 text-red-500 text-sm">Error: ${e.message}</p>`;
@@ -1424,10 +1566,9 @@ const Admin = (() => {
       fd.append('ownerType', 'platform');
 
       try {
-        const token = localStorage.getItem('token');
         const res = await fetch('/v1/documents/official', {
           method: 'POST',
-          headers: { 'Authorization': 'Bearer ' + token },
+          headers: { 'Authorization': 'Bearer ' + API.getToken() },
           body: fd
         });
         const json = await res.json();

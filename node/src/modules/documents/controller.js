@@ -24,6 +24,29 @@ const ALLOWED_TYPES = [
 ];
 const MAX_SIZE = 20 * 1024 * 1024; // 20MB
 
+/* ── Download ────────────────────────────────────────────────── */
+
+exports.downloadDoc = async (req, res) => {
+  try {
+    const doc = await m.getDocument(req.params.id);
+    if (!doc) return err(res, 'Not found', 404);
+
+    // Check access: own doc or admin
+    if (doc.owner_type === 'user_private' && doc.owner_id !== req.user.id && req.user.role !== 'admin') {
+      return err(res, 'Forbidden', 403);
+    }
+
+    const buffer = await m.readFile(doc.storage_path);
+    const filename = doc.title + path.extname(doc.storage_path);
+    res.set({
+      'Content-Type': doc.file_type || 'application/octet-stream',
+      'Content-Disposition': `attachment; filename="${encodeURIComponent(filename)}"`,
+      'Content-Length': buffer.length,
+    });
+    res.send(buffer);
+  } catch (e) { err(res, e.message, 500); }
+};
+
 /* ── My Documents (user private) ─────────────────────────────── */
 
 exports.listMyDocs = async (req, res) => {
@@ -46,6 +69,7 @@ exports.uploadMyDoc = async (req, res) => {
     const doc = await m.createDocument({
       owner_type: 'user_private',
       owner_id: req.user.id,
+      doc_type: req.body.doc_type || 'support',
       title: req.body.title || req.file.originalname,
       description: req.body.description || null,
       file_type: req.file.mimetype,
@@ -73,6 +97,7 @@ exports.updateMyDoc = async (req, res) => {
     if (req.body.title !== undefined) fields.title = req.body.title;
     if (req.body.description !== undefined) fields.description = req.body.description;
     if (req.body.tags !== undefined) fields.tags = req.body.tags;
+    if (req.body.doc_type !== undefined) fields.doc_type = req.body.doc_type;
 
     ok(res, await m.updateDocument(req.params.id, fields));
   } catch (e) { err(res, e.message, 500); }
@@ -109,6 +134,7 @@ exports.uploadOfficialDoc = async (req, res) => {
     const doc = await m.createDocument({
       owner_type: 'platform',
       owner_id: null,
+      doc_type: req.body.doc_type || 'call',
       title: req.body.title || req.file.originalname,
       description: req.body.description || null,
       file_type: req.file.mimetype,
@@ -187,6 +213,45 @@ exports.unlinkFromProject = async (req, res) => {
   try {
     await m.unlinkDocumentFromProject(req.params.projectId, req.params.docId);
     ok(res, null);
+  } catch (e) { err(res, e.message, 500); }
+};
+
+/* ── Admin: all documents ────────────────────────────────────── */
+
+exports.listAllDocs = async (req, res) => {
+  try {
+    const [docs] = await db.execute(`
+      SELECT d.*,
+             u.name AS owner_name, u.email AS owner_email,
+             (SELECT COUNT(*) FROM document_chunks dc WHERE dc.document_id = d.id) AS chunk_count
+      FROM documents d
+      LEFT JOIN users u ON d.owner_id = u.id
+      WHERE d.status != 'deleted'
+      ORDER BY d.created_at DESC
+    `);
+
+    // Get project links for all docs in one query
+    const [links] = await db.execute(`
+      SELECT pd.document_id, p.id AS project_id, p.name AS project_name
+      FROM project_documents pd
+      JOIN projects p ON p.id = pd.project_id
+    `);
+    const projectMap = {};
+    for (const l of links) {
+      if (!projectMap[l.document_id]) projectMap[l.document_id] = [];
+      projectMap[l.document_id].push({ id: l.project_id, name: l.project_name });
+    }
+
+    const enriched = docs.map(d => {
+      if (d.tags && typeof d.tags === 'string') try { d.tags = JSON.parse(d.tags); } catch { d.tags = []; }
+      return {
+        ...d,
+        vectorized: d.chunk_count > 0,
+        projects: projectMap[d.id] || [],
+      };
+    });
+
+    ok(res, enriched);
   } catch (e) { err(res, e.message, 500); }
 };
 

@@ -49,6 +49,9 @@ const Documents = (() => {
     formData.append('title', document.getElementById('doc-title-input').value || file.name);
     formData.append('description', document.getElementById('doc-desc-input').value);
 
+    const docType = document.getElementById('doc-type-input').value;
+    formData.append('doc_type', docType);
+
     const tagsRaw = document.getElementById('doc-tags-input').value;
     if (tagsRaw) {
       const tags = tagsRaw.split(',').map(t => t.trim()).filter(Boolean);
@@ -105,19 +108,28 @@ const Documents = (() => {
         <div class="flex-1 min-w-0">
           <h3 class="text-sm font-bold text-on-surface truncate">${esc(doc.title)}</h3>
           <p class="text-xs text-on-surface-variant mt-0.5">
-            ${formatFileSize(doc.file_size_bytes)} · ${formatDate(doc.created_at)}
+            <span class="inline-block px-1.5 py-0.5 rounded text-[10px] font-medium ${docTypeBadgeClass(doc.doc_type)}">${docTypeLabel(doc.doc_type)}</span>
+            · ${formatFileSize(doc.file_size_bytes)} · ${formatDate(doc.created_at)}
             ${doc.status && doc.status !== 'active' ? ` · <span class="inline-block px-1.5 py-0.5 rounded text-[10px] font-medium ${doc.status === 'processing' ? 'bg-warning/10 text-warning' : 'bg-error/10 text-error'}">${doc.status}</span>` : ''}
             ${doc.tags?.length ? ' · ' + doc.tags.map(t => `<span class="inline-block px-1.5 py-0.5 rounded bg-primary/8 text-primary text-[10px] font-medium">${esc(t)}</span>`).join(' ') : ''}
           </p>
           ${doc.description ? `<p class="text-xs text-on-surface-variant mt-1 truncate">${esc(doc.description)}</p>` : ''}
         </div>
-        <button class="btn-delete-doc flex-shrink-0 p-2 rounded-lg text-on-surface-variant hover:text-error hover:bg-error/10 transition-colors" data-id="${doc.id}" title="Delete">
-          <span class="material-symbols-outlined text-[18px]">delete</span>
-        </button>
+        <div class="flex-shrink-0 flex items-center gap-1">
+          <button class="btn-download-doc p-2 rounded-lg text-on-surface-variant hover:text-primary hover:bg-primary/10 transition-colors" data-id="${doc.id}" title="Download">
+            <span class="material-symbols-outlined text-[18px]">download</span>
+          </button>
+          <button class="btn-delete-doc p-2 rounded-lg text-on-surface-variant hover:text-error hover:bg-error/10 transition-colors" data-id="${doc.id}" title="Delete">
+            <span class="material-symbols-outlined text-[18px]">delete</span>
+          </button>
+        </div>
       </div>
     `).join('');
 
-    // Bind delete buttons
+    // Bind action buttons
+    container.querySelectorAll('.btn-download-doc').forEach(btn => {
+      btn.addEventListener('click', () => downloadDoc(btn.dataset.id));
+    });
     container.querySelectorAll('.btn-delete-doc').forEach(btn => {
       btn.addEventListener('click', () => deleteDoc(btn.dataset.id));
     });
@@ -132,6 +144,27 @@ const Documents = (() => {
       await loadDocs();
     } catch (err) {
       Toast.show(err.message || 'Delete failed', 'error');
+    }
+  }
+
+  /* ── Download document ──────────────────────────────────────── */
+  async function downloadDoc(id) {
+    try {
+      const res = await fetch(`/v1/documents/download/${id}`, {
+        headers: { 'Authorization': `Bearer ${API.getToken()}` },
+      });
+      if (!res.ok) throw new Error('Download failed');
+      const blob = await res.blob();
+      const disposition = res.headers.get('Content-Disposition') || '';
+      const match = disposition.match(/filename="?(.+?)"?$/);
+      const filename = match ? decodeURIComponent(match[1]) : 'document';
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = filename;
+      a.click();
+      URL.revokeObjectURL(a.href);
+    } catch (err) {
+      Toast.show(err.message || 'Download failed', 'error');
     }
   }
 
@@ -155,6 +188,21 @@ const Documents = (() => {
   function formatDate(iso) {
     if (!iso) return '';
     return new Date(iso).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' });
+  }
+
+  function docTypeLabel(type) {
+    const labels = { support: 'Support', project: 'Project', evaluation: 'Evaluation', call: 'Call' };
+    return labels[type] || type || 'Support';
+  }
+
+  function docTypeBadgeClass(type) {
+    const classes = {
+      support: 'bg-primary/8 text-primary',
+      project: 'bg-tertiary/10 text-tertiary',
+      evaluation: 'bg-warning/10 text-warning',
+      call: 'bg-secondary/10 text-secondary',
+    };
+    return classes[type] || 'bg-primary/8 text-primary';
   }
 
   function esc(str) {
