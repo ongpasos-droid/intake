@@ -90,6 +90,16 @@ const Organizations = (() => {
         document.getElementById(`myorg-tab-${activeTab}`)?.classList.remove('hidden');
       });
     });
+
+    // Save buttons
+    document.querySelectorAll('[data-org-save]').forEach(btn => {
+      btn.addEventListener('click', () => saveSection(btn.dataset.orgSave));
+    });
+
+    // Add child buttons
+    document.querySelectorAll('[data-org-add]').forEach(btn => {
+      btn.addEventListener('click', () => addChild(btn.dataset.orgAdd));
+    });
   }
 
   async function loadMyOrg() {
@@ -394,7 +404,7 @@ const Organizations = (() => {
 
       grid.innerHTML = rows.map(o => `
         <div class="bg-white rounded-xl border border-outline-variant/30 p-5 hover:shadow-md transition-shadow cursor-pointer"
-             onclick="Organizations.viewOrg('${o.id}')">
+             data-view-org="${o.id}">
           <div class="flex items-start justify-between mb-2">
             <h3 class="font-semibold text-primary text-sm leading-tight">${esc(o.organization_name)}</h3>
             ${o.acronym ? `<span class="text-xs bg-primary/10 text-primary px-2 py-0.5 rounded-full font-semibold ml-2 shrink-0">${esc(o.acronym)}</span>` : ''}
@@ -413,15 +423,23 @@ const Organizations = (() => {
         </div>
       `).join('');
 
+      // Bind view org clicks
+      grid.querySelectorAll('[data-view-org]').forEach(card => {
+        card.addEventListener('click', () => viewOrg(card.dataset.viewOrg));
+      });
+
       // Pagination
       if (meta && meta.pages > 1) {
-        grid.insertAdjacentHTML('beforeend', `
-          <div class="col-span-full flex items-center justify-center gap-4 pt-4">
-            <button onclick="Organizations.dirPrev()" class="text-sm text-primary font-semibold ${dirPage <= 1 ? 'opacity-30 pointer-events-none' : ''}">&larr; Anterior</button>
-            <span class="text-sm text-on-surface-variant">Página ${meta.page} de ${meta.pages}</span>
-            <button onclick="Organizations.dirNext(${meta.pages})" class="text-sm text-primary font-semibold ${dirPage >= meta.pages ? 'opacity-30 pointer-events-none' : ''}">Siguiente &rarr;</button>
-          </div>
-        `);
+        const pagDiv = document.createElement('div');
+        pagDiv.className = 'col-span-full flex items-center justify-center gap-4 pt-4';
+        pagDiv.innerHTML = `
+          <button class="dir-prev text-sm text-primary font-semibold ${dirPage <= 1 ? 'opacity-30 pointer-events-none' : ''}">&larr; Anterior</button>
+          <span class="text-sm text-on-surface-variant">Página ${meta.page} de ${meta.pages}</span>
+          <button class="dir-next text-sm text-primary font-semibold ${dirPage >= meta.pages ? 'opacity-30 pointer-events-none' : ''}">Siguiente &rarr;</button>
+        `;
+        grid.appendChild(pagDiv);
+        pagDiv.querySelector('.dir-prev')?.addEventListener('click', () => dirPrev());
+        pagDiv.querySelector('.dir-next')?.addEventListener('click', () => dirNext(meta.pages));
       }
     } catch (e) {
       grid.innerHTML = `<div class="col-span-full py-8 text-center text-error text-sm">${e.message || 'Error'}</div>`;
@@ -445,15 +463,19 @@ const Organizations = (() => {
     let existing = document.getElementById('org-detail-modal');
     if (existing) existing.remove();
 
-    const html = `
-    <div id="org-detail-modal" class="fixed inset-0 bg-black/40 z-50 flex items-start justify-center pt-8 pb-8 overflow-y-auto" onclick="if(event.target===this)this.remove()">
-      <div class="bg-white rounded-2xl shadow-2xl w-full max-w-3xl mx-4 overflow-hidden" onclick="event.stopPropagation()">
+    const modal = document.createElement('div');
+    modal.id = 'org-detail-modal';
+    modal.className = 'fixed inset-0 bg-black/40 z-50 flex items-start justify-center pt-8 pb-8 overflow-y-auto';
+    modal.addEventListener('click', (e) => { if (e.target === modal) modal.remove(); });
+
+    modal.innerHTML = `
+      <div class="bg-white rounded-2xl shadow-2xl w-full max-w-3xl mx-4 overflow-hidden">
         <div class="bg-primary text-white px-6 py-4 flex items-center justify-between">
           <div>
             <h2 class="font-headline text-lg font-bold">${esc(org.organization_name)}</h2>
             ${org.acronym ? `<span class="text-white/70 text-sm">${esc(org.acronym)}</span>` : ''}
           </div>
-          <button onclick="document.getElementById('org-detail-modal').remove()" class="text-white/70 hover:text-white">
+          <button class="org-modal-close text-white/70 hover:text-white">
             <span class="material-symbols-outlined">close</span>
           </button>
         </div>
@@ -501,8 +523,9 @@ const Organizations = (() => {
           `).join('')) : ''}
         </div>
       </div>
-    </div>`;
-    document.body.insertAdjacentHTML('beforeend', html);
+    `;
+    document.body.appendChild(modal);
+    modal.querySelector('.org-modal-close')?.addEventListener('click', () => modal.remove());
   }
 
   function detailSection(title, content) {

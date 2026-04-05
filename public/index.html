@@ -1242,7 +1242,7 @@ tailwind.config = {
                 </div>
               </div>
               <div class="mt-6 flex justify-end">
-                <button onclick="Organizations.saveSection('myorg-tab-general')" class="bg-primary text-white px-6 py-2.5 rounded-lg text-sm font-semibold hover:bg-primary/90 transition-colors">Guardar datos generales</button>
+                <button data-org-save="myorg-tab-general" class="bg-primary text-white px-6 py-2.5 rounded-lg text-sm font-semibold hover:bg-primary/90 transition-colors">Guardar datos generales</button>
               </div>
             </div>
           </div>
@@ -1327,7 +1327,7 @@ tailwind.config = {
                 <h3 class="text-sm font-bold text-primary flex items-center gap-2">
                   <span class="material-symbols-outlined text-lg">badge</span> Personal clave
                 </h3>
-                <button onclick="Organizations.addChild('key-staff')" class="flex items-center gap-1 text-xs font-semibold text-primary hover:text-primary/80">
+                <button data-org-add="key-staff" class="flex items-center gap-1 text-xs font-semibold text-primary hover:text-primary/80">
                   <span class="material-symbols-outlined text-[18px]">add_circle</span> Añadir
                 </button>
               </div>
@@ -1350,7 +1350,7 @@ tailwind.config = {
 
             <!-- Save button for representatives -->
             <div class="flex justify-end">
-              <button onclick="Organizations.saveSection('myorg-tab-representatives')" class="bg-primary text-white px-6 py-2.5 rounded-lg text-sm font-semibold hover:bg-primary/90 transition-colors">Guardar representantes</button>
+              <button data-org-save="myorg-tab-representatives" class="bg-primary text-white px-6 py-2.5 rounded-lg text-sm font-semibold hover:bg-primary/90 transition-colors">Guardar representantes</button>
             </div>
           </div>
 
@@ -1393,7 +1393,7 @@ tailwind.config = {
                 <label class="flex items-center gap-2 text-sm"><input data-field="has_eu_projects" type="checkbox" class="rounded border-outline-variant/40"> Ha participado en proyectos UE en los últimos 3 años</label>
               </div>
               <div class="flex justify-end">
-                <button onclick="Organizations.saveSection('myorg-tab-experience')" class="bg-primary text-white px-6 py-2.5 rounded-lg text-sm font-semibold hover:bg-primary/90 transition-colors">Guardar experiencia</button>
+                <button data-org-save="myorg-tab-experience" class="bg-primary text-white px-6 py-2.5 rounded-lg text-sm font-semibold hover:bg-primary/90 transition-colors">Guardar experiencia</button>
               </div>
             </div>
 
@@ -1403,7 +1403,7 @@ tailwind.config = {
                 <h3 class="text-sm font-bold text-primary flex items-center gap-2">
                   <span class="material-symbols-outlined text-lg">public</span> Proyectos UE concedidos
                 </h3>
-                <button onclick="Organizations.addChild('eu-projects')" class="flex items-center gap-1 text-xs font-semibold text-primary hover:text-primary/80">
+                <button data-org-add="eu-projects" class="flex items-center gap-1 text-xs font-semibold text-primary hover:text-primary/80">
                   <span class="material-symbols-outlined text-[18px]">add_circle</span> Añadir
                 </button>
               </div>
@@ -1432,7 +1432,7 @@ tailwind.config = {
             <div class="bg-white rounded-xl border border-outline-variant/30 overflow-hidden">
               <div class="flex items-center justify-between px-4 py-3 border-b border-outline-variant/20">
                 <h3 class="text-sm font-semibold text-primary">Acreditaciones</h3>
-                <button onclick="Organizations.addChild('accreditations')" class="flex items-center gap-1 text-xs font-semibold text-primary hover:text-primary/80">
+                <button data-org-add="accreditations" class="flex items-center gap-1 text-xs font-semibold text-primary hover:text-primary/80">
                   <span class="material-symbols-outlined text-[18px]">add_circle</span> Añadir
                 </button>
               </div>
@@ -1458,7 +1458,7 @@ tailwind.config = {
             <div class="bg-white rounded-xl border border-outline-variant/30 overflow-hidden">
               <div class="flex items-center justify-between px-4 py-3 border-b border-outline-variant/20">
                 <h3 class="text-sm font-semibold text-primary">Stakeholders (entidades relacionadas)</h3>
-                <button onclick="Organizations.addChild('stakeholders')" class="flex items-center gap-1 text-xs font-semibold text-primary hover:text-primary/80">
+                <button data-org-add="stakeholders" class="flex items-center gap-1 text-xs font-semibold text-primary hover:text-primary/80">
                   <span class="material-symbols-outlined text-[18px]">add_circle</span> Añadir
                 </button>
               </div>
