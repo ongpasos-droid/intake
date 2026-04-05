@@ -53,6 +53,7 @@ app.use('/v1/calculator', require('./node/src/modules/calculator/routes'));
 app.use('/v1/admin', require('./node/src/modules/admin/routes'));
 app.use('/v1/documents', require('./node/src/modules/documents/routes'));
 app.use('/v1/organizations', require('./node/src/modules/organizations/routes'));
+app.use('/v1/research', require('./node/src/modules/research/routes'));
 
 // Future modules:
 // app.use('/v1/planner',     require('./node/src/modules/planner/routes'));

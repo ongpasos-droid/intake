@@ -6,5 +6,7 @@ node_modules/
 .secrets/
 .claude/
 core-sync.json
+public/uploads/
+node/public/uploads/
 
 .claude/settings.local.json

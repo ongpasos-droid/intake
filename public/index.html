@@ -247,6 +247,12 @@ tailwind.config = {
         <span class="material-symbols-outlined text-[20px]">folder_open</span>
         My Documents
       </a>
+      <a href="#research"
+        class="nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-white/70 hover:bg-white/10 transition-colors text-sm font-medium"
+        data-route="research">
+        <span class="material-symbols-outlined text-[20px]">science</span>
+        Research
+      </a>
 
       <!-- Admin — solo visible para role=admin -->
       <div id="admin-nav-item" class="hidden">
@@ -848,6 +854,138 @@ tailwind.config = {
         </div>
       </section>
 
+      <!-- ══ PANEL RESEARCH ════════════════════════════════════════ -->
+      <section id="panel-research" class="panel">
+        <div class="max-w-6xl mx-auto py-8 px-4">
+
+          <!-- Header -->
+          <div class="flex items-center justify-between mb-8">
+            <div>
+              <h1 class="text-2xl font-bold text-on-surface">Research</h1>
+              <p class="text-sm text-on-surface-variant mt-1">Browse the library and find sources for your projects</p>
+            </div>
+            <button id="btn-upload-paper" class="flex items-center gap-2 px-4 py-2 rounded-xl bg-sidebar text-secondary-fixed text-sm font-semibold hover:opacity-90 transition-opacity">
+              <span class="material-symbols-outlined text-[18px]">upload_file</span>
+              Upload Paper
+            </button>
+          </div>
+
+          <!-- Search in library -->
+          <div class="bg-surface-container-low rounded-2xl border border-outline-variant/20 p-5 mb-6">
+            <form id="research-search-form" class="flex gap-3">
+              <div class="flex-1 relative">
+                <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px]">search</span>
+                <input id="research-query" type="text" placeholder="Search the library — e.g. digital inclusion, STEM education..."
+                  class="w-full pl-10 pr-4 py-3 rounded-xl bg-surface-container border border-outline-variant/30 text-on-surface text-sm placeholder:text-on-surface-variant/50 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary">
+              </div>
+              <button type="submit" class="px-6 py-3 rounded-xl bg-sidebar text-secondary-fixed text-sm font-semibold hover:opacity-90 transition-opacity">
+                Search
+              </button>
+            </form>
+          </div>
+
+          <!-- Tabs: Library / My Sources / OpenAlex -->
+          <div class="flex gap-1 border-b border-outline-variant/20 mb-6">
+            <button data-tab="library" class="research-tab px-4 py-2.5 text-sm font-bold text-primary border-b-2 border-primary transition-colors">Library</button>
+            <button data-tab="my-sources" class="research-tab px-4 py-2.5 text-sm text-on-surface-variant border-b-2 border-transparent hover:text-primary transition-colors">My Sources</button>
+            <button data-tab="openalex" class="research-tab px-4 py-2.5 text-sm text-on-surface-variant border-b-2 border-transparent hover:text-primary transition-colors">Search OpenAlex</button>
+          </div>
+
+          <!-- Tab: Library (public sources) -->
+          <div id="research-tab-library" class="research-tab-content">
+            <div id="research-library-list" class="space-y-3"></div>
+          </div>
+
+          <!-- Tab: My Sources -->
+          <div id="research-tab-my-sources" class="research-tab-content hidden">
+            <div id="research-my-sources-list" class="space-y-3"></div>
+          </div>
+
+          <!-- Tab: OpenAlex search -->
+          <div id="research-tab-openalex" class="research-tab-content hidden">
+            <div class="bg-surface-container-low/50 rounded-xl p-4 mb-4">
+              <div class="flex flex-wrap gap-3">
+                <select id="research-country" class="px-3 py-2 rounded-lg bg-surface-container border border-outline-variant/30 text-on-surface text-xs">
+                  <option value="">All countries</option>
+                  <option value="ES">Spain</option><option value="IT">Italy</option><option value="FR">France</option>
+                  <option value="DE">Germany</option><option value="PT">Portugal</option><option value="PL">Poland</option>
+                  <option value="GR">Greece</option><option value="NL">Netherlands</option><option value="BE">Belgium</option>
+                  <option value="AT">Austria</option><option value="IE">Ireland</option><option value="SE">Sweden</option>
+                  <option value="FI">Finland</option><option value="RO">Romania</option><option value="BG">Bulgaria</option>
+                  <option value="HR">Croatia</option><option value="CZ">Czechia</option><option value="DK">Denmark</option>
+                  <option value="HU">Hungary</option><option value="LT">Lithuania</option><option value="LV">Latvia</option>
+                  <option value="EE">Estonia</option><option value="SI">Slovenia</option><option value="SK">Slovakia</option>
+                  <option value="CY">Cyprus</option><option value="MT">Malta</option><option value="LU">Luxembourg</option>
+                </select>
+                <input id="research-year-from" type="number" min="2000" max="2026" placeholder="Year from"
+                  class="w-28 px-3 py-2 rounded-lg bg-surface-container border border-outline-variant/30 text-on-surface text-xs placeholder:text-on-surface-variant/50">
+                <input id="research-year-to" type="number" min="2000" max="2026" placeholder="Year to"
+                  class="w-28 px-3 py-2 rounded-lg bg-surface-container border border-outline-variant/30 text-on-surface text-xs placeholder:text-on-surface-variant/50">
+                <label class="flex items-center gap-1.5 text-xs text-on-surface-variant cursor-pointer">
+                  <input id="research-oa-only" type="checkbox" checked class="accent-primary">
+                  Open Access only
+                </label>
+              </div>
+            </div>
+            <div id="research-results-info" class="hidden mb-4 text-sm text-on-surface-variant"></div>
+            <div id="research-results" class="space-y-3"></div>
+            <div id="research-pagination" class="hidden flex items-center justify-center gap-3 mt-6">
+              <button id="research-prev" class="px-4 py-2 rounded-lg bg-surface-container border border-outline-variant/30 text-on-surface text-sm hover:bg-surface-container-high transition-colors disabled:opacity-30">Previous</button>
+              <span id="research-page-info" class="text-sm text-on-surface-variant"></span>
+              <button id="research-next" class="px-4 py-2 rounded-lg bg-surface-container border border-outline-variant/30 text-on-surface text-sm hover:bg-surface-container-high transition-colors disabled:opacity-30">Next</button>
+            </div>
+          </div>
+
+          <!-- Upload paper modal -->
+          <div id="paper-upload-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/40">
+            <div class="bg-surface rounded-2xl shadow-xl p-6 w-full max-w-md mx-4">
+              <h2 class="text-lg font-bold text-primary mb-4">Upload a paper or report</h2>
+              <form id="paper-upload-form" class="space-y-4">
+                <div>
+                  <label class="block text-sm font-medium text-on-surface mb-1">File (PDF)</label>
+                  <input type="file" id="paper-file" accept=".pdf" required
+                    class="block w-full text-sm text-on-surface file:mr-3 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-bold file:bg-primary/10 file:text-primary hover:file:bg-primary/20"/>
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-on-surface mb-1">Title</label>
+                  <input type="text" id="paper-title" placeholder="Paper title" required
+                    class="w-full px-3 py-2 rounded-lg border border-outline-variant/40 text-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none"/>
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-on-surface mb-1">Authors</label>
+                  <input type="text" id="paper-authors" placeholder="Author 1, Author 2..."
+                    class="w-full px-3 py-2 rounded-lg border border-outline-variant/40 text-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none"/>
+                </div>
+                <div class="flex gap-3">
+                  <div class="flex-1">
+                    <label class="block text-sm font-medium text-on-surface mb-1">Year</label>
+                    <input type="number" id="paper-year" min="1990" max="2026" placeholder="2024"
+                      class="w-full px-3 py-2 rounded-lg border border-outline-variant/40 text-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none"/>
+                  </div>
+                  <div class="flex-1">
+                    <label class="block text-sm font-medium text-on-surface mb-1">Visibility</label>
+                    <select id="paper-visibility" class="w-full px-3 py-2 rounded-lg border border-outline-variant/40 text-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none">
+                      <option value="public">Public (share with all users)</option>
+                      <option value="private">Private (only me)</option>
+                    </select>
+                  </div>
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-on-surface mb-1">Topics / Tags</label>
+                  <input type="text" id="paper-topics" placeholder="e.g. STEM, inclusion, digital education"
+                    class="w-full px-3 py-2 rounded-lg border border-outline-variant/40 text-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none"/>
+                </div>
+                <div class="flex justify-end gap-3 pt-2">
+                  <button type="button" id="btn-cancel-paper-upload" class="px-4 py-2 text-sm text-on-surface-variant hover:text-on-surface transition-colors">Cancel</button>
+                  <button type="submit" class="px-4 py-2.5 rounded-lg text-sm font-bold bg-sidebar text-secondary-fixed hover:opacity-90 transition-opacity">Upload</button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
       <!-- ══ PANEL ADMIN ══════════════════════════════════════════ -->
       <section id="panel-admin" class="panel">
         <div class="max-w-6xl mx-auto py-8 px-4">
@@ -868,6 +1006,7 @@ tailwind.config = {
             <button data-section="eligibility" class="px-4 py-2.5 text-sm border-b-2 border-transparent text-on-surface-variant transition-colors hover:text-primary">Elegibilidad</button>
             <button data-section="all-docs" class="px-4 py-2.5 text-sm border-b-2 border-transparent text-on-surface-variant transition-colors hover:text-primary">Todos los docs</button>
             <button data-section="platform-docs" class="px-4 py-2.5 text-sm border-b-2 border-transparent text-on-surface-variant transition-colors hover:text-primary">Docs oficiales</button>
+            <button data-section="library" class="px-4 py-2.5 text-sm border-b-2 border-transparent text-on-surface-variant transition-colors hover:text-primary">Biblioteca</button>
           </div>
 
           <!-- ── Convocatorias ─────────────────────────────────── -->
@@ -1163,6 +1302,68 @@ tailwind.config = {
                     <button type="submit" class="px-4 py-2.5 rounded-lg text-sm font-bold bg-sidebar text-secondary-fixed hover:opacity-90 transition-opacity">Subir</button>
                   </div>
                 </form>
+              </div>
+            </div>
+          </div>
+
+          <!-- ── Biblioteca (Research Library) ─────────────────── -->
+          <div id="admin-sec-library" class="admin-section hidden">
+            <div class="bg-white rounded-xl border border-outline-variant/30 overflow-hidden">
+              <div class="px-5 py-4 border-b border-outline-variant/20">
+                <div class="flex items-center justify-between mb-3">
+                  <h2 class="font-semibold text-primary">Biblioteca de investigación</h2>
+                  <div class="flex items-center gap-2">
+                    <span id="library-stats" class="text-xs text-on-surface-variant"></span>
+                    <button id="btn-process-all-sources" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold bg-green-600 text-white hover:bg-green-700 transition-colors">
+                      <span class="material-symbols-outlined text-[14px]">downloading</span>
+                      Vectorize All OA
+                    </button>
+                  </div>
+                </div>
+                <!-- Search within library -->
+                <form id="library-search-form" class="flex gap-3">
+                  <div class="flex-1 relative">
+                    <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[18px]">search</span>
+                    <input id="library-search-query" type="text" placeholder="Search OpenAlex — e.g. digital inclusion education Europe"
+                      class="w-full pl-9 pr-4 py-2.5 rounded-lg bg-surface-container border border-outline-variant/30 text-on-surface text-sm placeholder:text-on-surface-variant/50 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary">
+                  </div>
+                  <select id="library-search-country" class="px-3 py-2 rounded-lg bg-surface-container border border-outline-variant/30 text-on-surface text-xs">
+                    <option value="">All countries</option>
+                    <option value="ES">Spain</option><option value="IT">Italy</option><option value="FR">France</option>
+                    <option value="DE">Germany</option><option value="PT">Portugal</option><option value="PL">Poland</option>
+                    <option value="GR">Greece</option><option value="NL">Netherlands</option><option value="BE">Belgium</option>
+                    <option value="AT">Austria</option><option value="IE">Ireland</option><option value="SE">Sweden</option>
+                    <option value="FI">Finland</option><option value="RO">Romania</option><option value="BG">Bulgaria</option>
+                    <option value="HR">Croatia</option><option value="CZ">Czechia</option><option value="DK">Denmark</option>
+                    <option value="HU">Hungary</option><option value="LT">Lithuania</option><option value="LV">Latvia</option>
+                    <option value="EE">Estonia</option><option value="SI">Slovenia</option><option value="SK">Slovakia</option>
+                    <option value="CY">Cyprus</option><option value="MT">Malta</option><option value="LU">Luxembourg</option>
+                  </select>
+                  <label class="flex items-center gap-1.5 text-xs text-on-surface-variant cursor-pointer whitespace-nowrap">
+                    <input id="library-search-oa" type="checkbox" checked class="accent-primary">
+                    Open Access
+                  </label>
+                  <button type="submit" class="px-5 py-2.5 rounded-lg bg-sidebar text-secondary-fixed text-sm font-semibold hover:opacity-90 transition-opacity">
+                    Search
+                  </button>
+                </form>
+              </div>
+
+              <!-- Search results / Library content -->
+              <div id="library-content" class="p-4">
+                <!-- Tabs: Search Results | In Library -->
+                <div class="flex gap-4 mb-4 border-b border-outline-variant/20 pb-2">
+                  <button id="library-tab-search" class="text-sm font-bold text-primary border-b-2 border-primary pb-1">Search Results</button>
+                  <button id="library-tab-saved" class="text-sm text-on-surface-variant hover:text-primary pb-1">In Library (<span id="library-count">0</span>)</button>
+                </div>
+                <div id="library-search-results" class="space-y-2"></div>
+                <div id="library-saved-list" class="space-y-2 hidden"></div>
+                <!-- Pagination -->
+                <div id="library-pagination" class="hidden flex items-center justify-center gap-3 mt-4">
+                  <button id="library-prev" class="px-3 py-1.5 rounded-lg bg-surface-container border border-outline-variant/30 text-on-surface text-xs hover:bg-surface-container-high transition-colors disabled:opacity-30">Prev</button>
+                  <span id="library-page-info" class="text-xs text-on-surface-variant"></span>
+                  <button id="library-next" class="px-3 py-1.5 rounded-lg bg-surface-container border border-outline-variant/30 text-on-surface text-xs hover:bg-surface-container-high transition-colors disabled:opacity-30">Next</button>
+                </div>
               </div>
             </div>
           </div>
@@ -1591,6 +1792,7 @@ tailwind.config = {
 <script src="/js/calculator.js"></script>
 <script src="/js/organizations.js"></script>
 <script src="/js/documents.js"></script>
+<script src="/js/research.js"></script>
 
 <!-- ── Mini modal (reemplaza prompt/confirm nativos) ────────── -->
 <div id="mini-modal" class="hidden fixed inset-0 z-50 flex items-end sm:items-center justify-center p-4 bg-black/40">

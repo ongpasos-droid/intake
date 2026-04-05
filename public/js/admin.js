@@ -44,6 +44,7 @@ const Admin = (() => {
       case 'evaluator':   loadEvaluator(); break;
       case 'all-docs':      loadAllDocs(); break;
       case 'platform-docs': loadPlatformDocs(); break;
+      case 'library':       loadAdminLibrary(); break;
     }
   }
 
@@ -1579,6 +1580,225 @@ const Admin = (() => {
         loadPlatformDocs();
       } catch (e) { Toast.show('Error: ' + e.message, 'error'); }
     });
+  }
+
+  /* ═══════════════════════════════════════════════════════════════
+     Admin Library — search OpenAlex & manage research library
+     ═══════════════════════════════════════════════════════════════ */
+
+  let libResults = null;
+  let libPage = 1;
+  let libTab = 'search';
+  let libInitialized = false;
+
+  function loadAdminLibrary() {
+    if (!libInitialized) {
+      bindLibraryEvents();
+      libInitialized = true;
+    }
+    loadLibraryStats();
+    showLibTab('saved');
+  }
+
+  function bindLibraryEvents() {
+    document.getElementById('library-search-form')?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      libPage = 1;
+      searchLibrary();
+    });
+    document.getElementById('library-tab-search')?.addEventListener('click', () => showLibTab('search'));
+    document.getElementById('library-tab-saved')?.addEventListener('click', () => showLibTab('saved'));
+    document.getElementById('library-prev')?.addEventListener('click', () => { if (libPage > 1) { libPage--; searchLibrary(); } });
+    document.getElementById('library-next')?.addEventListener('click', () => { libPage++; searchLibrary(); });
+    document.getElementById('btn-process-all-sources')?.addEventListener('click', async () => {
+      try {
+        await API.post('/research/process-all');
+        Toast.show('Vectorization started for all pending OA sources', 'ok');
+      } catch (e) { Toast.show(e.message, 'error'); }
+    });
+  }
+
+  function showLibTab(tab) {
+    libTab = tab;
+    const searchTab = document.getElementById('library-tab-search');
+    const savedTab = document.getElementById('library-tab-saved');
+    const searchList = document.getElementById('library-search-results');
+    const savedList = document.getElementById('library-saved-list');
+    const pagination = document.getElementById('library-pagination');
+
+    if (tab === 'search') {
+      searchTab.classList.add('font-bold', 'text-primary', 'border-b-2', 'border-primary');
+      savedTab.classList.remove('font-bold', 'text-primary', 'border-b-2', 'border-primary');
+      searchList.classList.remove('hidden');
+      savedList.classList.add('hidden');
+      if (libResults) pagination.classList.remove('hidden');
+    } else {
+      savedTab.classList.add('font-bold', 'text-primary', 'border-b-2', 'border-primary');
+      searchTab.classList.remove('font-bold', 'text-primary', 'border-b-2', 'border-primary');
+      searchList.classList.add('hidden');
+      savedList.classList.remove('hidden');
+      pagination.classList.add('hidden');
+      loadLibrarySaved();
+    }
+  }
+
+  async function loadLibraryStats() {
+    try {
+      const sources = await API.get('/research/library');
+      document.getElementById('library-count').textContent = sources.length;
+      document.getElementById('library-stats').textContent = `${sources.length} sources in library`;
+    } catch (_) {}
+  }
+
+  async function searchLibrary() {
+    const q = document.getElementById('library-search-query').value.trim();
+    if (!q) return;
+
+    const params = new URLSearchParams({ q, page: libPage, per_page: 20, open_access: '1' });
+    const country = document.getElementById('library-search-country').value;
+    if (country) params.set('country', country);
+    if (!document.getElementById('library-search-oa').checked) params.delete('open_access');
+
+    const container = document.getElementById('library-search-results');
+    container.innerHTML = '<div class="text-center py-8 text-on-surface-variant text-sm">Searching OpenAlex...</div>';
+
+    try {
+      const data = await API.get(`/research/search?${params}`);
+      libResults = data;
+      showLibTab('search');
+
+      if (!data.results.length) {
+        container.innerHTML = '<div class="text-center py-8 text-on-surface-variant text-sm">No results found.</div>';
+        document.getElementById('library-pagination').classList.add('hidden');
+        return;
+      }
+
+      container.innerHTML = data.results.map((r, i) => `
+        <div class="flex items-start gap-3 py-3 ${i > 0 ? 'border-t border-outline-variant/10' : ''}">
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center gap-2 mb-0.5 flex-wrap">
+              ${r.is_open_access ? '<span class="text-[10px] font-bold text-green-600">OA</span>' : '<span class="text-[10px] text-on-surface-variant/50">Closed</span>'}
+              <span class="text-[11px] text-on-surface-variant">${r.publication_year || ''}</span>
+              ${r.citation_count ? `<span class="text-[11px] text-on-surface-variant">Cited: ${r.citation_count}</span>` : ''}
+            </div>
+            <h4 class="text-xs font-bold text-on-surface leading-snug">${esc(r.title)}</h4>
+            ${r.abstract ? `<p class="text-[11px] text-on-surface-variant/70 mt-0.5 line-clamp-1">${esc(r.abstract.slice(0, 200))}</p>` : ''}
+            ${r.topics?.length ? `<div class="flex flex-wrap gap-1 mt-1">${r.topics.slice(0, 3).map(t => `<span class="inline-block px-1 py-0.5 rounded bg-primary/8 text-primary text-[9px]">${esc(t)}</span>`).join('')}</div>` : ''}
+          </div>
+          <div class="flex-shrink-0">
+            ${r.saved_id
+              ? '<span class="text-[11px] text-green-600 font-medium">Saved</span>'
+              : `<button class="lib-save-btn px-2.5 py-1 rounded-lg bg-primary/10 text-primary text-[11px] font-medium hover:bg-primary/20 transition-colors" data-idx="${i}">+ Add</button>`
+            }
+          </div>
+        </div>
+      `).join('');
+
+      container.querySelectorAll('.lib-save-btn').forEach(btn => {
+        btn.addEventListener('click', () => addToLibrary(parseInt(btn.dataset.idx)));
+      });
+
+      // Pagination
+      const totalPages = Math.ceil(data.total / data.perPage);
+      const pg = document.getElementById('library-pagination');
+      if (totalPages > 1) {
+        pg.classList.remove('hidden');
+        document.getElementById('library-page-info').textContent = `${data.page} / ${totalPages}`;
+        document.getElementById('library-prev').disabled = data.page <= 1;
+        document.getElementById('library-next').disabled = data.page >= totalPages;
+      } else {
+        pg.classList.add('hidden');
+      }
+    } catch (e) {
+      container.innerHTML = `<div class="text-center py-8 text-error text-sm">${esc(e.message)}</div>`;
+    }
+  }
+
+  async function addToLibrary(idx) {
+    const r = libResults?.results?.[idx];
+    if (!r) return;
+    try {
+      const saved = await API.post('/research/sources', {
+        external_id: r.external_id, source_api: 'openalex',
+        title: r.title, authors: r.authors, publication_year: r.publication_year,
+        abstract: r.abstract, url: r.url, pdf_url: r.pdf_url,
+        language: r.language, is_open_access: r.is_open_access,
+        citation_count: r.citation_count, topics: r.topics,
+      });
+      r.saved_id = saved.id;
+      searchLibrary(); // re-render
+      loadLibraryStats();
+      Toast.show('Added to library', 'ok');
+    } catch (e) { Toast.show(e.message, 'error'); }
+  }
+
+  async function loadLibrarySaved() {
+    const container = document.getElementById('library-saved-list');
+    container.innerHTML = '<div class="text-center py-8 text-on-surface-variant text-sm">Loading...</div>';
+    try {
+      const sources = await API.get('/research/sources?all=true');
+      if (!sources.length) {
+        container.innerHTML = '<div class="text-center py-8 text-on-surface-variant text-sm">Library is empty. Search and add sources above.</div>';
+        return;
+      }
+      container.innerHTML = sources.map((s, i) => `
+        <div class="flex items-start gap-3 py-3 ${i > 0 ? 'border-t border-outline-variant/10' : ''}">
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center gap-2 mb-0.5 flex-wrap">
+              ${s.is_open_access ? '<span class="text-[10px] font-bold text-green-600">OA</span>' : ''}
+              <span class="text-[11px] text-on-surface-variant">${s.publication_year || ''}</span>
+              <span class="text-[10px] px-1 py-0.5 rounded ${s.source_api === 'upload' ? 'bg-purple-500/10 text-purple-600' : 'bg-blue-500/10 text-blue-600'}">${s.source_api === 'upload' ? 'Uploaded' : 'OpenAlex'}</span>
+              ${s.status === 'vectorized'
+                ? '<span class="text-[10px] px-1.5 py-0.5 rounded bg-green-500/10 text-green-600 font-bold">Vectorized</span>'
+                : s.status === 'error'
+                  ? `<button class="lib-vectorize-btn text-[10px] px-1.5 py-0.5 rounded bg-error/10 text-error font-medium hover:bg-error/20 cursor-pointer" data-id="${s.id}">Error — Retry</button>`
+                  : s.pdf_url || s.source_api === 'upload'
+                    ? `<button class="lib-vectorize-btn text-[10px] px-1.5 py-0.5 rounded bg-amber-500/10 text-amber-600 font-medium hover:bg-amber-500/20 cursor-pointer" data-id="${s.id}">Vectorize</button>`
+                    : '<span class="text-[10px] px-1.5 py-0.5 rounded bg-surface-container text-on-surface-variant/50">No PDF</span>'
+              }
+            </div>
+            <h4 class="text-xs font-bold text-on-surface leading-snug">${esc(s.title)}</h4>
+            ${s.topics?.length ? `<div class="flex flex-wrap gap-1 mt-1">${s.topics.slice(0, 4).map(t => `<span class="inline-block px-1 py-0.5 rounded bg-primary/8 text-primary text-[9px]">${esc(t)}</span>`).join('')}</div>` : ''}
+          </div>
+          <button class="lib-del-btn flex-shrink-0 p-1.5 rounded-lg text-on-surface-variant hover:text-error hover:bg-error/10 transition-colors" data-id="${s.id}">
+            <span class="material-symbols-outlined text-[16px]">delete</span>
+          </button>
+        </div>
+      `).join('');
+
+      container.querySelectorAll('.lib-vectorize-btn').forEach(btn => {
+        btn.addEventListener('click', async () => {
+          btn.textContent = 'Processing...';
+          btn.disabled = true;
+          try {
+            await API.post(`/research/sources/${btn.dataset.id}/download`);
+            Toast.show('Download & vectorization started', 'ok');
+            setTimeout(() => { loadLibrarySaved(); loadLibraryStats(); }, 4000);
+          } catch (e) { Toast.show(e.message, 'error'); btn.textContent = 'Retry'; btn.disabled = false; }
+        });
+      });
+
+      container.querySelectorAll('.lib-del-btn').forEach(btn => {
+        btn.addEventListener('click', async () => {
+          if (!confirm('Remove from library?')) return;
+          try {
+            await API.del(`/research/sources/${btn.dataset.id}`);
+            Toast.show('Removed', 'ok');
+            loadLibrarySaved();
+            loadLibraryStats();
+          } catch (e) { Toast.show(e.message, 'error'); }
+        });
+      });
+    } catch (e) {
+      container.innerHTML = `<div class="text-center py-8 text-error text-sm">${esc(e.message)}</div>`;
+    }
+  }
+
+  function esc(str) {
+    if (!str) return '';
+    const d = document.createElement('div');
+    d.textContent = str;
+    return d.innerHTML;
   }
 
   return { init, openEdit, confirmDelete };

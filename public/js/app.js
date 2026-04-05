@@ -145,6 +145,7 @@ const App = (() => {
       evaluator:  'Evaluator',
       partners:   'Partners',
       'my-documents': 'My Documents',
+      research:       'Research',
       'my-org':       'Mi Organización',
       organizations:  'Organizaciones',
       admin:          'Admin — Data E+'
@@ -164,6 +165,7 @@ const App = (() => {
     if (route === 'my-documents' && typeof Documents !== 'undefined') Documents.init();
     if (route === 'my-org' && typeof Organizations !== 'undefined') Organizations.initMyOrg();
     if (route === 'organizations' && typeof Organizations !== 'undefined') Organizations.initDirectory();
+    if (route === 'research' && typeof Research !== 'undefined') Research.init();
   }
 
   /* ── Toggle sidebar (mobile) ───────────────────────────────── */
