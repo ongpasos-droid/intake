@@ -51,11 +51,12 @@ app.use('/v1/intake', require('./node/src/modules/intake/routes'));
 app.use('/v1/calculator', require('./node/src/modules/calculator/routes'));
 app.use('/v1/admin', require('./node/src/modules/admin/routes'));
 
+app.use('/v1/organizations', require('./node/src/modules/organizations/routes'));
+
 // Future modules:
 // app.use('/v1/planner',     require('./node/src/modules/planner/routes'));
 // app.use('/v1/developer',   require('./node/src/modules/developer/routes'));
 // app.use('/v1/evaluator',   require('./node/src/modules/evaluator/routes'));
-// app.use('/v1/partners-db', require('./node/src/modules/partners/routes'));
 
 /* ── SPA fallback — serve index.html for all non-API routes ─── */
 app.get('*', (req, res) => {

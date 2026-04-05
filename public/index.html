@@ -203,7 +203,7 @@ tailwind.config = {
         Intake
       </a>
       <a href="#calculator"
-        class="nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-white/70 hover:bg-white/10 transition-colors text-sm font-medium opacity-40 pointer-events-none"
+        class="nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-white/70 hover:bg-white/10 transition-colors text-sm font-medium"
         data-route="calculator">
         <span class="material-symbols-outlined text-[20px]">calculate</span>
         Calculator
@@ -226,11 +226,17 @@ tailwind.config = {
         <span class="material-symbols-outlined text-[20px]">fact_check</span>
         Evaluator
       </a>
-      <a href="#partners"
-        class="nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-white/70 hover:bg-white/10 transition-colors text-sm font-medium opacity-40 pointer-events-none"
-        data-route="partners">
-        <span class="material-symbols-outlined text-[20px]">groups</span>
-        Partners
+      <a href="#my-org"
+        class="nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-white/70 hover:bg-white/10 transition-colors text-sm font-medium"
+        data-route="my-org">
+        <span class="material-symbols-outlined text-[20px]">apartment</span>
+        Mi Organización
+      </a>
+      <a href="#organizations"
+        class="nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-white/70 hover:bg-white/10 transition-colors text-sm font-medium"
+        data-route="organizations">
+        <span class="material-symbols-outlined text-[20px]">corporate_fare</span>
+        Organizaciones
       </a>
 
       <!-- Admin — solo visible para role=admin -->
@@ -986,6 +992,684 @@ tailwind.config = {
         </div>
       </section>
 
+      <!-- ══ PANEL CALCULATOR ═════════════════════════════════════ -->
+      <section id="panel-calculator" class="panel">
+        <div class="max-w-4xl mx-auto">
+
+          <!-- Progress bar (5 steps) -->
+          <nav class="flex items-center mb-10" id="calc-step-nav">
+            <div class="flex items-center gap-2 cursor-pointer" data-step="0">
+              <div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold font-headline border-2 border-primary bg-primary text-white transition-all" id="calc-sd0">1</div>
+              <span class="font-headline text-xs font-bold uppercase tracking-widest text-primary transition-colors hidden sm:inline" id="calc-sl0">Project</span>
+            </div>
+            <div class="flex-1 h-px bg-outline-variant mx-2 transition-colors" id="calc-sc0"></div>
+            <div class="flex items-center gap-2 cursor-pointer" data-step="1">
+              <div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold font-headline border-2 border-outline-variant bg-surface text-on-surface-variant transition-all" id="calc-sd1">2</div>
+              <span class="font-headline text-xs font-bold uppercase tracking-widest text-on-surface-variant transition-colors hidden sm:inline" id="calc-sl1">Parameters</span>
+            </div>
+            <div class="flex-1 h-px bg-outline-variant mx-2 transition-colors" id="calc-sc1"></div>
+            <div class="flex items-center gap-2 cursor-pointer" data-step="2">
+              <div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold font-headline border-2 border-outline-variant bg-surface text-on-surface-variant transition-all" id="calc-sd2">3</div>
+              <span class="font-headline text-xs font-bold uppercase tracking-widest text-on-surface-variant transition-colors hidden sm:inline" id="calc-sl2">Work Pkg</span>
+            </div>
+            <div class="flex-1 h-px bg-outline-variant mx-2 transition-colors" id="calc-sc2"></div>
+            <div class="flex items-center gap-2 cursor-pointer" data-step="3">
+              <div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold font-headline border-2 border-outline-variant bg-surface text-on-surface-variant transition-all" id="calc-sd3">4</div>
+              <span class="font-headline text-xs font-bold uppercase tracking-widest text-on-surface-variant transition-colors hidden sm:inline" id="calc-sl3">Financing</span>
+            </div>
+            <div class="flex-1 h-px bg-outline-variant mx-2 transition-colors" id="calc-sc3"></div>
+            <div class="flex items-center gap-2 cursor-pointer" data-step="4">
+              <div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold font-headline border-2 border-outline-variant bg-surface text-on-surface-variant transition-all" id="calc-sd4">5</div>
+              <span class="font-headline text-xs font-bold uppercase tracking-widest text-on-surface-variant transition-colors hidden sm:inline" id="calc-sl4">Results</span>
+            </div>
+          </nav>
+
+          <!-- STEP 0: Select Project -->
+          <div class="calc-step" id="calc-p0">
+            <h1 class="font-headline text-3xl font-extrabold tracking-tighter text-primary mb-1">Select Project</h1>
+            <p class="text-on-surface-variant text-base mb-8">Choose an existing project to calculate its budget.</p>
+
+            <div class="flex items-center gap-2 text-[11px] font-bold uppercase tracking-widest text-on-surface-variant mb-3">
+              <span class="material-symbols-outlined text-sm">folder_open</span>
+              <span>Your projects</span><div class="flex-1 h-px bg-outline-variant"></div>
+            </div>
+            <div id="calc-project-list" class="flex flex-col gap-2 mb-8"></div>
+
+            <div id="calc-project-details" class="hidden">
+              <div class="flex items-center gap-2 text-[11px] font-bold uppercase tracking-widest text-on-surface-variant mb-3">
+                <span>Project details</span><div class="flex-1 h-px bg-outline-variant"></div>
+              </div>
+              <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 mb-4" id="calc-project-info-grid"></div>
+
+              <div class="flex items-center gap-2 text-[11px] font-bold uppercase tracking-widest text-on-surface-variant mb-3 mt-6">
+                <span class="material-symbols-outlined text-sm">group</span>
+                <span>Partners</span><div class="flex-1 h-px bg-outline-variant"></div>
+              </div>
+              <div id="calc-partner-list" class="flex flex-col gap-1.5 mb-4"></div>
+            </div>
+
+            <div class="flex justify-end mt-6">
+              <button class="calc-btn-next inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-primary text-white font-semibold text-sm hover:bg-primary/90 transition-colors">
+                Next <span class="material-symbols-outlined text-lg">arrow_forward</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- STEP 1: Parameters -->
+          <div class="calc-step" style="display:none" id="calc-p1">
+            <h1 class="font-headline text-3xl font-extrabold tracking-tighter text-primary mb-1">Parameters</h1>
+            <p class="text-on-surface-variant text-base mb-8">Configure per diem rates, worker rates and travel routes. These values feed all budget calculations.</p>
+
+            <!-- Per Diem Rates -->
+            <div class="bg-white rounded-xl border border-outline-variant/30 p-5 mb-5">
+              <div class="flex items-center gap-2 text-[11px] font-bold uppercase tracking-widest text-on-surface-variant mb-3">
+                <span class="material-symbols-outlined text-sm">hotel</span>
+                <span>Per diem rates by partner</span>
+              </div>
+              <p class="text-xs text-on-surface-variant mb-3">Accommodation and subsistence adjusted per partner country. Editable.</p>
+              <div class="overflow-x-auto" id="calc-perdiem-table"></div>
+            </div>
+
+            <!-- Worker Rates -->
+            <div class="bg-white rounded-xl border border-outline-variant/30 p-5 mb-5">
+              <div class="flex items-center gap-2 text-[11px] font-bold uppercase tracking-widest text-on-surface-variant mb-3">
+                <span class="material-symbols-outlined text-sm">badge</span>
+                <span>Worker rates by partner &amp; category</span>
+              </div>
+              <p class="text-xs text-on-surface-variant mb-3">Daily rates per worker category for Intellectual Outputs.</p>
+              <div class="overflow-x-auto" id="calc-worker-table"></div>
+            </div>
+
+            <!-- Route Matrix -->
+            <div class="bg-white rounded-xl border border-outline-variant/30 p-5 mb-5">
+              <div class="flex items-center gap-2 text-[11px] font-bold uppercase tracking-widest text-on-surface-variant mb-3">
+                <span class="material-symbols-outlined text-sm">flight</span>
+                <span>Route matrix</span>
+                <div class="flex-1"></div>
+                <button id="calc-btn-add-route" class="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-[11px] font-bold uppercase tracking-widest text-primary hover:bg-primary/10 transition-colors">
+                  <span class="material-symbols-outlined text-sm">add</span> Add Route
+                </button>
+              </div>
+              <p class="text-xs text-on-surface-variant mb-3">Travel cost per participant (round trip). Select distance band or enter a custom rate.</p>
+              <div class="overflow-x-auto" id="calc-route-table"></div>
+            </div>
+
+            <div class="flex justify-between mt-6">
+              <button class="calc-btn-prev inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-outline-variant text-on-surface-variant font-semibold text-sm hover:bg-surface-container-low transition-colors">
+                <span class="material-symbols-outlined text-lg">arrow_back</span> Back
+              </button>
+              <button class="calc-btn-next inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-primary text-white font-semibold text-sm hover:bg-primary/90 transition-colors">
+                Next <span class="material-symbols-outlined text-lg">arrow_forward</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- STEP 2: Work Packages -->
+          <div class="calc-step" style="display:none" id="calc-p2">
+            <h1 class="font-headline text-3xl font-extrabold tracking-tighter text-primary mb-1">Work Packages</h1>
+            <p class="text-on-surface-variant text-base mb-8">Add activities to each Work Package. The budget updates live.</p>
+
+            <!-- Live summary bar -->
+            <div id="calc-live-bar" class="bg-primary rounded-2xl px-5 py-4 mb-6 text-white flex flex-wrap items-center gap-5">
+              <div class="flex-1 min-w-[120px]">
+                <div class="text-[10px] font-bold uppercase tracking-widest opacity-50">Total calculated</div>
+                <div class="font-headline text-2xl font-extrabold" id="calc-live-total">&euro;0</div>
+              </div>
+              <div class="min-w-[100px]">
+                <div class="text-[10px] font-bold uppercase tracking-widest opacity-50">Target</div>
+                <div class="text-sm font-bold opacity-80" id="calc-live-target">&euro;0</div>
+              </div>
+              <div class="min-w-[100px]">
+                <div class="text-[10px] font-bold uppercase tracking-widest opacity-50">Difference</div>
+                <div class="text-sm font-bold" id="calc-live-diff">&mdash;</div>
+              </div>
+              <div class="flex-[2] min-w-[140px]">
+                <div class="text-[10px] opacity-40 mb-1">Budget usage</div>
+                <div class="h-1.5 rounded-full bg-white/15 overflow-hidden">
+                  <div id="calc-live-pct-bar" class="h-full rounded-full bg-white transition-all" style="width:0%"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-2 text-[11px] font-bold uppercase tracking-widest text-on-surface-variant mb-3">
+              <span class="material-symbols-outlined text-sm">inventory_2</span>
+              <span>Work packages</span><div class="flex-1 h-px bg-outline-variant"></div>
+              <button id="calc-btn-add-wp" class="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-[11px] font-bold uppercase tracking-widest text-primary hover:bg-primary/10 transition-colors">
+                <span class="material-symbols-outlined text-sm">add</span> Add WP
+              </button>
+            </div>
+            <div id="calc-wp-list" class="flex flex-col gap-3 mb-8"></div>
+
+            <div class="flex justify-between mt-6">
+              <button class="calc-btn-prev inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-outline-variant text-on-surface-variant font-semibold text-sm hover:bg-surface-container-low transition-colors">
+                <span class="material-symbols-outlined text-lg">arrow_back</span> Back
+              </button>
+              <button class="calc-btn-next inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-primary text-white font-semibold text-sm hover:bg-primary/90 transition-colors">
+                Next <span class="material-symbols-outlined text-lg">arrow_forward</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- STEP 3: Financing -->
+          <div class="calc-step" style="display:none" id="calc-p3">
+            <h1 class="font-headline text-3xl font-extrabold tracking-tighter text-primary mb-1">Financing</h1>
+            <p class="text-on-surface-variant text-base mb-8">Verify the calculated budget against the grant target and co-financing split.</p>
+            <div id="calc-financing-content"></div>
+
+            <div class="flex justify-between mt-6">
+              <button class="calc-btn-prev inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-outline-variant text-on-surface-variant font-semibold text-sm hover:bg-surface-container-low transition-colors">
+                <span class="material-symbols-outlined text-lg">arrow_back</span> Back
+              </button>
+              <button class="calc-btn-next inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-primary text-white font-semibold text-sm hover:bg-primary/90 transition-colors">
+                View Results <span class="material-symbols-outlined text-lg">arrow_forward</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- STEP 4: Results -->
+          <div class="calc-step" style="display:none" id="calc-p4">
+            <h1 class="font-headline text-3xl font-extrabold tracking-tighter text-primary mb-1">Budget Results</h1>
+            <p class="text-on-surface-variant text-base mb-8">Full budget breakdown for your project.</p>
+
+            <div id="calc-results-content"></div>
+
+            <div class="flex justify-start mt-6">
+              <button class="calc-btn-prev inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-outline-variant text-on-surface-variant font-semibold text-sm hover:bg-surface-container-low transition-colors">
+                <span class="material-symbols-outlined text-lg">arrow_back</span> Back
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ═══ PANEL: MI ORGANIZACIÓN ═══════════════════════════ -->
+      <section id="panel-my-org" class="panel">
+        <div class="max-w-5xl mx-auto py-8 px-4">
+          <h1 class="font-headline text-2xl font-extrabold text-primary mb-6">Mi Organización</h1>
+
+          <!-- Tab nav -->
+          <div id="myorg-tab-nav" class="flex gap-1 overflow-x-auto border-b border-outline-variant/30 mb-6 pb-0">
+            <button data-tab="general"    class="px-4 py-2.5 text-sm font-medium whitespace-nowrap border-b-2 border-secondary-fixed text-primary font-bold">Datos generales</button>
+            <button data-tab="legal-rep"  class="px-4 py-2.5 text-sm font-medium whitespace-nowrap text-on-surface-variant">Representante legal</button>
+            <button data-tab="contact"    class="px-4 py-2.5 text-sm font-medium whitespace-nowrap text-on-surface-variant">Persona contacto</button>
+            <button data-tab="experience" class="px-4 py-2.5 text-sm font-medium whitespace-nowrap text-on-surface-variant">Experiencia</button>
+            <button data-tab="eu-projects" class="px-4 py-2.5 text-sm font-medium whitespace-nowrap text-on-surface-variant">Proyectos UE</button>
+            <button data-tab="accreditations" class="px-4 py-2.5 text-sm font-medium whitespace-nowrap text-on-surface-variant">Acreditaciones</button>
+            <button data-tab="key-staff"  class="px-4 py-2.5 text-sm font-medium whitespace-nowrap text-on-surface-variant">Personal clave</button>
+            <button data-tab="stakeholders" class="px-4 py-2.5 text-sm font-medium whitespace-nowrap text-on-surface-variant">Stakeholders</button>
+            <button data-tab="assoc"      class="px-4 py-2.5 text-sm font-medium whitespace-nowrap text-on-surface-variant">Socios asociados</button>
+          </div>
+
+          <!-- TAB: General -->
+          <div id="myorg-tab-general" class="myorg-tab">
+            <div class="bg-white rounded-xl border border-outline-variant/30 p-6">
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="md:col-span-2">
+                  <label class="block text-xs font-semibold text-on-surface-variant mb-1">Nombre de la organización *</label>
+                  <input data-field="organization_name" type="text" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm" placeholder="Ej: Permacultura Cantabria">
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-on-surface-variant mb-1">Nombre legal completo (idioma nacional)</label>
+                  <input data-field="legal_name_national" type="text" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm">
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-on-surface-variant mb-1">Nombre legal completo (caracteres latinos)</label>
+                  <input data-field="legal_name_latin" type="text" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm">
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-on-surface-variant mb-1">Tipo de organización</label>
+                  <select data-field="org_type" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm">
+                    <option value="">— Seleccionar —</option>
+                    <option>NGO</option><option>University</option><option>School/Institute</option>
+                    <option>Research Centre</option><option>SME</option><option>Large Enterprise</option>
+                    <option>Public body</option><option>Foundation</option><option>Social enterprise</option><option>Other</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-on-surface-variant mb-1">Acrónimo</label>
+                  <input data-field="acronym" type="text" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm">
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-on-surface-variant mb-1">PIC</label>
+                  <input data-field="pic" type="text" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm" placeholder="940435371">
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-on-surface-variant mb-1">NIF / ID Nacional</label>
+                  <input data-field="national_id" type="text" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm">
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-on-surface-variant mb-1">Fecha de fundación</label>
+                  <input data-field="foundation_date" type="date" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm">
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-on-surface-variant mb-1">País</label>
+                  <input data-field="country" type="text" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm">
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-on-surface-variant mb-1">Región</label>
+                  <input data-field="region" type="text" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm">
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-on-surface-variant mb-1">Ciudad</label>
+                  <input data-field="city" type="text" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm">
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-on-surface-variant mb-1">Dirección</label>
+                  <input data-field="address" type="text" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm">
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-on-surface-variant mb-1">Código postal</label>
+                  <input data-field="post_code" type="text" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm">
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-on-surface-variant mb-1">P.O. Box</label>
+                  <input data-field="po_box" type="text" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm">
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-on-surface-variant mb-1">CEDEX</label>
+                  <input data-field="cedex" type="text" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm">
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-on-surface-variant mb-1">Web</label>
+                  <input data-field="website" type="url" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm">
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-on-surface-variant mb-1">Email</label>
+                  <input data-field="email" type="email" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm">
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-on-surface-variant mb-1">Teléfono 1</label>
+                  <input data-field="telephone1" type="tel" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm">
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-on-surface-variant mb-1">Teléfono 2</label>
+                  <input data-field="telephone2" type="tel" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm">
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-on-surface-variant mb-1">Fax</label>
+                  <input data-field="fax" type="tel" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm">
+                </div>
+                <div class="flex items-center gap-6 md:col-span-2">
+                  <label class="flex items-center gap-2 text-sm"><input data-field="is_public_body" type="checkbox" class="rounded border-outline-variant/40"> Public body</label>
+                  <label class="flex items-center gap-2 text-sm"><input data-field="is_non_profit" type="checkbox" class="rounded border-outline-variant/40"> Non-profit</label>
+                  <label class="flex items-center gap-2 text-sm"><input data-field="is_public" type="checkbox" class="rounded border-outline-variant/40" checked> Visible en directorio</label>
+                </div>
+              </div>
+              <div class="mt-6 flex justify-end">
+                <button onclick="Organizations.saveSection('myorg-tab-general')" class="bg-primary text-white px-6 py-2.5 rounded-lg text-sm font-semibold hover:bg-primary/90 transition-colors">Guardar datos generales</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- TAB: Legal Representative -->
+          <div id="myorg-tab-legal-rep" class="myorg-tab hidden">
+            <div class="bg-white rounded-xl border border-outline-variant/30 p-6">
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-xs font-semibold text-on-surface-variant mb-1">Título</label>
+                  <select data-field="legal_rep_title" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm">
+                    <option value="">—</option><option>Mr.</option><option>Mrs.</option><option>Ms.</option><option>Dr.</option><option>Prof.</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-on-surface-variant mb-1">Género</label>
+                  <select data-field="legal_rep_gender" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm">
+                    <option value="">—</option><option>Male</option><option>Female</option><option>Other</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-on-surface-variant mb-1">Nombre</label>
+                  <input data-field="legal_rep_first_name" type="text" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm">
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-on-surface-variant mb-1">Apellidos</label>
+                  <input data-field="legal_rep_family_name" type="text" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm">
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-on-surface-variant mb-1">Departamento</label>
+                  <input data-field="legal_rep_department" type="text" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm">
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-on-surface-variant mb-1">Cargo</label>
+                  <input data-field="legal_rep_position" type="text" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm">
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-on-surface-variant mb-1">Email</label>
+                  <input data-field="legal_rep_email" type="email" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm">
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-on-surface-variant mb-1">Teléfono 1</label>
+                  <input data-field="legal_rep_telephone1" type="tel" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm">
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-on-surface-variant mb-1">Teléfono 2</label>
+                  <input data-field="legal_rep_telephone2" type="tel" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm">
+                </div>
+                <div class="flex items-center">
+                  <label class="flex items-center gap-2 text-sm"><input data-field="legal_rep_same_address" type="checkbox" class="rounded border-outline-variant/40" checked> Misma dirección que la organización</label>
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-on-surface-variant mb-1">Dirección (si diferente)</label>
+                  <input data-field="legal_rep_address" type="text" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm">
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-on-surface-variant mb-1">País</label>
+                  <input data-field="legal_rep_country" type="text" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm">
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-on-surface-variant mb-1">Región</label>
+                  <input data-field="legal_rep_region" type="text" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm">
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-on-surface-variant mb-1">Ciudad</label>
+                  <input data-field="legal_rep_city" type="text" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm">
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-on-surface-variant mb-1">Código postal</label>
+                  <input data-field="legal_rep_post_code" type="text" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm">
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-on-surface-variant mb-1">CEDEX</label>
+                  <input data-field="legal_rep_cedex" type="text" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm">
+                </div>
+              </div>
+              <div class="mt-6 flex justify-end">
+                <button onclick="Organizations.saveSection('myorg-tab-legal-rep')" class="bg-primary text-white px-6 py-2.5 rounded-lg text-sm font-semibold hover:bg-primary/90 transition-colors">Guardar representante legal</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- TAB: Contact Person -->
+          <div id="myorg-tab-contact" class="myorg-tab hidden">
+            <div class="bg-white rounded-xl border border-outline-variant/30 p-6">
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-xs font-semibold text-on-surface-variant mb-1">Título</label>
+                  <select data-field="cp_title" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm">
+                    <option value="">—</option><option>Mr.</option><option>Mrs.</option><option>Ms.</option><option>Dr.</option><option>Prof.</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-on-surface-variant mb-1">Género</label>
+                  <select data-field="cp_gender" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm">
+                    <option value="">—</option><option>Male</option><option>Female</option><option>Other</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-on-surface-variant mb-1">Nombre</label>
+                  <input data-field="cp_first_name" type="text" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm">
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-on-surface-variant mb-1">Apellidos</label>
+                  <input data-field="cp_family_name" type="text" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm">
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-on-surface-variant mb-1">Departamento</label>
+                  <input data-field="cp_department" type="text" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm">
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-on-surface-variant mb-1">Cargo</label>
+                  <input data-field="cp_position" type="text" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm">
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-on-surface-variant mb-1">Email</label>
+                  <input data-field="cp_email" type="email" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm">
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-on-surface-variant mb-1">Teléfono 1</label>
+                  <input data-field="cp_telephone1" type="tel" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm">
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-on-surface-variant mb-1">Teléfono 2</label>
+                  <input data-field="cp_telephone2" type="tel" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm">
+                </div>
+                <div class="flex items-center">
+                  <label class="flex items-center gap-2 text-sm"><input data-field="cp_same_address" type="checkbox" class="rounded border-outline-variant/40" checked> Misma dirección que la organización</label>
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-on-surface-variant mb-1">Dirección (si diferente)</label>
+                  <input data-field="cp_address" type="text" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm">
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-on-surface-variant mb-1">País</label>
+                  <input data-field="cp_country" type="text" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm">
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-on-surface-variant mb-1">Región</label>
+                  <input data-field="cp_region" type="text" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm">
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-on-surface-variant mb-1">Ciudad</label>
+                  <input data-field="cp_city" type="text" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm">
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-on-surface-variant mb-1">Código postal</label>
+                  <input data-field="cp_post_code" type="text" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm">
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-on-surface-variant mb-1">CEDEX</label>
+                  <input data-field="cp_cedex" type="text" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm">
+                </div>
+              </div>
+              <div class="mt-6 flex justify-end">
+                <button onclick="Organizations.saveSection('myorg-tab-contact')" class="bg-primary text-white px-6 py-2.5 rounded-lg text-sm font-semibold hover:bg-primary/90 transition-colors">Guardar persona de contacto</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- TAB: Experience -->
+          <div id="myorg-tab-experience" class="myorg-tab hidden">
+            <div class="bg-white rounded-xl border border-outline-variant/30 p-6 space-y-4">
+              <div>
+                <label class="block text-xs font-semibold text-on-surface-variant mb-1">Descripción de la organización</label>
+                <textarea data-field="description" rows="8" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm" placeholder="Tipo, tamaño, ámbito de trabajo, áreas de expertise, contexto social..."></textarea>
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-on-surface-variant mb-1">Actividades y experiencia relevante</label>
+                <textarea data-field="activities_experience" rows="8" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm" placeholder="Actividades, experiencia y competencias del personal clave..."></textarea>
+              </div>
+              <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div>
+                  <label class="block text-xs font-semibold text-on-surface-variant mb-1">Tamaño staff (aprox.)</label>
+                  <input data-field="staff_size" type="number" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm" placeholder="40">
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-on-surface-variant mb-1">Proyectos UE por año</label>
+                  <input data-field="annual_projects" type="number" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm" placeholder="3">
+                </div>
+                <div class="flex items-end">
+                  <label class="flex items-center gap-2 text-sm"><input data-field="has_training_facilities" type="checkbox" class="rounded border-outline-variant/40"> Instalaciones de formación</label>
+                </div>
+                <div class="flex items-end">
+                  <label class="flex items-center gap-2 text-sm"><input data-field="has_digital_infrastructure" type="checkbox" class="rounded border-outline-variant/40"> Infraestructura digital</label>
+                </div>
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-on-surface-variant mb-1">Áreas de expertise (separadas por comas)</label>
+                <input data-field="expertise_areas" type="text" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm" placeholder="Youth, Sustainability, Digital, Inclusion...">
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-on-surface-variant mb-1">Roles Erasmus (separados por comas)</label>
+                <input data-field="erasmus_roles" type="text" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm" placeholder="Coordinator, Partner, Hosting organisation...">
+              </div>
+              <div class="flex items-center">
+                <label class="flex items-center gap-2 text-sm"><input data-field="has_eu_projects" type="checkbox" class="rounded border-outline-variant/40"> Ha participado en proyectos UE en los últimos 3 años</label>
+              </div>
+              <div class="flex justify-end">
+                <button onclick="Organizations.saveSection('myorg-tab-experience')" class="bg-primary text-white px-6 py-2.5 rounded-lg text-sm font-semibold hover:bg-primary/90 transition-colors">Guardar experiencia</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- TAB: EU Projects -->
+          <div id="myorg-tab-eu-projects" class="myorg-tab hidden">
+            <div class="bg-white rounded-xl border border-outline-variant/30 overflow-hidden">
+              <div class="flex items-center justify-between px-4 py-3 border-b border-outline-variant/20">
+                <h3 class="text-sm font-semibold text-primary">Proyectos UE concedidos</h3>
+                <button onclick="Organizations.addChild('eu-projects')" class="flex items-center gap-1 text-xs font-semibold text-primary hover:text-primary/80">
+                  <span class="material-symbols-outlined text-[18px]">add_circle</span> Añadir
+                </button>
+              </div>
+              <div class="overflow-x-auto">
+                <table class="w-full text-sm">
+                  <thead class="bg-surface-container-low text-xs text-on-surface-variant uppercase">
+                    <tr>
+                      <th class="px-3 py-2 text-left">Programa</th>
+                      <th class="px-3 py-2 text-left">Año</th>
+                      <th class="px-3 py-2 text-left">ID Contrato</th>
+                      <th class="px-3 py-2 text-left">Rol</th>
+                      <th class="px-3 py-2 text-left">Título</th>
+                      <th class="px-3 py-2 text-right">Acciones</th>
+                    </tr>
+                  </thead>
+                  <tbody id="org-eu-projects-tbody">
+                    <tr><td colspan="6" class="py-4 text-center text-on-surface-variant text-sm">Cargando...</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- TAB: Accreditations -->
+          <div id="myorg-tab-accreditations" class="myorg-tab hidden">
+            <div class="bg-white rounded-xl border border-outline-variant/30 overflow-hidden">
+              <div class="flex items-center justify-between px-4 py-3 border-b border-outline-variant/20">
+                <h3 class="text-sm font-semibold text-primary">Acreditaciones</h3>
+                <button onclick="Organizations.addChild('accreditations')" class="flex items-center gap-1 text-xs font-semibold text-primary hover:text-primary/80">
+                  <span class="material-symbols-outlined text-[18px]">add_circle</span> Añadir
+                </button>
+              </div>
+              <div class="overflow-x-auto">
+                <table class="w-full text-sm">
+                  <thead class="bg-surface-container-low text-xs text-on-surface-variant uppercase">
+                    <tr>
+                      <th class="px-3 py-2 text-left">Tipo de acreditación</th>
+                      <th class="px-3 py-2 text-left">Referencia</th>
+                      <th class="px-3 py-2 text-right">Acciones</th>
+                    </tr>
+                  </thead>
+                  <tbody id="org-accreditations-tbody">
+                    <tr><td colspan="3" class="py-4 text-center text-on-surface-variant text-sm">Cargando...</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- TAB: Key Staff -->
+          <div id="myorg-tab-key-staff" class="myorg-tab hidden">
+            <div class="bg-white rounded-xl border border-outline-variant/30 overflow-hidden">
+              <div class="flex items-center justify-between px-4 py-3 border-b border-outline-variant/20">
+                <h3 class="text-sm font-semibold text-primary">Personal clave (capacidad operativa)</h3>
+                <button onclick="Organizations.addChild('key-staff')" class="flex items-center gap-1 text-xs font-semibold text-primary hover:text-primary/80">
+                  <span class="material-symbols-outlined text-[18px]">add_circle</span> Añadir
+                </button>
+              </div>
+              <div class="overflow-x-auto">
+                <table class="w-full text-sm">
+                  <thead class="bg-surface-container-low text-xs text-on-surface-variant uppercase">
+                    <tr>
+                      <th class="px-3 py-2 text-left">Nombre</th>
+                      <th class="px-3 py-2 text-left">Cargo</th>
+                      <th class="px-3 py-2 text-left">Competencias y experiencia</th>
+                      <th class="px-3 py-2 text-right">Acciones</th>
+                    </tr>
+                  </thead>
+                  <tbody id="org-key-staff-tbody">
+                    <tr><td colspan="3" class="py-4 text-center text-on-surface-variant text-sm">Cargando...</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- TAB: Stakeholders -->
+          <div id="myorg-tab-stakeholders" class="myorg-tab hidden">
+            <div class="bg-white rounded-xl border border-outline-variant/30 overflow-hidden">
+              <div class="flex items-center justify-between px-4 py-3 border-b border-outline-variant/20">
+                <h3 class="text-sm font-semibold text-primary">Stakeholders (entidades relacionadas)</h3>
+                <button onclick="Organizations.addChild('stakeholders')" class="flex items-center gap-1 text-xs font-semibold text-primary hover:text-primary/80">
+                  <span class="material-symbols-outlined text-[18px]">add_circle</span> Añadir
+                </button>
+              </div>
+              <div class="overflow-x-auto">
+                <table class="w-full text-sm">
+                  <thead class="bg-surface-container-low text-xs text-on-surface-variant uppercase">
+                    <tr>
+                      <th class="px-3 py-2 text-left">Entidad</th>
+                      <th class="px-3 py-2 text-left">Tipo relación</th>
+                      <th class="px-3 py-2 text-left">Descripción</th>
+                      <th class="px-3 py-2 text-right">Acciones</th>
+                    </tr>
+                  </thead>
+                  <tbody id="org-stakeholders-tbody">
+                    <tr><td colspan="4" class="py-4 text-center text-on-surface-variant text-sm">Cargando...</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- TAB: Associated Partners -->
+          <div id="myorg-tab-assoc" class="myorg-tab hidden">
+            <div class="bg-white rounded-xl border border-outline-variant/30 overflow-hidden">
+              <div class="flex items-center justify-between px-4 py-3 border-b border-outline-variant/20">
+                <h3 class="text-sm font-semibold text-primary">Socios asociados</h3>
+                <button onclick="Organizations.addChild('associated-partners')" class="flex items-center gap-1 text-xs font-semibold text-primary hover:text-primary/80">
+                  <span class="material-symbols-outlined text-[18px]">add_circle</span> Añadir
+                </button>
+              </div>
+              <div class="overflow-x-auto">
+                <table class="w-full text-sm">
+                  <thead class="bg-surface-container-low text-xs text-on-surface-variant uppercase">
+                    <tr>
+                      <th class="px-3 py-2 text-left">Nombre</th>
+                      <th class="px-3 py-2 text-left">País</th>
+                      <th class="px-3 py-2 text-left">Ciudad</th>
+                      <th class="px-3 py-2 text-left">Tipo</th>
+                      <th class="px-3 py-2 text-left">Contacto</th>
+                      <th class="px-3 py-2 text-left">Relación</th>
+                      <th class="px-3 py-2 text-right">Acciones</th>
+                    </tr>
+                  </thead>
+                  <tbody id="org-associated-partners-tbody">
+                    <tr><td colspan="5" class="py-4 text-center text-on-surface-variant text-sm">Cargando...</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ═══ PANEL: DIRECTORIO ORGANIZACIONES ═════════════════ -->
+      <section id="panel-organizations" class="panel">
+        <div class="max-w-6xl mx-auto py-8 px-4">
+          <h1 class="font-headline text-2xl font-extrabold text-primary mb-6">Directorio de Organizaciones</h1>
+
+          <!-- Filters -->
+          <div class="flex flex-wrap gap-3 mb-6">
+            <input id="org-dir-search" type="text" placeholder="Buscar por nombre, ciudad o PIC..."
+              class="flex-1 min-w-[200px] border border-outline-variant/40 rounded-lg px-3 py-2 text-sm">
+            <input id="org-dir-country" type="text" placeholder="País"
+              class="w-36 border border-outline-variant/40 rounded-lg px-3 py-2 text-sm">
+            <select id="org-dir-type" class="w-44 border border-outline-variant/40 rounded-lg px-3 py-2 text-sm">
+              <option value="">Todos los tipos</option>
+              <option>NGO</option><option>University</option><option>School/Institute</option>
+              <option>Research Centre</option><option>SME</option><option>Large Enterprise</option>
+              <option>Public body</option><option>Foundation</option><option>Social enterprise</option><option>Other</option>
+            </select>
+          </div>
+
+          <!-- Org cards grid -->
+          <div id="org-dir-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div class="col-span-full py-12 text-center text-on-surface-variant">Cargando organizaciones...</div>
+          </div>
+        </div>
+      </section>
+
     </main>
   </div>
 </div>
@@ -999,6 +1683,8 @@ tailwind.config = {
 <script src="/js/app.js"></script>
 <script src="/js/intake.js"></script>
 <script src="/js/admin.js"></script>
+<script src="/js/organizations.js"></script>
+<script src="/js/calculator.js"></script>
 
 <!-- ── Mini modal (reemplaza prompt/confirm nativos) ────────── -->
 <div id="mini-modal" class="hidden fixed inset-0 z-50 flex items-end sm:items-center justify-center p-4 bg-black/40">

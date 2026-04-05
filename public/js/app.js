@@ -143,8 +143,10 @@ const App = (() => {
       planner:    'Planner',
       developer:  'Developer',
       evaluator:  'Evaluator',
-      partners:   'Partners',
-      admin:      'Admin — Data E+'
+      partners:       'Partners',
+      'my-org':       'Mi Organización',
+      organizations:  'Organizaciones',
+      admin:          'Admin — Data E+'
     };
     document.getElementById('topbar-title').textContent = titles[route] || 'E+ Tools';
 
@@ -157,6 +159,9 @@ const App = (() => {
       }
     }
     if (route === 'admin' && typeof Admin !== 'undefined') Admin.init();
+    if (route === 'calculator' && typeof Calculator !== 'undefined') Calculator.init();
+    if (route === 'my-org' && typeof Organizations !== 'undefined') Organizations.initMyOrg();
+    if (route === 'organizations' && typeof Organizations !== 'undefined') Organizations.initDirectory();
   }
 
   /* ── Toggle sidebar (mobile) ───────────────────────────────── */
