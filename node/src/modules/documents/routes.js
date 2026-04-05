@@ -14,6 +14,9 @@ function requireAdmin(req, res, next) {
   next();
 }
 
+/* ── Semantic Search ─────────────────────────────────────────── */
+router.post  ('/search',     requireAuth, ctrl.searchDocuments);
+
 /* ── My Documents (user private) ─────────────────────────────── */
 router.get   ('/my',         requireAuth, ctrl.listMyDocs);
 router.post  ('/my',         requireAuth, upload.single('file'), ctrl.uploadMyDoc);

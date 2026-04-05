@@ -1,0 +1,98 @@
+/* ═══════════════════════════════════════════════════════════════
+   Vectorize Service — extract text, chunk, embed, store
+   Reads files from local disk (public/uploads/documents/)
+   ═══════════════════════════════════════════════════════════════ */
+
+const fs = require('fs/promises');
+const path = require('path');
+const db = require('../utils/db');
+const { generateEmbedding } = require('./embeddings');
+
+const CHUNK_SIZE   = 500;  // words per chunk
+const CHUNK_OVERLAP = 50;  // overlap words between chunks
+
+/* ── Text extraction by file type ────────────────────────────── */
+
+async function extractText(buffer, mimeType) {
+  if (mimeType === 'application/pdf') {
+    const { PDFParse } = require('pdf-parse');
+    const uint8 = new Uint8Array(buffer.buffer, buffer.byteOffset, buffer.byteLength);
+    const parser = new PDFParse(uint8);
+    const result = await parser.getText();
+    return result.pages.map(p => p.text).join('\n');
+  }
+
+  if (mimeType === 'application/vnd.openxmlformats-officedocument.wordprocessingml.document') {
+    const mammoth = require('mammoth');
+    const result = await mammoth.extractRawText({ buffer });
+    return result.value;
+  }
+
+  // TXT, CSV, etc.
+  return buffer.toString('utf-8');
+}
+
+/* ── Chunking ────────────────────────────────────────────────── */
+
+function chunkText(text) {
+  const words = text.split(/\s+/).filter(Boolean);
+  if (words.length === 0) return [];
+
+  const chunks = [];
+  let start = 0;
+  while (start < words.length) {
+    const end = Math.min(start + CHUNK_SIZE, words.length);
+    chunks.push(words.slice(start, end).join(' '));
+    if (end >= words.length) break;
+    start += CHUNK_SIZE - CHUNK_OVERLAP;
+  }
+  return chunks;
+}
+
+/* ── Main pipeline ───────────────────────────────────────────── */
+
+/**
+ * Process a document: read from disk → extract text → chunk → embed → store
+ * @param {number} documentId — ID from MySQL documents table
+ * @param {object} meta — { storage_path, file_type }
+ */
+async function processDocument(documentId, meta) {
+  console.log(`[VECTORIZE] Processing document ${documentId}...`);
+
+  try {
+    // 1. Read file from local disk
+    const fullPath = path.join(__dirname, '../../..', 'public', meta.storage_path);
+    const buffer = await fs.readFile(fullPath);
+
+    // 2. Extract text
+    const text = await extractText(buffer, meta.file_type);
+    if (!text || text.trim().length === 0) {
+      console.warn(`[VECTORIZE] No text extracted from ${documentId}`);
+      return;
+    }
+
+    // 3. Chunk
+    const chunks = chunkText(text);
+    console.log(`[VECTORIZE] ${chunks.length} chunks from document ${documentId}`);
+
+    // 4. Delete old chunks (re-processing)
+    await db.execute('DELETE FROM document_chunks WHERE document_id = ?', [documentId]);
+
+    // 5. Embed + store each chunk
+    for (let i = 0; i < chunks.length; i++) {
+      const embedding = await generateEmbedding(chunks[i]);
+      const tokens = chunks[i].split(/\s+/).length;
+      await db.execute(
+        'INSERT INTO document_chunks (document_id, chunk_index, content, embedding, tokens) VALUES (?, ?, ?, ?, ?)',
+        [documentId, i, chunks[i], JSON.stringify(embedding), tokens]
+      );
+    }
+
+    console.log(`[VECTORIZE] Done: ${documentId} — ${chunks.length} chunks stored`);
+  } catch (err) {
+    console.error(`[VECTORIZE] Error processing ${documentId}:`, err.message);
+    throw err;
+  }
+}
+
+module.exports = { processDocument, extractText, chunkText };

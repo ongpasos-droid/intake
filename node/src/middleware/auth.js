@@ -15,7 +15,7 @@ function signToken(user) {
       subscription: user.subscription || 'free'
     },
     SECRET(),
-    { expiresIn: '1h' }
+    { expiresIn: '8h' }
   );
 }
 

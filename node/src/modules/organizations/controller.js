@@ -1,5 +1,6 @@
 /* ── Organizations Controller ─────────────────────────────────── */
 const m = require('./model');
+const path = require('path');
 
 const ok  = (res, data) => res.json({ ok: true, data });
 const err = (res, msg, status = 400) =>
@@ -84,5 +85,16 @@ exports.deleteChild = async (req, res) => {
     if (!owner && req.user.role !== 'admin') return err(res, 'Forbidden', 403);
     await m.deleteChild(req.params.type, req.params.id, req.params.orgId);
     ok(res, null);
+  } catch (e) { err(res, e.message, 500); }
+};
+
+exports.uploadLogo = async (req, res) => {
+  try {
+    if (!req.file) return err(res, 'No file uploaded');
+    const existing = await m.getOrgByUserId(req.user.id);
+    if (!existing) return err(res, 'Create your organization first', 404);
+    const logoUrl = '/uploads/logos/' + req.file.filename;
+    await m.upsertOrg({ logo_url: logoUrl }, existing.id);
+    ok(res, { logo_url: logoUrl });
   } catch (e) { err(res, e.message, 500); }
 };

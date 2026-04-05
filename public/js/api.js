@@ -59,5 +59,20 @@ const API = (() => {
   const put   = (path, body, opts) => request('PUT',    path, body, opts);
   const del   = (path, opts)       => request('DELETE', path, null, opts);
 
-  return { setToken, getToken, clearToken, get, post, patch, put, del, tryRefresh };
+  /* ── Proactive refresh: renew token every 45 min ──────────── */
+  let refreshTimer = null;
+
+  function startAutoRefresh() {
+    stopAutoRefresh();
+    refreshTimer = setInterval(async () => {
+      if (!accessToken) return stopAutoRefresh();
+      await tryRefresh();
+    }, 45 * 60 * 1000); // 45 minutes
+  }
+
+  function stopAutoRefresh() {
+    if (refreshTimer) { clearInterval(refreshTimer); refreshTimer = null; }
+  }
+
+  return { setToken, getToken, clearToken, get, post, patch, put, del, tryRefresh, startAutoRefresh, stopAutoRefresh };
 })();

@@ -91,6 +91,26 @@ const Organizations = (() => {
       });
     });
 
+    // Logo upload
+    document.getElementById('myorg-logo-input')?.addEventListener('change', async (e) => {
+      const file = e.target.files[0];
+      if (!file) return;
+      if (file.size > 2 * 1024 * 1024) { Toast.show('El archivo es demasiado grande (máx. 2 MB)', 'error'); return; }
+      const form = new FormData();
+      form.append('logo', file);
+      try {
+        const res = await fetch('/v1/organizations/mine/logo', {
+          method: 'POST',
+          headers: { 'Authorization': 'Bearer ' + API.getToken() },
+          body: form
+        });
+        const json = await res.json();
+        if (!json.ok) throw json.error;
+        showLogoPreview(json.data.logo_url);
+        Toast.show('Logo actualizado', 'ok');
+      } catch (err) { Toast.show(err.message || 'Error subiendo logo', 'error'); }
+    });
+
     // Save buttons
     document.querySelectorAll('[data-org-save]').forEach(btn => {
       btn.addEventListener('click', () => saveSection(btn.dataset.orgSave));
@@ -128,6 +148,25 @@ const Organizations = (() => {
         el.value = val != null ? val : '';
       }
     });
+    showLogoPreview(org.logo_url);
+  }
+
+  function showLogoPreview(url) {
+    const container = document.getElementById('myorg-logo-preview');
+    const placeholder = document.getElementById('myorg-logo-placeholder');
+    if (!container) return;
+    if (url) {
+      const img = container.querySelector('img') || document.createElement('img');
+      img.src = url + '?t=' + Date.now();
+      img.alt = 'Logo';
+      img.className = 'w-full h-full object-contain';
+      if (!container.querySelector('img')) container.appendChild(img);
+      if (placeholder) placeholder.style.display = 'none';
+    } else {
+      const img = container.querySelector('img');
+      if (img) img.remove();
+      if (placeholder) placeholder.style.display = '';
+    }
   }
 
   function collectSection(sectionId) {

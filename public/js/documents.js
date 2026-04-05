@@ -58,7 +58,7 @@ const Documents = (() => {
     try {
       const res = await fetch('/v1/documents/my', {
         method: 'POST',
-        headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` },
+        headers: { 'Authorization': `Bearer ${API.getToken()}` },
         body: formData,
       });
       const json = await res.json();
@@ -78,11 +78,8 @@ const Documents = (() => {
   /* ── Load documents ─────────────────────────────────────────── */
   async function loadDocs() {
     try {
-      const res = await API.get('/documents/my');
-      if (res.ok) {
-        docs = res.data;
-        render();
-      }
+      docs = await API.get('/documents/my');
+      render();
     } catch (err) {
       console.error('Failed to load documents:', err);
     }
@@ -109,6 +106,7 @@ const Documents = (() => {
           <h3 class="text-sm font-bold text-on-surface truncate">${esc(doc.title)}</h3>
           <p class="text-xs text-on-surface-variant mt-0.5">
             ${formatFileSize(doc.file_size_bytes)} · ${formatDate(doc.created_at)}
+            ${doc.status && doc.status !== 'active' ? ` · <span class="inline-block px-1.5 py-0.5 rounded text-[10px] font-medium ${doc.status === 'processing' ? 'bg-warning/10 text-warning' : 'bg-error/10 text-error'}">${doc.status}</span>` : ''}
             ${doc.tags?.length ? ' · ' + doc.tags.map(t => `<span class="inline-block px-1.5 py-0.5 rounded bg-primary/8 text-primary text-[10px] font-medium">${esc(t)}</span>`).join(' ') : ''}
           </p>
           ${doc.description ? `<p class="text-xs text-on-surface-variant mt-1 truncate">${esc(doc.description)}</p>` : ''}
@@ -129,15 +127,11 @@ const Documents = (() => {
   async function deleteDoc(id) {
     if (!confirm('Delete this document?')) return;
     try {
-      const res = await API.del(`/documents/my/${id}`);
-      if (res.ok) {
-        Toast.show('Document deleted', 'ok');
-        await loadDocs();
-      } else {
-        Toast.show(res.error?.message || 'Delete failed', 'error');
-      }
+      await API.del(`/documents/my/${id}`);
+      Toast.show('Document deleted', 'ok');
+      await loadDocs();
     } catch (err) {
-      Toast.show('Delete failed', 'error');
+      Toast.show(err.message || 'Delete failed', 'error');
     }
   }
 

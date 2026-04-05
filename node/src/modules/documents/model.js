@@ -1,147 +1,156 @@
-/* ── Documents Model — Supabase ────────────────────────────���─── */
-const supabase = require('../../utils/supabase');
+/* ── Documents Model — MySQL + local disk ─────────────────────── */
+const db = require('../../utils/db');
+const fs = require('fs/promises');
+const path = require('path');
+
+const UPLOAD_DIR = path.join(__dirname, '../../../../public/uploads/documents');
+
+/* ── Ensure upload directory exists ─────────────────────────── */
+fs.mkdir(UPLOAD_DIR, { recursive: true }).catch(() => {});
 
 /* ── Documents CRUD ──────────────────────────────────────────── */
 
-/** List documents by owner (platform docs or user private docs) */
-async function listDocuments({ ownerType, ownerId, status = 'active' }) {
-  let q = supabase
-    .from('documents')
-    .select('*')
-    .eq('status', status)
-    .order('created_at', { ascending: false });
-
-  if (ownerType) q = q.eq('owner_type', ownerType);
-  if (ownerId)   q = q.eq('owner_id', ownerId);
-
-  const { data, error } = await q;
-  if (error) throw new Error(error.message);
-  return data;
+async function listDocuments({ ownerType, ownerId, status }) {
+  let sql = "SELECT * FROM documents WHERE status != 'deleted'";
+  const params = [];
+  if (status) { sql += ' AND status = ?'; params.push(status); }
+  if (ownerType) { sql += ' AND owner_type = ?'; params.push(ownerType); }
+  if (ownerId)   { sql += ' AND owner_id = ?';   params.push(ownerId); }
+  sql += ' ORDER BY created_at DESC';
+  const [rows] = await db.execute(sql, params);
+  return rows.map(parseDoc);
 }
 
-/** Get single document by id */
 async function getDocument(id) {
-  const { data, error } = await supabase
-    .from('documents')
-    .select('*')
-    .eq('id', id)
-    .single();
-  if (error) throw new Error(error.message);
-  return data;
+  const [rows] = await db.execute('SELECT * FROM documents WHERE id = ?', [id]);
+  return rows[0] ? parseDoc(rows[0]) : null;
 }
 
-/** Create a new document record */
 async function createDocument(doc) {
-  const { data, error } = await supabase
-    .from('documents')
-    .insert(doc)
-    .select()
-    .single();
-  if (error) throw new Error(error.message);
-  return data;
+  const tags = JSON.stringify(doc.tags || []);
+  const [result] = await db.execute(
+    `INSERT INTO documents (owner_type, owner_id, title, description, file_type, file_size_bytes, storage_path, tags, status)
+     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+    [doc.owner_type, doc.owner_id || null, doc.title, doc.description || null,
+     doc.file_type || null, doc.file_size_bytes || 0, doc.storage_path || null, tags, doc.status || 'active']
+  );
+  return getDocument(result.insertId);
 }
 
-/** Update document metadata */
 async function updateDocument(id, fields) {
-  fields.updated_at = new Date().toISOString();
-  const { data, error } = await supabase
-    .from('documents')
-    .update(fields)
-    .eq('id', id)
-    .select()
-    .single();
-  if (error) throw new Error(error.message);
-  return data;
+  const allowed = ['title', 'description', 'tags', 'status'];
+  const sets = []; const params = [];
+  for (const key of allowed) {
+    if (fields[key] !== undefined) {
+      sets.push(`${key} = ?`);
+      params.push(key === 'tags' ? JSON.stringify(fields[key]) : fields[key]);
+    }
+  }
+  if (sets.length === 0) return getDocument(id);
+  params.push(id);
+  await db.execute(`UPDATE documents SET ${sets.join(', ')} WHERE id = ?`, params);
+  return getDocument(id);
 }
 
-/** Soft-delete a document */
 async function deleteDocument(id) {
-  const { error } = await supabase
-    .from('documents')
-    .update({ status: 'deleted', updated_at: new Date().toISOString() })
-    .eq('id', id);
-  if (error) throw new Error(error.message);
+  await db.execute("UPDATE documents SET status = 'deleted' WHERE id = ?", [id]);
+}
+
+/* ── File storage (local disk) ───────────────────────────────── */
+
+async function saveFile(buffer, filename) {
+  const filePath = path.join(UPLOAD_DIR, filename);
+  await fs.writeFile(filePath, buffer);
+  return '/uploads/documents/' + filename;
+}
+
+async function removeFile(storagePath) {
+  try {
+    const fullPath = path.join(__dirname, '../../../../public', storagePath);
+    await fs.unlink(fullPath);
+  } catch { /* file may not exist */ }
+}
+
+/** Read file from disk as Buffer */
+async function readFile(storagePath) {
+  const fullPath = path.join(__dirname, '../../../../public', storagePath);
+  return fs.readFile(fullPath);
 }
 
 /* ── Document ↔ Program links ────────────────────────────────── */
 
 async function linkDocumentToProgram(documentId, programId) {
-  const { data, error } = await supabase
-    .from('document_programs')
-    .upsert({ document_id: documentId, program_id: programId }, { onConflict: 'document_id,program_id' })
-    .select()
-    .single();
-  if (error) throw new Error(error.message);
-  return data;
+  await db.execute(
+    'INSERT IGNORE INTO document_programs (document_id, program_id) VALUES (?, ?)',
+    [documentId, programId]
+  );
+  const [rows] = await db.execute(
+    'SELECT * FROM document_programs WHERE document_id = ? AND program_id = ?',
+    [documentId, programId]
+  );
+  return rows[0];
 }
 
 async function unlinkDocumentFromProgram(documentId, programId) {
-  const { error } = await supabase
-    .from('document_programs')
-    .delete()
-    .eq('document_id', documentId)
-    .eq('program_id', programId);
-  if (error) throw new Error(error.message);
+  await db.execute(
+    'DELETE FROM document_programs WHERE document_id = ? AND program_id = ?',
+    [documentId, programId]
+  );
 }
 
 async function getDocumentsByProgram(programId) {
-  const { data, error } = await supabase
-    .from('document_programs')
-    .select('document_id, documents(*)')
-    .eq('program_id', programId);
-  if (error) throw new Error(error.message);
-  return data.map(r => r.documents);
+  const [rows] = await db.execute(
+    `SELECT d.* FROM documents d
+     JOIN document_programs dp ON dp.document_id = d.id
+     WHERE dp.program_id = ? AND d.status != 'deleted'
+     ORDER BY d.created_at DESC`,
+    [programId]
+  );
+  return rows.map(parseDoc);
 }
 
 /* ── Document ↔ Project links ────────────────────────────────── */
 
 async function linkDocumentToProject({ projectId, documentId, source, addedBy }) {
-  const { data, error } = await supabase
-    .from('project_documents')
-    .upsert(
-      { project_id: projectId, document_id: documentId, source, added_by: addedBy },
-      { onConflict: 'project_id,document_id' }
-    )
-    .select()
-    .single();
-  if (error) throw new Error(error.message);
-  return data;
+  await db.execute(
+    `INSERT INTO project_documents (project_id, document_id, source, added_by)
+     VALUES (?, ?, ?, ?)
+     ON DUPLICATE KEY UPDATE source = VALUES(source)`,
+    [projectId, documentId, source || 'user', addedBy]
+  );
+  const [rows] = await db.execute(
+    'SELECT * FROM project_documents WHERE project_id = ? AND document_id = ?',
+    [projectId, documentId]
+  );
+  return rows[0];
 }
 
 async function unlinkDocumentFromProject(projectId, documentId) {
-  const { error } = await supabase
-    .from('project_documents')
-    .delete()
-    .eq('project_id', projectId)
-    .eq('document_id', documentId);
-  if (error) throw new Error(error.message);
+  await db.execute(
+    'DELETE FROM project_documents WHERE project_id = ? AND document_id = ?',
+    [projectId, documentId]
+  );
 }
 
 async function getProjectDocuments(projectId) {
-  const { data, error } = await supabase
-    .from('project_documents')
-    .select('source, added_at, documents(*)')
-    .eq('project_id', projectId)
-    .order('added_at', { ascending: false });
-  if (error) throw new Error(error.message);
-  return data.map(r => ({ ...r.documents, source: r.source, added_at: r.added_at }));
+  const [rows] = await db.execute(
+    `SELECT d.*, pd.source, pd.added_at FROM documents d
+     JOIN project_documents pd ON pd.document_id = d.id
+     WHERE pd.project_id = ? AND d.status != 'deleted'
+     ORDER BY pd.added_at DESC`,
+    [projectId]
+  );
+  return rows.map(r => ({ ...parseDoc(r), source: r.source, added_at: r.added_at }));
 }
 
-/* ── File upload to Supabase Storage ─────────────────────────── */
+/* ── Helpers ─────────────────────────────────────────────────── */
 
-async function uploadFile(bucket, path, buffer, contentType) {
-  const { data, error } = await supabase.storage
-    .from(bucket)
-    .upload(path, buffer, { contentType, upsert: true });
-  if (error) throw new Error(error.message);
-  return data.path;
-}
-
-async function deleteFile(bucket, path) {
-  const { error } = await supabase.storage
-    .from(bucket)
-    .remove([path]);
-  if (error) throw new Error(error.message);
+function parseDoc(row) {
+  if (!row) return null;
+  if (row.tags && typeof row.tags === 'string') {
+    try { row.tags = JSON.parse(row.tags); } catch { row.tags = []; }
+  }
+  return row;
 }
 
 module.exports = {
@@ -150,12 +159,13 @@ module.exports = {
   createDocument,
   updateDocument,
   deleteDocument,
+  saveFile,
+  removeFile,
+  readFile,
   linkDocumentToProgram,
   unlinkDocumentFromProgram,
   getDocumentsByProgram,
   linkDocumentToProject,
   unlinkDocumentFromProject,
   getProjectDocuments,
-  uploadFile,
-  deleteFile,
 };

@@ -4,7 +4,7 @@ const uuid = require('../../utils/uuid');
 
 /* ── Scalar fields for INSERT / UPDATE ───────────────────────── */
 const ORG_FIELDS = [
-  'organization_name','legal_name_national','legal_name_latin','acronym',
+  'organization_name','legal_name_national','legal_name_latin','acronym','logo_url',
   'org_type','national_id','pic','foundation_date','country','region','city',
   'address','post_code','po_box','cedex','website','email','telephone1',
   'telephone2','fax','is_public_body','is_non_profit','description',

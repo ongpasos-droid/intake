@@ -145,7 +145,9 @@ const App = (() => {
       evaluator:  'Evaluator',
       partners:   'Partners',
       'my-documents': 'My Documents',
-      admin:      'Admin — Data E+'
+      'my-org':       'Mi Organización',
+      organizations:  'Organizaciones',
+      admin:          'Admin — Data E+'
     };
     document.getElementById('topbar-title').textContent = titles[route] || 'E+ Tools';
 
@@ -160,6 +162,8 @@ const App = (() => {
     if (route === 'admin' && typeof Admin !== 'undefined') Admin.init();
     if (route === 'calculator' && typeof Calculator !== 'undefined') Calculator.init();
     if (route === 'my-documents' && typeof Documents !== 'undefined') Documents.init();
+    if (route === 'my-org' && typeof Organizations !== 'undefined') Organizations.initMyOrg();
+    if (route === 'organizations' && typeof Organizations !== 'undefined') Organizations.initDirectory();
   }
 
   /* ── Toggle sidebar (mobile) ───────────────────────────────── */

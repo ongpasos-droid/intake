@@ -13,6 +13,7 @@ const Auth = (() => {
       const password = document.getElementById('login-password').value;
       const data = await API.post('/auth/login', { email, password }, { noAuth: true });
       API.setToken(data.access_token);
+      API.startAutoRefresh();
       App.onAuth(data.user);
     } catch (err) {
       showError('login', err.message || 'Login failed');
@@ -31,6 +32,7 @@ const Auth = (() => {
       const password = document.getElementById('reg-password').value;
       const data = await API.post('/auth/register', { name, email, password }, { noAuth: true });
       API.setToken(data.access_token);
+      API.startAutoRefresh();
       App.onAuth(data.user);
     } catch (err) {
       showError('register', err.message || 'Registration failed');
@@ -43,6 +45,7 @@ const Auth = (() => {
     try {
       const data = await API.post('/auth/google', { credential: response.credential }, { noAuth: true });
       API.setToken(data.access_token);
+      API.startAutoRefresh();
       App.onAuth(data.user);
     } catch (err) {
       Toast.show(err.message || 'Google sign-in failed', 'err');
@@ -50,6 +53,7 @@ const Auth = (() => {
   }
 
   async function logout() {
+    API.stopAutoRefresh();
     try { await API.post('/auth/logout'); } catch { /* ignore */ }
     API.clearToken();
     App.onLogout();
@@ -60,6 +64,7 @@ const Auth = (() => {
     if (!refreshed) return false;
     try {
       const user = await API.get('/auth/me');
+      API.startAutoRefresh();
       App.onAuth(user);
       return true;
     } catch {

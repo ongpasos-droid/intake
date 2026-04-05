@@ -22,7 +22,8 @@ app.use(helmet({
   contentSecurityPolicy: {
     directives: {
       defaultSrc:  ["'self'"],
-      scriptSrc:   ["'self'", "'unsafe-inline'", "https://cdn.tailwindcss.com", "https://accounts.google.com", "https://apis.google.com"],
+      scriptSrc:    ["'self'", "'unsafe-inline'", "https://cdn.tailwindcss.com", "https://accounts.google.com", "https://apis.google.com"],
+      scriptSrcAttr:["'unsafe-inline'"],
       styleSrc:    ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com", "https://accounts.google.com"],
       fontSrc:     ["'self'", "https://fonts.gstatic.com"],
       imgSrc:      ["'self'", "data:", "https:"],
@@ -51,7 +52,6 @@ app.use('/v1/intake', require('./node/src/modules/intake/routes'));
 app.use('/v1/calculator', require('./node/src/modules/calculator/routes'));
 app.use('/v1/admin', require('./node/src/modules/admin/routes'));
 app.use('/v1/documents', require('./node/src/modules/documents/routes'));
-
 app.use('/v1/organizations', require('./node/src/modules/organizations/routes'));
 
 // Future modules:
