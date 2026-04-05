@@ -42,6 +42,7 @@ const Admin = (() => {
       case 'entities':    loadEntities(); break;
       case 'eligibility': loadEligibility(); break;
       case 'evaluator':   loadEvaluator(); break;
+      case 'platform-docs': loadPlatformDocs(); break;
     }
   }
 
@@ -1337,6 +1338,105 @@ const Admin = (() => {
           Toast.show('Deleted', 'ok');
         } catch (e) { Toast.show('Error: ' + e.message, 'error'); }
       });
+    });
+  }
+
+  /* ══════════════════════════════════════════════════════════════
+     PLATFORM DOCS — official documents management
+     ══════════════════════════════════════════════════════════════ */
+
+  let platformDocs = [];
+
+  async function loadPlatformDocs() {
+    const container = document.getElementById('admin-docs-list');
+    container.innerHTML = '<p class="text-center py-8 text-on-surface-variant text-sm">Loading...</p>';
+    try {
+      const res = await API.get('/documents/official');
+      platformDocs = res.data || [];
+      renderPlatformDocs();
+    } catch (e) {
+      container.innerHTML = `<p class="text-center py-8 text-red-500 text-sm">Error: ${e.message}</p>`;
+    }
+    bindAdminDocUpload();
+  }
+
+  function renderPlatformDocs() {
+    const container = document.getElementById('admin-docs-list');
+    if (!platformDocs.length) {
+      container.innerHTML = `<div class="text-center py-8 text-on-surface-variant">
+        <span class="material-symbols-outlined text-[36px] opacity-30">description</span>
+        <p class="mt-2 text-sm">No hay documentos oficiales aún.</p>
+      </div>`;
+      return;
+    }
+    container.innerHTML = platformDocs.map(d => {
+      const tags = (d.tags || []).map(t => `<span class="inline-block px-2 py-0.5 rounded-full bg-primary/10 text-primary text-[10px] font-medium">${t}</span>`).join(' ');
+      const size = d.file_size_bytes ? `${(d.file_size_bytes / 1024).toFixed(0)} KB` : '';
+      const date = new Date(d.created_at).toLocaleDateString('es-ES');
+      return `<div class="flex items-center gap-4 p-3 rounded-lg hover:bg-surface-container-low transition-colors border border-outline-variant/20 mb-2">
+        <span class="material-symbols-outlined text-[28px] text-primary/60">description</span>
+        <div class="flex-1 min-w-0">
+          <p class="text-sm font-semibold text-on-surface truncate">${d.title}</p>
+          <p class="text-xs text-on-surface-variant">${d.file_type || ''} · ${size} · ${date}</p>
+          <div class="flex gap-1 mt-1">${tags}</div>
+        </div>
+        <button class="admin-doc-delete text-on-surface-variant hover:text-red-500 transition-colors" data-id="${d.id}" title="Eliminar">
+          <span class="material-symbols-outlined text-[20px]">delete</span>
+        </button>
+      </div>`;
+    }).join('');
+
+    container.querySelectorAll('.admin-doc-delete').forEach(btn => {
+      btn.addEventListener('click', async () => {
+        if (!confirm('¿Eliminar este documento?')) return;
+        try {
+          await API.del('/documents/official/' + btn.dataset.id);
+          Toast.show('Documento eliminado', 'ok');
+          loadPlatformDocs();
+        } catch (e) { Toast.show('Error: ' + e.message, 'error'); }
+      });
+    });
+  }
+
+  function bindAdminDocUpload() {
+    const btn = document.getElementById('btn-admin-upload-doc');
+    const modal = document.getElementById('admin-doc-upload-modal');
+    const cancel = document.getElementById('btn-cancel-admin-upload');
+    const form = document.getElementById('admin-doc-upload-form');
+    if (!btn || btn._bound) return;
+    btn._bound = true;
+
+    btn.addEventListener('click', () => modal.classList.remove('hidden'));
+    cancel.addEventListener('click', () => modal.classList.add('hidden'));
+    modal.addEventListener('click', e => { if (e.target === modal) modal.classList.add('hidden'); });
+
+    form.addEventListener('submit', async e => {
+      e.preventDefault();
+      const fileInput = document.getElementById('admin-doc-file');
+      const file = fileInput.files[0];
+      if (!file) return;
+
+      const fd = new FormData();
+      fd.append('file', file);
+      fd.append('title', document.getElementById('admin-doc-title').value || file.name);
+      fd.append('description', document.getElementById('admin-doc-desc').value);
+      fd.append('tags', document.getElementById('admin-doc-tags').value);
+      fd.append('ownerType', 'platform');
+
+      try {
+        const token = localStorage.getItem('token');
+        const res = await fetch('/v1/documents/official', {
+          method: 'POST',
+          headers: { 'Authorization': 'Bearer ' + token },
+          body: fd
+        });
+        const json = await res.json();
+        if (!json.ok) throw new Error(json.error?.message || 'Upload failed');
+        Toast.show('Documento subido', 'ok');
+        modal.classList.add('hidden');
+        form.reset();
+        loadPlatformDocs();
+      } catch (e) { Toast.show('Error: ' + e.message, 'error'); }
     });
   }
 
