@@ -11,6 +11,21 @@ const Intake = (() => {
   let partners = [{ _local: 1, name: '', city: '', country: '', role: 'applicant', order_index: 1 }];
   let pCounter = 1;
   let currentProjectId = null;
+  let calcInitialized = false;
+  let calcNeedsReinit = false;
+
+  /* ── Step configuration (9 steps) ───────────────────────────── */
+  const STEPS = [
+    { key: 'programa',     label: 'Programa',      icon: 'school',        panel: 'intake-p0' },
+    { key: 'proyecto',     label: 'Proyecto',      icon: 'description',   panel: 'intake-p1' },
+    { key: 'contexto',     label: 'Contexto',      icon: 'edit_note',     panel: 'intake-p2' },
+    { key: 'tarifas',      label: 'Tarifas',       icon: 'euro',          panel: 'intake-dynamic', calc: 'rates' },
+    { key: 'rutas',        label: 'Rutas',         icon: 'route',         panel: 'intake-dynamic', calc: 'routes' },
+    { key: 'wps',          label: 'WPs',           icon: 'account_tree',  panel: 'intake-dynamic', calc: 'mergedWPs' },
+    { key: 'presupuesto',  label: 'Budget',        icon: 'payments',      panel: 'intake-dynamic', calc: 'results' },
+    { key: 'gantt',        label: 'Gantt',         icon: 'timeline',      panel: 'intake-dynamic', calc: 'gantt' },
+    { key: 'resumen',      label: 'Resumen',       icon: 'summarize',     panel: 'intake-p3' },
+  ];
 
   /* ── Word counter config ─────────────────────────────────────── */
   const WC = [
@@ -28,6 +43,7 @@ const Intake = (() => {
       return;
     }
     initialized = true;
+    renderStepNav();
     bindEvents();
     setStep(0);
     loadPrograms();
@@ -37,17 +53,32 @@ const Intake = (() => {
   function startNew() {
     init();
     resetForm();
+    calcInitialized = false;
+    calcNeedsReinit = false;
     setStep(0);
+  }
+
+  /* ── Dynamic step nav ───────────────────────────────────────── */
+  function renderStepNav() {
+    const nav = document.getElementById('intake-step-nav');
+    if (!nav) return;
+    nav.innerHTML = STEPS.map((s, i) => {
+      const dot = `<div class="w-7 h-7 rounded-full flex items-center justify-center text-[10px] font-bold font-headline border-2 border-outline-variant bg-surface text-on-surface-variant transition-all" id="intake-sd${i}">${i + 1}</div>`;
+      const lbl = `<span class="font-headline text-[10px] font-bold uppercase tracking-widest text-on-surface-variant transition-colors hidden sm:inline" id="intake-sl${i}">${s.label}</span>`;
+      const step = `<div class="flex items-center gap-1.5 cursor-pointer intake-progress-step" data-step="${i}">${dot}${lbl}</div>`;
+      const conn = i < STEPS.length - 1 ? `<div class="flex-1 h-px bg-outline-variant mx-1 transition-colors min-w-[8px]" id="intake-sc${i}"></div>` : '';
+      return step + conn;
+    }).join('');
   }
 
   /* ── Event binding ───────────────────────────────────────────── */
   function bindEvents() {
-    // Step navigation
-    document.querySelectorAll('#intake-step-nav [data-step]').forEach(el => {
-      el.addEventListener('click', () => {
-        const s = parseInt(el.dataset.step);
-        if (s <= step) setStep(s);
-      });
+    // Step navigation (delegated since nav is dynamic)
+    document.getElementById('intake-step-nav')?.addEventListener('click', (e) => {
+      const stepEl = e.target.closest('[data-step]');
+      if (!stepEl) return;
+      const s = parseInt(stepEl.dataset.step);
+      if (s <= step) setStep(s);
     });
 
     // Next/Prev buttons
@@ -380,32 +411,60 @@ const Intake = (() => {
 
   /* ── Step navigation ─────────────────────────────────────────── */
   function setStep(s) {
-    document.querySelectorAll('#panel-intake .intake-step').forEach((p, i) => {
-      p.style.display = i === s ? 'block' : 'none';
+    if (s < 0 || s >= STEPS.length) return;
+    const cfg = STEPS[s];
+
+    // Hide all static panels
+    document.querySelectorAll('#panel-intake .intake-step').forEach(p => {
+      p.style.display = 'none';
     });
 
-    for (let i = 0; i <= 3; i++) {
+    // Show the right panel
+    const panel = document.getElementById(cfg.panel);
+    if (panel) panel.style.display = 'block';
+
+    // If it's a calculator step, render into the dynamic container
+    if (cfg.calc) {
+      ensureCalcInit();
+      const container = document.getElementById('intake-calc-container');
+      if (container) {
+        switch (cfg.calc) {
+          case 'rates':     Calculator.renderRatesInto(container); break;
+          case 'routes':    Calculator.renderRoutesInto(container); break;
+          case 'mergedWPs': Calculator.renderMergedWPs(container); break;
+          case 'results':   Calculator.renderResultsInto(container); break;
+          case 'gantt':     Calculator.renderGanttInto(container); break;
+        }
+      }
+    }
+
+    // If going to summary (step 8), build it with budget data
+    if (s === STEPS.length - 1) buildSummary();
+
+    // Update nav dots
+    for (let i = 0; i < STEPS.length; i++) {
       const dot = document.getElementById('intake-sd' + i);
       const lbl = document.getElementById('intake-sl' + i);
-      const con = i < 3 ? document.getElementById('intake-sc' + i) : null;
+      const con = i < STEPS.length - 1 ? document.getElementById('intake-sc' + i) : null;
+      if (!dot) continue;
 
-      dot.className = 'w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold font-headline border-2 transition-all';
+      dot.className = 'w-7 h-7 rounded-full flex items-center justify-center text-[10px] font-bold font-headline border-2 transition-all';
       if (i === s) {
         dot.className += ' border-primary bg-primary text-white';
         dot.textContent = i + 1;
-        lbl.className = 'font-headline text-xs font-bold uppercase tracking-widest text-primary transition-colors';
+        if (lbl) lbl.className = 'font-headline text-[10px] font-bold uppercase tracking-widest text-primary transition-colors hidden sm:inline';
       } else if (i < s) {
         dot.className += ' border-primary bg-primary/10 text-primary';
         dot.textContent = '\u2713';
-        lbl.className = 'font-headline text-xs font-bold uppercase tracking-widest text-on-surface transition-colors';
+        if (lbl) lbl.className = 'font-headline text-[10px] font-bold uppercase tracking-widest text-on-surface transition-colors hidden sm:inline';
       } else {
         dot.className += ' border-outline-variant bg-surface text-on-surface-variant';
         dot.textContent = i + 1;
-        lbl.className = 'font-headline text-xs font-bold uppercase tracking-widest text-on-surface-variant transition-colors';
+        if (lbl) lbl.className = 'font-headline text-[10px] font-bold uppercase tracking-widest text-on-surface-variant transition-colors hidden sm:inline';
       }
       if (con) con.className = i < s
-        ? 'flex-1 h-px bg-primary mx-3 transition-colors'
-        : 'flex-1 h-px bg-outline-variant mx-3 transition-colors';
+        ? 'flex-1 h-px bg-primary mx-1 transition-colors min-w-[8px]'
+        : 'flex-1 h-px bg-outline-variant mx-1 transition-colors min-w-[8px]';
     }
 
     step = s;
@@ -414,8 +473,12 @@ const Intake = (() => {
 
   function nextStep() {
     if (!validate(step)) return;
-    if (step === 2) buildSummary();
     setStep(step + 1);
+  }
+
+  /** Called by Calculator nav buttons in embedded mode */
+  function calcNav(intakeStep) {
+    setStep(intakeStep);
   }
 
   function validate(s) {
@@ -431,7 +494,48 @@ const Intake = (() => {
       }
       return true;
     }
+    // Validate before entering calculator steps: need >=2 partners with country
+    if (s === 2) {
+      const validPartners = partners.filter(p => p.name && p.country);
+      if (validPartners.length < 2) {
+        Toast.show('Necesitas al menos 2 socios con nombre y pa\u00EDs para continuar', 'err');
+        return false;
+      }
+      return true;
+    }
     return true;
+  }
+
+  /* ── Calculator lazy init ───────────────────────────────────── */
+  function ensureCalcInit() {
+    if (calcInitialized && !calcNeedsReinit) return;
+
+    // Build project data from form fields
+    const projectData = {
+      id: currentProjectId || 'intake-temp-' + Date.now(),
+      name: document.getElementById('intake-f-name').value.trim(),
+      type: document.getElementById('intake-f-type').value || null,
+      start_date: document.getElementById('intake-f-start').value || null,
+      duration_months: parseInt(document.getElementById('intake-f-dur').value) || 24,
+      eu_grant: selectedProgram ? Number(selectedProgram.eu_grant_max) : 500000,
+      cofin_pct: selectedProgram ? selectedProgram.cofin_pct : 80,
+      indirect_pct: selectedProgram ? Number(selectedProgram.indirect_pct) : 7,
+    };
+
+    // Build partner list with stable IDs
+    const partnerList = partners.filter(p => p.name).map((p, i) => ({
+      id: p._server || ('local-' + p._local),
+      name: p.name,
+      city: p.city || '',
+      country: p.country || '',
+      order_index: i + 1,
+      role: i === 0 ? 'applicant' : 'partner',
+    }));
+
+    Calculator.initFromIntake(projectData, partnerList);
+    Calculator.setNavCallback(calcNav);
+    calcInitialized = true;
+    calcNeedsReinit = false;
   }
 
   /* ── Partners ────────────────────────────────────────────────── */
@@ -489,6 +593,7 @@ const Intake = (() => {
         if (idx === 0) return;
         partners.splice(idx, 1);
         partners.forEach((p, j) => { p.order_index = j + 1; p.role = j === 0 ? 'applicant' : 'partner'; });
+        calcNeedsReinit = true;
         renderPartners();
       });
     });
@@ -623,6 +728,7 @@ const Intake = (() => {
               partners[partnerIdx].name = ent.name;
               partners[partnerIdx].city = ent.city || '';
               partners[partnerIdx].country = ent.country_name || ent.country_iso2;
+              calcNeedsReinit = true;
               renderPartners();
             }
             closeEntitySearch();
@@ -639,6 +745,7 @@ const Intake = (() => {
   function addPartner() {
     pCounter++;
     partners.push({ _local: pCounter, name: '', city: '', country: '', role: 'partner', order_index: partners.length + 1 });
+    calcNeedsReinit = true;
     renderPartners();
   }
 
@@ -706,6 +813,37 @@ const Intake = (() => {
             : `<div class="text-sm text-on-surface-variant italic mt-1">Sin rellenar</div>`}
       </div>`;
     }).join('');
+
+    // Budget summary (from Calculator state)
+    const budgetEl = document.getElementById('intake-sum-budget');
+    if (calcInitialized && typeof Calculator !== 'undefined' && Calculator.isInitialized()) {
+      const cs = Calculator.getCalcState();
+      const fmt = n => '\u20AC' + Math.round(n).toLocaleString('es-ES');
+
+      let budgetHTML = `
+        <div class="bg-primary text-white rounded-xl p-4 mb-4">
+          <div class="text-[10px] uppercase tracking-wider opacity-50 mb-1">Total presupuesto</div>
+          <div class="font-headline text-2xl font-bold">${fmt(cs.total)}</div>
+          <div class="flex gap-4 mt-2 text-xs opacity-70 flex-wrap">
+            <span>Directo: <strong>${fmt(cs.directCosts)}</strong></span>
+            <span>Indirecto ${cs.indirectPct}%: <strong>${fmt(cs.indirect)}</strong></span>
+            <span>Target: <strong>${fmt(cs.financials.totalProject)}</strong></span>
+          </div>
+        </div>
+        <div class="space-y-1">
+          ${cs.wps.map((wp, i) => `
+            <div class="flex justify-between py-1.5 text-sm border-b border-outline-variant/10">
+              <span class="font-medium text-on-surface">WP${i+1} \u00B7 ${esc(wp.desc || wp.name || 'Sin t\u00EDtulo')}</span>
+            </div>
+          `).join('')}
+        </div>`;
+
+      if (budgetEl) {
+        budgetEl.innerHTML = budgetHTML;
+      }
+    } else if (budgetEl) {
+      budgetEl.innerHTML = '<p class="text-sm text-on-surface-variant italic">No se ha configurado el presupuesto a\u00FAn</p>';
+    }
   }
 
   /* ── File save/load ──────────────────────────────────────────── */
@@ -818,6 +956,8 @@ const Intake = (() => {
   /* ── Reset form ──────────────────────────────────────────────── */
   function resetForm() {
     currentProjectId = null;
+    calcInitialized = false;
+    calcNeedsReinit = false;
     document.getElementById('intake-f-name').value = '';
     document.getElementById('intake-f-desc').value = '';
     document.getElementById('intake-f-start').value = '';
@@ -851,5 +991,105 @@ const Intake = (() => {
     return `${d}/${m}/${y}`;
   }
 
-  return { init, startNew };
+  /* ── Demo preload ────────────────────────────────────────────── */
+  function preloadDemo() {
+    init();
+    resetForm();
+
+    // Select first program if available
+    if (programs.length > 0) selectProgram(0);
+
+    // Project data
+    document.getElementById('intake-f-name').value = 'ARISE';
+    const fullName = document.getElementById('intake-f-fullname');
+    if (fullName) fullName.value = 'Action for Resilience and Innovation in Sustainable Education';
+    document.getElementById('intake-f-desc').value = 'A KA2 Cooperation Partnership fostering innovative pedagogical approaches to sustainability education across European secondary schools, combining digital tools, teacher training, and community engagement to build climate-resilient curricula.';
+    document.getElementById('intake-f-start').value = '2026-09-01';
+    const durSel = document.getElementById('intake-f-dur');
+    if (durSel) { for (const o of durSel.options) { if (o.value === '24') { o.selected = true; break; } } }
+
+    // 3 Partners
+    partners = [
+      { _local: 1, _server: null, name: 'Fundaci\u00F3n EduForward',      city: 'Madrid',    country: 'Spain',   role: 'applicant', order_index: 1 },
+      { _local: 2, _server: null, name: 'Universit\u00E4t Hannover',       city: 'Hannover',  country: 'Germany', role: 'partner',   order_index: 2 },
+      { _local: 3, _server: null, name: 'Acad\u00E9mie de Bordeaux',       city: 'Bordeaux',  country: 'France',  role: 'partner',   order_index: 3 },
+    ];
+    pCounter = 3;
+    renderPartners();
+
+    // Context
+    document.getElementById('intake-ctx-prob').value = 'Climate change and sustainability represent the defining challenge of our era, yet European secondary education systems remain largely unprepared to equip young people with the knowledge, skills and attitudes needed to respond. A 2024 Eurydice report found that only 23% of EU member states have integrated sustainability as a transversal competence across their national curricula. Teachers report feeling under-resourced: 68% cite a lack of training in sustainability pedagogy and 54% say they have no access to quality, localised teaching materials. Meanwhile, student surveys show growing eco-anxiety paired with a sense of helplessness, suggesting that current approaches fail to empower learners as agents of change. The gap between policy ambition (the EU GreenComp framework, the Council Recommendation on learning for the green transition) and classroom reality is widening rather than closing. Rural and disadvantaged schools are disproportionately affected, deepening educational inequality. Without targeted, transnational cooperation that develops scalable pedagogical models and supports teacher capacity, a generation of European students risks graduating without the foundational sustainability literacy the green transition demands.';
+
+    document.getElementById('intake-ctx-tgt').value = 'The primary beneficiaries are secondary-school teachers (estimated 120 directly trained, 600+ reached through multiplier events and open resources) and their students aged 14\u201318 across Spain, Germany and France. Special attention will be given to educators in rural and under-served schools, where access to professional development is most limited. Indirect beneficiaries include school leadership teams who will receive policy toolkits, local communities engaged through student-led sustainability projects, and curriculum designers in national agencies who will access the project\u2019s validated methodology. The broader education research community will also benefit through openly published findings and a replicable framework adaptable to other EU countries.';
+
+    document.getElementById('intake-ctx-app').value = 'ARISE proposes a three-phase methodology combining co-design, piloting and scaling. In Phase 1 (M1\u201310), partners conduct a comparative needs analysis across the three countries, mapping existing sustainability content in curricula, teacher competence gaps and student perceptions. Building on GreenComp and the SDGs, an interdisciplinary team will co-create a modular Sustainability Teaching Toolkit comprising lesson plans, digital simulations and place-based learning activities adaptable to local contexts. In Phase 2 (M8\u201318), the toolkit is piloted in 12 schools (4 per country), accompanied by a blended teacher training programme (60 hours: 20 online + 40 face-to-face through LTTAs). Each school implements a student-led Community Sustainability Project, bridging classroom learning and real-world impact. Longitudinal data on student competence development and teacher self-efficacy is collected using validated instruments. In Phase 3 (M16\u201324), results are analysed, the toolkit is refined based on evidence, and a Sustainability Education Policy Brief is published to inform national stakeholders. Multiplier events in each country disseminate outcomes to at least 200 education professionals. All outputs are released under Creative Commons and hosted on a multilingual platform. The transnational dimension is essential: cross-country comparison enriches the methodology, joint LTTAs build a community of practice, and shared intellectual outputs achieve economies of scale impossible at national level.';
+
+    WC.forEach(c => updateWC(c));
+
+    // Init calculator with demo data
+    calcInitialized = false;
+    calcNeedsReinit = false;
+    ensureCalcInit();
+
+    // Now populate Calculator state with activities
+    const cs = Calculator.getCalcState();
+    const pts = cs.partners;
+    const st = Calculator;
+
+    // Set some route distances
+    if (pts.length >= 3) {
+      // Madrid-Hannover ~1800km, Madrid-Bordeaux ~600km, Hannover-Bordeaux ~1000km
+      st._setRouteBand(pts[0].id, pts[1].id, 3); // 500-1999
+      st._setRouteBand(pts[0].id, pts[2].id, 3); // 500-1999
+      st._setRouteBand(pts[1].id, pts[2].id, 3); // 500-1999
+    }
+
+    // WPs already have 4 defaults. Let's add activities to each.
+    // WP1 (Management): already has mgmt activity by default after renderMergedWPs
+    // We need to trigger renderMergedWPs first to seed WP1's mgmt activity
+    const tmpDiv = document.createElement('div');
+    st.renderMergedWPs(tmpDiv);
+
+    // WP2: Add a Transnational Meeting + an IO
+    st._addActivity(1, 'meeting');  // Transnational Meeting in WP2
+    st._addActivity(1, 'io');       // Intellectual Output in WP2
+
+    // WP3: Add LTTA + local workshops
+    st._addActivity(2, 'ltta');     // LTTA mobility
+    st._addActivity(2, 'local_ws'); // Local workshops
+
+    // WP4: Add Multiplier Event + Dissemination campaign
+    st._addActivity(3, 'me');       // Multiplier event
+    st._addActivity(3, 'campaign'); // Dissemination
+
+    // Set some labels
+    const wps = Calculator.getCalcState().wps;
+    st._setWP(0, 'desc', 'Project Management and Coordination');
+    st._setWP(1, 'name', 'WP2'); st._setWP(1, 'desc', 'Research, Analysis and Toolkit Development');
+    st._setWP(2, 'name', 'WP3'); st._setWP(2, 'desc', 'Piloting, Training and Community Projects');
+    st._setWP(3, 'name', 'WP4'); st._setWP(3, 'desc', 'Dissemination, Exploitation and Sustainability');
+
+    // Label activities
+    if (wps[1] && wps[1].activities.length >= 2) {
+      st._setAct(1, wps[1].activities[0].id, 'label', 'Kick-off Meeting (Madrid)');
+      st._setAct(1, wps[1].activities[0].id, 'days', 3);
+      st._setAct(1, wps[1].activities[1].id, 'label', 'Sustainability Teaching Toolkit');
+    }
+    if (wps[2] && wps[2].activities.length >= 2) {
+      st._setAct(2, wps[2].activities[0].id, 'label', 'Teacher Training LTTA (Hannover)');
+      st._setAct(2, wps[2].activities[0].id, 'days', 5);
+      st._setAct(2, wps[2].activities[0].id, 'pax', 3);
+      st._setAct(2, wps[2].activities[1].id, 'label', 'Local Pilot Workshops (12 schools)');
+    }
+    if (wps[3] && wps[3].activities.length >= 2) {
+      st._setAct(3, wps[3].activities[0].id, 'label', 'Multiplier Events (3 countries)');
+      st._setAct(3, wps[3].activities[1].id, 'label', 'Online Dissemination Campaign');
+    }
+
+    // Navigate to step 5 (WPs) to show the filled wizard
+    setStep(5);
+    Toast.show('Demo cargada: ARISE \u2014 3 socios, 4 WPs', 'ok');
+  }
+
+  return { init, startNew, _calcNav: calcNav, _preloadDemo: preloadDemo };
 })();

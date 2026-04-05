@@ -6,6 +6,7 @@ const Organizations = (() => {
   let myOrgInit = false;
   let dirInit   = false;
   let myOrg     = null;   // cached org data
+  let myOrgs    = [];     // all user's orgs
   let activeTab = 'general';
 
   /* ── ORG TYPES ─────────────────────────────────────────────── */
@@ -22,8 +23,57 @@ const Organizations = (() => {
     if (!myOrgInit) {
       myOrgInit = true;
       bindMyOrgTabs();
+      bindOrgSelector();
     }
-    loadMyOrg();
+    loadMyOrgs();
+  }
+
+  function bindOrgSelector() {
+    const sel = document.getElementById('myorg-org-select');
+    sel?.addEventListener('change', async () => {
+      const id = sel.value;
+      if (!id) return;
+      try {
+        myOrg = await API.get(`/organizations/${id}`);
+        fillForm(myOrg);
+        loadAllChildren();
+      } catch (e) { Toast.show(e.message || 'Error', 'error'); }
+    });
+    document.getElementById('myorg-btn-new-org')?.addEventListener('click', async () => {
+      const name = await Modal.show('Nombre de la nueva organización:', { input: true });
+      if (!name) return;
+      try {
+        const res = await API.put('/organizations/mine', { organization_name: name });
+        Toast.show('Organización creada', 'ok');
+        loadMyOrgs();
+      } catch (e) { Toast.show(e.message || 'Error', 'error'); }
+    });
+  }
+
+  async function loadMyOrgs() {
+    try {
+      myOrgs = await API.get('/organizations/mine/all') || [];
+      const sel = document.getElementById('myorg-org-select');
+      if (!sel) return;
+      if (!myOrgs.length) {
+        sel.innerHTML = '<option value="">— Sin organizaciones —</option>';
+        myOrg = null;
+        return;
+      }
+      sel.innerHTML = myOrgs.map(o =>
+        `<option value="${o.id}">${esc(o.acronym ? o.acronym + ' — ' : '')}${esc(o.organization_name)}</option>`
+      ).join('');
+      // Load first org (or previously selected)
+      const targetId = myOrg?.id || myOrgs[0].id;
+      sel.value = targetId;
+      myOrg = await API.get(`/organizations/${targetId}`);
+      fillForm(myOrg);
+      loadAllChildren();
+    } catch (e) {
+      console.error('loadMyOrgs', e);
+      // Fallback to old single-org endpoint
+      loadMyOrg();
+    }
   }
 
   function bindMyOrgTabs() {
@@ -39,6 +89,16 @@ const Organizations = (() => {
         document.querySelectorAll('.myorg-tab').forEach(s => s.classList.add('hidden'));
         document.getElementById(`myorg-tab-${activeTab}`)?.classList.remove('hidden');
       });
+    });
+
+    // Save buttons
+    document.querySelectorAll('[data-org-save]').forEach(btn => {
+      btn.addEventListener('click', () => saveSection(btn.dataset.orgSave));
+    });
+
+    // Add child buttons
+    document.querySelectorAll('[data-org-add]').forEach(btn => {
+      btn.addEventListener('click', () => addChild(btn.dataset.orgAdd));
     });
   }
 
@@ -101,7 +161,6 @@ const Organizations = (() => {
     loadChildTable('eu-projects');
     loadChildTable('key-staff');
     loadChildTable('stakeholders');
-    loadChildTable('associated-partners');
   }
 
   async function loadChildTable(type) {
@@ -114,72 +173,122 @@ const Organizations = (() => {
     }
   }
 
+  const CHILD_CONFIGS = {
+    accreditations: [
+      { f:'accreditation_type', label:'Tipo', ph:'Erasmus Charter, ECHE...' },
+      { f:'accreditation_reference', label:'Referencia', ph:'Código de referencia' },
+    ],
+    'eu-projects': [
+      { f:'programme', label:'Programa', ph:'Erasmus+, Horizon...' },
+      { f:'year', label:'Año', ph:'2024', type:'number' },
+      { f:'project_id_or_contract', label:'ID Contrato', ph:'2024-1-ES01-KA220...' },
+      { f:'role', label:'Rol', ph:'Applicant, Partner...' },
+      { f:'title', label:'Título', ph:'Título del proyecto' },
+    ],
+    'key-staff': [
+      { f:'name', label:'Nombre', ph:'Nombre completo' },
+      { f:'role', label:'Cargo', ph:'Director, Coordinador...' },
+      { f:'skills_summary', label:'Competencias', ph:'Experiencia y habilidades relevantes' },
+    ],
+    stakeholders: [
+      { f:'entity_name', label:'Entidad', ph:'Nombre de la entidad' },
+      { f:'entity_type', label:'Tipo entidad', ph:'ONG, Universidad, Empresa...', select:['','NGO','University','School/Institute','Research Centre','SME','Large Enterprise','Public body','Foundation','Social enterprise','Other'] },
+      { f:'relationship_type', label:'Relación', ph:'Partner, Funder, Beneficiary...' },
+      { f:'contact_person', label:'Persona de contacto', ph:'Nombre completo' },
+      { f:'email', label:'Email', ph:'email@ejemplo.com' },
+      { f:'description', label:'Descripción', ph:'Descripción de la relación' },
+    ],
+  };
+
   function renderChildTable(type, rows) {
     const tbody = document.getElementById(`org-${type}-tbody`);
     if (!tbody) return;
+    const fields = CHILD_CONFIGS[type] || [];
 
     if (!rows.length) {
-      tbody.innerHTML = `<tr><td colspan="10" class="py-4 text-center text-on-surface-variant text-sm">Sin registros. Pulsa + para añadir.</td></tr>`;
+      tbody.innerHTML = `<tr><td colspan="${fields.length + 1}" class="py-4 text-center text-on-surface-variant text-sm">Sin registros. Pulsa + para añadir.</td></tr>`;
       return;
     }
 
-    const configs = {
-      accreditations: [
-        { f:'accreditation_type', ph:'Tipo (Erasmus Charter, ECHE...)' },
-        { f:'accreditation_reference', ph:'Referencia / código' },
-      ],
-      'eu-projects': [
-        { f:'programme', ph:'Programa (Erasmus+, H2020...)' },
-        { f:'year', ph:'Año', type:'number' },
-        { f:'project_id_or_contract', ph:'ID contrato' },
-        { f:'role', ph:'Rol (applicant, partner...)' },
-        { f:'title', ph:'Título del proyecto' },
-      ],
-      'key-staff': [
-        { f:'name', ph:'Nombre completo' },
-        { f:'role', ph:'Cargo / puesto' },
-        { f:'skills_summary', ph:'Competencias y experiencia relevante' },
-      ],
-      stakeholders: [
-        { f:'entity_name', ph:'Nombre de la entidad' },
-        { f:'relationship_type', ph:'Tipo (partner, funder, beneficiary...)' },
-        { f:'description', ph:'Breve descripción de la relación' },
-      ],
-      'associated-partners': [
-        { f:'full_name', ph:'Nombre organización' },
-        { f:'country', ph:'País' },
-        { f:'city', ph:'Ciudad' },
-        { f:'org_type', ph:'Tipo' },
-        { f:'contact_person', ph:'Contacto' },
-        { f:'relation_to_project', ph:'Relación con el proyecto' },
-      ],
-    };
-    const fields = configs[type] || [];
-
     tbody.innerHTML = rows.map(row => `
-      <tr class="border-t border-outline-variant/20 hover:bg-surface-container-low/50" data-child-id="${row.id}" data-child-type="${type}">
-        ${fields.map(col => `<td class="px-2 py-1.5">
-          <input type="${col.type || 'text'}" value="${esc(row[col.f])}" placeholder="${col.ph}"
-            data-child-field="${col.f}"
-            class="w-full px-2 py-1.5 text-sm border border-transparent rounded hover:border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary bg-transparent focus:bg-white transition-colors" />
-        </td>`).join('')}
-        <td class="px-2 py-1.5 text-right">
-          <button onclick="Organizations.deleteChild('${type}','${row.id}')" class="text-gray-400 hover:text-red-500 p-1 rounded hover:bg-red-50 transition-colors" title="Eliminar">
-            <span class="material-symbols-outlined text-base">delete</span>
+      <tr class="border-t border-outline-variant/20 hover:bg-surface-container-low/30" data-child-id="${row.id}" data-child-type="${type}">
+        ${fields.map(col => `<td class="px-3 py-2.5 text-sm text-on-surface">${esc(row[col.f]) || '<span class="text-on-surface-variant/40 italic">—</span>'}</td>`).join('')}
+        <td class="px-3 py-2 text-right whitespace-nowrap">
+          <button class="child-edit-btn text-on-surface-variant hover:text-primary p-1 rounded hover:bg-primary/10 transition-colors" title="Editar">
+            <span class="material-symbols-outlined text-[18px]">edit</span>
+          </button>
+          <button class="child-del-btn text-on-surface-variant hover:text-red-600 p-1 rounded hover:bg-red-50 transition-colors" title="Eliminar">
+            <span class="material-symbols-outlined text-[18px]">delete</span>
           </button>
         </td>
       </tr>
     `).join('');
 
-    // Bind auto-save on blur for every input
-    tbody.querySelectorAll('input[data-child-field]').forEach(inp => {
-      inp.addEventListener('change', () => {
-        const tr = inp.closest('tr');
-        const childId = tr.dataset.childId;
-        const childType = tr.dataset.childType;
-        const field = inp.dataset.childField;
-        editChildInline(childType, childId, field, inp.value);
+    // Bind edit & delete
+    tbody.querySelectorAll('tr[data-child-id]').forEach(tr => {
+      const childId = tr.dataset.childId;
+      const childType = tr.dataset.childType;
+      const row = rows.find(r => r.id === childId);
+
+      tr.querySelector('.child-edit-btn').addEventListener('click', () => {
+        openEditForm(childType, childId, row, tr);
       });
+      tr.querySelector('.child-del-btn').addEventListener('click', () => {
+        deleteChild(childType, childId);
+      });
+    });
+  }
+
+  function fieldHtml(col, val, attrName) {
+    const cls = 'w-full px-3 py-2 text-sm border border-outline-variant/40 rounded-lg bg-white focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-colors';
+    if (col.select) {
+      return `<select ${attrName}="${col.f}" class="${cls}">
+        ${col.select.map(opt => `<option value="${opt}" ${opt === (val || '') ? 'selected' : ''}>${opt || '— Seleccionar —'}</option>`).join('')}
+      </select>`;
+    }
+    return `<input type="${col.type || 'text'}" value="${esc(val)}" placeholder="${col.ph}" ${attrName}="${col.f}" class="${cls}" />`;
+  }
+
+  function openEditForm(type, childId, row, afterTr) {
+    document.querySelectorAll('.child-edit-row').forEach(r => r.remove());
+
+    const fields = CHILD_CONFIGS[type] || [];
+    const formTr = document.createElement('tr');
+    formTr.className = 'child-edit-row bg-primary/5 border-t border-b border-primary/20';
+    formTr.innerHTML = `
+      <td colspan="${fields.length + 1}" class="px-3 py-4">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
+          ${fields.map(col => `
+            <div>
+              <label class="block text-[11px] font-bold uppercase tracking-widest text-on-surface-variant mb-1">${col.label}</label>
+              ${fieldHtml(col, row[col.f], 'data-edit-field')}
+            </div>
+          `).join('')}
+        </div>
+        <div class="flex justify-end gap-2">
+          <button class="edit-cancel px-4 py-2 rounded-lg text-sm font-semibold text-on-surface-variant border border-outline-variant hover:bg-surface-container-low transition-colors">Cancelar</button>
+          <button class="edit-save px-4 py-2 rounded-lg text-sm font-semibold text-white bg-primary hover:bg-primary/90 transition-colors">Guardar</button>
+        </div>
+      </td>
+    `;
+
+    afterTr.after(formTr);
+    formTr.querySelector('input')?.focus();
+
+    formTr.querySelector('.edit-cancel').addEventListener('click', () => formTr.remove());
+    formTr.querySelector('.edit-save').addEventListener('click', async () => {
+      const data = {};
+      formTr.querySelectorAll('[data-edit-field]').forEach(inp => {
+        data[inp.dataset.editField] = inp.value || null;
+      });
+      try {
+        await API.patch(`/organizations/${myOrg.id}/${type}/${childId}`, data);
+        Toast.show('Actualizado', 'ok');
+        formTr.remove();
+        loadChildTable(type);
+      } catch (e) {
+        Toast.show(e.message || 'Error al guardar', 'error');
+      }
     });
   }
 
@@ -188,19 +297,61 @@ const Organizations = (() => {
       Toast.show('Primero guarda los datos generales de tu organización', 'error');
       return;
     }
+    // Show an add form at the bottom of the table
+    const fields = CHILD_CONFIGS[type] || [];
+    const tbody = document.getElementById(`org-${type}-tbody`);
+    if (!tbody) return;
+
+    // Remove existing add form
+    tbody.querySelectorAll('.child-add-row').forEach(r => r.remove());
+    document.querySelectorAll('.child-edit-row').forEach(r => r.remove());
+
     const defaults = {
-      accreditations:        { accreditation_type: '', accreditation_reference: '' },
-      'eu-projects':         { programme: 'Erasmus +', year: new Date().getFullYear(), project_id_or_contract: '', role: 'applicant', beneficiary_name: '', title: '' },
-      'key-staff':           { name: '', role: '', skills_summary: '' },
-      stakeholders:          { entity_name: '', relationship_type: '', description: '' },
-      'associated-partners': { full_name: '', country: '', city: '', org_type: '', contact_person: '', email: '', phone: '', website: '', relation_to_project: '' },
+      accreditations:  { accreditation_type: '', accreditation_reference: '' },
+      'eu-projects':   { programme: 'Erasmus+', year: new Date().getFullYear(), project_id_or_contract: '', role: 'applicant', title: '' },
+      'key-staff':     { name: '', role: '', skills_summary: '' },
+      stakeholders:    { entity_name: '', entity_type: '', relationship_type: '', contact_person: '', email: '', description: '' },
     };
-    try {
-      await API.post(`/organizations/${myOrg.id}/${type}`, defaults[type] || {});
-      loadChildTable(type);
-    } catch (e) {
-      Toast.show(e.message || 'Error', 'error');
-    }
+    const def = defaults[type] || {};
+
+    const formTr = document.createElement('tr');
+    formTr.className = 'child-add-row bg-green-50/50 border-t-2 border-primary/20';
+    formTr.innerHTML = `
+      <td colspan="${fields.length + 1}" class="px-3 py-4">
+        <div class="text-[11px] font-bold uppercase tracking-widest text-primary mb-3">Nuevo registro</div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
+          ${fields.map(col => `
+            <div>
+              <label class="block text-[11px] font-bold uppercase tracking-widest text-on-surface-variant mb-1">${col.label}</label>
+              ${fieldHtml(col, def[col.f], 'data-add-field')}
+            </div>
+          `).join('')}
+        </div>
+        <div class="flex justify-end gap-2">
+          <button class="add-cancel px-4 py-2 rounded-lg text-sm font-semibold text-on-surface-variant border border-outline-variant hover:bg-surface-container-low transition-colors">Cancelar</button>
+          <button class="add-save px-4 py-2 rounded-lg text-sm font-semibold text-white bg-primary hover:bg-primary/90 transition-colors">Añadir</button>
+        </div>
+      </td>
+    `;
+
+    tbody.appendChild(formTr);
+    formTr.querySelector('input')?.focus();
+
+    formTr.querySelector('.add-cancel').addEventListener('click', () => formTr.remove());
+    formTr.querySelector('.add-save').addEventListener('click', async () => {
+      const data = {};
+      formTr.querySelectorAll('[data-add-field]').forEach(inp => {
+        data[inp.dataset.addField] = inp.value || null;
+      });
+      try {
+        await API.post(`/organizations/${myOrg.id}/${type}`, data);
+        Toast.show('Añadido', 'ok');
+        formTr.remove();
+        loadChildTable(type);
+      } catch (e) {
+        Toast.show(e.message || 'Error', 'error');
+      }
+    });
   }
 
   async function deleteChild(type, id) {
@@ -261,7 +412,7 @@ const Organizations = (() => {
 
       grid.innerHTML = rows.map(o => `
         <div class="bg-white rounded-xl border border-outline-variant/30 p-5 hover:shadow-md transition-shadow cursor-pointer"
-             onclick="Organizations.viewOrg('${o.id}')">
+             data-view-org="${o.id}">
           <div class="flex items-start justify-between mb-2">
             <h3 class="font-semibold text-primary text-sm leading-tight">${esc(o.organization_name)}</h3>
             ${o.acronym ? `<span class="text-xs bg-primary/10 text-primary px-2 py-0.5 rounded-full font-semibold ml-2 shrink-0">${esc(o.acronym)}</span>` : ''}
@@ -280,15 +431,23 @@ const Organizations = (() => {
         </div>
       `).join('');
 
+      // Bind view org clicks
+      grid.querySelectorAll('[data-view-org]').forEach(card => {
+        card.addEventListener('click', () => viewOrg(card.dataset.viewOrg));
+      });
+
       // Pagination
       if (meta && meta.pages > 1) {
-        grid.insertAdjacentHTML('beforeend', `
-          <div class="col-span-full flex items-center justify-center gap-4 pt-4">
-            <button onclick="Organizations.dirPrev()" class="text-sm text-primary font-semibold ${dirPage <= 1 ? 'opacity-30 pointer-events-none' : ''}">&larr; Anterior</button>
-            <span class="text-sm text-on-surface-variant">Página ${meta.page} de ${meta.pages}</span>
-            <button onclick="Organizations.dirNext(${meta.pages})" class="text-sm text-primary font-semibold ${dirPage >= meta.pages ? 'opacity-30 pointer-events-none' : ''}">Siguiente &rarr;</button>
-          </div>
-        `);
+        const pagDiv = document.createElement('div');
+        pagDiv.className = 'col-span-full flex items-center justify-center gap-4 pt-4';
+        pagDiv.innerHTML = `
+          <button class="dir-prev text-sm text-primary font-semibold ${dirPage <= 1 ? 'opacity-30 pointer-events-none' : ''}">&larr; Anterior</button>
+          <span class="text-sm text-on-surface-variant">Página ${meta.page} de ${meta.pages}</span>
+          <button class="dir-next text-sm text-primary font-semibold ${dirPage >= meta.pages ? 'opacity-30 pointer-events-none' : ''}">Siguiente &rarr;</button>
+        `;
+        grid.appendChild(pagDiv);
+        pagDiv.querySelector('.dir-prev')?.addEventListener('click', () => dirPrev());
+        pagDiv.querySelector('.dir-next')?.addEventListener('click', () => dirNext(meta.pages));
       }
     } catch (e) {
       grid.innerHTML = `<div class="col-span-full py-8 text-center text-error text-sm">${e.message || 'Error'}</div>`;
@@ -312,15 +471,19 @@ const Organizations = (() => {
     let existing = document.getElementById('org-detail-modal');
     if (existing) existing.remove();
 
-    const html = `
-    <div id="org-detail-modal" class="fixed inset-0 bg-black/40 z-50 flex items-start justify-center pt-8 pb-8 overflow-y-auto" onclick="if(event.target===this)this.remove()">
-      <div class="bg-white rounded-2xl shadow-2xl w-full max-w-3xl mx-4 overflow-hidden" onclick="event.stopPropagation()">
+    const modal = document.createElement('div');
+    modal.id = 'org-detail-modal';
+    modal.className = 'fixed inset-0 bg-black/40 z-50 flex items-start justify-center pt-8 pb-8 overflow-y-auto';
+    modal.addEventListener('click', (e) => { if (e.target === modal) modal.remove(); });
+
+    modal.innerHTML = `
+      <div class="bg-white rounded-2xl shadow-2xl w-full max-w-3xl mx-4 overflow-hidden">
         <div class="bg-primary text-white px-6 py-4 flex items-center justify-between">
           <div>
             <h2 class="font-headline text-lg font-bold">${esc(org.organization_name)}</h2>
             ${org.acronym ? `<span class="text-white/70 text-sm">${esc(org.acronym)}</span>` : ''}
           </div>
-          <button onclick="document.getElementById('org-detail-modal').remove()" class="text-white/70 hover:text-white">
+          <button class="org-modal-close text-white/70 hover:text-white">
             <span class="material-symbols-outlined">close</span>
           </button>
         </div>
@@ -368,8 +531,9 @@ const Organizations = (() => {
           `).join('')) : ''}
         </div>
       </div>
-    </div>`;
-    document.body.insertAdjacentHTML('beforeend', html);
+    `;
+    document.body.appendChild(modal);
+    modal.querySelector('.org-modal-close')?.addEventListener('click', () => modal.remove());
   }
 
   function detailSection(title, content) {

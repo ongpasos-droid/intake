@@ -6,8 +6,9 @@ const ctrl = require('./controller');
 const auth = [requireAuth];
 
 /* ── My organization ─────────────────────────────────────────── */
-router.get ('/mine',  auth, ctrl.getMyOrg);
-router.put ('/mine',  auth, ctrl.upsertMyOrg);
+router.get ('/mine',      auth, ctrl.getMyOrg);
+router.get ('/mine/all',  auth, ctrl.getMyOrgs);
+router.put ('/mine',      auth, ctrl.upsertMyOrg);
 
 /* ── Directory ───────────────────────────────────────────────── */
 router.get ('/',      auth, ctrl.listOrgs);

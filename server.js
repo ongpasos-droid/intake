@@ -50,6 +50,7 @@ app.use('/v1/auth', require('./node/src/modules/auth/routes'));
 app.use('/v1/intake', require('./node/src/modules/intake/routes'));
 app.use('/v1/calculator', require('./node/src/modules/calculator/routes'));
 app.use('/v1/admin', require('./node/src/modules/admin/routes'));
+app.use('/v1/documents', require('./node/src/modules/documents/routes'));
 
 app.use('/v1/organizations', require('./node/src/modules/organizations/routes'));
 

@@ -9,10 +9,7 @@ async function getPartnerRates(projectId) {
            p.name as partner_name
     FROM partner_rates pr
     JOIN partners p ON p.id = pr.partner_id
-    JOIN projects proj ON proj.id = ?
-    WHERE pr.partner_id IN (
-      SELECT partner_id FROM project_partners WHERE project_id = ?
-    )
+    WHERE p.project_id = ?
     ORDER BY p.name
   `;
   const [rows] = await db.execute(sql, [projectId, projectId]);
@@ -43,9 +40,7 @@ async function getWorkerRates(projectId) {
            p.name as partner_name
     FROM worker_rates wr
     JOIN partners p ON p.id = wr.partner_id
-    WHERE wr.partner_id IN (
-      SELECT partner_id FROM project_partners WHERE project_id = ?
-    )
+    WHERE p.project_id = ?
     ORDER BY p.name, wr.category
   `;
   const [rows] = await db.execute(sql, [projectId]);

@@ -10,7 +10,14 @@ const err = (res, msg, status = 400) =>
 exports.getMyOrg = async (req, res) => {
   try {
     const org = await m.getOrgByUserId(req.user.id);
-    ok(res, org);                       // null if no org yet
+    ok(res, org);
+  } catch (e) { err(res, e.message, 500); }
+};
+
+exports.getMyOrgs = async (req, res) => {
+  try {
+    const orgs = await m.getOrgsByUserId(req.user.id);
+    ok(res, orgs);
   } catch (e) { err(res, e.message, 500); }
 };
 

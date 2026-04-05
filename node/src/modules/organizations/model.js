@@ -41,9 +41,27 @@ async function getOrgById(id) {
 }
 
 async function getOrgByUserId(userId) {
-  const [[row]] = await pool.query('SELECT organization_id FROM users WHERE id=?', [userId]);
-  if (!row || !row.organization_id) return null;
-  return getOrgById(row.organization_id);
+  const [rows] = await pool.query(
+    'SELECT organization_id FROM user_organizations WHERE user_id=? ORDER BY created_at ASC LIMIT 1',
+    [userId]
+  );
+  if (!rows.length) {
+    // Fallback: legacy users.organization_id
+    const [[legacy]] = await pool.query('SELECT organization_id FROM users WHERE id=?', [userId]);
+    if (!legacy || !legacy.organization_id) return null;
+    return getOrgById(legacy.organization_id);
+  }
+  return getOrgById(rows[0].organization_id);
+}
+
+async function getOrgsByUserId(userId) {
+  const [rows] = await pool.query(
+    `SELECT o.id, o.organization_name, o.acronym, o.org_type, o.country, o.city, uo.role, uo.created_at as linked_at
+     FROM user_organizations uo JOIN organizations o ON o.id = uo.organization_id
+     WHERE uo.user_id=? ORDER BY uo.created_at ASC`,
+    [userId]
+  );
+  return rows;
 }
 
 async function upsertOrg(data, id) {
@@ -61,6 +79,12 @@ async function upsertOrg(data, id) {
 }
 
 async function linkUserToOrg(userId, orgId) {
+  const linkId = uuid();
+  await pool.query(
+    'INSERT IGNORE INTO user_organizations (id, user_id, organization_id, role) VALUES (?, ?, ?, ?)',
+    [linkId, userId, orgId, 'owner']
+  );
+  // Keep legacy column in sync
   await pool.query('UPDATE users SET organization_id=? WHERE id=?', [orgId, userId]);
 }
 
@@ -93,7 +117,7 @@ const CHILD_TABLES = {
   accreditations:      { table: 'org_accreditations',      fields: ['accreditation_type','accreditation_reference'] },
   'eu-projects':       { table: 'org_eu_projects',         fields: ['programme','year','project_id_or_contract','role','beneficiary_name','title'] },
   'key-staff':         { table: 'org_key_staff',           fields: ['name','role','skills_summary'] },
-  stakeholders:        { table: 'org_stakeholders',        fields: ['related_org_id','entity_name','relationship_type','description'] },
+  stakeholders:        { table: 'org_stakeholders',        fields: ['related_org_id','entity_name','entity_type','relationship_type','description','contact_person','email'] },
   'associated-partners':{ table: 'org_associated_partners', fields: ['full_name','address','street_number','country','region','post_code','city','org_type','contact_person','email','phone','website','relation_to_project'] },
 };
 
@@ -128,11 +152,14 @@ async function deleteChild(type, id, orgId) {
 
 /* ── Ownership check ─────────────────────────────────────────── */
 async function isOrgOwner(userId, orgId) {
-  const [[row]] = await pool.query('SELECT organization_id FROM users WHERE id=?', [userId]);
-  return row && row.organization_id === orgId;
+  const [rows] = await pool.query(
+    'SELECT 1 FROM user_organizations WHERE user_id=? AND organization_id=?',
+    [userId, orgId]
+  );
+  return rows.length > 0;
 }
 
 module.exports = {
-  getOrgById, getOrgByUserId, upsertOrg, linkUserToOrg, deleteOrg,
+  getOrgById, getOrgByUserId, getOrgsByUserId, upsertOrg, linkUserToOrg, deleteOrg,
   listOrgs, listChildren, upsertChild, deleteChild, isOrgOwner
 };

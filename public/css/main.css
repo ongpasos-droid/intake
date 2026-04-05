@@ -196,3 +196,108 @@ input:focus, select:focus, textarea:focus {
   .intake-progress-label { display: none; }
   .intake-progress-step  { min-width: 32px; }
 }
+
+/* ═══════════════════════════════════════════════════════════════
+   Calculator
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── Step visibility ─────────────────────────────────────────── */
+.calc-step { display: none; animation: panelIn .3s ease }
+.calc-step.active { display: block }
+
+/* ── Progress bar ────────────────────────────────────────────── */
+.calc-prog-dot {
+  width: 32px; height: 32px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 12px; font-weight: 700;
+  border: 2px solid #c8c5d2; color: #787682;
+  transition: all .2s ease; flex-shrink: 0;
+}
+.calc-prog-dot.active { background: #06003e; border-color: #06003e; color: #fff }
+.calc-prog-dot.done   { background: #2d6a4f; border-color: #2d6a4f; color: #fff }
+.calc-prog-dot.locked { opacity: .4; cursor: default }
+.calc-prog-line { flex: 1; height: 2px; background: #c8c5d2; min-width: 12px }
+.calc-prog-line.done  { background: #2d6a4f }
+
+@media (max-width: 639px) {
+  .calc-prog-label { display: none; }
+  .calc-prog-dot   { width: 28px; height: 28px; font-size: 11px; }
+}
+
+/* ── WP section ──────────────────────────────────────────────── */
+.calc-wp { border: 1px solid rgba(120,118,130,.15); border-radius: 8px; overflow: hidden; margin-bottom: 12px }
+.calc-wp-head {
+  display: flex; align-items: center; gap: 10px; padding: 12px 16px;
+  cursor: pointer; user-select: none; background: #f7f9fb;
+  border-bottom: 1px solid rgba(120,118,130,.1);
+  transition: background .15s;
+}
+.calc-wp-head:hover { background: #eceef0 }
+.calc-wp-body { display: none; padding: 14px 16px; background: #fff }
+.calc-wp.open .calc-wp-body { display: block }
+.calc-wp-chevron { transition: transform .2s; font-size: 18px; color: #787682 }
+.calc-wp.open .calc-wp-chevron { transform: rotate(180deg) }
+
+/* ── Activity cards ──────────────────────────────────────────── */
+.calc-act {
+  border: 1px solid rgba(120,118,130,.12); border-radius: 6px;
+  padding: 12px 14px; margin-bottom: 8px; background: #f7f9fb;
+  position: relative;
+}
+.calc-act-badge {
+  font-size: 10px; font-weight: 700; padding: 2px 8px;
+  border-radius: 20px; letter-spacing: .03em;
+}
+
+/* ── Activity picker grid ────────────────────────────────────── */
+.calc-act-picker {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 6px;
+}
+.calc-act-pick {
+  padding: 8px 10px; border: 1px dashed rgba(120,118,130,.25);
+  border-radius: 6px; background: transparent; cursor: pointer;
+  text-align: left; transition: all .15s; font-family: inherit;
+}
+.calc-act-pick:hover { border-color: #06003e; background: rgba(6,0,62,.04) }
+
+/* ── Gantt ────────────────────────────────────────────────────── */
+.calc-gantt-tip {
+  display: none; position: fixed; z-index: 500;
+  background: #1e293b; color: #fff; border-radius: 8px;
+  padding: 10px 14px; font-size: 12px; line-height: 1.6;
+  pointer-events: none; box-shadow: 0 4px 16px rgba(0,0,0,.3);
+  max-width: 260px;
+}
+
+/* ── Result tabs ─────────────────────────────────────────────── */
+.calc-res-tab {
+  padding: 10px 18px; font-size: 13px; font-weight: 500;
+  border: none; background: transparent; color: #787682;
+  cursor: pointer; border-bottom: 2px solid transparent;
+  transition: all .15s; font-family: inherit;
+}
+.calc-res-tab:hover { color: #191c1e }
+.calc-res-tab.active { color: #06003e; border-bottom-color: #06003e; font-weight: 700 }
+
+/* ── Save indicator ──────────────────────────────────────────── */
+.calc-save {
+  position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
+  z-index: 100; font-size: 12px; font-weight: 600;
+  padding: 6px 16px; border-radius: 20px;
+  transition: all .3s ease; pointer-events: none;
+}
+.calc-save.saving { background: #FEF3C7; color: #92400E; opacity: 1 }
+.calc-save.saved  { background: #D1FAE5; color: #065F46; opacity: 1 }
+.calc-save.error  { background: #FEE2E2; color: #991B1B; opacity: 1 }
+.calc-save.hidden { opacity: 0 }
+
+/* ── Tables inside calculator ────────────────────────────────── */
+.calc-table { width: 100%; border-collapse: collapse; font-size: 13px }
+.calc-table th { padding: 8px 10px; background: #eceef0; font-weight: 600; font-size: 11px; text-transform: uppercase; letter-spacing: .04em; color: #474551; border-bottom: 1px solid rgba(120,118,130,.2) }
+.calc-table td { padding: 8px 10px; border-bottom: 1px solid rgba(120,118,130,.1); vertical-align: top }
+.calc-table tr:last-child td { border-bottom: none }
+.calc-table input[type="number"] { width: 90px; padding: 5px 8px; font-size: 13px; text-align: right }
+
+@media (max-width: 639px) {
+  .calc-table input[type="number"] { width: 70px; font-size: 14px }
+}

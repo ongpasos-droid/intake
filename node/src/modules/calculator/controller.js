@@ -18,8 +18,7 @@ async function verifyPartnerRateOwnership(partnerRateId, userId) {
     SELECT pr.id
     FROM partner_rates pr
     JOIN partners p ON p.id = pr.partner_id
-    JOIN project_partners pp ON pp.partner_id = p.id
-    JOIN projects proj ON proj.id = pp.project_id
+    JOIN projects proj ON proj.id = p.project_id
     WHERE pr.id = ? AND proj.user_id = ?
   `;
   const [rows] = await db.execute(sql, [partnerRateId, userId]);
@@ -32,8 +31,7 @@ async function verifyWorkerRateOwnership(workerRateId, userId) {
     SELECT wr.id
     FROM worker_rates wr
     JOIN partners p ON p.id = wr.partner_id
-    JOIN project_partners pp ON pp.partner_id = p.id
-    JOIN projects proj ON proj.id = pp.project_id
+    JOIN projects proj ON proj.id = p.project_id
     WHERE wr.id = ? AND proj.user_id = ?
   `;
   const [rows] = await db.execute(sql, [workerRateId, userId]);

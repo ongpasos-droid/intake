@@ -239,6 +239,15 @@ tailwind.config = {
         Organizaciones
       </a>
 
+      <!-- Library section -->
+      <div class="mt-3 mb-1 px-3 text-[10px] font-semibold tracking-[.2em] uppercase text-white/30">Library</div>
+      <a href="#my-documents"
+        class="nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-white/70 hover:bg-white/10 transition-colors text-sm font-medium"
+        data-route="my-documents">
+        <span class="material-symbols-outlined text-[20px]">folder_open</span>
+        My Documents
+      </a>
+
       <!-- Admin — solo visible para role=admin -->
       <div id="admin-nav-item" class="hidden">
         <div class="mt-3 mb-1 px-3 text-[10px] font-semibold tracking-[.2em] uppercase text-white/30">Admin</div>
@@ -504,27 +513,9 @@ tailwind.config = {
             <input type="file" id="intake-file-in" accept=".json" class="hidden">
           </div>
 
-          <!-- Progress bar -->
-          <nav class="flex items-center mb-10" id="intake-step-nav">
-            <div class="flex items-center gap-2 cursor-pointer intake-progress-step" data-step="0">
-              <div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold font-headline border-2 border-primary bg-primary text-white transition-all" id="intake-sd0">1</div>
-              <span class="font-headline text-xs font-bold uppercase tracking-widest text-primary transition-colors intake-progress-label" id="intake-sl0">Programa</span>
-            </div>
-            <div class="flex-1 h-px bg-outline-variant mx-2 transition-colors" id="intake-sc0"></div>
-            <div class="flex items-center gap-2 cursor-pointer intake-progress-step" data-step="1">
-              <div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold font-headline border-2 border-outline-variant bg-surface text-on-surface-variant transition-all" id="intake-sd1">2</div>
-              <span class="font-headline text-xs font-bold uppercase tracking-widest text-on-surface-variant transition-colors intake-progress-label" id="intake-sl1">Proyecto</span>
-            </div>
-            <div class="flex-1 h-px bg-outline-variant mx-2 transition-colors" id="intake-sc1"></div>
-            <div class="flex items-center gap-2 cursor-pointer intake-progress-step" data-step="2">
-              <div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold font-headline border-2 border-outline-variant bg-surface text-on-surface-variant transition-all" id="intake-sd2">3</div>
-              <span class="font-headline text-xs font-bold uppercase tracking-widest text-on-surface-variant transition-colors intake-progress-label" id="intake-sl2">Contexto</span>
-            </div>
-            <div class="flex-1 h-px bg-outline-variant mx-2 transition-colors" id="intake-sc2"></div>
-            <div class="flex items-center gap-2 cursor-pointer intake-progress-step" data-step="3">
-              <div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold font-headline border-2 border-outline-variant bg-surface text-on-surface-variant transition-all" id="intake-sd3">4</div>
-              <span class="font-headline text-xs font-bold uppercase tracking-widest text-on-surface-variant transition-colors intake-progress-label" id="intake-sl3">Resumen</span>
-            </div>
+          <!-- Progress bar (rendered dynamically by intake.js — 9 steps) -->
+          <nav class="flex items-center mb-10 flex-wrap gap-y-2" id="intake-step-nav">
+            <!-- JS will populate this -->
           </nav>
 
           <!-- STEP 0: Programa -->
@@ -710,12 +701,19 @@ tailwind.config = {
                 <span class="material-symbols-outlined text-base">arrow_back</span> Anterior
               </button>
               <button type="button" class="intake-btn-next inline-flex items-center gap-2 px-8 py-4 rounded-md bg-secondary-fixed text-primary-container font-bold text-base shadow-[0_24px_48px_rgba(27,20,100,0.1)] hover:scale-[1.02] active:scale-95 transition-transform">
-                Ver resumen <span class="material-symbols-outlined text-lg">arrow_forward</span>
+                Tarifas <span class="material-symbols-outlined text-lg">arrow_forward</span>
               </button>
             </div>
           </div>
 
-          <!-- STEP 3: Resumen -->
+          <!-- STEPS 3-7: Dynamic calculator steps (rendered by JS) -->
+          <div class="intake-step hidden" id="intake-dynamic">
+            <div id="intake-calc-container">
+              <!-- Calculator render functions inject content here -->
+            </div>
+          </div>
+
+          <!-- STEP 8: Resumen -->
           <div class="intake-step hidden" id="intake-p3">
             <h1 class="font-headline text-3xl font-extrabold tracking-tighter text-primary mb-1">Resumen</h1>
             <p class="text-on-surface-variant text-base mb-8">Revisa los datos antes de guardar.</p>
@@ -737,6 +735,13 @@ tailwind.config = {
                 <span>Contexto IA</span><div class="flex-1 h-px bg-outline-variant"></div>
               </div>
               <div id="intake-sum-ctx"></div>
+            </div>
+
+            <div class="mb-8 pb-8 border-b border-outline-variant">
+              <div class="flex items-center gap-2 text-[11px] font-bold uppercase tracking-widest text-on-surface-variant mb-3">
+                <span>Presupuesto</span><div class="flex-1 h-px bg-outline-variant"></div>
+              </div>
+              <div id="intake-sum-budget"></div>
             </div>
 
             <div class="grid grid-cols-2 gap-3">
@@ -765,6 +770,74 @@ tailwind.config = {
         </div>
       </section>
 
+      <!-- ══ PANEL CALCULATOR ═══════════════════════════════════════ -->
+      <section id="panel-calculator" class="panel">
+        <div id="calc-root" class="max-w-5xl mx-auto py-8 px-4">
+          <!-- Calculator content rendered by calculator.js -->
+        </div>
+      </section>
+
+      <!-- ══ PANEL MY DOCUMENTS ════════════════════════════════════ -->
+      <section id="panel-my-documents" class="panel">
+        <div class="max-w-5xl mx-auto py-8 px-4">
+
+          <!-- Header -->
+          <div class="flex items-center justify-between mb-6">
+            <div>
+              <h1 class="font-headline text-2xl font-extrabold text-primary tracking-tight">My Documents</h1>
+              <p class="text-sm text-on-surface-variant mt-1">Your private document library. Upload and manage files for your projects.</p>
+            </div>
+            <button id="btn-upload-doc" class="flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm font-bold bg-sidebar text-secondary-fixed hover:opacity-90 transition-opacity">
+              <span class="material-symbols-outlined text-[18px]">upload_file</span>
+              Upload document
+            </button>
+          </div>
+
+          <!-- Upload modal (hidden) -->
+          <div id="doc-upload-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/40">
+            <div class="bg-surface rounded-2xl shadow-xl p-6 w-full max-w-md mx-4">
+              <h2 class="text-lg font-bold text-primary mb-4">Upload document</h2>
+              <form id="doc-upload-form" class="space-y-4">
+                <div>
+                  <label class="block text-sm font-medium text-on-surface mb-1">File</label>
+                  <input type="file" id="doc-file-input" accept=".pdf,.docx,.xlsx,.txt,.csv" required
+                    class="block w-full text-sm text-on-surface file:mr-3 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-bold file:bg-sidebar file:text-secondary-fixed hover:file:opacity-90"/>
+                  <p class="text-xs text-on-surface-variant mt-1">PDF, DOCX, XLSX, TXT, CSV — max 20MB</p>
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-on-surface mb-1">Title</label>
+                  <input type="text" id="doc-title-input" placeholder="Document title (optional)"
+                    class="w-full px-3 py-2 rounded-lg border border-outline-variant/40 text-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none"/>
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-on-surface mb-1">Description</label>
+                  <textarea id="doc-desc-input" rows="2" placeholder="Brief description (optional)"
+                    class="w-full px-3 py-2 rounded-lg border border-outline-variant/40 text-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none resize-none"></textarea>
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-on-surface mb-1">Tags</label>
+                  <input type="text" id="doc-tags-input" placeholder="e.g. cv, partner, study (comma separated)"
+                    class="w-full px-3 py-2 rounded-lg border border-outline-variant/40 text-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none"/>
+                </div>
+                <div class="flex justify-end gap-3 pt-2">
+                  <button type="button" id="btn-cancel-upload" class="px-4 py-2 text-sm text-on-surface-variant hover:text-on-surface transition-colors">Cancel</button>
+                  <button type="submit" class="px-4 py-2.5 rounded-lg text-sm font-bold bg-sidebar text-secondary-fixed hover:opacity-90 transition-opacity">Upload</button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <!-- Documents list -->
+          <div id="my-docs-list" class="space-y-3">
+            <div class="text-center py-12 text-on-surface-variant">
+              <span class="material-symbols-outlined text-[48px] opacity-30">folder_open</span>
+              <p class="mt-2 text-sm">No documents yet. Upload your first file.</p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
       <!-- ══ PANEL ADMIN ══════════════════════════════════════════ -->
       <section id="panel-admin" class="panel">
         <div class="max-w-6xl mx-auto py-8 px-4">
@@ -783,6 +856,7 @@ tailwind.config = {
             <button data-section="workers"      class="px-4 py-2.5 text-sm border-b-2 border-transparent text-on-surface-variant transition-colors hover:text-primary">Personal</button>
             <button data-section="entities"    class="px-4 py-2.5 text-sm border-b-2 border-transparent text-on-surface-variant transition-colors hover:text-primary">Entidades</button>
             <button data-section="eligibility" class="px-4 py-2.5 text-sm border-b-2 border-transparent text-on-surface-variant transition-colors hover:text-primary">Elegibilidad</button>
+            <button data-section="platform-docs" class="px-4 py-2.5 text-sm border-b-2 border-transparent text-on-surface-variant transition-colors hover:text-primary">Docs oficiales</button>
           </div>
 
           <!-- ── Convocatorias ─────────────────────────────────── -->
@@ -989,221 +1063,104 @@ tailwind.config = {
             </div>
           </div>
 
-        </div>
-      </section>
-
-      <!-- ══ PANEL CALCULATOR ═════════════════════════════════════ -->
-      <section id="panel-calculator" class="panel">
-        <div class="max-w-4xl mx-auto">
-
-          <!-- Progress bar (5 steps) -->
-          <nav class="flex items-center mb-10" id="calc-step-nav">
-            <div class="flex items-center gap-2 cursor-pointer" data-step="0">
-              <div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold font-headline border-2 border-primary bg-primary text-white transition-all" id="calc-sd0">1</div>
-              <span class="font-headline text-xs font-bold uppercase tracking-widest text-primary transition-colors hidden sm:inline" id="calc-sl0">Project</span>
-            </div>
-            <div class="flex-1 h-px bg-outline-variant mx-2 transition-colors" id="calc-sc0"></div>
-            <div class="flex items-center gap-2 cursor-pointer" data-step="1">
-              <div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold font-headline border-2 border-outline-variant bg-surface text-on-surface-variant transition-all" id="calc-sd1">2</div>
-              <span class="font-headline text-xs font-bold uppercase tracking-widest text-on-surface-variant transition-colors hidden sm:inline" id="calc-sl1">Parameters</span>
-            </div>
-            <div class="flex-1 h-px bg-outline-variant mx-2 transition-colors" id="calc-sc1"></div>
-            <div class="flex items-center gap-2 cursor-pointer" data-step="2">
-              <div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold font-headline border-2 border-outline-variant bg-surface text-on-surface-variant transition-all" id="calc-sd2">3</div>
-              <span class="font-headline text-xs font-bold uppercase tracking-widest text-on-surface-variant transition-colors hidden sm:inline" id="calc-sl2">Work Pkg</span>
-            </div>
-            <div class="flex-1 h-px bg-outline-variant mx-2 transition-colors" id="calc-sc2"></div>
-            <div class="flex items-center gap-2 cursor-pointer" data-step="3">
-              <div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold font-headline border-2 border-outline-variant bg-surface text-on-surface-variant transition-all" id="calc-sd3">4</div>
-              <span class="font-headline text-xs font-bold uppercase tracking-widest text-on-surface-variant transition-colors hidden sm:inline" id="calc-sl3">Financing</span>
-            </div>
-            <div class="flex-1 h-px bg-outline-variant mx-2 transition-colors" id="calc-sc3"></div>
-            <div class="flex items-center gap-2 cursor-pointer" data-step="4">
-              <div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold font-headline border-2 border-outline-variant bg-surface text-on-surface-variant transition-all" id="calc-sd4">5</div>
-              <span class="font-headline text-xs font-bold uppercase tracking-widest text-on-surface-variant transition-colors hidden sm:inline" id="calc-sl4">Results</span>
-            </div>
-          </nav>
-
-          <!-- STEP 0: Select Project -->
-          <div class="calc-step" id="calc-p0">
-            <h1 class="font-headline text-3xl font-extrabold tracking-tighter text-primary mb-1">Select Project</h1>
-            <p class="text-on-surface-variant text-base mb-8">Choose an existing project to calculate its budget.</p>
-
-            <div class="flex items-center gap-2 text-[11px] font-bold uppercase tracking-widest text-on-surface-variant mb-3">
-              <span class="material-symbols-outlined text-sm">folder_open</span>
-              <span>Your projects</span><div class="flex-1 h-px bg-outline-variant"></div>
-            </div>
-            <div id="calc-project-list" class="flex flex-col gap-2 mb-8"></div>
-
-            <div id="calc-project-details" class="hidden">
-              <div class="flex items-center gap-2 text-[11px] font-bold uppercase tracking-widest text-on-surface-variant mb-3">
-                <span>Project details</span><div class="flex-1 h-px bg-outline-variant"></div>
-              </div>
-              <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 mb-4" id="calc-project-info-grid"></div>
-
-              <div class="flex items-center gap-2 text-[11px] font-bold uppercase tracking-widest text-on-surface-variant mb-3 mt-6">
-                <span class="material-symbols-outlined text-sm">group</span>
-                <span>Partners</span><div class="flex-1 h-px bg-outline-variant"></div>
-              </div>
-              <div id="calc-partner-list" class="flex flex-col gap-1.5 mb-4"></div>
-            </div>
-
-            <div class="flex justify-end mt-6">
-              <button class="calc-btn-next inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-primary text-white font-semibold text-sm hover:bg-primary/90 transition-colors">
-                Next <span class="material-symbols-outlined text-lg">arrow_forward</span>
-              </button>
-            </div>
-          </div>
-
-          <!-- STEP 1: Parameters -->
-          <div class="calc-step" style="display:none" id="calc-p1">
-            <h1 class="font-headline text-3xl font-extrabold tracking-tighter text-primary mb-1">Parameters</h1>
-            <p class="text-on-surface-variant text-base mb-8">Configure per diem rates, worker rates and travel routes. These values feed all budget calculations.</p>
-
-            <!-- Per Diem Rates -->
-            <div class="bg-white rounded-xl border border-outline-variant/30 p-5 mb-5">
-              <div class="flex items-center gap-2 text-[11px] font-bold uppercase tracking-widest text-on-surface-variant mb-3">
-                <span class="material-symbols-outlined text-sm">hotel</span>
-                <span>Per diem rates by partner</span>
-              </div>
-              <p class="text-xs text-on-surface-variant mb-3">Accommodation and subsistence adjusted per partner country. Editable.</p>
-              <div class="overflow-x-auto" id="calc-perdiem-table"></div>
-            </div>
-
-            <!-- Worker Rates -->
-            <div class="bg-white rounded-xl border border-outline-variant/30 p-5 mb-5">
-              <div class="flex items-center gap-2 text-[11px] font-bold uppercase tracking-widest text-on-surface-variant mb-3">
-                <span class="material-symbols-outlined text-sm">badge</span>
-                <span>Worker rates by partner &amp; category</span>
-              </div>
-              <p class="text-xs text-on-surface-variant mb-3">Daily rates per worker category for Intellectual Outputs.</p>
-              <div class="overflow-x-auto" id="calc-worker-table"></div>
-            </div>
-
-            <!-- Route Matrix -->
-            <div class="bg-white rounded-xl border border-outline-variant/30 p-5 mb-5">
-              <div class="flex items-center gap-2 text-[11px] font-bold uppercase tracking-widest text-on-surface-variant mb-3">
-                <span class="material-symbols-outlined text-sm">flight</span>
-                <span>Route matrix</span>
-                <div class="flex-1"></div>
-                <button id="calc-btn-add-route" class="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-[11px] font-bold uppercase tracking-widest text-primary hover:bg-primary/10 transition-colors">
-                  <span class="material-symbols-outlined text-sm">add</span> Add Route
+          <!-- ── Docs oficiales ─────────────────────────────── -->
+          <div id="admin-sec-platform-docs" class="admin-section hidden">
+            <div class="bg-white rounded-xl border border-outline-variant/30 overflow-hidden">
+              <div class="px-5 py-4 border-b border-outline-variant/20 flex items-center justify-between">
+                <h2 class="font-semibold text-primary">Documentos oficiales de plataforma</h2>
+                <button id="btn-admin-upload-doc" class="flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-bold bg-sidebar text-secondary-fixed hover:opacity-90 transition-opacity">
+                  <span class="material-symbols-outlined text-[16px]">upload_file</span>
+                  Subir documento
                 </button>
               </div>
-              <p class="text-xs text-on-surface-variant mb-3">Travel cost per participant (round trip). Select distance band or enter a custom rate.</p>
-              <div class="overflow-x-auto" id="calc-route-table"></div>
-            </div>
-
-            <div class="flex justify-between mt-6">
-              <button class="calc-btn-prev inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-outline-variant text-on-surface-variant font-semibold text-sm hover:bg-surface-container-low transition-colors">
-                <span class="material-symbols-outlined text-lg">arrow_back</span> Back
-              </button>
-              <button class="calc-btn-next inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-primary text-white font-semibold text-sm hover:bg-primary/90 transition-colors">
-                Next <span class="material-symbols-outlined text-lg">arrow_forward</span>
-              </button>
-            </div>
-          </div>
-
-          <!-- STEP 2: Work Packages -->
-          <div class="calc-step" style="display:none" id="calc-p2">
-            <h1 class="font-headline text-3xl font-extrabold tracking-tighter text-primary mb-1">Work Packages</h1>
-            <p class="text-on-surface-variant text-base mb-8">Add activities to each Work Package. The budget updates live.</p>
-
-            <!-- Live summary bar -->
-            <div id="calc-live-bar" class="bg-primary rounded-2xl px-5 py-4 mb-6 text-white flex flex-wrap items-center gap-5">
-              <div class="flex-1 min-w-[120px]">
-                <div class="text-[10px] font-bold uppercase tracking-widest opacity-50">Total calculated</div>
-                <div class="font-headline text-2xl font-extrabold" id="calc-live-total">&euro;0</div>
-              </div>
-              <div class="min-w-[100px]">
-                <div class="text-[10px] font-bold uppercase tracking-widest opacity-50">Target</div>
-                <div class="text-sm font-bold opacity-80" id="calc-live-target">&euro;0</div>
-              </div>
-              <div class="min-w-[100px]">
-                <div class="text-[10px] font-bold uppercase tracking-widest opacity-50">Difference</div>
-                <div class="text-sm font-bold" id="calc-live-diff">&mdash;</div>
-              </div>
-              <div class="flex-[2] min-w-[140px]">
-                <div class="text-[10px] opacity-40 mb-1">Budget usage</div>
-                <div class="h-1.5 rounded-full bg-white/15 overflow-hidden">
-                  <div id="calc-live-pct-bar" class="h-full rounded-full bg-white transition-all" style="width:0%"></div>
+              <div id="admin-docs-list" class="p-4">
+                <div class="text-center py-8 text-on-surface-variant">
+                  <span class="material-symbols-outlined text-[36px] opacity-30">description</span>
+                  <p class="mt-2 text-sm">No hay documentos oficiales aún.</p>
                 </div>
               </div>
             </div>
 
-            <div class="flex items-center gap-2 text-[11px] font-bold uppercase tracking-widest text-on-surface-variant mb-3">
-              <span class="material-symbols-outlined text-sm">inventory_2</span>
-              <span>Work packages</span><div class="flex-1 h-px bg-outline-variant"></div>
-              <button id="calc-btn-add-wp" class="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-[11px] font-bold uppercase tracking-widest text-primary hover:bg-primary/10 transition-colors">
-                <span class="material-symbols-outlined text-sm">add</span> Add WP
-              </button>
-            </div>
-            <div id="calc-wp-list" class="flex flex-col gap-3 mb-8"></div>
-
-            <div class="flex justify-between mt-6">
-              <button class="calc-btn-prev inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-outline-variant text-on-surface-variant font-semibold text-sm hover:bg-surface-container-low transition-colors">
-                <span class="material-symbols-outlined text-lg">arrow_back</span> Back
-              </button>
-              <button class="calc-btn-next inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-primary text-white font-semibold text-sm hover:bg-primary/90 transition-colors">
-                Next <span class="material-symbols-outlined text-lg">arrow_forward</span>
-              </button>
-            </div>
-          </div>
-
-          <!-- STEP 3: Financing -->
-          <div class="calc-step" style="display:none" id="calc-p3">
-            <h1 class="font-headline text-3xl font-extrabold tracking-tighter text-primary mb-1">Financing</h1>
-            <p class="text-on-surface-variant text-base mb-8">Verify the calculated budget against the grant target and co-financing split.</p>
-            <div id="calc-financing-content"></div>
-
-            <div class="flex justify-between mt-6">
-              <button class="calc-btn-prev inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-outline-variant text-on-surface-variant font-semibold text-sm hover:bg-surface-container-low transition-colors">
-                <span class="material-symbols-outlined text-lg">arrow_back</span> Back
-              </button>
-              <button class="calc-btn-next inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-primary text-white font-semibold text-sm hover:bg-primary/90 transition-colors">
-                View Results <span class="material-symbols-outlined text-lg">arrow_forward</span>
-              </button>
-            </div>
-          </div>
-
-          <!-- STEP 4: Results -->
-          <div class="calc-step" style="display:none" id="calc-p4">
-            <h1 class="font-headline text-3xl font-extrabold tracking-tighter text-primary mb-1">Budget Results</h1>
-            <p class="text-on-surface-variant text-base mb-8">Full budget breakdown for your project.</p>
-
-            <div id="calc-results-content"></div>
-
-            <div class="flex justify-start mt-6">
-              <button class="calc-btn-prev inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-outline-variant text-on-surface-variant font-semibold text-sm hover:bg-surface-container-low transition-colors">
-                <span class="material-symbols-outlined text-lg">arrow_back</span> Back
-              </button>
+            <!-- Upload modal for admin docs -->
+            <div id="admin-doc-upload-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/40">
+              <div class="bg-surface rounded-2xl shadow-xl p-6 w-full max-w-md mx-4">
+                <h2 class="text-lg font-bold text-primary mb-4">Subir documento oficial</h2>
+                <form id="admin-doc-upload-form" class="space-y-4">
+                  <div>
+                    <label class="block text-sm font-medium text-on-surface mb-1">Archivo</label>
+                    <input type="file" id="admin-doc-file" accept=".pdf,.docx,.xlsx,.txt,.csv" required
+                      class="block w-full text-sm text-on-surface file:mr-3 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-bold file:bg-sidebar file:text-secondary-fixed hover:file:opacity-90"/>
+                    <p class="text-xs text-on-surface-variant mt-1">PDF, DOCX, XLSX, TXT, CSV — max 20MB</p>
+                  </div>
+                  <div>
+                    <label class="block text-sm font-medium text-on-surface mb-1">Título</label>
+                    <input type="text" id="admin-doc-title" placeholder="Título del documento"
+                      class="w-full px-3 py-2 rounded-lg border border-outline-variant/40 text-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none"/>
+                  </div>
+                  <div>
+                    <label class="block text-sm font-medium text-on-surface mb-1">Descripción</label>
+                    <textarea id="admin-doc-desc" rows="2" placeholder="Descripción breve"
+                      class="w-full px-3 py-2 rounded-lg border border-outline-variant/40 text-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none resize-none"></textarea>
+                  </div>
+                  <div>
+                    <label class="block text-sm font-medium text-on-surface mb-1">Tags</label>
+                    <input type="text" id="admin-doc-tags" placeholder="ej: guía, KA2, erasmus (separados por coma)"
+                      class="w-full px-3 py-2 rounded-lg border border-outline-variant/40 text-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none"/>
+                  </div>
+                  <div class="flex justify-end gap-3 pt-2">
+                    <button type="button" id="btn-cancel-admin-upload" class="px-4 py-2 text-sm text-on-surface-variant hover:text-on-surface transition-colors">Cancelar</button>
+                    <button type="submit" class="px-4 py-2.5 rounded-lg text-sm font-bold bg-sidebar text-secondary-fixed hover:opacity-90 transition-opacity">Subir</button>
+                  </div>
+                </form>
+              </div>
             </div>
           </div>
 
         </div>
       </section>
 
-      <!-- ═══ PANEL: MI ORGANIZACIÓN ═══════════════════════════ -->
       <section id="panel-my-org" class="panel">
         <div class="max-w-5xl mx-auto py-8 px-4">
-          <h1 class="font-headline text-2xl font-extrabold text-primary mb-6">Mi Organización</h1>
+          <div class="flex flex-col sm:flex-row sm:items-center gap-4 mb-6">
+            <h1 class="font-headline text-2xl font-extrabold text-primary">Mi Organización</h1>
+            <div class="sm:ml-auto flex items-center gap-2">
+              <select id="myorg-org-select" class="border border-outline-variant rounded-lg px-3 py-2 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-primary min-w-[200px]">
+                <option value="">Cargando...</option>
+              </select>
+              <button id="myorg-btn-new-org" class="inline-flex items-center gap-1 px-3 py-2 rounded-lg text-xs font-semibold text-primary border border-primary/30 hover:bg-primary/5 transition-colors">
+                <span class="material-symbols-outlined text-base">add</span> Nueva
+              </button>
+            </div>
+          </div>
 
           <!-- Tab nav -->
           <div id="myorg-tab-nav" class="flex gap-1 overflow-x-auto border-b border-outline-variant/30 mb-6 pb-0">
             <button data-tab="general"    class="px-4 py-2.5 text-sm font-medium whitespace-nowrap border-b-2 border-secondary-fixed text-primary font-bold">Datos generales</button>
-            <button data-tab="legal-rep"  class="px-4 py-2.5 text-sm font-medium whitespace-nowrap text-on-surface-variant">Representante legal</button>
-            <button data-tab="contact"    class="px-4 py-2.5 text-sm font-medium whitespace-nowrap text-on-surface-variant">Persona contacto</button>
+            <button data-tab="representatives" class="px-4 py-2.5 text-sm font-medium whitespace-nowrap text-on-surface-variant">Representantes</button>
             <button data-tab="experience" class="px-4 py-2.5 text-sm font-medium whitespace-nowrap text-on-surface-variant">Experiencia</button>
-            <button data-tab="eu-projects" class="px-4 py-2.5 text-sm font-medium whitespace-nowrap text-on-surface-variant">Proyectos UE</button>
             <button data-tab="accreditations" class="px-4 py-2.5 text-sm font-medium whitespace-nowrap text-on-surface-variant">Acreditaciones</button>
-            <button data-tab="key-staff"  class="px-4 py-2.5 text-sm font-medium whitespace-nowrap text-on-surface-variant">Personal clave</button>
             <button data-tab="stakeholders" class="px-4 py-2.5 text-sm font-medium whitespace-nowrap text-on-surface-variant">Stakeholders</button>
-            <button data-tab="assoc"      class="px-4 py-2.5 text-sm font-medium whitespace-nowrap text-on-surface-variant">Socios asociados</button>
           </div>
 
           <!-- TAB: General -->
           <div id="myorg-tab-general" class="myorg-tab">
             <div class="bg-white rounded-xl border border-outline-variant/30 p-6">
+
+              <!-- Logo -->
+              <div class="flex items-center gap-5 mb-6 pb-6 border-b border-outline-variant/20">
+                <div id="myorg-logo-preview" class="w-20 h-20 rounded-xl border-2 border-dashed border-outline-variant/40 bg-surface-container-low flex items-center justify-center overflow-hidden flex-shrink-0">
+                  <span class="material-symbols-outlined text-3xl text-on-surface-variant/30" id="myorg-logo-placeholder">image</span>
+                </div>
+                <div>
+                  <div class="text-sm font-semibold text-on-surface mb-1">Logo de la organización</div>
+                  <p class="text-xs text-on-surface-variant mb-2">JPG, PNG o SVG. Máx. 2 MB.</p>
+                  <label class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-primary border border-primary/30 hover:bg-primary/5 cursor-pointer transition-colors">
+                    <span class="material-symbols-outlined text-base">upload</span> Subir logo
+                    <input type="file" id="myorg-logo-input" accept="image/*" class="hidden" />
+                  </label>
+                </div>
+              </div>
+
               <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div class="md:col-span-2">
                   <label class="block text-xs font-semibold text-on-surface-variant mb-1">Nombre de la organización *</label>
@@ -1297,25 +1254,25 @@ tailwind.config = {
                 </div>
               </div>
               <div class="mt-6 flex justify-end">
-                <button onclick="Organizations.saveSection('myorg-tab-general')" class="bg-primary text-white px-6 py-2.5 rounded-lg text-sm font-semibold hover:bg-primary/90 transition-colors">Guardar datos generales</button>
+                <button data-org-save="myorg-tab-general" class="bg-primary text-white px-6 py-2.5 rounded-lg text-sm font-semibold hover:bg-primary/90 transition-colors">Guardar datos generales</button>
               </div>
             </div>
           </div>
 
           <!-- TAB: Legal Representative -->
-          <div id="myorg-tab-legal-rep" class="myorg-tab hidden">
-            <div class="bg-white rounded-xl border border-outline-variant/30 p-6">
-              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <!-- TAB: Representantes (legal rep + contact person + key staff) -->
+          <div id="myorg-tab-representatives" class="myorg-tab hidden">
+
+            <!-- Legal Representative -->
+            <div class="bg-white rounded-xl border border-outline-variant/30 p-6 mb-5" id="myorg-sec-legal-rep">
+              <h3 class="text-sm font-bold text-primary mb-4 flex items-center gap-2">
+                <span class="material-symbols-outlined text-lg">gavel</span> Representante legal
+              </h3>
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div>
                   <label class="block text-xs font-semibold text-on-surface-variant mb-1">Título</label>
                   <select data-field="legal_rep_title" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm">
                     <option value="">—</option><option>Mr.</option><option>Mrs.</option><option>Ms.</option><option>Dr.</option><option>Prof.</option>
-                  </select>
-                </div>
-                <div>
-                  <label class="block text-xs font-semibold text-on-surface-variant mb-1">Género</label>
-                  <select data-field="legal_rep_gender" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm">
-                    <option value="">—</option><option>Male</option><option>Female</option><option>Other</option>
                   </select>
                 </div>
                 <div>
@@ -1327,10 +1284,6 @@ tailwind.config = {
                   <input data-field="legal_rep_family_name" type="text" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm">
                 </div>
                 <div>
-                  <label class="block text-xs font-semibold text-on-surface-variant mb-1">Departamento</label>
-                  <input data-field="legal_rep_department" type="text" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm">
-                </div>
-                <div>
                   <label class="block text-xs font-semibold text-on-surface-variant mb-1">Cargo</label>
                   <input data-field="legal_rep_position" type="text" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm">
                 </div>
@@ -1339,61 +1292,22 @@ tailwind.config = {
                   <input data-field="legal_rep_email" type="email" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm">
                 </div>
                 <div>
-                  <label class="block text-xs font-semibold text-on-surface-variant mb-1">Teléfono 1</label>
+                  <label class="block text-xs font-semibold text-on-surface-variant mb-1">Teléfono</label>
                   <input data-field="legal_rep_telephone1" type="tel" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm">
                 </div>
-                <div>
-                  <label class="block text-xs font-semibold text-on-surface-variant mb-1">Teléfono 2</label>
-                  <input data-field="legal_rep_telephone2" type="tel" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm">
-                </div>
-                <div class="flex items-center">
-                  <label class="flex items-center gap-2 text-sm"><input data-field="legal_rep_same_address" type="checkbox" class="rounded border-outline-variant/40" checked> Misma dirección que la organización</label>
-                </div>
-                <div>
-                  <label class="block text-xs font-semibold text-on-surface-variant mb-1">Dirección (si diferente)</label>
-                  <input data-field="legal_rep_address" type="text" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm">
-                </div>
-                <div>
-                  <label class="block text-xs font-semibold text-on-surface-variant mb-1">País</label>
-                  <input data-field="legal_rep_country" type="text" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm">
-                </div>
-                <div>
-                  <label class="block text-xs font-semibold text-on-surface-variant mb-1">Región</label>
-                  <input data-field="legal_rep_region" type="text" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm">
-                </div>
-                <div>
-                  <label class="block text-xs font-semibold text-on-surface-variant mb-1">Ciudad</label>
-                  <input data-field="legal_rep_city" type="text" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm">
-                </div>
-                <div>
-                  <label class="block text-xs font-semibold text-on-surface-variant mb-1">Código postal</label>
-                  <input data-field="legal_rep_post_code" type="text" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm">
-                </div>
-                <div>
-                  <label class="block text-xs font-semibold text-on-surface-variant mb-1">CEDEX</label>
-                  <input data-field="legal_rep_cedex" type="text" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm">
-                </div>
-              </div>
-              <div class="mt-6 flex justify-end">
-                <button onclick="Organizations.saveSection('myorg-tab-legal-rep')" class="bg-primary text-white px-6 py-2.5 rounded-lg text-sm font-semibold hover:bg-primary/90 transition-colors">Guardar representante legal</button>
               </div>
             </div>
-          </div>
 
-          <!-- TAB: Contact Person -->
-          <div id="myorg-tab-contact" class="myorg-tab hidden">
-            <div class="bg-white rounded-xl border border-outline-variant/30 p-6">
-              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <!-- Contact Person -->
+            <div class="bg-white rounded-xl border border-outline-variant/30 p-6 mb-5" id="myorg-sec-contact">
+              <h3 class="text-sm font-bold text-primary mb-4 flex items-center gap-2">
+                <span class="material-symbols-outlined text-lg">contact_mail</span> Persona de contacto
+              </h3>
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div>
                   <label class="block text-xs font-semibold text-on-surface-variant mb-1">Título</label>
                   <select data-field="cp_title" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm">
                     <option value="">—</option><option>Mr.</option><option>Mrs.</option><option>Ms.</option><option>Dr.</option><option>Prof.</option>
-                  </select>
-                </div>
-                <div>
-                  <label class="block text-xs font-semibold text-on-surface-variant mb-1">Género</label>
-                  <select data-field="cp_gender" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm">
-                    <option value="">—</option><option>Male</option><option>Female</option><option>Other</option>
                   </select>
                 </div>
                 <div>
@@ -1405,10 +1319,6 @@ tailwind.config = {
                   <input data-field="cp_family_name" type="text" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm">
                 </div>
                 <div>
-                  <label class="block text-xs font-semibold text-on-surface-variant mb-1">Departamento</label>
-                  <input data-field="cp_department" type="text" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm">
-                </div>
-                <div>
                   <label class="block text-xs font-semibold text-on-surface-variant mb-1">Cargo</label>
                   <input data-field="cp_position" type="text" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm">
                 </div>
@@ -1417,44 +1327,42 @@ tailwind.config = {
                   <input data-field="cp_email" type="email" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm">
                 </div>
                 <div>
-                  <label class="block text-xs font-semibold text-on-surface-variant mb-1">Teléfono 1</label>
+                  <label class="block text-xs font-semibold text-on-surface-variant mb-1">Teléfono</label>
                   <input data-field="cp_telephone1" type="tel" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm">
                 </div>
-                <div>
-                  <label class="block text-xs font-semibold text-on-surface-variant mb-1">Teléfono 2</label>
-                  <input data-field="cp_telephone2" type="tel" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm">
-                </div>
-                <div class="flex items-center">
-                  <label class="flex items-center gap-2 text-sm"><input data-field="cp_same_address" type="checkbox" class="rounded border-outline-variant/40" checked> Misma dirección que la organización</label>
-                </div>
-                <div>
-                  <label class="block text-xs font-semibold text-on-surface-variant mb-1">Dirección (si diferente)</label>
-                  <input data-field="cp_address" type="text" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm">
-                </div>
-                <div>
-                  <label class="block text-xs font-semibold text-on-surface-variant mb-1">País</label>
-                  <input data-field="cp_country" type="text" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm">
-                </div>
-                <div>
-                  <label class="block text-xs font-semibold text-on-surface-variant mb-1">Región</label>
-                  <input data-field="cp_region" type="text" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm">
-                </div>
-                <div>
-                  <label class="block text-xs font-semibold text-on-surface-variant mb-1">Ciudad</label>
-                  <input data-field="cp_city" type="text" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm">
-                </div>
-                <div>
-                  <label class="block text-xs font-semibold text-on-surface-variant mb-1">Código postal</label>
-                  <input data-field="cp_post_code" type="text" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm">
-                </div>
-                <div>
-                  <label class="block text-xs font-semibold text-on-surface-variant mb-1">CEDEX</label>
-                  <input data-field="cp_cedex" type="text" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm">
-                </div>
               </div>
-              <div class="mt-6 flex justify-end">
-                <button onclick="Organizations.saveSection('myorg-tab-contact')" class="bg-primary text-white px-6 py-2.5 rounded-lg text-sm font-semibold hover:bg-primary/90 transition-colors">Guardar persona de contacto</button>
+            </div>
+
+            <!-- Key Staff -->
+            <div class="bg-white rounded-xl border border-outline-variant/30 overflow-hidden mb-5">
+              <div class="flex items-center justify-between px-5 py-3 border-b border-outline-variant/20">
+                <h3 class="text-sm font-bold text-primary flex items-center gap-2">
+                  <span class="material-symbols-outlined text-lg">badge</span> Personal clave
+                </h3>
+                <button data-org-add="key-staff" class="flex items-center gap-1 text-xs font-semibold text-primary hover:text-primary/80">
+                  <span class="material-symbols-outlined text-[18px]">add_circle</span> Añadir
+                </button>
               </div>
+              <div class="overflow-x-auto">
+                <table class="w-full text-sm">
+                  <thead class="bg-surface-container-low text-xs text-on-surface-variant uppercase">
+                    <tr>
+                      <th class="px-3 py-2 text-left">Nombre</th>
+                      <th class="px-3 py-2 text-left">Cargo</th>
+                      <th class="px-3 py-2 text-left">Competencias y experiencia</th>
+                      <th class="px-3 py-2 text-right">Acciones</th>
+                    </tr>
+                  </thead>
+                  <tbody id="org-key-staff-tbody">
+                    <tr><td colspan="4" class="py-4 text-center text-on-surface-variant text-sm">Cargando...</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- Save button for representatives -->
+            <div class="flex justify-end">
+              <button data-org-save="myorg-tab-representatives" class="bg-primary text-white px-6 py-2.5 rounded-lg text-sm font-semibold hover:bg-primary/90 transition-colors">Guardar representantes</button>
             </div>
           </div>
 
@@ -1497,17 +1405,17 @@ tailwind.config = {
                 <label class="flex items-center gap-2 text-sm"><input data-field="has_eu_projects" type="checkbox" class="rounded border-outline-variant/40"> Ha participado en proyectos UE en los últimos 3 años</label>
               </div>
               <div class="flex justify-end">
-                <button onclick="Organizations.saveSection('myorg-tab-experience')" class="bg-primary text-white px-6 py-2.5 rounded-lg text-sm font-semibold hover:bg-primary/90 transition-colors">Guardar experiencia</button>
+                <button data-org-save="myorg-tab-experience" class="bg-primary text-white px-6 py-2.5 rounded-lg text-sm font-semibold hover:bg-primary/90 transition-colors">Guardar experiencia</button>
               </div>
             </div>
-          </div>
 
-          <!-- TAB: EU Projects -->
-          <div id="myorg-tab-eu-projects" class="myorg-tab hidden">
-            <div class="bg-white rounded-xl border border-outline-variant/30 overflow-hidden">
-              <div class="flex items-center justify-between px-4 py-3 border-b border-outline-variant/20">
-                <h3 class="text-sm font-semibold text-primary">Proyectos UE concedidos</h3>
-                <button onclick="Organizations.addChild('eu-projects')" class="flex items-center gap-1 text-xs font-semibold text-primary hover:text-primary/80">
+            <!-- EU Projects (inside Experience tab) -->
+            <div class="bg-white rounded-xl border border-outline-variant/30 overflow-hidden mt-5">
+              <div class="flex items-center justify-between px-5 py-3 border-b border-outline-variant/20">
+                <h3 class="text-sm font-bold text-primary flex items-center gap-2">
+                  <span class="material-symbols-outlined text-lg">public</span> Proyectos UE concedidos
+                </h3>
+                <button data-org-add="eu-projects" class="flex items-center gap-1 text-xs font-semibold text-primary hover:text-primary/80">
                   <span class="material-symbols-outlined text-[18px]">add_circle</span> Añadir
                 </button>
               </div>
@@ -1536,7 +1444,7 @@ tailwind.config = {
             <div class="bg-white rounded-xl border border-outline-variant/30 overflow-hidden">
               <div class="flex items-center justify-between px-4 py-3 border-b border-outline-variant/20">
                 <h3 class="text-sm font-semibold text-primary">Acreditaciones</h3>
-                <button onclick="Organizations.addChild('accreditations')" class="flex items-center gap-1 text-xs font-semibold text-primary hover:text-primary/80">
+                <button data-org-add="accreditations" class="flex items-center gap-1 text-xs font-semibold text-primary hover:text-primary/80">
                   <span class="material-symbols-outlined text-[18px]">add_circle</span> Añadir
                 </button>
               </div>
@@ -1557,39 +1465,12 @@ tailwind.config = {
             </div>
           </div>
 
-          <!-- TAB: Key Staff -->
-          <div id="myorg-tab-key-staff" class="myorg-tab hidden">
-            <div class="bg-white rounded-xl border border-outline-variant/30 overflow-hidden">
-              <div class="flex items-center justify-between px-4 py-3 border-b border-outline-variant/20">
-                <h3 class="text-sm font-semibold text-primary">Personal clave (capacidad operativa)</h3>
-                <button onclick="Organizations.addChild('key-staff')" class="flex items-center gap-1 text-xs font-semibold text-primary hover:text-primary/80">
-                  <span class="material-symbols-outlined text-[18px]">add_circle</span> Añadir
-                </button>
-              </div>
-              <div class="overflow-x-auto">
-                <table class="w-full text-sm">
-                  <thead class="bg-surface-container-low text-xs text-on-surface-variant uppercase">
-                    <tr>
-                      <th class="px-3 py-2 text-left">Nombre</th>
-                      <th class="px-3 py-2 text-left">Cargo</th>
-                      <th class="px-3 py-2 text-left">Competencias y experiencia</th>
-                      <th class="px-3 py-2 text-right">Acciones</th>
-                    </tr>
-                  </thead>
-                  <tbody id="org-key-staff-tbody">
-                    <tr><td colspan="3" class="py-4 text-center text-on-surface-variant text-sm">Cargando...</td></tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-
           <!-- TAB: Stakeholders -->
           <div id="myorg-tab-stakeholders" class="myorg-tab hidden">
             <div class="bg-white rounded-xl border border-outline-variant/30 overflow-hidden">
               <div class="flex items-center justify-between px-4 py-3 border-b border-outline-variant/20">
                 <h3 class="text-sm font-semibold text-primary">Stakeholders (entidades relacionadas)</h3>
-                <button onclick="Organizations.addChild('stakeholders')" class="flex items-center gap-1 text-xs font-semibold text-primary hover:text-primary/80">
+                <button data-org-add="stakeholders" class="flex items-center gap-1 text-xs font-semibold text-primary hover:text-primary/80">
                   <span class="material-symbols-outlined text-[18px]">add_circle</span> Añadir
                 </button>
               </div>
@@ -1598,43 +1479,16 @@ tailwind.config = {
                   <thead class="bg-surface-container-low text-xs text-on-surface-variant uppercase">
                     <tr>
                       <th class="px-3 py-2 text-left">Entidad</th>
-                      <th class="px-3 py-2 text-left">Tipo relación</th>
+                      <th class="px-3 py-2 text-left">Tipo entidad</th>
+                      <th class="px-3 py-2 text-left">Relación</th>
+                      <th class="px-3 py-2 text-left">Contacto</th>
+                      <th class="px-3 py-2 text-left">Email</th>
                       <th class="px-3 py-2 text-left">Descripción</th>
                       <th class="px-3 py-2 text-right">Acciones</th>
                     </tr>
                   </thead>
                   <tbody id="org-stakeholders-tbody">
-                    <tr><td colspan="4" class="py-4 text-center text-on-surface-variant text-sm">Cargando...</td></tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-
-          <!-- TAB: Associated Partners -->
-          <div id="myorg-tab-assoc" class="myorg-tab hidden">
-            <div class="bg-white rounded-xl border border-outline-variant/30 overflow-hidden">
-              <div class="flex items-center justify-between px-4 py-3 border-b border-outline-variant/20">
-                <h3 class="text-sm font-semibold text-primary">Socios asociados</h3>
-                <button onclick="Organizations.addChild('associated-partners')" class="flex items-center gap-1 text-xs font-semibold text-primary hover:text-primary/80">
-                  <span class="material-symbols-outlined text-[18px]">add_circle</span> Añadir
-                </button>
-              </div>
-              <div class="overflow-x-auto">
-                <table class="w-full text-sm">
-                  <thead class="bg-surface-container-low text-xs text-on-surface-variant uppercase">
-                    <tr>
-                      <th class="px-3 py-2 text-left">Nombre</th>
-                      <th class="px-3 py-2 text-left">País</th>
-                      <th class="px-3 py-2 text-left">Ciudad</th>
-                      <th class="px-3 py-2 text-left">Tipo</th>
-                      <th class="px-3 py-2 text-left">Contacto</th>
-                      <th class="px-3 py-2 text-left">Relación</th>
-                      <th class="px-3 py-2 text-right">Acciones</th>
-                    </tr>
-                  </thead>
-                  <tbody id="org-associated-partners-tbody">
-                    <tr><td colspan="5" class="py-4 text-center text-on-surface-variant text-sm">Cargando...</td></tr>
+                    <tr><td colspan="7" class="py-4 text-center text-on-surface-variant text-sm">Cargando...</td></tr>
                   </tbody>
                 </table>
               </div>
@@ -1683,8 +1537,9 @@ tailwind.config = {
 <script src="/js/app.js"></script>
 <script src="/js/intake.js"></script>
 <script src="/js/admin.js"></script>
-<script src="/js/organizations.js"></script>
 <script src="/js/calculator.js"></script>
+<script src="/js/organizations.js"></script>
+<script src="/js/documents.js"></script>
 
 <!-- ── Mini modal (reemplaza prompt/confirm nativos) ────────── -->
 <div id="mini-modal" class="hidden fixed inset-0 z-50 flex items-end sm:items-center justify-center p-4 bg-black/40">
