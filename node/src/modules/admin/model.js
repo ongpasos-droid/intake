@@ -13,20 +13,16 @@ async function listPrograms() {
 
 async function upsertProgram(data, id) {
   if (id) {
-    await pool.query(
-      `UPDATE intake_programs SET
-        program_id=?, name=?, action_type=?, deadline=?,
-        start_date_min=?, start_date_max=?,
-        duration_min_months=?, duration_max_months=?,
-        eu_grant_max=?, cofin_pct=?, indirect_pct=?,
-        min_partners=?, notes=?, active=?
-       WHERE id=?`,
-      [data.program_id, data.name, data.action_type, data.deadline || null,
-       data.start_date_min || null, data.start_date_max || null,
-       data.duration_min_months || null, data.duration_max_months || null,
-       data.eu_grant_max || null, data.cofin_pct || null, data.indirect_pct || null,
-       data.min_partners || 2, data.notes || null, data.active ?? 1, id]
-    );
+    const allowed = ['program_id','name','action_type','deadline','start_date_min','start_date_max',
+      'duration_min_months','duration_max_months','eu_grant_max','cofin_pct','indirect_pct',
+      'min_partners','notes','active'];
+    const sets = [], params = [];
+    for (const k of allowed) {
+      if (k in data) { sets.push(`${k}=?`); params.push(data[k] ?? null); }
+    }
+    if (!sets.length) return id;
+    params.push(id);
+    await pool.query(`UPDATE intake_programs SET ${sets.join(', ')} WHERE id=?`, params);
     return id;
   }
   const newId = uuid();
