@@ -329,6 +329,7 @@ async function upsertEvalSection(data, id) {
     if ('color' in data) { sets.push('color=?'); params.push(data.color); }
     if ('max_score' in data) { sets.push('max_score=?'); params.push(data.max_score ?? 0); }
     if ('eval_notes' in data) { sets.push('eval_notes=?'); params.push(data.eval_notes || null); }
+    if ('form_ref' in data) { sets.push('form_ref=?'); params.push(data.form_ref || null); }
     if ('sort_order' in data) { sets.push('sort_order=?'); params.push(data.sort_order ?? 0); }
     if (!sets.length) return id;
     params.push(id);
@@ -336,8 +337,8 @@ async function upsertEvalSection(data, id) {
     return id;
   }
   const newId = uuid();
-  await pool.query('INSERT INTO eval_sections (id, program_id, title, color, max_score, sort_order) VALUES (?,?,?,?,?,?)',
-    [newId, data.program_id, data.title, data.color || '#3b82f6', data.max_score ?? 0, data.sort_order ?? 0]);
+  await pool.query('INSERT INTO eval_sections (id, program_id, title, form_ref, color, max_score, sort_order) VALUES (?,?,?,?,?,?,?)',
+    [newId, data.program_id, data.title, data.form_ref || null, data.color || '#3b82f6', data.max_score ?? 0, data.sort_order ?? 0]);
   return newId;
 }
 
@@ -423,8 +424,8 @@ async function importEvalRules(programId, jsonData) {
     for (let si = 0; si < sections.length; si++) {
       const sec = sections[si];
       const secId = uuid();
-      await conn.query('INSERT INTO eval_sections (id, program_id, title, color, max_score, eval_notes, sort_order) VALUES (?,?,?,?,?,?,?)',
-        [secId, programId, sec.title, COLORS[si % COLORS.length], sec.maxScore ?? 0, sec.evalNotes || null, si]);
+      await conn.query('INSERT INTO eval_sections (id, program_id, title, form_ref, color, max_score, eval_notes, sort_order) VALUES (?,?,?,?,?,?,?,?)',
+        [secId, programId, sec.title, sec.formRef || null, COLORS[si % COLORS.length], sec.maxScore ?? 0, sec.evalNotes || null, si]);
       const questions = sec.questions || [];
       for (let qi = 0; qi < questions.length; qi++) {
         const q = questions[qi];

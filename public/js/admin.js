@@ -1248,6 +1248,7 @@ KEY EVALUATOR FOCUS:
           <div class="eval-sec-chip flex items-center gap-2.5 px-3 py-2.5 rounded-xl cursor-pointer ${isActive ? 'active' : ''}" data-si="${si}">
             <div class="eval-sec-dot w-3 h-3 rounded-full flex-shrink-0" style="background:${sec.color}"></div>
             <span class="text-xs font-bold flex-1 truncate ${isActive ? '' : 'text-primary/70'}">${sec.title}</span>
+            ${sec.max_score > 0 ? `<span class="text-[10px] font-mono ${isActive ? 'text-white/60' : 'text-primary/30'}">${sec.max_score}p</span>` : `<span class="text-[10px] ${isActive ? 'text-white/40' : 'text-primary/20'}">—</span>`}
             <button class="eval-del-sec ${isActive ? 'text-white/40 hover:text-white' : 'text-primary/30 hover:text-error'} transition-colors" data-id="${sec.id}">
               <span class="material-symbols-outlined text-sm">close</span>
             </button>
