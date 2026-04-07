@@ -196,29 +196,17 @@ tailwind.config = {
         <span class="material-symbols-outlined text-[20px]">dashboard</span>
         Dashboard
       </a>
+      <a href="#my-projects"
+        class="nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-white/70 hover:bg-white/10 transition-colors text-sm font-medium"
+        data-route="my-projects">
+        <span class="material-symbols-outlined text-[20px]">folder_shared</span>
+        Mis Proyectos
+      </a>
       <a href="#intake"
         class="nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-white/70 hover:bg-white/10 transition-colors text-sm font-medium"
         data-route="intake">
         <span class="material-symbols-outlined text-[20px]">add_circle</span>
-        Intake
-      </a>
-      <a href="#calculator"
-        class="nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-white/70 hover:bg-white/10 transition-colors text-sm font-medium"
-        data-route="calculator">
-        <span class="material-symbols-outlined text-[20px]">calculate</span>
-        Calculator
-      </a>
-      <a href="#planner"
-        class="nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-white/70 hover:bg-white/10 transition-colors text-sm font-medium opacity-40 pointer-events-none"
-        data-route="planner">
-        <span class="material-symbols-outlined text-[20px]">calendar_month</span>
-        Planner
-      </a>
-      <a href="#developer"
-        class="nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-white/70 hover:bg-white/10 transition-colors text-sm font-medium opacity-40 pointer-events-none"
-        data-route="developer">
-        <span class="material-symbols-outlined text-[20px]">edit_document</span>
-        Developer
+        Crear Proyecto
       </a>
       <a href="#evaluator"
         class="nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-white/70 hover:bg-white/10 transition-colors text-sm font-medium opacity-40 pointer-events-none"
@@ -503,6 +491,23 @@ tailwind.config = {
 
       </section>
 
+      <!-- My Projects panel -->
+      <section id="panel-my-projects" class="panel">
+        <div class="max-w-3xl mx-auto">
+          <div class="flex items-center justify-between mb-8">
+            <div>
+              <h1 class="font-headline text-3xl font-extrabold tracking-tighter text-primary mb-1">Mis Proyectos</h1>
+              <p class="text-on-surface-variant text-base">Tus propuestas Erasmus+ guardadas.</p>
+            </div>
+            <button type="button" id="my-projects-new-btn"
+              class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-bold text-white bg-primary hover:bg-primary/90 shadow-md transition-all">
+              <span class="material-symbols-outlined text-lg">add</span> Nuevo proyecto
+            </button>
+          </div>
+          <div id="my-projects-list"></div>
+        </div>
+      </section>
+
       <!-- Intake panel -->
       <section id="panel-intake" class="panel">
         <div class="max-w-3xl mx-auto">
@@ -528,15 +533,6 @@ tailwind.config = {
           <div class="intake-step" id="intake-p0">
             <h1 class="font-headline text-3xl font-extrabold tracking-tighter text-primary mb-1">Programa</h1>
             <p class="text-on-surface-variant text-base mb-8">Selecciona la convocatoria Erasmus+ o abre un proyecto guardado.</p>
-
-            <!-- Saved projects -->
-            <div class="mb-8">
-              <div class="flex items-center gap-2 text-[11px] font-bold uppercase tracking-widest text-on-surface-variant mb-3">
-                <span class="material-symbols-outlined text-sm">cloud_done</span>
-                <span>Proyectos guardados</span><div class="flex-1 h-px bg-outline-variant"></div>
-              </div>
-              <div id="intake-server-projects"><p class="text-xs text-on-surface-variant">Cargando...</p></div>
-            </div>
 
             <!-- Program cards -->
             <div class="flex items-center gap-2 text-[11px] font-bold uppercase tracking-widest text-on-surface-variant mb-3">
@@ -575,16 +571,12 @@ tailwind.config = {
                   <div class="font-headline text-sm font-bold text-primary" id="intake-ro-st">&mdash;</div>
                 </div>
               </div>
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div class="flex flex-col gap-1.5">
-                  <label class="text-xs font-semibold text-on-surface-variant">Fecha de inicio prevista <span class="text-primary">*</span></label>
-                  <input type="date" id="intake-f-start" class="w-full px-3 py-2.5 rounded-lg bg-white border border-outline-variant text-on-surface font-body text-sm focus:border-primary focus:ring-2 focus:ring-secondary-fixed outline-none transition-all">
-                </div>
-                <div class="flex flex-col gap-1.5">
-                  <label class="text-xs font-semibold text-on-surface-variant">Duraci&oacute;n <span class="text-primary">*</span></label>
-                  <select id="intake-f-dur" class="w-full px-3 py-2.5 rounded-lg bg-white border border-outline-variant text-on-surface font-body text-sm focus:border-primary focus:ring-2 focus:ring-secondary-fixed outline-none transition-all cursor-pointer appearance-none"></select>
-                </div>
+              <div class="bg-surface-container-low border border-outline-variant/50 rounded-lg p-3">
+                <div class="text-[11px] font-bold uppercase tracking-widest text-on-surface-variant mb-1">Duraci&oacute;n</div>
+                <div class="font-headline text-sm font-bold text-primary" id="intake-ro-dur">&mdash;</div>
               </div>
+              <input type="hidden" id="intake-f-start">
+              <input type="hidden" id="intake-f-dur">
             </div>
 
             <div class="flex justify-end mt-10 pt-5 border-t border-outline-variant">
@@ -1004,6 +996,7 @@ tailwind.config = {
             <button data-section="workers"      class="px-4 py-2.5 text-sm border-b-2 border-transparent text-on-surface-variant transition-colors hover:text-primary">Personal</button>
             <button data-section="entities"    class="px-4 py-2.5 text-sm border-b-2 border-transparent text-on-surface-variant transition-colors hover:text-primary">Entidades</button>
 
+            <button data-section="forms" class="px-4 py-2.5 text-sm border-b-2 border-transparent text-on-surface-variant transition-colors hover:text-primary">Calls</button>
             <button data-section="all-docs" class="px-4 py-2.5 text-sm border-b-2 border-transparent text-on-surface-variant transition-colors hover:text-primary">Todos los docs</button>
             <button data-section="platform-docs" class="px-4 py-2.5 text-sm border-b-2 border-transparent text-on-surface-variant transition-colors hover:text-primary">Docs oficiales</button>
             <button data-section="library" class="px-4 py-2.5 text-sm border-b-2 border-transparent text-on-surface-variant transition-colors hover:text-primary">Biblioteca</button>
@@ -1106,6 +1099,34 @@ tailwind.config = {
                 <h2 class="text-lg font-bold text-primary" id="elig-program-title"></h2>
               </div>
               <div id="elig-form-wrap" class="space-y-5"></div>
+            </div>
+          </div>
+
+          <!-- ── Calls ──────────────────────────────────────────── -->
+          <div id="admin-sec-forms" class="admin-section hidden">
+            <div id="forms-view-list" class="forms-view">
+              <div class="flex items-center justify-between mb-4">
+                <div>
+                  <h2 class="text-lg font-bold text-primary">Calls</h2>
+                  <p class="text-xs text-on-surface-variant mt-0.5">Call types with their forms, documents and AI knowledge base</p>
+                </div>
+              </div>
+              <div id="forms-program-list" class="space-y-3"></div>
+            </div>
+            <div id="forms-view-editor" class="forms-view hidden">
+              <div class="flex items-center gap-3 mb-4">
+                <button id="forms-back-instances" class="w-8 h-8 rounded-lg bg-surface-container-low flex items-center justify-center hover:bg-primary/10 transition-colors">
+                  <span class="material-symbols-outlined text-lg">arrow_back</span>
+                </button>
+                <h2 class="text-lg font-bold text-primary flex-1" id="forms-editor-title"></h2>
+                <button id="forms-save-all" class="inline-flex items-center gap-2 px-5 py-2 rounded-xl text-xs font-bold text-[#e7eb00] bg-[#1b1464] hover:bg-[#1b1464]/80 transition-colors">
+                  <span class="material-symbols-outlined text-sm">save</span> Save all
+                </button>
+              </div>
+              <div class="flex gap-4">
+                <div id="forms-sidebar" class="w-56 flex-shrink-0"></div>
+                <div id="forms-main-content" class="flex-1 min-w-0"></div>
+              </div>
             </div>
           </div>
 
@@ -1787,6 +1808,7 @@ tailwind.config = {
 <script src="/js/api.js"></script>
 <script src="/js/auth.js"></script>
 <script src="/js/app.js"></script>
+<script src="/js/my-projects.js"></script>
 <script src="/js/intake.js"></script>
 <script src="/js/admin.js"></script>
 <script src="/js/calculator.js"></script>

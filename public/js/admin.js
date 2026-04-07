@@ -45,6 +45,7 @@ const Admin = (() => {
       case 'all-docs':      loadAllDocs(); break;
       case 'platform-docs': loadPlatformDocs(); break;
       case 'library':       loadAdminLibrary(); break;
+      case 'forms':         loadForms(); break;
     }
   }
 
@@ -2443,6 +2444,631 @@ KEY EVALUATOR FOCUS:
     d.textContent = str;
     return d.innerHTML;
   }
+
+  /* ══ FORMULARIOS INTERACTIVOS ═══════════════════════════════════ */
+
+  let fm = { programId: null, programName: '', templateId: null, instanceId: null, template: null, values: {}, activeSection: null };
+
+  function formsShowView(v) {
+    document.querySelectorAll('#admin-sec-forms .forms-view').forEach(el => el.classList.add('hidden'));
+    document.getElementById(`forms-view-${v}`)?.classList.remove('hidden');
+  }
+
+  async function loadForms() {
+    formsShowView('list');
+    const list = document.getElementById('forms-program-list');
+    list.innerHTML = '<p class="text-sm text-on-surface-variant py-4"><span class="spinner"></span> Loading...</p>';
+    try {
+      const templates = await API.get('/admin/data/forms/templates');
+      if (!templates.length) { list.innerHTML = '<p class="text-sm text-on-surface-variant py-8 text-center">No form templates found.</p>'; return; }
+      list.innerHTML = templates.map(t => `
+        <div class="forms-tpl-card group flex items-center gap-4 p-5 bg-white rounded-2xl border border-outline-variant/30 hover:border-primary hover:shadow-lg cursor-pointer transition-all" data-id="${t.id}">
+          <div class="w-12 h-12 rounded-xl ${t.active ? 'bg-[#1b1464]' : 'bg-gray-300'} flex items-center justify-center flex-shrink-0">
+            <span class="material-symbols-outlined text-white text-xl">article</span>
+          </div>
+          <div class="flex-1 min-w-0">
+            <h3 class="font-bold text-primary truncate">${esc(t.name)}</h3>
+            <p class="text-xs text-on-surface-variant">${esc(t.description || '')}</p>
+          </div>
+          <div class="flex items-center gap-2 flex-shrink-0">
+            <span class="px-2 py-1 rounded-lg text-[10px] font-bold ${t.active ? 'bg-green-100 text-green-700' : 'bg-gray-100 text-gray-500'}">${t.active ? 'Active' : 'Inactive'}</span>
+            <span class="px-2 py-1 rounded-lg bg-blue-50 text-blue-600 text-[10px] font-bold">v${esc(t.version)}</span>
+            <span class="px-2 py-1 rounded-lg bg-primary/5 text-primary text-[10px] font-bold">${t.year || '—'}</span>
+          </div>
+          <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">chevron_right</span>
+        </div>`).join('');
+
+      list.querySelectorAll('.forms-tpl-card').forEach(card => {
+        card.addEventListener('click', () => formsOpenTemplateView(card.dataset.id));
+      });
+    } catch (e) { list.innerHTML = `<p class="text-red-500 text-sm">${e.message}</p>`; }
+  }
+
+  async function formsOpenTemplateView(templateId) {
+    fm.templateId = templateId;
+    formsShowView('editor');
+    document.getElementById('forms-back-instances').onclick = () => loadForms();
+    document.getElementById('forms-save-all').classList.add('hidden');
+
+    const sidebar = document.getElementById('forms-sidebar');
+    const content = document.getElementById('forms-main-content');
+    content.innerHTML = '<p class="text-sm text-on-surface-variant py-4"><span class="spinner"></span> Loading...</p>';
+
+    try {
+      const tpl = await API.get('/admin/data/forms/templates/' + templateId);
+      fm.template = tpl.template_json;
+      fm.values = {};
+      fm.instanceId = null;
+      document.getElementById('forms-editor-title').textContent = tpl.name + ' — v' + tpl.version + ' (' + (tpl.year || '') + ')';
+
+      // Hub sidebar: Form + Documents
+      sidebar.innerHTML = `<div class="space-y-0.5 sticky top-0">
+        <div class="forms-hub-item flex items-center gap-2 px-3 py-2.5 rounded-xl cursor-pointer bg-[#1b1464] text-white font-bold text-xs" data-view="form">
+          <span class="material-symbols-outlined text-sm">article</span>
+          <span>View Form</span>
+        </div>
+        <div class="forms-hub-item flex items-center gap-2 px-3 py-2.5 rounded-xl cursor-pointer text-primary/70 hover:bg-primary/5 text-xs" data-view="docs">
+          <span class="material-symbols-outlined text-sm">folder_open</span>
+          <span>Call Documents</span>
+        </div>
+      </div>`;
+
+      // Show form overview by default
+      formsShowCallHub(tpl, 'form');
+
+      sidebar.querySelectorAll('.forms-hub-item').forEach(el => {
+        el.addEventListener('click', () => {
+          sidebar.querySelectorAll('.forms-hub-item').forEach(b => {
+            b.className = b.className.replace('bg-[#1b1464] text-white font-bold', 'text-primary/70 hover:bg-primary/5');
+          });
+          el.className = el.className.replace('text-primary/70 hover:bg-primary/5', 'bg-[#1b1464] text-white font-bold');
+          formsShowCallHub(tpl, el.dataset.view);
+        });
+      });
+    } catch (e) { content.innerHTML = `<p class="text-red-500 text-sm">${e.message}</p>`; }
+  }
+
+  function formsShowCallHub(tpl, view) {
+    const content = document.getElementById('forms-main-content');
+
+    if (view === 'form') {
+      // Show full interactive form with sidebar navigation
+      const sidebar = document.getElementById('forms-sidebar');
+
+      // Rebuild sidebar with hub items + form nav
+      const tmpl = fm.template;
+      const navItems = [];
+      navItems.push({ id: '__cover', label: 'Cover Page', icon: 'badge' });
+      navItems.push({ id: '__summary', label: 'Project Summary', icon: 'summarize' });
+      if (tmpl.sections) {
+        for (const sec of tmpl.sections) {
+          navItems.push({ id: sec.id, label: `${sec.number}. ${sec.title}`, icon: 'folder', level: 0 });
+          for (const sub of (sec.subsections || [])) {
+            navItems.push({ id: sub.id, label: `${sub.number} ${sub.title}`, icon: 'article', level: 1 });
+          }
+          for (const grp of (sec.subsections_groups || [])) {
+            for (const sub of (grp.subsections || [])) {
+              navItems.push({ id: sub.id, label: `${sub.number} ${sub.title}`, icon: 'article', level: 1 });
+            }
+          }
+        }
+      }
+      if (tmpl.annexes) navItems.push({ id: '__annexes', label: 'Annexes', icon: 'attach_file' });
+
+      if (!fm.activeSection) fm.activeSection = navItems[0]?.id;
+
+      sidebar.innerHTML = `<div class="space-y-0.5 sticky top-0">
+        <div class="forms-hub-item flex items-center gap-2 px-3 py-2.5 rounded-xl cursor-pointer bg-primary/10 text-primary font-bold text-xs mb-1" data-view="docs">
+          <span class="material-symbols-outlined text-sm">folder_open</span>
+          <span>Call Documents</span>
+        </div>
+        <div class="mx-3 my-2 border-b border-primary/10"></div>
+        ${navItems.map(it => `
+        <div class="forms-nav-item flex items-center gap-2 px-3 py-2 rounded-xl cursor-pointer transition-all text-xs ${fm.activeSection === it.id ? 'bg-[#1b1464] text-white font-bold' : 'text-primary/70 hover:bg-primary/5'}"
+             data-sid="${it.id}" style="${it.level ? 'padding-left:'+(12 + it.level * 12)+'px' : ''}">
+          <span class="material-symbols-outlined text-sm">${it.icon}</span>
+          <span class="truncate">${esc(it.label)}</span>
+        </div>`).join('')}
+      </div>`;
+
+      // Bind nav clicks
+      sidebar.querySelectorAll('.forms-nav-item').forEach(el => {
+        el.addEventListener('click', () => {
+          fm.activeSection = el.dataset.sid;
+          formsShowCallHub(tpl, 'form');
+        });
+      });
+      sidebar.querySelector('.forms-hub-item[data-view="docs"]')?.addEventListener('click', () => {
+        fm.activeSection = null;
+        formsShowCallHub(tpl, 'docs');
+      });
+
+      // Render active section
+      const secData = formsFindSection(fm.activeSection);
+      if (secData) formsRenderSection(secData);
+    } else if (view === 'docs') {
+      content.innerHTML = `
+        <div class="flex items-center gap-3 mb-5">
+          <div class="w-2 h-10 rounded-full bg-primary"></div>
+          <div>
+            <div class="text-[10px] font-bold uppercase tracking-widest text-primary">Call Knowledge Base</div>
+            <h3 class="font-headline text-lg font-extrabold text-on-surface tracking-tight">Call Documents</h3>
+          </div>
+        </div>
+        <p class="text-sm text-on-surface-variant mb-4">Documents specific to this call type that will be used as the primary AI knowledge base for proposal writing and evaluation.</p>
+        <div class="rounded-xl border-2 border-dashed border-outline-variant/30 p-8 text-center">
+          <span class="material-symbols-outlined text-4xl text-outline-variant/30 mb-2">cloud_upload</span>
+          <p class="text-sm text-on-surface-variant">Document management coming soon</p>
+          <p class="text-xs text-on-surface-variant/60 mt-1">Programme Guide, Call documents, evaluation grids, etc.</p>
+        </div>`;
+    }
+  }
+
+  async function formsOpenEditor(instanceId) {
+    fm.instanceId = instanceId;
+    formsShowView('editor');
+    document.getElementById('forms-back-instances').onclick = () => loadForms();
+    document.getElementById('forms-save-all').classList.remove('hidden');
+
+    const content = document.getElementById('forms-main-content');
+    content.innerHTML = '<p class="text-sm text-on-surface-variant py-4"><span class="spinner"></span> Loading form...</p>';
+
+    try {
+      const inst = await API.get('/admin/data/forms/instances/' + instanceId);
+      fm.template = inst.template_json;
+      fm.values = await API.get('/admin/data/forms/instances/' + instanceId + '/values') || {};
+      document.getElementById('forms-editor-title').textContent = inst.title || inst.program_name + ' — Form';
+
+      // Build sidebar from template sections
+      formsRenderSidebar();
+      // Render first section by default
+      const firstSec = fm.template.sections?.[0];
+      if (firstSec) {
+        fm.activeSection = firstSec.id;
+        formsRenderSection(firstSec);
+      }
+
+      // Save all handler
+      document.getElementById('forms-save-all').onclick = () => formsSaveAll();
+    } catch (e) { content.innerHTML = `<p class="text-red-500 text-sm">${e.message}</p>`; }
+  }
+
+  function formsRenderSidebar() {
+    const sidebar = document.getElementById('forms-sidebar');
+    const tpl = fm.template;
+    const items = [];
+
+    // Cover page + summary
+    items.push({ id: '__cover', label: 'Cover Page', icon: 'badge' });
+    items.push({ id: '__summary', label: 'Project Summary', icon: 'summarize' });
+
+    // Main sections
+    if (tpl.sections) {
+      for (const sec of tpl.sections) {
+        items.push({ id: sec.id, label: `${sec.number}. ${sec.title}`, icon: 'folder', level: 0 });
+        // Subsections
+        const subs = sec.subsections || [];
+        const groups = sec.subsections_groups || [];
+        for (const sub of subs) {
+          items.push({ id: sub.id, label: `${sub.number} ${sub.title}`, icon: 'article', level: 1 });
+        }
+        for (const grp of groups) {
+          for (const sub of (grp.subsections || [])) {
+            items.push({ id: sub.id, label: `${sub.number} ${sub.title}`, icon: 'article', level: 1 });
+          }
+        }
+      }
+    }
+
+    // Annexes
+    if (tpl.annexes) items.push({ id: '__annexes', label: 'Annexes', icon: 'attach_file' });
+
+    sidebar.innerHTML = `<div class="space-y-0.5 sticky top-0">${items.map(it => `
+      <div class="forms-nav-item flex items-center gap-2 px-3 py-2 rounded-xl cursor-pointer transition-all text-xs ${fm.activeSection === it.id ? 'bg-[#1b1464] text-white font-bold' : 'text-primary/70 hover:bg-primary/5'}"
+           data-sid="${it.id}" style="${it.level ? 'padding-left:'+(12 + it.level * 12)+'px' : ''}">
+        <span class="material-symbols-outlined text-sm">${it.icon}</span>
+        <span class="truncate">${esc(it.label)}</span>
+      </div>`).join('')}</div>`;
+
+    sidebar.querySelectorAll('.forms-nav-item').forEach(el => {
+      el.addEventListener('click', () => {
+        fm.activeSection = el.dataset.sid;
+        formsRenderSidebar();
+        // Find the section/subsection data
+        const secData = formsFindSection(el.dataset.sid);
+        if (secData) formsRenderSection(secData);
+      });
+    });
+  }
+
+  function formsFindSection(id) {
+    const tpl = fm.template;
+    if (id === '__cover') return { _special: 'cover', ...tpl.cover_page };
+    if (id === '__summary') return { _special: 'summary', ...tpl.project_summary };
+    if (id === '__annexes') return { _special: 'annexes', ...tpl.annexes };
+
+    for (const sec of (tpl.sections || [])) {
+      if (sec.id === id) return sec;
+      for (const sub of (sec.subsections || [])) {
+        if (sub.id === id) return sub;
+      }
+      for (const grp of (sec.subsections_groups || [])) {
+        for (const sub of (grp.subsections || [])) {
+          if (sub.id === id) return sub;
+        }
+      }
+    }
+    return null;
+  }
+
+  function formsRenderSection(sec) {
+    const content = document.getElementById('forms-main-content');
+
+    // Header
+    let html = `<div class="flex items-center gap-3 mb-5">
+      <div class="w-2 h-10 rounded-full bg-primary"></div>
+      <div>
+        <div class="text-[10px] font-bold uppercase tracking-widest text-primary">${sec.number ? 'Section ' + sec.number : (sec._special || 'Form')}</div>
+        <h3 class="font-headline text-lg font-extrabold text-on-surface tracking-tight">${esc(sec.title)}</h3>
+      </div>
+    </div>`;
+
+    // Guidance (collapsible)
+    if (sec.guidance && Array.isArray(sec.guidance)) {
+      html += `<details class="mb-4 rounded-xl bg-blue-50/50 border border-blue-100 group">
+        <summary class="flex items-center gap-2 px-4 py-3 cursor-pointer select-none">
+          <span class="material-symbols-outlined text-sm text-blue-400">info</span>
+          <span class="text-xs font-bold text-blue-600 flex-1">Instructions & guidance</span>
+          <span class="material-symbols-outlined text-sm text-blue-400 group-open:rotate-180 transition-transform">expand_more</span>
+        </summary>
+        <div class="px-4 pb-3">
+          ${sec.guidance.map(g => `<p class="text-xs text-blue-800/70 mb-1">${esc(g)}</p>`).join('')}
+        </div>
+      </details>`;
+    }
+
+    // Fields
+    html += '<div class="space-y-4">';
+
+    if (sec.fields) {
+      for (const f of sec.fields) {
+        // Pre-seed risk table with 10 rows (R1-R10)
+        if (f.id === 's2_1_5_risk_table' && f.type === 'table') {
+          const riskKey = (sec.id || sec._special) + '.' + f.id;
+          if (!fm.values[riskKey] || !fm.values[riskKey].length) {
+            const cols = f.columns?.length || 4;
+            fm.values[riskKey] = Array.from({ length: 10 }, (_, i) =>
+              Array.from({ length: cols }, (_, ci) => ci === 0 ? `R${i + 1}` : '')
+            );
+          }
+        }
+        html += formsRenderField(f, sec.id || sec._special);
+      }
+    }
+
+    // If section has subsections (parent section), show overview
+    if (sec.subsections && !sec.fields) {
+      html += `<p class="text-sm text-on-surface-variant py-4">Select a subsection from the sidebar to start editing.</p>`;
+    }
+    if (sec.subsections_groups) {
+      html += `<p class="text-sm text-on-surface-variant py-4">Select a subsection from the sidebar to start editing.</p>`;
+    }
+
+    // Work package template
+    if (sec.work_package_template) {
+      html += formsRenderWorkPackages(sec);
+    }
+
+    // Additional tables
+    if (sec.additional_tables) {
+      for (const tbl of sec.additional_tables) {
+        html += formsRenderTableField(tbl, sec.id);
+      }
+    }
+
+    // Annexes tables
+    if (sec.tables) {
+      for (const tbl of sec.tables) {
+        html += formsRenderTableField(tbl, '__annexes');
+      }
+    }
+
+    html += '</div>';
+    content.innerHTML = html;
+
+    // Bind auto-collect on change
+    content.querySelectorAll('.form-field-input').forEach(inp => {
+      inp.addEventListener('change', () => {
+        const key = inp.dataset.key;
+        fm.values[key] = inp.value;
+      });
+    });
+
+    // WP count change
+    const wpCountInput = document.getElementById('forms-wp-count');
+    if (wpCountInput) {
+      wpCountInput.addEventListener('change', () => {
+        const n = Math.max(2, Math.min(15, parseInt(wpCountInput.value) || 4));
+        fm.values['__meta.wp_count'] = n;
+        // Re-render this section
+        const secData = formsFindSection(fm.activeSection);
+        if (secData) formsRenderSection(secData);
+      });
+    }
+  }
+
+  function formsRenderField(f, sectionId) {
+    const key = sectionId + '.' + f.id;
+    const val = fm.values[key] || '';
+
+    if (f.type === 'textarea') {
+      return `<div class="rounded-2xl border border-outline-variant/20 p-5 bg-surface-container-lowest">
+        <label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant mb-2 block">${esc(f.label)}</label>
+        ${f.guidance ? `<p class="text-xs text-on-surface-variant/70 mb-2">${Array.isArray(f.guidance) ? f.guidance.map(g => esc(g)).join(' ') : esc(f.guidance)}</p>` : ''}
+        <textarea class="form-field-input w-full px-4 py-3 rounded-xl border border-outline-variant/30 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 resize-vertical min-h-[120px] leading-relaxed" data-key="${key}" rows="6" placeholder="${esc(f.placeholder || '')}">${esc(val)}</textarea>
+      </div>`;
+    }
+
+    if (f.type === 'text' || f.type === 'email') {
+      return `<div class="rounded-2xl border border-outline-variant/20 p-5 bg-surface-container-lowest">
+        <label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant mb-2 block">${esc(f.label)}</label>
+        <input type="${f.type}" class="form-field-input w-full px-4 py-2.5 rounded-xl border border-outline-variant/30 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20" data-key="${key}" value="${esc(val)}" placeholder="${esc(f.placeholder || '')}">
+      </div>`;
+    }
+
+    if (f.type === 'radio') {
+      return `<div class="rounded-2xl border border-outline-variant/20 p-5 bg-surface-container-lowest">
+        <label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant mb-2 block">${esc(f.label)}</label>
+        <div class="flex gap-4">${(f.options || []).map(o => `
+          <label class="flex items-center gap-2 cursor-pointer">
+            <input type="radio" name="${key}" value="${o}" class="form-field-input accent-primary" data-key="${key}" ${val === o ? 'checked' : ''}>
+            <span class="text-sm">${o}</span>
+          </label>`).join('')}
+        </div>
+      </div>`;
+    }
+
+    if (f.type === 'table') {
+      return formsRenderTableField(f, sectionId);
+    }
+
+    return '';
+  }
+
+  function formsRenderTableField(f, sectionId) {
+    const key = sectionId + '.' + f.id;
+    const data = fm.values[key];
+    const rows = Array.isArray(data) ? data : [];
+    const cols = f.columns || [];
+
+    return `<div class="rounded-2xl border border-outline-variant/20 p-5 bg-surface-container-lowest">
+      <div class="flex items-center justify-between mb-3">
+        <label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">${esc(f.title || f.label)}</label>
+        <button class="forms-add-row inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-[11px] font-bold text-primary bg-primary/10 hover:bg-primary/20 transition-colors" data-key="${key}" data-cols="${cols.length}">
+          <span class="material-symbols-outlined text-sm">add</span> Add row
+        </button>
+      </div>
+      ${f.guidance ? `<details class="mb-2 text-xs"><summary class="text-on-surface-variant/70 cursor-pointer select-none flex items-center gap-1"><span class="material-symbols-outlined text-xs">info</span> Instructions</summary><p class="mt-1 text-on-surface-variant/60 pl-4">${esc(typeof f.guidance === 'string' ? f.guidance : (Array.isArray(f.guidance) ? f.guidance.join(' ') : ''))}</p></details>` : ''}
+      ${f.note ? `<p class="text-xs text-amber-600 mb-2">${esc(f.note)}</p>` : ''}
+      <div class="overflow-x-auto">
+        <table class="w-full text-xs border-collapse">
+          <thead>
+            <tr>${cols.map(c => `<th class="text-left px-2 py-2 border-b border-outline-variant/30 text-on-surface-variant font-bold text-[10px] uppercase">${esc(c.length > 40 ? c.substring(0, 40) + '…' : c)}</th>`).join('')}<th class="w-8"></th></tr>
+          </thead>
+          <tbody class="forms-table-body" data-key="${key}">
+            ${rows.length ? rows.map((row, ri) => `<tr class="forms-table-row" data-ri="${ri}">
+              ${cols.map((c, ci) => `<td class="px-1 py-1"><input type="text" class="forms-cell w-full px-2 py-1.5 rounded border border-outline-variant/20 text-xs focus:border-primary outline-none" data-key="${key}" data-ri="${ri}" data-ci="${ci}" value="${esc(row[ci] || '')}"></td>`).join('')}
+              <td class="px-1"><button class="forms-del-row text-on-surface-variant/30 hover:text-error" data-key="${key}" data-ri="${ri}"><span class="material-symbols-outlined text-sm">close</span></button></td>
+            </tr>`).join('') : `<tr><td colspan="${cols.length + 1}" class="text-center py-4 text-on-surface-variant/40">No rows yet</td></tr>`}
+          </tbody>
+        </table>
+      </div>
+    </div>`;
+  }
+
+  function formsGetWpCount() {
+    const saved = fm.values['__meta.wp_count'];
+    return saved ? parseInt(saved) : 4;
+  }
+
+  function formsRenderWorkPackages(sec) {
+    const tpl = sec.work_package_template;
+    if (!tpl) return '';
+    const wpCount = formsGetWpCount();
+
+    // WP count control
+    let html = `<div class="rounded-2xl border border-outline-variant/20 p-5 bg-surface-container-lowest mb-4">
+      <div class="flex items-center gap-4">
+        <div class="flex items-center gap-2">
+          <span class="material-symbols-outlined text-primary">inventory_2</span>
+          <span class="text-sm font-bold text-primary">Number of Work Packages</span>
+        </div>
+        <input type="number" id="forms-wp-count" min="2" max="15" value="${wpCount}"
+          class="w-20 px-3 py-2 rounded-xl border border-outline-variant/30 text-sm font-bold text-center focus:outline-none focus:ring-2 focus:ring-primary/20">
+        <span class="text-xs text-on-surface-variant">Min 2. 4 pre-loaded by default.</span>
+      </div>
+    </div>`;
+
+    // Instructions collapsible
+    html += `<details class="mb-4 rounded-xl bg-amber-50/50 border border-amber-200">
+      <summary class="flex items-center gap-2 px-4 py-3 cursor-pointer select-none">
+        <span class="material-symbols-outlined text-sm text-amber-500">tips_and_updates</span>
+        <span class="text-xs font-bold text-amber-700 flex-1">Work packages instructions</span>
+        <span class="material-symbols-outlined text-sm text-amber-400">expand_more</span>
+      </summary>
+      <div class="px-4 pb-3 space-y-1">
+        <p class="text-xs text-amber-800/70"><strong>WP1</strong> should cover management and coordination (meetings, monitoring, financial management, progress reports) and cross-cutting activities.</p>
+        <p class="text-xs text-amber-800/70"><strong>WP2+</strong> should be used for the other project activities.</p>
+        <p class="text-xs text-amber-800/70"><strong>Last WP</strong> should be dedicated to Impact and dissemination.</p>
+        <p class="text-xs text-amber-800/70"><strong>Deliverables:</strong> recommended max <strong>10-15 for the entire project</strong>. You may be asked to reduce during grant preparation.</p>
+        <p class="text-xs text-amber-800/70"><strong>Milestones:</strong> use only for major outputs in complex projects. Limit the number per WP.</p>
+        <p class="text-xs text-amber-800/70"><strong>Tasks:</strong> continuous numbering linked to WP (T1.1, T1.2, T2.1, etc.).</p>
+        <p class="text-xs text-amber-800/70">Enter each activity/milestone/deliverable <strong>only once</strong> (under one work package).</p>
+      </div>
+    </details>`;
+
+    // Render each WP
+    for (let i = 1; i <= wpCount; i++) {
+      const wpId = 'wp_' + i;
+      const wpLabel = i === 1 ? 'WP1: Project management and coordination'
+                    : i === wpCount ? `WP${i}: Impact and dissemination`
+                    : `WP${i}`;
+
+      // Pre-seed activities (2 empty rows) — T{wp}.{n}
+      const actKey = wpId + '.wp_activities_table';
+      if (!fm.values[actKey]) {
+        const actCols = tpl.fields.find(f => f.id === 'wp_activities_table')?.columns?.length || 6;
+        fm.values[actKey] = Array.from({ length: 2 }, (_, ti) =>
+          Array.from({ length: actCols }, (_, ci) => ci === 0 ? `T${i}.${ti + 1}` : '')
+        );
+      }
+
+      // Pre-seed deliverables — D{wp}.{n} (3 for WP1, 4 for rest)
+      const delKey = wpId + '.wp_deliverables_table';
+      if (!fm.values[delKey]) {
+        const defaultDelCount = i === 1 ? 3 : 4;
+        const delCols = tpl.fields.find(f => f.id === 'wp_deliverables_table')?.columns?.length || 8;
+        fm.values[delKey] = Array.from({ length: defaultDelCount }, (_, di) =>
+          Array.from({ length: delCols }, (_, ci) => ci === 0 ? `D${i}.${di + 1}` : '')
+        );
+      }
+
+      // Pre-seed milestones — MS{global_n} (correlative across all WPs)
+      const msKey = wpId + '.wp_milestones_table';
+      if (!fm.values[msKey]) {
+        const msCols = tpl.fields.find(f => f.id === 'wp_milestones_table')?.columns?.length || 5;
+        // Count existing milestones across all previous WPs
+        let globalMs = 0;
+        for (let j = 1; j < i; j++) {
+          const prev = fm.values['wp_' + j + '.wp_milestones_table'];
+          if (Array.isArray(prev)) globalMs += prev.length;
+        }
+        fm.values[msKey] = [
+          Array.from({ length: msCols }, (_, ci) => ci === 0 ? `MS${globalMs + 1}` : '')
+        ];
+      }
+
+      html += `<details class="rounded-2xl border-2 border-primary/15 bg-white mb-3 group/wp" ${i <= 2 ? 'open' : ''}>
+        <summary class="flex items-center gap-3 px-5 py-4 cursor-pointer select-none">
+          <div class="w-9 h-9 rounded-xl bg-[#1b1464] flex items-center justify-center flex-shrink-0">
+            <span class="text-xs font-extrabold text-[#e7eb00]">${i}</span>
+          </div>
+          <span class="font-bold text-primary text-sm flex-1">${esc(wpLabel)}</span>
+          <span class="material-symbols-outlined text-primary/40 group-open/wp:rotate-180 transition-transform">expand_more</span>
+        </summary>
+        <div class="px-5 pb-5 space-y-4">`;
+
+      for (const f of tpl.fields) {
+        html += formsRenderField({ ...f, id: f.id }, wpId);
+      }
+
+      html += '</div></details>';
+    }
+
+    return html;
+  }
+
+  function formsRenumberMilestones() {
+    const wpCount = formsGetWpCount();
+    let global = 1;
+    for (let w = 1; w <= wpCount; w++) {
+      const key = 'wp_' + w + '.wp_milestones_table';
+      const rows = fm.values[key];
+      if (!Array.isArray(rows)) continue;
+      for (const row of rows) {
+        row[0] = `MS${global}`;
+        global++;
+      }
+    }
+    // Also update DOM if visible
+    document.querySelectorAll('.forms-table-body[data-key$=".wp_milestones_table"]').forEach(tbody => {
+      tbody.querySelectorAll('.forms-table-row').forEach(tr => {
+        const cell = tr.querySelector('.forms-cell[data-ci="0"]');
+        if (cell) {
+          const key = tbody.dataset.key;
+          const ri = parseInt(tr.dataset.ri);
+          const rows = fm.values[key];
+          if (rows && rows[ri]) cell.value = rows[ri][0];
+        }
+      });
+    });
+  }
+
+  async function formsSaveAll() {
+    // Collect all current field values from DOM
+    document.querySelectorAll('.form-field-input').forEach(inp => {
+      if (inp.type === 'radio') {
+        if (inp.checked) fm.values[inp.dataset.key] = inp.value;
+      } else {
+        fm.values[inp.dataset.key] = inp.value;
+      }
+    });
+
+    // Collect table data
+    document.querySelectorAll('.forms-table-body').forEach(tbody => {
+      const key = tbody.dataset.key;
+      const rows = [];
+      tbody.querySelectorAll('.forms-table-row').forEach(tr => {
+        const cells = [];
+        tr.querySelectorAll('.forms-cell').forEach(cell => cells.push(cell.value));
+        rows.push(cells);
+      });
+      if (rows.length) fm.values[key] = rows;
+    });
+
+    try {
+      await API.put('/admin/data/forms/instances/' + fm.instanceId + '/values', { values: fm.values });
+      Toast.show('Form saved', 'ok');
+    } catch (e) { Toast.show('Error: ' + e.message, 'error'); }
+  }
+
+  // Delegate table add/remove row events
+  document.addEventListener('click', (e) => {
+    const addBtn = e.target.closest('.forms-add-row');
+    if (addBtn) {
+      const key = addBtn.dataset.key;
+      const cols = parseInt(addBtn.dataset.cols) || 1;
+      if (!fm.values[key]) fm.values[key] = [];
+      const newRow = new Array(cols).fill('');
+
+      // Auto-number first cell based on table type
+      const existingRows = fm.values[key].length;
+      if (key.includes('s2_1_5_risk_table')) {
+        newRow[0] = `R${existingRows + 1}`;
+      } else if (key.includes('.wp_activities_table')) {
+        // Tasks: T{wp}.{n} — e.g. T1.3, T2.5
+        const wpNum = key.match(/wp_(\d+)/)?.[1] || '1';
+        newRow[0] = `T${wpNum}.${existingRows + 1}`;
+      } else if (key.includes('.wp_deliverables_table')) {
+        // Deliverables: D{wp}.{n} — e.g. D1.4, D2.5
+        const wpNum = key.match(/wp_(\d+)/)?.[1] || '1';
+        newRow[0] = `D${wpNum}.${existingRows + 1}`;
+      }
+
+      fm.values[key].push(newRow);
+
+      // Renumber milestones globally if it's a milestone table
+      if (key.includes('.wp_milestones_table')) formsRenumberMilestones();
+
+      // Re-render current section
+      const secData = formsFindSection(fm.activeSection);
+      if (secData) formsRenderSection(secData);
+      return;
+    }
+
+    const delBtn = e.target.closest('.forms-del-row');
+    if (delBtn) {
+      const key = delBtn.dataset.key;
+      const ri = parseInt(delBtn.dataset.ri);
+      if (fm.values[key] && Array.isArray(fm.values[key])) {
+        fm.values[key].splice(ri, 1);
+        // Renumber milestones globally after delete
+        if (key.includes('.wp_milestones_table')) formsRenumberMilestones();
+        const secData = formsFindSection(fm.activeSection);
+        if (secData) formsRenderSection(secData);
+      }
+    }
+  });
 
   return { init, openEdit, confirmDelete };
 })();

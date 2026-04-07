@@ -39,7 +39,6 @@ const Intake = (() => {
     if (initialized) {
       setStep(step);
       loadPrograms();
-      loadServerProjects();
       return;
     }
     initialized = true;
@@ -47,7 +46,6 @@ const Intake = (() => {
     bindEvents();
     setStep(0);
     loadPrograms();
-    loadServerProjects();
   }
 
   function startNew() {
@@ -97,16 +95,7 @@ const Intake = (() => {
       document.getElementById(c.ta)?.addEventListener('input', () => updateWC(c));
     });
 
-    // Duration select
-    const sel = document.getElementById('intake-f-dur');
-    if (sel) {
-      for (let m = 12; m <= 24; m++) {
-        const o = document.createElement('option');
-        o.value = m; o.textContent = m + ' meses';
-        if (m === 24) o.selected = true;
-        sel.appendChild(o);
-      }
-    }
+    // Duration is now fixed from program data (hidden input)
 
     // Save/Load file buttons
     document.getElementById('intake-btn-save-file')?.addEventListener('click', saveToFile);
@@ -191,23 +180,22 @@ const Intake = (() => {
     document.getElementById('intake-ro-sf').textContent = fmtDate(p.start_date_min);
     document.getElementById('intake-ro-st').textContent = fmtDate(p.start_date_max);
 
-    // Set date constraints
+    // Set start date from program (fixed)
     const startInput = document.getElementById('intake-f-start');
     if (startInput) {
-      startInput.min = toDateStr(p.start_date_min);
-      startInput.max = toDateStr(p.start_date_max);
-      if (!startInput.value) startInput.value = toDateStr(p.start_date_min);
+      startInput.value = toDateStr(p.start_date_min);
     }
 
-    // Duration range
-    const durSel = document.getElementById('intake-f-dur');
-    if (durSel && p.duration_min_months && p.duration_max_months) {
-      durSel.innerHTML = '';
-      for (let m = p.duration_min_months; m <= p.duration_max_months; m++) {
-        const o = document.createElement('option');
-        o.value = m; o.textContent = m + ' meses';
-        if (m === p.duration_max_months) o.selected = true;
-        durSel.appendChild(o);
+    // Duration (fixed from program)
+    const durHidden = document.getElementById('intake-f-dur');
+    const durDisplay = document.getElementById('intake-ro-dur');
+    if (p.duration_min_months && p.duration_max_months) {
+      const dur = p.duration_max_months;
+      if (durHidden) durHidden.value = dur;
+      if (durDisplay) {
+        durDisplay.textContent = p.duration_min_months === p.duration_max_months
+          ? dur + ' meses'
+          : p.duration_min_months + ' – ' + p.duration_max_months + ' meses';
       }
     }
 
@@ -262,7 +250,7 @@ const Intake = (() => {
     }
   }
 
-  async function loadFromServer(id) {
+  async function loadFromServer(id, targetStep) {
     try {
       const project = await API.get('/intake/projects/' + id);
       currentProjectId = project.id;
@@ -316,7 +304,7 @@ const Intake = (() => {
       } catch (e) { console.error('loadContexts:', e); }
 
       renderPartners();
-      setStep(0);
+      setStep(targetStep != null ? targetStep : 1);
       Toast.show('Proyecto cargado: ' + project.name, 'ok');
     } catch (err) {
       Toast.show('Error al cargar: ' + (err.message || err), 'err');
@@ -696,7 +684,10 @@ const Intake = (() => {
         if (q) params.set('q', q);
         if (country) params.set('country', country);
         if (type) params.set('type', type);
-        const entities = await API.get('/intake/entities/search?' + params.toString());
+        const raw = await API.get('/intake/entities/search?' + params.toString());
+        // Deduplicate by id
+        const seen = new Set();
+        const entities = raw.filter(e => { if (seen.has(e.id)) return false; seen.add(e.id); return true; });
         if (!entities.length) {
           results.innerHTML = '<p class="text-sm text-on-surface-variant py-8 text-center">Sin resultados</p>';
           return;
@@ -1091,5 +1082,5 @@ const Intake = (() => {
     Toast.show('Demo cargada: ARISE \u2014 3 socios, 4 WPs', 'ok');
   }
 
-  return { init, startNew, _calcNav: calcNav, _preloadDemo: preloadDemo };
+  return { init, startNew, _calcNav: calcNav, _preloadDemo: preloadDemo, _loadProject: loadFromServer };
 })();

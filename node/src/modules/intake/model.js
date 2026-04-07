@@ -413,7 +413,7 @@ async function updateContextFields(contextId, userId, updates) {
 
 async function searchEntities({ q, country, type } = {}) {
   let sql = `
-    SELECT e.id, e.name, e.city, e.country_iso2, e.type, e.pic_number,
+    SELECT DISTINCT e.id, e.name, e.city, e.country_iso2, e.type, e.pic_number,
            c.name_es AS country_name
     FROM ref_entities e
     LEFT JOIN ref_countries c ON c.iso2 = e.country_iso2

@@ -1384,12 +1384,20 @@ const Calculator = (() => {
     if (custEl) custEl.value = official;
   }
 
+  function getRouteContainer() {
+    return $('intake-calc-container') || $('calc-step-container');
+  }
+
   function setRoute(a, b, field, value) {
     const k = routeKey(a, b);
     if (!state.routes[k]) state.routes[k] = { km:0, green:false, custom_rate:null };
     if (field === 'green') {
-      state.routes[k].green = value;
-      renderRoutes($('calc-step-container'));
+      const r = state.routes[k];
+      r.green = !!value;
+      const band = getBand(r.km);
+      const newOfficial = r.green ? band.green : band.std;
+      r.custom_rate = newOfficial;
+      renderRoutes(getRouteContainer());
     } else if (field === 'custom_rate') {
       state.routes[k].custom_rate = value === '' ? null : parseFloat(value)||0;
     }
@@ -1545,7 +1553,7 @@ const Calculator = (() => {
     if (el) el.style.display = 'block';
   }
 
-  function setGanttView(mode) { ganttView = mode; renderGantt($('calc-step-container')); }
+  function setGanttView(mode) { ganttView = mode; renderGantt(getRouteContainer()); }
   function ganttToggle(wi) { ganttCollapsed[wi] = !ganttCollapsed[wi]; buildGanttChart(); }
   function ganttCollapseAll() { state.wps.forEach((_,wi) => ganttCollapsed[wi]=true); buildGanttChart(); }
   function ganttExpandAll() { state.wps.forEach((_,wi) => ganttCollapsed[wi]=false); buildGanttChart(); }

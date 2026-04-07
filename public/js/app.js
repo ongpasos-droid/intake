@@ -138,6 +138,7 @@ const App = (() => {
     // Update topbar title
     const titles = {
       dashboard:  'Dashboard',
+      'my-projects': 'Mis Proyectos',
       intake:     'Intake',
       calculator: 'Calculator',
       planner:    'Planner',
@@ -153,6 +154,7 @@ const App = (() => {
     document.getElementById('topbar-title').textContent = titles[route] || 'E+ Tools';
 
     // Initialize module when navigating to it
+    if (route === 'my-projects' && typeof MyProjects !== 'undefined') MyProjects.init();
     if (route === 'intake' && typeof Intake !== 'undefined') {
       if (newProject) {
         Intake.startNew();
