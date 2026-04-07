@@ -1232,11 +1232,18 @@ KEY EVALUATOR FOCUS:
     }
     // Section 0: Call Data
     const callActive = ev.activeSectionIdx === -1;
+    const eligActive = ev.activeSectionIdx === -2;
     container.innerHTML = `
       <div class="eval-sidebar-sec mb-1">
         <div class="eval-sec-chip flex items-center gap-2.5 px-3 py-2.5 rounded-xl cursor-pointer ${callActive ? 'active' : ''}" data-si="-1">
           <span class="material-symbols-outlined text-sm ${callActive ? 'text-white' : 'text-primary/50'}">description</span>
           <span class="text-xs font-bold flex-1 truncate ${callActive ? '' : 'text-primary/70'}">Call Data</span>
+        </div>
+      </div>
+      <div class="eval-sidebar-sec mb-1">
+        <div class="eval-sec-chip flex items-center gap-2.5 px-3 py-2.5 rounded-xl cursor-pointer ${eligActive ? 'active' : ''}" data-si="-2">
+          <span class="material-symbols-outlined text-sm ${eligActive ? 'text-white' : 'text-primary/50'}">verified</span>
+          <span class="text-xs font-bold flex-1 truncate ${eligActive ? '' : 'text-primary/70'}">Eligibility</span>
         </div>
       </div>
       <div class="mx-3 my-2 border-b border-primary/10"></div>
@@ -1246,12 +1253,7 @@ KEY EVALUATOR FOCUS:
       return `
         <div class="eval-sidebar-sec mb-1" data-si="${si}">
           <div class="eval-sec-chip flex items-center gap-2.5 px-3 py-2.5 rounded-xl cursor-pointer ${isActive ? 'active' : ''}" data-si="${si}">
-            <div class="eval-sec-dot w-3 h-3 rounded-full flex-shrink-0" style="background:${sec.color}"></div>
             <span class="text-xs font-bold flex-1 truncate ${isActive ? '' : 'text-primary/70'}">${sec.title}</span>
-            ${sec.max_score > 0 ? `<span class="text-[10px] font-mono ${isActive ? 'text-white/60' : 'text-primary/30'}">${sec.max_score}p</span>` : `<span class="text-[10px] ${isActive ? 'text-white/40' : 'text-primary/20'}">—</span>`}
-            <button class="eval-del-sec ${isActive ? 'text-white/40 hover:text-white' : 'text-primary/30 hover:text-error'} transition-colors" data-id="${sec.id}">
-              <span class="material-symbols-outlined text-sm">close</span>
-            </button>
           </div>
           ${isActive ? `<div class="ml-3 mt-1 mb-2 pl-3 border-l-2 border-primary/15">` +
             questions.map((q, qi) => {
@@ -1322,6 +1324,11 @@ KEY EVALUATOR FOCUS:
     // Section -1: Call Data form
     if (ev.activeSectionIdx === -1) {
       evalRenderCallData(content);
+      return;
+    }
+    // Section -2: Eligibility form
+    if (ev.activeSectionIdx === -2) {
+      evalRenderEligibility(content);
       return;
     }
 
@@ -1723,6 +1730,141 @@ KEY EVALUATOR FOCUS:
         document.getElementById('eval-program-name').textContent = ev.programName;
         Toast.show('Call data saved', 'ok');
       } catch (e) { Toast.show('Error: ' + e.message, 'error'); }
+    });
+  }
+
+  async function evalRenderEligibility(content) {
+    content.innerHTML = '<p class="text-sm text-on-surface-variant py-4"><span class="spinner"></span> Loading eligibility…</p>';
+    let data;
+    try { data = await API.get(`/admin/data/eligibility/call/${ev.programId}`) || {}; } catch { data = {}; }
+    const countryTypes  = safeJSON(data.eligible_country_types, []);
+    const entityTypes   = safeJSON(data.eligible_entity_types, []);
+    const activityTypes = safeJSON(data.activity_location_types, []);
+
+    content.innerHTML = `
+      <div class="flex items-center gap-3 mb-5">
+        <div class="w-2 h-10 rounded-full bg-primary"></div>
+        <div>
+          <div class="text-[10px] font-bold uppercase tracking-widest text-primary">Programme / Call</div>
+          <h3 class="font-headline text-lg font-extrabold text-on-surface tracking-tight">Eligibility Criteria</h3>
+        </div>
+      </div>
+      <div class="space-y-4">
+        <!-- Country eligibility -->
+        <div class="rounded-2xl border border-outline-variant/20 p-5 bg-surface-container-lowest">
+          <h3 class="font-bold text-primary text-sm flex items-center gap-2 mb-3">
+            <span class="material-symbols-outlined text-base">public</span> Eligible countries
+          </h3>
+          <p class="text-xs text-on-surface-variant mb-3">Which country types can submit applications?</p>
+          <div class="space-y-2" id="ev-elig-country-types">
+            ${COUNTRY_TYPE_OPTIONS.map(o => `
+              <label class="flex items-center gap-2 cursor-pointer">
+                <input type="checkbox" value="${o.value}" class="accent-primary" ${countryTypes.includes(o.value) ? 'checked' : ''}>
+                <span class="text-sm">${o.label}</span>
+              </label>`).join('')}
+          </div>
+        </div>
+
+        <!-- Entity types -->
+        <div class="rounded-2xl border border-outline-variant/20 p-5 bg-surface-container-lowest">
+          <h3 class="font-bold text-primary text-sm flex items-center gap-2 mb-3">
+            <span class="material-symbols-outlined text-base">business</span> Eligible entity types
+          </h3>
+          <p class="text-xs text-on-surface-variant mb-3">Which organisations can participate, and can they coordinate?</p>
+          <div class="space-y-2" id="ev-elig-entity-types">
+            ${ENTITY_TYPE_OPTIONS.map(o => {
+              const match = entityTypes.find(e => e.type === o.value);
+              const checked = !!match;
+              const canCoord = match ? match.can_coordinate : true;
+              return `
+              <div class="flex items-center gap-3 py-1">
+                <input type="checkbox" value="${o.value}" class="ev-elig-ent-check accent-primary" ${checked ? 'checked' : ''}>
+                <span class="text-sm flex-1">${o.label}</span>
+                <label class="flex items-center gap-1 text-xs text-on-surface-variant">
+                  <input type="checkbox" class="ev-elig-ent-coord accent-primary" data-type="${o.value}" ${canCoord ? 'checked' : ''}>
+                  Can coordinate
+                </label>
+              </div>`;
+            }).join('')}
+          </div>
+        </div>
+
+        <!-- Consortium composition -->
+        <div class="rounded-2xl border border-outline-variant/20 p-5 bg-surface-container-lowest">
+          <h3 class="font-bold text-primary text-sm flex items-center gap-2 mb-3">
+            <span class="material-symbols-outlined text-base">groups</span> Consortium composition
+          </h3>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <label class="block">
+              <span class="text-xs text-on-surface-variant">Min. partners (beneficiaries)</span>
+              <input type="number" id="ev-elig-min-partners" min="1" value="${data.min_partners || 1}"
+                class="mt-1 w-full px-3 py-2 border border-outline-variant/30 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary/20">
+            </label>
+            <label class="block">
+              <span class="text-xs text-on-surface-variant">Min. countries</span>
+              <input type="number" id="ev-elig-min-countries" min="1" value="${data.min_countries || 1}"
+                class="mt-1 w-full px-3 py-2 border border-outline-variant/30 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary/20">
+            </label>
+            <label class="block">
+              <span class="text-xs text-on-surface-variant">Max applications as coordinator</span>
+              <input type="number" id="ev-elig-max-coord" min="1" value="${data.max_coord_applications || ''}" placeholder="No limit"
+                class="mt-1 w-full px-3 py-2 border border-outline-variant/30 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary/20">
+            </label>
+          </div>
+        </div>
+
+        <!-- Activity location -->
+        <div class="rounded-2xl border border-outline-variant/20 p-5 bg-surface-container-lowest">
+          <h3 class="font-bold text-primary text-sm flex items-center gap-2 mb-3">
+            <span class="material-symbols-outlined text-base">location_on</span> Activity location
+          </h3>
+          <p class="text-xs text-on-surface-variant mb-3">Where must activities take place?</p>
+          <div class="space-y-2" id="ev-elig-activity-types">
+            ${COUNTRY_TYPE_OPTIONS.map(o => `
+              <label class="flex items-center gap-2 cursor-pointer">
+                <input type="checkbox" value="${o.value}" class="accent-primary" ${activityTypes.includes(o.value) ? 'checked' : ''}>
+                <span class="text-sm">${o.label}</span>
+              </label>`).join('')}
+          </div>
+        </div>
+
+        <!-- Additional rules -->
+        <div class="rounded-2xl border border-outline-variant/20 p-5 bg-surface-container-lowest">
+          <h3 class="font-bold text-primary text-sm flex items-center gap-2 mb-3">
+            <span class="material-symbols-outlined text-base">description</span> Additional rules
+          </h3>
+          <textarea id="ev-elig-additional-rules" rows="3" placeholder="Free text for additional eligibility notes..."
+            class="w-full px-3 py-2 border border-outline-variant/30 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary/20">${data.additional_rules || ''}</textarea>
+        </div>
+
+        <!-- Save -->
+        <div class="flex justify-end">
+          <button id="ev-elig-save-btn" class="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl text-sm font-bold text-[#e7eb00] bg-[#1b1464] hover:bg-[#1b1464]/80 transition-colors">
+            <span class="material-symbols-outlined text-sm">save</span> Save eligibility
+          </button>
+        </div>
+      </div>`;
+
+    document.getElementById('ev-elig-save-btn').addEventListener('click', async () => {
+      const selCountry = [...document.querySelectorAll('#ev-elig-country-types input:checked')].map(i => i.value);
+      const selEntity  = [...document.querySelectorAll('#ev-elig-entity-types .ev-elig-ent-check:checked')].map(i => {
+        const coordCb = document.querySelector(`.ev-elig-ent-coord[data-type="${i.value}"]`);
+        return { type: i.value, can_coordinate: coordCb?.checked ?? true, label: ENTITY_TYPE_OPTIONS.find(o => o.value === i.value)?.label || i.value };
+      });
+      const selActivity = [...document.querySelectorAll('#ev-elig-activity-types input:checked')].map(i => i.value);
+
+      try {
+        await API.put(`/admin/data/eligibility/call/${ev.programId}`, {
+          eligible_country_types: selCountry,
+          eligible_entity_types: selEntity,
+          min_partners: document.getElementById('ev-elig-min-partners').value,
+          min_countries: document.getElementById('ev-elig-min-countries').value,
+          max_coord_applications: document.getElementById('ev-elig-max-coord').value || null,
+          activity_location_types: selActivity,
+          additional_rules: document.getElementById('ev-elig-additional-rules').value,
+        });
+        Toast.show('Eligibility saved', 'ok');
+      } catch (e) { Toast.show('Error: ' + e.message, 'err'); }
     });
   }
 

@@ -1,0 +1,536 @@
+{
+  "meta": {
+    "id": "ERASMUS_BB_LSII",
+    "tag": "APP-FORM-ERASMUSBBLSII",
+    "title": "EU Grants: Application Form (ERASMUS BB and LS Type II)",
+    "version": "V2.0",
+    "date": "01.06.2022",
+    "scope": "Universal template for EACEA-managed calls (KA3, Capacity Building, etc.)",
+    "parts": ["Part A (Administrative Forms)", "Part B (Technical Description)"],
+    "page_limit": "120 pages (Part B uploaded as PDF + annexes)"
+  },
+
+  "cover_page": {
+    "id": "cover",
+    "title": "Cover Page",
+    "fields": [
+      { "id": "call_id", "label": "Call identifier", "type": "text", "placeholder": "[insert call identifier]" },
+      { "id": "call_name", "label": "Call name", "type": "text", "placeholder": "[insert call name]" },
+      { "id": "topic_id", "label": "Topic identifier", "type": "text" },
+      { "id": "topic_name", "label": "Topic name", "type": "text" },
+      { "id": "project_acronym", "label": "Project acronym", "type": "text" },
+      { "id": "project_title", "label": "Project title", "type": "text" },
+      { "id": "coordinator_name", "label": "Coordinator name", "type": "text" },
+      { "id": "coordinator_org", "label": "Coordinator organisation", "type": "text" },
+      { "id": "coordinator_email", "label": "Coordinator email", "type": "email" }
+    ]
+  },
+
+  "project_summary": {
+    "id": "summary",
+    "title": "Project Summary",
+    "code": "PRJ-SUM-PS",
+    "fields": [
+      { "id": "summary_text", "label": "Project summary", "type": "textarea", "placeholder": "Insert text", "guidance": "Provide a brief overview of the project." }
+    ]
+  },
+
+  "sections": [
+    {
+      "id": "sec_1",
+      "number": "1",
+      "title": "RELEVANCE",
+      "code": "REL-EVA-RE",
+      "subsections": [
+        {
+          "id": "sec_1_1",
+          "number": "1.1",
+          "title": "Background and general objectives",
+          "guidance": [
+            "Please address all guiding points presented in the Call document/Programme Guide under the award criterion Relevance.",
+            "Describe the background and rationale of the project.",
+            "How is the project relevant to the scope of the call? How does the project address the general objectives of the call? What is the project's contribution to the priorities of the call (if applicable)?"
+          ],
+          "fields": [
+            { "id": "s1_1_text", "label": "Background and general objectives", "type": "textarea", "placeholder": "Insert text" }
+          ]
+        },
+        {
+          "id": "sec_1_2",
+          "number": "1.2",
+          "title": "Needs analysis and specific objectives",
+          "code": "PRJ-OBJ-PO",
+          "guidance": [
+            "Please address the specific conditions/objectives set out in the Call document/Programme Guide, if applicable.",
+            "Describe how the objectives of the project are based on a sound needs analysis in line with the specific objectives of the call. What issue/challenge/gap does the project aim to address?",
+            "The objectives should be clear, measurable, realistic and achievable within the duration of the project. For each objective, define appropriate indicators for measuring achievement (including a unit of measurement, baseline value and target value)."
+          ],
+          "fields": [
+            { "id": "s1_2_text", "label": "Needs analysis and specific objectives", "type": "textarea", "placeholder": "Insert text" }
+          ]
+        },
+        {
+          "id": "sec_1_3",
+          "number": "1.3",
+          "title": "Complementarity with other actions and innovation - European added value",
+          "code": "COM-PLE-CP",
+          "guidance": [
+            "Explain how the project builds on the results of past activities carried out in the field, and describe its innovative aspects (if any).",
+            "Explain how the activities are complementary to other activities carried out by other organisations (if applicable). Illustrate the trans-national dimension of the project; its impact/interest in the EU area; possibility to use the results in other countries, potential to develop cross-border cooperation among Programme countries and Partner countries, if applicable.",
+            "If your proposal is based on the results of one or more previous or ongoing projects, please provide precise references to these projects."
+          ],
+          "fields": [
+            { "id": "s1_3_text", "label": "Complementarity, innovation and EU added value", "type": "textarea", "placeholder": "Insert text" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sec_2",
+      "number": "2",
+      "title": "QUALITY",
+      "code": "QUA-LIT-QL",
+      "subsections_groups": [
+        {
+          "id": "sec_2_1",
+          "number": "2.1",
+          "title": "PROJECT DESIGN AND IMPLEMENTATION",
+          "subsections": [
+            {
+              "id": "sec_2_1_1",
+              "number": "2.1.1",
+              "title": "Concept and methodology",
+              "code": "CON-MET-CM",
+              "guidance": [
+                "Please address all guiding points presented in the Call document/Programme Guide under the award criterion Quality of the project design and implementation.",
+                "Outline the approach and methodology behind the project. Explain why they are the most suitable for achieving the project's objectives."
+              ],
+              "fields": [
+                { "id": "s2_1_1_text", "label": "Concept and methodology", "type": "textarea", "placeholder": "Insert text" }
+              ]
+            },
+            {
+              "id": "sec_2_1_2",
+              "number": "2.1.2",
+              "title": "Project management, quality assurance and monitoring and evaluation strategy",
+              "code": "PRJ-MGT-PM",
+              "guidance": [
+                "Describe the measures foreseen to ensure that the project implementation is of high quality and completed in time.",
+                "Describe the methods to ensure good quality, monitoring, planning and control.",
+                "Describe the evaluation methods and indicators (quantitative and qualitative) to monitor and verify the outreach and coverage of the activities and results (including unit of measurement, baseline and target values). The indicators proposed to measure progress should be relevant, realistic and measurable."
+              ],
+              "fields": [
+                { "id": "s2_1_2_text", "label": "Project management and QA", "type": "textarea", "placeholder": "Insert text" }
+              ]
+            },
+            {
+              "id": "sec_2_1_3",
+              "number": "2.1.3",
+              "title": "Project teams, staff and experts",
+              "code": "CON-SOR-CS",
+              "guidance": [
+                "Describe the project teams and how they will work together to implement the project.",
+                "List the staff included in the project budget (budget category A) by function/profile and describe briefly their tasks. Provide CVs of all key actors (if required by the Call document/Programme Guide)."
+              ],
+              "fields": [
+                { "id": "s2_1_3_text", "label": "Project teams description", "type": "textarea", "placeholder": "Insert text" },
+                {
+                  "id": "s2_1_3_staff_table",
+                  "label": "Staff table",
+                  "type": "table",
+                  "columns": ["Name and function", "Organisation", "Role/tasks", "Professional profile and expertise"],
+                  "rows": "dynamic"
+                },
+                { "id": "s2_1_3_outside", "label": "Outside resources (subcontracting, seconded staff, etc)", "type": "textarea", "placeholder": "Insert text", "guidance": ["If you do not have all skills/resources in-house, describe how you intend to get them.", "If there is subcontracting, please also complete the table in section 4."] }
+              ]
+            },
+            {
+              "id": "sec_2_1_4",
+              "number": "2.1.4",
+              "title": "Cost effectiveness and financial management",
+              "code": "FIN-MGT-FM",
+              "note": "n/a for prefixed Lump Sum Grants",
+              "guidance": [
+                "Describe the measures adopted to ensure that the proposed results and objectives will be achieved in the most cost-effective way.",
+                "Indicate the arrangements adopted for the financial management of the project and, in particular, how the financial resources will be allocated and managed within the consortium.",
+                "Do NOT compare and justify the costs of each work package, but summarize briefly why your budget is cost effective."
+              ],
+              "fields": [
+                { "id": "s2_1_4_text", "label": "Cost effectiveness and financial management", "type": "textarea", "placeholder": "Insert text" }
+              ]
+            },
+            {
+              "id": "sec_2_1_5",
+              "number": "2.1.5",
+              "title": "Risk management",
+              "code": "RSK-MGT-RM",
+              "guidance": [
+                "Describe critical risks, uncertainties or difficulties related to the implementation of your project, and your measures/strategy for addressing them.",
+                "Indicate for each risk (in the description) the impact and the likelihood that the risk will materialise (high, medium, low), even after taking into account the mitigating measures.",
+                "Note: Uncertainties and unexpected events occur in all organisations, even if very well-run. The risk analysis will help you to predict issues that could delay or hinder project activities."
+              ],
+              "fields": [
+                {
+                  "id": "s2_1_5_risk_table",
+                  "label": "Risk management table",
+                  "type": "table",
+                  "columns": ["Risk No", "Description", "Work package No", "Proposed risk-mitigation measures"],
+                  "rows": "dynamic"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "sec_2_2",
+          "number": "2.2",
+          "title": "PARTNERSHIP AND COOPERATION ARRANGEMENTS",
+          "code": "CON-SOR-CS",
+          "subsections": [
+            {
+              "id": "sec_2_2_1",
+              "number": "2.2.1",
+              "title": "Consortium set-up",
+              "guidance": [
+                "Please address all guiding points presented in the Call document/Programme Guide under the award criterion Quality of the partnership and the cooperation arrangements.",
+                "Describe the participants (Beneficiaries, Affiliated Entities, Associated Partners and others, if any) and explain how they will work together to implement the project. How will they bring together the necessary expertise? How will they complement each other?",
+                "In what way does each of the participants contribute to the project? Show that each has a valid role and adequate resources to fulfil that role."
+              ],
+              "fields": [
+                { "id": "s2_2_1_text", "label": "Consortium cooperation and division of roles", "type": "textarea", "placeholder": "Insert text" }
+              ]
+            },
+            {
+              "id": "sec_2_2_2",
+              "number": "2.2.2",
+              "title": "Consortium management and decision-making",
+              "guidance": [
+                "Explain the management structures and decision-making mechanisms within the consortium. Describe how decisions will be taken and how regular and effective communication will be ensured. Describe methods to ensure planning and control.",
+                "Note: The concept (including organisational structure and decision-making mechanisms) must be adapted to the complexity and scale of the project."
+              ],
+              "fields": [
+                { "id": "s2_2_2_text", "label": "Consortium management and decision-making", "type": "textarea", "placeholder": "Insert text" }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sec_3",
+      "number": "3",
+      "title": "IMPACT",
+      "code": "IMP-ACT-IA",
+      "subsections": [
+        {
+          "id": "sec_3_1",
+          "number": "3.1",
+          "title": "Impact and ambition",
+          "guidance": [
+            "Please address each guiding point presented in the Call document/Programme Guide under the award criterion Impact.",
+            "Define the expected short, medium and long-term effects of the project. Who are the target groups? How will the target groups benefit concretely from the project and what would change for them?"
+          ],
+          "fields": [
+            { "id": "s3_1_text", "label": "Impact and ambition", "type": "textarea", "placeholder": "Insert text" }
+          ]
+        },
+        {
+          "id": "sec_3_2",
+          "number": "3.2",
+          "title": "Communication, dissemination and visibility",
+          "code": "COM-DIS-VIS-CDV",
+          "guidance": [
+            "Describe the communication and dissemination activities which are planned in order to promote the activities/results and maximise the impact (to whom, which format, how many, etc.). Clarify how you will reach the target groups, relevant stakeholders, policymakers and the general public and explain the choice of the dissemination channels.",
+            "Describe how the visibility of EU funding will be ensured."
+          ],
+          "fields": [
+            { "id": "s3_2_text", "label": "Communication, dissemination and visibility", "type": "textarea", "placeholder": "Insert text" }
+          ]
+        },
+        {
+          "id": "sec_3_3",
+          "number": "3.3",
+          "title": "Sustainability and continuation",
+          "code": "SUS-CON-SC",
+          "guidance": [
+            "Describe the follow-up of the project after the EU funding ends. How will the project impact be ensured and sustained?",
+            "What will need to be done? Which parts of the project should be continued or maintained? How will this be achieved? Which resources will be necessary to continue the project? How will the results be used?",
+            "Are there any possible synergies/complementarities with other (EU funded) activities that can build on the project results?"
+          ],
+          "fields": [
+            { "id": "s3_3_text", "label": "Sustainability and continuation", "type": "textarea", "placeholder": "Insert text" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sec_4",
+      "number": "4",
+      "title": "WORK PLAN, WORK PACKAGES, ACTIVITIES, RESOURCES AND TIMING",
+      "code": "WRK-PLA-WP",
+      "subsections": [
+        {
+          "id": "sec_4_1",
+          "number": "4.1",
+          "title": "Work plan",
+          "guidance": [
+            "Provide a brief description of the overall structure of the work plan (list of work packages or graphical presentation (Pert chart or similar))."
+          ],
+          "fields": [
+            { "id": "s4_1_text", "label": "Work plan overview", "type": "textarea", "placeholder": "Insert text" }
+          ]
+        },
+        {
+          "id": "sec_4_2",
+          "number": "4.2",
+          "title": "Work packages, activities, resources and timing",
+          "guidance": [
+            "Group your activities into work packages. A work package means a major sub-division of the project.",
+            "For each work package, enter an objective (expected outcome) and list the activities, milestones and deliverables that belong to it.",
+            "Projects should normally have a minimum of 2 work packages. WP1 should cover the management and coordination activities. WP2 and further WPs should be used for the other project activities. The last WP should be dedicated to Impact and dissemination.",
+            "Work packages covering financial support to third parties only allowed if authorised in the Call document/Programme Guide.",
+            "Enter each activity/milestone/output/outcome/deliverable only once (under one work package).",
+            "The Coordinator remains fully responsible for the coordination tasks, even if they are delegated to someone else. Coordinator tasks cannot be subcontracted."
+          ],
+          "work_package_template": {
+            "id": "wp_N",
+            "title": "Work Package N: [Name]",
+            "fields": [
+              { "id": "wp_duration", "label": "Duration", "type": "text", "placeholder": "MX - MX" },
+              { "id": "wp_lead", "label": "Lead Beneficiary", "type": "text", "placeholder": "1-Short name" },
+              { "id": "wp_objectives", "label": "Objectives", "type": "textarea" },
+              {
+                "id": "wp_activities_table",
+                "label": "Activities and division of work (WP description)",
+                "type": "table",
+                "columns": [
+                  "Task No (continuous numbering linked to WP)",
+                  "Task Name",
+                  "Description",
+                  "Participants: Name",
+                  "Participants: Role (COO, BEN, AE, AP, OTHER)",
+                  "In-kind Contributions and Subcontracting (Yes/No and which)"
+                ],
+                "rows": "dynamic"
+              },
+              {
+                "id": "wp_milestones_table",
+                "label": "Milestones",
+                "type": "table",
+                "columns": [
+                  "Milestone No (continuous numbering not linked to WP)",
+                  "Milestone Name",
+                  "Description",
+                  "Due Date (month number)",
+                  "Means of Verification"
+                ],
+                "rows": "dynamic"
+              },
+              {
+                "id": "wp_deliverables_table",
+                "label": "Deliverables",
+                "type": "table",
+                "columns": [
+                  "Deliverable No (continuous numbering linked to WP)",
+                  "Deliverable Name",
+                  "Work Package No",
+                  "Lead Beneficiary",
+                  "Type",
+                  "Dissemination Level",
+                  "Due Date (month number)",
+                  "Description (including format and language)"
+                ],
+                "type_options": ["R (Document, report)", "DEM (Demonstrator, pilot, prototype)", "DEC (Websites, patent filings, videos, etc)", "DATA (Data sets, microdata, etc)", "DMP (Data Management Plan)", "ETHICS", "SECURITY", "OTHER"],
+                "dissemination_options": ["PU (Public)", "SEN (Sensitive)", "R-UE/EU-R (RESTREINT)", "C-UE/EU-C (CONFIDENTIEL)", "S-UE/EU-S (SECRET)"],
+                "rows": "dynamic"
+              },
+              {
+                "id": "wp_budget_table",
+                "label": "Estimated budget/resources",
+                "type": "table",
+                "note": "n/a for prefixed Lump Sum Grants",
+                "columns": [
+                  "Participant",
+                  "A. Staff (person-months)",
+                  "B. Travel (travels, persons travelling)",
+                  "C. Subsistence",
+                  "D. Other goods, works and services",
+                  "D.1 Financial support to third parties",
+                  "E. Indirect costs"
+                ],
+                "rows": "dynamic"
+              }
+            ]
+          },
+          "timetable": {
+            "id": "timetable",
+            "title": "Timetable",
+            "type": "gantt",
+            "guidance": "Gantt-chart-style table showing work packages/tasks across project months."
+          },
+          "additional_tables": [
+            {
+              "id": "staff_effort_per_wp",
+              "title": "Staff effort per work package (n/a for Lump Sum Grants)",
+              "type": "table",
+              "guidance": "Fill in the summary on work package information. Identify the work-package leader for each work package by showing the relevant person/month figure in bold.",
+              "columns": ["Work Package No", "Person-Months"],
+              "has_total_row": true,
+              "rows": "dynamic"
+            },
+            {
+              "id": "staff_effort_per_participant",
+              "title": "Staff effort per participant",
+              "type": "matrix",
+              "guidance": "Matrix: rows = Participants, columns = WP1, WP2, ..., Total Person-Months",
+              "row_header": "Participant",
+              "column_headers": "dynamic (one per WP + Total)",
+              "rows": "dynamic"
+            },
+            {
+              "id": "subcontracting",
+              "title": "Subcontracting (n/a for prefixed Lump Sum Grants)",
+              "type": "table",
+              "guidance": "If subcontracting for the project goes beyond 30% of the total eligible costs, give specific reasons.",
+              "columns": [
+                "Work Package No",
+                "Subcontract No (continuous numbering linked to WP)",
+                "Subcontract Name (subcontracted action tasks)",
+                "Description (including task number and BEN/AE to which it is linked)",
+                "Estimated Costs (EUR)",
+                "Justification (why is subcontracting necessary?)",
+                "Best-Value-for-Money (how do you intend to ensure it?)"
+              ],
+              "rows": "dynamic"
+            },
+            {
+              "id": "events_meetings",
+              "title": "Events, meetings and mobility",
+              "type": "table",
+              "columns": [
+                "Event No (continuous numbering linked to WP)",
+                "Participant Name",
+                "Type",
+                "Area (topics, skills)",
+                "Location (city, country)",
+                "Duration (days)",
+                "Attendees (number)"
+              ],
+              "rows": "dynamic"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sec_5",
+      "number": "5",
+      "title": "OTHER",
+      "subsections": [
+        {
+          "id": "sec_5_1",
+          "number": "5.1",
+          "title": "Ethics",
+          "code": "ETH-ICS-EI",
+          "guidance": [
+            "Describe any ethics issues that may arise during the project implementation and the measures to address them.",
+            "Address gender mainstreaming and children's rights where applicable."
+          ],
+          "fields": [
+            { "id": "s5_1_text", "label": "Ethics", "type": "textarea", "placeholder": "Insert text" }
+          ]
+        },
+        {
+          "id": "sec_5_2",
+          "number": "5.2",
+          "title": "Security",
+          "code": "SEC-URI-SU",
+          "guidance": [
+            "Describe any security issues if applicable."
+          ],
+          "fields": [
+            { "id": "s5_2_text", "label": "Security", "type": "textarea", "placeholder": "Not applicable", "default": "Not applicable" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sec_6",
+      "number": "6",
+      "title": "DECLARATIONS",
+      "code": "DEC-LAR-DL",
+      "subsections": [
+        {
+          "id": "sec_6_1",
+          "number": "6.1",
+          "title": "Double funding declaration",
+          "fields": [
+            { "id": "s6_1_double_funding", "label": "Has the project received or applied for other EU grants?", "type": "radio", "options": ["YES", "NO"] },
+            { "id": "s6_1_details", "label": "If YES, provide details", "type": "textarea", "conditional_on": "s6_1_double_funding=YES" }
+          ]
+        },
+        {
+          "id": "sec_6_2",
+          "number": "6.2",
+          "title": "Financial support to third parties",
+          "note": "If applicable",
+          "fields": [
+            { "id": "s6_2_justification", "label": "Justification if max amount per third party exceeds Call threshold", "type": "textarea" }
+          ]
+        },
+        {
+          "id": "sec_6_3",
+          "number": "6.3",
+          "title": "Seal of Excellence",
+          "note": "If applicable",
+          "fields": [
+            { "id": "s6_3_consent", "label": "Consent to share proposal info with national funding bodies?", "type": "radio", "options": ["YES", "NO"] }
+          ]
+        }
+      ]
+    }
+  ],
+
+  "annexes": {
+    "id": "annexes",
+    "title": "Annexes",
+    "tables": [
+      {
+        "id": "previous_projects",
+        "title": "List of previous projects",
+        "type": "table",
+        "columns": [
+          "Participant",
+          "Project Reference No and Title, Funding programme",
+          "Period (start and end date)",
+          "Role (COO, BEN, AE, OTHER)",
+          "Amount (EUR)",
+          "Website (if any)"
+        ],
+        "rows": "dynamic"
+      }
+    ]
+  },
+
+  "field_codes": {
+    "_note": "Internal codes found in the original template (used as section delimiters)",
+    "APP-FORM-ERASMUSBBLSII": "Document-level tag",
+    "PRJ-SUM-PS": "Project Summary",
+    "REL-EVA-RE": "Relevance (Section 1)",
+    "PRJ-OBJ-PO": "Project Objectives",
+    "COM-PLE-CP": "Complementarity",
+    "QUA-LIT-QL": "Quality (Section 2)",
+    "CON-MET-CM": "Concept and Methodology",
+    "PRJ-MGT-PM": "Project Management",
+    "CON-SOR-CS": "Consortium",
+    "FIN-MGT-FM": "Financial Management",
+    "RSK-MGT-RM": "Risk Management",
+    "IMP-ACT-IA": "Impact (Section 3)",
+    "COM-DIS-VIS-CDV": "Communication, Dissemination, Visibility",
+    "SUS-CON-SC": "Sustainability and Continuation",
+    "WRK-PLA-WP": "Work Plan (Section 4)",
+    "ETH-ICS-EI": "Ethics (Section 5.1)",
+    "SEC-URI-SU": "Security (Section 5.2)",
+    "DEC-LAR-DL": "Declarations (Section 6)"
+  }
+}
