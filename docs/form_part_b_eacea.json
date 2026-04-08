@@ -133,15 +133,13 @@
                 "List the staff included in the project budget (budget category A) by function/profile and describe briefly their tasks. Provide CVs of all key actors (if required by the Call document/Programme Guide)."
               ],
               "fields": [
-                { "id": "s2_1_3_text", "label": "Project teams description", "type": "textarea", "placeholder": "Insert text" },
                 {
                   "id": "s2_1_3_staff_table",
                   "label": "Staff table",
                   "type": "table",
                   "columns": ["Name and function", "Organisation", "Role/tasks", "Professional profile and expertise"],
                   "rows": "dynamic"
-                },
-                { "id": "s2_1_3_outside", "label": "Outside resources (subcontracting, seconded staff, etc)", "type": "textarea", "placeholder": "Insert text", "guidance": ["If you do not have all skills/resources in-house, describe how you intend to get them.", "If there is subcontracting, please also complete the table in section 4."] }
+                }
               ]
             },
             {
@@ -465,8 +463,8 @@
           "number": "6.1",
           "title": "Double funding declaration",
           "fields": [
-            { "id": "s6_1_double_funding", "label": "Has the project received or applied for other EU grants?", "type": "radio", "options": ["YES", "NO"] },
-            { "id": "s6_1_details", "label": "If YES, provide details", "type": "textarea", "conditional_on": "s6_1_double_funding=YES" }
+            { "id": "s6_1_double_funding", "label": "Has the project received or applied for other EU grants?", "type": "radio", "options": ["NO", "YES"] },
+            { "id": "s6_1_details", "label": "If YES, provide details of the other EU grants", "type": "textarea", "placeholder": "Project reference, funding programme, amount, period...", "conditional_on": "s6_1_double_funding=YES" }
           ]
         },
         {

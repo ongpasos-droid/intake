@@ -13,7 +13,8 @@ const SECTION_TAGS = [
   { tag: 'COM-PLE-CP',     key: 'sec_1_3',            title: '1.3 Complementarity' },
   { tag: 'CON-MET-CM',     key: 'sec_2_1_1',          title: '2.1.1 Concept and methodology' },
   { tag: 'PRJ-MGT-PM',     key: 'sec_2_1_2',          title: '2.1.2 Project management' },
-  { tag: 'CON-SOR-CS',     key: 'sec_2_consortium',   title: '2.2 Consortium' },
+  { tag: 'CON-SOR-CS',     key: 'sec_2_1_3_staff',    title: '2.1.3 Staff', occurrence: 1 },
+  { tag: 'CON-SOR-CS',     key: 'sec_2_2',            title: '2.2 Consortium', occurrence: 2 },
   { tag: 'FIN-MGT-FM',     key: 'sec_2_1_4',          title: '2.1.4 Cost effectiveness' },
   { tag: 'RSK-MGT-RM',     key: 'sec_2_1_5',          title: '2.1.5 Risk management' },
   { tag: 'IMP-ACT-IA',     key: 'sec_3_1',            title: '3.1 Impact and ambition' },
@@ -47,24 +48,77 @@ async function parseFormB(buffer) {
     work_packages: [],
   };
 
-  // Extract sections by tags
-  for (const { tag, key } of SECTION_TAGS) {
+  // Extract sections by tags using HTML (preserves numbered lists)
+  for (const { tag, key, occurrence } of SECTION_TAGS) {
     const open = `#@${tag}@#`;
     const close = `#§${tag}§#`;
-    const start = text.indexOf(open);
-    const end = text.indexOf(close);
+    const targetOccurrence = occurrence || 1;
+
+    // Search in HTML for tag positions
+    let searchPos = 0;
+    let start = -1, end = -1;
+    for (let n = 0; n < targetOccurrence; n++) {
+      start = html.indexOf(open, searchPos);
+      if (start < 0) break;
+      end = html.indexOf(close, start + open.length);
+      if (end < 0) break;
+      searchPos = end + close.length;
+    }
+
     if (start >= 0 && end >= 0 && end > start) {
-      let content = text.substring(start + open.length, end).trim();
+      let sectionHtml = html.substring(start + open.length, end).trim();
       // Remove nested tags
-      content = content.replace(/#[@§][A-Z-]+[@§]#/g, '').trim();
-      // Remove template instructions (lines starting with guidance text)
+      sectionHtml = sectionHtml.replace(/#[@§][A-Z-]+[@§]#/g, '');
+      // Convert HTML to clean text preserving numbered lists
+      let content = htmlToText(sectionHtml);
       content = cleanContent(content);
       result.sections[key] = content;
     }
   }
 
-  // Extract work packages from HTML
-  result.work_packages = extractWorkPackages(html);
+  // Split compound sections BEFORE they were cleaned (use raw text for split markers)
+  // sec_2_2 contains 2.2.1 (Consortium set-up) + 2.2.2 (Consortium management)
+  if (result.sections['sec_2_2']) {
+    // Re-extract raw from HTML to find the split point
+    const sec22Start = html.indexOf('#@CON-SOR-CS@#', html.indexOf('#@CON-SOR-CS@#') + 10); // 2nd occurrence
+    const sec22End = html.indexOf('#\u00A7CON-SOR-CS\u00A7#', sec22Start) >= 0
+      ? html.indexOf('#\u00A7CON-SOR-CS\u00A7#', sec22Start)
+      : html.indexOf('#§CON-SOR-CS§#', sec22Start);
+    if (sec22Start >= 0 && sec22End > sec22Start) {
+      const rawHtml = html.substring(sec22Start, sec22End);
+      const rawText = htmlToText(rawHtml);
+      const mgmtIdx = rawText.search(/CONSORTIUM MANAGEMENT/i);
+      if (mgmtIdx > 0) {
+        result.sections['sec_2_2_1'] = cleanTags(cleanContent(rawText.substring(0, mgmtIdx).trim()));
+        result.sections['sec_2_2_2'] = cleanTags(cleanContent(rawText.substring(mgmtIdx).trim()));
+      }
+    }
+  }
+
+  // sec_1 contains 1.1 + 1.2; split by "Needs analysis" heading
+  if (result.sections['sec_1']) {
+    const sec1Start = html.indexOf('#@REL-EVA-RE@#');
+    const sec1End = html.indexOf('#§REL-EVA-RE§#');
+    if (sec1Start >= 0 && sec1End > sec1Start) {
+      const rawText = htmlToText(html.substring(sec1Start, sec1End));
+      const needsIdx = rawText.search(/Needs analysis/i);
+      if (needsIdx > 0) {
+        result.sections['sec_1_1'] = cleanTags(cleanContent(rawText.substring(0, needsIdx).trim()));
+        result.sections['sec_1_2'] = cleanTags(cleanContent(rawText.substring(needsIdx).trim()));
+      }
+    }
+  }
+
+  // sec_4: only keep the overview (before first WORK PACKAGE N)
+  if (result.sections['sec_4']) {
+    const wpIdx = result.sections['sec_4'].search(/WORK PACKAGE\s*\d|Work Package\s*\d/i);
+    if (wpIdx > 0) {
+      result.sections['sec_4'] = result.sections['sec_4'].substring(0, wpIdx).trim();
+    }
+  }
+
+  // Extract work packages using raw text (more reliable than HTML for complex tables)
+  result.work_packages = extractWorkPackagesFromText(text);
 
   // Extract risk table
   result.risk_table = extractRiskTable(html);
@@ -96,6 +150,108 @@ function extractCover(html) {
   return cover;
 }
 
+function extractWorkPackagesFromText(text) {
+  const wps = [];
+  // Find each "Work Package N:" in raw text
+  const wpRegex = /Work Package\s*(\d+)\s*:\s*(.+)/gi;
+  const wpPositions = [];
+  let m;
+  while ((m = wpRegex.exec(text)) !== null) {
+    wpPositions.push({ num: parseInt(m[1]), name: m[2].trim(), pos: m.index });
+  }
+
+  // Find end of WP section (WRK-PLA-WP close tag)
+  const wpEndTag = text.indexOf('#§WRK-PLA-WP§#');
+  const wpSectionEnd = wpEndTag > 0 ? wpEndTag : text.length;
+
+  for (let i = 0; i < wpPositions.length; i++) {
+    const wpStart = wpPositions[i].pos;
+    const wpEnd = i + 1 < wpPositions.length ? wpPositions[i + 1].pos : wpSectionEnd;
+    const wpText = text.substring(wpStart, wpEnd);
+    const wpNum = wpPositions[i].num;
+
+    // Duration and Lead
+    const durMatch = wpText.match(/Duration:\s*(M\d+\s*[–\-]\s*M\d+)/i);
+    const leadMatch = wpText.match(/Lead Beneficiary:\s*([^\n]+)/i);
+
+    // Objectives (text between "Objectives" and next heading like "Activities")
+    let objectives = '';
+    const objIdx = wpText.search(/\bObjectives\b/i);
+    const actIdx = wpText.search(/\bActivities and division/i);
+    if (objIdx >= 0 && actIdx > objIdx) {
+      objectives = wpText.substring(objIdx + 10, actIdx).trim();
+      // Clean template instruction remnants
+      objectives = objectives.replace(/^.*?specific objectives.*?linked\.?\s*/i, '').trim();
+    }
+
+    // Split WP text into cell-like chunks (separated by \n\n)
+    const chunks = wpText.split(/\n\n+/).map(s => s.trim()).filter(Boolean);
+
+    // Tasks: find T{n}.{m} entries and collect next 4 fields
+    const tasks = [];
+    const taskPattern = new RegExp(`^T${wpNum}\\.(\\d[\\d,]*)$`);
+    for (let ci = 0; ci < chunks.length; ci++) {
+      if (taskPattern.test(chunks[ci])) {
+        tasks.push({
+          id: chunks[ci],
+          name: chunks[ci+1] || '',
+          description: chunks[ci+2] || '',
+          participants: chunks[ci+3] || '',
+          role: chunks[ci+4] || '',
+          subcontracting: chunks[ci+5] || '',
+        });
+      }
+    }
+
+    // Milestones: find MS{n} entries and collect next 6 fields
+    const milestones = [];
+    for (let ci = 0; ci < chunks.length; ci++) {
+      if (/^MS\d+$/.test(chunks[ci])) {
+        milestones.push({
+          id: chunks[ci],
+          name: chunks[ci+1] || '',
+          wp: chunks[ci+2] || String(wpNum),
+          lead: chunks[ci+3] || '',
+          description: chunks[ci+4] || '',
+          due_date: chunks[ci+5] || '',
+          verification: chunks[ci+6] || '',
+        });
+      }
+    }
+
+    // Deliverables: find D{n}.{m} entries and collect next 7 fields
+    const deliverables = [];
+    const delPattern = new RegExp(`^D${wpNum}\\.\\d+$`);
+    for (let ci = 0; ci < chunks.length; ci++) {
+      if (delPattern.test(chunks[ci])) {
+        deliverables.push({
+          id: chunks[ci],
+          name: chunks[ci+1] || '',
+          wp: chunks[ci+2] || String(wpNum),
+          lead: chunks[ci+3] || '',
+          type: chunks[ci+4] || '',
+          dissemination: chunks[ci+5] || '',
+          due_date: chunks[ci+6] || '',
+          description: chunks[ci+7] || '',
+        });
+      }
+    }
+
+    wps.push({
+      number: wpNum,
+      name: wpPositions[i].name.replace(/\n.*/s, '').trim(),
+      duration: durMatch ? durMatch[1].trim() : null,
+      lead: leadMatch ? leadMatch[1].trim() : null,
+      objectives,
+      tasks,
+      milestones,
+      deliverables,
+    });
+  }
+  return wps;
+}
+
+// Keep old HTML-based function as fallback
 function extractWorkPackages(html) {
   const wps = [];
   // Find WP tables by looking for "Work Package N:" pattern
@@ -225,25 +381,24 @@ function extractTasksNearPosition(html, startPos, wpNum) {
 
 function extractRiskTable(html) {
   const risks = [];
-  // Find risk table by looking for RSK-MGT tag context
   const rskPos = html.indexOf('RSK-MGT-RM');
   if (rskPos < 0) return risks;
 
-  const searchArea = html.substring(rskPos, Math.min(rskPos + 10000, html.length));
-  const tStart = searchArea.indexOf('<table');
-  if (tStart < 0) return risks;
-  const tEnd = searchArea.indexOf('</table>', tStart);
-  const tableHtml = searchArea.substring(tStart, tEnd + 8);
-  const rows = parseTableRows(tableHtml);
+  // Search wider area to catch split tables
+  const searchArea = html.substring(rskPos, Math.min(rskPos + 20000, html.length));
+  const tables = getAllTablesInArea(searchArea);
 
-  for (const row of rows) {
-    if (row[0] && /^\d+/.test(row[0].trim())) {
-      risks.push({
-        number: row[0].trim(),
-        description: row[1]?.trim() || '',
-        wp: row[2]?.trim() || '',
-        mitigation: row[3]?.trim() || '',
-      });
+  for (const tableHtml of tables) {
+    const rows = parseTableRows(tableHtml);
+    for (const row of rows) {
+      if (row[0] && /^\d+/.test(row[0].trim()) && row.length >= 3) {
+        risks.push({
+          number: row[0].trim(),
+          description: row[1]?.trim() || '',
+          wp: row[2]?.trim() || '',
+          mitigation: row[3]?.trim() || '',
+        });
+      }
     }
   }
   return risks;
@@ -364,23 +519,194 @@ function extractAllTables(html) {
   return tables;
 }
 
+function cleanTags(text) {
+  return text.replace(/#[@§][A-Z-]+[@§]#/g, '').replace(/\n{3,}/g, '\n\n').trim();
+}
+
+function htmlToText(html) {
+  let text = html;
+
+  // Convert ordered lists: <ol><li>item</li></ol> → "1. item\n2. item\n"
+  text = text.replace(/<ol[^>]*>([\s\S]*?)<\/ol>/gi, (match, inner) => {
+    let counter = 1;
+    return inner.replace(/<li[^>]*>([\s\S]*?)<\/li>/gi, (m, content) => {
+      return (counter++) + '. ' + content.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim() + '\n';
+    });
+  });
+
+  // Convert unordered lists: <ul><li>item</li></ul> → "• item\n"
+  text = text.replace(/<ul[^>]*>([\s\S]*?)<\/ul>/gi, (match, inner) => {
+    return inner.replace(/<li[^>]*>([\s\S]*?)<\/li>/gi, (m, content) => {
+      return '• ' + content.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim() + '\n';
+    });
+  });
+
+  // Convert remaining <li> (nested or orphan)
+  text = text.replace(/<li[^>]*>([\s\S]*?)<\/li>/gi, (m, content) => {
+    return '- ' + content.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim() + '\n';
+  });
+
+  // Paragraphs and breaks to newlines
+  text = text.replace(/<\/p>/gi, '\n');
+  text = text.replace(/<br\s*\/?>/gi, '\n');
+  text = text.replace(/<\/h[1-6]>/gi, '\n');
+
+  // Remove all remaining HTML tags
+  text = text.replace(/<[^>]+>/g, ' ');
+
+  // Clean up whitespace
+  text = text.replace(/[ \t]+/g, ' ');
+  text = text.replace(/\n /g, '\n');
+  text = text.replace(/\n{3,}/g, '\n\n');
+
+  return text.trim();
+}
+
 function cleanContent(text) {
-  // Remove common template instructions
+  // Known section headings from the EACEA template (to remove)
+  const TEMPLATE_HEADINGS = [
+    'ADMINISTRATIVE FORMS \\(PART A\\)',
+    'TECHNICAL DESCRIPTION \\(PART B\\)',
+    'COVER PAGE',
+    'PROJECT SUMMARY',
+    'RELEVANCE',
+    'BACKGROUND AND GENERAL OBJECTIVES',
+    'NEEDS ANALYSIS AND SPECIFIC OBJECTIVES',
+    'COMPLEMENTARITY WITH OTHER ACTIONS AND INNOVATION.*?ADDED VALUE',
+    'QUALITY',
+    'PROJECT DESIGN AND IMPLEMENTATION',
+    'CONCEPT AND METHODOLOGY',
+    'PROJECT MANAGEMENT.*?EVALUATION STRATEGY',
+    'PROJECT TEAMS.*?EXPERTS',
+    'COST EFFECTIVENESS AND FINANCIAL MANAGEMENT',
+    'RISK MANAGEMENT',
+    'PARTNERSHIP AND COOPERATION ARRANGEMENTS',
+    'CONSORTIUM SET-UP',
+    'CONSORTIUM MANAGEMENT AND DECISION-MAKING',
+    'IMPACT',
+    'IMPACT AND AMBITION',
+    'COMMUNICATION.*?DISSEMINATION.*?VISIBILITY',
+    'SUSTAINABILITY AND CONTINUATION',
+    'WORK PLAN.*?TIMING',
+    'WORK PACKAGES',
+    'OTHER',
+    'ETHICS',
+    'SECURITY',
+    'DECLARATIONS',
+    'ANNEXES',
+  ];
+
+  // Remove template headings (full line match, case insensitive)
+  for (const h of TEMPLATE_HEADINGS) {
+    text = text.replace(new RegExp('^' + h + '\\s*$', 'gmi'), '');
+  }
+
+  // Known template sub-headings (mixed case, exact from form)
+  const SUB_HEADINGS = [
+    'Background and general objectives',
+    'Needs analysis and specific objectives',
+    'Complementarity with other actions and innovation',
+    'Concept and methodology',
+    'Project management.*?evaluation strategy',
+    'Project teams and staff',
+    'Cost effectiveness and financial management.*',
+    'Critical risks and risk management strategy',
+    'Consortium cooperation and division of roles.*',
+    'Consortium management and decision-making.*',
+    'Impact and ambition',
+    'Communication.*?dissemination.*?visibility.*',
+    'Sustainability.*?long-term impact.*?continuation',
+    'Work plan',
+    'Work packages.*?timing',
+    'Insert text',
+  ];
+  for (const h of SUB_HEADINGS) {
+    text = text.replace(new RegExp('^' + h + '\\s*$', 'gmi'), '');
+  }
+
+  // Remove template instructions/guidance lines
   const removePatterns = [
     /^Please address .+$/gm,
     /^Describe the .+$/gm,
+    /^Describe how .+$/gm,
+    /^Describe critical .+$/gm,
     /^Explain how .+$/gm,
+    /^Explain the .+$/gm,
     /^Outline the .+$/gm,
     /^Define the .+$/gm,
     /^Indicate .+$/gm,
+    /^In what way .+$/gm,
+    /^How is the project.+$/gm,
+    /^How does the project .+$/gm,
+    /^What is the project.+$/gm,
+    /^What will need .+$/gm,
+    /^What issue.+$/gm,
+    /^Which parts .+$/gm,
+    /^Which resources .+$/gm,
+    /^How will this be achieved.+$/gm,
+    /^How will the results .+$/gm,
+    /^Are there any possible .+$/gm,
+    /^Who are the target .+$/gm,
+    /^If your proposal is based .+$/gm,
+    /^The objectives should be .+$/gm,
     /^Note: .+$/gm,
+    /^Do NOT compare .+$/gm,
     /^\[This document is tagged.+\]$/gm,
     /^See Abstract .+$/gm,
     /^Project summary .+$/gm,
+    /^List the staff .+$/gm,
+    /^they will work together .+$/gm,
+    /^\s*[\u2018\u2019'']Relevance[\u2018\u2019'']\.?\s*$/gm,
+    /^\s*[\u2018\u2019'']Impact[\u2018\u2019'']\.?\s*$/gm,
+    /^\s*[\u2018\u2019'']Quality[^\u2019']*[\u2018\u2019'']\.?\s*$/gm,
+    /^Background and rationale of the project\s*$/gm,
+    /^\(if applicable\)\s*$/gm,
+    /^\(n\/a for .+\)\s*$/gm,
+    /^Provide a brief description .+$/gm,
+    /^Provide a concise overview .+$/gm,
+    /^This section concerns .+$/gm,
+    /^Group your activities .+$/gm,
+    /^For each work package.+$/gm,
+    /^For each deliverable.+$/gm,
+    /^For deliverables such as .+$/gm,
+    /^Projects should normally .+$/gm,
+    /^Please refer to the Call .+$/gm,
+    /^Work packages covering financial support .+$/gm,
+    /^Enter each activity.+$/gm,
+    /^Ensure consistence .+$/gm,
+    /^Show who is participating .+$/gm,
+    /^In-kind contributions:.+$/gm,
+    /^The Coordinator remains .+$/gm,
+    /^If there is subcontracting.+$/gm,
+    /^Milestones are control points .+$/gm,
+    /^Means of verification .+$/gm,
+    /^Deliverables are project outputs .+$/gm,
+    /^The labels used mean:.*/gm,
+    /^Public — fully open .+$/gm,
+    /^Sensitive — limited .+$/gm,
+    /^EU classified — .+$/gm,
+    /^Month 1 marks the start .+$/gm,
+    /^The grouping should .+$/gm,
+    /^Objectives\s*$/gm,
+    /^Activities and division of work.*$/gm,
+    /^Milestones and deliverables.*$/gm,
+    /^List the specific objectives .+$/gm,
+    /^Note:\s*$/gm,
+    /^Ethics \(if applicable\)\s*$/gm,
+    /^If the Call document\/Programme Guide contains a section on ethics.+$/gm,
+    /^describe ethics issues .+$/gm,
+    /^Insert text\s*$/gm,
+    /^Not applicable\.?\s*$/gm,
+    /^Double funding\s*$/gm,
+    /^Information concerning other EU grants .+$/gm,
+    /^Please note that there is a strict prohibition .+$/gm,
+    /^Seal of Excellence .+$/gm,
+    /^If provided in the Call document.+$/gm,
   ];
   for (const pat of removePatterns) {
     text = text.replace(pat, '');
   }
+
   // Remove multiple blank lines
   text = text.replace(/\n{3,}/g, '\n\n').trim();
   return text;

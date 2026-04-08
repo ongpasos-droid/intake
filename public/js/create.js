@@ -306,8 +306,8 @@ const CreateProject = (() => {
             if (wp.milestones.length) values[wpKey + '.milestones'] = wp.milestones;
             if (wp.deliverables.length) values[wpKey + '.deliverables'] = wp.deliverables;
           }
-          if (data.risk_table?.length) values['sec_2_1_5.risk_table'] = data.risk_table;
-          if (data.staff_table?.length) values['sec_2_consortium.staff_table'] = data.staff_table;
+          if (data.risk_table?.length) values['sec_2_1_5.s2_1_5_risk_table'] = data.risk_table.map(r => [r.number||'', r.description||'', r.wp||'', r.mitigation||'']);
+          if (data.staff_table?.length) values['sec_2_1_3.s2_1_3_staff_table'] = data.staff_table.map(s => [s.name||'', s.organisation||'', s.role||'', s.profile||'']);
           if (data.events_table?.length) values['sec_4.events_table'] = data.events_table;
 
           await API.put('/admin/data/forms/instances/' + inst.id + '/values', { values });
