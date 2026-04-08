@@ -21,6 +21,22 @@ const AuthController = {
     try {
       const { email, password, name } = req.body;
 
+      if (!password || password.length < 8) {
+        return res.status(400).json({
+          ok: false, error: { code: 'VALIDATION', message: 'La contraseña debe tener al menos 8 caracteres' }
+        });
+      }
+      if (!/[A-Z]/.test(password) || !/[0-9]/.test(password)) {
+        return res.status(400).json({
+          ok: false, error: { code: 'VALIDATION', message: 'La contraseña debe incluir al menos una mayúscula y un número' }
+        });
+      }
+      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        return res.status(400).json({
+          ok: false, error: { code: 'VALIDATION', message: 'Email no válido' }
+        });
+      }
+
       const existing = await User.findByEmail(email);
       if (existing) {
         return res.status(409).json({

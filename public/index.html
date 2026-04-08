@@ -82,14 +82,14 @@ tailwind.config = {
         <form id="form-login" class="space-y-4">
           <div>
             <label class="block text-xs font-semibold text-on-surface-variant mb-1.5" for="login-email">Email</label>
-            <input id="login-email" name="email" type="email" required autocomplete="email"
+            <input id="login-email" name="email" type="email" required aria-required="true" autocomplete="email"
               class="w-full px-4 py-3 rounded-lg bg-surface-container-low border border-outline-variant/50 text-on-surface text-sm
                      focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors"
               placeholder="you@organization.eu">
           </div>
           <div>
             <label class="block text-xs font-semibold text-on-surface-variant mb-1.5" for="login-password">Password</label>
-            <input id="login-password" name="password" type="password" required autocomplete="current-password"
+            <input id="login-password" name="password" type="password" required aria-required="true" autocomplete="current-password"
               class="w-full px-4 py-3 rounded-lg bg-surface-container-low border border-outline-variant/50 text-on-surface text-sm
                      focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors"
               placeholder="Min. 8 characters">
@@ -106,21 +106,21 @@ tailwind.config = {
         <form id="form-register" class="space-y-4 hidden">
           <div>
             <label class="block text-xs font-semibold text-on-surface-variant mb-1.5" for="reg-name">Full Name</label>
-            <input id="reg-name" name="name" type="text" required autocomplete="name"
+            <input id="reg-name" name="name" type="text" required aria-required="true" autocomplete="name"
               class="w-full px-4 py-3 rounded-lg bg-surface-container-low border border-outline-variant/50 text-on-surface text-sm
                      focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors"
               placeholder="Ana García">
           </div>
           <div>
             <label class="block text-xs font-semibold text-on-surface-variant mb-1.5" for="reg-email">Email</label>
-            <input id="reg-email" name="email" type="email" required autocomplete="email"
+            <input id="reg-email" name="email" type="email" required aria-required="true" autocomplete="email"
               class="w-full px-4 py-3 rounded-lg bg-surface-container-low border border-outline-variant/50 text-on-surface text-sm
                      focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors"
               placeholder="you@organization.eu">
           </div>
           <div>
             <label class="block text-xs font-semibold text-on-surface-variant mb-1.5" for="reg-password">Password</label>
-            <input id="reg-password" name="password" type="password" required minlength="8" autocomplete="new-password"
+            <input id="reg-password" name="password" type="password" required aria-required="true" minlength="8" autocomplete="new-password"
               class="w-full px-4 py-3 rounded-lg bg-surface-container-low border border-outline-variant/50 text-on-surface text-sm
                      focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors"
               placeholder="Min. 8 characters">
@@ -2034,7 +2034,7 @@ tailwind.config = {
 </div>
 
 <!-- ═══ TOAST ═══════════════════════════════════════════════════ -->
-<div id="toast"></div>
+<div id="toast" role="alert" aria-live="polite" aria-atomic="true"></div>
 
 <!-- ═══ Scripts ═════════════════════════════════════════════════ -->
 <script src="/js/api.js"></script>
@@ -2054,10 +2054,11 @@ tailwind.config = {
 <script src="/js/budget.js"></script>
 
 <!-- ── Mini modal (reemplaza prompt/confirm nativos) ────────── -->
-<div id="mini-modal" class="hidden fixed inset-0 z-50 flex items-end sm:items-center justify-center p-4 bg-black/40">
+<div id="mini-modal" class="hidden fixed inset-0 z-50 flex items-end sm:items-center justify-center p-4 bg-black/40"
+  role="dialog" aria-modal="true" aria-labelledby="mini-modal-msg">
   <div class="bg-white rounded-2xl w-full max-w-sm p-6 shadow-2xl">
     <p id="mini-modal-msg" class="text-sm font-semibold text-on-surface mb-4"></p>
-    <input id="mini-modal-input" type="number" min="0" step="1"
+    <input id="mini-modal-input" type="number" min="0" step="1" aria-label="Valor"
       class="w-full border border-outline rounded-lg px-3 py-3 text-base mb-4 hidden focus:outline-none focus:ring-2 focus:ring-primary" />
     <div class="flex gap-3">
       <button id="mini-modal-cancel" class="flex-1 py-3 rounded-xl border border-outline text-sm font-semibold text-on-surface-variant">Cancelar</button>

@@ -16,7 +16,7 @@ const Auth = (() => {
       API.startAutoRefresh();
       App.onAuth(data.user);
     } catch (err) {
-      showError('login', err.message || 'Login failed');
+      showError('login', err.message || 'Error al iniciar sesión');
     } finally {
       setLoading('btn-login', false);
     }
@@ -35,7 +35,7 @@ const Auth = (() => {
       API.startAutoRefresh();
       App.onAuth(data.user);
     } catch (err) {
-      showError('register', err.message || 'Registration failed');
+      showError('register', err.message || 'Error al registrarse');
     } finally {
       setLoading('btn-register', false);
     }
@@ -48,7 +48,7 @@ const Auth = (() => {
       API.startAutoRefresh();
       App.onAuth(data.user);
     } catch (err) {
-      Toast.show(err.message || 'Google sign-in failed', 'err');
+      Toast.show(err.message || 'Error al iniciar sesión con Google', 'err');
     }
   }
 

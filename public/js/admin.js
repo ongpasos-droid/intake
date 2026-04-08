@@ -157,7 +157,7 @@ const Admin = (() => {
       const rows = await API.get('/admin/data/programs');
       const tbody = document.getElementById('admin-programs-tbody');
       if (!rows.length) {
-        tbody.innerHTML = '<tr><td colspan="7" class="py-8 text-center text-on-surface-variant text-sm">Sin convocatorias</td></tr>';
+        tbody.innerHTML = '<tr><td colspan="7" class="py-12 text-center"><span class="material-symbols-outlined text-4xl text-outline-variant block mb-2">event_note</span><p class="text-sm text-on-surface-variant mb-3">No hay convocatorias configuradas</p><button onclick="document.getElementById('btn-add-program').click()" class="text-xs font-semibold text-primary hover:underline">+ Añadir convocatoria</button></td></tr>';
         return;
       }
       tbody.innerHTML = rows.map(r => `

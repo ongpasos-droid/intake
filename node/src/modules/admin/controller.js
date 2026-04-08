@@ -1,75 +1,66 @@
 /* ── Admin Controller ─────────────────────────────────────────── */
 const m = require('./model');
+const wrap = require('../../utils/asyncHandler');
 
 const ok  = (res, data) => res.json({ ok: true, data });
-const err = (res, msg, status = 400) =>
-  res.status(status).json({ ok: false, error: { message: msg } });
 
 /* ── Programs ─────────────────────────────────────────────────── */
-exports.listPrograms    = async (req, res) => { try { ok(res, await m.listPrograms()); } catch(e) { err(res, e.message, 500); } };
-exports.upsertProgram   = async (req, res) => { try { const id = await m.upsertProgram(req.body, req.params.id || null); ok(res, { id }); } catch(e) { err(res, e.message, 500); } };
-exports.deleteProgram   = async (req, res) => { try { await m.deleteProgram(req.params.id); ok(res, null); } catch(e) { err(res, e.message, 500); } };
+exports.listPrograms  = wrap(async (req, res) => { ok(res, await m.listPrograms()); });
+exports.upsertProgram = wrap(async (req, res) => { ok(res, { id: await m.upsertProgram(req.body, req.params.id || null) }); });
+exports.deleteProgram = wrap(async (req, res) => { await m.deleteProgram(req.params.id); ok(res, null); });
 
 /* ── Countries ────────────────────────────────────────────────── */
-exports.listCountries   = async (req, res) => { try { ok(res, await m.listCountries()); } catch(e) { err(res, e.message, 500); } };
-exports.upsertCountry   = async (req, res) => { try { const id = await m.upsertCountry(req.body, req.params.id || null); ok(res, { id }); } catch(e) { err(res, e.message, 500); } };
-exports.deleteCountry   = async (req, res) => { try { await m.deleteCountry(req.params.id); ok(res, null); } catch(e) { err(res, e.message, 500); } };
+exports.listCountries  = wrap(async (req, res) => { ok(res, await m.listCountries(req.query)); });
+exports.upsertCountry  = wrap(async (req, res) => { ok(res, { id: await m.upsertCountry(req.body, req.params.id || null) }); });
+exports.deleteCountry  = wrap(async (req, res) => { await m.deleteCountry(req.params.id); ok(res, null); });
 
 /* ── Per diem rates ───────────────────────────────────────────── */
-exports.listPerdiem     = async (req, res) => { try { ok(res, await m.listPerdiem()); } catch(e) { err(res, e.message, 500); } };
-exports.upsertPerdiem   = async (req, res) => { try { const id = await m.upsertPerdiem(req.body, req.params.id || null); ok(res, { id }); } catch(e) { err(res, e.message, 500); } };
-exports.deletePerdiem   = async (req, res) => { try { await m.deletePerdiem(req.params.id); ok(res, null); } catch(e) { err(res, e.message, 500); } };
+exports.listPerdiem   = wrap(async (req, res) => { ok(res, await m.listPerdiem()); });
+exports.upsertPerdiem = wrap(async (req, res) => { ok(res, { id: await m.upsertPerdiem(req.body, req.params.id || null) }); });
+exports.deletePerdiem = wrap(async (req, res) => { await m.deletePerdiem(req.params.id); ok(res, null); });
 
 /* ── Worker categories ────────────────────────────────────────── */
-exports.listWorkers     = async (req, res) => { try { ok(res, await m.listWorkerCategories()); } catch(e) { err(res, e.message, 500); } };
-exports.upsertWorker    = async (req, res) => { try { const id = await m.upsertWorkerCategory(req.body, req.params.id || null); ok(res, { id }); } catch(e) { err(res, e.message, 500); } };
-exports.deleteWorker    = async (req, res) => { try { await m.deleteWorkerCategory(req.params.id); ok(res, null); } catch(e) { err(res, e.message, 500); } };
+exports.listWorkers   = wrap(async (req, res) => { ok(res, await m.listWorkerCategories()); });
+exports.upsertWorker  = wrap(async (req, res) => { ok(res, { id: await m.upsertWorkerCategory(req.body, req.params.id || null) }); });
+exports.deleteWorker  = wrap(async (req, res) => { await m.deleteWorkerCategory(req.params.id); ok(res, null); });
 
 /* ── Entities ────────────────────────────────────────────────── */
-exports.listEntities    = async (req, res) => { try { ok(res, await m.listEntities(req.query.q)); } catch(e) { err(res, e.message, 500); } };
-exports.upsertEntity    = async (req, res) => { try { const id = await m.upsertEntity(req.body, req.params.id || null); ok(res, { id }); } catch(e) { err(res, e.message, 500); } };
-exports.deleteEntity    = async (req, res) => { try { await m.deleteEntity(req.params.id); ok(res, null); } catch(e) { err(res, e.message, 500); } };
+exports.listEntities    = wrap(async (req, res) => { ok(res, await m.listEntities(req.query.q)); });
+exports.upsertEntity    = wrap(async (req, res) => { ok(res, { id: await m.upsertEntity(req.body, req.params.id || null) }); });
+exports.deleteEntity    = wrap(async (req, res) => { await m.deleteEntity(req.params.id); ok(res, null); });
 
 /* ── Eligibility (countries by region) ────────────────────────── */
-exports.listEligibility = async (req, res) => {
-  try {
-    const { type, region } = req.query;
-    ok(res, await m.listEligibility({ type, region }));
-  } catch(e) { err(res, e.message, 500); }
-};
-exports.listRegions = async (req, res) => {
-  try { ok(res, await m.listRegions()); } catch(e) { err(res, e.message, 500); }
-};
+exports.listEligibility = wrap(async (req, res) => {
+  const { type, region } = req.query;
+  ok(res, await m.listEligibility({ type, region }));
+});
+exports.listRegions = wrap(async (req, res) => { ok(res, await m.listRegions()); });
 
 /* ── Call eligibility (per programme) ────────────────────────── */
-exports.getCallEligibility = async (req, res) => {
-  try { ok(res, await m.getCallEligibility(req.params.programId)); } catch(e) { err(res, e.message, 500); }
-};
-exports.upsertCallEligibility = async (req, res) => {
-  try { const id = await m.upsertCallEligibility(req.params.programId, req.body); ok(res, { id }); } catch(e) { err(res, e.message, 500); }
-};
+exports.getCallEligibility    = wrap(async (req, res) => { ok(res, await m.getCallEligibility(req.params.programId)); });
+exports.upsertCallEligibility = wrap(async (req, res) => { ok(res, { id: await m.upsertCallEligibility(req.params.programId, req.body) }); });
 
 /* ── Worker matrix ────────────────────────────────────────────── */
-exports.listWorkerMatrix   = async (req, res) => { try { ok(res, await m.listWorkerMatrix()); } catch(e) { err(res, e.message, 500); } };
-exports.upsertWorkerZoneRate = async (req, res) => { try { await m.upsertWorkerZoneRate(req.params.id, req.body.rate_day); ok(res, null); } catch(e) { err(res, e.message, 500); } };
+exports.listWorkerMatrix    = wrap(async (req, res) => { ok(res, await m.listWorkerMatrix()); });
+exports.upsertWorkerZoneRate = wrap(async (req, res) => { await m.upsertWorkerZoneRate(req.params.id, req.body.rate_day); ok(res, null); });
 
 /* ── Evaluator (per program) ──────────────────────────────────── */
-exports.getEvalTree         = async (req, res) => { try { ok(res, await m.getEvalTree(req.params.programId)); } catch(e) { err(res, e.message, 500); } };
-exports.upsertEvalSection   = async (req, res) => { try { const id = await m.upsertEvalSection(req.body, req.params.id || null); ok(res, { id }); } catch(e) { err(res, e.message, 500); } };
-exports.deleteEvalSection   = async (req, res) => { try { await m.deleteEvalSection(req.params.id); ok(res, null); } catch(e) { err(res, e.message, 500); } };
-exports.upsertEvalQuestion  = async (req, res) => { try { const id = await m.upsertEvalQuestion(req.body, req.params.id || null); ok(res, { id }); } catch(e) { err(res, e.message, 500); } };
-exports.deleteEvalQuestion  = async (req, res) => { try { await m.deleteEvalQuestion(req.params.id); ok(res, null); } catch(e) { err(res, e.message, 500); } };
-exports.upsertEvalCriterion = async (req, res) => { try { const id = await m.upsertEvalCriterion(req.body, req.params.id || null); ok(res, { id }); } catch(e) { err(res, e.message, 500); } };
-exports.deleteEvalCriterion = async (req, res) => { try { await m.deleteEvalCriterion(req.params.id); ok(res, null); } catch(e) { err(res, e.message, 500); } };
-exports.importEvalRules     = async (req, res) => { try { await m.importEvalRules(req.params.programId, req.body); ok(res, null); } catch(e) { err(res, e.message, 500); } };
+exports.getEvalTree         = wrap(async (req, res) => { ok(res, await m.getEvalTree(req.params.programId)); });
+exports.upsertEvalSection   = wrap(async (req, res) => { ok(res, { id: await m.upsertEvalSection(req.body, req.params.id || null) }); });
+exports.deleteEvalSection   = wrap(async (req, res) => { await m.deleteEvalSection(req.params.id); ok(res, null); });
+exports.upsertEvalQuestion  = wrap(async (req, res) => { ok(res, { id: await m.upsertEvalQuestion(req.body, req.params.id || null) }); });
+exports.deleteEvalQuestion  = wrap(async (req, res) => { await m.deleteEvalQuestion(req.params.id); ok(res, null); });
+exports.upsertEvalCriterion = wrap(async (req, res) => { ok(res, { id: await m.upsertEvalCriterion(req.body, req.params.id || null) }); });
+exports.deleteEvalCriterion = wrap(async (req, res) => { await m.deleteEvalCriterion(req.params.id); ok(res, null); });
+exports.importEvalRules     = wrap(async (req, res) => { await m.importEvalRules(req.params.programId, req.body); ok(res, null); });
 
 /* ── Form templates & instances ──────────────────────────────── */
-exports.listFormTemplates  = async (req, res) => { try { ok(res, await m.listFormTemplates()); } catch(e) { err(res, e.message, 500); } };
-exports.getFormTemplate    = async (req, res) => { try { ok(res, await m.getFormTemplate(req.params.id)); } catch(e) { err(res, e.message, 500); } };
-exports.listFormInstances  = async (req, res) => { try { ok(res, await m.listFormInstances(req.query)); } catch(e) { err(res, e.message, 500); } };
-exports.createFormInstance  = async (req, res) => { try { ok(res, await m.createFormInstance(req.body)); } catch(e) { err(res, e.message, 500); } };
-exports.getFormInstance     = async (req, res) => { try { ok(res, await m.getFormInstance(req.params.id)); } catch(e) { err(res, e.message, 500); } };
-exports.getFormValues       = async (req, res) => { try { ok(res, await m.getFormValues(req.params.id)); } catch(e) { err(res, e.message, 500); } };
-exports.saveFormValues      = async (req, res) => { try { await m.saveFormValues(req.params.id, req.body.values); ok(res, null); } catch(e) { err(res, e.message, 500); } };
-exports.updateFormInstance  = async (req, res) => { try { await m.updateFormInstance(req.params.id, req.body); ok(res, null); } catch(e) { err(res, e.message, 500); } };
-exports.deleteFormInstance  = async (req, res) => { try { await m.deleteFormInstance(req.params.id); ok(res, null); } catch(e) { err(res, e.message, 500); } };
+exports.listFormTemplates  = wrap(async (req, res) => { ok(res, await m.listFormTemplates()); });
+exports.getFormTemplate    = wrap(async (req, res) => { ok(res, await m.getFormTemplate(req.params.id)); });
+exports.listFormInstances  = wrap(async (req, res) => { ok(res, await m.listFormInstances(req.query)); });
+exports.createFormInstance  = wrap(async (req, res) => { ok(res, await m.createFormInstance(req.body)); });
+exports.getFormInstance     = wrap(async (req, res) => { ok(res, await m.getFormInstance(req.params.id)); });
+exports.getFormValues       = wrap(async (req, res) => { ok(res, await m.getFormValues(req.params.id)); });
+exports.saveFormValues      = wrap(async (req, res) => { await m.saveFormValues(req.params.id, req.body.values); ok(res, null); });
+exports.updateFormInstance  = wrap(async (req, res) => { await m.updateFormInstance(req.params.id, req.body); ok(res, null); });
+exports.deleteFormInstance  = wrap(async (req, res) => { await m.deleteFormInstance(req.params.id); ok(res, null); });
