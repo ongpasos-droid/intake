@@ -24,7 +24,7 @@ const API = (() => {
     try {
       res = await fetch(url, config);
     } catch (err) {
-      throw { code: 'NETWORK_ERROR', message: 'Cannot reach the server' };
+      throw { code: 'NETWORK_ERROR', message: 'No se puede conectar con el servidor' };
     }
 
     // Auto-refresh on 401
@@ -33,11 +33,11 @@ const API = (() => {
       if (refreshed) return request(method, path, body, { ...opts, _retried: true });
       clearToken();
       window.dispatchEvent(new Event('auth:logout'));
-      throw { code: 'UNAUTHORIZED', message: 'Session expired' };
+      throw { code: 'UNAUTHORIZED', message: 'Sesión caducada, por favor inicia sesión de nuevo' };
     }
 
     const json = await res.json();
-    if (!json.ok) throw json.error || { code: 'UNKNOWN', message: 'Request failed' };
+    if (!json.ok) throw json.error || { code: 'UNKNOWN', message: 'Error en la solicitud' };
     return json.data;
   }
 

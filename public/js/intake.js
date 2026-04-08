@@ -189,7 +189,7 @@ const Intake = (() => {
       const result = await API.get('/intake/projects');
       const projects = Array.isArray(result) ? result : (result.data || result);
       if (!projects || projects.length === 0) {
-        el.innerHTML = '<p class="text-xs text-on-surface-variant">No hay proyectos guardados</p>';
+        el.innerHTML = '<div class="py-6 text-center"><span class="material-symbols-outlined text-3xl text-outline-variant block mb-2">folder_open</span><p class="text-xs text-on-surface-variant mb-2">Aún no tienes proyectos guardados</p><button onclick="document.getElementById('intake-btn-save-server')?.click()" class="text-xs font-semibold text-primary hover:underline">Guardar el actual</button></div>';
         return;
       }
       el.innerHTML = projects.map(p => `
@@ -306,67 +306,50 @@ const Intake = (() => {
     if (!name) { Toast.show('Escribe un nombre de proyecto', 'err'); return; }
 
     try {
+      const projectData = {
+        name,
+        type: document.getElementById('intake-f-type').value || null,
+        description: document.getElementById('intake-f-desc').value.trim() || null,
+        start_date: document.getElementById('intake-f-start').value || null,
+        duration_months: parseInt(document.getElementById('intake-f-dur').value) || null,
+        eu_grant: selectedProgram ? Number(selectedProgram.eu_grant_max) : 0,
+        cofin_pct: selectedProgram ? selectedProgram.cofin_pct : 0,
+        indirect_pct: selectedProgram ? Number(selectedProgram.indirect_pct) : 0,
+      };
+      const contextData = {
+        problem: document.getElementById('intake-ctx-prob').value.trim(),
+        target_groups: document.getElementById('intake-ctx-tgt').value.trim(),
+        approach: document.getElementById('intake-ctx-app').value.trim(),
+      };
+
       if (currentProjectId) {
-        // Update existing
-        await API.patch('/intake/projects/' + currentProjectId, {
-          name,
-          type: document.getElementById('intake-f-type').value || null,
-          description: document.getElementById('intake-f-desc').value.trim() || null,
-          start_date: document.getElementById('intake-f-start').value || null,
-          duration_months: parseInt(document.getElementById('intake-f-dur').value) || null,
-          eu_grant: selectedProgram ? Number(selectedProgram.eu_grant_max) : 0,
-          cofin_pct: selectedProgram ? selectedProgram.cofin_pct : 0,
-          indirect_pct: selectedProgram ? Number(selectedProgram.indirect_pct) : 0,
-        });
-
-        // Update context
-        try {
-          const contexts = await API.get('/intake/projects/' + currentProjectId + '/context');
-          if (contexts && contexts.length > 0) {
-            await API.patch('/intake/contexts/' + contexts[0].id, {
-              problem: document.getElementById('intake-ctx-prob').value.trim(),
-              target_groups: document.getElementById('intake-ctx-tgt').value.trim(),
-              approach: document.getElementById('intake-ctx-app').value.trim(),
-            });
-          }
-        } catch (e) { console.error('updateContext:', e); }
-
+        // Guardar proyecto y contexto en paralelo
+        const saves = [API.patch('/intake/projects/' + currentProjectId, projectData)];
+        const contexts = await API.get('/intake/projects/' + currentProjectId + '/context');
+        if (contexts && contexts.length > 0) {
+          saves.push(API.patch('/intake/contexts/' + contexts[0].id, contextData));
+        }
+        await Promise.all(saves);
         Toast.show('Proyecto actualizado', 'ok');
       } else {
-        // Create new
-        const project = await API.post('/intake/projects', {
-          name,
-          type: document.getElementById('intake-f-type').value || null,
-          description: document.getElementById('intake-f-desc').value.trim() || null,
-          start_date: document.getElementById('intake-f-start').value || null,
-          duration_months: parseInt(document.getElementById('intake-f-dur').value) || null,
-          eu_grant: selectedProgram ? Number(selectedProgram.eu_grant_max) : 0,
-          cofin_pct: selectedProgram ? selectedProgram.cofin_pct : 0,
-          indirect_pct: selectedProgram ? Number(selectedProgram.indirect_pct) : 0,
-        });
+        // Crear nuevo proyecto
+        const project = await API.post('/intake/projects', projectData);
         currentProjectId = project.id;
 
-        // Create partners
+        // Socios y contexto en paralelo
+        const ops = [];
         for (const pt of partners) {
-          if (pt.name) {
-            await API.post('/intake/projects/' + currentProjectId + '/partners', {
-              name: pt.name, city: pt.city, country: pt.country
-            });
+          if (pt.name && pt.name.trim()) {
+            ops.push(API.post('/intake/projects/' + currentProjectId + '/partners', {
+              name: pt.name.trim(), city: pt.city || null, country: pt.country || null
+            }));
           }
         }
-
-        // Update context
-        try {
-          const contexts = await API.get('/intake/projects/' + currentProjectId + '/context');
-          if (contexts && contexts.length > 0) {
-            await API.patch('/intake/contexts/' + contexts[0].id, {
-              problem: document.getElementById('intake-ctx-prob').value.trim(),
-              target_groups: document.getElementById('intake-ctx-tgt').value.trim(),
-              approach: document.getElementById('intake-ctx-app').value.trim(),
-            });
-          }
-        } catch (e) { console.error('updateContext:', e); }
-
+        const contexts = await API.get('/intake/projects/' + currentProjectId + '/context');
+        if (contexts && contexts.length > 0) {
+          ops.push(API.patch('/intake/contexts/' + contexts[0].id, contextData));
+        }
+        if (ops.length) await Promise.all(ops);
         Toast.show('Proyecto guardado en servidor', 'ok');
       }
       loadServerProjects();
@@ -425,6 +408,25 @@ const Intake = (() => {
         Toast.show('El nombre del proyecto es obligatorio', 'err');
         document.getElementById('intake-f-name').focus();
         return false;
+      }
+      return true;
+    }
+    if (s === 2) {
+      const labels = { 'intake-ctx-prob': 'Problema / Necesidad', 'intake-ctx-tgt': 'Grupos destinatarios', 'intake-ctx-app': 'Enfoque y propuesta' };
+      for (const c of WC) {
+        const ta = document.getElementById(c.ta);
+        if (!ta) continue;
+        const n = ta.value.trim().split(/\s+/).filter(Boolean).length;
+        if (n < c.min) {
+          Toast.show(`"${labels[c.ta]}": mínimo ${c.min} palabras (tienes ${n})`, 'err');
+          ta.focus();
+          return false;
+        }
+        if (n > c.max) {
+          Toast.show(`"${labels[c.ta]}": máximo ${c.max} palabras (tienes ${n})`, 'err');
+          ta.focus();
+          return false;
+        }
       }
       return true;
     }
