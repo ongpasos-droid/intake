@@ -46,6 +46,17 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 /* ── API Routes ───────────────────────────────────────────────── */
+
+// Config pública (no sensible) para el frontend
+app.get('/v1/config', (req, res) => {
+  res.json({
+    ok: true,
+    data: {
+      googleClientId: process.env.GOOGLE_CLIENT_ID || '',
+    }
+  });
+});
+
 app.use('/v1/auth', require('./node/src/modules/auth/routes'));
 app.use('/v1/intake', require('./node/src/modules/intake/routes'));
 app.use('/v1/calculator', require('./node/src/modules/calculator/routes'));

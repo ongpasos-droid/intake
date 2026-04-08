@@ -94,7 +94,7 @@ async function verifyActivityOwnership(activityId, userId) {
 exports.getPartnerRates = async (req, res) => {
   try {
     const { projectId } = req.params;
-    const userId = req.user.sub;
+    const userId = req.user.id;
 
     const isOwner = await verifyProjectOwnership(projectId, userId);
     if (!isOwner) {
@@ -118,7 +118,7 @@ exports.getPartnerRates = async (req, res) => {
 exports.updatePartnerRate = async (req, res) => {
   try {
     const { id } = req.params;
-    const userId = req.user.sub;
+    const userId = req.user.id;
     const { accommodation_rate, subsistence_rate } = req.body;
 
     const isOwner = await verifyPartnerRateOwnership(id, userId);
@@ -145,7 +145,7 @@ exports.updatePartnerRate = async (req, res) => {
 exports.getWorkerRates = async (req, res) => {
   try {
     const { projectId } = req.params;
-    const userId = req.user.sub;
+    const userId = req.user.id;
 
     const isOwner = await verifyProjectOwnership(projectId, userId);
     if (!isOwner) {
@@ -169,7 +169,7 @@ exports.getWorkerRates = async (req, res) => {
 exports.updateWorkerRate = async (req, res) => {
   try {
     const { id } = req.params;
-    const userId = req.user.sub;
+    const userId = req.user.id;
     const { rate } = req.body;
 
     const isOwner = await verifyWorkerRateOwnership(id, userId);
@@ -196,7 +196,7 @@ exports.updateWorkerRate = async (req, res) => {
 exports.getRoutes = async (req, res) => {
   try {
     const { projectId } = req.params;
-    const userId = req.user.sub;
+    const userId = req.user.id;
 
     const isOwner = await verifyProjectOwnership(projectId, userId);
     if (!isOwner) {
@@ -220,7 +220,7 @@ exports.getRoutes = async (req, res) => {
 exports.createRoute = async (req, res) => {
   try {
     const { projectId } = req.params;
-    const userId = req.user.sub;
+    const userId = req.user.id;
     const { endpoint_a, endpoint_b, distance_km, eco_travel, custom_rate, distance_band } = req.body;
 
     const isOwner = await verifyProjectOwnership(projectId, userId);
@@ -253,7 +253,7 @@ exports.createRoute = async (req, res) => {
 exports.updateRoute = async (req, res) => {
   try {
     const { id } = req.params;
-    const userId = req.user.sub;
+    const userId = req.user.id;
     const { endpoint_a, endpoint_b, distance_km, eco_travel, custom_rate, distance_band } = req.body;
 
     const isOwner = await verifyRouteOwnership(id, userId);
@@ -286,7 +286,7 @@ exports.updateRoute = async (req, res) => {
 exports.deleteRoute = async (req, res) => {
   try {
     const { id } = req.params;
-    const userId = req.user.sub;
+    const userId = req.user.id;
 
     const isOwner = await verifyRouteOwnership(id, userId);
     if (!isOwner) {
@@ -312,7 +312,7 @@ exports.deleteRoute = async (req, res) => {
 exports.getExtraDestinations = async (req, res) => {
   try {
     const { projectId } = req.params;
-    const userId = req.user.sub;
+    const userId = req.user.id;
 
     const isOwner = await verifyProjectOwnership(projectId, userId);
     if (!isOwner) {
@@ -336,7 +336,7 @@ exports.getExtraDestinations = async (req, res) => {
 exports.createExtraDestination = async (req, res) => {
   try {
     const { projectId } = req.params;
-    const userId = req.user.sub;
+    const userId = req.user.id;
     const { name, country, accommodation_rate, subsistence_rate } = req.body;
 
     const isOwner = await verifyProjectOwnership(projectId, userId);
@@ -367,7 +367,7 @@ exports.createExtraDestination = async (req, res) => {
 exports.updateExtraDestination = async (req, res) => {
   try {
     const { id } = req.params;
-    const userId = req.user.sub;
+    const userId = req.user.id;
     const { name, country, accommodation_rate, subsistence_rate } = req.body;
 
     const isOwner = await verifyExtraDestinationOwnership(id, userId);
@@ -398,7 +398,7 @@ exports.updateExtraDestination = async (req, res) => {
 exports.deleteExtraDestination = async (req, res) => {
   try {
     const { id } = req.params;
-    const userId = req.user.sub;
+    const userId = req.user.id;
 
     const isOwner = await verifyExtraDestinationOwnership(id, userId);
     if (!isOwner) {
@@ -424,7 +424,7 @@ exports.deleteExtraDestination = async (req, res) => {
 exports.getWorkPackages = async (req, res) => {
   try {
     const { projectId } = req.params;
-    const userId = req.user.sub;
+    const userId = req.user.id;
 
     const isOwner = await verifyProjectOwnership(projectId, userId);
     if (!isOwner) {
@@ -448,7 +448,7 @@ exports.getWorkPackages = async (req, res) => {
 exports.createWorkPackage = async (req, res) => {
   try {
     const { projectId } = req.params;
-    const userId = req.user.sub;
+    const userId = req.user.id;
     const { title, category, leader_id } = req.body;
 
     const isOwner = await verifyProjectOwnership(projectId, userId);
@@ -478,7 +478,7 @@ exports.createWorkPackage = async (req, res) => {
 exports.updateWorkPackage = async (req, res) => {
   try {
     const { id } = req.params;
-    const userId = req.user.sub;
+    const userId = req.user.id;
     const { title, category, leader_id, order_index } = req.body;
 
     const isOwner = await verifyWorkPackageOwnership(id, userId);
@@ -509,7 +509,7 @@ exports.updateWorkPackage = async (req, res) => {
 exports.deleteWorkPackage = async (req, res) => {
   try {
     const { id } = req.params;
-    const userId = req.user.sub;
+    const userId = req.user.id;
 
     const isOwner = await verifyWorkPackageOwnership(id, userId);
     if (!isOwner) {
@@ -535,7 +535,7 @@ exports.deleteWorkPackage = async (req, res) => {
 exports.getActivities = async (req, res) => {
   try {
     const { wpId } = req.params;
-    const userId = req.user.sub;
+    const userId = req.user.id;
 
     const isOwner = await verifyWorkPackageOwnership(wpId, userId);
     if (!isOwner) {
@@ -559,7 +559,7 @@ exports.getActivities = async (req, res) => {
 exports.createActivity = async (req, res) => {
   try {
     const { wpId } = req.params;
-    const userId = req.user.sub;
+    const userId = req.user.id;
     const { type, label } = req.body;
 
     const isOwner = await verifyWorkPackageOwnership(wpId, userId);
@@ -584,7 +584,7 @@ exports.createActivity = async (req, res) => {
 exports.updateActivity = async (req, res) => {
   try {
     const { id } = req.params;
-    const userId = req.user.sub;
+    const userId = req.user.id;
     const { type, label, order_index } = req.body;
 
     const isOwner = await verifyActivityOwnership(id, userId);
@@ -609,7 +609,7 @@ exports.updateActivity = async (req, res) => {
 exports.deleteActivity = async (req, res) => {
   try {
     const { id } = req.params;
-    const userId = req.user.sub;
+    const userId = req.user.id;
 
     const isOwner = await verifyActivityOwnership(id, userId);
     if (!isOwner) {
@@ -635,7 +635,7 @@ exports.deleteActivity = async (req, res) => {
 exports.getActivityDetail = async (req, res) => {
   try {
     const { id } = req.params;
-    const userId = req.user.sub;
+    const userId = req.user.id;
 
     const isOwner = await verifyActivityOwnership(id, userId);
     if (!isOwner) {
@@ -659,7 +659,7 @@ exports.getActivityDetail = async (req, res) => {
 exports.createActivityDetail = async (req, res) => {
   try {
     const { id } = req.params;
-    const userId = req.user.sub;
+    const userId = req.user.id;
     const data = req.body;
 
     const isOwner = await verifyActivityOwnership(id, userId);
@@ -684,7 +684,7 @@ exports.createActivityDetail = async (req, res) => {
 exports.updateActivityDetail = async (req, res) => {
   try {
     const { id } = req.params;
-    const userId = req.user.sub;
+    const userId = req.user.id;
     const { detail_id } = req.body;
     const data = req.body;
 
@@ -712,7 +712,7 @@ exports.updateActivityDetail = async (req, res) => {
 exports.getBudgetSummary = async (req, res) => {
   try {
     const { projectId } = req.params;
-    const userId = req.user.sub;
+    const userId = req.user.id;
 
     const isOwner = await verifyProjectOwnership(projectId, userId);
     if (!isOwner) {

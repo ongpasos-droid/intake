@@ -1,3 +1,4 @@
+-- NOTA: Renombrada de 002 a 002b para evitar colisión con 002_intake_tables.sql
 -- ═══════════════════════════════════════════════════════════════
 -- Migration 002: Create projects table (Core)
 -- ═══════════════════════════════════════════════════════════════

@@ -6,8 +6,36 @@ const App = (() => {
   let currentUser = null;
   let currentRoute = 'dashboard';
 
+  /* ── Load public config and init Google Sign-In ───────────── */
+  async function loadConfig() {
+    try {
+      const res = await fetch('/v1/config');
+      const { data } = await res.json();
+      if (data?.googleClientId) {
+        const el = document.getElementById('g_id_onload');
+        if (el) el.setAttribute('data-client_id', data.googleClientId);
+        if (window.google?.accounts?.id) {
+          window.google.accounts.id.initialize({
+            client_id: data.googleClientId,
+            callback: Auth.handleGoogleResponse,
+            auto_prompt: false,
+          });
+          window.google.accounts.id.renderButton(
+            document.querySelector('.g_id_signin'),
+            { type: 'standard', shape: 'rectangular', theme: 'outline',
+              text: 'continue_with', size: 'large', width: 360 }
+          );
+        }
+      }
+    } catch (e) {
+      console.warn('Config load failed:', e.message);
+    }
+  }
+
   /* ── Initialize app ────────────────────────────────────────── */
   async function init() {
+    await loadConfig();
+
     // Try to restore session from refresh token cookie
     const restored = await Auth.tryRestore();
     if (!restored) {
