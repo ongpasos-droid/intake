@@ -25,6 +25,13 @@ const IntakeGantt = (() => {
     equipment:'devices', goods:'inventory_2', consumables:'eco', other:'more_horiz',
   };
 
+  const ACT_TYPES_LABEL = {
+    mgmt:'Management', meeting:'Transnational Meeting', ltta:'LTTA / Mobility',
+    io:'Intellectual Output', me:'Multiplier Event', local_ws:'Local Workshop',
+    campaign:'Dissemination', website:'Website', artistic:'Artistic Fees',
+    equipment:'Equipment', goods:'Other Goods', consumables:'Consumables', other:'Other Costs',
+  };
+
   const TYPE_MAP = {
     mgmt:'project_management', meeting:'transnational_meeting', ltta:'ltta_mobility',
     io:'intellectual_output', me:'multiplier_event', local_ws:'local_workshop',
@@ -186,14 +193,11 @@ const IntakeGantt = (() => {
 
       for (const act of wp.activities) {
         if (act.type === 'mgmt') continue;
-        const cat = TYPE_MAP[act.type];
-        const subLabel = act.subtype || '';
-        const taskTitle = findTaskTitle(cat, subLabel);
-        const actLabel = subLabel || act.label;
-        // Task is primary, activity is secondary
+        const actLabel = act.subtype || act.label || ACT_TYPES_LABEL[act.type] || act.type;
+        const typeName = ACT_TYPES_LABEL[act.type] || act.type;
         rows.push({ wi, color: c, icon: ACT_ICONS[act.type]||'task',
-          primary: taskTitle || actLabel,
-          secondary: taskTitle ? actLabel : '',
+          primary: actLabel,
+          secondary: actLabel !== typeName ? typeName : '',
           id: 'act-'+act.id, start: act._gantt_start||0, end: act._gantt_end||0, actRef: act });
       }
 
