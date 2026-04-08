@@ -66,18 +66,30 @@ const Calculator = (() => {
 
   const ACT_TYPES = {
     mgmt:       { label:'Management',           icon:'settings',        color:'#474551', bg:'rgba(71,69,81,.08)',   mobility:false, descHint:'In your own words, tell us how you plan to coordinate the project. How will you organise internal communication, monitor progress and handle reporting?' },
-    meeting:    { label:'Transnational Meeting', icon:'groups',          color:'#1D4ED8', bg:'rgba(29,78,216,.08)', mobility:true,  descHint:'Tell us about this meeting in your own words. What do you want to achieve? Who will be there? What decisions or outcomes do you expect?' },
-    ltta:       { label:'LTTA / Mobility',       icon:'flight_takeoff',  color:'#0F766E', bg:'rgba(15,118,110,.08)',mobility:true,  descHint:'Describe this mobility in your own words. What will participants learn? What methodology will you use? Who is the target group and what skills will they develop?' },
-    io:         { label:'Intellectual Output',   icon:'menu_book',       color:'#7C3AED', bg:'rgba(124,58,237,.08)',mobility:false, descHint:'Tell us what you want to create. What kind of product is it (guide, toolkit, platform...)? How will you develop it and who will use it?' },
-    me:         { label:'Multiplier Event',      icon:'campaign',        color:'#BE185D', bg:'rgba(190,24,93,.08)', mobility:false, descHint:'Describe this event in your own words. What is it about? Who do you want to reach? What format are you thinking (conference, workshop, open day...)?' },
-    local_ws:   { label:'Local Workshop',        icon:'school',          color:'#B45309', bg:'rgba(180,83,9,.08)',  mobility:false, descHint:'Tell us about this local activity. What topics will you cover? Who will participate? What do you hope they will take away from it?' },
-    campaign:   { label:'Dissemination',         icon:'share',           color:'#065F46', bg:'rgba(6,95,70,.08)',   mobility:false, descHint:'How do you plan to spread the word? Which channels will you use? Who do you want to reach and what message do you want to convey?' },
-    website:    { label:'Website',               icon:'language',        color:'#1D4ED8', bg:'rgba(29,78,216,.08)', mobility:false, descHint:'Tell us about the website or platform you want to build. What is its purpose? What will users find there? In which languages?' },
-    artistic:   { label:'Artistic Fees',         icon:'palette',         color:'#BE185D', bg:'rgba(190,24,93,.08)', mobility:false, descHint:'What kind of artistic or creative work do you need? What is it for (video, design, performance...)? How does it connect to the project goals?' },
-    equipment:  { label:'Equipment',             icon:'devices',         color:'#0369A1', bg:'rgba(3,105,161,.08)', mobility:false, depreciation:true, descHint:'What equipment do you need to purchase? Why is it essential for the project? Which activities will use it?' },
-    goods:      { label:'Other Goods',           icon:'inventory_2',     color:'#7C3AED', bg:'rgba(124,58,237,.08)',mobility:false, depreciation:true, descHint:'What goods or services do you need? Why are they necessary for the project and which activities do they support?' },
-    consumables:{ label:'Consumables',           icon:'science',         color:'#0F766E', bg:'rgba(15,118,110,.08)',mobility:false, depreciation:true, descHint:'What materials or supplies do you need? What are they for and which project activities require them?' },
-    other:      { label:'Other Costs',           icon:'add_circle',      color:'#6B7280', bg:'rgba(107,114,128,.08)',mobility:false, depreciation:true, descHint:'Tell us about this cost. What does it cover, why is it needed and how did you estimate the amount?' },
+    meeting:    { label:'Transnational Meeting', icon:'groups',          color:'#1D4ED8', bg:'rgba(29,78,216,.08)', mobility:true,  descHint:'Tell us about this meeting in your own words. What do you want to achieve? Who will be there? What decisions or outcomes do you expect?',
+      subtypes: ['Kick-off meeting','Mid-term meeting','Final meeting','Coordination meeting','Technical working meeting','Strategic planning meeting'] },
+    ltta:       { label:'LTTA / Mobility',       icon:'flight_takeoff',  color:'#0F766E', bg:'rgba(15,118,110,.08)',mobility:true,  descHint:'Describe this mobility in your own words. What will participants learn? What methodology will you use? Who is the target group and what skills will they develop?',
+      subtypes: ['Training mobility','Study visit mobility','Group mobility','Youth exchange mobility','Staff mobility','Job shadowing mobility','Peer learning mobility','Blended mobility','Pilot mobility','Volunteering mobility','Expert mobility','Community immersion mobility'] },
+    io:         { label:'Intellectual Output',   icon:'menu_book',       color:'#7C3AED', bg:'rgba(124,58,237,.08)',mobility:false, descHint:'Tell us what you want to create. What kind of product is it (guide, toolkit, platform...)? How will you develop it and who will use it?',
+      subtypes: ['Educational manual','Methodological guide','Training course / module','Toolkit','Research report / needs analysis','Digital platform / interactive tool'] },
+    me:         { label:'Multiplier Event',      icon:'campaign',        color:'#BE185D', bg:'rgba(190,24,93,.08)', mobility:false, descHint:'Describe this event in your own words. What is it about? Who do you want to reach? What format are you thinking (conference, workshop, open day...)?',
+      subtypes: ['Launch event','Dissemination conference','Final conference','Stakeholder event','Networking event','Public presentation event'] },
+    local_ws:   { label:'Local Workshop',        icon:'school',          color:'#B45309', bg:'rgba(180,83,9,.08)',  mobility:false, descHint:'Tell us about this local activity. What topics will you cover? Who will participate? What do you hope they will take away from it?',
+      subtypes: ['Training workshop','Participatory workshop','Awareness workshop','Co-creation workshop','Community workshop','Testing / pilot workshop'] },
+    campaign:   { label:'Dissemination',         icon:'share',           color:'#065F46', bg:'rgba(6,95,70,.08)',   mobility:false, descHint:'How do you plan to spread the word? Which channels will you use? Who do you want to reach and what message do you want to convey?',
+      subtypes: ['Social media dissemination','Newsletter dissemination','Press / media dissemination','Video dissemination','Community / stakeholder dissemination','Printed dissemination'] },
+    website:    { label:'Website',               icon:'language',        color:'#1D4ED8', bg:'rgba(29,78,216,.08)', mobility:false, descHint:'Tell us about the website or platform you want to build. What is its purpose? What will users find there? In which languages?',
+      subtypes: ['Project website','Landing page','Resource website','Learning platform','Community platform','Results repository'] },
+    artistic:   { label:'Artistic Fees',         icon:'palette',         color:'#BE185D', bg:'rgba(190,24,93,.08)', mobility:false, descHint:'What kind of artistic or creative work do you need? What is it for (video, design, performance...)? How does it connect to the project goals?',
+      subtypes: ['Graphic design','Video production / editing','Photography','Illustration / branding','Audio / podcast production','Artistic facilitation / performance'] },
+    equipment:  { label:'Equipment',             icon:'devices',         color:'#0369A1', bg:'rgba(3,105,161,.08)', mobility:false, depreciation:true, descHint:'What equipment do you need to purchase? Why is it essential for the project? Which activities will use it?',
+      subtypes: ['Computers / laptops','Tablets / mobile devices','Audio-visual equipment','Recording equipment','Educational / workshop equipment','Event technical equipment'] },
+    goods:      { label:'Other Goods',           icon:'inventory_2',     color:'#7C3AED', bg:'rgba(124,58,237,.08)',mobility:false, depreciation:true, descHint:'What goods or services do you need? Why are they necessary for the project and which activities do they support?',
+      subtypes: ['Printed materials','Educational materials','Visibility materials','Workshop materials','Event materials','Participant kits / welcome packs'] },
+    consumables:{ label:'Consumables',           icon:'science',         color:'#0F766E', bg:'rgba(15,118,110,.08)',mobility:false, depreciation:true, descHint:'What materials or supplies do you need? What are they for and which project activities require them?',
+      subtypes: ['Printing consumables','Workshop consumables','Office consumables','Hygiene / cleaning consumables','Catering consumables','Technical consumables'] },
+    other:      { label:'Other Costs',           icon:'add_circle',      color:'#6B7280', bg:'rgba(107,114,128,.08)',mobility:false, depreciation:true, descHint:'Tell us about this cost. What does it cover, why is it needed and how did you estimate the amount?',
+      subtypes: ['Translation / interpretation costs','External expert / trainer costs','Venue / space rental costs','Hosting / software / platform costs','Travel / accommodation support costs','Evaluation / administrative support costs'] },
   };
 
   const WP_TAXONOMY = [
@@ -263,11 +275,13 @@ const Calculator = (() => {
         });
       });
 
-      // Init routes
+      // Init routes — default to 500-1999km band with eco travel
       state.routes = {};
+      const defaultBand = DISTANCE_BANDS[3]; // 500-1999 km
+      const defaultKm = Math.round((defaultBand.min + defaultBand.max) / 2);
       for (let i = 0; i < state.partners.length; i++)
         for (let j = i+1; j < state.partners.length; j++)
-          state.routes[routeKey(state.partners[i].id, state.partners[j].id)] = { km:0, green:false, custom_rate:null };
+          state.routes[routeKey(state.partners[i].id, state.partners[j].id)] = { km: defaultKm, green: true, custom_rate: defaultBand.green };
 
       // Init WPs
       state.wps = [];
@@ -489,6 +503,18 @@ const Calculator = (() => {
   }
 
   function renderRoutes(container) {
+    // Auto-fix routes with km=0 to default band (500-1999km eco)
+    const defBand = DISTANCE_BANDS[3];
+    const defKm = Math.round((defBand.min + defBand.max) / 2);
+    Object.keys(state.routes).forEach(k => {
+      const r = state.routes[k];
+      if (!r.km || r.km === 0) {
+        r.km = defKm;
+        r.green = true;
+        r.custom_rate = defBand.green;
+      }
+    });
+
     const partners = state.partners;
     const pairs = [];
     for (let i = 0; i < partners.length; i++)
@@ -717,21 +743,28 @@ const Calculator = (() => {
 
   function buildActivityCard(act, wi) {
     const def = ACT_TYPES[act.type];
+    const subtypes = def.subtypes || [];
+    const subtypeSelect = subtypes.length > 0 ? `
+      <select class="text-xs px-2 py-1 rounded-lg border border-outline-variant/30 bg-white focus:outline-none focus:ring-1 focus:ring-primary/20 cursor-pointer" style="color:${def.color}" onchange="Calculator._setActSubtype(${wi},${act.id},this.value)">
+        <option value="" ${!act.subtype ? 'selected' : ''}>Select type...</option>
+        ${subtypes.map(s => `<option value="${s}" ${act.subtype === s ? 'selected' : ''}>${s}</option>`).join('')}
+      </select>` : '';
     return `
     <div class="calc-act" id="calc-act-${act.id}">
       <div class="flex items-center gap-2 mb-2">
         <span class="calc-act-badge" style="background:${def.bg};color:${def.color}">
           <span class="material-symbols-outlined text-[12px] align-middle mr-0.5">${def.icon}</span> ${def.label}
         </span>
+        ${subtypeSelect}
         <input type="text" value="${act.label}" placeholder="Name..." class="flex-1 bg-transparent border-b border-outline-variant/30 px-1 py-0.5 text-sm font-semibold font-headline focus:outline-none focus:border-primary" onchange="Calculator._setAct(${wi},${act.id},'label',this.value)">
         <button onclick="Calculator._removeAct(${wi},${act.id})" class="text-error/60 hover:text-error text-lg leading-none ml-2">&times;</button>
       </div>
       <div class="mb-2">
         <label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant/60 mb-1 block">Description</label>
-        <textarea rows="3" placeholder="${def.descHint || 'In your own words, tell us what this activity is about...'}" class="w-full px-3 py-2.5 text-sm bg-white border border-outline-variant/30 rounded-xl resize-vertical focus:outline-none focus:ring-2 focus:ring-primary/15 focus:border-primary/30 leading-relaxed" onchange="Calculator._setAct(${wi},${act.id},'desc',this.value)">${act.desc || ''}</textarea>
+        <textarea rows="3" placeholder="${act.subtype ? def.descHint : 'Select a type above or write your own description of this ' + def.label.toLowerCase() + '...'}" class="w-full px-3 py-2.5 text-sm bg-white border border-outline-variant/30 rounded-xl resize-vertical focus:outline-none focus:ring-2 focus:ring-primary/15 focus:border-primary/30 leading-relaxed" onchange="Calculator._setActDesc(${wi},${act.id},this.value)">${act.desc || ''}</textarea>
       </div>
       <div id="calc-act-fields-${act.id}">${buildActFields(act, wi)}</div>
-      <div class="text-sm font-mono mt-2 pt-2 border-t border-outline-variant/10" style="color:${def.color}" id="calc-act-result-${act.id}">—</div>
+      <div class="mt-2 pt-2 border-t border-outline-variant/10" id="calc-act-result-${act.id}"></div>
     </div>`;
   }
 
@@ -796,22 +829,42 @@ const Calculator = (() => {
     if (act.local_transport === undefined) act.local_transport = 25;
     if (!act.participants) { act.participants = {}; state.partners.forEach(p => { if (p.id !== act.host) act.participants[p.id] = true; }); }
 
-    const hostOpts = state.partners.map(p => `<option value="${p.id}" ${p.id===act.host?'selected':''}>${p.name||'P'+p.order_index}</option>`).join('')
-      + (state.extraDests.length ? '<option disabled>───</option>' + state.extraDests.filter(d => d.name).map(d => `<option value="${d.id}" ${d.id===act.host?'selected':''}>${d.name}</option>`).join('') : '');
-    const nonHost = state.partners.filter(p => p.id !== act.host);
+    const hostPartner = state.partners.find(p => p.id === act.host) || state.extraDests.find(d => d.id === act.host);
+    const hostName = hostPartner?.name || 'Host';
+    const hostLoc = hostPartner ? [hostPartner.city, hostPartner.country].filter(Boolean).join(', ') : '';
 
-    const rows = nonHost.map((p, i) => {
-      const rate = getRouteCost(p.id, act.host);
+    const hostOpts = state.partners.map(p => `<option value="${p.id}" ${p.id===act.host?'selected':''}>${p.name||'P'+p.order_index}</option>`).join('')
+      + (state.extraDests.length ? '<option disabled>\u2500\u2500\u2500</option>' + state.extraDests.filter(d => d.name).map(d => `<option value="${d.id}" ${d.id===act.host?'selected':''}>${d.name}</option>`).join('') : '');
+
+    const pax = act.pax || 2;
+    const days = act.days || 3;
+
+    // Ensure all partners have participation state
+    if (!act.participants) { act.participants = {}; state.partners.forEach(p => { act.participants[p.id] = true; }); }
+
+    // All partners — same rules, host just has travel=0 to itself
+    const rows = state.partners.map((p, i) => {
+      const isHost = p.id === act.host;
       const active = act.participants[p.id] !== false;
-      const travel = active ? rate * act.pax : 0;
+      const rate = isHost ? 0 : getRouteCost(p.id, act.host);
+      const travelCost = active ? rate * pax : 0;
+      const perdiem = getPartnerPerdiemTotal(p.id);
+      const accomCost = active ? perdiem * pax * days : 0;
+      const rowTotal = travelCost + accomCost;
+
       return `<tr style="opacity:${active?1:.4}">
         <td><label class="flex items-center gap-2 cursor-pointer">
           <input type="checkbox" ${active?'checked':''} class="w-3.5 h-3.5" onchange="Calculator._setParticipant(${wi},${act.id},'${p.id}',this.checked)">
-          <span class="font-medium text-sm">${p.name||'P'+p.order_index}</span>
-          <span class="text-[11px] text-on-surface-variant">${[p.city,p.country].filter(Boolean).join(', ')}</span>
+          <div>
+            <div class="font-medium text-sm">${p.name||'P'+p.order_index} ${isHost ? '<span class="px-1.5 py-0.5 rounded text-[9px] font-bold bg-primary/10 text-primary ml-1">HOST</span>' : ''}</div>
+            <div class="text-[10px] text-on-surface-variant">${[p.city,p.country].filter(Boolean).join(', ')}</div>
+          </div>
         </label></td>
-        <td class="text-right font-mono text-sm">${rate ? '€'+rate : '—'}</td>
-        <td class="text-right font-mono text-sm font-semibold">${active ? euros(travel) : '—'}</td>
+        <td class="text-right font-mono text-xs">${active && !isHost ? `${pax}p \u00D7 \u20AC${rate}` : '\u2014'}</td>
+        <td class="text-right font-mono text-xs">${active && !isHost ? euros(travelCost) : '\u2014'}</td>
+        <td class="text-right font-mono text-xs">${active ? `${pax}p \u00D7 ${days}d \u00D7 \u20AC${perdiem}` : '\u2014'}</td>
+        <td class="text-right font-mono text-xs">${active ? euros(accomCost) : '\u2014'}</td>
+        <td class="text-right font-mono text-sm font-bold">${active ? euros(rowTotal) : '\u2014'}</td>
       </tr>`;
     }).join('');
 
@@ -823,45 +876,80 @@ const Calculator = (() => {
       </div>
       <div class="grid grid-cols-2 gap-2 mb-3 p-2 rounded bg-surface-container-low border border-outline-variant/10">
         <div><label class="text-[11px] text-on-surface-variant">Local participants</label><input type="number" value="${act.local_pax||0}" min="0" class="w-full" onchange="Calculator._setAct(${wi},${act.id},'local_pax',this.value)"></div>
-        <div><label class="text-[11px] text-on-surface-variant">Local transport €/pax</label><input type="number" value="${act.local_transport||25}" min="0" class="w-full" onchange="Calculator._setAct(${wi},${act.id},'local_transport',this.value)"></div>
+        <div><label class="text-[11px] text-on-surface-variant">Local transport \u20AC/pax</label><input type="number" value="${act.local_transport||25}" min="0" class="w-full" onchange="Calculator._setAct(${wi},${act.id},'local_transport',this.value)"></div>
       </div>
-      ${nonHost.length ? `<div class="overflow-x-auto"><table class="calc-table"><thead><tr>
-        <th class="text-left">Participant</th><th class="text-right">Rate/pax</th><th class="text-right">Travel cost</th>
-      </tr></thead><tbody>${rows}</tbody></table></div>
-      <p class="text-[11px] text-on-surface-variant mt-1">Rates from route matrix (step 2). Uncheck to exclude.</p>` : ''}
+      ${state.partners.length ? `<div class="overflow-x-auto"><table class="calc-table"><thead><tr>
+        <th class="text-left">Partner</th>
+        <th class="text-right">Travel rate</th>
+        <th class="text-right">Travel cost</th>
+        <th class="text-right">Accom. rate</th>
+        <th class="text-right">Accom. cost</th>
+        <th class="text-right">Total</th>
+      </tr></thead><tbody>${rows}</tbody></table></div>` : ''}
     `;
   }
 
   /* ── IO fields ──────────────────────────────────────────────── */
 
   function buildIOFields(act, wi) {
-    if (!act.io_partner_days) { act.io_partner_days = {}; state.partners.forEach(p => { act.io_partner_days[p.id] = 40; }); }
-    if (!act.io_partner_profiles) act.io_partner_profiles = {};
+    if (!act.io_staff) {
+      act.io_staff = {};
+      state.partners.forEach(p => {
+        const rates = state.workerRates.filter(w => w.pid === p.id);
+        act.io_staff[p.id] = {
+          active: true,
+          staff: [{ profileId: rates[0]?.id || null, days: 20, tasks: '' }]
+        };
+      });
+    }
 
-    const totalCost = state.partners.reduce((s, p) => {
-      const profId = act.io_partner_profiles[p.id] || null;
-      return s + (act.io_partner_days[p.id]||0) * getPartnerDayRate(p.id, profId);
-    }, 0);
+    let totalCost = 0;
+    state.partners.forEach(p => {
+      const ps = act.io_staff[p.id];
+      if (!ps || !ps.active) return;
+      ps.staff.forEach(s => { totalCost += (s.days || 0) * getPartnerDayRate(p.id, s.profileId); });
+    });
 
-    return `
-      <div class="text-xs text-on-surface-variant mb-2">Work days per partner — rate from worker profiles (step 1). <span class="font-mono font-semibold text-primary">${euros(totalCost)}</span></div>
-      <div class="grid grid-cols-${Math.min(state.partners.length, 3)} gap-2">
-        ${state.partners.map((p, i) => {
-          const days = act.io_partner_days[p.id] ?? 40;
-          const profId = act.io_partner_profiles[p.id] || null;
-          const rates = state.workerRates.filter(w => w.pid === p.id);
-          const rate = getPartnerDayRate(p.id, profId);
-          const profOpts = `<option value="">Average (€${Math.round(rates.reduce((s,w)=>s+w.rate,0)/(rates.length||1))})</option>` + rates.map(w => `<option value="${w.id}" ${w.id===profId?'selected':''}>${w.category} — €${w.rate}</option>`).join('');
-          return `<div class="rounded-lg p-3" style="background:${WP_BG[i%WP_BG.length]}">
-            <div class="text-xs font-semibold mb-1" style="color:${WP_COLORS[i%WP_COLORS.length]}">${p.name||'P'+(i+1)}</div>
-            <label class="text-[10px] text-on-surface-variant">Profile</label>
-            <select class="text-xs w-full mb-1" onchange="Calculator._setIOProfile(${wi},${act.id},'${p.id}',this.value)">${profOpts}</select>
-            <label class="text-[10px] text-on-surface-variant">Days</label>
-            <input type="number" value="${days}" min="0" class="w-full mb-1" onchange="Calculator._setIODays(${wi},${act.id},'${p.id}',this.value)">
-            <div class="text-xs font-mono font-semibold">${days} × €${rate} = ${euros(days*rate)}</div>
-          </div>`;
-        }).join('')}
+    const blocks = state.partners.map((p, i) => {
+      const ps = act.io_staff[p.id] || { active: false, staff: [] };
+      const rates = state.workerRates.filter(w => w.pid === p.id);
+      const color = WP_COLORS[i % WP_COLORS.length];
+      const bg = WP_BG[i % WP_BG.length];
+      let pTotal = 0;
+      if (ps.active) ps.staff.forEach(s => { pTotal += (s.days || 0) * getPartnerDayRate(p.id, s.profileId); });
+
+      const staffRows = ps.staff.map((s, si) => {
+        const rate = getPartnerDayRate(p.id, s.profileId);
+        const profOpts = `<option value="">Select profile...</option>` + rates.map(w =>
+          `<option value="${w.id}" ${String(w.id)===String(s.profileId)?'selected':''}>${w.category} \u2014 \u20AC${w.rate}/day</option>`).join('');
+        return `<div class="flex gap-2 items-start mb-2 ${!ps.active?'opacity-40 pointer-events-none':''}">
+          <div class="flex-1 space-y-1">
+            <select class="text-xs w-full px-2 py-1.5 rounded-lg border border-outline-variant/20" onchange="Calculator._setIOStaff(${wi},${act.id},'${p.id}',${si},'profileId',this.value)">${profOpts}</select>
+            <div class="flex gap-2">
+              <div class="w-20"><label class="text-[9px] text-on-surface-variant">Days</label>
+                <input type="number" value="${s.days}" min="0" class="w-full text-xs px-2 py-1 rounded border border-outline-variant/20" onchange="Calculator._setIOStaff(${wi},${act.id},'${p.id}',${si},'days',this.value)"></div>
+              <div class="flex-1"><label class="text-[9px] text-on-surface-variant">Tasks</label>
+                <input type="text" value="${s.tasks||''}" placeholder="Brief description of tasks..." class="w-full text-xs px-2 py-1 rounded border border-outline-variant/20" onchange="Calculator._setIOStaff(${wi},${act.id},'${p.id}',${si},'tasks',this.value)"></div>
+            </div>
+            <div class="text-[10px] font-mono" style="color:${color}">${s.days} days \u00D7 \u20AC${rate} = ${euros(s.days*rate)}</div>
+          </div>
+          <button onclick="Calculator._removeIOStaff(${wi},${act.id},'${p.id}',${si})" class="text-on-surface-variant/30 hover:text-error mt-1 text-base leading-none">\u00D7</button>
+        </div>`;
+      }).join('');
+
+      return `<div class="rounded-xl border border-outline-variant/20 overflow-hidden mb-2">
+        <div class="flex items-center gap-2 px-3 py-2" style="background:${bg}">
+          <input type="checkbox" ${ps.active?'checked':''} class="w-3.5 h-3.5 accent-primary" onchange="Calculator._setIOPartnerActive(${wi},${act.id},'${p.id}',this.checked)">
+          <span class="text-xs font-bold flex-1" style="color:${color}">${p.name||'P'+(i+1)}</span>
+          <span class="text-[10px] font-mono font-semibold" style="color:${color}">${ps.active?euros(pTotal):'\u2014'}</span>
+        </div>
+        ${ps.active?`<div class="px-3 py-2">${staffRows}
+          <button onclick="Calculator._addIOStaff(${wi},${act.id},'${p.id}')" class="text-[10px] font-semibold text-primary hover:underline">+ Add worker</button>
+        </div>`:''}
       </div>`;
+    }).join('');
+
+    return `<div class="text-xs text-on-surface-variant mb-2">Assign staff per partner. Uncheck partners not involved. <span class="font-mono font-semibold text-primary">${euros(totalCost)}</span></div>${blocks}`;
   }
 
   /* ── ME fields ──────────────────────────────────────────────── */
@@ -974,17 +1062,18 @@ const Calculator = (() => {
         return { total: app + partners, app, partners };
       }
       case 'meeting': case 'ltta': {
-        const nonHost = state.partners.filter(p => p.id !== act.host);
-        const active = nonHost.filter(p => (act.participants||{})[p.id] !== false);
+        const pax = act.pax || 2;
+        const days = act.days || 3;
         let travel = 0, aloj = 0;
-        active.forEach(p => {
-          travel += getRouteCost(p.id, act.host) * (act.pax||2);
-          aloj += (act.pax||2) * (act.days||3) * getPartnerPerdiemTotal(p.id);
+        const activePartners = state.partners.filter(p => (act.participants||{})[p.id] !== false);
+        activePartners.forEach(p => {
+          const isHost = p.id === act.host;
+          if (!isHost) travel += getRouteCost(p.id, act.host) * pax;
+          aloj += pax * days * getPartnerPerdiemTotal(p.id);
         });
-        const orgTotal = (active.length + 1) * (act.pax||2) * (act.days||3) * og;
+        const orgTotal = activePartners.length * pax * days * og;
         const localPax = act.local_pax || 0;
-        const hostPd = getPartnerPerdiemTotal(act.host);
-        const localCost = localPax * ((act.local_transport||25) + (act.days||3) * hostPd);
+        const localCost = localPax * ((act.local_transport||25) + days * getPartnerPerdiemTotal(act.host));
         return { total: travel + aloj + orgTotal + localCost, viaje: travel, aloj, org: orgTotal, localCost };
       }
       case 'me': {
@@ -1001,12 +1090,18 @@ const Calculator = (() => {
         return { total, perPartner };
       }
       case 'io': {
-        if (!act.io_partner_days) return { total:0 };
         let total = 0;
-        Object.entries(act.io_partner_days).forEach(([pid, days]) => {
-          const profId = act.io_partner_profiles ? (act.io_partner_profiles[pid] || null) : null;
-          total += (days||0) * getPartnerDayRate(pid, profId);
-        });
+        if (act.io_staff) {
+          Object.entries(act.io_staff).forEach(([pid, ps]) => {
+            if (!ps.active) return;
+            ps.staff.forEach(s => { total += (s.days||0) * getPartnerDayRate(pid, s.profileId); });
+          });
+        } else if (act.io_partner_days) {
+          Object.entries(act.io_partner_days).forEach(([pid, days]) => {
+            const profId = act.io_partner_profiles ? (act.io_partner_profiles[pid] || null) : null;
+            total += (days||0) * getPartnerDayRate(pid, profId);
+          });
+        }
         return { total };
       }
       case 'local_ws': {
@@ -1040,20 +1135,51 @@ const Calculator = (() => {
   function recalcWP(wi) {
     const wp = state.wps[wi];
     let wpTotal = 0;
+    const mo = getProjectMonths();
     wp.activities.forEach(act => {
       const res = calcActivity(act);
+      const def = ACT_TYPES[act.type];
+      const color = def?.color || '#474551';
       wpTotal += res.total;
       const el = $(`calc-act-result-${act.id}`);
-      if (el) {
-        let detail = euros(res.total);
-        if (act.type === 'mgmt') {
-          detail = `Applicant: ${euros(res.app)} + ${state.partners.length-1} partners × ${euros(act.rate_partner||250)}/mo × ${getProjectMonths()} mo = ${euros(res.total)}`;
-        } else if (act.type === 'meeting' || act.type === 'ltta') {
-          detail = `Travel: ${euros(res.viaje)} · Accom.: ${euros(res.aloj)} · Org.: ${euros(res.org)}`;
-          if (res.localCost) detail += ` · Local: ${euros(res.localCost)}`;
-          detail += ` = ${euros(res.total)}`;
-        }
-        el.textContent = detail;
+      if (!el) return;
+
+      if (act.type === 'mgmt') {
+        const appCost = (act.rate_applicant||500) * mo;
+        const partnerCost = (act.rate_partner||250) * mo;
+        const rows = state.partners.map((p, i) => {
+          const isApp = i === 0;
+          const cost = isApp ? appCost : partnerCost;
+          const rate = isApp ? (act.rate_applicant||500) : (act.rate_partner||250);
+          return `<div class="flex justify-between text-xs py-0.5"><span class="text-on-surface-variant">${p.name||'P'+(i+1)} <span class="text-[10px] text-on-surface-variant/50">${rate}/mo × ${mo}mo</span></span><span class="font-mono font-semibold">${euros(cost)}</span></div>`;
+        }).join('');
+        el.innerHTML = `${rows}<div class="flex justify-between text-sm font-bold pt-1 mt-1 border-t border-outline-variant/10" style="color:${color}"><span>Total</span><span>${euros(res.total)}</span></div>`;
+
+      } else if (act.type === 'meeting' || act.type === 'ltta') {
+        const lines = [];
+        if (res.viaje) lines.push(`<div class="flex justify-between text-xs py-0.5"><span class="text-on-surface-variant">Travel</span><span class="font-mono">${euros(res.viaje)}</span></div>`);
+        if (res.aloj) lines.push(`<div class="flex justify-between text-xs py-0.5"><span class="text-on-surface-variant">Accommodation & subsistence</span><span class="font-mono">${euros(res.aloj)}</span></div>`);
+        if (res.org) lines.push(`<div class="flex justify-between text-xs py-0.5"><span class="text-on-surface-variant">Organisation</span><span class="font-mono">${euros(res.org)}</span></div>`);
+        if (res.localCost) lines.push(`<div class="flex justify-between text-xs py-0.5"><span class="text-on-surface-variant">Local transport</span><span class="font-mono">${euros(res.localCost)}</span></div>`);
+        el.innerHTML = lines.join('') + `<div class="flex justify-between text-sm font-bold pt-1 mt-1 border-t border-outline-variant/10" style="color:${color}"><span>Total</span><span>${euros(res.total)}</span></div>`;
+
+      } else if (act.type === 'io' && act.io_staff) {
+        const rows = state.partners.map((p, i) => {
+          const ps = act.io_staff[p.id];
+          if (!ps?.active) return '';
+          const pTotal = ps.staff.reduce((s, st) => s + (st.days||0) * getPartnerDayRate(p.id, st.profileId), 0);
+          return `<div class="flex justify-between text-xs py-0.5"><span class="text-on-surface-variant">${p.name||'P'+(i+1)} <span class="text-[10px] text-on-surface-variant/50">${ps.staff.length} worker${ps.staff.length>1?'s':''}</span></span><span class="font-mono">${euros(pTotal)}</span></div>`;
+        }).filter(Boolean).join('');
+        el.innerHTML = rows + `<div class="flex justify-between text-sm font-bold pt-1 mt-1 border-t border-outline-variant/10" style="color:${color}"><span>Total</span><span>${euros(res.total)}</span></div>`;
+
+      } else if (res.perPartner && res.perPartner.length) {
+        const rows = res.perPartner.map(pp =>
+          `<div class="flex justify-between text-xs py-0.5"><span class="text-on-surface-variant">${pp.name||'Partner'}</span><span class="font-mono">${euros(pp.total)}</span></div>`
+        ).join('');
+        el.innerHTML = rows + `<div class="flex justify-between text-sm font-bold pt-1 mt-1 border-t border-outline-variant/10" style="color:${color}"><span>Total</span><span>${euros(res.total)}</span></div>`;
+
+      } else {
+        el.innerHTML = `<div class="flex justify-end text-sm font-bold" style="color:${color}">${euros(res.total)}</div>`;
       }
     });
     const totEl = $(`calc-wp-total-${wi}`);
@@ -1219,7 +1345,7 @@ const Calculator = (() => {
       if (act.type === 'campaign') { const c = act.camp_partners?.[p.id]; return c?.active ? (c.monthly||0)*(c.months||0) : 0; }
       if (['equipment','goods','consumables','other'].includes(act.type)) { const np = act.note_partners?.[p.id]; return np?.active ? calcDepreciation(np) : 0; }
       if (['website','artistic'].includes(act.type)) { const np = act.note_partners?.[p.id]; return np?.active ? (np.amount||0) : 0; }
-      if (act.type === 'io') { const days = act.io_partner_days?.[p.id]||0; const profId = act.io_partner_profiles?.[p.id]; return days * getPartnerDayRate(p.id, profId); }
+      if (act.type === 'io') { const ps = act.io_staff?.[p.id]; if (!ps?.active) return 0; return ps.staff.reduce((s,st) => s + (st.days||0) * getPartnerDayRate(p.id, st.profileId), 0); }
       return res.total / n;
     }
 
@@ -1541,6 +1667,124 @@ const Calculator = (() => {
     recalcWP(wi);
   }
 
+  const SUBTYPE_DESC = {
+    // Transnational Meetings
+    'Kick-off meeting': 'This meeting marks the official start of the project and brings partners together to align on objectives, roles, and expectations. It is used to clarify the work plan, timeline, and communication methods. It helps create a shared understanding of the project from the beginning.',
+    'Mid-term meeting': 'This meeting takes place during the implementation phase to review progress and assess the development of planned activities. Partners identify achievements, discuss challenges, and adjust the work plan if necessary. It helps maintain coordination and improve project quality.',
+    'Final meeting': 'This meeting is held at the end of the project to review achievements, assess final results, and reflect on lessons learned. It also supports discussion on sustainability, follow-up actions, and future cooperation. It ensures proper closure and consolidation of outcomes.',
+    'Coordination meeting': 'This meeting focuses on the day-to-day coordination of the project among partners. It is used to monitor activities, clarify responsibilities, and solve implementation issues. It supports smooth project management and effective internal communication.',
+    'Technical working meeting': 'This meeting is dedicated to specific technical aspects of the project, such as developing outputs, tools, or methodologies. Partners work together on content, problem-solving, and practical decisions. It helps ensure consistency and technical quality across results.',
+    'Strategic planning meeting': 'This meeting focuses on the long-term direction of the project and on strategic decisions for the consortium. Partners reflect on impact, sustainability, positioning, and future opportunities. It helps connect current work with broader project goals.',
+    // LTTA / Mobility
+    'Training mobility': 'This mobility activity is designed to provide participants with structured learning on a specific topic. It includes workshops, practical sessions, and collaborative learning experiences. It supports capacity building and the development of relevant skills and competences.',
+    'Study visit mobility': 'This activity allows participants to visit organisations, initiatives, or projects related to the project theme. It focuses on learning from real practices and gaining inspiration from different contexts. It strengthens understanding through direct observation and exchange.',
+    'Group mobility': 'This mobility brings together participants from different countries for a shared learning experience. It encourages collaboration, intercultural dialogue, and collective problem-solving. It helps strengthen group dynamics and European cooperation.',
+    'Youth exchange mobility': 'This activity involves young participants from different countries in non-formal learning experiences. It combines workshops, group activities, and intercultural exchange. It promotes participation, mutual understanding, and the development of key competences.',
+    'Staff mobility': 'This mobility is aimed at professionals or staff members involved in the project. It focuses on exchange of practices, professional development, and organisational learning. It strengthens the skills of staff and improves cooperation between organisations.',
+    'Job shadowing mobility': 'This activity allows participants to observe the daily work of a host organisation. It focuses on learning through observation, dialogue, and exchange with professionals. It supports knowledge transfer and helps participants understand practical working methods.',
+    'Peer learning mobility': 'This mobility is based on the exchange of knowledge, experiences, and practices among participants. It promotes horizontal learning and mutual support between peers. It helps generate collective knowledge and encourages collaborative reflection.',
+    'Blended mobility': 'This activity combines online and face-to-face components to strengthen the learning process. Participants take part in preparatory or follow-up activities in addition to the physical mobility. It supports continuity, flexibility, and deeper engagement.',
+    'Pilot mobility': 'This mobility is designed to test and validate tools, methods, or approaches developed within the project. Participants take part in structured activities that help assess effectiveness and collect feedback. It supports innovation and practical improvement of results.',
+    'Volunteering mobility': 'This activity involves participants in community-based actions that combine learning and service. It promotes solidarity, engagement, and active citizenship through practical contribution. It connects personal development with social or community impact.',
+    'Expert mobility': 'This mobility involves the participation of experts who contribute specialised knowledge to the project. Experts may provide training, mentoring, advice, or validation. It enhances the quality of activities and supports more advanced learning outcomes.',
+    'Community immersion mobility': 'This activity allows participants to engage directly with a local community or context. Learning takes place through participation, interaction, and real-life experience. It helps participants better understand social, cultural, or environmental realities.',
+    // Intellectual Outputs
+    'Educational manual': 'This output is a structured educational resource designed to support learning and practice on a specific topic. It usually combines concepts, activities, and practical guidance. It helps transfer knowledge in a clear and usable way.',
+    'Methodological guide': 'This output presents a method, approach, or process that can be applied by organisations, educators, or practitioners. It explains how to implement a specific methodology step by step. It supports replication and quality in project activities.',
+    'Training course / module': 'This output consists of a structured learning programme or unit focused on a specific topic or competence area. It may include sessions, activities, and learning materials. It is designed to support training delivery and participant development.',
+    'Toolkit': 'This output is a practical collection of tools, templates, resources, or activities that users can apply directly. It is usually action-oriented and easy to use in different contexts. It supports implementation and hands-on work.',
+    'Research report / needs analysis': 'This output gathers evidence, findings, or analysis related to the project topic or target groups. It helps identify needs, challenges, and opportunities that justify the project approach. It provides a knowledge base for decision-making and design.',
+    'Digital platform / interactive tool': 'This output is a digital resource created to support learning, participation, access to materials, or project interaction. It may include online tools, interactive content, or user-based features. It helps extend the project\'s usability and reach.',
+    // Multiplier Events
+    'Launch event': 'This event is organised to introduce the project, its aims, and its expected results to relevant audiences. It helps create visibility and attract early interest from stakeholders and participants. It is useful for setting the public starting point of the project.',
+    'Dissemination conference': 'This event is designed to present project activities, findings, or outputs to a wider audience. It supports visibility, stakeholder engagement, and knowledge sharing. It helps disseminate results in a structured and professional format.',
+    'Final conference': 'This event takes place towards the end of the project to showcase achievements, results, and impact. It allows partners to present final outputs and share lessons learned. It also supports sustainability and future uptake of project outcomes.',
+    'Stakeholder event': 'This event brings together relevant actors connected to the project theme, such as institutions, professionals, community groups, or decision-makers. It creates space for dialogue, feedback, and collaboration. It helps strengthen relevance and external engagement.',
+    'Networking event': 'This event is designed to connect participants, organisations, and stakeholders interested in the project topic. It supports partnership building, exchange of contacts, and future cooperation. It helps expand the project\'s ecosystem and visibility.',
+    'Public presentation event': 'This event focuses on presenting a project result, process, or achievement to a broader audience. It can be used to explain the value of the project and encourage interest or participation. It supports communication, transparency, and outreach.',
+    // Local Workshops
+    'Training workshop': 'This workshop is designed to develop specific knowledge, skills, or competences among participants. It includes practical activities, guided learning, and interaction. It helps build capacity at local level in relation to the project theme.',
+    'Participatory workshop': 'This workshop is based on active involvement, dialogue, and contribution from participants. It encourages people to share ideas, experiences, and reflections in a collaborative setting. It supports inclusion and collective learning.',
+    'Awareness workshop': 'This workshop aims to raise understanding and sensitivity around a specific topic or social challenge. It introduces key concepts and encourages reflection and discussion. It helps engage participants and increase interest in the issue addressed.',
+    'Co-creation workshop': 'This workshop is designed to generate ideas, materials, or solutions collaboratively with participants. It supports joint creation and active contribution to the project process. It is useful for developing outputs, activities, or community-based responses.',
+    'Community workshop': 'This workshop involves local participants and focuses on issues relevant to a specific community or territory. It encourages local engagement, shared reflection, and practical participation. It helps connect the project with real local contexts and needs.',
+    'Testing / pilot workshop': 'This workshop is used to test an activity, tool, or methodology before finalising it. Participants provide feedback through direct experience and reflection. It helps improve quality and validate project results in practice.',
+    // Dissemination
+    'Social media dissemination': 'This type of dissemination uses social media channels to share project activities, results, and messages with wider audiences. It supports visibility, engagement, and regular communication in accessible formats. It is especially useful for reaching diverse and online-based audiences.',
+    'Newsletter dissemination': 'This type of dissemination uses newsletters to provide updates on project progress, results, and upcoming actions. It helps maintain communication with interested audiences over time. It is useful for structured and recurring outreach.',
+    'Press / media dissemination': 'This type of dissemination uses newspapers, magazines, radio, digital press, or other media channels to increase project visibility. It helps reach audiences beyond the project\'s direct network. It supports public awareness and external recognition.',
+    'Video dissemination': 'This type of dissemination uses video content to explain, present, or promote project activities and results. It is useful for storytelling, visibility, and accessible communication. It helps make the project more attractive and easier to understand.',
+    'Community / stakeholder dissemination': 'This type of dissemination focuses on sharing project information with local communities, organisations, institutions, or relevant stakeholders. It helps build connections, encourage participation, and strengthen local relevance. It supports meaningful outreach beyond online promotion.',
+    'Printed dissemination': 'This type of dissemination uses physical materials such as brochures, posters, flyers, or other printed resources. It is useful in events, community spaces, and face-to-face activities. It supports visibility in contexts where physical communication is important.',
+    // Website
+    'Project website': 'This website serves as the main online space for the project. It presents key information, objectives, activities, and updates in one accessible place. It supports visibility, transparency, and public communication.',
+    'Landing page': 'This type of web page is designed to present a specific message, activity, or call to action in a clear and focused way. It is usually simple, direct, and visually targeted. It helps attract attention and guide users quickly.',
+    'Resource website': 'This website is designed to host and share project materials, publications, and practical resources. It helps users easily access and download outputs. It supports usability, dissemination, and long-term access to results.',
+    'Learning platform': 'This website provides a digital space for training, learning content, or educational interaction. It may include modules, materials, exercises, or user access areas. It supports structured learning processes within the project.',
+    'Community platform': 'This website is designed to connect participants, partners, or users through interaction and shared content. It may include forums, profiles, internal communication, or collaborative tools. It supports engagement and continuity beyond single activities.',
+    'Results repository': 'This website is focused on collecting, organising, and presenting the main outputs and results of the project. It helps ensure that outcomes remain accessible after project completion. It supports sustainability and exploitation of results.',
+    // Artistic Fees
+    'Graphic design': 'This service covers the visual design of materials such as brochures, reports, presentations, or communication assets. It helps create a professional and coherent visual identity for the project. It supports clarity, attractiveness, and visibility.',
+    'Video production / editing': 'This service involves the creation or editing of video materials related to the project. It may include interviews, promotional videos, documentation, or educational content. It helps communicate results in an engaging and accessible format.',
+    'Photography': 'This service covers the professional documentation of project activities through photographs. It helps capture key moments, support dissemination, and create visual records. It is useful for communication, reporting, and visibility.',
+    'Illustration / branding': 'This service focuses on custom illustrations, visual concepts, or brand elements for the project. It helps give the project a distinctive and attractive identity. It supports communication and recognition across materials and outputs.',
+    'Audio / podcast production': 'This service includes the recording, editing, or production of audio content such as podcasts, voice materials, or sound-based resources. It supports communication and educational outreach in audio format. It is useful for accessible and flexible dissemination.',
+    'Artistic facilitation / performance': 'This service involves artistic contributions to workshops, events, or learning activities through performance or creative facilitation. It helps make activities more participatory, expressive, and engaging. It supports artistic and experiential dimensions of the project.',
+    // Equipment
+    'Computers / laptops': 'This equipment includes computers or laptops needed to support project management, content development, training, or digital work. It is useful when activities require regular technical access. It helps ensure smooth implementation of project tasks.',
+    'Tablets / mobile devices': 'This equipment includes portable digital devices used for participation, learning, data collection, or communication. It is useful in activities requiring flexibility and mobility. It supports access and interaction in dynamic settings.',
+    'Audio-visual equipment': 'This equipment includes tools such as projectors, screens, speakers, or related devices used in training, events, or presentations. It supports visibility and effective delivery of activities. It is important for communication and group-based learning.',
+    'Recording equipment': 'This equipment includes microphones, cameras, or recording devices used to document activities or create project content. It is useful for producing materials and capturing evidence. It supports dissemination, reporting, and content creation.',
+    'Educational / workshop equipment': 'This equipment includes tools or materials needed to run workshops, learning activities, or practical sessions. It may vary depending on the topic and methodology of the project. It supports participation and effective delivery of activities.',
+    'Event technical equipment': 'This equipment includes technical resources needed for public events, presentations, or conferences. It may involve sound, projection, lighting, or related support devices. It helps ensure professional and functional event implementation.',
+    // Other Goods
+    'Printed materials': 'These goods include brochures, handouts, manuals, posters, or other printed resources used in the project. They support communication, training, and dissemination. They are especially useful in face-to-face contexts and public activities.',
+    'Educational materials': 'These goods include physical resources used to support learning and training activities. They may include manuals, cards, kits, or teaching aids. They help make educational processes more practical and accessible.',
+    'Visibility materials': 'These goods include branded or visual items used to increase recognition of the project. They may include banners, roll-ups, posters, or similar elements. They support public visibility and communication at events and activities.',
+    'Workshop materials': 'These goods include physical items needed to carry out workshop activities effectively. They may include stationery, practical materials, or activity-specific resources. They support implementation and participant engagement.',
+    'Event materials': 'These goods include resources needed for conferences, meetings, or public events. They may include signage, folders, participant packs, or visual supports. They help organise activities and improve the participant experience.',
+    'Participant kits / welcome packs': 'These goods include sets of materials prepared for participants at the beginning of an activity or event. They may contain practical, informative, or branded resources. They help participants feel welcomed and better prepared.',
+    // Consumables
+    'Printing consumables': 'These consumables include paper, ink, toner, or other items needed for printing project materials. They support the preparation of resources, handouts, and communication assets. They are often used in administration, workshops, and dissemination.',
+    'Workshop consumables': 'These consumables include materials used up during practical activities, training sessions, or group work. They may include paper, markers, cards, or other disposable resources. They support dynamic and participatory implementation.',
+    'Office consumables': 'These consumables include everyday materials needed for project administration and coordination. They may include pens, folders, paper, or similar supplies. They support the practical running of project work.',
+    'Hygiene / cleaning consumables': 'These consumables include cleaning and hygiene supplies used during meetings, workshops, or events. They help maintain safe and appropriate conditions for participants. They are especially relevant in shared spaces and group activities.',
+    'Catering consumables': 'These consumables include food-related disposable items used during meetings, workshops, or events. They may include cups, plates, napkins, or similar materials. They support participant comfort and activity logistics.',
+    'Technical consumables': 'These consumables include small technical items used during project implementation, such as batteries, cables, or storage media. They support the functioning of equipment and technical activities. They are useful in training, events, and production work.',
+    // Other Costs
+    'Translation / interpretation costs': 'These costs cover language support needed to make project activities and results accessible to different audiences. They may include written translation or live interpretation. They support inclusion, multilingual communication, and international cooperation.',
+    'External expert / trainer costs': 'These costs cover the contribution of external professionals who provide specialised knowledge or training. They help strengthen the quality and relevance of project activities. They are useful when specific expertise is needed.',
+    'Venue / space rental costs': 'These costs cover the rental of spaces used for meetings, workshops, training, or public events. They help provide an appropriate setting for project implementation. They are relevant when partner organisations do not have suitable spaces available.',
+    'Hosting / software / platform costs': 'These costs cover digital services needed to run websites, online tools, subscriptions, or project platforms. They support communication, learning, content sharing, and project management. They are important for digital or hybrid activities.',
+    'Travel / accommodation support costs': 'These costs cover additional support related to participant mobility, especially when specific travel or stay arrangements are needed. They help ensure participation and smooth organisation of activities. They may be particularly relevant in inclusive or international contexts.',
+    'Evaluation / administrative support costs': 'These costs cover external or additional support for evaluation, reporting, documentation, or administrative tasks. They help strengthen quality assurance and project management. They are useful when specific technical or organisational support is needed.',
+  };
+
+  function setActSubtype(wi, actId, subtype) {
+    const act = state.wps[wi].activities.find(a => a.id === actId);
+    if (!act) return;
+    act.subtype = subtype;
+    if (subtype) {
+      act.label = subtype;
+      // Auto-fill description with base text if empty or was auto-generated
+      const baseDesc = SUBTYPE_DESC[subtype] || '';
+      if (baseDesc && (!act.desc || act._autoDesc)) {
+        act.desc = baseDesc;
+        act._autoDesc = true; // flag to know it was auto-generated
+      }
+    }
+    // Re-render
+    const container = getRouteContainer()?.closest('#intake-calc-container') || $('calc-root');
+    if (container) renderMergedWPs(container);
+  }
+
+  function setActDesc(wi, actId, value) {
+    const act = state.wps[wi].activities.find(a => a.id === actId);
+    if (!act) return;
+    act.desc = value;
+    act._autoDesc = false; // user edited, don't overwrite on subtype change
+  }
+
   function setActHost(wi, actId, value) {
     const act = state.wps[wi].activities.find(a => a.id === actId);
     if (!act) return;
@@ -1562,6 +1806,43 @@ const Calculator = (() => {
     recalcWP(wi);
   }
 
+  function setIOStaff(wi, actId, pid, si, field, value) {
+    const act = state.wps[wi].activities.find(a => a.id === actId);
+    if (!act || !act.io_staff || !act.io_staff[pid]) return;
+    const s = act.io_staff[pid].staff[si];
+    if (!s) return;
+    if (field === 'days') s.days = parseFloat(value) || 0;
+    else if (field === 'profileId') s.profileId = value ? parseInt(value) : null;
+    else s[field] = value;
+    const el = $('calc-act-fields-' + actId);
+    if (el) el.innerHTML = buildIOFields(act, wi);
+    recalcWP(wi);
+  }
+  function addIOStaff(wi, actId, pid) {
+    const act = state.wps[wi].activities.find(a => a.id === actId);
+    if (!act || !act.io_staff || !act.io_staff[pid]) return;
+    act.io_staff[pid].staff.push({ profileId: null, days: 10, tasks: '' });
+    const el = $('calc-act-fields-' + actId);
+    if (el) el.innerHTML = buildIOFields(act, wi);
+  }
+  function removeIOStaff(wi, actId, pid, si) {
+    const act = state.wps[wi].activities.find(a => a.id === actId);
+    if (!act || !act.io_staff || !act.io_staff[pid]) return;
+    act.io_staff[pid].staff.splice(si, 1);
+    const el = $('calc-act-fields-' + actId);
+    if (el) el.innerHTML = buildIOFields(act, wi);
+    recalcWP(wi);
+  }
+  function setIOPartnerActive(wi, actId, pid, active) {
+    const act = state.wps[wi].activities.find(a => a.id === actId);
+    if (!act || !act.io_staff) return;
+    if (!act.io_staff[pid]) act.io_staff[pid] = { active: true, staff: [{ profileId: null, days: 20, tasks: '' }] };
+    act.io_staff[pid].active = active;
+    const el = $('calc-act-fields-' + actId);
+    if (el) el.innerHTML = buildIOFields(act, wi);
+    recalcWP(wi);
+  }
+  // Legacy compatibility
   function setIODays(wi, actId, pid, value) {
     const act = state.wps[wi].activities.find(a => a.id === actId);
     if (!act) return;
@@ -1819,8 +2100,14 @@ const Calculator = (() => {
     _addActivity: addActivity,
     _removeAct: removeAct,
     _setAct: setAct,
+    _setActSubtype: setActSubtype,
+    _setActDesc: setActDesc,
     _setActHost: setActHost,
     _setParticipant: setParticipant,
+    _setIOStaff: setIOStaff,
+    _addIOStaff: addIOStaff,
+    _removeIOStaff: removeIOStaff,
+    _setIOPartnerActive: setIOPartnerActive,
     _setIODays: setIODays,
     _setIOProfile: setIOProfile,
     _setME: setME,

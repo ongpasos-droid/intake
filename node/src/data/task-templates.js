@@ -1,0 +1,190 @@
+/* ═══════════════════════════════════════════════════════════════
+   Task Templates — Pre-defined tasks by activity category
+   12 categories, each with subtypes containing title + description
+   Used to auto-generate tasks when user selects activities per WP
+   ═══════════════════════════════════════════════════════════════ */
+
+const TASK_TEMPLATES = [
+  {
+    category: 'project_management',
+    label: 'Project Management (WP1)',
+    icon: 'admin_panel_settings',
+    wp1_only: true,
+    subtypes: [
+      { key: 'coordination', label: 'Project Coordination and Overall Management', title: 'Project Coordination and Overall Management', description: 'This task focuses on the overall coordination and management of the project throughout its implementation. It includes internal communication, partner follow-up, timeline supervision, decision-making processes, and general project oversight. It ensures that the project progresses in a coherent, timely, and well-organised way.' },
+      { key: 'work_plan', label: 'Development of the Project Work Plan', title: 'Development of the Project Work Plan', description: 'This task focuses on structuring the operational work plan of the project, including key phases, tasks, deadlines, and internal planning logic. It helps organise the implementation process in a clear and realistic way. It provides a practical roadmap for all partners during the project lifecycle.' },
+      { key: 'partnership_comms', label: 'Partnership Coordination and Internal Communication', title: 'Partnership Coordination and Internal Communication', description: 'This task covers the coordination of the consortium and the establishment of effective internal communication among partners. It includes communication channels, regular follow-up, partner interaction, and collaborative workflows. It supports alignment, responsiveness, and smooth cooperation across the consortium.' },
+      { key: 'monitoring', label: 'Monitoring of Project Implementation', title: 'Monitoring of Project Implementation', description: 'This task focuses on tracking the progress of project activities and ensuring that implementation follows the agreed plan. It includes reviewing progress, identifying delays or challenges, and supporting corrective action where necessary. It helps maintain consistency, accountability, and delivery quality.' },
+      { key: 'quality_assurance', label: 'Quality Assurance and Internal Review', title: 'Quality Assurance and Internal Review', description: 'This task covers the internal processes used to ensure the quality and coherence of project activities, outputs, and management procedures. It includes reviewing deliverables, validating progress, and applying quality criteria across the project. It supports reliability and professional implementation.' },
+      { key: 'risk_management', label: 'Risk Management and Problem Solving', title: 'Risk Management and Problem Solving', description: 'This task focuses on identifying, monitoring, and responding to risks or implementation challenges that may affect the project. It includes preventive planning, mitigation measures, and practical problem-solving mechanisms. It helps ensure resilience and continuity throughout the project.' },
+      { key: 'financial_mgmt', label: 'Financial Management and Budget Monitoring', title: 'Financial Management and Budget Monitoring', description: 'This task covers the internal management of the project budget and financial follow-up across partners and activities. It includes budget control, expenditure tracking, and internal financial coordination. It supports transparency, compliance, and efficient use of project resources.' },
+      { key: 'documentation', label: 'Documentation, Reporting, and Evidence Collection', title: 'Documentation, Reporting, and Evidence Collection', description: 'This task focuses on organising and maintaining the internal documentation of the project. It includes collecting evidence, preparing reports, storing key files, and ensuring traceability of implementation. It supports accountability, reporting quality, and proper project record-keeping.' },
+      { key: 'mgmt_meetings', label: 'Organisation of Project Management Meetings', title: 'Organisation of Project Management Meetings', description: 'This task covers the planning, coordination, and follow-up of the main project management meetings. It includes preparing agendas, supporting partner participation, documenting decisions, and ensuring follow-up on agreed actions. It supports coordination, alignment, and structured communication.' },
+      { key: 'final_evaluation', label: 'Final Evaluation and Project Closure', title: 'Final Evaluation and Project Closure', description: 'This task focuses on the final management-related actions needed to close the project properly. It includes reviewing achievements, assessing implementation, consolidating final documentation, and ensuring administrative and operational closure. It supports a coherent and responsible end to the project.' },
+    ]
+  },
+  {
+    category: 'transnational_meeting',
+    label: 'Transnational Project Meeting',
+    icon: 'groups',
+    subtypes: [
+      { key: 'kickoff', label: 'Kick-off meeting', title: 'Organisation of the Kick-off Meeting', description: "This task focuses on the preparation and implementation of the project's kick-off meeting. It includes aligning partners on objectives, roles, timeline, communication methods, and first steps. It helps establish a common understanding of the project and ensures a strong and coordinated start." },
+      { key: 'midterm', label: 'Mid-term meeting', title: 'Organisation of the Mid-term Meeting', description: "This task covers the preparation and implementation of the project's mid-term meeting. It includes reviewing progress, discussing challenges, assessing ongoing activities, and adjusting the work plan where needed. It supports monitoring, coordination, and quality improvement during implementation." },
+      { key: 'final', label: 'Final meeting', title: 'Organisation of the Final Meeting', description: 'This task focuses on the preparation and implementation of the final transnational meeting of the project. It includes reviewing achievements, assessing final results, reflecting on lessons learned, and discussing sustainability and future cooperation. It supports project closure and consolidation of outcomes.' },
+      { key: 'coordination', label: 'Coordination meeting', title: 'Implementation of Project Coordination Meetings', description: 'This task covers the organisation and facilitation of coordination meetings among project partners. It includes monitoring activities, clarifying responsibilities, solving implementation issues, and ensuring smooth communication between organisations. It supports effective day-to-day project management.' },
+      { key: 'technical', label: 'Technical working meeting', title: 'Implementation of Technical Working Meetings', description: 'This task focuses on the organisation of meetings dedicated to technical development within the project. It includes collaborative work on outputs, methodologies, tools, or content requiring detailed partner input. It helps ensure technical consistency, quality, and practical progress.' },
+      { key: 'strategic', label: 'Strategic planning meeting', title: 'Organisation of Strategic Planning Meetings', description: 'This task covers the planning and implementation of strategic meetings aimed at discussing the broader direction of the project. It includes reflection on impact, sustainability, future cooperation, and opportunities for continuation or transfer. It supports long-term vision and strategic alignment.' },
+    ]
+  },
+  {
+    category: 'ltta_mobility',
+    label: 'LTTA / Mobility',
+    icon: 'flight_takeoff',
+    subtypes: [
+      { key: 'training', label: 'Training mobility', title: 'Implementation of the Training Mobility', description: 'This task focuses on the design, preparation, and delivery of a mobility activity centred on structured learning. It includes planning educational content, learning methods, participant experience, and practical organisation. It supports capacity building and the development of project-related competences.' },
+      { key: 'study_visit', label: 'Study visit mobility', title: 'Implementation of the Study Visit Mobility', description: 'This task covers the planning and implementation of a study visit mobility linked to the project theme. It includes identifying relevant host organisations or initiatives, structuring the learning process, and facilitating observation and exchange. It supports experiential learning through real-life practices.' },
+      { key: 'group', label: 'Group mobility', title: 'Implementation of the Group Mobility', description: 'This task focuses on organising a group-based mobility experience involving participants from different countries. It includes designing collaborative learning activities, intercultural exchange processes, and participant interaction. It supports shared learning, cooperation, and European exchange.' },
+      { key: 'youth_exchange', label: 'Youth exchange mobility', title: 'Implementation of the Youth Exchange Mobility', description: 'This task covers the preparation and implementation of a mobility activity aimed at young participants. It includes designing non-formal learning activities, intercultural exchange, and participatory group dynamics. It supports youth engagement, mutual learning, and competence development.' },
+      { key: 'staff', label: 'Staff mobility', title: 'Implementation of the Staff Mobility', description: 'This task focuses on organising a mobility activity for staff or professionals involved in the project. It includes exchange of practices, professional development, and organisational learning opportunities. It helps strengthen staff competences and institutional cooperation.' },
+      { key: 'job_shadowing', label: 'Job shadowing mobility', title: 'Implementation of the Job Shadowing Mobility', description: 'This task covers the organisation of a job shadowing experience in which participants observe the daily work of a host organisation. It includes facilitating observation, professional exchange, and reflection on transferable practices. It supports practical learning and knowledge transfer.' },
+      { key: 'peer_learning', label: 'Peer learning mobility', title: 'Implementation of the Peer Learning Mobility', description: 'This task focuses on organising a mobility activity based on exchange and mutual learning between participants. It includes creating spaces for sharing experiences, practices, and collaborative reflection. It supports horizontal learning and collective capacity building.' },
+      { key: 'blended', label: 'Blended mobility', title: 'Implementation of the Blended Mobility', description: 'This task covers the design and delivery of a mobility activity combining online and face-to-face components. It includes structuring the learning process before, during, and after the physical mobility. It supports continuity, flexibility, and stronger learning outcomes.' },
+      { key: 'pilot', label: 'Pilot mobility', title: 'Implementation of the Pilot Mobility', description: 'This task focuses on testing and validating a project methodology, tool, or educational approach through a mobility activity. It includes participant involvement, structured implementation, and collection of feedback. It supports innovation, validation, and practical improvement of project results.' },
+      { key: 'volunteering', label: 'Volunteering mobility', title: 'Implementation of the Volunteering Mobility', description: 'This task covers the preparation and implementation of a mobility activity based on community engagement and practical contribution. It includes organising meaningful volunteering actions linked to the project theme. It supports active citizenship, experiential learning, and social impact.' },
+      { key: 'expert', label: 'Expert mobility', title: 'Implementation of the Expert Mobility', description: 'This task focuses on organising the participation of external experts in a mobility activity. It includes integrating specialised knowledge through training, mentoring, advising, or technical support. It helps improve the quality, relevance, and depth of project activities.' },
+      { key: 'community_immersion', label: 'Community immersion mobility', title: 'Implementation of the Community Immersion Mobility', description: 'This task covers the design and implementation of a mobility activity based on direct engagement with a local community or territory. It includes learning through interaction, participation, and contextual experience. It supports deeper understanding of local realities and experiential learning.' },
+    ]
+  },
+  {
+    category: 'intellectual_output',
+    label: 'Intellectual Output',
+    icon: 'menu_book',
+    subtypes: [
+      { key: 'manual', label: 'Educational manual', title: 'Development of the Educational Manual', description: 'This task focuses on the design, drafting, and structuring of an educational manual related to the project topic. It includes defining the content, methodology, learning approach, and practical sections of the resource. It aims to create a clear, useful, and transferable educational output.' },
+      { key: 'methodological_guide', label: 'Methodological guide', title: 'Development of the Methodological Guide', description: 'This task covers the creation of a methodological guide that explains how to apply a specific approach, process, or practice developed within the project. It includes defining the structure, steps, and practical recommendations. It supports transferability, quality, and replication.' },
+      { key: 'training_course', label: 'Training course / module', title: 'Development of the Training Course / Module', description: 'This task focuses on the design and development of a structured learning resource or training programme linked to the project objectives. It includes defining learning units, content, methods, and educational flow. It supports training delivery and competence development.' },
+      { key: 'toolkit', label: 'Toolkit', title: 'Development of the Project Toolkit', description: 'This task covers the creation of a practical toolkit containing tools, templates, activities, or resources that can be directly used by the target groups. It includes selecting, designing, and structuring usable materials. It supports implementation and accessibility of project results.' },
+      { key: 'research_report', label: 'Research report / needs analysis', title: 'Development of the Research Report / Needs Analysis', description: 'This task focuses on gathering, analysing, and structuring relevant information related to the project topic or target groups. It includes identifying needs, challenges, and contextual evidence that inform the project design. It provides a strong knowledge base for implementation and justification.' },
+      { key: 'digital_platform', label: 'Digital platform / interactive tool', title: 'Development of the Digital Platform / Interactive Tool', description: 'This task covers the design and creation of a digital resource intended to support learning, participation, access to materials, or user interaction within the project. It includes content structuring, functionality planning, and practical usability. It supports accessibility, innovation, and long-term use of results.' },
+    ]
+  },
+  {
+    category: 'multiplier_event',
+    label: 'Multiplier Event',
+    icon: 'campaign',
+    subtypes: [
+      { key: 'launch', label: 'Launch event', title: 'Organisation of the Launch Event', description: 'This task focuses on preparing and implementing an event to officially introduce the project, its objectives, and expected results. It includes audience engagement, communication planning, and event coordination. It supports visibility and early stakeholder involvement.' },
+      { key: 'dissemination_conf', label: 'Dissemination conference', title: 'Organisation of the Dissemination Conference', description: 'This task covers the preparation and delivery of a conference aimed at presenting project activities, findings, or outputs to a wider audience. It includes event planning, content preparation, and stakeholder outreach. It supports visibility, knowledge sharing, and dissemination.' },
+      { key: 'final_conf', label: 'Final conference', title: 'Organisation of the Final Conference', description: 'This task focuses on organising a final public event to showcase project achievements, outputs, and impact. It includes presenting final results, engaging stakeholders, and promoting future uptake of outcomes. It supports project closure and sustainability.' },
+      { key: 'stakeholder', label: 'Stakeholder event', title: 'Organisation of the Stakeholder Event', description: 'This task covers the planning and implementation of an event involving institutions, professionals, community actors, or other relevant stakeholders linked to the project topic. It supports dialogue, feedback, and collaboration. It helps strengthen external relevance and engagement.' },
+      { key: 'networking', label: 'Networking event', title: 'Organisation of the Networking Event', description: 'This task focuses on creating a space for organisations, participants, and stakeholders to connect around the project theme. It includes facilitating exchange, cooperation, and relationship-building. It supports future partnerships and wider ecosystem development.' },
+      { key: 'public_presentation', label: 'Public presentation event', title: 'Organisation of the Public Presentation Event', description: 'This task covers the organisation of an event designed to present a project activity, process, or result to a broader audience. It includes preparing key messages, materials, and audience interaction. It supports visibility, communication, and outreach.' },
+    ]
+  },
+  {
+    category: 'local_workshop',
+    label: 'Local Workshop',
+    icon: 'school',
+    subtypes: [
+      { key: 'training_ws', label: 'Training workshop', title: 'Delivery of the Training Workshop', description: 'This task focuses on designing and delivering a local workshop aimed at developing specific knowledge, skills, or competences among participants. It includes planning the content, methods, and participant engagement process. It supports local capacity building linked to the project theme.' },
+      { key: 'participatory', label: 'Participatory workshop', title: 'Delivery of the Participatory Workshop', description: 'This task covers the organisation and facilitation of a workshop based on active involvement and collaborative contribution from participants. It includes dialogue, shared reflection, and interactive processes. It supports inclusion, participation, and collective learning.' },
+      { key: 'awareness', label: 'Awareness workshop', title: 'Delivery of the Awareness Workshop', description: 'This task focuses on preparing and implementing a workshop aimed at raising awareness around a specific topic or social issue. It includes introducing key concepts, reflection, and group discussion. It supports engagement and understanding among local participants.' },
+      { key: 'cocreation', label: 'Co-creation workshop', title: 'Delivery of the Co-creation Workshop', description: 'This task covers the implementation of a workshop designed to collaboratively generate ideas, materials, or solutions. It includes participatory design processes and active contribution from participants. It supports innovation and the co-development of project-related outcomes.' },
+      { key: 'community_ws', label: 'Community workshop', title: 'Delivery of the Community Workshop', description: 'This task focuses on organising a workshop involving local participants around issues relevant to a specific community or territory. It includes dialogue, practical participation, and local reflection. It helps connect the project with real local needs and contexts.' },
+      { key: 'testing_pilot', label: 'Testing / pilot workshop', title: 'Delivery of the Testing / Pilot Workshop', description: 'This task covers the organisation of a workshop used to test an activity, tool, or methodology before finalisation. It includes participant feedback, practical implementation, and observation of results. It supports validation and quality improvement of project outputs.' },
+    ]
+  },
+  {
+    category: 'dissemination',
+    label: 'Dissemination',
+    icon: 'share',
+    subtypes: [
+      { key: 'social_media', label: 'Social media dissemination', title: 'Implementation of Social Media Dissemination Activities', description: 'This task focuses on sharing project activities, results, and messages through social media channels. It includes planning content, publishing updates, and engaging online audiences. It supports visibility, communication, and outreach throughout the project.' },
+      { key: 'newsletter', label: 'Newsletter dissemination', title: 'Implementation of Newsletter Dissemination', description: 'This task covers the preparation and distribution of newsletters to communicate project progress, results, and upcoming actions. It includes drafting content, structuring updates, and maintaining communication with interested audiences. It supports recurring and structured dissemination.' },
+      { key: 'press_media', label: 'Press / media dissemination', title: 'Implementation of Press and Media Dissemination', description: 'This task focuses on increasing project visibility through newspapers, radio, digital media, or other press channels. It includes preparing communication materials and engaging with media outlets. It supports public awareness and broader external recognition.' },
+      { key: 'video', label: 'Video dissemination', title: 'Production of Video Dissemination Materials', description: 'This task covers the creation and use of video content to present, explain, or promote project activities and results. It includes planning, recording, editing, and publishing video materials. It supports accessible and engaging project communication.' },
+      { key: 'community_stakeholder', label: 'Community / stakeholder dissemination', title: 'Implementation of Community and Stakeholder Dissemination', description: 'This task focuses on sharing project information and results with local communities, organisations, institutions, or relevant stakeholders. It includes targeted outreach and meaningful communication processes. It supports local relevance, engagement, and project uptake.' },
+      { key: 'printed', label: 'Printed dissemination', title: 'Production of Printed Dissemination Materials', description: 'This task covers the design, preparation, and use of printed materials such as brochures, posters, flyers, or other physical communication resources. It supports visibility in face-to-face activities, public events, and community settings.' },
+    ]
+  },
+  {
+    category: 'website',
+    label: 'Website',
+    icon: 'language',
+    subtypes: [
+      { key: 'project_website', label: 'Project website', title: 'Development of the Project Website', description: 'This task focuses on creating and maintaining the main website of the project. It includes presenting key information, objectives, activities, and updates in an accessible format. It supports visibility, transparency, and public communication.' },
+      { key: 'landing_page', label: 'Landing page', title: 'Development of the Project Landing Page', description: 'This task covers the design and creation of a focused web page aimed at presenting a specific message, activity, or call to action. It includes visual structure, key information, and user guidance. It supports targeted communication and online engagement.' },
+      { key: 'resource_website', label: 'Resource website', title: 'Development of the Resource Website', description: 'This task focuses on creating a digital space to host and share project materials, publications, and practical resources. It includes content organisation, usability, and access to outputs. It supports dissemination and long-term use of project results.' },
+      { key: 'learning_platform', label: 'Learning platform', title: 'Development of the Learning Platform', description: 'This task covers the creation of a digital learning environment to support training, educational content, or participant interaction. It includes structuring learning modules, resources, and user pathways. It supports online learning and educational accessibility.' },
+      { key: 'community_platform', label: 'Community platform', title: 'Development of the Community Platform', description: 'This task focuses on creating an online space where participants, partners, or users can interact and share content. It includes communication tools, shared areas, and collaborative functions. It supports engagement and continuity beyond isolated activities.' },
+      { key: 'results_repository', label: 'Results repository', title: 'Development of the Results Repository', description: 'This task covers the creation of an online repository to organise and present the main outputs and results of the project. It includes structuring access to materials and ensuring usability over time. It supports sustainability and exploitation of outcomes.' },
+    ]
+  },
+  {
+    category: 'artistic_fees',
+    label: 'Artistic Fees',
+    icon: 'palette',
+    subtypes: [
+      { key: 'graphic_design', label: 'Graphic design', title: 'Provision of Graphic Design Services', description: 'This task focuses on the creation of visual materials related to the project, such as brochures, reports, presentations, or communication assets. It supports the development of a coherent and professional visual identity. It helps improve clarity, attractiveness, and dissemination quality.' },
+      { key: 'video_production', label: 'Video production / editing', title: 'Production and Editing of Video Materials', description: 'This task covers the creation or editing of video content related to project activities, outputs, or dissemination. It may include interviews, documentation, educational videos, or promotional materials. It supports engaging and accessible communication.' },
+      { key: 'photography', label: 'Photography', title: 'Provision of Photography Services', description: 'This task focuses on documenting project activities through professional photography. It includes capturing relevant moments, producing visual records, and supporting communication materials. It helps strengthen dissemination, reporting, and project visibility.' },
+      { key: 'illustration_branding', label: 'Illustration / branding', title: 'Development of Illustration and Branding Materials', description: 'This task covers the creation of custom illustrations, visual concepts, and branding elements linked to the project. It helps provide a distinctive identity and visual coherence across outputs and communication materials. It supports recognition and visual impact.' },
+      { key: 'audio_podcast', label: 'Audio / podcast production', title: 'Production of Audio and Podcast Materials', description: 'This task focuses on the creation of audio-based content such as podcasts, voice resources, or sound materials linked to the project. It includes recording, editing, and content preparation. It supports communication, accessibility, and educational dissemination in audio format.' },
+      { key: 'artistic_facilitation', label: 'Artistic facilitation / performance', title: 'Delivery of Artistic Facilitation or Performance Activities', description: 'This task covers artistic contributions to workshops, events, or educational activities through performance or creative facilitation. It helps make activities more participatory, expressive, and engaging. It supports creative learning and experiential participation.' },
+    ]
+  },
+  {
+    category: 'equipment',
+    label: 'Equipment',
+    icon: 'devices',
+    subtypes: [
+      { key: 'computers', label: 'Computers / laptops', title: 'Acquisition of Computers and Laptops', description: 'This task focuses on obtaining the computer equipment needed to support project management, content development, training, or digital work. It helps ensure technical capacity for implementation. It supports both administrative and educational aspects of the project.' },
+      { key: 'tablets', label: 'Tablets / mobile devices', title: 'Acquisition of Tablets and Mobile Devices', description: 'This task covers the purchase or provision of portable digital devices used for learning, communication, data collection, or participation. It supports flexible and mobile access to project activities. It is especially useful in dynamic or field-based contexts.' },
+      { key: 'av_equipment', label: 'Audio-visual equipment', title: 'Acquisition of Audio-Visual Equipment', description: 'This task focuses on obtaining equipment such as projectors, screens, speakers, or related tools used in workshops, events, or presentations. It supports effective delivery of activities and communication with participants. It is important for visibility and group learning settings.' },
+      { key: 'recording_equipment', label: 'Recording equipment', title: 'Acquisition of Recording Equipment', description: 'This task covers the purchase or use of equipment such as microphones, cameras, or recording devices needed to document activities or produce project content. It supports content creation, evidence collection, and dissemination. It is useful for communication and reporting purposes.' },
+      { key: 'educational_equipment', label: 'Educational / workshop equipment', title: 'Acquisition of Educational and Workshop Equipment', description: 'This task focuses on obtaining tools or practical equipment needed to deliver workshops, learning activities, or training sessions. The equipment may vary depending on the methodology and topic of the project. It supports active participation and effective implementation.' },
+      { key: 'event_equipment', label: 'Event technical equipment', title: 'Acquisition of Event Technical Equipment', description: 'This task covers the provision of technical resources needed for public events, conferences, or presentations. It may include sound, projection, lighting, or other support equipment. It helps ensure professional and functional event implementation.' },
+    ]
+  },
+  {
+    category: 'other_goods',
+    label: 'Other Goods',
+    icon: 'inventory_2',
+    subtypes: [
+      { key: 'printed_materials', label: 'Printed materials', title: 'Production of Printed Materials', description: 'This task focuses on preparing and producing printed resources such as brochures, handouts, manuals, or posters. These materials support communication, training, and dissemination. They are particularly useful in face-to-face and community-based activities.' },
+      { key: 'educational_materials', label: 'Educational materials', title: 'Provision of Educational Materials', description: 'This task covers the preparation or acquisition of physical resources used to support learning and training activities. It may include manuals, kits, cards, or other teaching aids. It helps make educational processes more practical and accessible.' },
+      { key: 'visibility_materials', label: 'Visibility materials', title: 'Production of Visibility Materials', description: 'This task focuses on preparing branded or visual items used to increase recognition of the project. It may include banners, roll-ups, posters, or related resources. It supports public visibility and communication in activities and events.' },
+      { key: 'workshop_materials', label: 'Workshop materials', title: 'Provision of Workshop Materials', description: 'This task covers the preparation or acquisition of physical items needed to run workshop activities effectively. It may include stationery, practical tools, or activity-specific materials. It supports implementation and participant engagement.' },
+      { key: 'event_materials', label: 'Event materials', title: 'Provision of Event Materials', description: 'This task focuses on preparing the materials needed for conferences, meetings, or public events. It may include signage, folders, participant packs, or visual supports. It helps improve organisation and the participant experience.' },
+      { key: 'participant_kits', label: 'Participant kits / welcome packs', title: 'Preparation of Participant Kits and Welcome Packs', description: 'This task covers the creation of material packs prepared for participants at the beginning of an activity or event. They may include practical, informative, or branded resources. It supports participant orientation, engagement, and a welcoming experience.' },
+    ]
+  },
+  {
+    category: 'consumables',
+    label: 'Consumables',
+    icon: 'eco',
+    subtypes: [
+      { key: 'printing', label: 'Printing consumables', title: 'Provision of Printing Consumables', description: 'This task focuses on supplying paper, ink, toner, or other materials needed for printing project resources. It supports the preparation of communication materials, handouts, and internal documentation. It is useful across administrative and educational activities.' },
+      { key: 'workshop_cons', label: 'Workshop consumables', title: 'Provision of Workshop Consumables', description: 'This task covers the supply of materials used up during workshops, practical sessions, or participatory activities. It may include paper, markers, cards, or other disposable resources. It supports dynamic and hands-on implementation.' },
+      { key: 'office', label: 'Office consumables', title: 'Provision of Office Consumables', description: 'This task focuses on obtaining the everyday materials needed for project administration and coordination. It may include pens, folders, paper, or similar supplies. It supports the practical organisation of project work.' },
+      { key: 'hygiene', label: 'Hygiene / cleaning consumables', title: 'Provision of Hygiene and Cleaning Consumables', description: 'This task covers the supply of cleaning and hygiene materials used during meetings, workshops, or events. It helps maintain safe and appropriate conditions for participants. It is especially relevant in shared spaces and group activities.' },
+      { key: 'catering', label: 'Catering consumables', title: 'Provision of Catering Consumables', description: 'This task focuses on supplying food-related disposable items used during meetings, workshops, or events. It may include cups, plates, napkins, or similar materials. It supports participant comfort and logistical organisation.' },
+      { key: 'technical_cons', label: 'Technical consumables', title: 'Provision of Technical Consumables', description: 'This task covers the supply of small technical items needed during project implementation, such as batteries, cables, or storage media. It supports the proper functioning of equipment and technical activities. It is useful in events, workshops, and production work.' },
+    ]
+  },
+  {
+    category: 'other_costs',
+    label: 'Other Costs',
+    icon: 'more_horiz',
+    subtypes: [
+      { key: 'translation', label: 'Translation / interpretation costs', title: 'Provision of Translation and Interpretation Services', description: 'This task focuses on ensuring multilingual accessibility of project activities and results. It may include written translation or live interpretation depending on the needs of the project. It supports inclusion, communication, and international cooperation.' },
+      { key: 'external_expert', label: 'External expert / trainer costs', title: 'Engagement of External Experts and Trainers', description: 'This task covers the involvement of external professionals who contribute specialised knowledge or training to the project. Their role may support workshops, outputs, mentoring, or specific activities. It helps improve quality and thematic relevance.' },
+      { key: 'venue_rental', label: 'Venue / space rental costs', title: 'Rental of Venues and Activity Spaces', description: 'This task focuses on securing appropriate spaces for meetings, workshops, training sessions, or public events. It supports the practical implementation of project activities in suitable conditions. It is relevant when partner-owned spaces are not available or sufficient.' },
+      { key: 'hosting_software', label: 'Hosting / software / platform costs', title: 'Provision of Hosting, Software, and Platform Services', description: 'This task covers the digital services needed to support project implementation, such as website hosting, online tools, software licences, or digital subscriptions. It supports communication, learning, content management, and project coordination.' },
+      { key: 'travel_support', label: 'Travel / accommodation support costs', title: 'Provision of Travel and Accommodation Support', description: 'This task focuses on covering additional support needs related to participant mobility and attendance. It helps ensure that participants can access activities under suitable conditions. It is particularly useful in inclusive, international, or mobility-based contexts.' },
+      { key: 'evaluation_admin', label: 'Evaluation / administrative support costs', title: 'Provision of Evaluation and Administrative Support', description: 'This task covers additional support needed for evaluation, reporting, documentation, or administrative coordination within the project. It helps strengthen quality assurance and organisational capacity. It supports smooth implementation and accountability.' },
+    ]
+  },
+];
+
+module.exports = TASK_TEMPLATES;

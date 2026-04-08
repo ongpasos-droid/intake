@@ -20,7 +20,7 @@ const MyProjects = (() => {
   function init() {
     loadProjects();
     document.getElementById('my-projects-new-btn')?.addEventListener('click', () => {
-      App.navigate('intake', true, true);
+      location.hash = 'create';
     });
   }
 

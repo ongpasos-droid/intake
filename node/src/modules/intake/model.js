@@ -453,5 +453,52 @@ module.exports = {
   findContextsByProjectId,
   findContextById,
   updateContextFields,
-  searchEntities
+  searchEntities,
+  // Tasks
+  listTasks,
+  createTask,
+  updateTask,
+  deleteTask,
+  deleteAllTasks,
 };
+
+/* ── Project Tasks ───────────────────────────────────────────── */
+
+async function listTasks(projectId) {
+  const [rows] = await db.query(
+    'SELECT * FROM project_tasks WHERE project_id = ? ORDER BY wp_id, sort_order, created_at',
+    [projectId]
+  );
+  return rows;
+}
+
+async function createTask(data) {
+  const id = genUUID();
+  await db.query(
+    `INSERT INTO project_tasks (id, project_id, wp_id, category, subtype, title, description, partner_id, start_month, end_month, deliverable, milestone, kpi, sort_order)
+     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+    [id, data.project_id, data.wp_id || null, data.category, data.subtype, data.title, data.description || null,
+     data.partner_id || null, data.start_month || null, data.end_month || null,
+     data.deliverable || null, data.milestone || null, data.kpi || null, data.sort_order || 0]
+  );
+  return { id };
+}
+
+async function updateTask(id, data) {
+  const fields = [];
+  const params = [];
+  for (const key of ['wp_id', 'title', 'description', 'partner_id', 'start_month', 'end_month', 'deliverable', 'milestone', 'kpi', 'status', 'sort_order']) {
+    if (data[key] !== undefined) { fields.push(`${key} = ?`); params.push(data[key]); }
+  }
+  if (!fields.length) return;
+  params.push(id);
+  await db.query(`UPDATE project_tasks SET ${fields.join(', ')} WHERE id = ?`, params);
+}
+
+async function deleteTask(id) {
+  await db.query('DELETE FROM project_tasks WHERE id = ?', [id]);
+}
+
+async function deleteAllTasks(projectId) {
+  await db.query('DELETE FROM project_tasks WHERE project_id = ?', [projectId]);
+}

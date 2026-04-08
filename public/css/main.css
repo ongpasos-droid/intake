@@ -348,6 +348,38 @@ input:focus, select:focus, textarea:focus {
 .calc-table tr:last-child td { border-bottom: none }
 .calc-table input[type="number"] { width: 90px; padding: 5px 8px; font-size: 13px; text-align: right }
 
+/* ── Global rounded inputs across calculator & intake ────────── */
+.calc-act input,
+.calc-act select,
+.calc-act textarea,
+.calc-table input,
+.calc-table select,
+#intake-calc-container input,
+#intake-calc-container select,
+#intake-calc-container textarea,
+#panel-intake input:not([type="checkbox"]):not([type="radio"]):not([type="hidden"]):not([type="file"]),
+#panel-intake select,
+#panel-intake textarea {
+  border-radius: 8px;
+  border: 1px solid rgba(120,118,130,.2);
+  outline: none;
+  transition: border-color .15s, box-shadow .15s;
+}
+.calc-act input:focus,
+.calc-act select:focus,
+.calc-act textarea:focus,
+.calc-table input:focus,
+.calc-table select:focus,
+#intake-calc-container input:focus,
+#intake-calc-container select:focus,
+#intake-calc-container textarea:focus,
+#panel-intake input:focus,
+#panel-intake select:focus,
+#panel-intake textarea:focus {
+  border-color: #1b1464;
+  box-shadow: 0 0 0 2px rgba(27,20,100,.1);
+}
+
 @media (max-width: 639px) {
   .calc-table input[type="number"] { width: 70px; font-size: 14px }
 }

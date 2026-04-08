@@ -332,5 +332,91 @@ module.exports = {
   listContexts,
   updateContext,
   searchEntities,
-  parseFormB
+  parseFormB,
+  // Tasks
+  getTaskTemplates,
+  listTasks,
+  createTask,
+  generateTasks,
+  updateTask,
+  deleteTask,
+  deleteAllTasks,
 };
+
+/* ── Task Templates ──────────────────────────────────────────── */
+
+const TASK_TEMPLATES = require('../../data/task-templates');
+
+async function getTaskTemplates(req, res) {
+  res.json({ ok: true, data: TASK_TEMPLATES });
+}
+
+/* ── Project Tasks ───────────────────────────────────────────── */
+
+async function listTasks(req, res) {
+  try {
+    const tasks = await model.listTasks(req.params.projectId);
+    res.json({ ok: true, data: tasks });
+  } catch (e) { res.status(500).json({ ok: false, error: { message: e.message } }); }
+}
+
+async function createTask(req, res) {
+  try {
+    const result = await model.createTask({ project_id: req.params.projectId, ...req.body });
+    res.json({ ok: true, data: result });
+  } catch (e) { res.status(500).json({ ok: false, error: { message: e.message } }); }
+}
+
+async function generateTasks(req, res) {
+  try {
+    const { activities } = req.body;
+    // activities = [{ wp_id, category, subtype }, ...]
+    if (!activities || !Array.isArray(activities)) {
+      return res.status(400).json({ ok: false, error: { message: 'activities array required' } });
+    }
+
+    const created = [];
+    for (let i = 0; i < activities.length; i++) {
+      const act = activities[i];
+      // Find template
+      const cat = TASK_TEMPLATES.find(c => c.category === act.category);
+      if (!cat) continue;
+      const sub = cat.subtypes.find(s => s.key === act.subtype);
+      if (!sub) continue;
+
+      const result = await model.createTask({
+        project_id: req.params.projectId,
+        wp_id: act.wp_id || null,
+        category: act.category,
+        subtype: act.subtype,
+        title: sub.title,
+        description: sub.description,
+        sort_order: i,
+      });
+      created.push({ ...result, title: sub.title, category: act.category, subtype: act.subtype });
+    }
+
+    res.json({ ok: true, data: created });
+  } catch (e) { res.status(500).json({ ok: false, error: { message: e.message } }); }
+}
+
+async function updateTask(req, res) {
+  try {
+    await model.updateTask(req.params.id, req.body);
+    res.json({ ok: true, data: { updated: true } });
+  } catch (e) { res.status(500).json({ ok: false, error: { message: e.message } }); }
+}
+
+async function deleteTask(req, res) {
+  try {
+    await model.deleteTask(req.params.id);
+    res.json({ ok: true, data: null });
+  } catch (e) { res.status(500).json({ ok: false, error: { message: e.message } }); }
+}
+
+async function deleteAllTasks(req, res) {
+  try {
+    await model.deleteAllTasks(req.params.projectId);
+    res.json({ ok: true, data: null });
+  } catch (e) { res.status(500).json({ ok: false, error: { message: e.message } }); }
+}

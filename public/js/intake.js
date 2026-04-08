@@ -22,7 +22,8 @@ const Intake = (() => {
     { key: 'rutas',        label: 'Rutas',         icon: 'route',         panel: 'intake-dynamic', calc: 'routes' },
     { key: 'wps',          label: 'WPs',           icon: 'account_tree',  panel: 'intake-dynamic', calc: 'mergedWPs' },
     { key: 'presupuesto',  label: 'Budget',        icon: 'payments',      panel: 'intake-dynamic', calc: 'results' },
-    { key: 'gantt',        label: 'Gantt',         icon: 'timeline',      panel: 'intake-dynamic', calc: 'gantt' },
+    { key: 'tareas',       label: 'Tareas',        icon: 'task_alt',      panel: 'intake-tasks' },
+    { key: 'gantt',        label: 'Gantt',         icon: 'timeline',      panel: 'intake-gantt' },
     { key: 'resumen',      label: 'Resumen',       icon: 'summarize',     panel: 'intake-p3' },
   ];
 
@@ -354,7 +355,17 @@ const Intake = (() => {
       }
     }
 
-    // If going to summary (step 8), build it with budget data
+    // If going to gantt step, render gantt UI
+    if (cfg.key === 'gantt' && typeof IntakeGantt !== 'undefined') {
+      IntakeGantt.render(document.getElementById('intake-gantt-container'), currentProjectId);
+    }
+
+    // If going to tasks step, render tasks UI
+    if (cfg.key === 'tareas' && typeof IntakeTasks !== 'undefined') {
+      IntakeTasks.render(document.getElementById('intake-tasks-container'), currentProjectId);
+    }
+
+    // If going to summary, build it with budget data
     if (s === STEPS.length - 1) buildSummary();
 
     // Update nav dots

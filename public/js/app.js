@@ -139,12 +139,14 @@ const App = (() => {
     const titles = {
       dashboard:  'Dashboard',
       'my-projects': 'Mis Proyectos',
-      create:     'Crear Proyecto',
+      create:     'Design',
       intake:     'Intake',
+      developer:  'Write',
       calculator: 'Calculator',
       planner:    'Planner',
       developer:  'Developer',
       evaluator:  'Evaluator',
+      budget:     'Presupuesto',
       partners:   'Partners',
       'my-documents': 'My Documents',
       research:       'Research',
@@ -167,6 +169,7 @@ const App = (() => {
     if (route === 'organizations' && typeof Organizations !== 'undefined') Organizations.initDirectory();
     if (route === 'research' && typeof Research !== 'undefined') Research.init();
     if (route === 'evaluator' && typeof Evaluator !== 'undefined') Evaluator.init();
+    if (route === 'budget' && typeof Budget !== 'undefined') Budget.init();
   }
 
   /* ── Toggle sidebar (mobile) ───────────────────────────────── */
@@ -243,11 +246,28 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  /* ── Dashboard "Create New Project" buttons ────────────────── */
-  document.getElementById('btn-new-project')?.addEventListener('click', () => {
-    App.navigate('intake', true, true);
-  });
-  document.getElementById('btn-new-project-bottom')?.addEventListener('click', () => {
-    App.navigate('intake', true, true);
-  });
+  /* ── Dashboard — load recent projects ────────────────────── */
+  const recentEl = document.getElementById('dashboard-recent-projects');
+  if (recentEl) {
+    API.get('/intake/projects').then(projects => {
+      const list = Array.isArray(projects) ? projects : (projects.data || []);
+      if (!list.length) {
+        recentEl.innerHTML = '<p class="text-sm text-on-surface-variant text-center py-6">No projects yet. Start by designing your first project above.</p>';
+        return;
+      }
+      recentEl.innerHTML = list.slice(0, 5).map(p => `
+        <div class="flex items-center gap-3 px-4 py-3 bg-white rounded-xl shadow-sm hover:shadow-md cursor-pointer transition-all mb-2" onclick="if(typeof Intake!=='undefined'){Intake.openProject('${p.id}')}">
+          <div class="w-8 h-8 rounded-lg bg-[#1b1464] flex items-center justify-center flex-shrink-0">
+            <span class="material-symbols-outlined text-[#e7eb00] text-base">description</span>
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="text-sm font-bold text-on-surface truncate">${p.name || 'Untitled'}</div>
+            <div class="text-[10px] text-on-surface-variant">${p.type || ''} &middot; ${p.status || 'draft'}</div>
+          </div>
+          <span class="material-symbols-outlined text-on-surface-variant/30 text-sm">chevron_right</span>
+        </div>`).join('');
+    }).catch(() => {
+      recentEl.innerHTML = '<p class="text-xs text-on-surface-variant text-center py-4">Log in to see your projects.</p>';
+    });
+  }
 });
