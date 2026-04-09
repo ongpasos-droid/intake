@@ -269,7 +269,7 @@ const Admin = (() => {
         action_type: '',
         active: 1
       });
-      await API.post(`/admin/data/eval/${id}/import`, EVAL_TEMPLATE);
+      // No pre-load eval template — admin links form template first, then generates eval from it
       convOpenProgram(id, name);
     } catch (e) { Toast.show('Error: ' + e.message, 'err'); }
   }
