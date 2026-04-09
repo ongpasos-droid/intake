@@ -33,6 +33,7 @@ const Intake = (() => {
     { key: 'tareas',       label: 'Tareas',        icon: 'task_alt',      panel: 'intake-tasks' },
     { key: 'gantt',        label: 'Gantt',         icon: 'timeline',      panel: 'intake-gantt' },
     { key: 'resumen',      label: 'Resumen',       icon: 'summarize',     panel: 'intake-p3' },
+    { key: 'lanzar',       label: 'Lanzar',        icon: 'rocket_launch', panel: 'intake-launch' },
   ];
 
   /* ── Word counter config ─────────────────────────────────────── */
@@ -364,18 +365,25 @@ const Intake = (() => {
       renderCalcStep(cfg.calc);
     }
 
-    // If going to gantt step, render gantt UI
+    // If going to gantt step, render gantt UI (ensure calc is init first)
     if (cfg.key === 'gantt' && typeof IntakeGantt !== 'undefined') {
-      IntakeGantt.render(document.getElementById('intake-gantt-container'), currentProjectId);
+      ensureCalcInit().then(() => {
+        IntakeGantt.render(document.getElementById('intake-gantt-container'), currentProjectId);
+      });
     }
 
-    // If going to tasks step, render tasks UI
+    // If going to tasks step, render tasks UI (ensure calc is init first)
     if (cfg.key === 'tareas' && typeof IntakeTasks !== 'undefined') {
-      IntakeTasks.render(document.getElementById('intake-tasks-container'), currentProjectId);
+      ensureCalcInit().then(() => {
+        IntakeTasks.render(document.getElementById('intake-tasks-container'), currentProjectId);
+      });
     }
 
     // If going to summary, build it with budget data
-    if (s === STEPS.length - 1) buildSummary();
+    if (cfg.key === 'resumen') buildSummary();
+
+    // If going to launch step, populate stats
+    if (cfg.key === 'lanzar') renderLaunchStep();
 
     // Update nav dots
     for (let i = 0; i < STEPS.length; i++) {
@@ -939,6 +947,70 @@ const Intake = (() => {
       }
     } else if (budgetEl) {
       budgetEl.innerHTML = '<p class="text-sm text-on-surface-variant italic">No se ha configurado el presupuesto a\u00FAn</p>';
+    }
+  }
+
+  /* ── Launch step (step 10) ─────────────────────────────────── */
+  function renderLaunchStep() {
+    const statsEl = document.getElementById('intake-launch-stats');
+    if (!statsEl) return;
+
+    const nPartners = partners.filter(p => p.name).length;
+    let nWPs = 0, nActs = 0, budget = '—';
+
+    if (calcInitialized && typeof Calculator !== 'undefined' && Calculator.isInitialized()) {
+      const cs = Calculator.getCalcState();
+      nWPs = cs.wps.length;
+      nActs = cs.wps.reduce((s, wp) => s + wp.activities.length, 0);
+      budget = '\u20AC' + Math.round(cs.total).toLocaleString('es-ES');
+    }
+
+    statsEl.innerHTML = [
+      { icon: 'groups', label: 'Partners', value: nPartners },
+      { icon: 'account_tree', label: 'Work Packages', value: nWPs },
+      { icon: 'task_alt', label: 'Actividades', value: nActs },
+      { icon: 'payments', label: 'Presupuesto', value: budget },
+    ].map(s => `
+      <div class="bg-surface-container-lowest border border-outline-variant/20 rounded-xl p-4 text-center">
+        <span class="material-symbols-outlined text-2xl text-primary mb-1 block">${s.icon}</span>
+        <div class="font-headline text-xl font-extrabold text-on-surface">${s.value}</div>
+        <div class="text-[10px] uppercase tracking-wider text-on-surface-variant font-bold">${s.label}</div>
+      </div>
+    `).join('');
+
+    // Bind launch button
+    const btn = document.getElementById('intake-btn-launch');
+    if (btn && !btn._bound) {
+      btn._bound = true;
+      btn.addEventListener('click', launchProject);
+    }
+  }
+
+  async function launchProject() {
+    if (!currentProjectId) {
+      Toast.show('Guarda el proyecto primero', 'err');
+      return;
+    }
+
+    // Save current state first
+    await saveToServer(true);
+
+    try {
+      await API.patch('/intake/projects/' + currentProjectId + '/launch', {});
+      Toast.show('Proyecto lanzado a escritura', 'ok');
+
+      // Navigate to Write module
+      location.hash = 'developer';
+      document.querySelectorAll('#content-area .panel').forEach(p => p.classList.remove('active'));
+      const panel = document.getElementById('panel-developer');
+      if (panel) panel.classList.add('active');
+      document.querySelectorAll('.nav-link').forEach(link => {
+        link.classList.toggle('active', link.dataset.route === 'developer');
+      });
+      document.getElementById('topbar-title').textContent = 'Write';
+      if (typeof Developer !== 'undefined') Developer.init();
+    } catch (err) {
+      Toast.show('Error: ' + (err.message || err), 'err');
     }
   }
 

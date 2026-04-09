@@ -14,10 +14,20 @@ function requireAdmin(req, res, next) {
 const guard = [requireAuth, requireAdmin];
 
 /* ── Convocatorias (intake_programs) ─────────────────────────── */
+router.get   ('/data/programs/full',   guard, ctrl.listProgramsWithCounts);
 router.get   ('/data/programs',        guard, ctrl.listPrograms);
 router.post  ('/data/programs',        guard, ctrl.upsertProgram);
+router.post  ('/data/programs/:id/duplicate', guard, ctrl.duplicateProgram);
 router.patch ('/data/programs/:id',    guard, ctrl.upsertProgram);
 router.delete('/data/programs/:id',    guard, ctrl.deleteProgram);
+
+/* ── Generate eval from form template ────────────────────────── */
+router.post ('/data/programs/:programId/generate-eval', guard, ctrl.generateEvalFromTemplate);
+
+/* ── Call documents (per programme) ──────────────────────────── */
+router.get   ('/data/programs/:programId/docs',     guard, ctrl.listCallDocuments);
+router.post  ('/data/programs/:programId/docs',     guard, ctrl.createCallDocument);
+router.delete('/data/call-docs/:id',                guard, ctrl.deleteCallDocument);
 
 /* ── Países ───────────────────────────────────────────────────── */
 router.get   ('/data/countries',       guard, ctrl.listCountries);

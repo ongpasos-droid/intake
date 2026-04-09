@@ -18,6 +18,7 @@ router.get('/projects', requireAuth, ctrl.listProjects);
 router.get('/projects/:id', requireAuth, ctrl.getProject);
 router.post('/projects', requireAuth, ctrl.createProject);
 router.patch('/projects/:id', requireAuth, ctrl.updateProject);
+router.patch('/projects/:id/launch', requireAuth, ctrl.launchProject);
 router.delete('/projects/:id', requireAuth, ctrl.deleteProject);
 
 /* ── Partners ──────────────────────────────────────────────────── */

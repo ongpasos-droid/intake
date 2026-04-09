@@ -28,17 +28,18 @@ const Developer = (() => {
 
     try {
       const result = await API.get('/intake/projects');
-      const projects = Array.isArray(result) ? result : (result.data || result);
+      const all = Array.isArray(result) ? result : (result.data || result);
+      const projects = (all || []).filter(p => p.status === 'writing' || p.status === 'evaluating');
 
-      if (!projects || projects.length === 0) {
+      if (!projects.length) {
         el.innerHTML = `
           <div class="flex flex-col items-center justify-center py-16 text-center">
             <span class="material-symbols-outlined text-5xl text-outline-variant/40 mb-4">draft</span>
-            <h3 class="font-headline text-lg font-bold text-primary mb-2">No tienes proyectos todavía</h3>
-            <p class="text-sm text-on-surface-variant mb-6 max-w-sm">Primero diseña un proyecto en el módulo de Design para poder redactarlo aquí.</p>
+            <h3 class="font-headline text-lg font-bold text-primary mb-2">No tienes proyectos listos para escribir</h3>
+            <p class="text-sm text-on-surface-variant mb-6 max-w-sm">Completa el diseno de un proyecto en Intake y pulsa "Comenzar a escribir" para verlo aqui.</p>
             <button type="button" id="developer-go-design"
               class="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-bold text-white bg-primary hover:bg-primary/90 shadow-md transition-all">
-              <span class="material-symbols-outlined text-lg">add</span> Diseñar proyecto
+              <span class="material-symbols-outlined text-lg">add</span> Disenar proyecto
             </button>
           </div>`;
         document.getElementById('developer-go-design')?.addEventListener('click', () => {
@@ -50,11 +51,10 @@ const Developer = (() => {
       el.innerHTML = '<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">' +
         projects.map(p => {
           const statusMap = {
-            draft:     { label: 'Borrador',  color: 'bg-amber-100 text-amber-700 border-amber-200', icon: 'edit_note' },
-            submitted: { label: 'Enviado',   color: 'bg-green-100 text-green-700 border-green-200', icon: 'send' },
-            approved:  { label: 'Aprobado',  color: 'bg-blue-100 text-blue-700 border-blue-200', icon: 'verified' }
+            writing:    { label: 'Escribiendo', color: 'bg-amber-100 text-amber-700 border-amber-200', icon: 'edit_note' },
+            evaluating: { label: 'Evaluando',   color: 'bg-blue-100 text-blue-700 border-blue-200', icon: 'verified' },
           };
-          const st = statusMap[p.status] || statusMap.draft;
+          const st = statusMap[p.status] || statusMap.writing;
 
           return `
           <div class="dev-project-card bg-white rounded-2xl border-2 border-outline-variant/20 hover:border-purple-400 p-5 cursor-pointer transition-all hover:shadow-lg group"

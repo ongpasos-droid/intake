@@ -174,9 +174,20 @@ const IntakeGantt = (() => {
     bindNav();
   }
 
+  /* ── Convert ISO date to relative month from project start ── */
+  function dateToMonth(isoDate, projectStart) {
+    if (!isoDate || !projectStart) return null;
+    const d = new Date(isoDate);
+    const ps = new Date(projectStart);
+    if (isNaN(d) || isNaN(ps)) return null;
+    return (d.getFullYear() - ps.getFullYear()) * 12 + (d.getMonth() - ps.getMonth());
+  }
+
   /* ── Build rows from WPs + tasks ───────────────────────────── */
   function buildRows(cs) {
     const rows = [];
+    const projStart = cs.projectStart;
+
     for (let wi = 0; wi < cs.wps.length; wi++) {
       const wp = cs.wps[wi];
       const c = wpColor(wi);
@@ -195,10 +206,23 @@ const IntakeGantt = (() => {
         if (act.type === 'mgmt') continue;
         const actLabel = act.subtype || act.label || ACT_TYPES_LABEL[act.type] || act.type;
         const typeName = ACT_TYPES_LABEL[act.type] || act.type;
+
+        // Use _gantt_start/end if set, otherwise compute from date_start/end
+        let start = act._gantt_start;
+        let end = act._gantt_end;
+        if ((start == null || start === 0) && act.date_start && projStart) {
+          start = dateToMonth(act.date_start, projStart);
+          if (start != null) act._gantt_start = start;
+        }
+        if ((end == null || end === 0) && act.date_end && projStart) {
+          end = dateToMonth(act.date_end, projStart);
+          if (end != null) act._gantt_end = end;
+        }
+
         rows.push({ wi, color: c, icon: ACT_ICONS[act.type]||'task',
           primary: actLabel,
           secondary: actLabel !== typeName ? typeName : '',
-          id: 'act-'+act.id, start: act._gantt_start||0, end: act._gantt_end||0, actRef: act });
+          id: 'act-'+act.id, start: start||0, end: end||0, actRef: act });
       }
 
       // Custom tasks

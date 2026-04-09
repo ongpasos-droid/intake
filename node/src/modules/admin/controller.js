@@ -54,6 +54,25 @@ exports.upsertEvalCriterion = wrap(async (req, res) => { ok(res, { id: await m.u
 exports.deleteEvalCriterion = wrap(async (req, res) => { await m.deleteEvalCriterion(req.params.id); ok(res, null); });
 exports.importEvalRules     = wrap(async (req, res) => { await m.importEvalRules(req.params.programId, req.body); ok(res, null); });
 
+/* ── Generate eval from template ──────────────────────────────── */
+exports.generateEvalFromTemplate = wrap(async (req, res) => {
+  ok(res, await m.generateEvalFromTemplate(req.params.programId, req.body.template_id));
+});
+
+/* ── Call documents ───────────────────────────────────────────── */
+exports.listCallDocuments   = wrap(async (req, res) => { ok(res, await m.listCallDocuments(req.params.programId)); });
+exports.createCallDocument  = wrap(async (req, res) => {
+  const { document_id, doc_type, label } = req.body;
+  ok(res, { id: await m.createCallDocument(req.params.programId, document_id, doc_type, label) });
+});
+exports.deleteCallDocument  = wrap(async (req, res) => { await m.deleteCallDocument(req.params.id); ok(res, null); });
+
+/* ── Duplicate programme ─────────────────────────────────────── */
+exports.duplicateProgram = wrap(async (req, res) => { ok(res, await m.duplicateProgram(req.params.id)); });
+
+/* ── Programmes with counts ──────────────────────────────────── */
+exports.listProgramsWithCounts = wrap(async (req, res) => { ok(res, await m.listProgramsWithCounts()); });
+
 /* ── Form templates & instances ──────────────────────────────── */
 exports.listFormTemplates  = wrap(async (req, res) => { ok(res, await m.listFormTemplates()); });
 exports.getFormTemplate    = wrap(async (req, res) => { ok(res, await m.getFormTemplate(req.params.id)); });

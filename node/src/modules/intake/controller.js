@@ -130,6 +130,23 @@ async function deleteProject(req, res, next) {
   }
 }
 
+/* ── PATCH /v1/intake/projects/:id/launch ───────────────────────── */
+async function launchProject(req, res, next) {
+  try {
+    const db = require('../../utils/db');
+    const [result] = await db.execute(
+      'UPDATE projects SET status = ? WHERE id = ? AND user_id = ?',
+      ['writing', req.params.id, req.user.id]
+    );
+    if (result.affectedRows === 0) {
+      return res.status(404).json({ ok: false, error: { code: 'NOT_FOUND', message: 'Project not found' } });
+    }
+    res.json({ ok: true, data: { status: 'writing' } });
+  } catch (err) {
+    next(err);
+  }
+}
+
 /* ── GET /v1/intake/projects/:projectId/partners ─────────────────── */
 async function listPartners(req, res, next) {
   try {
@@ -323,6 +340,7 @@ module.exports = {
   getProject,
   createProject,
   updateProject,
+  launchProject,
   deleteProject,
   listPartners,
   createPartner,

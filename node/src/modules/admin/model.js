@@ -15,7 +15,7 @@ async function upsertProgram(data, id) {
   if (id) {
     const allowed = ['program_id','name','action_type','deadline','start_date_min','start_date_max',
       'duration_min_months','duration_max_months','eu_grant_max','cofin_pct','indirect_pct',
-      'min_partners','notes','active'];
+      'min_partners','notes','active','form_template_id'];
     const sets = [], params = [];
     for (const k of allowed) {
       if (k in data) { sets.push(`${k}=?`); params.push(data[k] ?? null); }
@@ -565,6 +565,224 @@ async function deleteFormInstance(id) {
   await pool.query('DELETE FROM form_instances WHERE id = ?', [id]);
 }
 
+/* ══ Generate eval structure from form template ════════════════ */
+
+async function generateEvalFromTemplate(programId, templateId) {
+  const conn = await pool.getConnection();
+  try {
+    await conn.beginTransaction();
+
+    // Check no existing sections
+    const [existing] = await conn.query('SELECT COUNT(*) as c FROM eval_sections WHERE program_id=?', [programId]);
+    if (existing[0].c > 0) throw new Error('Esta convocatoria ya tiene secciones de evaluación. Elimínalas primero si quieres regenerar.');
+
+    // Load template
+    const [tplRows] = await conn.query('SELECT template_json FROM form_templates WHERE id=?', [templateId]);
+    if (!tplRows.length) throw new Error('Template not found');
+    let tmpl = tplRows[0].template_json;
+    if (typeof tmpl === 'string') tmpl = JSON.parse(tmpl);
+
+    const COLORS = ['#1e3a5f', '#2563eb', '#3b82f6', '#60a5fa', '#8b5cf6', '#06b6d4', '#ec4899', '#14b8a6'];
+    let secOrder = 0;
+
+    // Helper: create section + questions from subsections array
+    const createSection = async (title, formRef, color, subsections) => {
+      const secId = uuid();
+      await conn.query(
+        'INSERT INTO eval_sections (id, program_id, title, form_ref, color, max_score, sort_order) VALUES (?,?,?,?,?,0,?)',
+        [secId, programId, title, formRef, color, secOrder++]
+      );
+      let qOrder = 0;
+      for (const sub of subsections) {
+        await conn.query(
+          `INSERT INTO eval_questions (id, section_id, code, title, description, sort_order, max_score, weight)
+           VALUES (?,?,?,?,?,?,0,0)`,
+          [uuid(), secId, sub.number || '', sub.title || '', (sub.guidance || []).join('\n\n'), qOrder++]
+        );
+      }
+      return secId;
+    };
+
+    // Parse sections from template
+    for (const sec of (tmpl.sections || [])) {
+      const num = sec.number || '';
+      const title = `${num}. ${sec.title}`;
+
+      // Section 2 is special: has subsections_groups (2.1 and 2.2 are separate eval areas)
+      if (sec.subsections_groups && sec.subsections_groups.length) {
+        for (const grp of sec.subsections_groups) {
+          const grpTitle = `${grp.number} ${grp.title}`;
+          const subs = grp.subsections || [];
+          await createSection(grpTitle, grp.id, COLORS[secOrder % COLORS.length], subs);
+        }
+      } else if (sec.subsections && sec.subsections.length) {
+        // Normal section with direct subsections (1, 3, 4, 5, 6)
+        await createSection(title, sec.id, COLORS[secOrder % COLORS.length], sec.subsections);
+      }
+    }
+
+    // Also add Project Summary as a question in a "Summary" section if it exists
+    if (tmpl.project_summary) {
+      const secId = uuid();
+      await conn.query(
+        'INSERT INTO eval_sections (id, program_id, title, form_ref, color, max_score, sort_order) VALUES (?,?,?,?,?,0,?)',
+        [secId, programId, 'Project Summary', 'summary', '#9ca3af', secOrder++]
+      );
+      await conn.query(
+        'INSERT INTO eval_questions (id, section_id, code, title, description, sort_order, max_score, weight) VALUES (?,?,?,?,?,0,0,0)',
+        [uuid(), secId, 'SUM', 'Project Summary', (tmpl.project_summary.fields || []).map(f => f.guidance || '').join('\n')]
+      );
+    }
+
+    await conn.commit();
+    return { sections: secOrder };
+  } catch (e) { await conn.rollback(); throw e; }
+  finally { conn.release(); }
+}
+
+/* ══ call_documents ═════════════════════════════════════════════ */
+
+async function listCallDocuments(programId) {
+  const [rows] = await pool.query(
+    `SELECT cd.*, d.title AS doc_title, d.file_type, d.file_size_bytes, d.status AS doc_status,
+            d.tags, d.created_at AS doc_created_at
+     FROM call_documents cd
+     JOIN documents d ON d.id = cd.document_id
+     WHERE cd.program_id = ?
+     ORDER BY cd.sort_order, cd.created_at`,
+    [programId]
+  );
+  // Parse tags JSON
+  rows.forEach(r => {
+    if (typeof r.tags === 'string') try { r.tags = JSON.parse(r.tags); } catch(_) { r.tags = []; }
+  });
+  return rows;
+}
+
+async function createCallDocument(programId, documentId, docType, label) {
+  const id = uuid();
+  await pool.query(
+    'INSERT INTO call_documents (id, program_id, document_id, doc_type, label) VALUES (?,?,?,?,?)',
+    [id, programId, documentId, docType || 'other', label || null]
+  );
+  return id;
+}
+
+async function deleteCallDocument(id) {
+  await pool.query('DELETE FROM call_documents WHERE id=?', [id]);
+}
+
+/* ══ Duplicate call (programme + eligibility + eval tree) ══════ */
+
+async function duplicateProgram(sourceId) {
+  const conn = await pool.getConnection();
+  try {
+    await conn.beginTransaction();
+
+    // 1. Copy intake_programs
+    const [srcRows] = await conn.query('SELECT * FROM intake_programs WHERE id=?', [sourceId]);
+    if (!srcRows.length) throw new Error('Programme not found');
+    const src = srcRows[0];
+    const newId = uuid();
+    const newName = src.name + ' (copy)';
+    const newProgramId = src.program_id + '_copy_' + Date.now();
+    await conn.query(
+      `INSERT INTO intake_programs
+        (id, program_id, name, action_type, deadline, start_date_min, start_date_max,
+         duration_min_months, duration_max_months, eu_grant_max, cofin_pct, indirect_pct,
+         min_partners, notes, active, form_template_id)
+       VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,0,?)`,
+      [newId, newProgramId, newName, src.action_type, src.deadline,
+       src.start_date_min, src.start_date_max, src.duration_min_months, src.duration_max_months,
+       src.eu_grant_max, src.cofin_pct, src.indirect_pct,
+       src.min_partners, src.notes, src.form_template_id]
+    );
+
+    // 2. Copy call_eligibility
+    const [eligRows] = await conn.query('SELECT * FROM call_eligibility WHERE program_id=?', [sourceId]);
+    if (eligRows.length) {
+      const e = eligRows[0];
+      await conn.query(
+        `INSERT INTO call_eligibility
+          (id, program_id, eligible_country_types, eligible_entity_types,
+           min_partners, min_countries, max_coord_applications,
+           activity_location_types, additional_rules, writing_style, ai_detection_rules)
+         VALUES (?,?,?,?,?,?,?,?,?,?,?)`,
+        [uuid(), newId, e.eligible_country_types, e.eligible_entity_types,
+         e.min_partners, e.min_countries, e.max_coord_applications,
+         e.activity_location_types, e.additional_rules, e.writing_style, e.ai_detection_rules]
+      );
+    }
+
+    // 3. Copy eval tree (sections → questions → criteria)
+    const [sections] = await conn.query('SELECT * FROM eval_sections WHERE program_id=? ORDER BY sort_order', [sourceId]);
+    for (const sec of sections) {
+      const newSecId = uuid();
+      await conn.query(
+        'INSERT INTO eval_sections (id, program_id, title, form_ref, color, max_score, eval_notes, sort_order) VALUES (?,?,?,?,?,?,?,?)',
+        [newSecId, newId, sec.title, sec.form_ref, sec.color, sec.max_score, sec.eval_notes, sec.sort_order]
+      );
+      const [questions] = await conn.query('SELECT * FROM eval_questions WHERE section_id=? ORDER BY sort_order', [sec.id]);
+      for (const q of questions) {
+        const newQId = uuid();
+        await conn.query(
+          `INSERT INTO eval_questions
+            (id, section_id, code, title, description, word_limit, page_limit,
+             writing_guidance, scoring_logic, weight, max_score, threshold,
+             general_rules, score_caps, sort_order)
+           VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`,
+          [newQId, newSecId, q.code, q.title, q.description, q.word_limit, q.page_limit,
+           q.writing_guidance, q.scoring_logic, q.weight, q.max_score, q.threshold,
+           q.general_rules, q.score_caps, q.sort_order]
+        );
+        const [criteria] = await conn.query('SELECT * FROM eval_criteria WHERE question_id=? ORDER BY sort_order', [q.id]);
+        for (const c of criteria) {
+          await conn.query(
+            `INSERT INTO eval_criteria
+              (id, question_id, title, max_score, mandatory, meaning, structure,
+               relations, rules, red_flags, score_rubric, sort_order)
+             VALUES (?,?,?,?,?,?,?,?,?,?,?,?)`,
+            [uuid(), newQId, c.title, c.max_score, c.mandatory, c.meaning, c.structure,
+             c.relations, c.rules, c.red_flags, c.score_rubric, c.sort_order]
+          );
+        }
+      }
+    }
+
+    // 4. Copy call_documents links
+    const [docs] = await conn.query('SELECT * FROM call_documents WHERE program_id=?', [sourceId]);
+    for (const d of docs) {
+      await conn.query(
+        'INSERT INTO call_documents (id, program_id, document_id, doc_type, label, sort_order) VALUES (?,?,?,?,?,?)',
+        [uuid(), newId, d.document_id, d.doc_type, d.label, d.sort_order]
+      );
+    }
+
+    await conn.commit();
+    return { id: newId, name: newName };
+  } catch (e) { await conn.rollback(); throw e; }
+  finally { conn.release(); }
+}
+
+/* ══ Programme with counts (for unified card list) ═════════════ */
+
+async function listProgramsWithCounts() {
+  const [rows] = await pool.query(`
+    SELECT p.*,
+           ft.name AS template_name,
+           (SELECT COUNT(*) FROM eval_sections WHERE program_id = p.id) AS section_count,
+           (SELECT COUNT(*) FROM eval_criteria ec
+            JOIN eval_questions eq ON ec.question_id = eq.id
+            JOIN eval_sections es ON eq.section_id = es.id
+            WHERE es.program_id = p.id) AS criteria_count,
+           (SELECT COUNT(*) FROM call_documents WHERE program_id = p.id) AS doc_count
+    FROM intake_programs p
+    LEFT JOIN form_templates ft ON p.form_template_id = ft.id
+    ORDER BY p.active DESC, p.deadline ASC
+  `);
+  return rows;
+}
+
 module.exports = {
   listPrograms, upsertProgram, deleteProgram,
   listCountries, upsertCountry, deleteCountry,
@@ -579,5 +797,7 @@ module.exports = {
   importEvalRules,
   listFormTemplates, getFormTemplate,
   listFormInstances, createFormInstance, getFormInstance,
-  getFormValues, saveFormValues, updateFormInstance, deleteFormInstance
+  getFormValues, saveFormValues, updateFormInstance, deleteFormInstance,
+  listCallDocuments, createCallDocument, deleteCallDocument,
+  duplicateProgram, listProgramsWithCounts, generateEvalFromTemplate
 };

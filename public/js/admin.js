@@ -5,14 +5,14 @@
 
 const Admin = (() => {
   let initialized = false;
-  let activeSection = 'evaluator';
+  let activeSection = 'convocatorias';
 
   /* ── Init ────────────────────────────────────────────────────── */
   function init() {
     if (initialized) { loadSection(activeSection); return; }
     initialized = true;
     bindNav();
-    loadSection('evaluator');
+    loadSection('convocatorias');
   }
 
   /* ── Section nav ─────────────────────────────────────────────── */
@@ -35,17 +35,15 @@ const Admin = (() => {
     document.querySelectorAll('.admin-section').forEach(s => s.classList.add('hidden'));
     document.getElementById(`admin-sec-${section}`)?.classList.remove('hidden');
     switch (section) {
-      case 'programs':    loadPrograms(); break;
+      case 'convocatorias': loadConvocatorias(); break;
       case 'countries':   loadCountries(); break;
       case 'perdiem':     loadPerdiem(); break;
       case 'workers':     loadWorkers(); bindWorkerAdd(); break;
       case 'entities':    loadEntities(); break;
       case 'eligibility': loadEligibility(); break;
-      case 'evaluator':   loadEvaluator(); break;
       case 'all-docs':      loadAllDocs(); break;
       case 'platform-docs': loadPlatformDocs(); break;
       case 'library':       loadAdminLibrary(); break;
-      case 'forms':         loadForms(); break;
     }
   }
 
@@ -149,7 +147,521 @@ const Admin = (() => {
     });
   }
 
-  /* ══ CONVOCATORIAS ═══════════════════════════════════════════ */
+  /* ══ CONVOCATORIAS (unified) ════════════════════════════════ */
+
+  let convActiveSubtab = 'data';
+
+  function convShowView(view) {
+    document.querySelectorAll('#admin-sec-convocatorias .conv-view').forEach(v => v.classList.add('hidden'));
+    document.getElementById(`conv-view-${view}`)?.classList.remove('hidden');
+  }
+
+  async function loadConvocatorias() {
+    ev = { programId: null, programName: '', sections: [], activeSectionIdx: 0, activeQuestionIdx: 0 };
+    convShowView('list');
+    const list = document.getElementById('conv-program-list');
+    list.innerHTML = '<p class="text-sm text-on-surface-variant py-4"><span class="spinner"></span> Cargando convocatorias...</p>';
+    try {
+      const programs = await API.get('/admin/data/programs/full');
+      if (!programs.length) {
+        list.innerHTML = `<div class="text-center py-16">
+          <span class="material-symbols-outlined text-5xl text-outline-variant/40 mb-4">campaign</span>
+          <p class="text-sm text-on-surface-variant mb-4">No hay convocatorias configuradas</p>
+          <button id="conv-first-call" class="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-xl text-xs font-bold text-[#e7eb00] bg-[#1b1464] hover:bg-[#1b1464]/80 transition-colors">
+            <span class="material-symbols-outlined text-sm">add</span> Nueva convocatoria
+          </button>
+        </div>`;
+        document.getElementById('conv-first-call')?.addEventListener('click', () => convNewProgram());
+        return;
+      }
+      programs.sort((a, b) => {
+        if (a.active !== b.active) return b.active - a.active;
+        if (!a.deadline && !b.deadline) return 0;
+        if (!a.deadline) return 1;
+        if (!b.deadline) return -1;
+        return new Date(a.deadline) - new Date(b.deadline);
+      });
+
+      const fmtDeadline = d => {
+        if (!d) return null;
+        const dt = new Date(d);
+        const diff = Math.ceil((dt - new Date()) / 86400000);
+        const str = dt.toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' });
+        return { str, diff, urgent: diff >= 0 && diff <= 30, past: diff < 0 };
+      };
+
+      list.innerHTML = `
+        <div class="flex items-center justify-between mb-4">
+          <button id="conv-new-program" class="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl text-xs font-bold text-[#e7eb00] bg-[#1b1464] hover:bg-[#1b1464]/80 transition-colors">
+            <span class="material-symbols-outlined text-sm">add</span> Nueva convocatoria
+          </button>
+          <span class="text-xs text-on-surface-variant">${programs.length} convocatoria${programs.length !== 1 ? 's' : ''}</span>
+        </div>
+        <div class="grid grid-cols-1 gap-2">
+        ${programs.map(p => {
+          const dl = fmtDeadline(p.deadline);
+          const dlBadge = dl
+            ? `<span class="px-2 py-1 rounded-lg text-[10px] font-bold ${dl.past ? 'bg-gray-100 text-gray-400' : dl.urgent ? 'bg-red-50 text-red-600' : 'bg-blue-50 text-blue-600'}">${dl.str}${dl.diff >= 0 ? ' (' + dl.diff + 'd)' : ''}</span>`
+            : '';
+          const grant = p.eu_grant_max ? `<span class="px-2 py-1 rounded-lg bg-green-50 text-green-700 text-[10px] font-bold">\u20AC${Number(p.eu_grant_max).toLocaleString('en')}</span>` : '';
+          const statusBadge = p.active
+            ? '<span class="px-2 py-0.5 rounded-full bg-green-100 text-green-700 text-[10px] font-bold">ACTIVA</span>'
+            : '<span class="px-2 py-0.5 rounded-full bg-gray-100 text-gray-400 text-[10px] font-bold">INACTIVA</span>';
+          return `
+          <div class="conv-card group flex items-center gap-3 px-4 py-3.5 bg-white rounded-xl border border-outline-variant/20 hover:border-primary/40 hover:shadow-md transition-all cursor-pointer" data-id="${p.id}">
+            <div class="w-9 h-9 rounded-lg ${p.active ? 'bg-[#1b1464]' : 'bg-gray-300'} flex items-center justify-center flex-shrink-0">
+              <span class="material-symbols-outlined text-white text-base">campaign</span>
+            </div>
+            <div class="flex-1 min-w-0">
+              <div class="text-sm font-bold text-on-surface group-hover:text-primary transition-colors truncate">${esc(p.name)}</div>
+              <div class="flex items-center gap-2 mt-0.5 text-[10px] text-on-surface-variant">
+                <span>${esc(p.action_type || '')}</span>
+                ${p.template_name ? `<span class="text-primary/50">· ${esc(p.template_name)}</span>` : ''}
+                <span class="text-primary/40">· ${p.section_count || 0} sec · ${p.criteria_count || 0} crit · ${p.doc_count || 0} docs</span>
+              </div>
+            </div>
+            <div class="flex items-center gap-2 flex-shrink-0">
+              ${grant} ${dlBadge} ${statusBadge}
+              <button class="conv-dup text-on-surface-variant/30 hover:text-primary transition-colors" data-id="${p.id}" title="Duplicar">
+                <span class="material-symbols-outlined text-sm">content_copy</span>
+              </button>
+              <button class="conv-del text-on-surface-variant/30 hover:text-error transition-colors" data-id="${p.id}" data-name="${esc(p.name)}" title="Eliminar">
+                <span class="material-symbols-outlined text-sm">delete</span>
+              </button>
+            </div>
+          </div>`;
+        }).join('')}
+        </div>`;
+
+      document.getElementById('conv-new-program')?.addEventListener('click', () => convNewProgram());
+      list.querySelectorAll('.conv-card').forEach(card => {
+        card.addEventListener('click', e => {
+          if (e.target.closest('.conv-del') || e.target.closest('.conv-dup')) return;
+          const prog = programs.find(p => p.id === card.dataset.id);
+          convOpenProgram(prog.id, prog.name, prog);
+        });
+      });
+      list.querySelectorAll('.conv-del').forEach(btn => {
+        btn.addEventListener('click', e => { e.stopPropagation(); evalDeleteProgram(btn.dataset.id, btn.dataset.name); });
+      });
+      list.querySelectorAll('.conv-dup').forEach(btn => {
+        btn.addEventListener('click', async e => {
+          e.stopPropagation();
+          if (!confirm('Duplicar esta convocatoria con todos sus criterios, elegibilidad y documentos?')) return;
+          try {
+            Toast.show('Duplicando...', 'ok');
+            const result = await API.post(`/admin/data/programs/${btn.dataset.id}/duplicate`);
+            Toast.show('Convocatoria duplicada: ' + (result.name || ''), 'ok');
+            loadConvocatorias();
+          } catch (e) { Toast.show('Error: ' + e.message, 'err'); }
+        });
+      });
+    } catch (e) { list.innerHTML = `<p class="text-sm text-error">${e.message}</p>`; }
+  }
+
+  async function convNewProgram() {
+    try {
+      Toast.show('Creando convocatoria...', 'ok');
+      const name = 'Nueva convocatoria';
+      const { id } = await API.post('/admin/data/programs', {
+        name,
+        program_id: 'new_' + Date.now(),
+        action_type: '',
+        active: 1
+      });
+      await API.post(`/admin/data/eval/${id}/import`, EVAL_TEMPLATE);
+      convOpenProgram(id, name);
+    } catch (e) { Toast.show('Error: ' + e.message, 'err'); }
+  }
+
+  async function convOpenProgram(programId, programName, prog) {
+    ev.programId = programId;
+    ev.programName = programName;
+    ev.activeSectionIdx = 0;
+    ev.activeQuestionIdx = 0;
+    convActiveSubtab = 'data';
+
+    convShowView('editor');
+    document.getElementById('conv-editor-title').textContent = programName;
+    document.getElementById('conv-editor-subtitle').textContent = prog?.action_type || '';
+    const badgeEl = document.getElementById('conv-editor-badge');
+    if (prog) {
+      badgeEl.innerHTML = prog.active
+        ? '<span class="px-2 py-0.5 rounded-full bg-green-100 text-green-700 text-[10px] font-bold">ACTIVA</span>'
+        : '<span class="px-2 py-0.5 rounded-full bg-gray-100 text-gray-400 text-[10px] font-bold">INACTIVA</span>';
+    }
+
+    // Bind back
+    const backBtn = document.getElementById('conv-back-btn');
+    backBtn.onclick = () => loadConvocatorias();
+
+    // Bind sub-tabs
+    document.querySelectorAll('#conv-subtabs .conv-subtab').forEach(btn => {
+      btn.onclick = () => {
+        convActiveSubtab = btn.dataset.subtab;
+        document.querySelectorAll('#conv-subtabs .conv-subtab').forEach(b => {
+          b.classList.remove('border-secondary-fixed', 'text-primary');
+          b.classList.add('border-transparent', 'text-on-surface-variant');
+        });
+        btn.classList.add('border-secondary-fixed', 'text-primary');
+        btn.classList.remove('border-transparent', 'text-on-surface-variant');
+        convRenderSubtab();
+      };
+    });
+    // Reset active tab visual
+    document.querySelectorAll('#conv-subtabs .conv-subtab').forEach(b => {
+      b.classList.remove('border-secondary-fixed', 'text-primary');
+      b.classList.add('border-transparent', 'text-on-surface-variant');
+    });
+    document.querySelector('#conv-subtabs [data-subtab="data"]').classList.add('border-secondary-fixed', 'text-primary');
+    document.querySelector('#conv-subtabs [data-subtab="data"]').classList.remove('border-transparent', 'text-on-surface-variant');
+
+    // Load eval tree for criteria tab
+    ev.sections = await API.get('/admin/data/eval/' + ev.programId);
+
+    convRenderSubtab();
+  }
+
+  function convRenderSubtab() {
+    const content = document.getElementById('conv-subtab-content');
+    switch (convActiveSubtab) {
+      case 'data':        evalRenderCallData(content); break;
+      case 'eligibility': evalRenderEligibility(content); break;
+      case 'form':        convRenderFormTab(content); break;
+      case 'criteria':    convRenderCriteriaTab(content); break;
+      case 'docs':        convRenderDocsTab(content); break;
+    }
+  }
+
+  /* ── Criteria sub-tab: reuses eval sidebar + main ─────────── */
+  async function convRenderCriteriaTab(content) {
+    // If no sections exist but template is linked, offer to generate
+    if (!ev.sections.length) {
+      const programs = await API.get('/admin/data/programs');
+      const prog = programs.find(p => p.id === ev.programId);
+      if (prog?.form_template_id) {
+        content.innerHTML = `
+          <div class="flex flex-col items-center justify-center py-16 text-center max-w-lg mx-auto">
+            <span class="material-symbols-outlined text-5xl text-purple-300 mb-4">auto_awesome</span>
+            <h3 class="font-headline text-lg font-bold text-primary mb-2">Generar estructura de evaluacion desde el formulario</h3>
+            <p class="text-sm text-on-surface-variant mb-6">Esta convocatoria tiene un form template vinculado pero no tiene criterios de evaluacion. Puedes generar automaticamente las secciones y preguntas basandote en la estructura del formulario.</p>
+            <p class="text-xs text-on-surface-variant mb-6">Se crearan las secciones (Relevance, Quality, Partnership, Impact, etc.) con todas sus preguntas. Los pesos y criterios los configuras despues.</p>
+            <button id="conv-generate-eval" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-bold text-[#e7eb00] bg-[#1b1464] hover:bg-[#1b1464]/80 transition-colors shadow-md">
+              <span class="material-symbols-outlined text-lg">auto_awesome</span> Generar desde form template
+            </button>
+            <div class="mt-6 w-full border-t border-outline-variant/20 pt-4">
+              <button id="conv-manual-section" class="text-xs text-on-surface-variant hover:text-primary transition-colors">o crear secciones manualmente</button>
+            </div>
+          </div>`;
+        document.getElementById('conv-generate-eval')?.addEventListener('click', async () => {
+          try {
+            Toast.show('Generando estructura...', 'ok');
+            await API.post(`/admin/data/programs/${ev.programId}/generate-eval`, { template_id: prog.form_template_id });
+            ev.sections = await API.get('/admin/data/eval/' + ev.programId);
+            Toast.show(`Generadas ${ev.sections.length} secciones con sus preguntas`, 'ok');
+            convRenderCriteriaTab(content);
+          } catch (e) { Toast.show('Error: ' + e.message, 'err'); }
+        });
+        document.getElementById('conv-manual-section')?.addEventListener('click', () => {
+          convRenderCriteriaEditor(content);
+        });
+        return;
+      }
+      // No template linked either
+      content.innerHTML = `
+        <div class="flex flex-col items-center justify-center py-16 text-center">
+          <span class="material-symbols-outlined text-5xl text-outline-variant/40 mb-4">rule</span>
+          <h3 class="font-headline text-lg font-bold text-primary mb-2">Sin criterios de evaluacion</h3>
+          <p class="text-sm text-on-surface-variant mb-6">Vincula primero un form template en la pestana "Form" para poder generar las preguntas automaticamente.</p>
+        </div>`;
+      return;
+    }
+    convRenderCriteriaEditor(content);
+  }
+
+  function convRenderCriteriaEditor(content) {
+    content.innerHTML = `
+      <div class="flex gap-0" style="min-height:70vh">
+        <div id="eval-sidebar" class="w-72 flex-shrink-0 bg-[#edf2f9] rounded-l-2xl flex flex-col overflow-hidden border-r border-outline-variant/20">
+          <div class="px-5 py-3">
+            <div class="text-[11px] text-on-surface-variant font-medium">Evaluation framework</div>
+          </div>
+          <div id="eval-sidebar-sections" class="flex-1 overflow-y-auto px-3 py-1"></div>
+          <div class="p-3">
+            <button id="eval-add-section-btn" class="w-full inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl text-[11px] font-bold text-primary border border-dashed border-primary/30 hover:bg-primary/5 transition-colors">
+              <span class="material-symbols-outlined text-sm">add</span> Add section
+            </button>
+          </div>
+        </div>
+        <div id="eval-main" class="flex-1 min-w-0 bg-white rounded-r-2xl border border-l-0 border-outline-variant/20">
+          <div id="eval-main-content" class="p-6">
+            <div class="flex flex-col items-center justify-center py-16 text-center">
+              <span class="material-symbols-outlined text-5xl text-outline-variant/40 mb-3">edit_note</span>
+              <p class="text-sm text-on-surface-variant">Selecciona una pregunta del sidebar para editar.</p>
+            </div>
+          </div>
+        </div>
+      </div>`;
+
+    // Bind add section
+    document.getElementById('eval-add-section-btn')?.addEventListener('click', async () => {
+      const title = prompt('Section title (e.g. Relevance):');
+      if (!title) return;
+      const maxStr = prompt('Max score for this section (EU fixed, e.g. 30):');
+      const maxScore = parseFloat(maxStr) || 0;
+      try {
+        await API.post('/admin/data/eval/sections', { program_id: ev.programId, title, color: EVAL_COLORS[ev.sections.length % EVAL_COLORS.length], max_score: maxScore, sort_order: ev.sections.length });
+        ev.sections = await API.get('/admin/data/eval/' + ev.programId);
+        evalRenderSidebar();
+        Toast.show('Section added', 'ok');
+      } catch (e) { Toast.show('Error: ' + e.message, 'error'); }
+    });
+
+    ev.activeSectionIdx = 0;
+    ev.activeQuestionIdx = 0;
+    evalRenderSidebar();
+    evalRenderMain();
+  }
+
+  /* ── Form sub-tab: read-only template viewer ─────────────── */
+  async function convRenderFormTab(content) {
+    content.innerHTML = '<p class="text-sm text-on-surface-variant py-4"><span class="spinner"></span> Cargando template...</p>';
+    try {
+      // Get programme to find form_template_id
+      const programs = await API.get('/admin/data/programs');
+      const prog = programs.find(p => p.id === ev.programId);
+      const templates = await API.get('/admin/data/forms/templates');
+
+      if (!prog?.form_template_id) {
+        // No template linked — show selector
+        content.innerHTML = `
+          <div class="max-w-lg">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-2 h-10 rounded-full bg-purple-500"></div>
+              <div>
+                <div class="text-[10px] font-bold uppercase tracking-widest text-primary">FORM TEMPLATE</div>
+                <h3 class="font-headline text-lg font-extrabold text-on-surface tracking-tight">Vincular formulario</h3>
+              </div>
+            </div>
+            <p class="text-sm text-on-surface-variant mb-4">Esta convocatoria no tiene un template de formulario vinculado. Selecciona uno:</p>
+            <select id="conv-template-select" class="w-full px-3 py-2.5 rounded-xl border border-outline-variant/30 text-sm mb-3">
+              <option value="">— Seleccionar template —</option>
+              ${templates.map(t => `<option value="${t.id}">${esc(t.name)} (v${t.version}, ${t.year || '—'})</option>`).join('')}
+            </select>
+            <button id="conv-link-template" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs font-bold text-[#e7eb00] bg-[#1b1464] hover:bg-[#1b1464]/80 transition-colors">
+              <span class="material-symbols-outlined text-sm">link</span> Vincular template
+            </button>
+          </div>`;
+        document.getElementById('conv-link-template')?.addEventListener('click', async () => {
+          const tplId = document.getElementById('conv-template-select').value;
+          if (!tplId) return Toast.show('Selecciona un template', 'err');
+          try {
+            await API.patch('/admin/data/programs/' + ev.programId, { form_template_id: tplId });
+            Toast.show('Template vinculado', 'ok');
+            convRenderFormTab(content);
+          } catch (e) { Toast.show('Error: ' + e.message, 'err'); }
+        });
+        return;
+      }
+
+      // Template linked — show read-only viewer
+      const tpl = await API.get('/admin/data/forms/templates/' + prog.form_template_id);
+      fm.template = tpl.template_json;
+      fm.values = {};
+      fm.instanceId = null;
+      if (!fm.activeSection) fm.activeSection = '__cover';
+
+      // Build nav + content
+      const tmpl = fm.template;
+      const navItems = [];
+      navItems.push({ id: '__cover', label: 'Cover Page', icon: 'badge' });
+      navItems.push({ id: '__summary', label: 'Project Summary', icon: 'summarize' });
+      if (tmpl.sections) {
+        for (const sec of tmpl.sections) {
+          navItems.push({ id: sec.id, label: `${sec.number}. ${sec.title}`, icon: 'folder', level: 0 });
+          for (const sub of (sec.subsections || [])) {
+            navItems.push({ id: sub.id, label: `${sub.number} ${sub.title}`, icon: 'article', level: 1 });
+          }
+          for (const grp of (sec.subsections_groups || [])) {
+            for (const sub of (grp.subsections || [])) {
+              navItems.push({ id: sub.id, label: `${sub.number} ${sub.title}`, icon: 'article', level: 1 });
+            }
+          }
+        }
+      }
+      if (tmpl.annexes) navItems.push({ id: '__annexes', label: 'Annexes', icon: 'attach_file' });
+
+      content.innerHTML = `
+        <div class="flex items-center justify-between mb-4">
+          <div class="flex items-center gap-3">
+            <div class="w-2 h-10 rounded-full bg-purple-500"></div>
+            <div>
+              <div class="text-[10px] font-bold uppercase tracking-widest text-primary">FORM TEMPLATE</div>
+              <h3 class="font-headline text-base font-extrabold text-on-surface tracking-tight">${esc(tpl.name)} <span class="text-on-surface-variant font-normal text-sm">v${tpl.version}</span></h3>
+            </div>
+          </div>
+          <button id="conv-change-template" class="text-xs text-primary hover:underline">Cambiar template</button>
+        </div>
+        <div class="flex gap-4" style="min-height:60vh">
+          <div id="conv-form-nav" class="w-56 flex-shrink-0 space-y-0.5 sticky top-0 overflow-y-auto" style="max-height:70vh">
+            ${navItems.map(it => `
+            <div class="conv-form-nav-item flex items-center gap-2 px-3 py-2 rounded-xl cursor-pointer transition-all text-xs ${fm.activeSection === it.id ? 'bg-[#1b1464] text-white font-bold' : 'text-primary/70 hover:bg-primary/5'}"
+                 data-sid="${it.id}" style="${it.level ? 'padding-left:'+(12 + it.level * 12)+'px' : ''}">
+              <span class="material-symbols-outlined text-sm">${it.icon}</span>
+              <span class="truncate">${esc(it.label)}</span>
+            </div>`).join('')}
+          </div>
+          <div id="forms-main-content" class="flex-1 min-w-0"></div>
+        </div>`;
+
+      // Bind nav
+      content.querySelectorAll('.conv-form-nav-item').forEach(el => {
+        el.addEventListener('click', () => {
+          fm.activeSection = el.dataset.sid;
+          convRenderFormTab(content);
+        });
+      });
+      // Bind change template
+      document.getElementById('conv-change-template')?.addEventListener('click', async () => {
+        const newTplId = prompt('Template ID to link (or leave empty to unlink):');
+        if (newTplId === null) return;
+        try {
+          await API.patch('/admin/data/programs/' + ev.programId, { form_template_id: newTplId || null });
+          Toast.show('Template actualizado', 'ok');
+          fm.activeSection = null;
+          convRenderFormTab(content);
+        } catch (e) { Toast.show('Error: ' + e.message, 'err'); }
+      });
+
+      // Render active section
+      const secData = formsFindSection(fm.activeSection);
+      if (secData) formsRenderSection(secData);
+    } catch (e) { content.innerHTML = `<p class="text-sm text-error">${e.message}</p>`; }
+  }
+
+  /* ── Docs sub-tab ────────────────────────────────────────── */
+  async function convRenderDocsTab(content) {
+    content.innerHTML = `
+      <div class="flex items-center gap-3 mb-5">
+        <div class="w-2 h-10 rounded-full bg-amber-500"></div>
+        <div>
+          <div class="text-[10px] font-bold uppercase tracking-widest text-primary">CALL KNOWLEDGE BASE</div>
+          <h3 class="font-headline text-lg font-extrabold text-on-surface tracking-tight">Documentos de la convocatoria</h3>
+        </div>
+      </div>
+      <p class="text-sm text-on-surface-variant mb-4">Los documentos subidos se vectorizan y estarán disponibles como contexto para el Writer (IA).</p>
+
+      <div class="rounded-2xl border border-outline-variant/20 p-5 bg-surface-container-lowest mb-5">
+        <h4 class="text-xs font-bold uppercase text-on-surface-variant mb-3">Subir documento</h4>
+        <form id="conv-doc-upload-form" class="space-y-3">
+          <input type="file" id="conv-doc-file" accept=".pdf,.docx,.txt,.csv,.xlsx" required
+            class="w-full text-sm file:mr-3 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-[#1b1464] file:text-[#e7eb00] file:cursor-pointer">
+          <div class="grid grid-cols-3 gap-3">
+            <input type="text" id="conv-doc-title" placeholder="Título (opcional)"
+              class="px-3 py-2 rounded-xl border border-outline-variant/30 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20">
+            <select id="conv-doc-type" class="px-3 py-2 rounded-xl border border-outline-variant/30 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20">
+              <option value="programme_guide">Programme Guide</option>
+              <option value="call_document">Call Document</option>
+              <option value="annex">Annex</option>
+              <option value="template">Template</option>
+              <option value="faq">FAQ</option>
+              <option value="other">Other</option>
+            </select>
+            <input type="text" id="conv-doc-tags" placeholder="Tags (comma separated)"
+              class="px-3 py-2 rounded-xl border border-outline-variant/30 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20">
+          </div>
+          <button type="submit" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs font-bold text-[#e7eb00] bg-[#1b1464] hover:bg-[#1b1464]/80 transition-colors">
+            <span class="material-symbols-outlined text-sm">cloud_upload</span> Subir y vectorizar
+          </button>
+        </form>
+      </div>
+
+      <div id="conv-docs-list"><p class="text-sm text-on-surface-variant py-4"><span class="spinner"></span> Cargando...</p></div>`;
+
+    // Load docs
+    convLoadDocs();
+
+    // Bind upload
+    document.getElementById('conv-doc-upload-form')?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const file = document.getElementById('conv-doc-file').files[0];
+      if (!file) return;
+
+      const fd = new FormData();
+      fd.append('file', file);
+      fd.append('title', document.getElementById('conv-doc-title').value || file.name);
+      fd.append('tags', document.getElementById('conv-doc-tags').value);
+      fd.append('doc_type', 'call');
+      fd.append('program_id', ev.programId);
+
+      try {
+        const res = await fetch('/v1/documents/official', {
+          method: 'POST',
+          headers: { 'Authorization': 'Bearer ' + API.getToken() },
+          body: fd
+        });
+        const json = await res.json();
+        if (!json.ok) throw new Error(json.error?.message || 'Upload failed');
+        // Link to call_documents
+        const docType = document.getElementById('conv-doc-type').value;
+        const label = document.getElementById('conv-doc-title').value || file.name;
+        await API.post(`/admin/data/programs/${ev.programId}/docs`, {
+          document_id: json.data.id,
+          doc_type: docType,
+          label: label
+        });
+        Toast.show('Documento subido y vinculado', 'ok');
+        document.getElementById('conv-doc-upload-form').reset();
+        convLoadDocs();
+      } catch (err) { Toast.show('Error: ' + err.message, 'error'); }
+    });
+  }
+
+  async function convLoadDocs() {
+    const container = document.getElementById('conv-docs-list');
+    try {
+      const docs = await API.get(`/admin/data/programs/${ev.programId}/docs`);
+      if (!docs.length) {
+        container.innerHTML = `<div class="text-center py-8 text-on-surface-variant/50">
+          <span class="material-symbols-outlined text-4xl opacity-30">folder_off</span>
+          <p class="mt-2 text-sm">No hay documentos. Sube la Programme Guide, call document, etc.</p>
+        </div>`;
+        return;
+      }
+      const TYPE_ICONS = { programme_guide: '\ud83d\udcd5', call_document: '\ud83d\udcd8', annex: '\ud83d\udcce', template: '\ud83d\udcc4', faq: '\u2753', other: '\ud83d\udcc1' };
+      container.innerHTML = docs.map(d => {
+        const size = d.file_size_bytes ? `${(d.file_size_bytes / 1024).toFixed(0)} KB` : '';
+        const statusIcon = d.doc_status === 'active' ? 'check_circle' : d.doc_status === 'processing' ? 'sync' : 'pending';
+        const statusColor = d.doc_status === 'active' ? 'text-green-500' : d.doc_status === 'processing' ? 'text-blue-500' : 'text-gray-400';
+        const tags = (d.tags || []).map(t => `<span class="px-2 py-0.5 rounded-full bg-primary/10 text-primary text-[10px] font-medium">${esc(t)}</span>`).join(' ');
+        return `<div class="flex items-center gap-4 p-4 rounded-xl bg-white border border-outline-variant/20 mb-2 hover:border-primary/30 transition-colors">
+          <span class="text-xl">${TYPE_ICONS[d.doc_type] || '\ud83d\udcc1'}</span>
+          <div class="flex-1 min-w-0">
+            <p class="text-sm font-bold text-on-surface truncate">${esc(d.label || d.doc_title)}</p>
+            <p class="text-xs text-on-surface-variant">${d.doc_type} · ${d.file_type || ''} · ${size}</p>
+            ${tags ? `<div class="flex gap-1 mt-1">${tags}</div>` : ''}
+          </div>
+          <span class="material-symbols-outlined ${statusColor}" title="${d.doc_status}">${statusIcon}</span>
+          <button class="conv-doc-del text-on-surface-variant/30 hover:text-error transition-colors" data-id="${d.id}">
+            <span class="material-symbols-outlined text-lg">delete</span>
+          </button>
+        </div>`;
+      }).join('');
+
+      container.querySelectorAll('.conv-doc-del').forEach(btn => {
+        btn.addEventListener('click', async () => {
+          if (!confirm('Eliminar este documento de la convocatoria?')) return;
+          try {
+            await API.del('/admin/data/call-docs/' + btn.dataset.id);
+            Toast.show('Documento eliminado', 'ok');
+            convLoadDocs();
+          } catch (e) { Toast.show('Error: ' + e.message, 'err'); }
+        });
+      });
+    } catch (e) { container.innerHTML = `<p class="text-sm text-error">${e.message}</p>`; }
+  }
+
+  /* ══ OLD CONVOCATORIAS TABLE (kept for backwards compat) ════ */
 
   async function loadPrograms() {
     setLoading('admin-programs-tbody');
@@ -1117,7 +1629,7 @@ const Admin = (() => {
         await API.del(`/admin/data/programs/${id}`);
         Toast.show('Programme deleted', 'ok');
         overlay.remove();
-        loadEvaluator();
+        loadConvocatorias();
       } catch (e) {
         Toast.show('Error: ' + e.message, 'err');
         overlay.remove();
@@ -1260,24 +1772,7 @@ KEY EVALUATOR FOCUS:
       container.innerHTML = '<p class="px-4 py-6 text-xs text-on-surface-variant text-center">No sections yet.<br>Add one below.</p>';
       return;
     }
-    // Section 0: Call Data
-    const callActive = ev.activeSectionIdx === -1;
-    const eligActive = ev.activeSectionIdx === -2;
-    container.innerHTML = `
-      <div class="eval-sidebar-sec mb-1">
-        <div class="eval-sec-chip flex items-center gap-2.5 px-3 py-2.5 rounded-xl cursor-pointer ${callActive ? 'active' : ''}" data-si="-1">
-          <span class="material-symbols-outlined text-sm ${callActive ? 'text-white' : 'text-primary/50'}">description</span>
-          <span class="text-xs font-bold flex-1 truncate ${callActive ? '' : 'text-primary/70'}">Call Data</span>
-        </div>
-      </div>
-      <div class="eval-sidebar-sec mb-1">
-        <div class="eval-sec-chip flex items-center gap-2.5 px-3 py-2.5 rounded-xl cursor-pointer ${eligActive ? 'active' : ''}" data-si="-2">
-          <span class="material-symbols-outlined text-sm ${eligActive ? 'text-white' : 'text-primary/50'}">verified</span>
-          <span class="text-xs font-bold flex-1 truncate ${eligActive ? '' : 'text-primary/70'}">Eligibility</span>
-        </div>
-      </div>
-      <div class="mx-3 my-2 border-b border-primary/10"></div>
-    ` + ev.sections.map((sec, si) => {
+    container.innerHTML = ev.sections.map((sec, si) => {
       const isActive = si === ev.activeSectionIdx;
       const questions = sec.questions || [];
       return `
@@ -1350,17 +1845,6 @@ KEY EVALUATOR FOCUS:
 
   function evalRenderMain() {
     const content = document.getElementById('eval-main-content');
-
-    // Section -1: Call Data form
-    if (ev.activeSectionIdx === -1) {
-      evalRenderCallData(content);
-      return;
-    }
-    // Section -2: Eligibility form
-    if (ev.activeSectionIdx === -2) {
-      evalRenderEligibility(content);
-      return;
-    }
 
     const sec = ev.sections[ev.activeSectionIdx];
     if (!sec || !sec.questions || !sec.questions.length) {
@@ -1639,6 +2123,185 @@ KEY EVALUATOR FOCUS:
     evalBindCriteriaEvents(content);
   }
 
+  /* ── Action Type picker (modal) ─────────────────────────────── */
+  const ACTION_TYPES = [
+    { group: 'EACEA — Centralizados', items: [
+      { code: 'ERASMUS-EDU-2026-EUR-UNIV', name: 'European Universities' },
+      { code: 'ERASMUS-EDU-2026-PEX-COVE', name: 'Centres of Vocational Excellence' },
+      { code: 'ERASMUS-EDU-2026-PEX-EMJM-MOB', name: 'Erasmus Mundus Joint Masters' },
+      { code: 'ERASMUS-EDU-2026-EMJM-DESIGN', name: 'Erasmus Mundus Design Measures' },
+      { code: 'ERASMUS-EDU-2026-PI-ALL-INNO-EDU-ENTERP', name: 'Alliances for Education and Enterprises' },
+      { code: 'ERASMUS-EDU-2026-PI-ALL-INNO-BLUEPRINT', name: 'Alliances for Sectoral Cooperation on Skills' },
+      { code: 'ERASMUS-EDU-2026-PI-ALL-INNO-STEM', name: 'Alliances for Innovation in STEM' },
+      { code: 'ERASMUS-EDU-2026-CBHE-REGION-1', name: 'Capacity Building in Higher Education, Region 1' },
+      { code: 'ERASMUS-EDU-2026-CBHE-REGION-2', name: 'Capacity Building in Higher Education, Region 2' },
+      { code: 'ERASMUS-EDU-2026-CBHE-REGION-3', name: 'Capacity Building in Higher Education, Region 3' },
+      { code: 'ERASMUS-EDU-2026-CBHE-REGION-5', name: 'Capacity Building in Higher Education, Region 5' },
+      { code: 'ERASMUS-EDU-2026-CBHE-REGION-6', name: 'Capacity Building in Higher Education, Region 6' },
+      { code: 'ERASMUS-EDU-2026-CBHE-REGION-7', name: 'Capacity Building in Higher Education, Region 7' },
+      { code: 'ERASMUS-EDU-2026-CBHE-REGION-8', name: 'Capacity Building in Higher Education, Region 8' },
+      { code: 'ERASMUS-EDU-2026-CBHE-REGION-9', name: 'Capacity Building in Higher Education, Region 9' },
+      { code: 'ERASMUS-EDU-2026-CBHE-REGION-10', name: 'Capacity Building in Higher Education, Region 10' },
+      { code: 'ERASMUS-EDU-2026-CBHE-REGION-11', name: 'Capacity Building in Higher Education, Region 11' },
+      { code: 'ERASMUS-EDU-2026-CBHE-CROSS-REGIONAL', name: 'Capacity Building in Higher Education, Cross-Regional Strand' },
+      { code: 'ERASMUS-EDU-2026-CB-VET-WB', name: 'Capacity Building in VET in Western Balkans' },
+      { code: 'ERASMUS-EDU-2026-CB-VET-NE', name: 'Capacity Building in VET in Neighbourhood East' },
+      { code: 'ERASMUS-EDU-2026-CB-VET-SMC', name: 'Capacity Building in VET in South-Mediterranean Countries' },
+      { code: 'ERASMUS-EDU-2026-CB-VET-SSA', name: 'Capacity Building in VET in Sub-Saharan Africa' },
+      { code: 'ERASMUS-EDU-2026-CB-VET-LA', name: 'Capacity Building in VET in Latin America' },
+      { code: 'ERASMUS-EDU-2026-CB-VET-CA', name: 'Capacity Building in VET in Caribbean' },
+      { code: 'ERASMUS-YOUTH-2026-CB', name: 'Capacity Building in the field of Youth' },
+      { code: 'ERASMUS-YOUTH-2026-YOUTH-TOG', name: 'European Youth Together' },
+      { code: 'ERASMUS-EDU-2026-PCOOP-ENGO', name: 'Cooperation Partnerships for European NGOs in Education and Training' },
+      { code: 'ERASMUS-YOUTH-2026-PCOOP-ENGO', name: 'Cooperation Partnerships for European NGOs in Youth' },
+      { code: 'ERASMUS-SPORT-2026-SCP', name: 'Cooperation Partnerships in Sport' },
+      { code: 'ERASMUS-SPORT-2026-SSCP', name: 'Small-scale Partnerships in Sport' },
+      { code: 'ERASMUS-SPORT-2026-CB', name: 'Capacity Building in the field of Sport' },
+      { code: 'ERASMUS-SPORT-2026-SNCESE', name: 'Not-for-profit European Sport Events' },
+      { code: 'ERASMUS-SPORT-2026-LSSNCESE', name: 'Large-scale Not-for-profit European Sport Events' },
+      { code: 'ERASMUS-EDU-2026-VIRT-EXCH-SSA', name: 'Erasmus+ Virtual Exchanges in Sub-Saharan Africa' },
+      { code: 'ERASMUS-EDU-2026-VIRT-EXCH-WB', name: 'Erasmus+ Virtual Exchanges in Western Balkans' },
+      { code: 'ERASMUS-EDU-2026-VIRT-EXCH-SMC', name: 'Erasmus+ Virtual Exchanges in South-Mediterranean Countries' },
+      { code: 'ERASMUS-EDU-2026-VIRT-EXCH-NE', name: 'Erasmus+ Virtual Exchanges in Neighbourhood East' },
+      { code: 'ERASMUS-JMO-2026-HEI-TCH-RSCH-MODULE', name: 'Jean Monnet Module' },
+      { code: 'ERASMUS-JMO-2026-HEI-TCH-RSCH-CHAIR', name: 'Jean Monnet Chair' },
+      { code: 'ERASMUS-JMO-2026-HEI-TCH-RSCH-COE', name: 'Jean Monnet Centre of Excellence' },
+      { code: 'ERASMUS-JMO-2026-OFET-TT', name: 'Jean Monnet Teacher Training' },
+      { code: 'ERASMUS-JMO-2026-OFET-LEARNING-EU', name: 'Jean Monnet Learning EU Initiatives' },
+      { code: 'ERASMUS-JMO-2026-NETWORKS-SCHOOLS', name: 'Jean Monnet Networks in other fields of education and training' },
+    ]},
+    { group: 'National Agencies — Descentralizados', items: [
+      { code: 'KA121-SCH', name: 'Accredited projects for mobility of learners and staff in School Education' },
+      { code: 'KA121-VET', name: 'Accredited projects for mobility of learners and staff in Vocational Education and Training' },
+      { code: 'KA121-ADU', name: 'Accredited projects for mobility of learners and staff in Adult Education' },
+      { code: 'KA122-SCH', name: 'Short-term projects for mobility of learners and staff in School Education' },
+      { code: 'KA122-VET', name: 'Short-term projects for mobility of learners and staff in Vocational Education and Training' },
+      { code: 'KA122-ADU', name: 'Short-term projects for mobility of learners and staff in Adult Education' },
+      { code: 'KA131-HED', name: 'Mobility of higher education students and staff supported by internal policy funds' },
+      { code: 'KA171-HED', name: 'Mobility of higher education students and staff supported by external policy funds' },
+      { code: 'KA151-YOU', name: 'Youth Participation Activities' },
+      { code: 'KA152-YOU', name: 'Mobility of young people' },
+      { code: 'KA153-YOU', name: 'Mobility of youth workers' },
+      { code: 'KA154-YOU', name: 'DiscoverEU Inclusion Action' },
+      { code: 'KA210-SCH', name: 'Small-scale Partnerships in School Education' },
+      { code: 'KA210-VET', name: 'Small-scale Partnerships in Vocational Education and Training' },
+      { code: 'KA210-ADU', name: 'Small-scale Partnerships in Adult Education' },
+      { code: 'KA210-YOU', name: 'Small-scale Partnerships in Youth' },
+      { code: 'KA220-SCH', name: 'Cooperation Partnerships in School Education' },
+      { code: 'KA220-VET', name: 'Cooperation Partnerships in Vocational Education and Training' },
+      { code: 'KA220-ADU', name: 'Cooperation Partnerships in Adult Education' },
+      { code: 'KA220-YOU', name: 'Cooperation Partnerships in Youth' },
+    ]},
+  ];
+
+  function openActionTypePicker() {
+    const current = document.getElementById('cd-action-type')?.value || '';
+    const overlay = document.createElement('div');
+    overlay.className = 'fixed inset-0 bg-black/40 flex items-center justify-center z-[9999]';
+    overlay.style.animation = 'fadeIn .15s ease';
+
+    let html = `
+      <div class="bg-white rounded-2xl shadow-2xl w-full max-w-2xl mx-4 max-h-[85vh] flex flex-col overflow-hidden" style="animation:critIn .2s ease">
+        <div class="px-5 py-4 border-b border-outline-variant/20 flex items-center gap-3">
+          <span class="material-symbols-outlined text-primary text-xl">campaign</span>
+          <div class="flex-1">
+            <h3 class="font-headline text-base font-bold text-primary">Seleccionar Action Type</h3>
+            <p class="text-xs text-on-surface-variant">Elige la convocatoria Erasmus+</p>
+          </div>
+          <button id="atp-close" class="w-8 h-8 rounded-lg hover:bg-gray-100 flex items-center justify-center transition-colors">
+            <span class="material-symbols-outlined text-on-surface-variant">close</span>
+          </button>
+        </div>
+        <div class="px-5 py-3 border-b border-outline-variant/10">
+          <input type="text" id="atp-search" placeholder="Buscar por codigo o nombre..." autofocus
+            class="w-full px-3 py-2.5 rounded-xl border border-outline-variant/30 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20">
+        </div>
+        <div id="atp-list" class="flex-1 overflow-y-auto px-3 py-2">`;
+
+    for (const g of ACTION_TYPES) {
+      html += `<div class="atp-group" data-group="${g.group}">
+        <div class="px-2 py-2 text-[10px] font-bold uppercase tracking-widest text-on-surface-variant sticky top-0 bg-white/95 backdrop-blur-sm">${g.group}</div>`;
+      for (const it of g.items) {
+        const isCurrent = it.code === current;
+        html += `<div class="atp-item flex items-start gap-3 px-3 py-2.5 rounded-xl cursor-pointer transition-all ${isCurrent ? 'bg-primary/10 border border-primary/30' : 'hover:bg-surface-container-low border border-transparent'}" data-code="${it.code}">
+          <div class="flex-1 min-w-0">
+            <div class="text-xs font-mono font-bold ${isCurrent ? 'text-primary' : 'text-on-surface-variant'}">${it.code}</div>
+            <div class="text-sm ${isCurrent ? 'text-primary font-semibold' : 'text-on-surface'}">${it.name}</div>
+          </div>
+          ${isCurrent ? '<span class="material-symbols-outlined text-primary text-lg mt-0.5">check_circle</span>' : ''}
+        </div>`;
+      }
+      html += '</div>';
+    }
+
+    html += `</div>
+        <div class="px-5 py-3 border-t border-outline-variant/20 flex justify-between items-center bg-gray-50">
+          <button id="atp-clear" class="text-xs text-on-surface-variant hover:text-error transition-colors">Limpiar seleccion</button>
+          <span id="atp-count" class="text-xs text-on-surface-variant"></span>
+        </div>
+      </div>`;
+
+    overlay.innerHTML = html;
+    document.body.appendChild(overlay);
+
+    const searchInput = overlay.querySelector('#atp-search');
+    const listEl = overlay.querySelector('#atp-list');
+    const countEl = overlay.querySelector('#atp-count');
+
+    // Count
+    const total = ACTION_TYPES.reduce((s, g) => s + g.items.length, 0);
+    countEl.textContent = total + ' convocatorias';
+
+    // Search filter
+    searchInput.addEventListener('input', () => {
+      const q = searchInput.value.toLowerCase().trim();
+      let visible = 0;
+      listEl.querySelectorAll('.atp-item').forEach(el => {
+        const match = !q || el.dataset.code.toLowerCase().includes(q) || el.textContent.toLowerCase().includes(q);
+        el.style.display = match ? '' : 'none';
+        if (match) visible++;
+      });
+      listEl.querySelectorAll('.atp-group').forEach(g => {
+        const hasVisible = g.querySelector('.atp-item:not([style*="display: none"])');
+        g.style.display = hasVisible ? '' : 'none';
+      });
+      countEl.textContent = (q ? visible + ' / ' : '') + total + ' convocatorias';
+    });
+
+    // Select item
+    listEl.querySelectorAll('.atp-item').forEach(el => {
+      el.addEventListener('click', () => {
+        const code = el.dataset.code;
+        document.getElementById('cd-action-type').value = code;
+        const label = document.getElementById('cd-action-type-label');
+        if (label) { label.textContent = code; label.classList.remove('text-on-surface-variant'); label.classList.add('text-on-surface'); }
+        overlay.remove();
+      });
+    });
+
+    // Clear
+    overlay.querySelector('#atp-clear').addEventListener('click', () => {
+      document.getElementById('cd-action-type').value = '';
+      const label = document.getElementById('cd-action-type-label');
+      if (label) { label.textContent = 'Seleccionar convocatoria...'; label.classList.add('text-on-surface-variant'); label.classList.remove('text-on-surface'); }
+      overlay.remove();
+    });
+
+    // Close
+    overlay.querySelector('#atp-close').addEventListener('click', () => overlay.remove());
+    overlay.addEventListener('click', e => { if (e.target === overlay) overlay.remove(); });
+
+    // Scroll to current
+    if (current) {
+      setTimeout(() => {
+        const active = listEl.querySelector(`[data-code="${current}"]`);
+        if (active) active.scrollIntoView({ block: 'center' });
+      }, 100);
+    }
+
+    searchInput.focus();
+  }
+
   async function evalRenderCallData(content) {
     // Fetch current program data + call eligibility (for writing rules)
     let programs, elig;
@@ -1665,7 +2328,12 @@ KEY EVALUATOR FOCUS:
           </div>
           <div class="flex flex-col gap-1">
             <label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Action type</label>
-            <input type="text" id="cd-action-type" value="${prog.action_type || ''}" placeholder="e.g. KA3-Youth" class="px-3 py-2.5 rounded-xl border border-outline-variant text-sm focus:border-primary outline-none">
+            <input type="hidden" id="cd-action-type" value="${esc(prog.action_type || '')}">
+            <button type="button" id="cd-action-type-btn" class="w-full text-left px-3 py-2.5 rounded-xl border border-outline-variant text-sm focus:border-primary outline-none bg-white hover:bg-surface-container-low transition-colors flex items-center gap-2">
+              <span class="material-symbols-outlined text-primary/50 text-base">campaign</span>
+              <span id="cd-action-type-label" class="flex-1 truncate ${prog.action_type ? 'text-on-surface' : 'text-on-surface-variant'}">${prog.action_type ? esc(prog.action_type) : 'Seleccionar convocatoria...'}</span>
+              <span class="material-symbols-outlined text-on-surface-variant text-base">expand_more</span>
+            </button>
           </div>
           <div class="flex flex-col gap-1">
             <label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Deadline</label>
@@ -1734,6 +2402,9 @@ KEY EVALUATOR FOCUS:
         </div>
       </div>`;
 
+    // Bind action type picker modal
+    document.getElementById('cd-action-type-btn')?.addEventListener('click', () => openActionTypePicker());
+
     document.getElementById('cd-save')?.addEventListener('click', async () => {
       try {
         await API.patch('/admin/data/programs/' + ev.programId, {
@@ -1757,7 +2428,8 @@ KEY EVALUATOR FOCUS:
           ai_detection_rules: document.getElementById('cd-ai-rules').value
         });
         ev.programName = document.getElementById('cd-name').value;
-        document.getElementById('eval-program-name').textContent = ev.programName;
+        const titleEl = document.getElementById('conv-editor-title') || document.getElementById('eval-program-name');
+        if (titleEl) titleEl.textContent = ev.programName;
         Toast.show('Call data saved', 'ok');
       } catch (e) { Toast.show('Error: ' + e.message, 'error'); }
     });

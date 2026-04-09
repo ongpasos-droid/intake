@@ -2275,6 +2275,7 @@ const Calculator = (() => {
       partners: state.partners,
       financials: getFinancials(),
       projectMonths: getProjectMonths(),
+      projectStart: state.project?.start_date || null,
     };
   }
 
