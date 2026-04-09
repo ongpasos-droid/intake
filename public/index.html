@@ -1076,42 +1076,8 @@ tailwind.config = {
 
       <!-- ══ PANEL DEVELOPER (Write) ═══════════════════════════════ -->
       <section id="panel-developer" class="panel">
-        <div class="max-w-6xl mx-auto py-8 px-4">
-          <div class="flex items-center gap-3 mb-8">
-            <div class="w-12 h-12 rounded-xl bg-purple-100 flex items-center justify-center">
-              <span class="material-symbols-outlined text-purple-600 text-2xl">edit_document</span>
-            </div>
-            <div>
-              <h1 class="font-headline text-2xl font-extrabold tracking-tighter text-primary">Write your proposal</h1>
-              <p class="text-on-surface-variant text-sm">Transform your project design into a winning official proposal.</p>
-            </div>
-          </div>
-
-          <!-- Mis proyectos para escribir -->
-          <div class="flex items-center gap-3 mb-4">
-            <h2 class="font-headline text-base font-bold text-primary">Mis proyectos</h2>
-            <div class="flex-1 h-px bg-outline-variant/30"></div>
-          </div>
-          <p class="text-sm text-on-surface-variant mb-6">Selecciona un proyecto diseñado para empezar a redactar la propuesta oficial (Form Part B).</p>
-          <div id="developer-projects-list">
-            <p class="text-sm text-on-surface-variant text-center py-8">Cargando proyectos...</p>
-          </div>
-
-          <!-- Import DOCX (secundario) -->
-          <div class="mt-8 flex items-center gap-3 mb-4">
-            <h2 class="font-headline text-base font-bold text-primary">Importar propuesta existente</h2>
-            <div class="flex-1 h-px bg-outline-variant/30"></div>
-          </div>
-          <div class="bg-white rounded-2xl border-2 border-dashed border-outline-variant/20 hover:border-purple-300 p-5 cursor-pointer transition-all hover:shadow-lg group inline-flex items-center gap-4 max-w-md">
-            <span class="material-symbols-outlined text-purple-400 text-2xl group-hover:text-purple-600 transition-colors">upload_file</span>
-            <div>
-              <p class="text-sm text-on-surface-variant leading-relaxed">Sube un .docx Form Part B y mejóralo con IA.</p>
-              <label class="text-xs font-bold text-purple-500 cursor-pointer">
-                Subir DOCX &rarr;
-                <input type="file" accept=".docx" class="hidden" id="developer-upload-docx">
-              </label>
-            </div>
-          </div>
+        <div class="max-w-6xl mx-auto py-8 px-4" id="developer-content">
+          <p class="text-sm text-on-surface-variant text-center py-8">Cargando...</p>
         </div>
       </section>
 

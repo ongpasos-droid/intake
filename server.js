@@ -68,7 +68,7 @@ app.use('/v1/research', require('./node/src/modules/research/routes'));
 
 // Future modules:
 // app.use('/v1/planner',     require('./node/src/modules/planner/routes'));
-// app.use('/v1/developer',   require('./node/src/modules/developer/routes'));
+app.use('/v1/developer',   require('./node/src/modules/developer/routes'));
 app.use('/v1/evaluator',   require('./node/src/modules/evaluator/routes'));
 app.use('/v1/budget',      require('./node/src/modules/budget/routes'));
 

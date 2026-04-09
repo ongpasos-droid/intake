@@ -63,10 +63,9 @@ async function processDocument(documentId, meta, sourceId) {
 
   try {
     // 1. Read file from local disk
-    let fullPath = meta.storage_path;
-    if (!path.isAbsolute(fullPath)) {
-      fullPath = path.join(__dirname, '../../..', 'public', meta.storage_path);
-    }
+    // storage_path is like "/uploads/documents/file.pdf" — always resolve relative to public/
+    const rel = meta.storage_path.replace(/^\/+/, '');
+    const fullPath = path.join(__dirname, '../../..', 'public', rel);
     const buffer = await fs.readFile(fullPath);
 
     // 2. Extract text
