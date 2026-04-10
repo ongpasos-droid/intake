@@ -94,18 +94,19 @@ async function deleteOrg(id) {
 
 /* ── Directory listing ───────────────────────────────────────── */
 async function listOrgs({ q, country, org_type, page = 1, limit = 20 } = {}) {
-  let where = 'WHERE active=1 AND is_public=1';
+  let where = 'WHERE o.active=1 AND o.is_public=1';
   const params = [];
-  if (q) { where += ' AND (organization_name LIKE ? OR city LIKE ? OR pic LIKE ?)'; params.push(`%${q}%`,`%${q}%`,`%${q}%`); }
-  if (country) { where += ' AND country=?'; params.push(country); }
-  if (org_type) { where += ' AND org_type=?'; params.push(org_type); }
+  if (q) { where += ' AND (o.organization_name LIKE ? OR o.city LIKE ? OR o.pic LIKE ?)'; params.push(`%${q}%`,`%${q}%`,`%${q}%`); }
+  if (country) { where += ' AND o.country=?'; params.push(country); }
+  if (org_type) { where += ' AND o.org_type=?'; params.push(org_type); }
 
-  const [[{ total }]] = await pool.query(`SELECT COUNT(*) as total FROM organizations ${where}`, params);
+  const [[{ total }]] = await pool.query(`SELECT COUNT(*) as total FROM organizations o ${where}`, params);
   const offset = (page - 1) * limit;
   const [rows] = await pool.query(
-    `SELECT id, organization_name, acronym, org_type, country, city, pic, email, website, is_non_profit, is_public_body, expertise_areas
-     FROM organizations ${where}
-     ORDER BY organization_name ASC LIMIT ? OFFSET ?`,
+    `SELECT o.id, o.organization_name, o.acronym, o.org_type, o.country, o.city, o.pic, o.website, o.is_non_profit, o.is_public_body, o.expertise_areas, o.logo_url,
+       (SELECT COUNT(*) FROM org_eu_projects ep WHERE ep.organization_id = o.id) as eu_projects_count
+     FROM organizations o ${where}
+     ORDER BY o.organization_name ASC LIMIT ? OFFSET ?`,
     [...params, Number(limit), offset]
   );
   return { rows, meta: { total, page: Number(page), limit: Number(limit), pages: Math.ceil(total / limit) } };

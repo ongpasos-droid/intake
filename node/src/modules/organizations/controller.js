@@ -41,7 +41,7 @@ exports.upsertMyOrg = async (req, res) => {
 exports.listOrgs = async (req, res) => {
   try {
     const result = await m.listOrgs(req.query);
-    res.json({ ok: true, ...result });
+    res.json({ ok: true, data: result });
   } catch (e) { err(res, e.message, 500); }
 };
 

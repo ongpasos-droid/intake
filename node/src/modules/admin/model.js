@@ -15,7 +15,7 @@ async function upsertProgram(data, id) {
   if (id) {
     const allowed = ['program_id','name','action_type','deadline','start_date_min','start_date_max',
       'duration_min_months','duration_max_months','eu_grant_max','cofin_pct','indirect_pct',
-      'min_partners','notes','active','form_template_id'];
+      'min_partners','notes','active','form_template_id','intake_template','budget_template'];
     const sets = [], params = [];
     for (const k of allowed) {
       if (k in data) { sets.push(`${k}=?`); params.push(data[k] ?? null); }
@@ -672,6 +672,35 @@ async function deleteCallDocument(id) {
   await pool.query('DELETE FROM call_documents WHERE id=?', [id]);
 }
 
+/**
+ * Available docs for a call: same action_type OR tagged 'transversal',
+ * excluding docs already linked to this programme.
+ */
+async function availableCallDocuments(programId) {
+  // Get the action_type of this programme
+  const [[prog]] = await pool.query('SELECT action_type FROM intake_programs WHERE id=?', [programId]);
+  if (!prog) return [];
+
+  const [rows] = await pool.query(
+    `SELECT DISTINCT d.id, d.title, d.file_type, d.file_size_bytes, d.tags, d.status,
+            d.created_at, cd_src.doc_type, cd_src.label,
+            ip.name AS source_call_name
+     FROM documents d
+     JOIN call_documents cd_src ON cd_src.document_id = d.id
+     JOIN intake_programs ip ON ip.id = cd_src.program_id
+     WHERE d.status = 'active'
+       AND cd_src.program_id != ?
+       AND (ip.action_type = ? OR JSON_CONTAINS(d.tags, '"transversal"'))
+       AND d.id NOT IN (SELECT document_id FROM call_documents WHERE program_id = ?)
+     ORDER BY JSON_CONTAINS(d.tags, '"transversal"') DESC, d.title`,
+    [programId, prog.action_type || '', programId]
+  );
+  rows.forEach(r => {
+    if (typeof r.tags === 'string') try { r.tags = JSON.parse(r.tags); } catch(_) { r.tags = []; }
+  });
+  return rows;
+}
+
 /* ══ Duplicate call (programme + eligibility + eval tree) ══════ */
 
 async function duplicateProgram(sourceId) {
@@ -798,6 +827,6 @@ module.exports = {
   listFormTemplates, getFormTemplate,
   listFormInstances, createFormInstance, getFormInstance,
   getFormValues, saveFormValues, updateFormInstance, deleteFormInstance,
-  listCallDocuments, createCallDocument, deleteCallDocument,
+  listCallDocuments, createCallDocument, deleteCallDocument, availableCallDocuments,
   duplicateProgram, listProgramsWithCounts, generateEvalFromTemplate
 };

@@ -452,15 +452,21 @@ const Organizations = (() => {
       grid.innerHTML = rows.map(o => `
         <div class="bg-white rounded-xl border border-outline-variant/30 p-5 hover:shadow-md transition-shadow cursor-pointer"
              data-view-org="${o.id}">
-          <div class="flex items-start justify-between mb-2">
-            <h3 class="font-semibold text-primary text-sm leading-tight">${esc(o.organization_name)}</h3>
-            ${o.acronym ? `<span class="text-xs bg-primary/10 text-primary px-2 py-0.5 rounded-full font-semibold ml-2 shrink-0">${esc(o.acronym)}</span>` : ''}
+          <div class="flex items-start gap-3 mb-2">
+            ${o.logo_url
+              ? `<img src="${esc(o.logo_url)}" alt="" class="w-10 h-10 rounded-lg object-contain border border-outline-variant/20 shrink-0 bg-white">`
+              : `<div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-lg text-primary">apartment</span></div>`
+            }
+            <div class="flex-1 min-w-0">
+              <h3 class="font-semibold text-primary text-sm leading-tight">${esc(o.organization_name)}</h3>
+              ${o.acronym ? `<span class="text-[10px] bg-primary/10 text-primary px-1.5 py-0.5 rounded-full font-semibold">${esc(o.acronym)}</span>` : ''}
+            </div>
           </div>
           <div class="space-y-1 text-xs text-on-surface-variant">
             ${o.org_type ? `<div class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">category</span>${esc(o.org_type)}</div>` : ''}
             ${o.country || o.city ? `<div class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">location_on</span>${esc([o.city,o.country].filter(Boolean).join(', '))}</div>` : ''}
             ${o.pic ? `<div class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">fingerprint</span>PIC: ${esc(o.pic)}</div>` : ''}
-            ${o.email ? `<div class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">mail</span>${esc(o.email)}</div>` : ''}
+            ${o.eu_projects_count > 0 ? `<div class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">workspace_premium</span>${o.eu_projects_count} proyecto${o.eu_projects_count > 1 ? 's' : ''} EU</div>` : ''}
           </div>
           <div class="flex flex-wrap gap-1.5 mt-3">
             ${o.is_non_profit ? '<span class="text-[10px] font-semibold uppercase tracking-wider bg-green-100 text-green-700 px-2 py-0.5 rounded-full">Non-profit</span>' : ''}

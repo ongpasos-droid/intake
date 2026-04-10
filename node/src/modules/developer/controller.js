@@ -126,6 +126,90 @@ exports.getGapAnalysis = async (req, res, next) => {
   } catch (err) { next(err); }
 };
 
+// ============ PREP STUDIO v2: 5-TAB ENDPOINTS ============
+
+// GET /v1/developer/projects/:projectId/prep/consorcio
+exports.getPrepConsorcio = async (req, res, next) => {
+  try {
+    const data = await model.getPrepConsorcio(req.params.projectId, req.user.id);
+    res.json({ ok: true, data });
+  } catch (err) { next(err); }
+};
+
+// PUT /v1/developer/projects/:projectId/partners/:partnerId/link-org
+exports.linkPartnerOrg = async (req, res, next) => {
+  try {
+    await model.linkPartnerOrg(req.params.projectId, req.params.partnerId, req.body.organization_id);
+    res.json({ ok: true, data: { linked: true } });
+  } catch (err) { next(err); }
+};
+
+// POST /v1/developer/projects/:projectId/prep/consorcio/:partnerId/generate-variant
+exports.generatePifVariant = async (req, res, next) => {
+  try {
+    const { category, category_label } = req.body;
+    const result = await model.generatePifVariant(req.params.projectId, req.params.partnerId, category, category_label, req.user.id);
+    res.json({ ok: true, data: result });
+  } catch (err) { next(err); }
+};
+
+// PUT /v1/developer/projects/:projectId/prep/consorcio/:partnerId/select-variant
+exports.selectPifVariant = async (req, res, next) => {
+  try {
+    await model.selectPifVariant(req.params.projectId, req.params.partnerId, req.body.variant_id);
+    res.json({ ok: true, data: { selected: true } });
+  } catch (err) { next(err); }
+};
+
+// GET /v1/developer/projects/:projectId/prep/presupuesto
+exports.getPrepPresupuesto = async (req, res, next) => {
+  try {
+    const data = await model.getPrepPresupuesto(req.params.projectId);
+    res.json({ ok: true, data });
+  } catch (err) { next(err); }
+};
+
+// GET /v1/developer/projects/:projectId/prep/relevancia
+exports.getPrepRelevancia = async (req, res, next) => {
+  try {
+    const data = await model.getPrepRelevancia(req.params.projectId);
+    res.json({ ok: true, data });
+  } catch (err) { next(err); }
+};
+
+// PUT /v1/developer/projects/:projectId/prep/relevancia/context
+exports.updatePrepRelevanciaContext = async (req, res, next) => {
+  try {
+    const { problem, target_groups, approach } = req.body;
+    await model.updatePrepRelevanciaContext(req.params.projectId, problem, target_groups, approach);
+    res.json({ ok: true, data: { saved: true } });
+  } catch (err) { next(err); }
+};
+
+// GET /v1/developer/projects/:projectId/prep/actividades
+exports.getPrepActividades = async (req, res, next) => {
+  try {
+    const data = await model.getPrepActividades(req.params.projectId);
+    res.json({ ok: true, data });
+  } catch (err) { next(err); }
+};
+
+// PUT /v1/developer/wp/:wpId/summary
+exports.updateWpSummary = async (req, res, next) => {
+  try {
+    await model.updateWpSummary(req.params.wpId, req.body.summary || '');
+    res.json({ ok: true, data: { saved: true } });
+  } catch (err) { next(err); }
+};
+
+// PUT /v1/developer/activity/:activityId/description
+exports.updateActivityDescription = async (req, res, next) => {
+  try {
+    await model.updateActivityDescription(req.params.activityId, req.body.description || '');
+    res.json({ ok: true, data: { saved: true } });
+  } catch (err) { next(err); }
+};
+
 // POST /v1/developer/instances/:id/generate
 exports.generateDraft = async (req, res, next) => {
   try {
@@ -133,9 +217,9 @@ exports.generateDraft = async (req, res, next) => {
     const instance = await model.getInstance(req.params.id, req.user.id);
     if (!instance) return res.status(404).json({ ok: false, error: { code: 'NOT_FOUND' } });
 
-    // Load full project context
+    // Load enriched project context (PIFs, budget, activities, interviews)
+    const projectContext = await model.buildEnrichedContext(instance.project_id, req.user.id);
     const ctx = await model.getProjectContext(instance.project_id, req.user.id);
-    const projectContext = ctx ? model.buildProjectContext(ctx) : '';
     const programId = instance.program_id || null;
 
     const results = {};
@@ -171,11 +255,10 @@ exports.improveField = async (req, res, next) => {
     const instance = await model.getInstance(req.params.id, req.user.id);
     const programId = instance?.program_id || null;
 
-    // Load project context for improvement
+    // Load enriched project context for improvement
     let projectContext = '';
     if (instance?.project_id) {
-      const ctx = await model.getProjectContext(instance.project_id, req.user.id);
-      if (ctx) projectContext = model.buildProjectContext(ctx);
+      projectContext = await model.buildEnrichedContext(instance.project_id, req.user.id);
     }
 
     const improved = await model.improveSection(text, action, section_title, projectContext, programId);

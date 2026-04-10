@@ -4,6 +4,7 @@ const { requireAuth } = require('../../middleware/auth');
 const ctrl = require('./controller');
 
 /* ── Budget CRUD ─────────────────────────────────────────────── */
+router.post  ('/from-intake/:projectId', requireAuth, ctrl.createFromIntake);
 router.post  ('/',           requireAuth, ctrl.create);
 router.get   ('/',           requireAuth, ctrl.list);
 router.get   ('/cost-template', requireAuth, ctrl.getCostTemplate);

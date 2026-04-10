@@ -225,15 +225,18 @@ const Calculator = (() => {
     if (rates.length > 0) return Math.round(rates.reduce((s,w)=>s+w.rate,0)/rates.length);
     return getWorkerRateDefault();
   }
-  function getFinancials() {
+  function getFinancials(actualTotal) {
     const p = state.project;
-    if (!p) return { euGrant:500000, cofinPct:80, totalProject:625000, ownFunds:125000, indirectPct:7 };
-    const euGrant = p.eu_grant || 500000;
+    if (!p) return { maxGrant:500000, euGrant:0, cofinPct:80, totalProject:0, ownFunds:0, indirectPct:7 };
+    const maxGrant = p.eu_grant || 500000;
     const cofinPct = p.cofin_pct || 80;
     const indirectPct = p.indirect_pct || 7;
-    const totalProject = euGrant / (cofinPct / 100);
-    const ownFunds = totalProject - euGrant;
-    return { euGrant, cofinPct, totalProject, ownFunds, indirectPct };
+    // Calculate EU grant as cofinPct% of actual budget, capped at max grant
+    const total = actualTotal || 0;
+    const euGrant = Math.min(Math.round(total * cofinPct / 100), maxGrant);
+    const ownFunds = total - euGrant;
+    const totalProject = maxGrant / (cofinPct / 100); // target total
+    return { maxGrant, euGrant, cofinPct, totalProject, ownFunds, indirectPct };
   }
   function applyIndirectCosts(direct) {
     const { indirectPct } = getFinancials();
@@ -856,12 +859,19 @@ const Calculator = (() => {
     const c = WP_COLORS[wi % WP_COLORS.length];
     const bg = WP_SECTION_BG[wi % WP_SECTION_BG.length];
     const titleOpts = buildWPTitleOpts(wi, wp);
+    const leaderOpts = state.partners.map(p =>
+      `<option value="${p.id}" ${wp.leader === p.id ? 'selected' : ''}>${p.name || 'Partner ' + (state.partners.indexOf(p)+1)}</option>`
+    ).join('');
     return `
     <div class="calc-wp open" id="calc-wp-${wi}" style="background:${bg};border-color:${c}30">
       <div class="calc-wp-head" onclick="Calculator._toggleWP(${wi})" style="background:${c}12">
         <span class="w-9 h-9 rounded-full text-white text-[11px] font-extrabold flex items-center justify-center shrink-0" style="background:${c}">WP${wi+1}</span>
         <div class="flex-1 min-w-0">
           <select class="font-headline text-sm font-bold text-on-surface bg-transparent border-none cursor-pointer focus:outline-none w-full" onclick="event.stopPropagation()" onchange="event.stopPropagation();Calculator._applyWPTitle(${wi},this.value)">${titleOpts}</select>
+          <div class="flex items-center gap-1.5 mt-0.5" onclick="event.stopPropagation()">
+            <span class="text-[10px] text-on-surface-variant/60 font-medium">Leader:</span>
+            <select class="text-[11px] text-on-surface-variant bg-transparent border-none cursor-pointer focus:outline-none" onchange="Calculator._setWPLeader(${wi},this.value)">${leaderOpts}</select>
+          </div>
         </div>
         <span class="text-sm font-mono font-bold" style="color:${c}" id="calc-wp-total-${wi}">\u2014</span>
         <span class="material-symbols-outlined calc-wp-chevron">expand_more</span>
@@ -1372,10 +1382,8 @@ const Calculator = (() => {
 
   function renderResults(container) {
     state.wps.forEach((_, wi) => recalcWP(wi));
-    const { euGrant, cofinPct, totalProject, ownFunds, indirectPct } = getFinancials();
     const n = state.partners.length;
     const mo = getProjectMonths();
-    const ownPct = 100 - cofinPct;
 
     const wpResults = state.wps.map((wp, wi) => {
       const acts = wp.activities.map(a => ({ ...a, ...calcActivity(a) }));
@@ -1385,23 +1393,110 @@ const Calculator = (() => {
 
     const directCosts = wpResults.reduce((s, w) => s + w.total, 0);
     const { indirect, total: subtotal } = applyIndirectCosts(directCosts);
+    const { maxGrant, euGrant, cofinPct, totalProject, ownFunds, indirectPct } = getFinancials(subtotal);
+    const ownPct = 100 - cofinPct;
     const over = subtotal > totalProject;
 
     container.innerHTML = `
       <h2 class="font-headline text-lg font-bold mb-1">Budget Summary</h2>
       <p class="text-sm text-on-surface-variant mb-4">${state.project?.name || 'Project'} · ${n} partners · ${mo} months</p>
 
-      <!-- Hero -->
-      <div class="bg-primary text-white rounded-xl p-5 mb-5">
-        <div class="text-[10px] uppercase tracking-wider opacity-50 mb-1">Total project budget (direct + indirect)</div>
-        <div class="font-headline text-3xl font-bold">${euros(subtotal)}</div>
-        <div class="flex gap-5 mt-2 flex-wrap text-xs opacity-70">
-          <span>Direct: <strong>${euros(directCosts)}</strong></span>
-          <span>Indirect ${indirectPct}%: <strong>${euros(indirect)}</strong></span>
-          <span>Target: <strong>${euros(totalProject)}</strong></span>
+      <!-- Hero: Progress toward target -->
+      ${(() => {
+        const pct = totalProject > 0 ? Math.min(subtotal / totalProject * 100, 100) : 0;
+        const gap = totalProject - subtotal;
+        const isOver = gap < 0;
+        const isClose = !isOver && pct >= 90;
+        const targetDirect = totalProject / (1 + indirectPct / 100);
+        const targetIndirect = totalProject - targetDirect;
+        const targetOwnFunds = totalProject - Math.min(totalProject * cofinPct / 100, euGrant);
+        const barColor = isOver ? 'bg-red-500' : isClose ? 'bg-green-500' : 'bg-amber-500';
+        const borderColor = isOver ? 'border-red-200' : isClose ? 'border-green-200' : 'border-amber-200';
+        return `
+      <div class="rounded-xl border ${borderColor} overflow-hidden mb-5">
+        <!-- Progress bar -->
+        <div class="bg-primary text-white p-5">
+          <div class="flex items-end justify-between mb-3">
+            <div>
+              <div class="text-[10px] uppercase tracking-wider opacity-50 mb-1">Budget actual</div>
+              <div class="font-headline text-3xl font-bold">${euros(subtotal)}</div>
+            </div>
+            <div class="text-right">
+              <div class="text-[10px] uppercase tracking-wider opacity-50 mb-1">Target</div>
+              <div class="font-headline text-xl font-bold opacity-80">${euros(totalProject)}</div>
+            </div>
+          </div>
+          <div class="h-3 rounded-full bg-white/20 overflow-hidden">
+            <div class="${barColor} h-full rounded-full transition-all" style="width:${pct.toFixed(1)}%"></div>
+          </div>
+          <div class="flex justify-between mt-2 text-xs">
+            <span class="opacity-70">${pct.toFixed(1)}% del target</span>
+            <span class="font-bold ${isOver ? 'text-red-300' : isClose ? 'text-green-300' : 'text-amber-300'}">
+              ${isOver ? 'Excede en ' + euros(Math.abs(gap)) : 'Faltan ' + euros(gap)}
+            </span>
+          </div>
         </div>
-        ${over ? `<div class="mt-2"><span class="inline-block px-3 py-1 rounded-full text-xs font-bold bg-red-900/50 text-red-200">Exceeds target by ${euros(subtotal - totalProject)}</span></div>` : ''}
-      </div>
+
+        <!-- Comparative table -->
+        <div class="bg-surface-container-lowest p-5">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="text-[10px] font-bold uppercase tracking-wider text-on-surface-variant">
+                <th class="text-left py-1"></th>
+                <th class="text-right py-1">Actual</th>
+                <th class="text-right py-1">Target</th>
+                <th class="text-right py-1">Diferencia</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b border-outline-variant/15">
+                <td class="py-2 text-on-surface-variant">Costes directos</td>
+                <td class="py-2 text-right font-mono font-medium">${euros(directCosts)}</td>
+                <td class="py-2 text-right font-mono text-on-surface-variant">${euros(targetDirect)}</td>
+                <td class="py-2 text-right font-mono ${directCosts >= targetDirect ? 'text-green-600' : 'text-amber-600'}">${euros(directCosts - targetDirect)}</td>
+              </tr>
+              <tr class="border-b border-outline-variant/15">
+                <td class="py-2 text-on-surface-variant">Indirectos (${indirectPct}%)</td>
+                <td class="py-2 text-right font-mono font-medium">${euros(indirect)}</td>
+                <td class="py-2 text-right font-mono text-on-surface-variant">${euros(targetIndirect)}</td>
+                <td class="py-2 text-right font-mono ${indirect >= targetIndirect ? 'text-green-600' : 'text-amber-600'}">${euros(indirect - targetIndirect)}</td>
+              </tr>
+              <tr class="border-b border-outline-variant/30 font-bold">
+                <td class="py-2.5">Total presupuesto</td>
+                <td class="py-2.5 text-right font-mono">${euros(subtotal)}</td>
+                <td class="py-2.5 text-right font-mono">${euros(totalProject)}</td>
+                <td class="py-2.5 text-right font-mono ${isOver ? 'text-red-600' : 'text-amber-600'}">${euros(subtotal - totalProject)}</td>
+              </tr>
+              <tr class="border-b border-outline-variant/15">
+                <td class="py-2 text-blue-700">EU Grant (${cofinPct}%)</td>
+                <td class="py-2 text-right font-mono font-medium text-blue-700">${euros(euGrant)}</td>
+                <td class="py-2 text-right font-mono text-on-surface-variant">${euros(Math.min(totalProject * cofinPct / 100, maxGrant))}</td>
+                <td class="py-2 text-right font-mono">${euros(euGrant - Math.min(totalProject * cofinPct / 100, maxGrant))}</td>
+              </tr>
+              <tr>
+                <td class="py-2 text-amber-700">Fondos propios (${ownPct}%)</td>
+                <td class="py-2 text-right font-mono font-medium text-amber-700">${euros(ownFunds)}</td>
+                <td class="py-2 text-right font-mono text-on-surface-variant">${euros(totalProject - Math.min(totalProject * cofinPct / 100, maxGrant))}</td>
+                <td class="py-2 text-right font-mono">${euros(ownFunds - (totalProject - Math.min(totalProject * cofinPct / 100, maxGrant)))}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Financing bar -->
+        <div class="px-5 pb-4 bg-surface-container-lowest">
+          <div class="h-8 rounded-lg overflow-hidden flex">
+            ${subtotal > 0 ? `
+            <div class="bg-blue-600 flex items-center justify-center" style="width:${Math.round(euGrant / subtotal * 100)}%"><span class="text-xs font-bold text-white">EU ${Math.round(euGrant / subtotal * 100)}%</span></div>
+            <div class="bg-amber-600 flex items-center justify-center" style="width:${Math.round(ownFunds / subtotal * 100)}%"><span class="text-xs font-bold text-white">Own ${Math.round(ownFunds / subtotal * 100)}%</span></div>
+            ` : `
+            <div class="bg-blue-600 flex items-center justify-center" style="width:${cofinPct}%"><span class="text-xs font-bold text-white">EU ${cofinPct}%</span></div>
+            <div class="bg-amber-600 flex items-center justify-center" style="width:${ownPct}%"><span class="text-xs font-bold text-white">Own ${ownPct}%</span></div>
+            `}
+          </div>
+        </div>
+      </div>`;
+      })()}
 
       <!-- Tabs -->
       <div class="flex gap-0 border-b-2 border-outline-variant/20 mb-5">
@@ -1414,24 +1509,7 @@ const Calculator = (() => {
       <div id="calc-res-wp" style="display:none">${buildResWP(wpResults, directCosts, indirect, subtotal, indirectPct)}</div>
       <div id="calc-res-partner" style="display:none">${buildResPartner(wpResults, directCosts, indirect, subtotal, totalProject, indirectPct)}</div>
 
-      <!-- Financing -->
-      <div class="bg-surface-container-lowest rounded-xl border border-outline-variant/30 p-5 mt-5">
-        <h3 class="text-xs font-bold text-on-surface-variant uppercase tracking-wider mb-3">Financing Breakdown</h3>
-        <div class="grid grid-cols-2 gap-4 mb-4">
-          <div class="rounded-lg p-4 bg-blue-50 border-l-4 border-blue-600">
-            <div class="text-[11px] font-bold text-blue-600 uppercase mb-1">EU Grant · ${cofinPct}%</div>
-            <div class="font-headline text-xl font-bold text-blue-700">${euros(euGrant)}</div>
-          </div>
-          <div class="rounded-lg p-4 bg-amber-50 border-l-4 border-amber-600">
-            <div class="text-[11px] font-bold text-amber-600 uppercase mb-1">Own Funds · ${ownPct}%</div>
-            <div class="font-headline text-xl font-bold text-amber-700">${euros(ownFunds)}</div>
-          </div>
-        </div>
-        <div class="h-8 rounded-lg overflow-hidden flex">
-          <div class="bg-blue-600 flex items-center justify-center" style="width:${cofinPct}%"><span class="text-xs font-bold text-white">EU ${cofinPct}%</span></div>
-          <div class="bg-amber-600 flex items-center justify-center" style="width:${ownPct}%"><span class="text-xs font-bold text-white">Own ${ownPct}%</span></div>
-        </div>
-      </div>
+      <!-- Financing bar is now integrated in the hero above -->
 
       ${_embeddedMode ? embeddedNavButtons(4, 6, 'Gantt \u2192') : navButtons(3, 5, 'Gantt \u2192')}
     `;
@@ -1480,7 +1558,7 @@ const Calculator = (() => {
         }).join('')}
         <div class="flex justify-between py-1.5 text-xs text-on-surface-variant mt-1"><span>Direct</span><span class="font-mono">${euros(wp.total)}</span></div>
         <div class="flex justify-between py-1.5 text-xs text-on-surface-variant"><span>+ Indirect ${indPct}%</span><span class="font-mono">+ ${euros(wpInd)}</span></div>
-        <div class="flex justify-between py-2 font-bold text-sm rounded px-2 mt-1" style="background:${wp.bg};color:${wp.color}"><span>Total ${wp.name}</span><span class="font-mono">${euros(wp.total + wpInd)}</span></div>
+        <div class="flex justify-between py-2 font-bold text-sm rounded px-2 mt-1" style="background:${wp.bg};color:${wp.color}"><span>Total ${wpLabel(wp, wi)}</span><span class="font-mono">${euros(wp.total + wpInd)}</span></div>
       </div>`;
     }).join('') + `
       <div class="bg-primary text-white rounded-xl p-4 flex justify-between items-center">
@@ -1499,9 +1577,10 @@ const Calculator = (() => {
       const res = calcActivity(act);
       if (act.type === 'mgmt') return pi === 0 ? res.app : (act.rate_partner||250) * mo;
       if (act.type === 'meeting' || act.type === 'ltta') {
-        if (p.id === act.host) return res.org / (state.partners.length);
+        if (act.online) return 0;
+        if (p.id === act.host) return (act.pax||2) * (act.days||3) * getPartnerPerdiemTotal(p.id);
         if ((act.participants||{})[p.id] === false) return 0;
-        return getRouteCost(p.id, act.host) * (act.pax||2) + (act.pax||2) * (act.days||3) * getPartnerPerdiemTotal(p.id) + res.org / state.partners.length;
+        return getRouteCost(p.id, act.host) * (act.pax||2) + (act.pax||2) * (act.days||3) * getPartnerPerdiemTotal(p.id);
       }
       if (act.type === 'me') { const ev = act.me_events?.[p.id]; return (ev?.active) ? ev.local_pax*ev.local_rate + ev.intl_pax*ev.intl_rate : 0; }
       if (act.type === 'local_ws') { const w = act.ws_partners?.[p.id]; return w?.active ? (w.ws_pax||0)*(w.ws_n||0)*(w.ws_cost||0) : 0; }
@@ -2282,6 +2361,13 @@ const Calculator = (() => {
   /** Check if Calculator state is initialized */
   function isInitialized() { return state.project !== null; }
 
+  function setWPLeader(wi, partnerId) {
+    if (state.wps[wi]) {
+      state.wps[wi].leader = partnerId;
+      scheduleSave();
+    }
+  }
+
   /** Sync WPs and re-render merged view */
   function syncWPsMerged(n) {
     syncWPCount(n);
@@ -2323,6 +2409,7 @@ const Calculator = (() => {
     _applyWPTitle: (...a) => { applyWPTitle(...a); scheduleSave(); },
     _syncWPs: (...a) => { syncWPs(...a); scheduleSave(); },
     _syncWPsMerged: (...a) => { syncWPsMerged(...a); scheduleSave(); },
+    _setWPLeader: (...a) => { setWPLeader(...a); },
     _addActivity: (...a) => { addActivity(...a); scheduleSave(); },
     _moveAct: (...a) => { moveAct(...a); scheduleSave(); },
     _removeAct: (...a) => { removeAct(...a); scheduleSave(); },

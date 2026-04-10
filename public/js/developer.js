@@ -16,6 +16,8 @@ const Developer = (() => {
   let evalCriteria = [];
   let _saveTimer = null;
   let _typingTimer = null;
+  let prepSubTab = 'analisis'; // default sub-tab in Prep Studio
+  let prepCache = {};          // cached data per sub-tab to avoid re-fetching
 
   function esc(s) {
     if (!s) return '';
@@ -269,40 +271,453 @@ const Developer = (() => {
   }
 
   /* ══════════════════════════════════════════════════════════════
-     PHASE 1.5: Prep Studio
+     PHASE 1.5: Prep Studio — 5 Sub-tabs
      ══════════════════════════════════════════════════════════════ */
-  async function renderPrepStudio() {
+  const PREP_TABS = [
+    { id: 'consorcio',    label: 'Consorcio',    icon: 'groups' },
+    { id: 'presupuesto',  label: 'Presupuesto',  icon: 'account_balance' },
+    { id: 'relevancia',   label: 'Relevancia',   icon: 'lightbulb' },
+    { id: 'actividades',  label: 'Actividades',  icon: 'task_alt' },
+    { id: 'analisis',     label: 'Analisis',     icon: 'analytics' },
+  ];
+
+  function renderPrepSubTabs(active) {
+    return `
+      <div class="flex items-center gap-1 mb-6 bg-surface-container-lowest rounded-xl border border-outline-variant/20 p-1.5">
+        ${PREP_TABS.map(t => `
+          <button onclick="Developer._prepTab('${t.id}')" class="flex-1 inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg text-xs font-bold transition-all ${active === t.id ? 'bg-[#1b1464] text-[#e7eb00] shadow-md' : 'text-on-surface-variant hover:bg-surface-container-low'}">
+            <span class="material-symbols-outlined text-sm">${t.icon}</span>
+            <span class="hidden sm:inline">${t.label}</span>
+          </button>
+        `).join('')}
+      </div>`;
+  }
+
+  async function renderPrepStudio(subTab) {
     phase = 15;
+    if (subTab) prepSubTab = subTab;
     const el = document.getElementById('developer-content');
-    const pid = currentProject.id;
 
-    el.innerHTML = renderPhaseTabs(15) + '<div class="text-center py-8"><div class="animate-spin w-8 h-8 border-4 border-primary border-t-transparent rounded-full mx-auto"></div><p class="text-sm text-on-surface-variant mt-2">Cargando Prep Studio...</p></div>';
-
-    // Load data in parallel
-    const [interview, docs, gaps] = await Promise.all([
-      API.get('/developer/projects/' + pid + '/interview').catch(() => []),
-      API.get('/developer/projects/' + pid + '/research-docs').catch(() => []),
-      API.get('/developer/projects/' + pid + '/gap-analysis').catch(() => ({ gaps: [], strengths: [], stats: {} })),
-    ]);
-
-    const s = gaps.stats || {};
-    const totalReady = (gaps.strengths?.length || 0);
-    const totalGaps = (gaps.gaps?.length || 0);
-
-    el.innerHTML = renderPhaseTabs(15) + `
+    // Header + sub-tabs
+    const header = renderPhaseTabs(15) + `
       <div class="max-w-4xl">
-        <div class="flex items-center gap-3 mb-6">
-          <div class="w-12 h-12 rounded-xl bg-[#1b1464]/10 flex items-center justify-center">
-            <span class="material-symbols-outlined text-2xl text-[#1b1464]">psychology</span>
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-10 h-10 rounded-xl bg-[#1b1464]/10 flex items-center justify-center">
+            <span class="material-symbols-outlined text-xl text-[#1b1464]">psychology</span>
           </div>
           <div>
-            <h2 class="font-headline text-xl font-bold">Prep Studio</h2>
-            <p class="text-sm text-on-surface-variant">Prepara el material para que la IA escriba una propuesta de calidad</p>
+            <h2 class="font-headline text-lg font-bold">Prep Studio</h2>
+            <p class="text-xs text-on-surface-variant">Prepara el contexto para que la IA escriba una propuesta de excelencia</p>
+          </div>
+        </div>
+        ${renderPrepSubTabs(prepSubTab)}
+        <div id="prep-tab-content"></div>
+        <div id="prep-nav-buttons" class="flex justify-between items-center mt-8"></div>
+      </div>`;
+
+    el.innerHTML = header;
+    // Render active sub-tab content
+    await renderPrepTabContent(prepSubTab);
+    // Render navigation buttons based on active tab
+    renderPrepNavButtons(prepSubTab);
+  }
+
+  function renderPrepNavButtons(tab) {
+    const nav = document.getElementById('prep-nav-buttons');
+    if (!nav) return;
+    const tabIds = PREP_TABS.map(t => t.id);
+    const idx = tabIds.indexOf(tab);
+    const prevTab = idx > 0 ? PREP_TABS[idx - 1] : null;
+    const nextTab = idx < tabIds.length - 1 ? PREP_TABS[idx + 1] : null;
+    const isLast = idx === tabIds.length - 1; // Analisis = last tab
+
+    const prevBtn = prevTab
+      ? `<button onclick="Developer._prepTab('${prevTab.id}')" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-bold text-on-surface-variant border border-outline-variant hover:bg-surface-container-low transition-colors">
+          <span class="material-symbols-outlined text-sm">arrow_back</span> ${prevTab.label}
+        </button>`
+      : `<button onclick="Developer._phase(1)" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-bold text-on-surface-variant border border-outline-variant hover:bg-surface-container-low transition-colors">
+          <span class="material-symbols-outlined text-sm">arrow_back</span> Contexto
+        </button>`;
+
+    const nextBtn = isLast
+      ? `<button onclick="Developer._phase(2)" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-bold bg-primary text-white hover:bg-primary/90 transition-colors shadow-sm">
+          Generar <span class="material-symbols-outlined text-sm">arrow_forward</span>
+        </button>`
+      : `<button onclick="Developer._prepTab('${nextTab.id}')" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-bold bg-primary text-white hover:bg-primary/90 transition-colors shadow-sm">
+          ${nextTab.label} <span class="material-symbols-outlined text-sm">arrow_forward</span>
+        </button>`;
+
+    nav.innerHTML = prevBtn + nextBtn;
+  }
+
+  async function renderPrepTabContent(tab) {
+    const el = document.getElementById('prep-tab-content');
+    if (!el) return;
+    el.innerHTML = '<div class="text-center py-8"><div class="animate-spin w-8 h-8 border-4 border-primary border-t-transparent rounded-full mx-auto"></div><p class="text-sm text-on-surface-variant mt-2">Cargando...</p></div>';
+
+    try {
+      switch (tab) {
+        case 'consorcio':    await renderPrepConsorcio(el); break;
+        case 'presupuesto':  await renderPrepPresupuesto(el); break;
+        case 'relevancia':   await renderPrepRelevancia(el); break;
+        case 'actividades':  await renderPrepActividades(el); break;
+        case 'analisis':     await renderPrepAnalisis(el); break;
+      }
+    } catch (err) {
+      el.innerHTML = `<div class="text-center py-8 text-error"><span class="material-symbols-outlined text-3xl mb-2">error</span><p class="text-sm">Error cargando ${tab}: ${esc(err.message)}</p></div>`;
+    }
+  }
+
+  /* ── Sub-tab: Consorcio ──────────────────────────────────────── */
+  async function renderPrepConsorcio(el) {
+    const pid = currentProject.id;
+    const data = await API.get('/developer/projects/' + pid + '/prep/consorcio').catch(() => ({ partners: [] }));
+    prepCache.consorcio = data;
+    const partners = data.partners || [];
+
+    el.innerHTML = `
+      <div class="space-y-4">
+        <div class="flex items-center justify-between mb-2">
+          <div>
+            <h3 class="font-headline text-base font-bold">Consorcio y PIFs</h3>
+            <p class="text-xs text-on-surface-variant">Vincula socios a organizaciones registradas y adapta sus perfiles al proyecto.</p>
           </div>
         </div>
 
-        <!-- Gap Analysis Summary -->
-        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-8">
+        ${partners.length ? partners.map((p, i) => {
+          const linked = !!p.organization_id;
+          const org = p.organization || {};
+          const variants = p.variants || [];
+          const selectedVariant = p.selected_variant;
+          const pifText = p.custom_text || (selectedVariant ? selectedVariant.adapted_text : org.description) || '';
+
+          return `
+          <div class="bg-white rounded-2xl border border-outline-variant/20 p-5">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="w-8 h-8 rounded-full ${i === 0 ? 'bg-primary text-white' : 'bg-outline-variant/20 text-on-surface-variant'} text-xs font-bold flex items-center justify-center">${i + 1}</span>
+              <div class="flex-1">
+                <div class="text-sm font-bold">${esc(p.name)} ${i === 0 ? '<span class="text-[9px] font-bold uppercase text-primary bg-primary/10 px-1.5 py-0.5 rounded ml-1">Coord.</span>' : ''}</div>
+                <div class="text-xs text-on-surface-variant">${[p.city, p.country].filter(Boolean).join(', ')}</div>
+              </div>
+              ${linked
+                ? `<span class="inline-flex items-center gap-1 text-[10px] font-bold text-green-700 bg-green-50 px-2 py-1 rounded-lg"><span class="material-symbols-outlined text-xs">link</span> ${esc(org.organization_name || 'Vinculada')}</span>`
+                : `<button onclick="Developer._linkOrg('${p.id}')" class="inline-flex items-center gap-1 text-[10px] font-bold text-amber-700 bg-amber-50 px-2 py-1 rounded-lg hover:bg-amber-100 transition-colors"><span class="material-symbols-outlined text-xs">link_off</span> Vincular organizacion</button>`
+              }
+            </div>
+
+            ${linked ? `
+              <!-- Org details expandable -->
+              <details class="mb-3">
+                <summary class="text-xs font-bold text-primary cursor-pointer hover:underline">Ver perfil de la organizacion</summary>
+                <div class="mt-2 bg-surface-container-lowest rounded-xl p-4 space-y-3 text-xs">
+                  ${org.description ? `<div><span class="font-bold text-on-surface-variant">Descripcion:</span><p class="mt-0.5 text-on-surface">${esc(org.description).substring(0, 500)}${(org.description||'').length > 500 ? '...' : ''}</p></div>` : ''}
+                  ${org.activities_experience ? `<div><span class="font-bold text-on-surface-variant">Experiencia:</span><p class="mt-0.5 text-on-surface">${esc(org.activities_experience).substring(0, 500)}${(org.activities_experience||'').length > 500 ? '...' : ''}</p></div>` : ''}
+                  ${(org.key_staff || []).length ? `<div><span class="font-bold text-on-surface-variant">Personal clave:</span><ul class="mt-1 space-y-0.5">${org.key_staff.map(s => `<li>- ${esc(s.name)} (${esc(s.role)}): ${esc(s.skills_summary || '')}</li>`).join('')}</ul></div>` : ''}
+                  ${(org.eu_projects || []).length ? `<div><span class="font-bold text-on-surface-variant">Proyectos EU:</span><ul class="mt-1 space-y-0.5">${org.eu_projects.map(ep => `<li>- ${esc(ep.title || ep.programme)} (${ep.year}, ${esc(ep.role)})</li>`).join('')}</ul></div>` : ''}
+                  ${(org.stakeholders || []).length ? `<div><span class="font-bold text-on-surface-variant">Stakeholders:</span><ul class="mt-1 space-y-0.5">${org.stakeholders.map(sh => `<li>- ${esc(sh.entity_name)} (${esc(sh.relationship_type)})</li>`).join('')}</ul></div>` : ''}
+                </div>
+              </details>
+
+              <!-- PIF Variant selector as chips -->
+              <div class="mb-3">
+                <div class="flex items-center gap-1.5 mb-2 flex-wrap">
+                  <span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider mr-1">PIF:</span>
+                  <button onclick="Developer._selectVariant('${p.id}', '')" class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[10px] font-bold transition-all ${!selectedVariant ? 'bg-primary text-white shadow-sm' : 'bg-surface-container-low text-on-surface-variant hover:bg-surface-container-high border border-outline-variant/20'}">
+                    <span class="material-symbols-outlined text-xs">description</span> Original
+                  </button>
+                  ${variants.map(v => `
+                    <button onclick="Developer._selectVariant('${p.id}', '${v.id}')" class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[10px] font-bold transition-all ${selectedVariant?.id === v.id ? 'bg-[#1b1464] text-[#e7eb00] shadow-sm' : 'bg-surface-container-low text-on-surface-variant hover:bg-surface-container-high border border-outline-variant/20'}">
+                      <span class="material-symbols-outlined text-xs">auto_awesome</span> ${esc(v.category_label || v.category)}
+                    </button>
+                  `).join('')}
+                  <button onclick="Developer._generateVariant('${p.id}')" class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[10px] font-bold text-primary border border-dashed border-primary/40 hover:bg-primary/5 transition-all">
+                    <span class="material-symbols-outlined text-xs">add</span> Nueva variante
+                  </button>
+                </div>
+              </div>
+
+              <!-- PIF preview -->
+              <div class="bg-surface-container-lowest rounded-xl p-3 text-xs text-on-surface whitespace-pre-wrap max-h-48 overflow-y-auto border border-outline-variant/10">${esc(pifText) || '<span class="italic text-on-surface-variant">Sin perfil adaptado. Genera una variante o selecciona una existente.</span>'}</div>
+            ` : `
+              <div class="bg-amber-50 rounded-xl p-3 text-xs text-amber-700">
+                <span class="material-symbols-outlined text-sm align-middle mr-1">info</span>
+                Este socio fue creado manualmente. Vinculalo a una organizacion registrada para acceder al PIF completo (descripcion, personal, proyectos, stakeholders).
+              </div>
+            `}
+
+            <!-- Interview questions for this tab -->
+            <div id="prep-interview-consorcio-${p.id}"></div>
+          </div>`;
+        }).join('') : '<p class="text-sm text-on-surface-variant italic py-4">No hay socios en este proyecto. Anade socios en el Intake.</p>'}
+      </div>`;
+  }
+
+  /* ── Sub-tab: Presupuesto ─────────────────────────────────────── */
+  async function renderPrepPresupuesto(el) {
+    const pid = currentProject.id;
+    const data = await API.get('/developer/projects/' + pid + '/prep/presupuesto').catch(() => null);
+    prepCache.presupuesto = data;
+
+    if (!data || !data.budget) {
+      // Auto-create budget from intake data
+      el.innerHTML = '<p class="text-sm text-on-surface-variant py-8 text-center"><span class="spinner"></span> Generando presupuesto desde intake...</p>';
+      try {
+        const res = await API.post('/budget/from-intake/' + pid);
+        const budgetId = res.id || res.data?.id;
+        Budget.openInContainer(budgetId, el);
+      } catch (e) {
+        el.innerHTML = `
+          <div class="bg-amber-50 rounded-2xl border border-amber-200 p-8 text-center">
+            <span class="material-symbols-outlined text-4xl text-amber-400 mb-2">account_balance</span>
+            <h3 class="font-headline text-base font-bold text-amber-800 mb-1">Error generando presupuesto</h3>
+            <p class="text-sm text-amber-700 mb-4">${esc(e.message || 'Error desconocido')}</p>
+            <button id="prep-budget-retry" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs font-bold text-[#e7eb00] bg-[#1b1464] hover:bg-[#1b1464]/80 transition-colors">
+              <span class="material-symbols-outlined text-sm">refresh</span> Reintentar
+            </button>
+          </div>`;
+        document.getElementById('prep-budget-retry')?.addEventListener('click', () => renderPrepPresupuesto(el));
+      }
+      return;
+    }
+
+    // Open the full budget editor embedded in this container
+    Budget.openInContainer(data.budget.id, el);
+  }
+
+  /* ── Sub-tab: Relevancia ──────────────────────────────────────── */
+  async function renderPrepRelevancia(el) {
+    const pid = currentProject.id;
+    const [relData, docs, interview] = await Promise.all([
+      API.get('/developer/projects/' + pid + '/prep/relevancia').catch(() => ({ context: {} })),
+      API.get('/developer/projects/' + pid + '/research-docs').catch(() => []),
+      API.get('/developer/projects/' + pid + '/interview').catch(() => []),
+    ]);
+    prepCache.relevancia = relData;
+    const ctx = relData.context || {};
+    const relInterview = interview.filter(q => q.tab === 'relevancia' || (!q.tab && ['origin_story', 'unique_approach', 'problem_data', 'eu_added_value', 'innovation'].includes(q.question_key)));
+
+    el.innerHTML = `
+      <div class="space-y-4">
+        <h3 class="font-headline text-base font-bold">Relevancia e Investigacion</h3>
+        <p class="text-xs text-on-surface-variant mb-2">Define la idea central, sube investigacion de apoyo y responde las preguntas del coordinador.</p>
+
+        <!-- Editable context fields -->
+        <div class="bg-white rounded-2xl border border-outline-variant/20 p-5 space-y-4">
+          <div>
+            <label class="text-xs font-bold text-on-surface-variant block mb-1">Problema / Necesidades</label>
+            <textarea id="prep-rel-problem" class="w-full px-3 py-2 text-sm bg-surface-container-lowest border border-outline-variant/20 rounded-lg resize-vertical focus:outline-none focus:ring-2 focus:ring-primary/15 min-h-[80px]" placeholder="Describe el problema o necesidad que aborda el proyecto...">${esc(ctx.problem || '')}</textarea>
+          </div>
+          <div>
+            <label class="text-xs font-bold text-on-surface-variant block mb-1">Grupos objetivo</label>
+            <textarea id="prep-rel-targets" class="w-full px-3 py-2 text-sm bg-surface-container-lowest border border-outline-variant/20 rounded-lg resize-vertical focus:outline-none focus:ring-2 focus:ring-primary/15 min-h-[60px]" placeholder="A quien beneficia el proyecto...">${esc(ctx.target_groups || '')}</textarea>
+          </div>
+          <div>
+            <label class="text-xs font-bold text-on-surface-variant block mb-1">Enfoque / Metodologia</label>
+            <textarea id="prep-rel-approach" class="w-full px-3 py-2 text-sm bg-surface-container-lowest border border-outline-variant/20 rounded-lg resize-vertical focus:outline-none focus:ring-2 focus:ring-primary/15 min-h-[80px]" placeholder="Como abordareis el problema...">${esc(ctx.approach || '')}</textarea>
+          </div>
+          <div class="flex justify-end">
+            <button onclick="Developer._saveRelContext()" class="inline-flex items-center gap-1 text-xs font-bold text-primary hover:text-primary/80 transition-colors">
+              <span class="material-symbols-outlined text-sm">save</span> Guardar cambios
+            </button>
+          </div>
+        </div>
+
+        <!-- Research Documents (moved from old Block A) -->
+        <div class="bg-white rounded-2xl border border-outline-variant/20 p-5">
+          <h4 class="font-headline text-sm font-bold text-primary mb-1 flex items-center gap-2">
+            <span class="material-symbols-outlined text-lg">upload_file</span> Documentos de investigacion
+          </h4>
+          <p class="text-xs text-on-surface-variant mb-3">Estudios, informes o articulos. Se vectorizan para que la IA los use como evidencia.</p>
+
+          <div class="flex items-center gap-3 mb-3">
+            <label class="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold bg-[#1b1464] text-[#e7eb00] cursor-pointer hover:bg-[#1b1464]/90 transition-colors">
+              <span class="material-symbols-outlined text-sm">add</span> Subir documento
+              <input type="file" accept=".pdf,.docx,.txt" class="hidden" id="prep-doc-upload">
+            </label>
+            <span class="text-xs text-on-surface-variant">PDF, DOCX o TXT (max 30MB)</span>
+          </div>
+
+          <div id="prep-docs-list">
+            ${(docs || []).length ? docs.map(d => `
+              <div class="flex items-center gap-3 py-2 border-b border-outline-variant/10">
+                <span class="material-symbols-outlined text-lg text-primary/50">description</span>
+                <span class="text-sm font-medium flex-1">${esc(d.title || d.label)}</span>
+                <span class="text-xs text-on-surface-variant">${d.file_type || ''} · ${((d.file_size_bytes || 0) / 1024).toFixed(0)}KB</span>
+                <button onclick="Developer._deleteDoc(${d.document_id})" class="text-on-surface-variant/30 hover:text-error"><span class="material-symbols-outlined text-sm">delete</span></button>
+              </div>
+            `).join('') : '<p class="text-xs text-on-surface-variant/50 italic py-2">Ningun documento subido aun.</p>'}
+          </div>
+        </div>
+
+        <!-- Interview questions (relevancia) -->
+        ${relInterview.length ? `
+        <div class="bg-white rounded-2xl border border-outline-variant/20 p-5">
+          <h4 class="font-headline text-sm font-bold text-primary mb-1 flex items-center gap-2">
+            <span class="material-symbols-outlined text-lg">chat</span> Preguntas del coordinador
+          </h4>
+          <div class="space-y-3" id="prep-interview-list">
+            ${relInterview.map((q, i) => `
+              <div class="border border-outline-variant/20 rounded-xl p-3">
+                <div class="flex items-start gap-2 mb-1.5">
+                  <span class="w-5 h-5 rounded-full ${q.answer_text ? 'bg-green-100 text-green-600' : 'bg-amber-100 text-amber-600'} text-[9px] font-bold flex items-center justify-center shrink-0">${i + 1}</span>
+                  <p class="text-xs font-medium text-on-surface">${esc(q.question_text)}</p>
+                </div>
+                <textarea class="w-full px-3 py-2 text-xs bg-surface-container-lowest border border-outline-variant/20 rounded-lg resize-vertical focus:outline-none focus:ring-2 focus:ring-primary/15 min-h-[50px]"
+                  placeholder="Tu respuesta..." data-key="${esc(q.question_key)}"
+                  onfocus="this.style.minHeight='100px'">${esc(q.answer_text || '')}</textarea>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+        ` : interview.length === 0 ? `
+        <div class="bg-white rounded-2xl border border-outline-variant/20 p-5 text-center">
+          <button onclick="Developer._genInterview()" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-bold bg-[#1b1464] text-[#e7eb00] hover:bg-[#1b1464]/90 transition-colors" id="prep-gen-interview-btn">
+            <span class="material-symbols-outlined text-lg">auto_awesome</span> Generar preguntas de entrevista
+          </button>
+          <p class="text-xs text-on-surface-variant mt-2">La IA generara preguntas especificas sobre tu proyecto, distribuidas en cada pestana.</p>
+        </div>` : ''}
+      </div>`;
+
+    // Bind events
+    document.getElementById('prep-doc-upload')?.addEventListener('change', handleDocUpload);
+    bindInterviewAutosave();
+    bindRelContextAutosave();
+  }
+
+  function bindRelContextAutosave() {
+    ['prep-rel-problem', 'prep-rel-targets', 'prep-rel-approach'].forEach(id => {
+      const ta = document.getElementById(id);
+      if (!ta) return;
+      let timer;
+      ta.addEventListener('input', () => {
+        clearTimeout(timer);
+        timer = setTimeout(() => saveRelContext(), 2000);
+      });
+    });
+  }
+
+  async function saveRelContext() {
+    const problem = document.getElementById('prep-rel-problem')?.value || '';
+    const target_groups = document.getElementById('prep-rel-targets')?.value || '';
+    const approach = document.getElementById('prep-rel-approach')?.value || '';
+    try {
+      await API.put('/developer/projects/' + currentProject.id + '/prep/relevancia/context', { problem, target_groups, approach });
+      Toast.show('Contexto guardado', 'ok');
+    } catch (e) { Toast.show('Error guardando: ' + e.message, 'err'); }
+  }
+
+  /* ── Sub-tab: Actividades ─────────────────────────────────────── */
+  async function renderPrepActividades(el) {
+    const pid = currentProject.id;
+    const data = await API.get('/developer/projects/' + pid + '/prep/actividades').catch(() => ({ wps: [] }));
+    prepCache.actividades = data;
+    const wps = data.wps || [];
+
+    el.innerHTML = `
+      <div class="space-y-4">
+        <div class="flex items-center justify-between mb-2">
+          <div>
+            <h3 class="font-headline text-base font-bold">Actividades y Work Packages</h3>
+            <p class="text-xs text-on-surface-variant">Describe cada WP y sus actividades. Este contexto alimenta la IA al escribir la propuesta.</p>
+          </div>
+        </div>
+
+        ${wps.length ? wps.map(wp => `
+          <details class="bg-white rounded-2xl border border-outline-variant/20" open>
+            <summary class="p-5 cursor-pointer">
+              <div class="inline-flex items-center gap-3">
+                <span class="w-8 h-8 rounded-lg bg-primary/10 text-primary text-xs font-bold flex items-center justify-center">${esc(wp.code)}</span>
+                <div>
+                  <div class="text-sm font-bold">${esc(wp.title)}</div>
+                  <div class="text-xs text-on-surface-variant">${(wp.activities || []).length} actividades · Lider: ${esc(wp.leader_name || 'Sin asignar')}</div>
+                </div>
+              </div>
+            </summary>
+            <div class="px-5 pb-5 space-y-3">
+              <!-- WP Summary -->
+              <div class="bg-primary/5 rounded-xl p-3 border border-primary/10">
+                <label class="text-[10px] font-bold text-primary uppercase tracking-wider block mb-1">Resumen del WP</label>
+                <textarea class="prep-wp-summary w-full px-3 py-2 text-xs bg-white border border-outline-variant/20 rounded-lg resize-vertical focus:outline-none focus:ring-2 focus:ring-primary/15 min-h-[60px]"
+                  data-wp-id="${wp.id}" placeholder="Describe brevemente el objetivo y enfoque de este Work Package...">${esc(wp.summary || '')}</textarea>
+              </div>
+
+              <!-- Activities -->
+              ${(wp.activities || []).map(act => `
+                <div class="bg-surface-container-lowest rounded-xl p-3 border border-outline-variant/10">
+                  <div class="flex items-center gap-2 mb-2">
+                    <span class="text-xs font-bold text-primary">${esc(act.label || act.type)}</span>
+                    ${act.subtype ? `<span class="text-[10px] text-on-surface-variant bg-surface-container-low px-1.5 py-0.5 rounded">${esc(act.subtype)}</span>` : ''}
+                    ${act.date_start ? `<span class="text-[10px] text-on-surface-variant ml-auto">${fmtDate(act.date_start)} - ${fmtDate(act.date_end)}</span>` : ''}
+                  </div>
+                  <textarea class="prep-act-desc w-full px-3 py-2 text-xs bg-white border border-outline-variant/20 rounded-lg resize-vertical focus:outline-none focus:ring-2 focus:ring-primary/15 min-h-[50px]"
+                    data-act-id="${act.id}" placeholder="Describe esta actividad: objetivos, metodologia, resultados esperados...">${esc(act.description || '')}</textarea>
+                  ${(act.tasks || []).length ? `
+                    <div class="mt-2 space-y-1">
+                      ${act.tasks.map(t => `
+                        <div class="flex items-start gap-1.5 text-[11px]">
+                          <span class="material-symbols-outlined text-xs text-on-surface-variant mt-0.5">subdirectory_arrow_right</span>
+                          <span class="font-medium">${esc(t.title)}</span>
+                          ${t.deliverable ? `<span class="text-green-600 ml-auto">D: ${esc(t.deliverable)}</span>` : ''}
+                        </div>
+                      `).join('')}
+                    </div>
+                  ` : ''}
+                </div>
+              `).join('')}
+            </div>
+          </details>
+        `).join('') : `
+          <div class="bg-amber-50 rounded-2xl border border-amber-200 p-8 text-center">
+            <span class="material-symbols-outlined text-4xl text-amber-400 mb-2">task_alt</span>
+            <h3 class="font-headline text-base font-bold text-amber-800 mb-1">Sin actividades</h3>
+            <p class="text-sm text-amber-700">Define Work Packages y actividades en el Intake primero.</p>
+          </div>
+        `}
+      </div>`;
+
+    // Bind autosave for WP summaries
+    el.querySelectorAll('.prep-wp-summary').forEach(ta => {
+      let timer;
+      ta.addEventListener('input', () => {
+        clearTimeout(timer);
+        timer = setTimeout(async () => {
+          try {
+            await API.put('/developer/wp/' + ta.dataset.wpId + '/summary', { summary: ta.value });
+          } catch (e) { console.error('wp summary save:', e); }
+        }, 1500);
+      });
+    });
+
+    // Bind autosave for activity descriptions
+    el.querySelectorAll('.prep-act-desc').forEach(ta => {
+      let timer;
+      ta.addEventListener('input', () => {
+        clearTimeout(timer);
+        timer = setTimeout(async () => {
+          try {
+            await API.put('/developer/activity/' + ta.dataset.actId + '/description', { description: ta.value });
+          } catch (e) { console.error('activity desc save:', e); }
+        }, 1500);
+      });
+    });
+  }
+
+  /* ── Sub-tab: Analisis ─────────────────────────────────────────── */
+  async function renderPrepAnalisis(el) {
+    const pid = currentProject.id;
+    const gaps = await API.get('/developer/projects/' + pid + '/gap-analysis').catch(() => ({ gaps: [], strengths: [], stats: {} }));
+    prepCache.analisis = gaps;
+
+    const totalReady = (gaps.strengths?.length || 0);
+    const totalGaps = (gaps.gaps?.length || 0);
+
+    el.innerHTML = `
+      <div class="space-y-4">
+        <h3 class="font-headline text-base font-bold">Analisis de preparacion</h3>
+        <p class="text-xs text-on-surface-variant mb-2">Estado del material disponible para que la IA escriba tu propuesta.</p>
+
+        <!-- Summary counters -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-4">
           <div class="bg-green-50 border border-green-200 rounded-xl p-3 text-center">
             <div class="font-headline text-lg font-extrabold text-green-600">${totalReady}</div>
             <div class="text-[9px] uppercase tracking-wider text-green-700 font-bold">Puntos fuertes</div>
@@ -311,80 +726,10 @@ const Developer = (() => {
             <div class="font-headline text-lg font-extrabold text-amber-600">${totalGaps}</div>
             <div class="text-[9px] uppercase tracking-wider text-amber-700 font-bold">Gaps a cubrir</div>
           </div>
-          <div class="bg-blue-50 border border-blue-200 rounded-xl p-3 text-center">
-            <div class="font-headline text-lg font-extrabold text-blue-600">${docs.length || 0}</div>
-            <div class="text-[9px] uppercase tracking-wider text-blue-700 font-bold">Docs subidos</div>
-          </div>
-          <div class="bg-purple-50 border border-purple-200 rounded-xl p-3 text-center">
-            <div class="font-headline text-lg font-extrabold text-purple-600">${interview.filter(i => i.answer_text).length}/${interview.length || 0}</div>
-            <div class="text-[9px] uppercase tracking-wider text-purple-700 font-bold">Entrevista</div>
-          </div>
         </div>
 
-        <!-- Block A: Research Documents -->
-        <div class="bg-white rounded-2xl border border-outline-variant/20 p-6 mb-6">
-          <h3 class="font-headline text-base font-bold text-primary mb-1 flex items-center gap-2">
-            <span class="material-symbols-outlined text-lg">upload_file</span> A. Documentos de investigacion
-          </h3>
-          <p class="text-xs text-on-surface-variant mb-4">Sube informes, estudios o articulos sobre tu tematica. Se vectorizan y la IA los usara como evidencia prioritaria.</p>
-
-          <!-- Upload -->
-          <div class="flex items-center gap-3 mb-4">
-            <label class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-bold bg-[#1b1464] text-[#e7eb00] cursor-pointer hover:bg-[#1b1464]/90 transition-colors">
-              <span class="material-symbols-outlined text-sm">add</span> Subir documento
-              <input type="file" accept=".pdf,.docx,.txt" class="hidden" id="prep-doc-upload">
-            </label>
-            <span class="text-xs text-on-surface-variant">PDF, DOCX o TXT (max 30MB)</span>
-          </div>
-
-          <!-- Doc list -->
-          <div id="prep-docs-list">
-            ${(docs || []).length ? docs.map(d => `
-              <div class="flex items-center gap-3 py-2 border-b border-outline-variant/10">
-                <span class="material-symbols-outlined text-lg text-primary/50">description</span>
-                <span class="text-sm font-medium flex-1">${esc(d.title || d.label)}</span>
-                <span class="text-xs text-on-surface-variant">${d.file_type} · ${((d.file_size_bytes || 0) / 1024).toFixed(0)}KB</span>
-                <button onclick="Developer._deleteDoc(${d.document_id})" class="text-on-surface-variant/30 hover:text-error"><span class="material-symbols-outlined text-sm">delete</span></button>
-              </div>
-            `).join('') : '<p class="text-xs text-on-surface-variant/50 italic py-2">Ningun documento subido aun.</p>'}
-          </div>
-        </div>
-
-        <!-- Block B: Interview -->
-        <div class="bg-white rounded-2xl border border-outline-variant/20 p-6 mb-6">
-          <h3 class="font-headline text-base font-bold text-primary mb-1 flex items-center gap-2">
-            <span class="material-symbols-outlined text-lg">chat</span> B. Entrevista al coordinador
-          </h3>
-          <p class="text-xs text-on-surface-variant mb-4">La IA te hara preguntas especificas sobre tu proyecto. Tus respuestas son el material mas valioso para escribir una propuesta autentica.</p>
-
-          ${interview.length === 0 ? `
-            <button onclick="Developer._genInterview()" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-bold bg-[#1b1464] text-[#e7eb00] hover:bg-[#1b1464]/90 transition-colors" id="prep-gen-interview-btn">
-              <span class="material-symbols-outlined text-lg">auto_awesome</span> Generar preguntas de entrevista
-            </button>
-          ` : `
-            <div class="space-y-4" id="prep-interview-list">
-              ${interview.map((q, i) => `
-                <div class="border border-outline-variant/20 rounded-xl p-4">
-                  <div class="flex items-start gap-2 mb-2">
-                    <span class="w-6 h-6 rounded-full ${q.answer_text ? 'bg-green-100 text-green-600' : 'bg-amber-100 text-amber-600'} text-[10px] font-bold flex items-center justify-center shrink-0">${i + 1}</span>
-                    <p class="text-sm font-medium text-on-surface">${esc(q.question_text)}</p>
-                  </div>
-                  <textarea class="w-full px-3 py-2 text-sm bg-surface-container-lowest border border-outline-variant/20 rounded-lg resize-vertical focus:outline-none focus:ring-2 focus:ring-primary/15 min-h-[60px]"
-                    placeholder="Tu respuesta..." data-key="${esc(q.question_key)}"
-                    onfocus="this.style.minHeight='120px'">${esc(q.answer_text || '')}</textarea>
-                </div>
-              `).join('')}
-            </div>
-          `}
-        </div>
-
-        <!-- Block C: Gap Analysis -->
-        <div class="bg-white rounded-2xl border border-outline-variant/20 p-6 mb-6">
-          <h3 class="font-headline text-base font-bold text-primary mb-1 flex items-center gap-2">
-            <span class="material-symbols-outlined text-lg">analytics</span> C. Analisis de gaps
-          </h3>
-          <p class="text-xs text-on-surface-variant mb-4">Estado actual del material disponible para la IA.</p>
-
+        <!-- Detail -->
+        <div class="bg-white rounded-2xl border border-outline-variant/20 p-5">
           ${(gaps.strengths || []).map(s => `
             <div class="flex items-center gap-2 py-1.5">
               <span class="material-symbols-outlined text-sm text-green-500">check_circle</span>
@@ -398,21 +743,7 @@ const Developer = (() => {
             </div>
           `).join('')}
         </div>
-
-        <!-- Next step -->
-        <div class="flex justify-between items-center">
-          <button onclick="Developer._phase(1)" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-bold text-on-surface-variant border border-outline-variant hover:bg-surface-container-low transition-colors">
-            <span class="material-symbols-outlined text-sm">arrow_back</span> Contexto
-          </button>
-          <button onclick="Developer._phase(2)" class="inline-flex items-center gap-3 px-10 py-5 rounded-2xl bg-[#1b1464] text-[#e7eb00] font-bold text-base shadow-lg hover:scale-[1.03] active:scale-95 transition-all">
-            <span class="material-symbols-outlined text-2xl">auto_awesome</span> Generar borrador
-          </button>
-        </div>
       </div>`;
-
-    // Bind events
-    document.getElementById('prep-doc-upload')?.addEventListener('change', handleDocUpload);
-    bindInterviewAutosave();
   }
 
   async function handleDocUpload(e) {
@@ -1060,6 +1391,125 @@ const Developer = (() => {
     }
   }
 
+  function goPrepTab(tab) {
+    prepSubTab = tab;
+    renderPrepStudio(tab);
+  }
+
+  /* ── Consorcio actions ──────────────────────────────────────── */
+  async function linkOrg(partnerId) {
+    // First load all available organizations to show them
+    try {
+      // organizations endpoint returns { ok, rows, meta } not { ok, data }
+      const raw = await fetch('/v1/organizations?limit=50', { headers: { 'Authorization': 'Bearer ' + API.getToken() } }).then(r => r.json());
+      const orgs = raw.rows || [];
+      if (!orgs.length) { Toast.show('No hay organizaciones en el directorio. Crea una primero en la seccion Organizaciones.', 'err'); return; }
+
+      const list = orgs.map((o, i) => `${i + 1}. ${o.organization_name} (${o.city || ''}, ${o.country || ''})`).join('\n');
+      const picked = prompt('Selecciona la organizacion a vincular:\n\n' + list + '\n\nEscribe el numero:');
+      if (!picked) return;
+      const choice = parseInt(picked) - 1;
+      if (isNaN(choice) || choice < 0 || choice >= orgs.length) { Toast.show('Seleccion invalida', 'err'); return; }
+
+      await API.put('/developer/projects/' + currentProject.id + '/partners/' + partnerId + '/link-org', { organization_id: orgs[choice].id });
+      Toast.show('Organizacion vinculada: ' + orgs[choice].organization_name, 'ok');
+      renderPrepTabContent('consorcio');
+    } catch (err) { Toast.show('Error: ' + err.message, 'err'); }
+  }
+
+  async function selectVariant(partnerId, variantId) {
+    try {
+      await API.put('/developer/projects/' + currentProject.id + '/prep/consorcio/' + partnerId + '/select-variant', { variant_id: variantId || null });
+      renderPrepTabContent('consorcio');
+    } catch (err) { Toast.show('Error: ' + err.message, 'err'); }
+  }
+
+  const PIF_CATEGORIES = [
+    { value: 'entrepreneurship', label: 'Emprendimiento', icon: 'rocket_launch' },
+    { value: 'environment', label: 'Medio Ambiente', icon: 'eco' },
+    { value: 'employability', label: 'Empleabilidad', icon: 'work' },
+    { value: 'youth_policy', label: 'Politicas Juveniles', icon: 'how_to_vote' },
+    { value: 'digital', label: 'Digital', icon: 'computer' },
+    { value: 'inclusion', label: 'Inclusion Social', icon: 'diversity_3' },
+    { value: 'culture', label: 'Cultura y Patrimonio', icon: 'palette' },
+    { value: 'sport', label: 'Deporte y Salud', icon: 'fitness_center' },
+    { value: 'education', label: 'Educacion', icon: 'school' },
+  ];
+
+  function generateVariant(partnerId) {
+    // Create modal overlay
+    const overlay = document.createElement('div');
+    overlay.className = 'fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm';
+    overlay.innerHTML = `
+      <div class="bg-white rounded-2xl shadow-2xl w-[520px] max-w-[90vw] overflow-hidden border border-outline-variant/30">
+        <div class="px-6 py-4 border-b border-outline-variant/20 flex items-center justify-between">
+          <div>
+            <h3 class="font-headline text-base font-bold text-primary">Generar variante de PIF</h3>
+            <p class="text-xs text-on-surface-variant mt-0.5">Selecciona la tematica para adaptar el perfil de la organizacion</p>
+          </div>
+          <button class="pif-modal-close w-8 h-8 flex items-center justify-center rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors">
+            <span class="material-symbols-outlined">close</span>
+          </button>
+        </div>
+        <div class="p-4 grid grid-cols-3 gap-2">
+          ${PIF_CATEGORIES.map(c => `
+            <button class="pif-cat-btn flex flex-col items-center gap-1.5 p-3 rounded-xl border border-outline-variant/20 hover:bg-primary/5 hover:border-primary/30 transition-all text-center" data-cat="${c.value}" data-label="${c.label}">
+              <span class="material-symbols-outlined text-xl text-primary">${c.icon}</span>
+              <span class="text-[11px] font-bold text-on-surface">${c.label}</span>
+            </button>
+          `).join('')}
+        </div>
+        <div class="px-4 pb-4">
+          <div class="flex items-center gap-2">
+            <input type="text" placeholder="O escribe una tematica personalizada..." class="pif-custom-input flex-1 px-3 py-2 text-sm border border-outline-variant/20 rounded-lg bg-surface-container-lowest focus:outline-none focus:ring-2 focus:ring-primary/15">
+            <button class="pif-custom-btn inline-flex items-center gap-1 px-3 py-2 rounded-lg text-xs font-bold text-[#1b1464] bg-[#1b1464]/10 hover:bg-[#1b1464]/20 transition-colors">
+              <span class="material-symbols-outlined text-sm">add</span> Crear
+            </button>
+          </div>
+        </div>
+      </div>
+    `;
+    document.body.appendChild(overlay);
+
+    // Close handlers
+    const closeModal = () => overlay.remove();
+    overlay.addEventListener('click', (e) => { if (e.target === overlay) closeModal(); });
+    overlay.querySelector('.pif-modal-close').addEventListener('click', closeModal);
+
+    // Category button click
+    overlay.querySelectorAll('.pif-cat-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        closeModal();
+        doGenerateVariant(partnerId, btn.dataset.cat, btn.dataset.label);
+      });
+    });
+
+    // Custom input
+    overlay.querySelector('.pif-custom-btn').addEventListener('click', () => {
+      const val = overlay.querySelector('.pif-custom-input').value.trim();
+      if (!val) return;
+      closeModal();
+      doGenerateVariant(partnerId, 'custom', val);
+    });
+    overlay.querySelector('.pif-custom-input').addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        const val = e.target.value.trim();
+        if (!val) return;
+        closeModal();
+        doGenerateVariant(partnerId, 'custom', val);
+      }
+    });
+  }
+
+  async function doGenerateVariant(partnerId, category, categoryLabel) {
+    Toast.show('Generando variante de PIF: ' + categoryLabel + '...', 'ok');
+    try {
+      await API.post('/developer/projects/' + currentProject.id + '/prep/consorcio/' + partnerId + '/generate-variant', { category, category_label: categoryLabel });
+      Toast.show('Variante "' + categoryLabel + '" generada', 'ok');
+      renderPrepTabContent('consorcio');
+    } catch (err) { Toast.show('Error: ' + err.message, 'err'); }
+  }
+
   function goBack() { phase = 0; init(); }
 
   async function sendToEvaluator() {
@@ -1129,6 +1579,11 @@ const Developer = (() => {
     _genInterview: genInterview,
     _deleteDoc: deleteDoc,
     _phase: goPhase,
+    _prepTab: goPrepTab,
+    _linkOrg: linkOrg,
+    _selectVariant: selectVariant,
+    _generateVariant: generateVariant,
+    _saveRelContext: saveRelContext,
     _selectSection: selectSection,
     _generateField: generateField,
     _markReviewed: markReviewed,

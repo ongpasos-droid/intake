@@ -38,4 +38,16 @@ router.delete('/projects/:projectId/research-docs/:docId', requireAuth, ctrl.del
 // Prep Studio: Gap analysis
 router.get('/projects/:projectId/gap-analysis', requireAuth, ctrl.getGapAnalysis);
 
+// Prep Studio v2: 5-tab context
+router.get('/projects/:projectId/prep/consorcio', requireAuth, ctrl.getPrepConsorcio);
+router.put('/projects/:projectId/partners/:partnerId/link-org', requireAuth, ctrl.linkPartnerOrg);
+router.post('/projects/:projectId/prep/consorcio/:partnerId/generate-variant', requireAuth, ctrl.generatePifVariant);
+router.put('/projects/:projectId/prep/consorcio/:partnerId/select-variant', requireAuth, ctrl.selectPifVariant);
+router.get('/projects/:projectId/prep/presupuesto', requireAuth, ctrl.getPrepPresupuesto);
+router.get('/projects/:projectId/prep/relevancia', requireAuth, ctrl.getPrepRelevancia);
+router.put('/projects/:projectId/prep/relevancia/context', requireAuth, ctrl.updatePrepRelevanciaContext);
+router.get('/projects/:projectId/prep/actividades', requireAuth, ctrl.getPrepActividades);
+router.put('/wp/:wpId/summary', requireAuth, ctrl.updateWpSummary);
+router.put('/activity/:activityId/description', requireAuth, ctrl.updateActivityDescription);
+
 module.exports = router;

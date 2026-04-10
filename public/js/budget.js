@@ -231,7 +231,60 @@ const Budget = (() => {
     const el = document.getElementById('budget-tab-content');
     if (!el) return;
 
+    const ins = current.instructions;
+    const insHtml = ins ? `
+      <!-- Instructions (EACEA page 1) -->
+      <div class="rounded-2xl border border-amber-200/50 bg-amber-50/30 overflow-hidden mb-6">
+        <div class="px-5 py-3 border-b border-amber-200/30 bg-amber-50/50">
+          <h3 class="text-xs font-bold uppercase tracking-widest text-amber-700">Instructions — Datos del proyecto</h3>
+        </div>
+        <div class="p-5 space-y-4">
+          <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+            <div>
+              <span class="text-[9px] font-bold uppercase tracking-widest text-on-surface-variant">Call type</span>
+              <p class="text-sm font-semibold text-on-surface mt-0.5 truncate" title="${esc(ins.call_type)}">${esc(ins.call_type || '—')}</p>
+            </div>
+            <div>
+              <span class="text-[9px] font-bold uppercase tracking-widest text-on-surface-variant">Acronym</span>
+              <p class="text-sm font-semibold text-primary mt-0.5">${esc(ins.acronym || '—')}</p>
+            </div>
+            <div>
+              <span class="text-[9px] font-bold uppercase tracking-widest text-on-surface-variant">Max EU grant</span>
+              <p class="text-sm font-semibold text-on-surface mt-0.5">${fmt(ins.max_grant)} EUR</p>
+            </div>
+            <div>
+              <span class="text-[9px] font-bold uppercase tracking-widest text-on-surface-variant">Co-financing</span>
+              <p class="text-sm font-semibold text-on-surface mt-0.5">${ins.cofin_pct}%</p>
+            </div>
+          </div>
+          ${ins.worker_rates?.length ? `
+          <div>
+            <span class="text-[9px] font-bold uppercase tracking-widest text-on-surface-variant">Worker categories & daily rates</span>
+            <div class="mt-2 overflow-x-auto">
+              <table class="w-full text-xs">
+                <thead><tr class="text-on-surface-variant border-b border-amber-200/40">
+                  <th class="text-left py-1.5 font-bold">Partner</th>
+                  ${[...new Set(ins.worker_rates.map(w => w.category))].map(c => `<th class="text-right py-1.5 font-bold">${esc(c)}</th>`).join('')}
+                </tr></thead>
+                <tbody>${(() => {
+                  const cats = [...new Set(ins.worker_rates.map(w => w.category))];
+                  const byPartner = {};
+                  for (const w of ins.worker_rates) {
+                    if (!byPartner[w.partner_name]) byPartner[w.partner_name] = {};
+                    byPartner[w.partner_name][w.category] = w.rate;
+                  }
+                  return Object.entries(byPartner).map(([name, rates]) =>
+                    `<tr class="border-b border-amber-200/20"><td class="py-1.5 font-medium">${esc(name)}</td>${cats.map(c => `<td class="text-right font-mono">${rates[c] ? fmt(rates[c]) : '—'}</td>`).join('')}</tr>`
+                  ).join('');
+                })()}</tbody>
+              </table>
+            </div>
+          </div>` : ''}
+        </div>
+      </div>` : '';
+
     el.innerHTML = `
+      ${insHtml}
       <div class="grid lg:grid-cols-2 gap-6">
         <!-- Beneficiaries -->
         <div class="rounded-2xl border border-outline-variant/30 bg-white overflow-hidden">
@@ -263,14 +316,14 @@ const Budget = (() => {
     } else {
       benList.innerHTML = current.beneficiaries.map(b => `
         <div class="flex items-center gap-2 p-3 rounded-xl border border-outline-variant/20 bg-surface-container-lowest group">
-          <span class="text-[10px] font-mono font-bold text-primary/50 w-12">BE ${String(b.number).padStart(3,'0')}</span>
-          <input type="text" value="${esc(b.name)}" placeholder="Nombre de la entidad" class="ben-field flex-1 px-2 py-1 text-xs border-none bg-transparent focus:bg-white focus:ring-1 focus:ring-primary/20 rounded" data-bid="${b.id}" data-f="name">
-          <input type="text" value="${esc(b.acronym)}" placeholder="Acrónimo" class="ben-field w-20 px-2 py-1 text-xs border-none bg-transparent focus:bg-white focus:ring-1 focus:ring-primary/20 rounded" data-bid="${b.id}" data-f="acronym">
-          <input type="text" value="${esc(b.country)}" placeholder="País" class="ben-field w-24 px-2 py-1 text-xs border-none bg-transparent focus:bg-white focus:ring-1 focus:ring-primary/20 rounded" data-bid="${b.id}" data-f="country">
-          <label class="flex items-center gap-1 text-[10px] text-on-surface-variant">
-            <input type="checkbox" ${b.is_coordinator ? 'checked' : ''} class="ben-coord accent-primary" data-bid="${b.id}"> Coord
-          </label>
-          <button class="ben-del w-6 h-6 flex items-center justify-center rounded text-on-surface-variant/30 hover:text-error transition-colors opacity-0 group-hover:opacity-100" data-bid="${b.id}">
+          <span class="text-[10px] font-mono font-bold text-primary/50 w-10 flex-shrink-0">BE ${String(b.number).padStart(3,'0')}</span>
+          <input type="text" value="${esc(b.name)}" placeholder="Entidad" class="ben-field flex-1 min-w-0 px-2 py-1 text-xs border-none bg-transparent focus:bg-white focus:ring-1 focus:ring-primary/20 rounded" data-bid="${b.id}" data-f="name">
+          <input type="text" value="${esc(b.acronym)}" placeholder="Acron." class="ben-field w-16 flex-shrink-0 px-2 py-1 text-xs border-none bg-transparent focus:bg-white focus:ring-1 focus:ring-primary/20 rounded" data-bid="${b.id}" data-f="acronym">
+          <input type="text" value="${esc(b.country)}" placeholder="Pais" class="ben-field w-16 flex-shrink-0 px-2 py-1 text-xs border-none bg-transparent focus:bg-white focus:ring-1 focus:ring-primary/20 rounded" data-bid="${b.id}" data-f="country">
+          <button type="button" class="ben-coord flex-shrink-0 px-2 py-0.5 rounded-md text-[9px] font-bold uppercase tracking-wide transition-colors ${b.is_coordinator ? 'bg-primary/15 text-primary border border-primary/30' : 'bg-transparent text-on-surface-variant/40 border border-outline-variant/20 hover:border-primary/30 hover:text-primary/60'}" data-bid="${b.id}" title="Toggle coordinador">
+            C
+          </button>
+          <button class="ben-del flex-shrink-0 w-5 h-5 flex items-center justify-center rounded text-on-surface-variant/30 hover:text-error transition-colors opacity-0 group-hover:opacity-100" data-bid="${b.id}">
             <span class="material-symbols-outlined text-xs">close</span>
           </button>
         </div>`).join('');
@@ -280,9 +333,19 @@ const Budget = (() => {
           debouncedUpdate('ben', inp.dataset.bid, { [inp.dataset.f]: inp.value });
         });
       });
-      benList.querySelectorAll('.ben-coord').forEach(cb => {
-        cb.addEventListener('change', () => {
-          debouncedUpdate('ben', cb.dataset.bid, { is_coordinator: cb.checked ? 1 : 0 });
+      benList.querySelectorAll('.ben-coord').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const isCoord = btn.classList.contains('bg-primary/15');
+          const newVal = isCoord ? 0 : 1;
+          debouncedUpdate('ben', btn.dataset.bid, { is_coordinator: newVal });
+          // Toggle visual
+          if (newVal) {
+            btn.classList.add('bg-primary/15', 'text-primary', 'border-primary/30');
+            btn.classList.remove('bg-transparent', 'text-on-surface-variant/40', 'border-outline-variant/20');
+          } else {
+            btn.classList.remove('bg-primary/15', 'text-primary', 'border-primary/30');
+            btn.classList.add('bg-transparent', 'text-on-surface-variant/40', 'border-outline-variant/20');
+          }
         });
       });
       benList.querySelectorAll('.ben-del').forEach(btn => {
@@ -589,5 +652,34 @@ const Budget = (() => {
     }, 500);
   }
 
-  return { init };
+  /* ── Embeddable: open budget editor inside any container ──── */
+  async function openInContainer(budgetId, containerEl) {
+    // Inject the editor HTML structure into the container
+    containerEl.innerHTML = `
+      <div class="flex items-center justify-between mb-4 flex-wrap gap-3">
+        <div class="flex items-center gap-3">
+          <div class="w-8 h-8 rounded-lg bg-amber-500/10 flex items-center justify-center">
+            <span class="material-symbols-outlined text-amber-600 text-lg">receipt_long</span>
+          </div>
+          <h2 id="budget-title" class="font-headline text-base font-extrabold text-primary truncate max-w-md"></h2>
+        </div>
+      </div>
+      <div id="budget-config" class="flex items-center gap-4 mb-4 p-4 rounded-2xl bg-amber-50/50 border border-amber-200/50 flex-wrap"></div>
+      <div id="budget-tabs" class="flex items-center gap-1 mb-4 overflow-x-auto pb-1 border-b border-outline-variant/20"></div>
+      <div id="budget-tab-content" class="min-h-[40vh]"></div>`;
+
+    try {
+      const res = await API.get(`/budget/${budgetId}/full`);
+      current = res.data || res;
+      document.getElementById('budget-title').textContent = current.budget.name || 'Presupuesto';
+      activeTab = 'setup';
+      renderConfig();
+      renderTabs();
+      renderTabContent();
+    } catch (e) {
+      containerEl.innerHTML = `<div class="text-center py-8 text-error"><p>Error cargando presupuesto: ${esc(e.message)}</p></div>`;
+    }
+  }
+
+  return { init, openInContainer };
 })();

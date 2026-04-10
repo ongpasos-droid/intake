@@ -25,9 +25,10 @@ router.delete('/data/programs/:id',    guard, ctrl.deleteProgram);
 router.post ('/data/programs/:programId/generate-eval', guard, ctrl.generateEvalFromTemplate);
 
 /* ── Call documents (per programme) ──────────────────────────── */
-router.get   ('/data/programs/:programId/docs',     guard, ctrl.listCallDocuments);
-router.post  ('/data/programs/:programId/docs',     guard, ctrl.createCallDocument);
-router.delete('/data/call-docs/:id',                guard, ctrl.deleteCallDocument);
+router.get   ('/data/programs/:programId/docs',           guard, ctrl.listCallDocuments);
+router.get   ('/data/programs/:programId/available-docs', guard, ctrl.availableCallDocuments);
+router.post  ('/data/programs/:programId/docs',           guard, ctrl.createCallDocument);
+router.delete('/data/call-docs/:id',                      guard, ctrl.deleteCallDocument);
 
 /* ── Países ───────────────────────────────────────────────────── */
 router.get   ('/data/countries',       guard, ctrl.listCountries);

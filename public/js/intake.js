@@ -249,7 +249,8 @@ const Intake = (() => {
             city: p.city || '',
             country: p.country || '',
             role: p.role || 'partner',
-            order_index: p.order_index
+            order_index: p.order_index,
+            organization_id: p.organization_id || null
           }));
           pCounter = partners.length;
         }
@@ -316,6 +317,39 @@ const Intake = (() => {
           saves.push(API.patch('/intake/contexts/' + contexts[0].id, contextData));
         }
         await Promise.all(saves);
+
+        // Sync partners: update existing, create new, delete removed
+        const serverPartners = await API.get('/intake/projects/' + currentProjectId + '/partners');
+        const serverIds = (serverPartners || []).map(p => p.id);
+        const localIds = partners.filter(p => p._server).map(p => p._server);
+        const partnerOps = [];
+
+        for (const pt of partners) {
+          if (!pt.name || !pt.name.trim()) continue;
+          if (pt._server) {
+            // Update existing
+            partnerOps.push(API.patch('/intake/partners/' + pt._server, {
+              name: pt.name.trim(), city: pt.city || null, country: pt.country || null,
+              organization_id: pt.organization_id || null
+            }));
+          } else {
+            // Create new
+            partnerOps.push(
+              API.post('/intake/projects/' + currentProjectId + '/partners', {
+                name: pt.name.trim(), city: pt.city || null, country: pt.country || null,
+                organization_id: pt.organization_id || null
+              }).then(created => { if (created) pt._server = created.id; })
+            );
+          }
+        }
+        // Delete removed partners
+        for (const sid of serverIds) {
+          if (!localIds.includes(sid)) {
+            partnerOps.push(API.del('/intake/partners/' + sid).catch(() => {}));
+          }
+        }
+        if (partnerOps.length) await Promise.all(partnerOps);
+
         _dirty = false;
         if (!silent) Toast.show('Proyecto actualizado', 'ok');
       } else {
@@ -328,7 +362,8 @@ const Intake = (() => {
         for (const pt of partners) {
           if (pt.name && pt.name.trim()) {
             ops.push(API.post('/intake/projects/' + currentProjectId + '/partners', {
-              name: pt.name.trim(), city: pt.city || null, country: pt.country || null
+              name: pt.name.trim(), city: pt.city || null, country: pt.country || null,
+              organization_id: pt.organization_id || null
             }));
           }
         }
@@ -793,45 +828,46 @@ const Intake = (() => {
     async function searchAndRender(q, country, type) {
       results.innerHTML = '<p class="text-sm text-on-surface-variant py-8 text-center">Buscando...</p>';
       try {
-        const params = new URLSearchParams();
+        // Search in organizations directory (full PIF profiles)
+        const params = new URLSearchParams({ limit: '50' });
         if (q) params.set('q', q);
         if (country) params.set('country', country);
-        if (type) params.set('type', type);
-        const raw = await API.get('/intake/entities/search?' + params.toString());
-        // Deduplicate by id
-        const seen = new Set();
-        const entities = raw.filter(e => { if (seen.has(e.id)) return false; seen.add(e.id); return true; });
-        if (!entities.length) {
-          results.innerHTML = '<p class="text-sm text-on-surface-variant py-8 text-center">Sin resultados</p>';
+        if (type) params.set('org_type', type);
+        const raw = await fetch('/v1/organizations?' + params.toString(), {
+          headers: { 'Authorization': 'Bearer ' + API.getToken() }
+        }).then(r => r.json());
+        const orgs = (raw.ok && raw.data?.rows) ? raw.data.rows : [];
+
+        if (!orgs.length) {
+          results.innerHTML = '<p class="text-sm text-on-surface-variant py-8 text-center">Sin resultados en el directorio</p>';
           return;
         }
-        results.innerHTML = '<table class="w-full text-sm"><thead class="sticky top-0 bg-white"><tr>' +
-          '<th class="px-4 py-2 text-left text-[11px] font-bold uppercase tracking-widest text-on-surface-variant">Nombre</th>' +
-          '<th class="px-3 py-2 text-left text-[11px] font-bold uppercase tracking-widest text-on-surface-variant">Ciudad</th>' +
-          '<th class="px-3 py-2 text-left text-[11px] font-bold uppercase tracking-widest text-on-surface-variant">Pa\u00EDs</th>' +
-          '<th class="px-3 py-2 text-left text-[11px] font-bold uppercase tracking-widest text-on-surface-variant">Tipo</th>' +
-          '<th class="px-3 py-2 text-left text-[11px] font-bold uppercase tracking-widest text-on-surface-variant">PIC</th>' +
-          '<th class="px-2 py-2"></th>' +
-          '</tr></thead><tbody>' +
-          entities.map(e => `
-            <tr class="entity-pick border-b border-outline-variant/20 hover:bg-primary/5 cursor-pointer transition-colors" data-id="${e.id}">
-              <td class="px-4 py-2.5 font-semibold text-on-surface">${esc(e.name)}</td>
-              <td class="px-3 py-2.5 text-on-surface-variant">${esc(e.city || '\u2014')}</td>
-              <td class="px-3 py-2.5"><span class="font-mono text-xs font-bold text-primary">${esc(e.country_iso2)}</span> ${esc(e.country_name || '')}</td>
-              <td class="px-3 py-2.5"><span class="px-2 py-0.5 rounded bg-primary/10 text-primary text-xs font-bold">${esc(e.type)}</span></td>
-              <td class="px-3 py-2.5 font-mono text-xs text-on-surface-variant">${esc(e.pic_number || '\u2014')}</td>
-              <td class="px-2 py-2.5"><span class="material-symbols-outlined text-primary text-lg">add_circle</span></td>
-            </tr>
+        results.innerHTML = '<div class="space-y-2 p-2">' +
+          orgs.map(o => `
+            <div class="entity-pick flex items-center gap-3 p-3 rounded-xl border border-outline-variant/20 hover:bg-primary/5 cursor-pointer transition-colors" data-id="${o.id}">
+              ${o.logo_url
+                ? `<img src="${esc(o.logo_url)}" alt="" class="w-10 h-10 rounded-lg object-contain border border-outline-variant/20 shrink-0 bg-white">`
+                : `<div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-lg text-primary">apartment</span></div>`
+              }
+              <div class="flex-1 min-w-0">
+                <div class="text-sm font-semibold text-on-surface">${esc(o.organization_name)}</div>
+                <div class="text-xs text-on-surface-variant">${esc([o.city, o.country].filter(Boolean).join(', '))}${o.org_type ? ' · ' + esc(o.org_type) : ''}</div>
+              </div>
+              ${o.eu_projects_count > 0 ? `<span class="text-[10px] font-bold text-primary bg-primary/10 px-2 py-0.5 rounded-full">${o.eu_projects_count} proy. EU</span>` : ''}
+              ${o.pic ? `<span class="text-[10px] font-mono text-on-surface-variant">PIC: ${esc(o.pic)}</span>` : ''}
+              <span class="material-symbols-outlined text-primary text-lg shrink-0">add_circle</span>
+            </div>
           `).join('') +
-          '</tbody></table>';
+          '</div>';
 
         results.querySelectorAll('.entity-pick').forEach(el => {
           el.addEventListener('click', () => {
-            const ent = entities.find(e => String(e.id) === el.dataset.id);
-            if (ent) {
-              partners[partnerIdx].name = ent.name;
-              partners[partnerIdx].city = ent.city || '';
-              partners[partnerIdx].country = ent.country_name || ent.country_iso2;
+            const org = orgs.find(o => String(o.id) === el.dataset.id);
+            if (org) {
+              partners[partnerIdx].name = org.organization_name;
+              partners[partnerIdx].city = org.city || '';
+              partners[partnerIdx].country = org.country || '';
+              partners[partnerIdx].organization_id = org.id;
               calcNeedsReinit = true;
               renderPartners();
             }
@@ -839,7 +875,7 @@ const Intake = (() => {
           });
         });
       } catch (err) {
-        results.innerHTML = '<p class="text-sm text-error py-8 text-center">Error al buscar entidades</p>';
+        results.innerHTML = '<p class="text-sm text-error py-8 text-center">Error al buscar en el directorio</p>';
       }
     }
 
@@ -1170,18 +1206,18 @@ const Intake = (() => {
     // Project data — ARISE KA3-Youth (load from server if exists)
     document.getElementById('intake-f-name').value = 'ARISE';
     const fullName = document.getElementById('intake-f-fullname');
-    if (fullName) fullName.value = 'Action for Resilience and Innovation in Social Europe';
+    if (fullName) fullName.value = 'Acci\u00F3n para la Resiliencia e Innovaci\u00F3n Social en Europa';
     document.getElementById('intake-f-desc').value = 'ARISE is a KA3 European Youth Together project that empowers young people aged 18\u201330 to become agents of social inclusion through sport and non-formal education. Through a network of 4 organisations in 4 countries, the project designs and tests innovative youth-led programmes combining physical activity, intercultural dialogue and digital storytelling to reach marginalised communities \u2014 particularly young migrants, NEETs and youth with fewer opportunities in rural and peri-urban areas. Over 24 months, ARISE will train 80 youth leaders, run 16 local pilot actions, organise 3 transnational youth exchanges and produce an open-access Youth Inclusion Toolkit validated by peer evaluation across all partner countries.';
     document.getElementById('intake-f-start').value = '2027-03-01';
     const durHidden = document.getElementById('intake-f-dur');
     if (durHidden) durHidden.value = '24';
 
-    // 4 Partners — 4 countries
+    // 4 Partners — from organization directory
     partners = [
-      { _local: 1, _server: null, name: 'Asociaci\u00F3n Building Bridges',    city: 'Salamanca',    country: 'Spain',   role: 'applicant', order_index: 1 },
-      { _local: 2, _server: null, name: 'CESIE',                               city: 'Palermo',      country: 'Italy',   role: 'partner',   order_index: 2 },
-      { _local: 3, _server: null, name: 'Youth Express Network',               city: 'Strasbourg',   country: 'France',  role: 'partner',   order_index: 3 },
-      { _local: 4, _server: null, name: 'Aristotle University of Thessaloniki', city: 'Thessaloniki', country: 'Greece',  role: 'partner',   order_index: 4 },
+      { _local: 1, _server: null, name: 'Permacultura Cantabria',  city: 'Santander',              country: 'Spain',   role: 'applicant', order_index: 1, organization_id: 'a95547b3-ed92-4b7f-acd4-1d9911983124' },
+      { _local: 2, _server: null, name: 'Citizens In Power',       city: 'Nicosia',                country: 'Cyprus',  role: 'partner',   order_index: 2, organization_id: 'e27edf33-3607-44e0-99d0-495f92887795' },
+      { _local: 3, _server: null, name: 'Culture Goes Europe',     city: 'Magdeburg',              country: 'Germany', role: 'partner',   order_index: 3, organization_id: '14eae096-5d0a-4b59-926d-29cb097fbc2c' },
+      { _local: 4, _server: null, name: 'Oriel APS',               city: 'San Giovanni Lupatoto',  country: 'Italy',   role: 'partner',   order_index: 4, organization_id: 'b1c2d3e4-f5a6-47b8-9c0d-1e2f3a4b5c6d' },
     ];
     pCounter = 4;
     renderPartners();
@@ -1207,12 +1243,12 @@ const Intake = (() => {
 
     // Routes (real approximate distances)
     if (pts.length >= 4) {
-      st._setRouteBand(pts[0].id, pts[1].id, 3); // Salamanca\u2013Palermo ~1600km (500-1999)
-      st._setRouteBand(pts[0].id, pts[2].id, 3); // Salamanca\u2013Strasbourg ~1200km
-      st._setRouteBand(pts[0].id, pts[3].id, 4); // Salamanca\u2013Thessaloniki ~2400km (2000-2999)
-      st._setRouteBand(pts[1].id, pts[2].id, 3); // Palermo\u2013Strasbourg ~1400km
-      st._setRouteBand(pts[1].id, pts[3].id, 3); // Palermo\u2013Thessaloniki ~900km
-      st._setRouteBand(pts[2].id, pts[3].id, 4); // Strasbourg\u2013Thessaloniki ~2100km (2000-2999)
+      st._setRouteBand(pts[0].id, pts[1].id, 4); // Santander\u2013Nicosia ~3200km (3000-3999)
+      st._setRouteBand(pts[0].id, pts[2].id, 3); // Santander\u2013Magdeburg ~1700km (500-1999)
+      st._setRouteBand(pts[0].id, pts[3].id, 3); // Santander\u2013Verona ~1400km (500-1999)
+      st._setRouteBand(pts[1].id, pts[2].id, 4); // Nicosia\u2013Magdeburg ~2800km (2000-2999)
+      st._setRouteBand(pts[1].id, pts[3].id, 4); // Nicosia\u2013Verona ~2200km (2000-2999)
+      st._setRouteBand(pts[2].id, pts[3].id, 3); // Magdeburg\u2013Verona ~900km (500-1999)
     }
 
     // Extra destination: Brussels (EACEA)
@@ -1222,10 +1258,10 @@ const Intake = (() => {
       st._setExtraDest(0, 'name', 'Brussels (EACEA)');
       st._setExtraDest(0, 'country', 'Belgium');
       if (pts.length >= 4) {
-        st._setRouteBand(pts[0].id, edState.extraDests[0].id, 3); // Salamanca\u2013Brussels ~1500km
-        st._setRouteBand(pts[1].id, edState.extraDests[0].id, 3); // Palermo\u2013Brussels ~1700km
-        st._setRouteBand(pts[2].id, edState.extraDests[0].id, 2); // Strasbourg\u2013Brussels ~500km (100-499)
-        st._setRouteBand(pts[3].id, edState.extraDests[0].id, 4); // Thessaloniki\u2013Brussels ~2000km
+        st._setRouteBand(pts[0].id, edState.extraDests[0].id, 3); // Santander\u2013Brussels ~1300km
+        st._setRouteBand(pts[1].id, edState.extraDests[0].id, 4); // Nicosia\u2013Brussels ~2900km
+        st._setRouteBand(pts[2].id, edState.extraDests[0].id, 2); // Magdeburg\u2013Brussels ~650km (500-1999)
+        st._setRouteBand(pts[3].id, edState.extraDests[0].id, 3); // Verona\u2013Brussels ~1000km
       }
     }
 
@@ -1295,7 +1331,7 @@ const Intake = (() => {
     if (cs2[3]?.activities[2]) { const a = cs2[3].activities[2]; st._setActSubtype(3, a.id, 'Group mobility'); st._setAct(3, a.id, 'pax', 4); st._setAct(3, a.id, 'days', 3); }
 
     setStep(0);
-    Toast.show('Demo cargada: ARISE KA3-Youth \u2014 4 socios, 4 WPs', 'ok');
+    Toast.show('Demo cargada: ARISE KA3-Youth \u2014 4 socios (del directorio), 4 WPs', 'ok');
   }
 
   async function openProject(id) {

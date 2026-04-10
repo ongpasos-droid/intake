@@ -131,3 +131,11 @@ exports.updateCost = async (req, res) => {
 exports.getCostTemplate = (req, res) => {
   ok(res, m.COST_TEMPLATE);
 };
+
+/* ── Create from intake ─────────────────────────────────────── */
+exports.createFromIntake = async (req, res) => {
+  try {
+    const result = await m.createFromIntake(req.user.id, req.params.projectId);
+    ok(res, result);
+  } catch (e) { err(res, e.message, 500); }
+};

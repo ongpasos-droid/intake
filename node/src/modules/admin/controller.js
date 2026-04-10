@@ -66,6 +66,7 @@ exports.createCallDocument  = wrap(async (req, res) => {
   ok(res, { id: await m.createCallDocument(req.params.programId, document_id, doc_type, label) });
 });
 exports.deleteCallDocument  = wrap(async (req, res) => { await m.deleteCallDocument(req.params.id); ok(res, null); });
+exports.availableCallDocuments = wrap(async (req, res) => { ok(res, await m.availableCallDocuments(req.params.programId)); });
 
 /* ── Duplicate programme ─────────────────────────────────────── */
 exports.duplicateProgram = wrap(async (req, res) => { ok(res, await m.duplicateProgram(req.params.id)); });

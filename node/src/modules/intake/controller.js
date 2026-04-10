@@ -169,7 +169,7 @@ async function listPartners(req, res, next) {
 /* ── POST /v1/intake/projects/:projectId/partners ────────────────── */
 async function createPartner(req, res, next) {
   try {
-    const { name, legal_name, city, country } = req.body;
+    const { name, legal_name, city, country, organization_id } = req.body;
 
     if (!name) {
       return res.status(400).json({
@@ -182,7 +182,8 @@ async function createPartner(req, res, next) {
       name,
       legal_name,
       city,
-      country
+      country,
+      organization_id
     });
 
     if (!partner) {

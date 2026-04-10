@@ -179,7 +179,7 @@ async function findPartnersByProjectId(projectId, userId) {
   if (!project) return null;
 
   const sql = `
-    SELECT id, project_id, name, legal_name, city, country, role, order_index, created_at, updated_at
+    SELECT id, project_id, name, legal_name, city, country, role, order_index, organization_id, created_at, updated_at
     FROM partners
     WHERE project_id = ?
     ORDER BY order_index ASC
@@ -211,8 +211,8 @@ async function createPartner(projectId, userId, partnerData) {
   const role = nextIndex === 1 ? 'applicant' : 'partner';
 
   const sql = `
-    INSERT INTO partners (id, project_id, name, legal_name, city, country, role, order_index, created_at, updated_at)
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    INSERT INTO partners (id, project_id, name, legal_name, city, country, role, order_index, organization_id, created_at, updated_at)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
   `;
 
   const params = [
@@ -224,6 +224,7 @@ async function createPartner(projectId, userId, partnerData) {
     partnerData.country || '',
     role,
     nextIndex,
+    partnerData.organization_id || null,
     now,
     now
   ];
@@ -257,7 +258,7 @@ async function updatePartner(partnerId, userId, updates) {
   const project = await findProjectById(partner.project_id, userId);
   if (!project) return null;
 
-  const allowedFields = ['name', 'legal_name', 'city', 'country'];
+  const allowedFields = ['name', 'legal_name', 'city', 'country', 'organization_id'];
   const fieldsToUpdate = {};
 
   for (const [key, value] of Object.entries(updates)) {

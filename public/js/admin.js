@@ -327,7 +327,9 @@ const Admin = (() => {
     switch (convActiveSubtab) {
       case 'data':        evalRenderCallData(content); break;
       case 'eligibility': evalRenderEligibility(content); break;
+      case 'intake':      convRenderIntakeTab(content); break;
       case 'form':        convRenderFormTab(content); break;
+      case 'budget':      convRenderBudgetTab(content); break;
       case 'criteria':    convRenderCriteriaTab(content); break;
       case 'docs':        convRenderDocsTab(content); break;
     }
@@ -421,6 +423,102 @@ const Admin = (() => {
     ev.activeQuestionIdx = 0;
     evalRenderSidebar();
     evalRenderMain();
+  }
+
+  /* ── Intake sub-tab: select intake template ─────────────── */
+  const INTAKE_TEMPLATES = [
+    { id: 'eacea_standard', name: 'EACEA Standard', desc: 'Centralizados (KA3, CBHE, Alliances, Jean Monnet, Sport, etc.)' },
+  ];
+
+  async function convRenderIntakeTab(content) {
+    const programs = await API.get('/admin/data/programs');
+    const prog = programs.find(p => p.id === ev.programId) || {};
+    const current = prog.intake_template || '';
+
+    content.innerHTML = `
+      <div class="max-w-lg">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-2 h-10 rounded-full bg-teal-500"></div>
+          <div>
+            <div class="text-[10px] font-bold uppercase tracking-widest text-primary">INTAKE TEMPLATE</div>
+            <h3 class="font-headline text-lg font-extrabold text-on-surface tracking-tight">Tipo de Intake (Design)</h3>
+          </div>
+        </div>
+        <p class="text-sm text-on-surface-variant mb-4">Define que estructura de intake/design usaran los proyectos de esta convocatoria.</p>
+        <div class="space-y-2 mb-4">
+          ${INTAKE_TEMPLATES.map(t => `
+            <label class="flex items-center gap-3 p-4 rounded-xl border ${current === t.id ? 'border-primary bg-primary/5' : 'border-outline-variant/20 hover:border-primary/30'} cursor-pointer transition-colors">
+              <input type="radio" name="intake-tpl" value="${t.id}" ${current === t.id ? 'checked' : ''} class="accent-primary">
+              <div class="flex-1">
+                <p class="text-sm font-bold text-on-surface">${esc(t.name)}</p>
+                <p class="text-xs text-on-surface-variant">${esc(t.desc)}</p>
+              </div>
+              ${current === t.id ? '<span class="material-symbols-outlined text-primary">check_circle</span>' : ''}
+            </label>
+          `).join('')}
+        </div>
+        <button id="intake-tpl-save" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs font-bold text-[#e7eb00] bg-[#1b1464] hover:bg-[#1b1464]/80 transition-colors">
+          <span class="material-symbols-outlined text-sm">save</span> Guardar
+        </button>
+      </div>`;
+
+    document.getElementById('intake-tpl-save')?.addEventListener('click', async () => {
+      const selected = content.querySelector('input[name="intake-tpl"]:checked')?.value;
+      if (!selected) return Toast.show('Selecciona un tipo', 'err');
+      try {
+        await API.patch('/admin/data/programs/' + ev.programId, { intake_template: selected });
+        Toast.show('Intake template guardado', 'ok');
+        convRenderIntakeTab(content);
+      } catch (e) { Toast.show('Error: ' + e.message, 'err'); }
+    });
+  }
+
+  /* ── Budget sub-tab: select budget template ─────────────── */
+  const BUDGET_TEMPLATES = [
+    { id: 'eacea_lump_sum', name: 'EACEA Lump Sum', desc: 'Centralizados — presupuesto por Work Packages con lump sum, costes indirectos 7%' },
+  ];
+
+  async function convRenderBudgetTab(content) {
+    const programs = await API.get('/admin/data/programs');
+    const prog = programs.find(p => p.id === ev.programId) || {};
+    const current = prog.budget_template || '';
+
+    content.innerHTML = `
+      <div class="max-w-lg">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-2 h-10 rounded-full bg-emerald-500"></div>
+          <div>
+            <div class="text-[10px] font-bold uppercase tracking-widest text-primary">BUDGET TEMPLATE</div>
+            <h3 class="font-headline text-lg font-extrabold text-on-surface tracking-tight">Tipo de Presupuesto</h3>
+          </div>
+        </div>
+        <p class="text-sm text-on-surface-variant mb-4">Define que estructura de presupuesto usaran los proyectos de esta convocatoria.</p>
+        <div class="space-y-2 mb-4">
+          ${BUDGET_TEMPLATES.map(t => `
+            <label class="flex items-center gap-3 p-4 rounded-xl border ${current === t.id ? 'border-primary bg-primary/5' : 'border-outline-variant/20 hover:border-primary/30'} cursor-pointer transition-colors">
+              <input type="radio" name="budget-tpl" value="${t.id}" ${current === t.id ? 'checked' : ''} class="accent-primary">
+              <div class="flex-1">
+                <p class="text-sm font-bold text-on-surface">${esc(t.name)}</p>
+                <p class="text-xs text-on-surface-variant">${esc(t.desc)}</p>
+              </div>
+              ${current === t.id ? '<span class="material-symbols-outlined text-primary">check_circle</span>' : ''}
+            </label>
+          `).join('')}
+        </div>
+        <button id="budget-tpl-save" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs font-bold text-[#e7eb00] bg-[#1b1464] hover:bg-[#1b1464]/80 transition-colors">
+          <span class="material-symbols-outlined text-sm">save</span> Guardar
+        </button>
+      </div>`;
+
+    document.getElementById('budget-tpl-save')?.addEventListener('click', async () => {
+      const selected = content.querySelector('input[name="budget-tpl"]:checked')?.value;
+      if (!selected) return Toast.show('Selecciona un tipo', 'err');
+      try {
+        await API.patch('/admin/data/programs/' + ev.programId, { budget_template: selected });
+        Toast.show('Budget template guardado', 'ok');
+        convRenderBudgetTab(content);
+      } catch (e) { Toast.show('Error: ' + e.message, 'err'); }
+    });
   }
 
   /* ── Form sub-tab: read-only template viewer ─────────────── */
@@ -551,29 +649,46 @@ const Admin = (() => {
       </div>
       <p class="text-sm text-on-surface-variant mb-4">Los documentos subidos se vectorizan y estarán disponibles como contexto para el Writer (IA).</p>
 
-      <div class="rounded-2xl border border-outline-variant/20 p-5 bg-surface-container-lowest mb-5">
-        <h4 class="text-xs font-bold uppercase text-on-surface-variant mb-3">Subir documento</h4>
-        <form id="conv-doc-upload-form" class="space-y-3">
-          <input type="file" id="conv-doc-file" accept=".pdf,.docx,.txt,.csv,.xlsx" required
-            class="w-full text-sm file:mr-3 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-[#1b1464] file:text-[#e7eb00] file:cursor-pointer">
-          <div class="grid grid-cols-3 gap-3">
-            <input type="text" id="conv-doc-title" placeholder="Título (opcional)"
-              class="px-3 py-2 rounded-xl border border-outline-variant/30 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20">
-            <select id="conv-doc-type" class="px-3 py-2 rounded-xl border border-outline-variant/30 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20">
-              <option value="programme_guide">Programme Guide</option>
-              <option value="call_document">Call Document</option>
-              <option value="annex">Annex</option>
-              <option value="template">Template</option>
-              <option value="faq">FAQ</option>
-              <option value="other">Other</option>
-            </select>
-            <input type="text" id="conv-doc-tags" placeholder="Tags (comma separated)"
-              class="px-3 py-2 rounded-xl border border-outline-variant/30 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20">
-          </div>
-          <button type="submit" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs font-bold text-[#e7eb00] bg-[#1b1464] hover:bg-[#1b1464]/80 transition-colors">
-            <span class="material-symbols-outlined text-sm">cloud_upload</span> Subir y vectorizar
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-5">
+        <div class="rounded-2xl border border-outline-variant/20 p-5 bg-surface-container-lowest">
+          <h4 class="text-xs font-bold uppercase text-on-surface-variant mb-3">Subir documento nuevo</h4>
+          <form id="conv-doc-upload-form" class="space-y-3">
+            <input type="file" id="conv-doc-file" accept=".pdf,.docx,.txt,.csv,.xlsx" required
+              class="w-full text-sm file:mr-3 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-[#1b1464] file:text-[#e7eb00] file:cursor-pointer">
+            <div class="grid grid-cols-3 gap-3">
+              <input type="text" id="conv-doc-title" placeholder="Titulo (opcional)"
+                class="px-3 py-2 rounded-xl border border-outline-variant/30 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20">
+              <select id="conv-doc-type" class="px-3 py-2 rounded-xl border border-outline-variant/30 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20">
+                <option value="programme_guide">Programme Guide</option>
+                <option value="call_document">Call Document</option>
+                <option value="annex">Annex</option>
+                <option value="template">Template</option>
+                <option value="faq">FAQ</option>
+                <option value="other">Other</option>
+              </select>
+              <input type="text" id="conv-doc-tags" placeholder="Tags (comma separated)"
+                class="px-3 py-2 rounded-xl border border-outline-variant/30 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20">
+            </div>
+            <div class="flex items-center gap-4">
+              <label class="flex items-center gap-2 text-sm text-on-surface-variant cursor-pointer select-none">
+                <input type="checkbox" id="conv-doc-transversal" class="rounded border-outline-variant accent-primary">
+                <span>Transversal</span>
+                <span class="text-[10px] text-on-surface-variant/60">(disponible para todas las calls)</span>
+              </label>
+            </div>
+            <button type="submit" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs font-bold text-[#e7eb00] bg-[#1b1464] hover:bg-[#1b1464]/80 transition-colors">
+              <span class="material-symbols-outlined text-sm">cloud_upload</span> Subir y vectorizar
+            </button>
+          </form>
+        </div>
+
+        <div class="rounded-2xl border border-outline-variant/20 p-5 bg-surface-container-lowest flex flex-col">
+          <h4 class="text-xs font-bold uppercase text-on-surface-variant mb-3">Seleccionar existentes</h4>
+          <p class="text-xs text-on-surface-variant/70 mb-3">Documentos del mismo tipo de call o transversales ya subidos en otras convocatorias.</p>
+          <button type="button" id="conv-doc-pick-existing" class="mt-auto inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs font-bold text-[#1b1464] border-2 border-[#1b1464]/30 hover:bg-[#1b1464]/5 transition-colors">
+            <span class="material-symbols-outlined text-sm">library_add</span> Buscar documentos existentes
           </button>
-        </form>
+        </div>
       </div>
 
       <div id="conv-docs-list"><p class="text-sm text-on-surface-variant py-4"><span class="spinner"></span> Cargando...</p></div>`;
@@ -590,7 +705,11 @@ const Admin = (() => {
       const fd = new FormData();
       fd.append('file', file);
       fd.append('title', document.getElementById('conv-doc-title').value || file.name);
-      fd.append('tags', document.getElementById('conv-doc-tags').value);
+      const tags = document.getElementById('conv-doc-tags').value;
+      const isTransversal = document.getElementById('conv-doc-transversal').checked;
+      const tagList = tags ? tags.split(',').map(t => t.trim()).filter(Boolean) : [];
+      if (isTransversal && !tagList.includes('transversal')) tagList.push('transversal');
+      fd.append('tags', tagList.join(','));
       fd.append('doc_type', 'call');
       fd.append('program_id', ev.programId);
 
@@ -615,6 +734,100 @@ const Admin = (() => {
         convLoadDocs();
       } catch (err) { Toast.show('Error: ' + err.message, 'error'); }
     });
+
+    // Pick existing documents modal
+    document.getElementById('conv-doc-pick-existing')?.addEventListener('click', async () => {
+      let available;
+      try {
+        available = await API.get(`/admin/data/programs/${ev.programId}/available-docs`);
+      } catch (e) { Toast.show('Error cargando documentos: ' + e.message, 'error'); return; }
+
+      if (!available.length) {
+        Toast.show('No hay documentos disponibles para vincular', 'info');
+        return;
+      }
+
+      const TYPE_ICONS = { programme_guide: '\ud83d\udcd5', call_document: '\ud83d\udcd8', annex: '\ud83d\udcce', template: '\ud83d\udcc4', faq: '\u2753', other: '\ud83d\udcc1' };
+      const overlay = document.createElement('div');
+      overlay.className = 'fixed inset-0 bg-black/40 flex items-center justify-center z-[9999]';
+      overlay.style.animation = 'fadeIn .15s ease';
+
+      const transversalDocs = available.filter(d => (d.tags || []).includes('transversal'));
+      const actionTypeDocs = available.filter(d => !(d.tags || []).includes('transversal'));
+
+      let listHtml = '';
+      if (transversalDocs.length) {
+        listHtml += `<div class="px-2 py-2 text-[10px] font-bold uppercase tracking-widest text-amber-600 sticky top-0 bg-white/95 backdrop-blur-sm">Transversales</div>`;
+        listHtml += transversalDocs.map(d => pickDocRow(d, TYPE_ICONS)).join('');
+      }
+      if (actionTypeDocs.length) {
+        listHtml += `<div class="px-2 py-2 text-[10px] font-bold uppercase tracking-widest text-primary sticky top-0 bg-white/95 backdrop-blur-sm">Mismo tipo de call</div>`;
+        listHtml += actionTypeDocs.map(d => pickDocRow(d, TYPE_ICONS)).join('');
+      }
+
+      overlay.innerHTML = `
+        <div class="bg-white rounded-2xl shadow-2xl w-full max-w-2xl mx-4 max-h-[85vh] flex flex-col overflow-hidden" style="animation:critIn .2s ease">
+          <div class="px-5 py-4 border-b border-outline-variant/20 flex items-center gap-3">
+            <span class="material-symbols-outlined text-primary text-xl">library_add</span>
+            <div class="flex-1">
+              <h3 class="font-bold text-on-surface">Seleccionar documentos existentes</h3>
+              <p class="text-xs text-on-surface-variant">${available.length} documentos disponibles</p>
+            </div>
+            <button id="pick-doc-close" class="p-1 rounded-lg hover:bg-surface-container-low"><span class="material-symbols-outlined">close</span></button>
+          </div>
+          <div class="flex-1 overflow-y-auto px-3 py-2">${listHtml}</div>
+          <div class="px-5 py-3 border-t border-outline-variant/20 flex items-center justify-between">
+            <span id="pick-doc-count" class="text-xs text-on-surface-variant">0 seleccionados</span>
+            <button id="pick-doc-confirm" class="px-5 py-2.5 rounded-xl text-xs font-bold text-[#e7eb00] bg-[#1b1464] hover:bg-[#1b1464]/80 transition-colors disabled:opacity-30" disabled>
+              Vincular seleccionados
+            </button>
+          </div>
+        </div>`;
+      document.body.appendChild(overlay);
+
+      const updateCount = () => {
+        const n = overlay.querySelectorAll('.pick-doc-cb:checked').length;
+        overlay.querySelector('#pick-doc-count').textContent = n + ' seleccionados';
+        overlay.querySelector('#pick-doc-confirm').disabled = n === 0;
+      };
+      overlay.querySelectorAll('.pick-doc-cb').forEach(cb => cb.addEventListener('change', updateCount));
+      overlay.querySelector('#pick-doc-close').addEventListener('click', () => overlay.remove());
+      overlay.addEventListener('click', (e) => { if (e.target === overlay) overlay.remove(); });
+
+      overlay.querySelector('#pick-doc-confirm').addEventListener('click', async () => {
+        const checked = [...overlay.querySelectorAll('.pick-doc-cb:checked')];
+        let linked = 0;
+        for (const cb of checked) {
+          try {
+            await API.post(`/admin/data/programs/${ev.programId}/docs`, {
+              document_id: parseInt(cb.dataset.docId),
+              doc_type: cb.dataset.docType || 'other',
+              label: cb.dataset.label || ''
+            });
+            linked++;
+          } catch (e) { console.warn('Link failed for doc', cb.dataset.docId, e); }
+        }
+        overlay.remove();
+        Toast.show(`${linked} documento(s) vinculados`, 'ok');
+        convLoadDocs();
+      });
+    });
+  }
+
+  function pickDocRow(d, TYPE_ICONS) {
+    const size = d.file_size_bytes ? `${(d.file_size_bytes / 1024).toFixed(0)} KB` : '';
+    const tags = (d.tags || []).map(t =>
+      `<span class="px-1.5 py-0.5 rounded-full ${t === 'transversal' ? 'bg-amber-100 text-amber-700' : 'bg-primary/10 text-primary'} text-[9px] font-medium">${esc(t)}</span>`
+    ).join(' ');
+    return `<label class="flex items-center gap-3 px-3 py-3 rounded-xl cursor-pointer hover:bg-surface-container-low transition-colors border border-transparent hover:border-outline-variant/20 mb-1">
+      <input type="checkbox" class="pick-doc-cb accent-primary rounded" data-doc-id="${d.id}" data-doc-type="${esc(d.doc_type || 'other')}" data-label="${esc(d.label || d.title)}">
+      <span class="text-lg">${TYPE_ICONS[d.doc_type] || '\ud83d\udcc1'}</span>
+      <div class="flex-1 min-w-0">
+        <p class="text-sm font-bold text-on-surface truncate">${esc(d.label || d.title)}</p>
+        <p class="text-[10px] text-on-surface-variant">${esc(d.doc_type || '')} · ${d.file_type || ''} · ${size} · de: ${esc(d.source_call_name || '?')}</p>
+        ${tags ? `<div class="flex gap-1 mt-0.5">${tags}</div>` : ''}
+      </div>
+    </label>`;
   }
 
   async function convLoadDocs() {

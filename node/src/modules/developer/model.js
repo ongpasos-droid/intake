@@ -185,7 +185,7 @@ async function getEvalCriteria(programType) {
 
 async function getInterviewAnswers(projectId) {
   const [rows] = await db.execute(
-    'SELECT question_key, question_text, answer_text, sort_order FROM writer_interviews WHERE project_id = ? ORDER BY sort_order',
+    'SELECT question_key, question_text, answer_text, sort_order, tab FROM writer_interviews WHERE project_id = ? ORDER BY sort_order',
     [projectId]
   );
   return rows;
@@ -233,12 +233,19 @@ Your questions must:
 - Uncover the "why" behind design choices
 - Get practical details that make the proposal feel authentic
 
-Output exactly 10 questions as a JSON array of objects:
-[{"key":"origin_story","question":"..."},{"key":"target_reality","question":"..."},...]
+Each question must be assigned to a tab where it will appear in the Prep Studio:
+- "consorcio" — questions about partners, why they were chosen, how they complement each other
+- "presupuesto" — questions about cost-effectiveness, co-financing, resource allocation
+- "relevancia" — questions about the origin story, problem, unique approach, innovation, EU value
+- "actividades" — questions about expected results, impact measurement, methodology innovation
 
+Output exactly 10 questions as a JSON array of objects:
+[{"key":"origin_story","tab":"relevancia","question":"..."},{"key":"partner_choice","tab":"consorcio","question":"..."},...]
+
+Distribute roughly: 3 relevancia, 3 consorcio, 2 actividades, 2 presupuesto.
 Keys should be short snake_case identifiers. Questions should be in the language of the project coordinator (Spanish if the coordinator is from Spain).`;
 
-  const user = `PROJECT DATA:\n${projectText}\n\nACTIVITY DETAILS:\n${activityDetail}\n\nGenerate 10 interview questions that will extract the human stories, local context, and creative vision needed to write a winning proposal. Focus on what's MISSING or GENERIC in the current data.`;
+  const user = `PROJECT DATA:\n${projectText}\n\nACTIVITY DETAILS:\n${activityDetail}\n\nGenerate 10 interview questions distributed across 4 tabs (consorcio, presupuesto, relevancia, actividades). Focus on what's MISSING or GENERIC in the current data.`;
 
   const result = await callAI(system, user, 'generate');
 
@@ -249,17 +256,18 @@ Keys should be short snake_case identifiers. Questions should be in the language
     questions = match ? JSON.parse(match[0]) : [];
   } catch { questions = []; }
 
-  // Save questions to DB
+  // Save questions to DB (with tab assignment)
   for (let i = 0; i < questions.length; i++) {
     const q = questions[i];
+    const tab = q.tab || 'relevancia'; // default to relevancia if AI omits tab
     const [existing] = await db.execute(
       'SELECT id FROM writer_interviews WHERE project_id = ? AND question_key = ?',
       [projectId, q.key]
     );
     if (!existing.length) {
       await db.execute(
-        'INSERT INTO writer_interviews (id, project_id, user_id, question_key, question_text, answer_text, sort_order) VALUES (?, ?, ?, ?, ?, NULL, ?)',
-        [genUUID(), projectId, userId, q.key, q.question, i]
+        'INSERT INTO writer_interviews (id, project_id, user_id, question_key, question_text, answer_text, sort_order, tab) VALUES (?, ?, ?, ?, ?, NULL, ?, ?)',
+        [genUUID(), projectId, userId, q.key, q.question, i, tab]
       );
     }
   }
@@ -468,6 +476,142 @@ ${context.approach || 'Not specified'}
 ${wpBlock}`;
 }
 
+// ── Enriched context builder (uses PIFs, budget, impacts) ───
+
+async function buildEnrichedContext(projectId, userId) {
+  const ctx = await getProjectContext(projectId, userId);
+  if (!ctx) return '';
+
+  const p = ctx.project;
+  const context = ctx.context || {};
+
+  // ── Consortium with adapted PIFs ──
+  let consortiumBlock = '';
+  for (let i = 0; i < ctx.partners.length; i++) {
+    const pt = ctx.partners[i];
+    const role = i === 0 ? 'COORDINATOR' : `Partner ${i + 1}`;
+    consortiumBlock += `\n${role}: ${pt.name} — ${pt.city}, ${pt.country}`;
+
+    if (pt.organization_id) {
+      // Try to load adapted PIF for this project
+      const [pifs] = await db.execute(
+        `SELECT pp.custom_text, v.adapted_text
+         FROM project_partner_pifs pp
+         LEFT JOIN org_pif_variants v ON v.id = pp.variant_id
+         WHERE pp.project_id = ? AND pp.partner_id = ?`,
+        [projectId, pt.id]
+      );
+      const pifText = pifs[0]?.custom_text || pifs[0]?.adapted_text;
+
+      if (pifText) {
+        consortiumBlock += `\n  Profile: ${pifText.substring(0, 600)}`;
+      } else {
+        // Fallback to generic org description
+        const [orgs] = await db.execute('SELECT description, activities_experience FROM organizations WHERE id = ?', [pt.organization_id]);
+        if (orgs[0]?.description) consortiumBlock += `\n  Profile: ${orgs[0].description.substring(0, 400)}`;
+      }
+
+      // Key staff
+      const [staff] = await db.execute('SELECT name, role, skills_summary FROM org_key_staff WHERE organization_id = ? LIMIT 5', [pt.organization_id]);
+      if (staff.length) {
+        consortiumBlock += `\n  Key staff: ${staff.map(s => `${s.name} (${s.role}${s.skills_summary ? ': ' + s.skills_summary.substring(0, 80) : ''})`).join('; ')}`;
+      }
+
+      // Past EU projects
+      const [euProj] = await db.execute('SELECT title, role, year FROM org_eu_projects WHERE organization_id = ? ORDER BY year DESC LIMIT 5', [pt.organization_id]);
+      if (euProj.length) {
+        consortiumBlock += `\n  EU projects: ${euProj.map(ep => `${ep.title || 'Untitled'} (${ep.year}, ${ep.role})`).join('; ')}`;
+      }
+    }
+  }
+
+  // ── Budget summary ──
+  let budgetBlock = 'Not configured';
+  const budgetData = await getPrepPresupuesto(projectId);
+  if (budgetData) {
+    const bens = budgetData.beneficiaries || [];
+    const totalGrant = bens.reduce((s, bn) => s + (bn.total || 0), 0);
+    budgetBlock = `Total EU Grant: €${totalGrant.toLocaleString('en')}`;
+    if (bens.length) {
+      budgetBlock += `\nPer partner: ${bens.map(bn => `${bn.name}: €${(bn.total || 0).toLocaleString('en')}${bn.is_coordinator ? ' (coordinator)' : ''}`).join(', ')}`;
+      budgetBlock += `\nCategories: A(Staff)=€${bens.reduce((s, b) => s + (b.cat_a || 0), 0).toLocaleString('en')}, B(Subcontr.)=€${bens.reduce((s, b) => s + (b.cat_b || 0), 0).toLocaleString('en')}, C(Other)=€${bens.reduce((s, b) => s + (b.cat_c || 0), 0).toLocaleString('en')}, D(Support)=€${bens.reduce((s, b) => s + (b.cat_d || 0), 0).toLocaleString('en')}`;
+    }
+    const wps = budgetData.work_packages || [];
+    if (wps.length) {
+      budgetBlock += `\nPer WP: ${wps.map(wp => `${wp.label}: €${(wp.total || 0).toLocaleString('en')}`).join(', ')}`;
+    }
+  }
+
+  // ── Activities with tasks and deliverables ──
+  const actData = await getPrepActividades(projectId);
+  let actBlock = '';
+  for (const wp of (actData.wps || [])) {
+    const leader = ctx.partners.find(p => p.id === wp.leader_id);
+    actBlock += `\n${wp.code} — ${wp.title}`;
+    if (leader) actBlock += ` (Leader: ${leader.name})`;
+    if (wp.summary) actBlock += `\n  Summary: ${wp.summary.substring(0, 400)}`;
+    for (const act of (wp.activities || [])) {
+      actBlock += `\n  • ${act.label || act.type}`;
+      if (act.description) actBlock += `: ${act.description.substring(0, 250)}`;
+      if (act.date_start) actBlock += ` [${act.date_start} → ${act.date_end || '?'}]`;
+      for (const t of (act.tasks || [])) {
+        actBlock += `\n    - ${t.title}`;
+        if (t.deliverable) actBlock += ` → Deliverable: ${t.deliverable}`;
+        if (t.milestone) actBlock += ` | Milestone: ${t.milestone}`;
+        if (t.kpi) actBlock += ` | KPI: ${t.kpi}`;
+      }
+    }
+  }
+
+  // ── Interview answers grouped by tab ──
+  const interviews = await getInterviewAnswers(projectId);
+  const answered = interviews.filter(i => i.answer_text && i.answer_text.trim().length > 10);
+  let interviewBlock = '';
+  if (answered.length) {
+    const byTab = {};
+    for (const a of answered) {
+      const tab = a.tab || 'relevancia';
+      if (!byTab[tab]) byTab[tab] = [];
+      byTab[tab].push(a);
+    }
+    for (const [tab, qs] of Object.entries(byTab)) {
+      interviewBlock += `\n[${tab.toUpperCase()}]`;
+      for (const a of qs) {
+        interviewBlock += `\nQ: ${a.question_text}\nA: ${a.answer_text}\n`;
+      }
+    }
+  }
+
+  return `═══ PROJECT OVERVIEW ═══
+Acronym: ${p.name}
+Full title: ${p.description || p.name}
+Programme: ${p.type || 'Erasmus+'}
+Duration: ${p.duration_months || 24} months
+Start date: ${p.start_date || 'TBD'}
+EU Grant: €${Number(p.eu_grant || 500000).toLocaleString('en')}
+Co-financing: ${p.cofin_pct || 80}%
+
+═══ CONSORTIUM (${ctx.partners.length} organisations — detailed profiles) ═══
+${consortiumBlock}
+
+═══ PROBLEM & NEEDS ═══
+${context.problem || 'Not specified'}
+
+═══ TARGET GROUPS ═══
+${context.target_groups || 'Not specified'}
+
+═══ APPROACH & METHODOLOGY ═══
+${context.approach || 'Not specified'}
+
+═══ BUDGET ═══
+${budgetBlock}
+
+═══ ACTIVITIES, DELIVERABLES & IMPACTS ═══
+${actBlock || 'No activities defined'}
+
+${interviewBlock ? `═══ COORDINATOR'S OWN WORDS ═══${interviewBlock}` : ''}`;
+}
+
 // ── RAG: Retrieve relevant document chunks ──────────────────
 
 async function retrieveRelevantChunks(query, programId, topK = 8) {
@@ -631,13 +775,12 @@ async function generateSection(instanceId, sectionId, projectContext, programId,
   const [instRow] = await db.execute('SELECT project_id FROM form_instances WHERE id = ?', [instanceId]);
   const projId = instRow[0]?.project_id;
 
-  // Gather all context in parallel
-  const [ragChunks, writingRules, evalGuidance, previousSections, interviewAnswers, researchChunks] = await Promise.all([
+  // Gather all context in parallel (interview answers already in projectContext via buildEnrichedContext)
+  const [ragChunks, writingRules, evalGuidance, previousSections, researchChunks] = await Promise.all([
     programId ? retrieveRelevantChunks(sectionTitle, programId, 8) : Promise.resolve(''),
     programId ? getWritingRules(programId) : Promise.resolve({}),
     getEvalGuidanceForSection(sectionId),
     getPreviousSections(instanceId, sectionId),
-    projId ? getInterviewAnswers(projId) : Promise.resolve([]),
     projId ? retrieveResearchChunks(sectionTitle, projId, 6) : Promise.resolve(''),
   ]);
 
@@ -700,14 +843,7 @@ OUTPUT: Only the section text. No title, no numbering, no meta-commentary.`;
     user += `\n\n══ REFERENCE DOCUMENTS (cite naturally, don't list) ══\n${limitedRag}`;
   }
 
-  // Add interview answers (highest value — human input)
-  const answered = interviewAnswers.filter(i => i.answer_text && i.answer_text.trim().length > 10);
-  if (answered.length) {
-    user += `\n\n══ COORDINATOR'S OWN WORDS (USE THESE — this is the human voice) ══`;
-    for (const a of answered) {
-      user += `\nQ: ${a.question_text}\nA: ${a.answer_text}\n`;
-    }
-  }
+  // NOTE: Interview answers are now included in projectContext via buildEnrichedContext()
 
   // Add research document chunks (user's thematic evidence — priority over call docs)
   if (researchChunks) {
@@ -782,6 +918,280 @@ async function improveSection(text, action, sectionTitle, projectContext, progra
   return await callClaude(system, user, 4096);
 }
 
+// ============ PREP STUDIO v2: 5-TAB CONTEXT ============
+
+// ── Tab 1: Consorcio ──
+
+async function getPrepConsorcio(projectId, userId) {
+  // Get partners with organization link
+  const [partners] = await db.execute(
+    `SELECT p.id, p.name, p.legal_name, p.city, p.country, p.role, p.order_index, p.organization_id
+     FROM partners p WHERE p.project_id = ? ORDER BY p.order_index`,
+    [projectId]
+  );
+
+  for (const p of partners) {
+    p.organization = null;
+    p.variants = [];
+    p.selected_variant = null;
+    p.custom_text = null;
+
+    if (p.organization_id) {
+      // Load org profile
+      const [orgs] = await db.execute(
+        `SELECT id, organization_name, acronym, org_type, country, city, description, activities_experience, expertise_areas, staff_size
+         FROM organizations WHERE id = ?`, [p.organization_id]
+      );
+      if (orgs.length) {
+        p.organization = orgs[0];
+        // Load child tables
+        const [staff] = await db.execute('SELECT name, role, skills_summary FROM org_key_staff WHERE organization_id = ?', [p.organization_id]);
+        p.organization.key_staff = staff;
+        const [euProj] = await db.execute('SELECT programme, year, project_id_or_contract, role, title FROM org_eu_projects WHERE organization_id = ?', [p.organization_id]);
+        p.organization.eu_projects = euProj;
+        const [stakeholders] = await db.execute('SELECT entity_name, entity_type, relationship_type, description FROM org_stakeholders WHERE organization_id = ?', [p.organization_id]);
+        p.organization.stakeholders = stakeholders;
+      }
+
+      // Load PIF variants for this organization
+      const [variants] = await db.execute(
+        'SELECT id, category, category_label, source, updated_at FROM org_pif_variants WHERE organization_id = ? ORDER BY category',
+        [p.organization_id]
+      );
+      p.variants = variants;
+    }
+
+    // Load project-specific PIF selection
+    const [pifs] = await db.execute(
+      `SELECT pp.variant_id, pp.custom_text, v.adapted_text, v.category, v.category_label
+       FROM project_partner_pifs pp
+       LEFT JOIN org_pif_variants v ON v.id = pp.variant_id
+       WHERE pp.project_id = ? AND pp.partner_id = ?`,
+      [projectId, p.id]
+    );
+    if (pifs.length) {
+      p.custom_text = pifs[0].custom_text;
+      if (pifs[0].variant_id) {
+        p.selected_variant = { id: pifs[0].variant_id, adapted_text: pifs[0].adapted_text, category: pifs[0].category, category_label: pifs[0].category_label };
+      }
+    }
+  }
+
+  return { partners };
+}
+
+async function linkPartnerOrg(projectId, partnerId, organizationId) {
+  await db.execute(
+    'UPDATE partners SET organization_id = ? WHERE id = ? AND project_id = ?',
+    [organizationId, partnerId, projectId]
+  );
+}
+
+async function generatePifVariant(projectId, partnerId, category, categoryLabel, userId) {
+  // Get partner + org + project context
+  const [partners] = await db.execute(
+    'SELECT p.*, o.organization_name, o.description, o.activities_experience, o.expertise_areas FROM partners p LEFT JOIN organizations o ON o.id = p.organization_id WHERE p.id = ? AND p.project_id = ?',
+    [partnerId, projectId]
+  );
+  if (!partners.length || !partners[0].organization_id) throw new Error('Partner not linked to organization');
+  const partner = partners[0];
+  const orgId = partner.organization_id;
+
+  // Load org child data
+  const [staff] = await db.execute('SELECT name, role, skills_summary FROM org_key_staff WHERE organization_id = ?', [orgId]);
+  const [euProj] = await db.execute('SELECT programme, year, role, title FROM org_eu_projects WHERE organization_id = ?', [orgId]);
+  const [stakeholders] = await db.execute('SELECT entity_name, relationship_type FROM org_stakeholders WHERE organization_id = ?', [orgId]);
+
+  // Load project context
+  const ctx = await getProjectContext(projectId, userId);
+  if (!ctx) throw new Error('Project not found');
+
+  const leaderWps = (ctx.wps || []).filter(wp => wp.leader_id === partnerId);
+
+  const systemPrompt = `You are an expert at adapting organizational profiles (PIFs) for EU project proposals.
+You receive: (1) the generic organization profile, (2) the project's theme and context.
+Your task: rewrite the organization's profile as a complete PIF adapted to THIS project's theme: "${categoryLabel || category}".
+
+Rules:
+- Keep all factual information (staff numbers, years of experience, project titles)
+- Reframe the organization's experience to highlight relevance to the project theme
+- Include relevant staff and their roles adapted to the project
+- Include past EU projects that are most relevant
+- Maintain professional EU proposal tone
+- Write in the SAME LANGUAGE as the project description (Spanish if project is in Spanish, etc.)
+- Do NOT invent capabilities the organization doesn't have
+- DO emphasize existing capabilities that connect to the project theme
+- Output a single cohesive text of ~300-400 words`;
+
+  const userPrompt = `ORGANIZATION PROFILE:
+Name: ${partner.organization_name}
+Description: ${partner.description || 'Not available'}
+Experience: ${partner.activities_experience || 'Not available'}
+Expertise areas: ${partner.expertise_areas || 'Not available'}
+
+KEY STAFF:
+${staff.map(s => `- ${s.name} (${s.role}): ${s.skills_summary || ''}`).join('\n') || 'None listed'}
+
+PAST EU PROJECTS:
+${euProj.map(ep => `- ${ep.title || ep.programme} (${ep.year}, role: ${ep.role})`).join('\n') || 'None listed'}
+
+STAKEHOLDERS:
+${stakeholders.map(sh => `- ${sh.entity_name} (${sh.relationship_type})`).join('\n') || 'None listed'}
+
+PROJECT CONTEXT:
+Title: ${ctx.project.name}
+Description: ${ctx.project.description || ''}
+Problem: ${ctx.context?.problem || 'Not specified'}
+Approach: ${ctx.context?.approach || 'Not specified'}
+Target groups: ${ctx.context?.target_groups || 'Not specified'}
+This partner's role: ${partner.role}
+${leaderWps.length ? `WPs led by this partner: ${leaderWps.map(wp => wp.code + ' ' + wp.title).join(', ')}` : ''}
+
+ADAPTATION THEME: ${categoryLabel || category}
+
+Write the adapted PIF now.`;
+
+  // Call AI (uses local callAI: Gemini for generation, Claude fallback)
+  const adaptedText = await callAI(systemPrompt, userPrompt, 'generate');
+
+  // Save or update variant in org_pif_variants
+  const variantId = genUUID();
+  await db.execute(
+    `INSERT INTO org_pif_variants (id, organization_id, category, category_label, adapted_text, source)
+     VALUES (?, ?, ?, ?, ?, 'ai')
+     ON DUPLICATE KEY UPDATE adapted_text = VALUES(adapted_text), category_label = VALUES(category_label), source = 'ai'`,
+    [variantId, orgId, category, categoryLabel || null, adaptedText]
+  );
+
+  // Get the actual ID (might be existing on duplicate)
+  const [inserted] = await db.execute(
+    'SELECT id FROM org_pif_variants WHERE organization_id = ? AND category = ?', [orgId, category]
+  );
+  const actualId = inserted[0]?.id || variantId;
+
+  // Auto-select this variant for the partner in this project
+  await db.execute(
+    `INSERT INTO project_partner_pifs (id, project_id, partner_id, variant_id)
+     VALUES (?, ?, ?, ?)
+     ON DUPLICATE KEY UPDATE variant_id = VALUES(variant_id)`,
+    [genUUID(), projectId, partnerId, actualId]
+  );
+
+  return { variant_id: actualId, adapted_text: adaptedText, category, category_label: categoryLabel };
+}
+
+async function selectPifVariant(projectId, partnerId, variantId) {
+  await db.execute(
+    `INSERT INTO project_partner_pifs (id, project_id, partner_id, variant_id)
+     VALUES (?, ?, ?, ?)
+     ON DUPLICATE KEY UPDATE variant_id = VALUES(variant_id), custom_text = NULL`,
+    [genUUID(), projectId, partnerId, variantId]
+  );
+}
+
+// ── Tab 2: Presupuesto ──
+
+async function getPrepPresupuesto(projectId) {
+  const [budgets] = await db.execute(
+    'SELECT id, name, max_grant, cofin_pct, indirect_pct, status FROM budget_projects WHERE project_id = ? LIMIT 1',
+    [projectId]
+  );
+  if (!budgets.length) return null;
+  const budget = budgets[0];
+
+  // Beneficiaries with cost sums by category
+  const [bens] = await db.execute(
+    `SELECT bb.id, bb.name, bb.acronym, bb.country, bb.is_coordinator, bb.sort_order,
+       COALESCE(SUM(CASE WHEN bc.category = 'A' THEN bc.total_cost ELSE 0 END), 0) as cat_a,
+       COALESCE(SUM(CASE WHEN bc.category = 'B' THEN bc.total_cost ELSE 0 END), 0) as cat_b,
+       COALESCE(SUM(CASE WHEN bc.category = 'C' THEN bc.total_cost ELSE 0 END), 0) as cat_c,
+       COALESCE(SUM(CASE WHEN bc.category = 'D' THEN bc.total_cost ELSE 0 END), 0) as cat_d,
+       COALESCE(SUM(bc.total_cost), 0) as total
+     FROM budget_beneficiaries bb
+     LEFT JOIN budget_costs bc ON bc.beneficiary_id = bb.id AND bc.budget_id = bb.budget_id
+     WHERE bb.budget_id = ?
+     GROUP BY bb.id ORDER BY bb.sort_order`,
+    [budget.id]
+  );
+
+  // WP sums
+  const [wps] = await db.execute(
+    `SELECT bw.id, bw.number, bw.label, bw.sort_order,
+       COALESCE(SUM(bc.total_cost), 0) as total
+     FROM budget_work_packages bw
+     LEFT JOIN budget_costs bc ON bc.wp_id = bw.id AND bc.budget_id = bw.budget_id
+     WHERE bw.budget_id = ?
+     GROUP BY bw.id ORDER BY bw.sort_order`,
+    [budget.id]
+  );
+
+  return { budget, beneficiaries: bens, work_packages: wps };
+}
+
+// ── Tab 3: Relevancia ──
+
+async function getPrepRelevancia(projectId) {
+  const [contexts] = await db.execute(
+    'SELECT problem, target_groups, approach FROM intake_contexts WHERE project_id = ? LIMIT 1',
+    [projectId]
+  );
+  return { context: contexts[0] || { problem: '', target_groups: '', approach: '' } };
+}
+
+async function updatePrepRelevanciaContext(projectId, problem, targetGroups, approach) {
+  // Check if context exists
+  const [existing] = await db.execute('SELECT id FROM intake_contexts WHERE project_id = ?', [projectId]);
+  if (existing.length) {
+    await db.execute(
+      'UPDATE intake_contexts SET problem = ?, target_groups = ?, approach = ? WHERE project_id = ?',
+      [problem, targetGroups, approach, projectId]
+    );
+  } else {
+    await db.execute(
+      'INSERT INTO intake_contexts (id, project_id, problem, target_groups, approach) VALUES (?, ?, ?, ?, ?)',
+      [genUUID(), projectId, problem, targetGroups, approach]
+    );
+  }
+}
+
+// ── Tab 4: Actividades ──
+
+async function getPrepActividades(projectId) {
+  const [wps] = await db.execute(
+    `SELECT wp.id, wp.order_index, wp.code, wp.title, wp.category, wp.leader_id, wp.summary, p.name as leader_name
+     FROM work_packages wp LEFT JOIN partners p ON p.id = wp.leader_id
+     WHERE wp.project_id = ? ORDER BY wp.order_index`,
+    [projectId]
+  );
+
+  for (const wp of wps) {
+    const [acts] = await db.execute(
+      `SELECT a.id, a.type, a.label, a.subtype, a.description, a.date_start, a.date_end, a.online
+       FROM activities a WHERE a.wp_id = ? ORDER BY a.order_index`,
+      [wp.id]
+    );
+    for (const act of acts) {
+      const [tasks] = await db.execute(
+        `SELECT title, description, deliverable, milestone, kpi, status, start_month, end_month
+         FROM project_tasks WHERE wp_id = ? AND category = ? ORDER BY sort_order`,
+        [wp.id, act.type || 'general']
+      );
+      act.tasks = tasks;
+    }
+    wp.activities = acts;
+  }
+
+  return { wps };
+}
+
+async function updateWpSummary(wpId, summary) {
+  await db.execute('UPDATE work_packages SET summary = ? WHERE id = ?', [summary, wpId]);
+}
+
+async function updateActivityDescription(activityId, description) {
+  await db.execute('UPDATE activities SET description = ? WHERE id = ?', [description, activityId]);
+}
+
 module.exports = {
   getProjectContext,
   getOrCreateInstance,
@@ -792,6 +1202,7 @@ module.exports = {
   saveFieldValuesBulk,
   getEvalCriteria,
   buildProjectContext,
+  buildEnrichedContext,
   // Prep Studio
   getInterviewAnswers,
   saveInterviewAnswer,
@@ -805,4 +1216,15 @@ module.exports = {
   improveSection,
   retrieveRelevantChunks,
   getWritingRules,
+  // Prep Studio v2
+  getPrepConsorcio,
+  linkPartnerOrg,
+  generatePifVariant,
+  selectPifVariant,
+  getPrepPresupuesto,
+  getPrepRelevancia,
+  updatePrepRelevanciaContext,
+  getPrepActividades,
+  updateWpSummary,
+  updateActivityDescription,
 };
