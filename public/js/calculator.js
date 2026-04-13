@@ -1616,38 +1616,146 @@ const Calculator = (() => {
     const n = state.partners.length;
     const mo = getProjectMonths();
 
-    function partnerShare(act, pi) {
+    // ── Build EACEA budget breakdown per partner ──
+    // Returns { categories: [{key, label, icon, total, wps: [{wpLabel, wpColor, items: [{label, amount, detail}]}]}] }
+    function partnerBudget(pi) {
       const p = state.partners[pi];
-      if (!p) return 0;
-      const res = calcActivity(act);
-      if (act.type === 'mgmt') return pi === 0 ? res.app : (act.rate_partner||250) * mo;
-      if (act.type === 'meeting' || act.type === 'ltta') {
-        if (act.online) return 0;
-        if (p.id === act.host) return (act.pax||2) * (act.days||3) * getPartnerPerdiemTotal(p.id);
-        if ((act.participants||{})[p.id] === false) return 0;
-        return getRouteCost(p.id, act.host) * (act.pax||2) + (act.pax||2) * (act.days||3) * getPartnerPerdiemTotal(p.id);
-      }
-      if (act.type === 'me') { const ev = act.me_events?.[p.id]; return (ev?.active) ? ev.local_pax*ev.local_rate + ev.intl_pax*ev.intl_rate : 0; }
-      if (act.type === 'local_ws') { const w = act.ws_partners?.[p.id]; return w?.active ? (w.ws_pax||0)*(w.ws_n||0)*(w.ws_cost||0) : 0; }
-      if (act.type === 'campaign') { const c = act.camp_partners?.[p.id]; return c?.active ? (c.monthly||0)*(c.months||0) : 0; }
-      if (['equipment','goods','consumables','other'].includes(act.type)) { const np = act.note_partners?.[p.id]; return np?.active ? calcDepreciation(np) : 0; }
-      if (['website','artistic'].includes(act.type)) { const np = act.note_partners?.[p.id]; return np?.active ? (np.amount||0) : 0; }
-      if (act.type === 'io') { const ps = act.io_staff?.[p.id]; if (!ps?.active) return 0; return ps.staff.reduce((s,st) => s + (st.days||0) * getPartnerDayRate(p.id, st.profileId), 0); }
-      return res.total / n;
-    }
+      if (!p) return { categories: [] };
+      const pd = getPartnerPerdiem(p.id);
 
-    return state.partners.map((p, i) => {
-      let grand = 0;
-      const lines = [];
+      // Category accumulators: key → { wpIdx → [{label, amount, detail}] }
+      const cats = {
+        'A_coord':   { label:'A. Project Coordinator',                          icon:'person',    items:{} },
+        'A_empl':    { label:'A.1 Employees',                                   icon:'groups',    items:{} },
+        'C_travel':  { label:'C.1 Travel',                                      icon:'flight',    items:{} },
+        'C_accom':   { label:'C.1 Accommodation',                               icon:'hotel',     items:{} },
+        'C_subs':    { label:'C.1 Subsistence',                                 icon:'restaurant',items:{} },
+        'C_equip':   { label:'C.2 Equipment',                                   icon:'devices',   items:{} },
+        'C_meet':    { label:'C.3 Services: meetings & seminars',               icon:'groups',    items:{} },
+        'C_comms':   { label:'C.3 Services: communication & dissemination',     icon:'campaign',  items:{} },
+        'C_web':     { label:'C.3 Website',                                     icon:'language',  items:{} },
+        'C_art':     { label:'C.3 Artistic Fees',                               icon:'palette',   items:{} },
+        'C_cons':    { label:'C.3 Consumables',                                 icon:'science',   items:{} },
+        'C_other':   { label:'C.3 Other',                                       icon:'more_horiz',items:{} },
+      };
+
+      function add(catKey, wi, label, amount, detail) {
+        if (!amount || amount <= 0) return;
+        if (!cats[catKey].items[wi]) cats[catKey].items[wi] = [];
+        cats[catKey].items[wi].push({ label, amount, detail: detail || '' });
+      }
+
       wpR.forEach((wp, wi) => {
-        wp.acts.forEach(a => {
-          const share = partnerShare(a, i);
-          grand += share;
-          lines.push({ wp: wpLabel(wp, wi), wpColor: wp.color, label: a.label, share });
+        wp.acts.forEach(act => {
+          switch (act.type) {
+            case 'mgmt': {
+              const rate = pi === 0 ? (act.rate_applicant||500) : (act.rate_partner||250);
+              add('A_coord', wi, act.label, rate * mo, `${rate}/mo × ${mo}mo`);
+              break;
+            }
+            case 'meeting': case 'ltta': {
+              if (act.online) break;
+              const pax = act.pax||2, days = act.days||3;
+              const isHost = p.id === act.host;
+              const excluded = (act.participants||{})[p.id] === false;
+              if (excluded) break;
+              // Travel (non-host only)
+              if (!isHost) {
+                const travel = getRouteCost(p.id, act.host) * pax;
+                add('C_travel', wi, act.label, travel, `${pax} pax × €${getRouteCost(p.id, act.host)}`);
+              }
+              // Accommodation
+              add('C_accom', wi, act.label, pax * days * (pd.aloj||0), `${pax} pax × ${days}d × €${pd.aloj||0}/d`);
+              // Subsistence
+              add('C_subs', wi, act.label, pax * days * (pd.mant||0), `${pax} pax × ${days}d × €${pd.mant||0}/d`);
+              break;
+            }
+            case 'io': {
+              const ps = act.io_staff?.[p.id];
+              if (!ps?.active) break;
+              ps.staff.forEach(st => {
+                const rate = getPartnerDayRate(p.id, st.profileId);
+                const profileName = state.workerRates.find(w => w.id === st.profileId)?.category || 'Staff';
+                add('A_empl', wi, `${act.label} — ${profileName}`, (st.days||0) * rate, `${st.days||0}d × €${rate}/d`);
+              });
+              break;
+            }
+            case 'me': {
+              const ev = act.me_events?.[p.id];
+              if (!ev?.active) break;
+              const total = (ev.local_pax||0)*(ev.local_rate||0) + (ev.intl_pax||0)*(ev.intl_rate||0);
+              add('C_comms', wi, act.label, total, `${ev.local_pax||0} local + ${ev.intl_pax||0} intl`);
+              break;
+            }
+            case 'campaign': {
+              const c = act.camp_partners?.[p.id];
+              if (!c?.active) break;
+              add('C_comms', wi, act.label, (c.monthly||0)*(c.months||0), `€${c.monthly||0}/mo × ${c.months||0}mo`);
+              break;
+            }
+            case 'local_ws': {
+              const w = act.ws_partners?.[p.id];
+              if (!w?.active) break;
+              add('C_meet', wi, act.label, (w.ws_pax||0)*(w.ws_n||0)*(w.ws_cost||0), `${w.ws_pax||0} pax × ${w.ws_n||0} sessions × €${w.ws_cost||0}`);
+              break;
+            }
+            case 'website':    { const np = act.note_partners?.[p.id]; if (np?.active) add('C_web',   wi, act.label, np.amount||0, ''); break; }
+            case 'artistic':   { const np = act.note_partners?.[p.id]; if (np?.active) add('C_art',   wi, act.label, np.amount||0, ''); break; }
+            case 'equipment':  { const np = act.note_partners?.[p.id]; if (np?.active) add('C_equip', wi, act.label, calcDepreciation(np), ''); break; }
+            case 'consumables':{ const np = act.note_partners?.[p.id]; if (np?.active) add('C_cons',  wi, act.label, calcDepreciation(np), ''); break; }
+            case 'goods': case 'other': {
+              const np = act.note_partners?.[p.id]; if (np?.active) add('C_other', wi, act.label, calcDepreciation(np), ''); break;
+            }
+          }
         });
       });
+
+      // Build final array with only non-empty categories
+      const result = [];
+      for (const [key, cat] of Object.entries(cats)) {
+        const wpEntries = [];
+        let catTotal = 0;
+        wpR.forEach((wp, wi) => {
+          const items = cat.items[wi] || [];
+          if (!items.length) return;
+          const wpTotal = items.reduce((s, it) => s + it.amount, 0);
+          catTotal += wpTotal;
+          wpEntries.push({ wpLabel: wpLabel(wp, wi), wpColor: wp.color, items, total: wpTotal });
+        });
+        if (catTotal > 0) result.push({ key, label: cat.label, icon: cat.icon, total: catTotal, wps: wpEntries });
+      }
+      return { categories: result, grand: result.reduce((s, c) => s + c.total, 0) };
+    }
+
+    // ── Render ──
+    return state.partners.map((p, i) => {
+      const budget = partnerBudget(i);
+      const grand = budget.grand;
       const c = WP_COLORS[i%WP_COLORS.length];
       const grandPct = target > 0 ? (grand / target * 100).toFixed(1) : '0';
+
+      const catHTML = budget.categories.map(cat => `
+        <div class="mb-3">
+          <div class="flex items-center justify-between py-1.5 px-2 rounded-lg" style="background:${c}0a">
+            <span class="text-xs font-bold flex items-center gap-1.5" style="color:${c}">
+              <span class="material-symbols-outlined text-[14px]">${cat.icon}</span> ${cat.label}
+            </span>
+            <span class="font-mono text-xs font-bold" style="color:${c}">${euros(cat.total)}</span>
+          </div>
+          ${cat.wps.map(wp => `
+            <div class="ml-3 mt-1">
+              ${wp.items.map(it => `
+                <div class="flex justify-between py-0.5 text-[11px] border-b border-outline-variant/5">
+                  <span>
+                    <span class="font-semibold" style="color:${wp.wpColor}">${wp.wpLabel}</span>
+                    <span class="text-on-surface-variant ml-1">${it.label}</span>
+                    ${it.detail ? `<span class="text-on-surface-variant/50 ml-1">(${it.detail})</span>` : ''}
+                  </span>
+                  <span class="font-mono text-on-surface-variant">${euros(it.amount)}</span>
+                </div>`).join('')}
+            </div>`).join('')}
+        </div>`).join('');
+
       return `<div class="bg-surface-container-lowest rounded-xl border border-outline-variant/30 p-4 mb-3" style="border-top:3px solid ${c}">
         <div class="flex items-center gap-2 mb-3">
           <span class="w-7 h-7 rounded-full text-white text-[11px] font-bold flex items-center justify-center" style="background:${c}">${i+1}</span>
@@ -1656,11 +1764,8 @@ const Calculator = (() => {
           <span class="ml-auto font-mono font-bold" style="color:${c}">${euros(grand)}</span>
           <span class="text-xs text-on-surface-variant">${grandPct}%</span>
         </div>
-        ${lines.filter(l=>l.share>0).map(l => `<div class="flex justify-between py-1 text-xs border-b border-outline-variant/10">
-          <span><span class="font-semibold" style="color:${l.wpColor}">${l.wp}</span> · ${l.label}</span>
-          <span class="font-mono">${euros(l.share)}</span>
-        </div>`).join('')}
-        <div class="flex justify-between py-2 font-bold text-sm mt-1"><span>Direct costs</span><span class="font-mono">${euros(grand)}</span></div>
+        ${catHTML}
+        <div class="flex justify-between py-2 font-bold text-sm mt-1 border-t border-outline-variant/20"><span>Direct costs</span><span class="font-mono">${euros(grand)}</span></div>
         <div class="flex justify-between py-1 text-xs text-on-surface-variant"><span>+ Indirect ${indPct}%</span><span class="font-mono">+ ${euros(grand*indPct/100)}</span></div>
         <div class="flex justify-between py-2 font-bold text-sm rounded px-2 mt-1" style="background:${WP_BG[i%WP_BG.length]};color:${c}"><span>TOTAL (with indirect)</span><span class="font-mono">${euros(grand*(1+indPct/100))}</span></div>
         <div class="h-1 rounded bg-surface-container-high mt-2"><div class="h-full rounded" style="width:${grandPct}%;background:${c}"></div></div>
