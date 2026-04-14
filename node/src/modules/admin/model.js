@@ -13,7 +13,7 @@ async function listPrograms() {
 
 async function upsertProgram(data, id) {
   if (id) {
-    const allowed = ['program_id','name','action_type','deadline','start_date_min','start_date_max',
+    const allowed = ['program_id','name','action_type','deadline','deadline_time','start_date_min','start_date_max',
       'duration_min_months','duration_max_months','eu_grant_max','cofin_pct','indirect_pct',
       'min_partners','notes','active','form_template_id','intake_template','budget_template'];
     const sets = [], params = [];
@@ -271,11 +271,13 @@ async function upsertCallEligibility(programId, data) {
       `UPDATE call_eligibility SET
         eligible_country_types=?, eligible_entity_types=?,
         min_partners=?, min_countries=?, max_coord_applications=?,
+        max_partner_applications=?, max_applicant_applications=?,
         activity_location_types=?, additional_rules=?,
         writing_style=?, ai_detection_rules=?
        WHERE program_id=?`,
       [countryTypes, entityTypes,
        data.min_partners || 1, data.min_countries || 1, data.max_coord_applications || null,
+       data.max_partner_applications || null, data.max_applicant_applications || null,
        activityTypes, data.additional_rules || null,
        data.writing_style || null, data.ai_detection_rules || null, programId]
     );
@@ -284,11 +286,13 @@ async function upsertCallEligibility(programId, data) {
   const id = uuid();
   await pool.query(
     `INSERT INTO call_eligibility (id, program_id, eligible_country_types, eligible_entity_types,
-      min_partners, min_countries, max_coord_applications, activity_location_types, additional_rules,
+      min_partners, min_countries, max_coord_applications, max_partner_applications, max_applicant_applications,
+      activity_location_types, additional_rules,
       writing_style, ai_detection_rules)
-     VALUES (?,?,?,?,?,?,?,?,?,?,?)`,
+     VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)`,
     [id, programId, countryTypes, entityTypes,
      data.min_partners || 1, data.min_countries || 1, data.max_coord_applications || null,
+     data.max_partner_applications || null, data.max_applicant_applications || null,
      activityTypes, data.additional_rules || null,
      data.writing_style || null, data.ai_detection_rules || null]
   );
@@ -681,19 +685,23 @@ async function availableCallDocuments(programId) {
   const [[prog]] = await pool.query('SELECT action_type FROM intake_programs WHERE id=?', [programId]);
   if (!prog) return [];
 
+  const actionType = (prog.action_type || '').trim();
+
+  // Show ALL docs from other calls, sorted: same action_type first, then transversal, then rest
   const [rows] = await pool.query(
     `SELECT DISTINCT d.id, d.title, d.file_type, d.file_size_bytes, d.tags, d.status,
             d.created_at, cd_src.doc_type, cd_src.label,
-            ip.name AS source_call_name
+            ip.name AS source_call_name, ip.action_type AS source_action_type
      FROM documents d
      JOIN call_documents cd_src ON cd_src.document_id = d.id
      JOIN intake_programs ip ON ip.id = cd_src.program_id
      WHERE d.status = 'active'
        AND cd_src.program_id != ?
-       AND (ip.action_type = ? OR JSON_CONTAINS(d.tags, '"transversal"'))
        AND d.id NOT IN (SELECT document_id FROM call_documents WHERE program_id = ?)
-     ORDER BY JSON_CONTAINS(d.tags, '"transversal"') DESC, d.title`,
-    [programId, prog.action_type || '', programId]
+     ORDER BY (ip.action_type = ?) DESC,
+              JSON_CONTAINS(d.tags, '"transversal"') DESC,
+              d.title`,
+    [programId, programId, actionType]
   );
   rows.forEach(r => {
     if (typeof r.tags === 'string') try { r.tags = JSON.parse(r.tags); } catch(_) { r.tags = []; }

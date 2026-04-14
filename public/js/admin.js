@@ -752,17 +752,18 @@ const Admin = (() => {
       overlay.className = 'fixed inset-0 bg-black/40 flex items-center justify-center z-[9999]';
       overlay.style.animation = 'fadeIn .15s ease';
 
-      const transversalDocs = available.filter(d => (d.tags || []).includes('transversal'));
-      const actionTypeDocs = available.filter(d => !(d.tags || []).includes('transversal'));
+      // Group by source call
+      const grouped = {};
+      for (const d of available) {
+        const key = d.source_call_name || 'Otros';
+        if (!grouped[key]) grouped[key] = [];
+        grouped[key].push(d);
+      }
 
       let listHtml = '';
-      if (transversalDocs.length) {
-        listHtml += `<div class="px-2 py-2 text-[10px] font-bold uppercase tracking-widest text-amber-600 sticky top-0 bg-white/95 backdrop-blur-sm">Transversales</div>`;
-        listHtml += transversalDocs.map(d => pickDocRow(d, TYPE_ICONS)).join('');
-      }
-      if (actionTypeDocs.length) {
-        listHtml += `<div class="px-2 py-2 text-[10px] font-bold uppercase tracking-widest text-primary sticky top-0 bg-white/95 backdrop-blur-sm">Mismo tipo de call</div>`;
-        listHtml += actionTypeDocs.map(d => pickDocRow(d, TYPE_ICONS)).join('');
+      for (const [callName, docs] of Object.entries(grouped)) {
+        listHtml += `<div class="px-2 py-2 text-[10px] font-bold uppercase tracking-widest text-primary sticky top-0 bg-white/95 backdrop-blur-sm z-10">${esc(callName)}</div>`;
+        listHtml += docs.map(d => pickDocRow(d, TYPE_ICONS)).join('');
       }
 
       overlay.innerHTML = `
@@ -1396,6 +1397,16 @@ const Admin = (() => {
             <input type="number" id="elig-max-coord" min="1" value="${data.max_coord_applications || ''}" placeholder="No limit"
               class="mt-1 w-full px-3 py-2 border border-outline-variant/30 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary/20">
           </label>
+          <label class="block">
+            <span class="text-xs text-on-surface-variant">Max applications as partner</span>
+            <input type="number" id="elig-max-partner" min="1" value="${data.max_partner_applications || ''}" placeholder="No limit"
+              class="mt-1 w-full px-3 py-2 border border-outline-variant/30 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary/20">
+          </label>
+          <label class="block">
+            <span class="text-xs text-on-surface-variant">Max applications as applicant</span>
+            <input type="number" id="elig-max-applicant" min="1" value="${data.max_applicant_applications || ''}" placeholder="No limit"
+              class="mt-1 w-full px-3 py-2 border border-outline-variant/30 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary/20">
+          </label>
         </div>
       </div>
 
@@ -1446,6 +1457,8 @@ const Admin = (() => {
             min_partners: document.getElementById('elig-min-partners').value,
             min_countries: document.getElementById('elig-min-countries').value,
             max_coord_applications: document.getElementById('elig-max-coord').value || null,
+            max_partner_applications: document.getElementById('elig-max-partner').value || null,
+            max_applicant_applications: document.getElementById('elig-max-applicant').value || null,
             activity_location_types: selActivity,
             additional_rules: document.getElementById('elig-additional-rules').value,
           });
@@ -2550,7 +2563,11 @@ KEY EVALUATOR FOCUS:
           </div>
           <div class="flex flex-col gap-1">
             <label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Deadline</label>
-            <input type="date" id="cd-deadline" value="${fmtDate(prog.deadline)}" class="px-3 py-2.5 rounded-xl border border-outline-variant text-sm focus:border-primary outline-none">
+            <div class="flex gap-2">
+              <input type="date" id="cd-deadline" value="${fmtDate(prog.deadline)}" class="flex-1 px-3 py-2.5 rounded-xl border border-outline-variant text-sm focus:border-primary outline-none">
+              <input type="time" id="cd-deadline-time" value="${prog.deadline_time || '17:00'}" class="w-28 px-3 py-2.5 rounded-xl border border-outline-variant text-sm focus:border-primary outline-none" title="Hora de Bruselas (CET)">
+            </div>
+            <span class="text-[9px] text-on-surface-variant/60">Brussels time (CET)</span>
           </div>
           <div class="flex flex-col gap-1">
             <label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">EU Grant max</label>
@@ -2624,6 +2641,7 @@ KEY EVALUATOR FOCUS:
           name: document.getElementById('cd-name').value,
           action_type: document.getElementById('cd-action-type').value,
           deadline: document.getElementById('cd-deadline').value || null,
+          deadline_time: document.getElementById('cd-deadline-time').value || '17:00',
           eu_grant_max: document.getElementById('cd-grant').value || null,
           cofin_pct: document.getElementById('cd-cofin').value || null,
           indirect_pct: document.getElementById('cd-indirect').value || null,
@@ -2725,6 +2743,16 @@ KEY EVALUATOR FOCUS:
               <input type="number" id="ev-elig-max-coord" min="1" value="${data.max_coord_applications || ''}" placeholder="No limit"
                 class="mt-1 w-full px-3 py-2 border border-outline-variant/30 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary/20">
             </label>
+            <label class="block">
+              <span class="text-xs text-on-surface-variant">Max applications as partner</span>
+              <input type="number" id="ev-elig-max-partner" min="1" value="${data.max_partner_applications || ''}" placeholder="No limit"
+                class="mt-1 w-full px-3 py-2 border border-outline-variant/30 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary/20">
+            </label>
+            <label class="block">
+              <span class="text-xs text-on-surface-variant">Max applications as applicant</span>
+              <input type="number" id="ev-elig-max-applicant" min="1" value="${data.max_applicant_applications || ''}" placeholder="No limit"
+                class="mt-1 w-full px-3 py-2 border border-outline-variant/30 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary/20">
+            </label>
           </div>
         </div>
 
@@ -2775,6 +2803,8 @@ KEY EVALUATOR FOCUS:
           min_partners: document.getElementById('ev-elig-min-partners').value,
           min_countries: document.getElementById('ev-elig-min-countries').value,
           max_coord_applications: document.getElementById('ev-elig-max-coord').value || null,
+          max_partner_applications: document.getElementById('ev-elig-max-partner').value || null,
+          max_applicant_applications: document.getElementById('ev-elig-max-applicant').value || null,
           activity_location_types: selActivity,
           additional_rules: document.getElementById('ev-elig-additional-rules').value,
         });

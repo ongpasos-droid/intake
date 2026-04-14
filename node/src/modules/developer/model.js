@@ -735,9 +735,7 @@ async function getPreviousSections(instanceId, currentFieldId) {
     if (fid === currentFieldId) break;
     const val = values[fid];
     if (val && val.text && val.text.length > 50) {
-      // Include a summary (first 200 words) to maintain consistency
-      const words = val.text.split(/\s+/).slice(0, 200).join(' ');
-      context += `\n--- ${sectionNames[fid] || fid} ---\n${words}\n`;
+      context += `\n--- ${sectionNames[fid] || fid} ---\n${val.text}\n`;
     }
   }
   return context;
