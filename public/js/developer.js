@@ -1,6 +1,7 @@
 /* ═══════════════════════════════════════════════════════════════
-   Developer (Write) — 4-phase proposal writer
-   Phase 1: Context  |  Phase 2: Generate  |  Phase 3: Edit  |  Phase 4: Review
+   Developer (Write) — Cascade proposal writer
+   Phase 1: Context  |  Phase 12: Budget  |  Phase 15: Prep Studio
+   Phase 2: Escribir (cascade)  |  Phase 4: Review
    ═══════════════════════════════════════════════════════════════ */
 
 const Developer = (() => {
@@ -11,13 +12,17 @@ const Developer = (() => {
   let fieldValues = {};
   let flatSections = [];
   let activeFieldId = null;
-  let phase = 0; // 0=list, 1=context, 2=generate, 3=edit, 4=review
+  let phase = 0; // 0=list, 1=context, 2=escribir(cascade), 4=review
   let contextData = null;
   let evalCriteria = [];
   let _saveTimer = null;
   let _typingTimer = null;
   let prepSubTab = 'consorcio'; // default sub-tab in Prep Studio
   let prepCache = {};          // cached data per sub-tab to avoid re-fetching
+
+  // Cascade writing state
+  let cascadeIndex = 0;
+  let cascadeApproved = {};  // { fieldId: true }
 
   function esc(s) {
     if (!s) return '';
@@ -184,8 +189,7 @@ const Developer = (() => {
       { id: 11, label: 'Cronograma', icon: 'timeline' },
       { id: 12, label: 'Presupuesto', icon: 'account_balance' },
       { id: 15, label: 'Prep Studio', icon: 'psychology' },
-      { id: 2, label: 'Generar', icon: 'auto_awesome' },
-      { id: 3, label: 'Editar', icon: 'edit_note' },
+      { id: 2, label: 'Escribir', icon: 'edit_note' },
       { id: 4, label: 'Revisar', icon: 'fact_check' },
     ];
     return `
@@ -986,346 +990,220 @@ const Developer = (() => {
   async function renderPhase2() {
     phase = 2;
     const el = document.getElementById('developer-content');
-    const total = flatSections.length;
 
-    // Section status list
-    const secListHTML = flatSections.map((sec, i) => `
-      <div class="flex items-center gap-2 py-1.5" id="dev-sec-status-${i}">
-        <span class="material-symbols-outlined text-sm text-red-400" id="dev-sec-icon-${i}">radio_button_unchecked</span>
-        <span class="text-xs text-on-surface-variant" id="dev-sec-label-${i}">${sec.number} ${esc(sec.title.substring(0, 45))}</span>
-      </div>
-    `).join('');
+    // Initialize cascade position: find first section without approved text
+    if (!cascadeApproved[flatSections[cascadeIndex]?.fieldId]) {
+      for (let i = 0; i < flatSections.length; i++) {
+        if (!cascadeApproved[flatSections[i].fieldId]) { cascadeIndex = i; break; }
+      }
+    }
+    activeFieldId = flatSections[cascadeIndex]?.fieldId;
+
+    const total = flatSections.length;
+    const approved = Object.keys(cascadeApproved).length;
+    const pct = Math.round((approved / total) * 100);
 
     el.innerHTML = renderPhaseTabs(2) + `
-      <div class="grid grid-cols-1 lg:grid-cols-5 gap-8 py-4">
-        <!-- Left: Writing animation + tips -->
-        <div class="lg:col-span-3">
-          <div class="flex flex-col items-center text-center mb-8">
-            <!-- Pencil icon (static until generation starts) -->
-            <div class="relative w-20 h-20 mb-2" id="dev-pencil-container">
-              <div class="absolute inset-0 rounded-full bg-[#1b1464]/10"></div>
-              <div class="absolute inset-0 flex items-center justify-center">
-                <span class="material-symbols-outlined text-4xl text-[#1b1464]" id="dev-pencil-icon">edit_note</span>
-              </div>
-            </div>
-            <div class="font-headline text-lg font-extrabold text-[#1b1464] tracking-wider mb-3 h-6" id="dev-typing-text"></div>
-            <h2 class="font-headline text-xl font-bold mb-1" id="dev-gen-title">Listo para escribir</h2>
-            <p class="text-sm text-on-surface-variant mb-2" id="dev-gen-subtitle">Pulsa el boton para generar el borrador con IA</p>
-            <div class="flex items-center gap-2 text-xs text-primary font-mono">
-              <span id="dev-gen-count">0</span>/<span>${total}</span> secciones
-            </div>
-          </div>
-
-          <!-- Progress bar -->
-          <div class="mb-6">
-            <div class="flex items-center justify-between mb-1.5">
-              <span class="text-xs font-bold text-on-surface-variant" id="dev-gen-label">Preparando contexto...</span>
-              <span class="text-xs text-primary font-mono" id="dev-gen-pct">0%</span>
-            </div>
-            <div class="h-3 rounded-full bg-outline-variant/15 overflow-hidden">
-              <div class="h-full rounded-full bg-gradient-to-r from-primary to-purple-500 transition-all duration-700" id="dev-gen-bar" style="width:0%"></div>
-            </div>
-          </div>
-
-          <!-- Did you know? tips -->
-          <div class="bg-[#1b1464] rounded-2xl p-5 mb-6 shadow-lg">
-            <div class="flex items-start gap-3">
-              <span class="material-symbols-outlined text-lg text-[#e7eb00] mt-0.5">lightbulb</span>
-              <div>
-                <div class="text-[10px] font-bold uppercase tracking-widest text-[#e7eb00] mb-1.5">Sabias que...</div>
-                <p class="text-sm text-[#e7eb00]/90 leading-relaxed" id="dev-gen-tip">${TIPS[0]}</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Start / Continue buttons -->
-          <div class="text-center space-y-3">
-            <button onclick="Developer._startGeneration()" class="inline-flex items-center gap-3 px-10 py-5 rounded-2xl bg-[#1b1464] text-[#e7eb00] font-bold text-base shadow-[0_24px_48px_rgba(27,20,100,0.2)] hover:scale-[1.03] active:scale-95 transition-all" id="dev-gen-start">
-              <span class="material-symbols-outlined text-2xl">auto_awesome</span> Escribir borrador
-            </button>
-            <button onclick="Developer._phase(3)" class="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-primary text-white font-bold text-sm shadow-lg transition-all opacity-30 pointer-events-none" id="dev-gen-continue" style="display:none">
-              <span class="material-symbols-outlined">edit_note</span> Continuar a edicion
-            </button>
-          </div>
+      <!-- Progress bar -->
+      <div class="mb-4">
+        <div class="flex items-center justify-between mb-1.5">
+          <span class="text-xs font-bold text-on-surface-variant">Seccion ${cascadeIndex + 1} de ${total}</span>
+          <span class="text-xs text-primary font-mono">${approved} aprobadas &middot; ${pct}%</span>
         </div>
-
-        <!-- Right: Section status list -->
-        <div class="lg:col-span-2">
-          <div class="bg-surface-container-lowest rounded-2xl border border-outline-variant/20 p-5 sticky top-4">
-            <h3 class="text-xs font-bold uppercase tracking-widest text-on-surface-variant mb-3 flex items-center gap-2">
-              <span class="material-symbols-outlined text-sm">checklist</span> Secciones del formulario
-            </h3>
-            <div class="space-y-0.5 max-h-[60vh] overflow-y-auto">
-              ${secListHTML}
-            </div>
-          </div>
+        <div class="h-2 rounded-full bg-outline-variant/15 overflow-hidden">
+          <div class="h-full rounded-full bg-gradient-to-r from-primary to-purple-500 transition-all duration-500" style="width:${pct}%"></div>
         </div>
       </div>
 
-      <style>
-        @keyframes writePencil {
-          0%, 100% { transform: rotate(-5deg) translateY(0); }
-          25% { transform: rotate(5deg) translateY(-3px); }
-          50% { transform: rotate(-3deg) translateY(1px); }
-          75% { transform: rotate(4deg) translateY(-2px); }
-        }
-      </style>`;
-
-    // Tips rotation
-    let tipIdx = 0;
-    _tipTimer = setInterval(() => {
-      tipIdx = (tipIdx + 1) % TIPS.length;
-      const tipEl = document.getElementById('dev-gen-tip');
-      if (tipEl) {
-        tipEl.style.opacity = '0';
-        setTimeout(() => {
-          tipEl.textContent = TIPS[tipIdx];
-          tipEl.style.opacity = '1';
-        }, 300);
-        tipEl.style.transition = 'opacity 0.3s';
-      }
-    }, 4000);
-
-    // Wait for user to click — don't auto-start
-  }
-
-  async function runGeneration() {
-    // Hide start button
-    const startBtn = document.getElementById('dev-gen-start');
-    if (startBtn) startBtn.style.display = 'none';
-
-    // Activate pencil animation
-    const pencilIcon = document.getElementById('dev-pencil-icon');
-    const pencilBg = document.getElementById('dev-pencil-container')?.querySelector('div');
-    if (pencilIcon) pencilIcon.style.animation = 'writePencil 1.5s ease-in-out infinite';
-    if (pencilBg) pencilBg.classList.add('animate-pulse');
-    const titleEl = document.getElementById('dev-gen-title');
-    const subtitleEl = document.getElementById('dev-gen-subtitle');
-    if (titleEl) titleEl.textContent = 'Escribiendo tu propuesta...';
-    if (subtitleEl) subtitleEl.textContent = 'La IA esta redactando cada seccion con contexto completo del proyecto';
-
-    // Start typing animation
-    clearInterval(_typingTimer);
-    (function startTyping() {
-      const word = 'writing...';
-      const el = document.getElementById('dev-typing-text');
-      if (!el) return;
-      let idx = 0;
-      _typingTimer = setInterval(() => {
-        if (!document.getElementById('dev-typing-text')) { clearInterval(_typingTimer); return; }
-        idx++;
-        if (idx <= word.length) { el.textContent = word.substring(0, idx); }
-        else if (idx > word.length + 3) { idx = 0; el.textContent = ''; }
-      }, 150);
-    })();
-
-    const total = flatSections.length;
-    const bar = document.getElementById('dev-gen-bar');
-    const label = document.getElementById('dev-gen-label');
-    const countEl = document.getElementById('dev-gen-count');
-    const pctEl = document.getElementById('dev-gen-pct');
-    const btn = document.getElementById('dev-gen-continue');
-
-    // TEST MODE: only generate sections 1.1, 1.2, 1.3 — skip the rest
-    const GEN_ONLY = ['summary_text', 's1_1_text', 's1_2_text', 's1_3_text'];
-
-    for (let i = 0; i < flatSections.length; i++) {
-      const sec = flatSections[i];
-      const pct = Math.round(((i + 1) / total) * 100);
-      const shouldGenerate = GEN_ONLY.includes(sec.fieldId);
-
-      // Update UI
-      if (label) label.textContent = `${sec.number} ${sec.title}`;
-      if (countEl) countEl.textContent = i + 1;
-      if (pctEl) pctEl.textContent = pct + '%';
-      if (bar) bar.style.width = pct + '%';
-
-      const icon = document.getElementById('dev-sec-icon-' + i);
-      const lbl = document.getElementById('dev-sec-label-' + i);
-
-      if (shouldGenerate) {
-        // Mark as "working" (orange)
-        if (icon) { icon.textContent = 'pending'; icon.className = 'material-symbols-outlined text-sm text-amber-500 animate-pulse'; }
-        if (lbl) lbl.className = 'text-xs text-amber-700 font-bold';
-
-        try {
-          const result = await API.post('/developer/instances/' + currentInstance.id + '/generate', {
-            sections: [sec.fieldId]
-          });
-          fieldValues[sec.fieldId] = { text: result[sec.fieldId] || '', section: sec.id };
-          if (icon) { icon.textContent = 'check_circle'; icon.className = 'material-symbols-outlined text-sm text-green-500'; }
-          if (lbl) lbl.className = 'text-xs text-green-700 font-medium';
-        } catch (err) {
-          if (icon) { icon.textContent = 'error'; icon.className = 'material-symbols-outlined text-sm text-red-500'; }
-          if (lbl) lbl.className = 'text-xs text-red-600 font-medium';
-        }
-      } else {
-        // Skip — mark as done immediately
-        if (icon) { icon.textContent = 'check_circle'; icon.className = 'material-symbols-outlined text-sm text-gray-300'; }
-        if (lbl) lbl.className = 'text-xs text-on-surface-variant/50';
-      }
-    }
-
-    // TEST MODE: don't reload — keep only what was generated this session
-    // Production: try { fieldValues = await API.get('/developer/instances/' + currentInstance.id + '/values'); } catch(e) {}
-
-    // All done — celebration!
-    clearInterval(_tipTimer);
-    clearInterval(_typingTimer);
-    if (bar) bar.style.width = '100%';
-
-    // Replace the left column content with celebration
-    const leftCol = bar?.closest('.lg\\:col-span-3');
-    if (leftCol) {
-      const totalWords = flatSections.reduce((s, sec) => s + (fieldValues[sec.fieldId]?.text?.split(/\s+/).length || 0), 0);
-      leftCol.innerHTML = `
-        <div class="flex flex-col items-center text-center py-6">
-          <!-- Celebration animation -->
-          <div class="relative w-24 h-24 mb-6">
-            <div class="absolute inset-0 rounded-full bg-green-100 animate-ping opacity-30"></div>
-            <div class="absolute inset-0 rounded-full bg-gradient-to-br from-green-400 to-emerald-500 flex items-center justify-center shadow-lg">
-              <span class="material-symbols-outlined text-5xl text-white">celebration</span>
-            </div>
-          </div>
-
-          <h2 class="font-headline text-2xl font-extrabold text-on-surface mb-2">Primer borrador completado</h2>
-          <p class="text-base text-on-surface-variant mb-6 max-w-md">
-            Tu propuesta tiene ya una base solida con <strong>${totalWords.toLocaleString('es-ES')} palabras</strong> distribuidas en <strong>${flatSections.length} secciones</strong>.
-          </p>
-
-          <!-- Stats -->
-          <div class="grid grid-cols-3 gap-4 mb-8 w-full max-w-sm">
-            <div class="bg-green-50 border border-green-200 rounded-xl p-3 text-center">
-              <div class="font-headline text-xl font-extrabold text-green-600">${flatSections.length}</div>
-              <div class="text-[9px] uppercase tracking-wider text-green-700 font-bold">Secciones</div>
-            </div>
-            <div class="bg-green-50 border border-green-200 rounded-xl p-3 text-center">
-              <div class="font-headline text-xl font-extrabold text-green-600">${totalWords.toLocaleString('es-ES')}</div>
-              <div class="text-[9px] uppercase tracking-wider text-green-700 font-bold">Palabras</div>
-            </div>
-            <div class="bg-green-50 border border-green-200 rounded-xl p-3 text-center">
-              <div class="font-headline text-xl font-extrabold text-green-600">100%</div>
-              <div class="text-[9px] uppercase tracking-wider text-green-700 font-bold">Completo</div>
-            </div>
-          </div>
-
-          <!-- Next steps -->
-          <div class="bg-surface-container-lowest border border-outline-variant/20 rounded-2xl p-5 mb-6 text-left w-full max-w-md">
-            <h3 class="text-xs font-bold uppercase tracking-widest text-primary mb-3">Siguiente paso</h3>
-            <p class="text-sm text-on-surface-variant leading-relaxed">
-              Revisa cada seccion en el editor. Puedes <strong>evaluar</strong> contra los criterios oficiales,
-              <strong>expandir</strong> las secciones que necesiten mas detalle, o <strong>simplificar</strong> las que sean demasiado largas.
-            </p>
-          </div>
-
-          <button onclick="Developer._phase(3)" class="inline-flex items-center gap-3 px-10 py-5 rounded-2xl bg-gradient-to-r from-primary to-purple-600 text-white font-bold text-lg shadow-[0_24px_48px_rgba(27,20,100,0.15)] hover:scale-[1.03] hover:shadow-[0_28px_56px_rgba(27,20,100,0.2)] active:scale-95 transition-all">
-            <span class="material-symbols-outlined text-2xl">edit_note</span>
-            Revisar y mejorar propuesta
-          </button>
-        </div>`;
-    }
-  }
-
-  /* ══════════════════════════════════════════════════════════════
-     PHASE 3: Editor (3 columns)
-     ══════════════════════════════════════════════════════════════ */
-  async function renderPhase3() {
-    phase = 3;
-    const el = document.getElementById('developer-content');
-    if (!activeFieldId && flatSections.length) activeFieldId = flatSections[0].fieldId;
-
-    // TEST MODE: don't reload from server — only show what was just generated in this session
-    // Production: try { fieldValues = await API.get('/developer/instances/' + currentInstance.id + '/values'); } catch(e) {}
-
-    el.innerHTML = renderPhaseTabs(3) + `
-      <div class="flex gap-0 -mx-4" style="height:calc(100vh - 180px)">
+      <div class="flex gap-0 -mx-4" style="height:calc(100vh - 220px)">
         <!-- Left: Section nav -->
-        <div class="w-64 shrink-0 border-r border-outline-variant/20 overflow-y-auto px-3 py-2" id="dev-nav"></div>
+        <div class="w-56 shrink-0 border-r border-outline-variant/20 overflow-y-auto px-3 py-2" id="dev-cascade-nav"></div>
         <!-- Center: Editor -->
-        <div class="flex-1 overflow-y-auto px-6 py-2" id="dev-editor"></div>
+        <div class="flex-1 overflow-y-auto px-6 py-2" id="dev-cascade-main"></div>
         <!-- Right: AI panel -->
         <div class="w-72 shrink-0 border-l border-outline-variant/20 overflow-y-auto px-4 py-2" id="dev-ai-panel"></div>
       </div>`;
 
-    renderNav();
-    renderEditor();
+    renderCascadeNav();
+    renderCascadeSection();
     renderAIPanel();
   }
 
-  function renderNav() {
-    const nav = document.getElementById('dev-nav');
+  function renderCascadeNav() {
+    const nav = document.getElementById('dev-cascade-nav');
     if (!nav) return;
 
     let currentParent = null;
     let html = '';
-    for (const sec of flatSections) {
+    for (let i = 0; i < flatSections.length; i++) {
+      const sec = flatSections[i];
+      const isApproved = cascadeApproved[sec.fieldId];
+      const isCurrent = i === cascadeIndex;
+      const isPending = !isApproved && !isCurrent;
       const val = fieldValues[sec.fieldId];
       const hasText = val && val.text && val.text.trim().length > 10;
-      const reviewed = val && val.reviewed;
-      const dot = reviewed ? 'text-green-500' : (hasText ? 'text-amber-400' : 'text-outline-variant/40');
-      const isActive = sec.fieldId === activeFieldId;
 
       if (sec.parent && sec.parent !== currentParent) {
         currentParent = sec.parent;
         html += `<div class="text-[9px] font-bold uppercase tracking-widest text-on-surface-variant/60 mt-4 mb-1 px-2">${sec.parentNumber}. ${esc(sec.parent)}</div>`;
       }
 
+      const dotClass = isApproved ? 'text-green-500' : isCurrent ? 'text-amber-500 animate-pulse' : hasText ? 'text-amber-300' : 'text-outline-variant/30';
+      const icon = isApproved ? 'check_circle' : isCurrent ? 'edit_note' : hasText ? 'circle' : 'radio_button_unchecked';
+      const clickable = isApproved || isCurrent;
+      const onclick = clickable ? `Developer._cascadeGoTo(${i})` : '';
+
       html += `
-        <button onclick="Developer._selectSection('${sec.fieldId}')" class="w-full text-left flex items-center gap-2 px-2 py-1.5 rounded-lg text-xs transition-all ${isActive ? 'bg-primary/10 text-primary font-bold' : 'hover:bg-surface-container-low text-on-surface-variant'}">
-          <span class="material-symbols-outlined text-xs ${dot}">circle</span>
-          <span class="truncate">${sec.number} ${esc(sec.title.substring(0, 30))}</span>
+        <button ${onclick ? 'onclick="' + onclick + '"' : 'disabled'} class="w-full text-left flex items-center gap-2 px-2 py-1.5 rounded-lg text-xs transition-all ${isCurrent ? 'bg-primary/10 text-primary font-bold' : isApproved ? 'hover:bg-surface-container-low text-on-surface-variant cursor-pointer' : 'text-on-surface-variant/40 cursor-default'}">
+          <span class="material-symbols-outlined text-xs ${dotClass}">${icon}</span>
+          <span class="truncate">${sec.number} ${esc(sec.title.substring(0, 28))}</span>
         </button>`;
     }
     nav.innerHTML = html;
   }
 
-  function renderEditor() {
-    const editor = document.getElementById('dev-editor');
-    if (!editor) return;
+  let _cascadeGenerating = false;
 
-    const sec = flatSections.find(s => s.fieldId === activeFieldId);
-    if (!sec) { editor.innerHTML = '<p class="text-sm text-on-surface-variant py-8">Selecciona una seccion.</p>'; return; }
+  async function renderCascadeSection() {
+    const main = document.getElementById('dev-cascade-main');
+    if (!main) return;
 
+    const sec = flatSections[cascadeIndex];
+    if (!sec) { showCelebration(); return; }
+
+    activeFieldId = sec.fieldId;
     const val = fieldValues[sec.fieldId];
     const text = val?.text || '';
+    const hasText = text.trim().length > 10;
+    const isApproved = cascadeApproved[sec.fieldId];
+
+    if (!hasText && !_cascadeGenerating) {
+      // No text yet — show generating UI and auto-trigger
+      main.innerHTML = `
+        <div class="mb-4">
+          <div class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant/60 mb-1">${sec.parentNumber ? sec.parentNumber + '. ' + esc(sec.parent) : 'Summary'}</div>
+          <h2 class="font-headline text-lg font-bold text-on-surface">${sec.number} ${esc(sec.title)}</h2>
+        </div>
+        <details class="mb-4 group">
+          <summary class="text-xs font-bold text-primary cursor-pointer flex items-center gap-1">
+            <span class="material-symbols-outlined text-xs group-open:rotate-90 transition-transform">chevron_right</span> Guia del formulario
+          </summary>
+          <div class="mt-2 text-xs text-on-surface-variant leading-relaxed bg-primary/5 rounded-lg p-3 border border-primary/10">
+            ${sec.guidance ? sec.guidance.split('\n').map(g => '<p class="mb-1">' + esc(g) + '</p>').join('') : '<p>Sin guia disponible.</p>'}
+          </div>
+        </details>
+        <div class="flex flex-col items-center py-12" id="dev-cascade-loading">
+          <div class="relative w-16 h-16 mb-4">
+            <div class="absolute inset-0 rounded-full bg-[#1b1464]/10 animate-pulse"></div>
+            <div class="absolute inset-0 flex items-center justify-center">
+              <span class="material-symbols-outlined text-3xl text-[#1b1464]" style="animation:writePencil 1.5s ease-in-out infinite">edit_note</span>
+            </div>
+          </div>
+          <p class="text-sm font-bold text-[#1b1464] mb-1">Generando seccion...</p>
+          <p class="text-xs text-on-surface-variant mb-4">La IA escribe con todo el contexto de las secciones anteriores aprobadas</p>
+          <div class="bg-[#1b1464] rounded-xl p-4 max-w-md shadow-lg">
+            <div class="flex items-start gap-2">
+              <span class="material-symbols-outlined text-sm text-[#e7eb00] mt-0.5">lightbulb</span>
+              <p class="text-xs text-[#e7eb00]/90 leading-relaxed" id="dev-cascade-tip">${TIPS[Math.floor(Math.random() * TIPS.length)]}</p>
+            </div>
+          </div>
+        </div>
+        <style>
+          @keyframes writePencil {
+            0%, 100% { transform: rotate(-5deg) translateY(0); }
+            25% { transform: rotate(5deg) translateY(-3px); }
+            50% { transform: rotate(-3deg) translateY(1px); }
+            75% { transform: rotate(4deg) translateY(-2px); }
+          }
+        </style>`;
+
+      // Start tip rotation
+      clearInterval(_tipTimer);
+      let tipIdx = 0;
+      _tipTimer = setInterval(() => {
+        tipIdx = (tipIdx + 1) % TIPS.length;
+        const tipEl = document.getElementById('dev-cascade-tip');
+        if (tipEl) {
+          tipEl.style.opacity = '0';
+          setTimeout(() => { tipEl.textContent = TIPS[tipIdx]; tipEl.style.opacity = '1'; }, 300);
+          tipEl.style.transition = 'opacity 0.3s';
+        }
+      }, 4000);
+
+      // Auto-generate
+      _cascadeGenerating = true;
+      try {
+        const result = await API.post('/developer/instances/' + currentInstance.id + '/generate', { sections: [sec.fieldId] });
+        const genText = result[sec.fieldId] || '';
+        if (!fieldValues[sec.fieldId]) fieldValues[sec.fieldId] = {};
+        fieldValues[sec.fieldId].text = genText;
+        fieldValues[sec.fieldId].section = sec.id;
+      } catch (err) {
+        console.error('Cascade generate error:', err);
+        if (!fieldValues[sec.fieldId]) fieldValues[sec.fieldId] = {};
+        fieldValues[sec.fieldId].text = '';
+      }
+      _cascadeGenerating = false;
+      clearInterval(_tipTimer);
+
+      // Re-render with text now available
+      renderCascadeSection();
+      renderCascadeNav();
+      renderAIPanel();
+      return;
+    }
+
+    // Has text — show review editor
     const wc = wordCount(text);
 
-    editor.innerHTML = `
+    main.innerHTML = `
       <div class="mb-4">
         <div class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant/60 mb-1">${sec.parentNumber ? sec.parentNumber + '. ' + esc(sec.parent) : 'Summary'}</div>
         <h2 class="font-headline text-lg font-bold text-on-surface">${sec.number} ${esc(sec.title)}</h2>
       </div>
 
-      <!-- Guidance -->
-      <details class="mb-4 group">
+      <details class="mb-4 group" ${!hasText ? 'open' : ''}>
         <summary class="text-xs font-bold text-primary cursor-pointer flex items-center gap-1">
           <span class="material-symbols-outlined text-xs group-open:rotate-90 transition-transform">chevron_right</span> Guia del formulario
         </summary>
         <div class="mt-2 text-xs text-on-surface-variant leading-relaxed bg-primary/5 rounded-lg p-3 border border-primary/10">
-          ${sec.guidance ? sec.guidance.split('\n').map(g => `<p class="mb-1">${esc(g)}</p>`).join('') : '<p>Sin guia disponible.</p>'}
+          ${sec.guidance ? sec.guidance.split('\n').map(g => '<p class="mb-1">' + esc(g) + '</p>').join('') : '<p>Sin guia disponible.</p>'}
         </div>
       </details>
 
-      <!-- Text editor -->
-      <textarea id="dev-textarea" class="w-full px-4 py-3 text-sm bg-white border border-outline-variant/30 rounded-xl resize-vertical focus:outline-none focus:ring-2 focus:ring-primary/15 focus:border-primary/30 leading-relaxed font-[system-ui]" style="min-height:400px" placeholder="Escribe o genera esta seccion con IA...">${esc(text)}</textarea>
+      <textarea id="dev-textarea" class="w-full px-4 py-3 text-sm bg-white border border-outline-variant/30 rounded-xl resize-vertical focus:outline-none focus:ring-2 focus:ring-primary/15 focus:border-primary/30 leading-relaxed font-[system-ui]" style="min-height:350px" placeholder="Escribe o genera esta seccion con IA...">${esc(text)}</textarea>
 
-      <div class="flex items-center justify-between mt-2">
-        <span class="text-xs text-on-surface-variant">${wc} palabras</span>
-        <div class="flex items-center gap-2">
-          <button onclick="Developer._generateField('${sec.fieldId}')" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-bold text-primary border border-primary/30 hover:bg-primary/5 transition-colors">
-            <span class="material-symbols-outlined text-sm">auto_awesome</span> Generar con IA
+      <div class="flex items-center justify-between mt-2 mb-4">
+        <span class="text-xs text-on-surface-variant" id="dev-cascade-wc">${wc} palabras</span>
+        <button onclick="Developer._cascadeRegenerate()" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-bold text-primary border border-primary/30 hover:bg-primary/5 transition-colors">
+          <span class="material-symbols-outlined text-sm">auto_awesome</span> Regenerar con IA
+        </button>
+      </div>
+
+      <!-- Action buttons -->
+      <div class="flex items-center gap-3">
+        ${cascadeIndex < flatSections.length - 1 ? `
+          <button onclick="Developer._cascadeApprove()" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-bold text-white bg-[#1b1464] hover:bg-[#1b1464]/90 shadow-lg hover:shadow-xl transition-all">
+            <span class="material-symbols-outlined text-lg">check</span> Aprobar y siguiente
           </button>
-          <button onclick="Developer._markReviewed('${sec.fieldId}')" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-bold ${val?.reviewed ? 'text-green-600 border-green-300 bg-green-50' : 'text-on-surface-variant border-outline-variant/30 hover:bg-surface-container-low'} border transition-colors">
-            <span class="material-symbols-outlined text-sm">${val?.reviewed ? 'check_circle' : 'radio_button_unchecked'}</span> ${val?.reviewed ? 'Revisada' : 'Marcar revisada'}
+          <button onclick="Developer._cascadeSkip()" class="inline-flex items-center gap-2 px-4 py-3 rounded-xl text-xs font-bold text-on-surface-variant border border-outline-variant/30 hover:bg-surface-container-low transition-colors">
+            Saltar
           </button>
-        </div>
+        ` : `
+          <button onclick="Developer._cascadeApprove()" class="inline-flex items-center gap-2 px-8 py-3 rounded-xl text-sm font-bold text-white bg-gradient-to-r from-green-500 to-emerald-600 shadow-lg hover:shadow-xl transition-all">
+            <span class="material-symbols-outlined text-lg">celebration</span> Finalizar borrador
+          </button>
+        `}
+        ${isApproved ? '<span class="text-xs text-green-600 font-bold flex items-center gap-1"><span class="material-symbols-outlined text-sm">check_circle</span> Aprobada</span>' : ''}
       </div>`;
 
-    // Bind textarea autosave
+    // Bind textarea autosave + word count
     const textarea = document.getElementById('dev-textarea');
     if (textarea) {
       textarea.addEventListener('input', () => {
         clearTimeout(_saveTimer);
+        const wcEl = document.getElementById('dev-cascade-wc');
+        if (wcEl) wcEl.textContent = wordCount(textarea.value) + ' palabras';
         _saveTimer = setTimeout(() => {
           const newText = textarea.value;
           if (!fieldValues[sec.fieldId]) fieldValues[sec.fieldId] = {};
@@ -1333,13 +1211,135 @@ const Developer = (() => {
           API.put('/developer/instances/' + currentInstance.id + '/field', {
             field_id: sec.fieldId, section_path: sec.id, text: newText
           }).catch(err => console.error('autosave field:', err));
-          // Update word count
-          const wcEl = textarea.parentElement?.nextElementSibling?.querySelector('span');
-          if (wcEl) wcEl.textContent = wordCount(newText) + ' palabras';
         }, 1500);
       });
     }
   }
+
+  async function cascadeApproveAndNext() {
+    const sec = flatSections[cascadeIndex];
+    if (!sec) return;
+
+    // Flush pending autosave
+    clearTimeout(_saveTimer);
+    const textarea = document.getElementById('dev-textarea');
+    if (textarea) {
+      const text = textarea.value;
+      if (!fieldValues[sec.fieldId]) fieldValues[sec.fieldId] = {};
+      fieldValues[sec.fieldId].text = text;
+      fieldValues[sec.fieldId].reviewed = true;
+      try {
+        await API.put('/developer/instances/' + currentInstance.id + '/field', {
+          field_id: sec.fieldId, section_path: sec.id, text
+        });
+      } catch (e) { console.error('save before approve:', e); }
+    }
+
+    cascadeApproved[sec.fieldId] = true;
+    cascadeIndex++;
+
+    if (cascadeIndex >= flatSections.length) {
+      showCelebration();
+    } else {
+      renderPhase2();
+    }
+  }
+
+  function cascadeSkip() {
+    cascadeIndex++;
+    if (cascadeIndex >= flatSections.length) {
+      showCelebration();
+    } else {
+      renderPhase2();
+    }
+  }
+
+  function cascadeGoTo(targetIndex) {
+    if (targetIndex === cascadeIndex) return;
+    if (cascadeApproved[flatSections[targetIndex]?.fieldId] && targetIndex < cascadeIndex) {
+      if (!confirm('Si editas esta seccion, las posteriores podrian necesitar regeneracion. ¿Continuar?')) return;
+    }
+    cascadeIndex = targetIndex;
+    activeFieldId = flatSections[cascadeIndex]?.fieldId;
+    renderCascadeNav();
+    renderCascadeSection();
+    renderAIPanel();
+  }
+
+  async function cascadeRegenerate() {
+    const sec = flatSections[cascadeIndex];
+    if (!sec) return;
+    const textarea = document.getElementById('dev-textarea');
+    if (textarea) textarea.value = 'Regenerando con IA...';
+    try {
+      const result = await API.post('/developer/instances/' + currentInstance.id + '/generate', { sections: [sec.fieldId] });
+      const text = result[sec.fieldId] || '';
+      if (!fieldValues[sec.fieldId]) fieldValues[sec.fieldId] = {};
+      fieldValues[sec.fieldId].text = text;
+      if (textarea) textarea.value = text;
+      const wcEl = document.getElementById('dev-cascade-wc');
+      if (wcEl) wcEl.textContent = wordCount(text) + ' palabras';
+      renderCascadeNav();
+    } catch (err) {
+      if (textarea) textarea.value = 'Error al generar: ' + (err.message || err);
+    }
+  }
+
+  function showCelebration() {
+    const el = document.getElementById('developer-content');
+    if (!el) return;
+    clearInterval(_tipTimer);
+
+    const totalWords = flatSections.reduce((s, sec) => s + (fieldValues[sec.fieldId]?.text?.split(/\s+/).length || 0), 0);
+    const approved = Object.keys(cascadeApproved).length;
+
+    el.innerHTML = renderPhaseTabs(2) + `
+      <div class="flex flex-col items-center text-center py-12 max-w-lg mx-auto">
+        <div class="relative w-24 h-24 mb-6">
+          <div class="absolute inset-0 rounded-full bg-green-100 animate-ping opacity-30"></div>
+          <div class="absolute inset-0 rounded-full bg-gradient-to-br from-green-400 to-emerald-500 flex items-center justify-center shadow-lg">
+            <span class="material-symbols-outlined text-5xl text-white">celebration</span>
+          </div>
+        </div>
+
+        <h2 class="font-headline text-2xl font-extrabold text-on-surface mb-2">Borrador completado</h2>
+        <p class="text-base text-on-surface-variant mb-6 max-w-md">
+          Tu propuesta tiene <strong>${totalWords.toLocaleString('es-ES')} palabras</strong> en <strong>${flatSections.length} secciones</strong>.
+          ${approved} secciones aprobadas de ${flatSections.length}.
+        </p>
+
+        <div class="grid grid-cols-3 gap-4 mb-8 w-full max-w-sm">
+          <div class="bg-green-50 border border-green-200 rounded-xl p-3 text-center">
+            <div class="font-headline text-xl font-extrabold text-green-600">${approved}</div>
+            <div class="text-[9px] uppercase tracking-wider text-green-700 font-bold">Aprobadas</div>
+          </div>
+          <div class="bg-green-50 border border-green-200 rounded-xl p-3 text-center">
+            <div class="font-headline text-xl font-extrabold text-green-600">${totalWords.toLocaleString('es-ES')}</div>
+            <div class="text-[9px] uppercase tracking-wider text-green-700 font-bold">Palabras</div>
+          </div>
+          <div class="bg-green-50 border border-green-200 rounded-xl p-3 text-center">
+            <div class="font-headline text-xl font-extrabold text-green-600">${Math.round(approved / flatSections.length * 100)}%</div>
+            <div class="text-[9px] uppercase tracking-wider text-green-700 font-bold">Completo</div>
+          </div>
+        </div>
+
+        <div class="flex gap-3">
+          <button onclick="Developer._phase(4)" class="inline-flex items-center gap-3 px-8 py-4 rounded-2xl bg-gradient-to-r from-primary to-purple-600 text-white font-bold text-base shadow-lg hover:scale-[1.03] transition-all">
+            <span class="material-symbols-outlined text-xl">fact_check</span> Revision final
+          </button>
+          <button onclick="Developer._cascadeRestart()" class="inline-flex items-center gap-2 px-5 py-4 rounded-2xl text-sm font-bold text-on-surface-variant border border-outline-variant hover:bg-surface-container-low transition-colors">
+            <span class="material-symbols-outlined text-lg">replay</span> Seguir editando
+          </button>
+        </div>
+      </div>`;
+  }
+
+  function cascadeRestart() {
+    cascadeIndex = 0;
+    renderPhase2();
+  }
+
+  /* ── Phase 3 removed — absorbed into Phase 2 cascade ─────── */
 
   function renderAIPanel() {
     const panel = document.getElementById('dev-ai-panel');
@@ -1481,7 +1481,7 @@ const Developer = (() => {
                       : '<span class="text-outline-variant text-xs">Vacia</span>'}
                   </td>
                   <td class="px-4 py-2 text-center">
-                    <button onclick="Developer._selectSection('${s.fieldId}');Developer._phase(3)" class="text-xs text-primary font-bold hover:underline">Editar</button>
+                    <button onclick="Developer._selectSection('${s.fieldId}');Developer._phase(2)" class="text-xs text-primary font-bold hover:underline">Editar</button>
                   </td>
                 </tr>
               `).join('')}
@@ -1491,7 +1491,7 @@ const Developer = (() => {
 
         <!-- Actions -->
         <div class="flex justify-end gap-3">
-          <button onclick="Developer._phase(3)" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-bold text-on-surface-variant border border-outline-variant hover:bg-surface-container-low transition-colors">
+          <button onclick="Developer._phase(2)" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-bold text-on-surface-variant border border-outline-variant hover:bg-surface-container-low transition-colors">
             <span class="material-symbols-outlined text-sm">edit_note</span> Seguir editando
           </button>
           <button onclick="Developer._sendToEvaluator()" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-bold text-white bg-primary hover:bg-primary/90 shadow-lg transition-all ${completed < totalSections ? 'opacity-50' : ''}">
@@ -1503,8 +1503,12 @@ const Developer = (() => {
 
   /* ── Actions ───────────────────────────────────────────────── */
   function selectSection(fieldId) {
-    activeFieldId = fieldId;
-    if (phase === 3) { renderNav(); renderEditor(); renderAIPanel(); }
+    const idx = flatSections.findIndex(s => s.fieldId === fieldId);
+    if (idx >= 0 && phase === 2) {
+      cascadeGoTo(idx);
+    } else {
+      activeFieldId = fieldId;
+    }
   }
 
   async function generateField(fieldId) {
@@ -1516,7 +1520,7 @@ const Developer = (() => {
       if (!fieldValues[fieldId]) fieldValues[fieldId] = {};
       fieldValues[fieldId].text = text;
       if (textarea) textarea.value = text;
-      renderNav();
+      if (phase === 2) renderCascadeNav();
     } catch (err) {
       if (textarea) textarea.value = 'Error al generar: ' + (err.message || err);
     }
@@ -1525,8 +1529,7 @@ const Developer = (() => {
   function markReviewed(fieldId) {
     if (!fieldValues[fieldId]) fieldValues[fieldId] = {};
     fieldValues[fieldId].reviewed = !fieldValues[fieldId].reviewed;
-    renderEditor();
-    renderNav();
+    if (phase === 2) { renderCascadeSection(); renderCascadeNav(); }
   }
 
   function goPhase(p) {
@@ -1536,7 +1539,7 @@ const Developer = (() => {
       case 12: renderBudgetPhase(); break;
       case 15: renderPrepStudio(); break;
       case 2: renderPhase2(); break;
-      case 3: renderPhase3(); break;
+      case 3: renderPhase2(); break; // Phase 3 absorbed into cascade
       case 4: renderPhase4(); break;
     }
   }
@@ -1725,7 +1728,6 @@ const Developer = (() => {
   return {
     init,
     _back: goBack,
-    _startGeneration: runGeneration,
     _genInterview: genInterview,
     _deleteDoc: deleteDoc,
     _phase: goPhase,
@@ -1741,5 +1743,11 @@ const Developer = (() => {
     _aiExpand: aiExpand,
     _aiSimplify: aiSimplify,
     _sendToEvaluator: sendToEvaluator,
+    // Cascade
+    _cascadeApprove: cascadeApproveAndNext,
+    _cascadeSkip: cascadeSkip,
+    _cascadeGoTo: cascadeGoTo,
+    _cascadeRegenerate: cascadeRegenerate,
+    _cascadeRestart: cascadeRestart,
   };
 })();
