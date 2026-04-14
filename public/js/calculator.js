@@ -2514,11 +2514,9 @@ const Calculator = (() => {
       if (el) el.innerHTML = buildActFields(act, wi);
     } else {
       act[stateKey][pid][field] = ['note'].includes(field) ? value : (parseFloat(value)||0);
-      // Re-render fields for depreciation types so CHARGED column updates live
-      if (stateKey === 'note_partners' && ['amount','project_pct','lifetime_pct'].includes(field)) {
-        const el = $('calc-act-fields-' + actId);
-        if (el) el.innerHTML = buildActFields(act, wi);
-      }
+      // Re-render fields so per-partner totals update live
+      const el = $('calc-act-fields-' + actId);
+      if (el) el.innerHTML = buildActFields(act, wi);
     }
     recalcWP(wi);
   }
@@ -2879,6 +2877,12 @@ const Calculator = (() => {
     };
   }
 
+  /** Update project-level data without reinitializing rates/WPs/activities */
+  function updateProjectData(projectData) {
+    if (!state.project) return;
+    Object.assign(state.project, projectData);
+  }
+
   /** Check if Calculator state is initialized */
   function isInitialized() { return state.project !== null; }
 
@@ -2901,6 +2905,7 @@ const Calculator = (() => {
     init,
     // Library API for Intake embedding
     initFromIntake,
+    updateProjectData,
     setNavCallback,
     renderRatesInto,
     renderRoutesInto,

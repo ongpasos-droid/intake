@@ -48,10 +48,18 @@ const Intake = (() => {
   }
 
   function startNew() {
-    init();
+    // Ensure initialized (render nav + bind events) but don't call setStep with stale step
+    if (!initialized) {
+      initialized = true;
+      renderStepNav();
+      bindEvents();
+      loadPrograms();
+    }
+    // Clean slate: reset form, then apply selected program, then go to step 0
     resetForm();
     calcInitialized = false;
     calcNeedsReinit = false;
+    if (selectedProgram) selectProgram(selectedProgram.id);
     setStep(0);
   }
 
@@ -91,14 +99,20 @@ const Intake = (() => {
 
     // (Context word counters removed — context moved to Writer Prep Studio)
 
-    // Sync visible duration/start fields → hidden fields
+    // Sync visible duration/start fields → hidden fields + update Calculator live
     document.getElementById('intake-f-dur-visible')?.addEventListener('change', (e) => {
       const v = parseInt(e.target.value) || 24;
       document.getElementById('intake-f-dur').value = v;
+      if (calcInitialized && typeof Calculator !== 'undefined' && Calculator.isInitialized()) {
+        Calculator.updateProjectData({ duration_months: v });
+      }
       _dirty = true; scheduleIntakeSave();
     });
     document.getElementById('intake-f-start-visible')?.addEventListener('change', (e) => {
       document.getElementById('intake-f-start').value = e.target.value;
+      if (calcInitialized && typeof Calculator !== 'undefined' && Calculator.isInitialized()) {
+        Calculator.updateProjectData({ start_date: e.target.value });
+      }
       _dirty = true; scheduleIntakeSave();
     });
 
@@ -206,23 +220,28 @@ const Intake = (() => {
       document.getElementById('intake-f-start').value = toDateStr(project.start_date);
       document.getElementById('intake-f-type').value = project.type || '';
 
+      // Select matching program (sets selectedProgram + type-visible field)
+      if (project.type && programs.length) {
+        const match = programs.find(p => p.action_type === project.type);
+        if (match) {
+          selectedProgram = match;
+          if (!programs.find(pr => pr.id === match.id)) programs.push(match);
+          // Only set the type field from the program, preserve project's own duration/start
+          const setVal = (elId, v) => { const el = document.getElementById(elId); if (el) el.value = v || ''; };
+          setVal('intake-f-type', match.action_type || '');
+          setVal('intake-f-type-visible', match.action_type || '');
+        }
+      }
+      // Re-apply project values that selectProgram would have overwritten
       if (project.duration_months) {
-        const durEl = document.getElementById('intake-f-dur');
-        if (durEl) durEl.value = project.duration_months;
+        document.getElementById('intake-f-dur').value = project.duration_months;
         const durVis = document.getElementById('intake-f-dur-visible');
         if (durVis) durVis.value = project.duration_months;
       }
-
-      // Sync visible start/type fields
-      const startVis = document.getElementById('intake-f-start-visible');
-      if (startVis) startVis.value = toDateStr(project.start_date);
-      const typeVis = document.getElementById('intake-f-type-visible');
-      if (typeVis) typeVis.value = project.type || '';
-
-      // Select matching program
-      if (project.type && programs.length) {
-        const match = programs.find(p => p.action_type === project.type);
-        if (match) selectProgram(match.id);
+      if (project.start_date) {
+        document.getElementById('intake-f-start').value = toDateStr(project.start_date);
+        const startVis = document.getElementById('intake-f-start-visible');
+        if (startVis) startVis.value = toDateStr(project.start_date);
       }
 
       // Load partners
@@ -498,6 +517,13 @@ const Intake = (() => {
       await ensureCalcInit();
     } catch (err) {
       console.error('[Intake] ensureCalcInit failed:', err);
+    }
+    // Sync current form values into Calculator (duration/start may have changed)
+    if (calcInitialized && typeof Calculator !== 'undefined' && Calculator.isInitialized()) {
+      Calculator.updateProjectData({
+        duration_months: parseInt(document.getElementById('intake-f-dur').value) || 24,
+        start_date: document.getElementById('intake-f-start').value || null,
+      });
     }
     const container = document.getElementById('intake-calc-container');
     if (container && typeof Calculator !== 'undefined' && Calculator.isInitialized()) {
@@ -1288,10 +1314,15 @@ const Intake = (() => {
       for (const o of sel.options) { if (o.value == f.months) { o.selected = true; break; } }
     }
 
-    // Match program
+    // Match program (only set selectedProgram + type, don't overwrite project duration/start)
     if (d.program && programs.length) {
       const match = programs.find(p => p.program_id === d.program);
-      if (match) selectProgram(match.id);
+      if (match) {
+        selectedProgram = match;
+        const setVal = (elId, v) => { const el = document.getElementById(elId); if (el) el.value = v || ''; };
+        setVal('intake-f-type', match.action_type || '');
+        setVal('intake-f-type-visible', match.action_type || '');
+      }
     }
 
     const pl = d.partners || (d.state && d.state.partners);
@@ -1330,11 +1361,21 @@ const Intake = (() => {
   /* ── Reset form ──────────────────────────────────────────────── */
   function resetForm() {
     currentProjectId = null;
+    _dirty = false;
     calcInitialized = false;
     calcNeedsReinit = false;
     document.getElementById('intake-f-name').value = '';
+    const fullnameEl = document.getElementById('intake-f-fullname');
+    if (fullnameEl) fullnameEl.value = '';
     document.getElementById('intake-f-desc').value = '';
     document.getElementById('intake-f-start').value = '';
+    // Reset visible fields too
+    const startVis = document.getElementById('intake-f-start-visible');
+    if (startVis) startVis.value = '';
+    const durVis = document.getElementById('intake-f-dur-visible');
+    if (durVis) durVis.value = '24';
+    const typeVis = document.getElementById('intake-f-type-visible');
+    if (typeVis) typeVis.value = '';
     partners = [{ _local: 1, name: '', city: '', country: '', role: 'applicant', order_index: 1 }];
     pCounter = 1;
     renderPartners();
@@ -1518,6 +1559,8 @@ const Intake = (() => {
     selectedProgram = p;
     if (p) {
       if (!programs.find(pr => pr.id === p.id)) programs.push(p);
+      // Sync all UI fields so the correct call data is displayed
+      selectProgram(p.id);
     }
   }
 
