@@ -515,7 +515,7 @@ const Intake = (() => {
     }
 
     // If going to summary, build it with budget data + launch stats
-    if (cfg.key === 'resumen') { buildSummary(); renderLaunchStep(); }
+    if (cfg.key === 'resumen') { renderLaunchStep(); }
 
     // Update nav dots
     for (let i = 0; i < STEPS.length; i++) {
@@ -1285,6 +1285,24 @@ const Intake = (() => {
 
   /* ── Launch step (step 10) ─────────────────────────────────── */
   function renderLaunchStep() {
+    // Force nav dot for Resumen step (index 4) to be active
+    const resIdx = STEPS.length - 1;
+    const resDot = document.getElementById('intake-sd' + resIdx);
+    if (resDot) {
+      resDot.className = 'w-7 h-7 rounded-full flex items-center justify-center text-[10px] font-bold font-headline border-2 transition-all border-primary bg-primary text-white';
+      resDot.textContent = resIdx + 1;
+      const resLbl = document.getElementById('intake-sl' + resIdx);
+      if (resLbl) resLbl.className = 'font-headline text-[10px] font-bold uppercase tracking-widest text-primary transition-colors hidden sm:inline';
+      // Mark previous step as completed (not active)
+      const prevDot = document.getElementById('intake-sd' + (resIdx - 1));
+      if (prevDot && prevDot.textContent !== '\u2713') {
+        prevDot.className = 'w-7 h-7 rounded-full flex items-center justify-center text-[10px] font-bold font-headline border-2 transition-all border-primary bg-primary/10 text-primary';
+        prevDot.textContent = '\u2713';
+      }
+      const prevCon = document.getElementById('intake-sc' + (resIdx - 1));
+      if (prevCon) prevCon.className = 'flex-1 h-px bg-primary mx-1 transition-colors min-w-[8px]';
+    }
+
     // Show call summary if available
     const summaryBox = document.getElementById('intake-call-summary-box');
     const summaryText = document.getElementById('intake-call-summary-text');
