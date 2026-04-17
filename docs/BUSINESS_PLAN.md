@@ -244,4 +244,25 @@ Todas centralizadas EACEA, presupuesto promedio 400.000€:
 
 ---
 
+---
+
+## 10. Estructura Societaria
+
+**Decisión:** Gestionar los ingresos de E+ Tools a través de la **LLC americana existente**.
+
+**Razonamiento:**
+- Los clientes B2B europeos aplican **reverse charge** de IVA automáticamente — no requiere registro de IVA en la UE en los primeros años.
+- La LLC ya existe: cero coste de constitución, contabilidad simple.
+- Es una estructura conocida y valorable en una posible venta futura (compradores anglosajones la entienden bien).
+- Cuando los ingresos superen ~50.000€/año en clientes españoles, evaluar crear una **SL operativa española** que facture al mercado nacional y suba royalties/dividendos a la LLC (holding natural).
+
+**Holding:** No tiene sentido crear uno ahora. La LLC americana ya actúa como holding si en el futuro hay múltiples productos o entidades.
+
+**Estrategia de salida (si ocurre):**
+- Un SaaS vertical en nicho regulado (Erasmus+) con base de datos propia es difícil de replicar → valoración alta en múltiplos de ARR (5-10×).
+- La diferencia entre vender a un comprador estratégico (organismo europeo, editorial educativa) vs. financiero (fondo) es quién compra: el estratégico paga prima por los datos y la red de socios; el financiero mira el EBITDA.
+- Objetivo realista: no vender, sino usar E+ Tools como palanca para ganar proyectos propios + facturar a otras entidades. La venta es el escenario bonus.
+
+---
+
 *Documento vivo — actualizar con cada decisión relevante.*
