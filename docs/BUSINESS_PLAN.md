@@ -1,5 +1,5 @@
-# E+ Tools — Plan de Negocio v1.0
-*Elaborado: Abril 2026*
+# E+ Tools — Plan de Negocio v2.0
+*Elaborado: Abril 2026 — Actualizado: Abril 2026*
 
 ---
 
@@ -42,16 +42,26 @@
 
 ## 3. Modelo de Negocio
 
-### 3.1 Estrategia de entrada — Freemium
+### 3.1 Estrategia de entrada — Funnel gratuito año 1
 
-| Nivel | Qué incluye |
-|-------|-------------|
-| **Gratuito** | 1 proyecto activo, IA limitada (calidad reducida), 2 evaluaciones automáticas, registro como entidad en el directorio |
-| **Masterclasses gratuitas** | 1 hora por convocatoria, puerta de entrada al plan Básico |
+**Principio:** *Dar valor primero. Cobrar cuando el usuario ya no puede prescindir de la herramienta.*
 
-**Principio:** *Gratis para aprender y explorar. De pago para ejecutar y entregar.*
+El año 1 no es un año sin ingresos — es una inversión en los activos más valiosos: el dataset, la red de entidades y la dependencia del usuario.
 
-El muro de pago aparece en el momento de mayor conversión: cuando el usuario tiene trabajo invertido y quiere exportar en formato oficial, invitar socios al consorcio, o mejorar la puntuación de su proyecto.
+**Acceso gratuito (año 1):**
+
+| Qué | Condición |
+|-----|-----------|
+| **Plataforma al 100%** — IA sin limitaciones, 1 proyecto activo | Perfil de entidad completo (PIF) |
+| **Evaluación IA gratuita** | Perfil de entidad completo |
+| **Escritura de proyecto completa** | Perfil de entidad completo |
+| **Masterclass por convocatoria** | Registro gratuito |
+
+**El PIF como requisito de entrada:** rellenar el perfil completo de la entidad (nombre legal, OID/PIC, país, tipo, experiencia previa) es el precio de acceso a lo gratuito. Esto construye la base de datos de socios potenciales que es el activo más valioso de la plataforma.
+
+**Precio tachado siempre visible:** desde el primer login el usuario ve "Estás usando el plan KA3 valorado en 8.000€ — gratis durante tu primer proyecto". Cuando llegue el momento de cobrar, nadie puede decir que no lo sabía.
+
+**Límite clave:** 1 proyecto activo por call. Cuando el proyecto se envía o caduca, para la siguiente convocatoria necesitan licencia de pago.
 
 ### 3.2 Planes de pago
 
@@ -84,14 +94,19 @@ Precio calculado como **% del presupuesto máximo de cada convocatoria.**
 
 ## 4. Líneas de Ingresos
 
-### 4.1 Las 6 fuentes
+### 4.1 Las fuentes de ingreso
 
-1. **Formación** — incluida en plan Básico. Puerta de entrada, genera confianza y primeros ingresos
-2. **Evaluaciones IA** — barato (150€), objetivo: volumen + alimentar base de datos propia
-3. **Licencias anuales por call** — núcleo del negocio recurrente (Básico + Premium)
-4. **Planes de éxito** — Colaboración y Shadow, alto ticket, solo si aprobado
-5. **Entidad Socia Premium** — red de socios en consorcios, escalable por países
-6. **Masterclasses** — gratuitas como captación, potencial de pago en el futuro
+**Año 1 (tracción):**
+1. **Cursos de formación por call** — cobrar por cada programa activo, dirigido a entidades menos expertas que necesitan aprender antes de presentar
+2. **Evaluaciones IA** — gratuitas año 1 para entidades con perfil completo; de pago (150€) a partir de año 2
+3. **Entidad Socia Premium** — 750€/año precio fundador, garantía de participar como socio en proyectos
+
+**Año 2+ (conversión):**
+4. **Licencias anuales por call** — núcleo del negocio recurrente (Básico 2.000€ + Premium 8.000€)
+5. **Planes de éxito** — Colaboración y Shadow, alto ticket, solo si aprobado
+6. **Masterclasses** — gratuitas como captación, potencial de pago futuro
+
+**Lógica del funnel:** las líneas de año 1 son el gancho; las de año 2 son la conversión de usuarios ya dependientes.
 
 ### 4.2 Convocatorias objetivo año 1
 
@@ -181,7 +196,42 @@ Todas centralizadas EACEA, presupuesto promedio 400.000€:
 
 ---
 
-## 6. Estrategia Go-to-Market
+## 6. Funnel de Conversión
+
+```
+Perfil de entidad completo (PIF)
+    → Evaluación IA gratuita  [dataset + enganche]
+    → Proyecto escrito gratis [dependencia + trabajo invertido]
+    → Campaña post-proyecto   [conversión]
+    → Licencia de pago siguiente call
+```
+
+### 6.1 La campaña post-proyecto
+
+Cuando el proyecto se envía, lanzar campaña automática con datos reales:
+- "Tu proyecto puntuó **X/100**" — si es alto, quiere repetir; si es bajo, quiere mejorar con premium
+- "Ahorraste **N horas** de redacción con E+ Tools"
+- "La siguiente call abre en **X semanas** — asegura tu plaza"
+- Invitación a agendar llamada de venta
+
+**El dato de ahorro de horas es el argumento más poderoso:** convierte el precio de la licencia de un coste a una inversión obvia.
+
+### 6.2 Métricas para introducir precios
+
+No hay una fecha fija — hay señales:
+
+| Métrica | Umbral |
+|---------|--------|
+| Entidades con perfil completo | +200 |
+| Proyectos escritos completos | +50 |
+| Proyectos aprobados con E+ Tools | +3 |
+| Tasa de respuesta a campaña post-proyecto | +20% |
+
+Con 3 proyectos aprobados y 20% de respuesta a campaña, hay suficiente legitimidad para cobrar sin fricción.
+
+---
+
+## 7. Estrategia Go-to-Market
 
 ### 6.1 Fase 0 — Antes del lanzamiento
 - Identificar los grupos de Facebook con coordinadores Erasmus+ activos
@@ -207,7 +257,65 @@ Todas centralizadas EACEA, presupuesto promedio 400.000€:
 
 ---
 
-## 7. Ventajas Competitivas
+## 8. Modelo Usuario / Entidad
+
+### 8.1 Estructura de datos
+
+```
+Usuario (persona física)
+    └── puede pertenecer a N entidades con roles distintos
+
+Entidad (organización)
+    └── tiene N usuarios
+    └── tiene sus proyectos, PIF, documentación propia
+    └── identificada por OID o PIC europeo
+```
+
+**La licencia va ligada a la entidad, no al usuario.** Una entidad paga por acceso a una call — cuántos usuarios tenga dentro es irrelevante. Esto simplifica el pricing y es lo que esperan las organizaciones.
+
+### 8.2 Roles dentro de una entidad
+
+| Rol | Quién es | Qué puede |
+|-----|----------|-----------|
+| **Legal Rep** | Director, presidente | Firmar, aprobar, transferir ownership |
+| **Admin** | Coordinador de proyectos | Todo lo operativo |
+| **Writer** | Escriba interno o externo | Redactar proyectos asignados |
+
+El Legal Rep es quien puede firmar la declaración de honor en Erasmus+ — debe ser el único con control total sobre la entidad en la plataforma.
+
+### 8.3 Verificación por OID/PIC
+
+El OID/PIC europeo ya es el sistema de verificación — no hace falta inventar uno propio.
+
+- Al crear una entidad → campo obligatorio OID o PIC
+- El sistema importa nombre legal, país y tipo desde el registro EACEA
+- **MVP:** el usuario introduce OID → entidad queda "pendiente de verificación" → badge visible
+- **v2:** EU Login OAuth → verificación automática en tiempo real
+
+### 8.4 Sistema de reclamación
+
+Cualquier usuario puede añadir una entidad con su OID. Si nadie la ha reclamado:
+- La entidad aparece como "sin propietario verificado"
+- El sistema envía email al contacto oficial del registro EACEA
+- El representante legal puede reclamarla y convertirse en Legal Rep
+- Mientras no está reclamada: acceso limitado (puede usarse en consorcios pero no editar el perfil)
+
+### 8.5 Casos de uso
+
+| Caso | Solución |
+|------|----------|
+| CEO que escribe solo | Usuario = él. Admin de su propia entidad |
+| Freelance con 3 entidades | Un usuario, 3 entidades. Switcher de contexto (como Slack workspaces) |
+| Empresa con varios escritores | Una entidad, varios usuarios con rol Writer |
+| Representante legal de varias ONGs | Un usuario, Legal Rep en múltiples entidades |
+
+### 8.6 Viral loop integrado
+
+Cada proyecto Erasmus+ necesita 4+ socios. Invitar socios al consorcio es el flujo natural de la plataforma. Si los socios no están registrados, reciben invitación → crean su perfil → entran al funnel. **La adquisición de nuevas entidades está integrada en el core del producto.**
+
+---
+
+## 9. Ventajas Competitivas
 
 1. **Base de datos propia** — cada evaluación alimenta el modelo. A más datos, mejor IA, mayor ventaja competitiva. Foso económico que crece solo.
 
@@ -218,6 +326,8 @@ Todas centralizadas EACEA, presupuesto promedio 400.000€:
 4. **Acceso directo al mercado** — grupos de Facebook y directorios de ONGs ya disponibles. Sin coste de adquisición de leads.
 
 5. **Modelo alineado con el éxito del cliente** — los planes Colaboración y Shadow solo cobran si el proyecto se aprueba. El cliente siente que jugamos en el mismo equipo.
+
+6. **Directorio europeo de entidades** — ver sección 10. Un activo de datos que no existe en ningún sitio de forma accesible.
 
 ---
 
@@ -233,14 +343,60 @@ Todas centralizadas EACEA, presupuesto promedio 400.000€:
 
 ---
 
-## 9. Próximos Pasos
+## 10. Directorio Europeo de Entidades — Activo Estratégico
 
+El portal de Erasmus+ (`webgate.ec.europa.eu`) tiene un buscador público de organizaciones registradas con OID/PIC. Los datos son accesibles visualmente pero la API requiere sesión EU Login activa.
+
+### 10.1 Plan de extracción en dos fases
+
+**Fase 1 — Barrer el directorio de Erasmus+**
+Con acceso EU Login, hacer scraping sistemático del buscador y extraer para cada entidad:
+- Nombre legal + nombre en inglés
+- OID + PIC
+- País, ciudad, web
+- Número de registro + VAT
+- Tipo de organización
+- Estado de certificación NA
+
+**Fase 2 — Enriquecer con emails**
+- **Webs propias:** el buscador devuelve la URL de cada entidad. Un crawler visita cada web y extrae el email de contacto.
+- **Listados de proyectos aprobados EACEA:** son PDFs públicos publicados cada año con entidades coordinadoras y socias. Se parsean automáticamente para extraer nombre, país y contacto.
+
+### 10.2 Resultado
+
+Una base de datos propia de organizaciones europeas vinculadas a Erasmus+, con email, segmentada por país/tipo/call. **Esta lista de mailing no existe en ningún sitio accesible** y vale mucho como activo comercial propio.
+
+### 10.3 Próximo paso
+
+Cuando Oscar esté en el ordenador: proporcionar acceso EU Login para iniciar el scraping sistemático. El proceso completo (extracción + enriquecimiento de emails desde webs) puede automatizarse en una sola sesión de trabajo.
+
+---
+
+## 11. Próximos Pasos
+
+**Producto:**
+- [ ] Implementar PIF (perfil de entidad completo) como requisito de acceso al tier gratuito
+- [ ] Mostrar precio tachado en toda la UI desde el primer login
+- [ ] Diseñar flujo de invitación de socios al consorcio (viral loop)
+- [ ] Implementar campaña automática post-proyecto (score + horas ahorradas + siguiente call)
+- [ ] Implementar roles Legal Rep / Admin / Writer dentro de entidad
+- [ ] Sistema de reclamación de entidades por OID
+- [ ] Solicitar registro EU Login OAuth para verificación automática (v2)
+
+**Go-to-market:**
 - [ ] Definir fecha de lanzamiento primera call
 - [ ] Crear lista de grupos de Facebook y directorios a trabajar
 - [ ] Diseñar masterclass gratuita primera convocatoria
 - [ ] Redactar contratos para Entidades Socias Premium y plan Shadow
-- [ ] Configurar módulo de pagos (Stripe) en la plataforma
-- [ ] Definir exactamente qué incluye la versión gratuita vs. Básico vs. Premium
+
+**Datos:**
+- [ ] Scraping directorio Erasmus+ (requiere acceso EU Login de Oscar)
+- [ ] Crawler de emails desde webs de entidades extraídas
+- [ ] Parser de PDFs de proyectos aprobados EACEA
+
+**Negocio:**
+- [ ] Configurar módulo de pagos (Stripe)
+- [ ] Definir qué incluye cada plan de pago (Básico vs. Premium) para año 2
 
 ---
 
