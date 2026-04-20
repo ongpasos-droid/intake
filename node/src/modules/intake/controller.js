@@ -21,7 +21,7 @@ async function listProjects(req, res, next) {
     const page = parseInt(req.query.page) || 1;
     const perPage = Math.min(parseInt(req.query.per_page) || 20, 100);
 
-    const result = await model.findProjectsByUserId(req.user.sub, page, perPage);
+    const result = await model.findProjectsByUserId(req.user.id, page, perPage);
 
     res.json({
       ok: true,
@@ -41,7 +41,7 @@ async function listProjects(req, res, next) {
 /* ── GET /v1/intake/projects/:id ─────────────────────────────────── */
 async function getProject(req, res, next) {
   try {
-    const project = await model.findProjectById(req.params.id, req.user.sub);
+    const project = await model.findProjectById(req.params.id, req.user.id);
     if (!project) {
       return res.status(404).json({
         ok: false,
@@ -81,7 +81,7 @@ async function createProject(req, res, next) {
       indirect_pct: indirect_pct || 0
     };
 
-    const project = await model.createProject(req.user.sub, projectData);
+    const project = await model.createProject(req.user.id, projectData);
 
     res.status(201).json({
       ok: true,
@@ -95,7 +95,7 @@ async function createProject(req, res, next) {
 /* ── PATCH /v1/intake/projects/:id ───────────────────────────────── */
 async function updateProject(req, res, next) {
   try {
-    const result = await model.updateProjectFields(req.params.id, req.user.sub, req.body);
+    const result = await model.updateProjectFields(req.params.id, req.user.id, req.body);
     if (!result) {
       return res.status(404).json({
         ok: false,
@@ -114,7 +114,7 @@ async function updateProject(req, res, next) {
 /* ── DELETE /v1/intake/projects/:id ──────────────────────────────── */
 async function deleteProject(req, res, next) {
   try {
-    const deleted = await model.deleteProject(req.params.id, req.user.sub);
+    const deleted = await model.deleteProject(req.params.id, req.user.id);
     if (!deleted) {
       return res.status(404).json({
         ok: false,
@@ -133,7 +133,7 @@ async function deleteProject(req, res, next) {
 /* ── GET /v1/intake/projects/:projectId/partners ─────────────────── */
 async function listPartners(req, res, next) {
   try {
-    const partners = await model.findPartnersByProjectId(req.params.projectId, req.user.sub);
+    const partners = await model.findPartnersByProjectId(req.params.projectId, req.user.id);
     if (partners === null) {
       return res.status(404).json({
         ok: false,
@@ -161,7 +161,7 @@ async function createPartner(req, res, next) {
       });
     }
 
-    const partner = await model.createPartner(req.params.projectId, req.user.sub, {
+    const partner = await model.createPartner(req.params.projectId, req.user.id, {
       name,
       legal_name,
       city,
@@ -187,7 +187,7 @@ async function createPartner(req, res, next) {
 /* ── PATCH /v1/intake/partners/:id ───────────────────────────────── */
 async function updatePartner(req, res, next) {
   try {
-    const result = await model.updatePartner(req.params.id, req.user.sub, req.body);
+    const result = await model.updatePartner(req.params.id, req.user.id, req.body);
     if (!result) {
       return res.status(404).json({
         ok: false,
@@ -206,7 +206,7 @@ async function updatePartner(req, res, next) {
 /* ── DELETE /v1/intake/partners/:id ──────────────────────────────── */
 async function deletePartner(req, res, next) {
   try {
-    const deleted = await model.deletePartner(req.params.id, req.user.sub);
+    const deleted = await model.deletePartner(req.params.id, req.user.id);
     if (!deleted) {
       return res.status(404).json({
         ok: false,
@@ -234,7 +234,7 @@ async function reorderPartners(req, res, next) {
       });
     }
 
-    const success = await model.reorderPartners(req.params.projectId, req.user.sub, order);
+    const success = await model.reorderPartners(req.params.projectId, req.user.id, order);
     if (!success) {
       return res.status(404).json({
         ok: false,
@@ -254,7 +254,7 @@ async function reorderPartners(req, res, next) {
 /* ── GET /v1/intake/projects/:projectId/context ──────────────────── */
 async function listContexts(req, res, next) {
   try {
-    const contexts = await model.findContextsByProjectId(req.params.projectId, req.user.sub);
+    const contexts = await model.findContextsByProjectId(req.params.projectId, req.user.id);
     if (contexts === null) {
       return res.status(404).json({
         ok: false,
@@ -273,7 +273,7 @@ async function listContexts(req, res, next) {
 /* ── PATCH /v1/intake/contexts/:id ───────────────────────────────── */
 async function updateContext(req, res, next) {
   try {
-    const result = await model.updateContextFields(req.params.id, req.user.sub, req.body);
+    const result = await model.updateContextFields(req.params.id, req.user.id, req.body);
     if (!result) {
       return res.status(404).json({
         ok: false,

@@ -82,14 +82,14 @@ tailwind.config = {
         <form id="form-login" class="space-y-4">
           <div>
             <label class="block text-xs font-semibold text-on-surface-variant mb-1.5" for="login-email">Email</label>
-            <input id="login-email" name="email" type="email" required autocomplete="email"
+            <input id="login-email" name="email" type="email" required aria-required="true" autocomplete="email"
               class="w-full px-4 py-3 rounded-lg bg-surface-container-low border border-outline-variant/50 text-on-surface text-sm
                      focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors"
               placeholder="you@organization.eu">
           </div>
           <div>
             <label class="block text-xs font-semibold text-on-surface-variant mb-1.5" for="login-password">Password</label>
-            <input id="login-password" name="password" type="password" required autocomplete="current-password"
+            <input id="login-password" name="password" type="password" required aria-required="true" autocomplete="current-password"
               class="w-full px-4 py-3 rounded-lg bg-surface-container-low border border-outline-variant/50 text-on-surface text-sm
                      focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors"
               placeholder="Min. 8 characters">
@@ -106,21 +106,21 @@ tailwind.config = {
         <form id="form-register" class="space-y-4 hidden">
           <div>
             <label class="block text-xs font-semibold text-on-surface-variant mb-1.5" for="reg-name">Full Name</label>
-            <input id="reg-name" name="name" type="text" required autocomplete="name"
+            <input id="reg-name" name="name" type="text" required aria-required="true" autocomplete="name"
               class="w-full px-4 py-3 rounded-lg bg-surface-container-low border border-outline-variant/50 text-on-surface text-sm
                      focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors"
               placeholder="Ana García">
           </div>
           <div>
             <label class="block text-xs font-semibold text-on-surface-variant mb-1.5" for="reg-email">Email</label>
-            <input id="reg-email" name="email" type="email" required autocomplete="email"
+            <input id="reg-email" name="email" type="email" required aria-required="true" autocomplete="email"
               class="w-full px-4 py-3 rounded-lg bg-surface-container-low border border-outline-variant/50 text-on-surface text-sm
                      focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors"
               placeholder="you@organization.eu">
           </div>
           <div>
             <label class="block text-xs font-semibold text-on-surface-variant mb-1.5" for="reg-password">Password</label>
-            <input id="reg-password" name="password" type="password" required minlength="8" autocomplete="new-password"
+            <input id="reg-password" name="password" type="password" required aria-required="true" minlength="8" autocomplete="new-password"
               class="w-full px-4 py-3 rounded-lg bg-surface-container-low border border-outline-variant/50 text-on-surface text-sm
                      focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors"
               placeholder="Min. 8 characters">
@@ -176,6 +176,9 @@ tailwind.config = {
 <!-- ═══ APP SHELL (visible when logged in) ═══════════════════════ -->
 <div id="app-shell" class="hidden">
 
+  <!-- Sidebar overlay (mobile) -->
+  <div id="sidebar-overlay"></div>
+
   <!-- Sidebar -->
   <aside id="sidebar" class="fixed top-0 left-0 bottom-0 w-60 bg-primary-container z-40 flex flex-col transition-all duration-300">
 
@@ -199,36 +202,42 @@ tailwind.config = {
         <span class="material-symbols-outlined text-[20px]">add_circle</span>
         Intake
       </a>
-      <a href="#calculator"
-        class="nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-white/70 hover:bg-white/10 transition-colors text-sm font-medium opacity-40 pointer-events-none"
-        data-route="calculator">
+      <div title="Próximamente" class="relative flex items-center gap-3 px-3 py-2.5 rounded-lg text-white/40 text-sm font-medium cursor-not-allowed select-none">
         <span class="material-symbols-outlined text-[20px]">calculate</span>
         Calculator
-      </a>
-      <a href="#planner"
-        class="nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-white/70 hover:bg-white/10 transition-colors text-sm font-medium opacity-40 pointer-events-none"
-        data-route="planner">
+        <span class="ml-auto text-[9px] font-bold tracking-widest uppercase bg-white/10 px-1.5 py-0.5 rounded">Soon</span>
+      </div>
+      <div title="Próximamente" class="relative flex items-center gap-3 px-3 py-2.5 rounded-lg text-white/40 text-sm font-medium cursor-not-allowed select-none">
         <span class="material-symbols-outlined text-[20px]">calendar_month</span>
         Planner
-      </a>
-      <a href="#developer"
-        class="nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-white/70 hover:bg-white/10 transition-colors text-sm font-medium opacity-40 pointer-events-none"
-        data-route="developer">
+        <span class="ml-auto text-[9px] font-bold tracking-widest uppercase bg-white/10 px-1.5 py-0.5 rounded">Soon</span>
+      </div>
+      <div title="Próximamente" class="relative flex items-center gap-3 px-3 py-2.5 rounded-lg text-white/40 text-sm font-medium cursor-not-allowed select-none">
         <span class="material-symbols-outlined text-[20px]">edit_document</span>
         Developer
-      </a>
-      <a href="#evaluator"
-        class="nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-white/70 hover:bg-white/10 transition-colors text-sm font-medium opacity-40 pointer-events-none"
-        data-route="evaluator">
+        <span class="ml-auto text-[9px] font-bold tracking-widest uppercase bg-white/10 px-1.5 py-0.5 rounded">Soon</span>
+      </div>
+      <div title="Próximamente" class="relative flex items-center gap-3 px-3 py-2.5 rounded-lg text-white/40 text-sm font-medium cursor-not-allowed select-none">
         <span class="material-symbols-outlined text-[20px]">fact_check</span>
         Evaluator
-      </a>
-      <a href="#partners"
-        class="nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-white/70 hover:bg-white/10 transition-colors text-sm font-medium opacity-40 pointer-events-none"
-        data-route="partners">
+        <span class="ml-auto text-[9px] font-bold tracking-widest uppercase bg-white/10 px-1.5 py-0.5 rounded">Soon</span>
+      </div>
+      <div title="Próximamente" class="relative flex items-center gap-3 px-3 py-2.5 rounded-lg text-white/40 text-sm font-medium cursor-not-allowed select-none">
         <span class="material-symbols-outlined text-[20px]">groups</span>
         Partners
-      </a>
+        <span class="ml-auto text-[9px] font-bold tracking-widest uppercase bg-white/10 px-1.5 py-0.5 rounded">Soon</span>
+      </div>
+
+      <!-- Admin — solo visible para role=admin -->
+      <div id="admin-nav-item" class="hidden">
+        <div class="mt-3 mb-1 px-3 text-[10px] font-semibold tracking-[.2em] uppercase text-white/30">Admin</div>
+        <a href="#admin"
+          class="nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-white/70 hover:bg-white/10 transition-colors text-sm font-medium"
+          data-route="admin">
+          <span class="material-symbols-outlined text-[20px]">admin_panel_settings</span>
+          Data E+
+        </a>
+      </div>
     </nav>
 
     <!-- User section at bottom -->
@@ -250,10 +259,10 @@ tailwind.config = {
   </aside>
 
   <!-- Main content area (offset by sidebar width) -->
-  <div class="ml-60 min-h-screen transition-all duration-300" id="main-wrapper">
+  <div class="lg:ml-60 min-h-screen transition-all duration-300" id="main-wrapper">
 
     <!-- Top bar -->
-    <header class="sticky top-0 z-30 h-16 flex items-center gap-4 px-8 bg-white/80 backdrop-blur-md border-b border-primary-container/10">
+    <header class="sticky top-0 z-30 h-16 flex items-center gap-4 px-4 lg:px-8 bg-white/80 backdrop-blur-md border-b border-primary-container/10">
       <!-- Mobile hamburger -->
       <button type="button" id="btn-toggle-sidebar" class="lg:hidden text-on-surface-variant">
         <span class="material-symbols-outlined">menu</span>
@@ -275,7 +284,7 @@ tailwind.config = {
     </header>
 
     <!-- Content panels (one per module) -->
-    <main class="p-8" id="content-area">
+    <main class="p-4 lg:p-8" id="content-area">
 
       <!-- Dashboard panel -->
       <section id="panel-dashboard" class="panel active">
@@ -294,14 +303,452 @@ tailwind.config = {
         </div>
       </section>
 
-      <!-- Intake panel (placeholder) -->
+      <!-- Intake panel -->
       <section id="panel-intake" class="panel">
-        <div class="flex flex-col items-center justify-center py-20 text-center">
-          <span class="material-symbols-outlined text-6xl text-primary-container/50 mb-4">description</span>
-          <h2 class="font-headline text-2xl font-extrabold tracking-tight text-primary mb-2">Intake</h2>
-          <p class="text-on-surface-variant text-base max-w-md">
-            Create and configure your Erasmus+ project proposals. This module is coming soon.
-          </p>
+        <div class="max-w-3xl mx-auto">
+
+          <!-- Top actions -->
+          <div class="flex items-center gap-2 mb-6">
+            <div class="flex-1"></div>
+            <button type="button" id="intake-btn-load-file" class="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-semibold text-on-surface-variant border border-outline-variant bg-transparent hover:bg-surface-container-low transition-colors">
+              <span class="material-symbols-outlined text-base">folder_open</span> Cargar JSON
+            </button>
+            <button type="button" id="intake-btn-save-file" class="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-semibold text-on-surface-variant border border-outline-variant bg-transparent hover:bg-surface-container-low transition-colors">
+              <span class="material-symbols-outlined text-base">save</span> Guardar JSON
+            </button>
+            <input type="file" id="intake-file-in" accept=".json" class="hidden">
+          </div>
+
+          <!-- Progress bar -->
+          <nav class="flex items-center mb-10" id="intake-step-nav">
+            <div class="flex items-center gap-2 cursor-pointer intake-progress-step" data-step="0">
+              <div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold font-headline border-2 border-primary bg-primary text-white transition-all" id="intake-sd0">1</div>
+              <span class="font-headline text-xs font-bold uppercase tracking-widest text-primary transition-colors intake-progress-label" id="intake-sl0">Programa</span>
+            </div>
+            <div class="flex-1 h-px bg-outline-variant mx-2 transition-colors" id="intake-sc0"></div>
+            <div class="flex items-center gap-2 cursor-pointer intake-progress-step" data-step="1">
+              <div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold font-headline border-2 border-outline-variant bg-surface text-on-surface-variant transition-all" id="intake-sd1">2</div>
+              <span class="font-headline text-xs font-bold uppercase tracking-widest text-on-surface-variant transition-colors intake-progress-label" id="intake-sl1">Proyecto</span>
+            </div>
+            <div class="flex-1 h-px bg-outline-variant mx-2 transition-colors" id="intake-sc1"></div>
+            <div class="flex items-center gap-2 cursor-pointer intake-progress-step" data-step="2">
+              <div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold font-headline border-2 border-outline-variant bg-surface text-on-surface-variant transition-all" id="intake-sd2">3</div>
+              <span class="font-headline text-xs font-bold uppercase tracking-widest text-on-surface-variant transition-colors intake-progress-label" id="intake-sl2">Contexto</span>
+            </div>
+            <div class="flex-1 h-px bg-outline-variant mx-2 transition-colors" id="intake-sc2"></div>
+            <div class="flex items-center gap-2 cursor-pointer intake-progress-step" data-step="3">
+              <div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold font-headline border-2 border-outline-variant bg-surface text-on-surface-variant transition-all" id="intake-sd3">4</div>
+              <span class="font-headline text-xs font-bold uppercase tracking-widest text-on-surface-variant transition-colors intake-progress-label" id="intake-sl3">Resumen</span>
+            </div>
+          </nav>
+
+          <!-- STEP 0: Programa -->
+          <div class="intake-step" id="intake-p0">
+            <h1 class="font-headline text-3xl font-extrabold tracking-tighter text-primary mb-1">Programa</h1>
+            <p class="text-on-surface-variant text-base mb-8">Selecciona la convocatoria Erasmus+ o abre un proyecto guardado.</p>
+
+            <!-- Saved projects -->
+            <div class="mb-8">
+              <div class="flex items-center gap-2 text-[11px] font-bold uppercase tracking-widest text-on-surface-variant mb-3">
+                <span class="material-symbols-outlined text-sm">cloud_done</span>
+                <span>Proyectos guardados</span><div class="flex-1 h-px bg-outline-variant"></div>
+              </div>
+              <div id="intake-server-projects"><p class="text-xs text-on-surface-variant">Cargando...</p></div>
+            </div>
+
+            <!-- Program cards -->
+            <div class="flex items-center gap-2 text-[11px] font-bold uppercase tracking-widest text-on-surface-variant mb-3">
+              <span>Nuevo proyecto</span><div class="flex-1 h-px bg-outline-variant"></div>
+            </div>
+            <div class="flex flex-col gap-2 mb-8" id="intake-prog-list"></div>
+
+            <!-- Program details -->
+            <div id="intake-prog-details" class="hidden">
+              <div class="flex items-center gap-2 text-[11px] font-bold uppercase tracking-widest text-on-surface-variant mb-3">
+                <span>Datos de la convocatoria</span><div class="flex-1 h-px bg-outline-variant"></div>
+              </div>
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 mb-6">
+                <div class="bg-surface-container-low border border-outline-variant/50 rounded-lg p-3">
+                  <div class="text-[11px] font-bold uppercase tracking-widest text-on-surface-variant mb-1">Plazo</div>
+                  <div class="font-headline text-sm font-bold text-primary" id="intake-ro-dl">&mdash;</div>
+                </div>
+                <div class="bg-surface-container-low border border-outline-variant/50 rounded-lg p-3">
+                  <div class="text-[11px] font-bold uppercase tracking-widest text-on-surface-variant mb-1">Subvenci&oacute;n m&aacute;x.</div>
+                  <div class="font-headline text-sm font-bold text-primary" id="intake-ro-gr">&mdash;</div>
+                </div>
+                <div class="bg-surface-container-low border border-outline-variant/50 rounded-lg p-3">
+                  <div class="text-[11px] font-bold uppercase tracking-widest text-on-surface-variant mb-1">Cofinanciaci&oacute;n UE</div>
+                  <div class="font-headline text-sm font-bold text-primary" id="intake-ro-co">&mdash;</div>
+                </div>
+                <div class="bg-surface-container-low border border-outline-variant/50 rounded-lg p-3">
+                  <div class="text-[11px] font-bold uppercase tracking-widest text-on-surface-variant mb-1">Costes indirectos</div>
+                  <div class="font-headline text-sm font-bold text-primary" id="intake-ro-in">&mdash;</div>
+                </div>
+                <div class="bg-surface-container-low border border-outline-variant/50 rounded-lg p-3">
+                  <div class="text-[11px] font-bold uppercase tracking-widest text-on-surface-variant mb-1">Inicio desde</div>
+                  <div class="font-headline text-sm font-bold text-primary" id="intake-ro-sf">&mdash;</div>
+                </div>
+                <div class="bg-surface-container-low border border-outline-variant/50 rounded-lg p-3">
+                  <div class="text-[11px] font-bold uppercase tracking-widest text-on-surface-variant mb-1">Inicio hasta</div>
+                  <div class="font-headline text-sm font-bold text-primary" id="intake-ro-st">&mdash;</div>
+                </div>
+              </div>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div class="flex flex-col gap-1.5">
+                  <label class="text-xs font-semibold text-on-surface-variant">Fecha de inicio prevista <span class="text-primary">*</span></label>
+                  <input type="date" id="intake-f-start" class="w-full px-3 py-2.5 rounded-lg bg-white border border-outline-variant text-on-surface font-body text-sm focus:border-primary focus:ring-2 focus:ring-secondary-fixed outline-none transition-all">
+                </div>
+                <div class="flex flex-col gap-1.5">
+                  <label class="text-xs font-semibold text-on-surface-variant">Duraci&oacute;n <span class="text-primary">*</span></label>
+                  <select id="intake-f-dur" class="w-full px-3 py-2.5 rounded-lg bg-white border border-outline-variant text-on-surface font-body text-sm focus:border-primary focus:ring-2 focus:ring-secondary-fixed outline-none transition-all cursor-pointer appearance-none"></select>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex justify-end mt-10 pt-5 border-t border-outline-variant">
+              <button type="button" class="intake-btn-next inline-flex items-center gap-2 px-8 py-4 rounded-md bg-secondary-fixed text-primary-container font-bold text-base shadow-[0_24px_48px_rgba(27,20,100,0.1)] hover:scale-[1.02] active:scale-95 transition-transform">
+                Siguiente <span class="material-symbols-outlined text-lg">arrow_forward</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- STEP 1: Proyecto -->
+          <div class="intake-step hidden" id="intake-p1">
+            <h1 class="font-headline text-3xl font-extrabold tracking-tighter text-primary mb-1">Proyecto</h1>
+            <p class="text-on-surface-variant text-base mb-8">Nombre del proyecto y composici&oacute;n del consorcio.</p>
+
+            <div class="flex items-center gap-2 text-[11px] font-bold uppercase tracking-widest text-on-surface-variant mb-3">
+              <span>Identificaci&oacute;n</span><div class="flex-1 h-px bg-outline-variant"></div>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+              <div class="flex flex-col gap-1.5">
+                <label class="text-xs font-semibold text-on-surface-variant">Acr&oacute;nimo <span class="text-primary">*</span></label>
+                <input type="text" id="intake-f-name" placeholder="ej. FOCUS" maxlength="50" class="w-full px-3 py-2.5 rounded-lg bg-white border border-outline-variant text-on-surface font-body text-sm focus:border-primary focus:ring-2 focus:ring-secondary-fixed outline-none transition-all">
+              </div>
+              <div class="flex flex-col gap-1.5">
+                <label class="text-xs font-semibold text-on-surface-variant">Tipo de acci&oacute;n</label>
+                <input type="text" id="intake-f-type" readonly class="w-full px-3 py-2.5 rounded-lg bg-surface-container-low border border-outline-variant text-on-surface-variant font-body text-sm cursor-not-allowed">
+              </div>
+            </div>
+            <div class="flex flex-col gap-1.5 mb-8">
+              <label class="text-xs font-semibold text-on-surface-variant">Descripci&oacute;n breve</label>
+              <textarea id="intake-f-desc" rows="3" placeholder="Describe brevemente el proyecto..." class="w-full px-3 py-2.5 rounded-lg bg-white border border-outline-variant text-on-surface font-body text-sm focus:border-primary focus:ring-2 focus:ring-secondary-fixed outline-none transition-all resize-vertical leading-relaxed"></textarea>
+            </div>
+
+            <div class="flex items-center gap-2 text-[11px] font-bold uppercase tracking-widest text-on-surface-variant mb-4">
+              <span>Consorcio</span><div class="flex-1 h-px bg-outline-variant"></div>
+            </div>
+            <div class="grid gap-2 items-center mb-2 pb-2 border-b border-outline-variant" style="grid-template-columns:28px 1fr 100px 110px 80px 32px">
+              <span></span>
+              <span class="text-[11px] font-bold uppercase tracking-widest text-on-surface-variant">Organizaci&oacute;n</span>
+              <span class="text-[11px] font-bold uppercase tracking-widest text-on-surface-variant">Ciudad</span>
+              <span class="text-[11px] font-bold uppercase tracking-widest text-on-surface-variant">Pa&iacute;s</span>
+              <span class="text-[11px] font-bold uppercase tracking-widest text-on-surface-variant">Rol</span>
+              <span></span>
+            </div>
+            <div id="intake-pt-list"></div>
+            <button type="button" id="intake-btn-add-partner" class="inline-flex items-center gap-1.5 mt-3 px-3 py-2 rounded-lg text-xs font-semibold text-on-surface-variant border border-dashed border-outline bg-transparent hover:bg-surface-container-low transition-colors">
+              <span class="material-symbols-outlined text-base">add</span> A&ntilde;adir socio
+            </button>
+
+            <div class="flex justify-between items-center mt-10 pt-5 border-t border-outline-variant">
+              <button type="button" class="intake-btn-prev inline-flex items-center gap-2 px-5 py-3 rounded-md text-on-surface-variant font-semibold text-sm border border-outline-variant hover:bg-surface-container-low transition-colors">
+                <span class="material-symbols-outlined text-base">arrow_back</span> Anterior
+              </button>
+              <button type="button" class="intake-btn-next inline-flex items-center gap-2 px-8 py-4 rounded-md bg-secondary-fixed text-primary-container font-bold text-base shadow-[0_24px_48px_rgba(27,20,100,0.1)] hover:scale-[1.02] active:scale-95 transition-transform">
+                Siguiente <span class="material-symbols-outlined text-lg">arrow_forward</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- STEP 2: Contexto -->
+          <div class="intake-step hidden" id="intake-p2">
+            <h1 class="font-headline text-3xl font-extrabold tracking-tighter text-primary mb-1">Contexto</h1>
+            <p class="text-on-surface-variant text-base mb-8">Estos textos ser&aacute;n los inputs de la IA para redactar y evaluar la solicitud.</p>
+
+            <div class="flex items-center gap-2 text-[11px] font-bold uppercase tracking-widest text-on-surface-variant mb-5">
+              <span>Narrativa del proyecto</span><div class="flex-1 h-px bg-outline-variant"></div>
+            </div>
+
+            <div class="mb-6 pb-6 border-b border-outline-variant">
+              <div class="flex items-start gap-3 mb-3">
+                <div class="w-7 h-7 rounded-full flex-shrink-0 mt-0.5 bg-primary/10 border border-primary/20 flex items-center justify-center font-headline text-xs font-extrabold text-primary">1</div>
+                <div>
+                  <div class="font-headline text-base font-bold text-primary mb-0.5">Problema / necesidad identificada</div>
+                  <div class="text-sm text-on-surface-variant leading-relaxed">&iquest;Qu&eacute; problema justifica el proyecto?</div>
+                </div>
+              </div>
+              <textarea id="intake-ctx-prob" rows="7" placeholder="Describe el problema, incluye datos y contexto..." class="w-full px-3 py-2.5 rounded-lg bg-white border border-outline-variant text-on-surface font-body text-sm focus:border-primary focus:ring-2 focus:ring-secondary-fixed outline-none transition-all resize-vertical leading-relaxed"></textarea>
+              <div class="wbar bg-outline-variant"><div class="wbar-fill" id="intake-wb-prob"></div></div>
+              <div class="flex justify-between items-center mt-1.5">
+                <span class="text-xs font-semibold font-headline px-2.5 py-0.5 rounded border border-outline-variant bg-surface-container-low text-on-surface-variant" id="intake-wc-prob">0 palabras</span>
+                <span class="text-xs text-on-surface-variant">200&ndash;500 palabras</span>
+              </div>
+            </div>
+
+            <div class="mb-6 pb-6 border-b border-outline-variant">
+              <div class="flex items-start gap-3 mb-3">
+                <div class="w-7 h-7 rounded-full flex-shrink-0 mt-0.5 bg-primary/10 border border-primary/20 flex items-center justify-center font-headline text-xs font-extrabold text-primary">2</div>
+                <div>
+                  <div class="font-headline text-base font-bold text-primary mb-0.5">Grupos destinatarios</div>
+                  <div class="text-sm text-on-surface-variant leading-relaxed">&iquest;A qui&eacute;n va dirigido? &iquest;Beneficiarios indirectos?</div>
+                </div>
+              </div>
+              <textarea id="intake-ctx-tgt" rows="5" placeholder="Beneficiarios directos e indirectos..." class="w-full px-3 py-2.5 rounded-lg bg-white border border-outline-variant text-on-surface font-body text-sm focus:border-primary focus:ring-2 focus:ring-secondary-fixed outline-none transition-all resize-vertical leading-relaxed"></textarea>
+              <div class="wbar bg-outline-variant"><div class="wbar-fill" id="intake-wb-tgt"></div></div>
+              <div class="flex justify-between items-center mt-1.5">
+                <span class="text-xs font-semibold font-headline px-2.5 py-0.5 rounded border border-outline-variant bg-surface-container-low text-on-surface-variant" id="intake-wc-tgt">0 palabras</span>
+                <span class="text-xs text-on-surface-variant">150&ndash;400 palabras</span>
+              </div>
+            </div>
+
+            <div class="mb-2">
+              <div class="flex items-start gap-3 mb-3">
+                <div class="w-7 h-7 rounded-full flex-shrink-0 mt-0.5 bg-primary/10 border border-primary/20 flex items-center justify-center font-headline text-xs font-extrabold text-primary">3</div>
+                <div>
+                  <div class="font-headline text-base font-bold text-primary mb-0.5">Enfoque y propuesta de valor</div>
+                  <div class="text-sm text-on-surface-variant leading-relaxed">&iquest;C&oacute;mo resuelve el proyecto el problema?</div>
+                </div>
+              </div>
+              <textarea id="intake-ctx-app" rows="7" placeholder="Metodolog&iacute;a, valor a&ntilde;adido transnacional..." class="w-full px-3 py-2.5 rounded-lg bg-white border border-outline-variant text-on-surface font-body text-sm focus:border-primary focus:ring-2 focus:ring-secondary-fixed outline-none transition-all resize-vertical leading-relaxed"></textarea>
+              <div class="wbar bg-outline-variant"><div class="wbar-fill" id="intake-wb-app"></div></div>
+              <div class="flex justify-between items-center mt-1.5">
+                <span class="text-xs font-semibold font-headline px-2.5 py-0.5 rounded border border-outline-variant bg-surface-container-low text-on-surface-variant" id="intake-wc-app">0 palabras</span>
+                <span class="text-xs text-on-surface-variant">200&ndash;500 palabras</span>
+              </div>
+            </div>
+
+            <div class="flex justify-between items-center mt-10 pt-5 border-t border-outline-variant">
+              <button type="button" class="intake-btn-prev inline-flex items-center gap-2 px-5 py-3 rounded-md text-on-surface-variant font-semibold text-sm border border-outline-variant hover:bg-surface-container-low transition-colors">
+                <span class="material-symbols-outlined text-base">arrow_back</span> Anterior
+              </button>
+              <button type="button" class="intake-btn-next inline-flex items-center gap-2 px-8 py-4 rounded-md bg-secondary-fixed text-primary-container font-bold text-base shadow-[0_24px_48px_rgba(27,20,100,0.1)] hover:scale-[1.02] active:scale-95 transition-transform">
+                Ver resumen <span class="material-symbols-outlined text-lg">arrow_forward</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- STEP 3: Resumen -->
+          <div class="intake-step hidden" id="intake-p3">
+            <h1 class="font-headline text-3xl font-extrabold tracking-tighter text-primary mb-1">Resumen</h1>
+            <p class="text-on-surface-variant text-base mb-8">Revisa los datos antes de guardar.</p>
+
+            <div class="mb-8 pb-8 border-b border-outline-variant">
+              <div class="flex items-center gap-2 text-[11px] font-bold uppercase tracking-widest text-on-surface-variant mb-3">
+                <span>Proyecto</span><div class="flex-1 h-px bg-outline-variant"></div>
+              </div>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="intake-sum-proj"></div>
+            </div>
+            <div class="mb-8 pb-8 border-b border-outline-variant">
+              <div class="flex items-center gap-2 text-[11px] font-bold uppercase tracking-widest text-on-surface-variant mb-3">
+                <span>Consorcio</span><div class="flex-1 h-px bg-outline-variant"></div>
+              </div>
+              <div id="intake-sum-partners"></div>
+            </div>
+            <div class="mb-8 pb-8 border-b border-outline-variant">
+              <div class="flex items-center gap-2 text-[11px] font-bold uppercase tracking-widest text-on-surface-variant mb-3">
+                <span>Contexto IA</span><div class="flex-1 h-px bg-outline-variant"></div>
+              </div>
+              <div id="intake-sum-ctx"></div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-3">
+              <button type="button" id="intake-btn-save-server" class="border border-outline-variant rounded-xl p-5 text-center cursor-pointer bg-white hover:border-primary hover:bg-primary/5 hover:-translate-y-0.5 transition-all">
+                <span class="material-symbols-outlined text-2xl text-primary mb-2 block">cloud_upload</span>
+                <div class="font-headline text-sm font-bold text-primary mb-1">Guardar en servidor</div>
+                <div class="text-xs text-on-surface-variant leading-snug">Guarda en base de datos</div>
+              </button>
+              <button type="button" id="intake-btn-export-wizard" class="border border-outline-variant rounded-xl p-5 text-center cursor-pointer bg-white hover:border-primary hover:bg-primary/5 hover:-translate-y-0.5 transition-all">
+                <span class="material-symbols-outlined text-2xl text-primary mb-2 block">bolt</span>
+                <div class="font-headline text-sm font-bold text-primary mb-1">Exportar para Wizard</div>
+                <div class="text-xs text-on-surface-variant leading-snug">JSON listo para Calculator</div>
+              </button>
+            </div>
+
+            <div class="flex justify-between items-center mt-10 pt-5 border-t border-outline-variant">
+              <button type="button" class="intake-btn-prev inline-flex items-center gap-2 px-5 py-3 rounded-md text-on-surface-variant font-semibold text-sm border border-outline-variant hover:bg-surface-container-low transition-colors">
+                <span class="material-symbols-outlined text-base">arrow_back</span> Editar
+              </button>
+              <button type="button" id="intake-btn-save-server-2" class="inline-flex items-center gap-2 px-8 py-4 rounded-md bg-secondary-fixed text-primary-container font-bold text-base shadow-[0_24px_48px_rgba(27,20,100,0.1)] hover:scale-[1.02] active:scale-95 transition-transform">
+                <span class="material-symbols-outlined text-lg">cloud_upload</span> Guardar en servidor
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ══ PANEL ADMIN ══════════════════════════════════════════ -->
+      <section id="panel-admin" class="panel">
+        <div class="max-w-6xl mx-auto py-8 px-4">
+
+          <!-- Header -->
+          <div class="mb-6">
+            <h1 class="font-headline text-2xl font-extrabold text-primary tracking-tight">Data E+</h1>
+            <p class="text-sm text-on-surface-variant mt-1">Variables de referencia para cálculos de proyectos Erasmus+. Solo administradores.</p>
+          </div>
+
+          <!-- Section tabs -->
+          <div id="admin-section-nav" class="flex gap-1 border-b border-outline-variant/40 mb-6">
+            <button data-section="programs"  class="px-4 py-2.5 text-sm border-b-2 border-secondary-fixed text-primary font-bold transition-colors">Convocatorias</button>
+            <button data-section="countries" class="px-4 py-2.5 text-sm border-b-2 border-transparent text-on-surface-variant transition-colors hover:text-primary">Países</button>
+            <button data-section="perdiem"   class="px-4 py-2.5 text-sm border-b-2 border-transparent text-on-surface-variant transition-colors hover:text-primary">Per Diem</button>
+            <button data-section="workers"      class="px-4 py-2.5 text-sm border-b-2 border-transparent text-on-surface-variant transition-colors hover:text-primary">Personal</button>
+            <button data-section="eligibility" class="px-4 py-2.5 text-sm border-b-2 border-transparent text-on-surface-variant transition-colors hover:text-primary">Elegibilidad</button>
+          </div>
+
+          <!-- ── Convocatorias ─────────────────────────────────── -->
+          <div id="admin-sec-programs" class="admin-section">
+            <div class="bg-white rounded-xl border border-outline-variant/30 overflow-hidden">
+              <div class="px-5 py-4 border-b border-outline-variant/20 flex items-center justify-between">
+                <h2 class="font-semibold text-primary">Convocatorias Erasmus+</h2>
+                <span class="text-xs text-on-surface-variant">intake_programs</span>
+              </div>
+              <div class="overflow-x-auto admin-table-wrap">
+                <table class="w-full text-sm">
+                  <thead class="bg-surface-container-low text-xs text-on-surface-variant uppercase tracking-wide">
+                    <tr>
+                      <th class="px-4 py-3 text-left">ID</th>
+                      <th class="px-4 py-3 text-left">Nombre</th>
+                      <th class="px-4 py-3 text-left">Tipo acción</th>
+                      <th class="px-4 py-3 text-left">Deadline</th>
+                      <th class="px-4 py-3 text-left">Grant máx.</th>
+                      <th class="px-4 py-3 text-left">Estado</th>
+                      <th class="px-4 py-3 text-right">Acciones</th>
+                    </tr>
+                  </thead>
+                  <tbody id="admin-programs-tbody"></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- ── Países ─────────────────────────────────────────── -->
+          <div id="admin-sec-countries" class="admin-section hidden">
+            <div class="bg-white rounded-xl border border-outline-variant/30 overflow-hidden">
+              <div class="px-5 py-4 border-b border-outline-variant/20 flex items-center justify-between flex-wrap gap-3">
+                <h2 class="font-semibold text-primary">Países elegibles</h2>
+                <div class="flex gap-2">
+                  <select id="countries-filter-eu" class="text-xs border border-outline rounded px-2 py-1 bg-surface focus:outline-none focus:ring-1 focus:ring-primary">
+                    <option value="">Todos</option>
+                    <option value="1">Solo UE</option>
+                    <option value="0">No UE</option>
+                  </select>
+                  <select id="countries-filter-zone" class="text-xs border border-outline rounded px-2 py-1 bg-surface focus:outline-none focus:ring-1 focus:ring-primary">
+                    <option value="">Todas las zonas</option>
+                    <option value="A">Zona A</option>
+                    <option value="B">Zona B</option>
+                    <option value="C">Zona C</option>
+                    <option value="D">Zona D</option>
+                  </select>
+                </div>
+              </div>
+              <div class="overflow-x-auto admin-table-wrap">
+                <table class="w-full text-sm">
+                  <thead class="bg-surface-container-low text-xs text-on-surface-variant uppercase tracking-wide">
+                    <tr>
+                      <th class="px-4 py-3 text-left">ISO</th>
+                      <th class="px-4 py-3 text-left">País (ES)</th>
+                      <th class="px-4 py-3 text-left">País (EN)</th>
+                      <th class="px-4 py-3 text-center">UE</th>
+                      <th class="px-4 py-3 text-center">Erasmus+</th>
+                      <th class="px-4 py-3 text-center">Zona</th>
+                      <th class="px-4 py-3 text-left">Estado</th>
+                      <th class="px-4 py-3 text-right">Acciones</th>
+                    </tr>
+                  </thead>
+                  <tbody id="admin-countries-tbody"></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- ── Per Diem ────────────────────────────────────────── -->
+          <div id="admin-sec-perdiem" class="admin-section hidden">
+            <div class="bg-white rounded-xl border border-outline-variant/30 overflow-hidden">
+              <div class="px-5 py-4 border-b border-outline-variant/20 flex items-center justify-between">
+                <h2 class="font-semibold text-primary">Tarifas Per Diem por zona</h2>
+                <span class="text-xs text-on-surface-variant">ref_perdiem_rates</span>
+              </div>
+              <div class="overflow-x-auto admin-table-wrap">
+                <table class="w-full text-sm">
+                  <thead class="bg-surface-container-low text-xs text-on-surface-variant uppercase tracking-wide">
+                    <tr>
+                      <th class="px-4 py-3 text-center">Zona</th>
+                      <th class="px-4 py-3 text-left">Tarifa/día</th>
+                      <th class="px-4 py-3 text-left">Vigente desde</th>
+                      <th class="px-4 py-3 text-left">Hasta</th>
+                      <th class="px-4 py-3 text-left">Notas</th>
+                      <th class="px-4 py-3 text-right">Acciones</th>
+                    </tr>
+                  </thead>
+                  <tbody id="admin-perdiem-tbody"></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- ── Elegibilidad Erasmus+ ─────────────────────────────── -->
+          <div id="admin-sec-eligibility" class="admin-section hidden">
+            <div class="bg-white rounded-xl border border-outline-variant/30 overflow-hidden">
+              <div class="px-5 py-4 border-b border-outline-variant/20 flex items-center justify-between flex-wrap gap-3">
+                <h2 class="font-semibold text-primary">Países elegibles Erasmus+</h2>
+                <div class="flex gap-2">
+                  <select id="eligibility-filter-type" class="text-xs border border-outline rounded px-2 py-1 bg-surface focus:outline-none focus:ring-1 focus:ring-primary">
+                    <option value="">Todos los tipos</option>
+                    <option value="eu_member">Miembros UE</option>
+                    <option value="associated">Países asociados</option>
+                    <option value="third_partial">Terceros países</option>
+                  </select>
+                  <select id="eligibility-filter-region" class="text-xs border border-outline rounded px-2 py-1 bg-surface focus:outline-none focus:ring-1 focus:ring-primary">
+                    <option value="">Todas las regiones</option>
+                  </select>
+                </div>
+              </div>
+              <div class="overflow-x-auto admin-table-wrap">
+                <table class="w-full text-sm">
+                  <thead class="bg-surface-container-low text-xs text-on-surface-variant uppercase tracking-wide">
+                    <tr>
+                      <th class="px-4 py-3 text-left">ISO</th>
+                      <th class="px-4 py-3 text-left">País</th>
+                      <th class="px-4 py-3 text-left">Tipo</th>
+                      <th class="px-4 py-3 text-left">Región</th>
+                      <th class="px-4 py-3 text-center">Zona per diem</th>
+                      <th class="px-4 py-3 text-center">Elegible</th>
+                    </tr>
+                  </thead>
+                  <tbody id="admin-eligibility-tbody"></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- ── Personal ────────────────────────────────────────── -->
+          <div id="admin-sec-workers" class="admin-section hidden">
+            <div class="bg-white rounded-xl border border-outline-variant/30 overflow-hidden">
+              <div class="px-5 py-4 border-b border-outline-variant/20 flex items-center justify-between">
+                <h2 class="font-semibold text-primary">Categorías de personal</h2>
+                <span class="text-xs text-on-surface-variant">ref_worker_categories</span>
+              </div>
+              <div class="overflow-x-auto admin-table-wrap">
+                <table class="w-full text-sm">
+                  <thead class="bg-surface-container-low text-xs text-on-surface-variant uppercase tracking-wide">
+                    <tr>
+                      <th class="px-4 py-3 text-left">Código</th>
+                      <th class="px-4 py-3 text-left">Categoría</th>
+                      <th class="px-4 py-3 text-center">Zona A</th>
+                      <th class="px-4 py-3 text-center">Zona B</th>
+                      <th class="px-4 py-3 text-center">Zona C</th>
+                      <th class="px-4 py-3 text-center">Zona D</th>
+                      <th class="px-4 py-3 text-left">Estado</th>
+                    </tr>
+                  </thead>
+                  <tbody id="admin-workers-tbody"></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
         </div>
       </section>
 
@@ -310,13 +757,55 @@ tailwind.config = {
 </div>
 
 <!-- ═══ TOAST ═══════════════════════════════════════════════════ -->
-<div id="toast"></div>
+<div id="toast" role="alert" aria-live="polite" aria-atomic="true"></div>
 
 <!-- ═══ Scripts ═════════════════════════════════════════════════ -->
 <script src="/js/api.js"></script>
 <script src="/js/auth.js"></script>
 <script src="/js/app.js"></script>
 <script src="/js/intake.js"></script>
+<script src="/js/admin.js"></script>
+
+<!-- ── Mini modal (reemplaza prompt/confirm nativos) ────────── -->
+<div id="mini-modal" class="hidden fixed inset-0 z-50 flex items-end sm:items-center justify-center p-4 bg-black/40"
+  role="dialog" aria-modal="true" aria-labelledby="mini-modal-msg">
+  <div class="bg-white rounded-2xl w-full max-w-sm p-6 shadow-2xl">
+    <p id="mini-modal-msg" class="text-sm font-semibold text-on-surface mb-4"></p>
+    <input id="mini-modal-input" type="number" min="0" step="1" aria-label="Valor"
+      class="w-full border border-outline rounded-lg px-3 py-3 text-base mb-4 hidden focus:outline-none focus:ring-2 focus:ring-primary" />
+    <div class="flex gap-3">
+      <button id="mini-modal-cancel" class="flex-1 py-3 rounded-xl border border-outline text-sm font-semibold text-on-surface-variant">Cancelar</button>
+      <button id="mini-modal-confirm" class="flex-1 py-3 rounded-xl bg-primary text-white text-sm font-semibold">Confirmar</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// Modal helper — reemplaza prompt() y confirm() nativos
+window.Modal = {
+  _resolve: null,
+  show(msg, { input = false, defaultVal = '' } = {}) {
+    return new Promise(resolve => {
+      this._resolve = resolve;
+      document.getElementById('mini-modal-msg').textContent = msg;
+      const inp = document.getElementById('mini-modal-input');
+      inp.classList.toggle('hidden', !input);
+      if (input) { inp.value = defaultVal; setTimeout(() => inp.focus(), 100); }
+      document.getElementById('mini-modal').classList.remove('hidden');
+    });
+  },
+  _close(val) {
+    document.getElementById('mini-modal').classList.add('hidden');
+    if (this._resolve) { this._resolve(val); this._resolve = null; }
+  }
+};
+document.getElementById('mini-modal-confirm').addEventListener('click', () => {
+  const inp = document.getElementById('mini-modal-input');
+  Modal._close(inp.classList.contains('hidden') ? true : inp.value);
+});
+document.getElementById('mini-modal-cancel').addEventListener('click', () => Modal._close(null));
+document.getElementById('mini-modal').addEventListener('click', e => { if (e.target === e.currentTarget) Modal._close(null); });
+</script>
 
 </body>
 </html>

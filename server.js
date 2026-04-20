@@ -14,13 +14,16 @@ const cookieParser = require('cookie-parser');
 const app  = express();
 const PORT = process.env.PORT || 3000;
 
+/* ── Trust proxy (behind Nginx/Caddy) ─────────────────────────── */
+app.set('trust proxy', 1);
+
 /* ── Security ─────────────────────────────────────────────────── */
 app.use(helmet({
   contentSecurityPolicy: {
     directives: {
       defaultSrc:  ["'self'"],
       scriptSrc:   ["'self'", "'unsafe-inline'", "https://cdn.tailwindcss.com", "https://accounts.google.com", "https://apis.google.com"],
-      styleSrc:    ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"],
+      styleSrc:    ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com", "https://accounts.google.com"],
       fontSrc:     ["'self'", "https://fonts.gstatic.com"],
       imgSrc:      ["'self'", "data:", "https:"],
       connectSrc:  ["'self'", "https://accounts.google.com"],
@@ -43,9 +46,21 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 /* ── API Routes ───────────────────────────────────────────────── */
+
+// Config pública (no sensible) para el frontend
+app.get('/v1/config', (req, res) => {
+  res.json({
+    ok: true,
+    data: {
+      googleClientId: process.env.GOOGLE_CLIENT_ID || '',
+    }
+  });
+});
+
 app.use('/v1/auth', require('./node/src/modules/auth/routes'));
 app.use('/v1/intake', require('./node/src/modules/intake/routes'));
 app.use('/v1/calculator', require('./node/src/modules/calculator/routes'));
+app.use('/v1/admin', require('./node/src/modules/admin/routes'));
 
 // Future modules:
 // app.use('/v1/planner',     require('./node/src/modules/planner/routes'));
@@ -75,7 +90,21 @@ app.use((err, req, res, _next) => {
   });
 });
 
+/* ── Startup security checks ──────────────────────────────────── */
+function checkConfig() {
+  const insecure = ['dev-secret-change-me', 'changeme', ''];
+  const jwtSecret = process.env.JWT_SECRET || '';
+  if (process.env.NODE_ENV === 'production' && insecure.includes(jwtSecret)) {
+    console.error('[SECURITY] ⚠️  JWT_SECRET no está configurado o usa el valor por defecto. Detén el servidor y configura JWT_SECRET en .env');
+    process.exit(1);
+  }
+  if (!process.env.DB_HOST) {
+    console.warn('[CONFIG] DB_HOST no definido, usando localhost por defecto');
+  }
+}
+
 /* ── Start ────────────────────────────────────────────────────── */
+checkConfig();
 app.listen(PORT, () => {
-  console.log(`[E+ Tools] Server running on port ${PORT}`);
+  console.log(`[E+ Tools] Server running on port ${PORT} (${process.env.NODE_ENV || 'development'})`);
 });

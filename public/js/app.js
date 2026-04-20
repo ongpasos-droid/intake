@@ -6,8 +6,36 @@ const App = (() => {
   let currentUser = null;
   let currentRoute = 'dashboard';
 
+  /* ── Load public config and init Google Sign-In ───────────── */
+  async function loadConfig() {
+    try {
+      const res = await fetch('/v1/config');
+      const { data } = await res.json();
+      if (data?.googleClientId) {
+        const el = document.getElementById('g_id_onload');
+        if (el) el.setAttribute('data-client_id', data.googleClientId);
+        if (window.google?.accounts?.id) {
+          window.google.accounts.id.initialize({
+            client_id: data.googleClientId,
+            callback: Auth.handleGoogleResponse,
+            auto_prompt: false,
+          });
+          window.google.accounts.id.renderButton(
+            document.querySelector('.g_id_signin'),
+            { type: 'standard', shape: 'rectangular', theme: 'outline',
+              text: 'continue_with', size: 'large', width: 360 }
+          );
+        }
+      }
+    } catch (e) {
+      console.warn('Config load failed:', e.message);
+    }
+  }
+
   /* ── Initialize app ────────────────────────────────────────── */
   async function init() {
+    await loadConfig();
+
     // Try to restore session from refresh token cookie
     const restored = await Auth.tryRestore();
     if (!restored) {
@@ -77,6 +105,11 @@ const App = (() => {
       .toUpperCase()
       .slice(0, 2);
     document.getElementById('user-avatar').textContent = initials;
+
+    // Show admin nav only for admins
+    if (currentUser.role === 'admin') {
+      document.getElementById('admin-nav-item')?.classList.remove('hidden');
+    }
   }
 
   /* ── Auth tab switcher ─────────────────────────────────────── */
@@ -105,6 +138,17 @@ const App = (() => {
 
   /* ── SPA Navigation ────────────────────────────────────────── */
   function navigate(route, pushHash = true, newProject = false) {
+    // Aviso si hay cambios sin guardar en Intake
+    if (currentRoute === 'intake' && route !== 'intake') {
+      if (typeof Intake !== 'undefined' && Intake.hasUnsavedChanges && Intake.hasUnsavedChanges()) {
+        const leave = window.confirm('Tienes cambios sin guardar en Intake. ¿Salir de todos modos?');
+        if (!leave) {
+          // Revertir hash si lo cambió el usuario
+          if (pushHash) location.hash = 'intake';
+          return;
+        }
+      }
+    }
     currentRoute = route;
 
     // Update URL hash
@@ -138,7 +182,8 @@ const App = (() => {
       planner:    'Planner',
       developer:  'Developer',
       evaluator:  'Evaluator',
-      partners:   'Partners'
+      partners:   'Partners',
+      admin:      'Admin — Data E+'
     };
     document.getElementById('topbar-title').textContent = titles[route] || 'E+ Tools';
 
@@ -150,11 +195,17 @@ const App = (() => {
         Intake.init();
       }
     }
+    if (route === 'admin' && typeof Admin !== 'undefined') Admin.init();
   }
 
   /* ── Toggle sidebar (mobile) ───────────────────────────────── */
-  function toggleSidebar() {
-    document.getElementById('sidebar').classList.toggle('open');
+  function toggleSidebar(forceClose) {
+    const sidebar  = document.getElementById('sidebar');
+    const overlay  = document.getElementById('sidebar-overlay');
+    const isOpen   = sidebar.classList.contains('open');
+    const open     = forceClose ? false : !isOpen;
+    sidebar.classList.toggle('open', open);
+    overlay?.classList.toggle('show', open);
   }
 
   /* ── Public API ────────────────────────────────────────────── */
@@ -212,6 +263,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* ── Mobile sidebar toggle ────────────────────────────────── */
   document.getElementById('btn-toggle-sidebar')?.addEventListener('click', () => App.toggleSidebar());
+  document.getElementById('sidebar-overlay')?.addEventListener('click', () => App.toggleSidebar(true));
+
+  /* ── Close sidebar on nav link click (mobile) ──────────────── */
+  document.querySelectorAll('#sidebar-nav .nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+      if (window.innerWidth < 1024) App.toggleSidebar(true);
+    });
+  });
 
   /* ── Dashboard "Create New Project" button ─────────────────── */
   document.getElementById('btn-new-project')?.addEventListener('click', () => {
