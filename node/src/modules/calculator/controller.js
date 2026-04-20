@@ -1,4 +1,5 @@
 const model = require('./model');
+const adminModel = require('../admin/model');
 const db = require('../../utils/db');
 
 // Genérico: verifica que un recurso con project_id directo pertenece al usuario
@@ -693,5 +694,62 @@ exports.getBudgetSummary = async (req, res) => {
       ok: false,
       error: { code: 'INTERNAL_ERROR', message: 'Failed to calculate budget summary' }
     });
+  }
+};
+
+// ============ BULK SAVE / LOAD ============
+
+exports.saveFullState = async (req, res) => {
+  try {
+    const { projectId } = req.params;
+    const isOwner = await verifyProjectOwnership(projectId, req.user.id);
+    if (!isOwner) return res.status(403).json({ ok: false, error: { code: 'FORBIDDEN', message: 'No access' } });
+
+    await model.saveFullState(projectId, req.body);
+    res.json({ ok: true, data: { saved: true } });
+  } catch (err) {
+    console.error('saveFullState error:', err);
+    res.status(500).json({ ok: false, error: { code: 'INTERNAL_ERROR', message: 'Failed to save calculator state' } });
+  }
+};
+
+exports.loadFullState = async (req, res) => {
+  try {
+    const { projectId } = req.params;
+    const isOwner = await verifyProjectOwnership(projectId, req.user.id);
+    if (!isOwner) return res.status(403).json({ ok: false, error: { code: 'FORBIDDEN', message: 'No access' } });
+
+    const data = await model.loadFullState(projectId);
+    console.log('[loadFullState]', projectId, '→ wps:', data?.wps?.length, 'acts:', data?.wps?.reduce((s, w) => s + (w.activities?.length || 0), 0));
+    res.json({ ok: true, data });
+  } catch (err) {
+    console.error('loadFullState error:', err);
+    res.status(500).json({ ok: false, error: { code: 'INTERNAL_ERROR', message: 'Failed to load calculator state' } });
+  }
+};
+
+// ============ REFERENCE STAFF RATES (from Data E+) ============
+exports.getRefStaffRates = async (req, res) => {
+  try {
+    const matrix = await adminModel.listWorkerMatrix();
+    const perdiem = await adminModel.listPerdiem();
+    // Also return country → zone mapping for partner lookups
+    const [countries] = await db.execute(
+      "SELECT name_en, name_es, perdiem_zone FROM ref_countries WHERE active = 1"
+    );
+    const countryZones = {};
+    countries.forEach(c => {
+      countryZones[c.name_en.toLowerCase()] = c.perdiem_zone;
+      countryZones[c.name_es.toLowerCase()] = c.perdiem_zone;
+    });
+    // Per diem as zone → { aloj, mant }
+    const perdiemByZone = {};
+    perdiem.forEach(p => {
+      perdiemByZone[p.zone] = { aloj: Number(p.amount_accommodation), mant: Number(p.amount_subsistence) };
+    });
+    res.json({ ok: true, data: { categories: matrix, countryZones, perdiem: perdiemByZone } });
+  } catch (err) {
+    console.error('getRefStaffRates error:', err);
+    res.status(500).json({ ok: false, error: { code: 'INTERNAL_ERROR', message: 'Failed to load staff rates' } });
   }
 };

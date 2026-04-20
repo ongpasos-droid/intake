@@ -196,37 +196,62 @@ tailwind.config = {
         <span class="material-symbols-outlined text-[20px]">dashboard</span>
         Dashboard
       </a>
-      <a href="#intake"
+      <a href="#my-projects"
         class="nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-white/70 hover:bg-white/10 transition-colors text-sm font-medium"
-        data-route="intake">
-        <span class="material-symbols-outlined text-[20px]">add_circle</span>
-        Intake
+        data-route="my-projects">
+        <span class="material-symbols-outlined text-[20px]">folder_shared</span>
+        Mis Proyectos
       </a>
-      <div title="Próximamente" class="relative flex items-center gap-3 px-3 py-2.5 rounded-lg text-white/40 text-sm font-medium cursor-not-allowed select-none">
-        <span class="material-symbols-outlined text-[20px]">calculate</span>
-        Calculator
-        <span class="ml-auto text-[9px] font-bold tracking-widest uppercase bg-white/10 px-1.5 py-0.5 rounded">Soon</span>
-      </div>
-      <div title="Próximamente" class="relative flex items-center gap-3 px-3 py-2.5 rounded-lg text-white/40 text-sm font-medium cursor-not-allowed select-none">
-        <span class="material-symbols-outlined text-[20px]">calendar_month</span>
-        Planner
-        <span class="ml-auto text-[9px] font-bold tracking-widest uppercase bg-white/10 px-1.5 py-0.5 rounded">Soon</span>
-      </div>
-      <div title="Próximamente" class="relative flex items-center gap-3 px-3 py-2.5 rounded-lg text-white/40 text-sm font-medium cursor-not-allowed select-none">
-        <span class="material-symbols-outlined text-[20px]">edit_document</span>
-        Developer
-        <span class="ml-auto text-[9px] font-bold tracking-widest uppercase bg-white/10 px-1.5 py-0.5 rounded">Soon</span>
-      </div>
-      <div title="Próximamente" class="relative flex items-center gap-3 px-3 py-2.5 rounded-lg text-white/40 text-sm font-medium cursor-not-allowed select-none">
-        <span class="material-symbols-outlined text-[20px]">fact_check</span>
-        Evaluator
-        <span class="ml-auto text-[9px] font-bold tracking-widest uppercase bg-white/10 px-1.5 py-0.5 rounded">Soon</span>
-      </div>
-      <div title="Próximamente" class="relative flex items-center gap-3 px-3 py-2.5 rounded-lg text-white/40 text-sm font-medium cursor-not-allowed select-none">
-        <span class="material-symbols-outlined text-[20px]">groups</span>
-        Partners
-        <span class="ml-auto text-[9px] font-bold tracking-widest uppercase bg-white/10 px-1.5 py-0.5 rounded">Soon</span>
-      </div>
+
+      <!-- Projects: 3 phases -->
+      <div class="mt-3 mb-1 px-3 text-[10px] font-semibold tracking-[.2em] uppercase text-white/30">Proposal Builder</div>
+      <a href="#create"
+        class="nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-white/70 hover:bg-white/10 transition-colors text-sm font-medium"
+        data-route="create">
+        <span class="material-symbols-outlined text-[20px]" style="color:#60a5fa">architecture</span>
+        Design
+      </a>
+      <a href="#developer"
+        class="nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-white/70 hover:bg-white/10 transition-colors text-sm font-medium"
+        data-route="developer">
+        <span class="material-symbols-outlined text-[20px]" style="color:#a78bfa">edit_document</span>
+        Write
+      </a>
+      <a href="#evaluator"
+        class="nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-white/70 hover:bg-white/10 transition-colors text-sm font-medium"
+        data-route="evaluator">
+        <span class="material-symbols-outlined text-[20px]" style="color:#4ade80">verified</span>
+        Evaluate
+      </a>
+      <!-- Organization -->
+      <div class="mt-3 mb-1 px-3 text-[10px] font-semibold tracking-[.2em] uppercase text-white/30">Organization</div>
+      <a href="#my-org"
+        class="nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-white/70 hover:bg-white/10 transition-colors text-sm font-medium"
+        data-route="my-org">
+        <span class="material-symbols-outlined text-[20px]">apartment</span>
+        Mi Organización
+      </a>
+      <a href="#organizations"
+        class="nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-white/70 hover:bg-white/10 transition-colors text-sm font-medium"
+        data-route="organizations">
+        <span class="material-symbols-outlined text-[20px]">corporate_fare</span>
+        Directorio
+      </a>
+
+      <!-- Library -->
+      <div class="mt-3 mb-1 px-3 text-[10px] font-semibold tracking-[.2em] uppercase text-white/30">Library</div>
+      <a href="#my-documents"
+        class="nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-white/70 hover:bg-white/10 transition-colors text-sm font-medium"
+        data-route="my-documents">
+        <span class="material-symbols-outlined text-[20px]">folder_open</span>
+        My Documents
+      </a>
+      <a href="#research"
+        class="nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-white/70 hover:bg-white/10 transition-colors text-sm font-medium"
+        data-route="research">
+        <span class="material-symbols-outlined text-[20px]">science</span>
+        Research
+      </a>
 
       <!-- Admin — solo visible para role=admin -->
       <div id="admin-nav-item" class="hidden">
@@ -288,175 +313,490 @@ tailwind.config = {
 
       <!-- Dashboard panel -->
       <section id="panel-dashboard" class="panel active">
-        <div class="flex flex-col items-center justify-center py-20 text-center">
-          <span class="material-symbols-outlined text-6xl text-primary-container/50 mb-4">rocket_launch</span>
-          <h2 class="font-headline text-2xl font-extrabold tracking-tight text-primary mb-2">Welcome to E+ Tools</h2>
-          <p class="text-on-surface-variant text-base max-w-md mb-8">
-            Your workspace for building Erasmus+ project proposals. Start by creating your first project in Intake.
-          </p>
-          <button type="button" id="btn-new-project"
-            class="inline-flex items-center gap-2 px-10 py-4 rounded-md bg-secondary-fixed text-primary-container text-sm font-bold
-                   hover:scale-[1.02] active:scale-[0.98] transition-transform shadow-lg shadow-primary/10">
-            <span class="material-symbols-outlined text-base">add_circle</span>
-            Create New Project
-          </button>
+
+        <!-- Hero -->
+        <div class="relative bg-[#1b1464] rounded-2xl p-10 md:p-14 mb-10 overflow-hidden">
+          <div class="absolute top-0 right-0 w-80 h-80 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/3 blur-2xl pointer-events-none"></div>
+          <div class="absolute bottom-0 left-0 w-60 h-60 bg-[#e7eb00]/10 rounded-full translate-y-1/2 -translate-x-1/4 blur-3xl pointer-events-none"></div>
+          <div class="relative z-10 max-w-2xl">
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 text-[11px] font-bold uppercase tracking-widest text-white/80 mb-6">
+              <span class="material-symbols-outlined text-sm">euro</span>
+              Erasmus+ Project Builder
+            </div>
+            <h1 class="font-headline text-3xl md:text-4xl font-extrabold tracking-tighter text-white leading-tight mb-4">
+              From idea to funded project.<br>
+              <span class="text-[#e7eb00]">Three steps. One platform.</span>
+            </h1>
+            <p class="text-white/60 text-base leading-relaxed mb-8 max-w-xl">
+              Design your project, write a winning proposal, and evaluate it against real criteria &mdash; all before you submit.
+            </p>
+          </div>
+        </div>
+
+        <!-- Three phases — Main CTAs -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-10">
+
+          <!-- Phase 1: Design -->
+          <div class="group relative bg-white rounded-2xl border-2 border-outline-variant/20 hover:border-[#1b1464]/30 p-6 transition-all hover:shadow-xl cursor-pointer" onclick="location.hash='create'">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-12 h-12 rounded-xl bg-blue-100 flex items-center justify-center group-hover:bg-[#1b1464] transition-colors">
+                <span class="material-symbols-outlined text-blue-600 text-2xl group-hover:text-[#e7eb00] transition-colors">architecture</span>
+              </div>
+              <div>
+                <div class="text-[10px] font-extrabold uppercase tracking-widest text-blue-500">Phase 1</div>
+                <h3 class="font-headline text-lg font-extrabold text-on-surface">Design</h3>
+              </div>
+            </div>
+            <p class="text-sm text-on-surface-variant leading-relaxed mb-5">
+              Build the foundations of your project. Define partners, activities and budget &mdash; like an architect designing plans that fit within your funding limits.
+            </p>
+            <ul class="space-y-2 mb-5">
+              <li class="flex items-center gap-2 text-xs text-on-surface-variant"><span class="material-symbols-outlined text-blue-400 text-sm">check_circle</span> Select call &amp; programme</li>
+              <li class="flex items-center gap-2 text-xs text-on-surface-variant"><span class="material-symbols-outlined text-blue-400 text-sm">check_circle</span> Build consortium &amp; partners</li>
+              <li class="flex items-center gap-2 text-xs text-on-surface-variant"><span class="material-symbols-outlined text-blue-400 text-sm">check_circle</span> Plan activities &amp; work packages</li>
+              <li class="flex items-center gap-2 text-xs text-on-surface-variant"><span class="material-symbols-outlined text-blue-400 text-sm">check_circle</span> Calculate EU-compliant budget</li>
+            </ul>
+            <div class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs font-bold text-[#e7eb00] bg-[#1b1464] group-hover:bg-[#1b1464]/90 transition-colors">
+              <span class="material-symbols-outlined text-sm">rocket_launch</span> Start designing
+            </div>
+          </div>
+
+          <!-- Phase 2: Write -->
+          <div class="group relative bg-white rounded-2xl border-2 border-outline-variant/20 hover:border-[#1b1464]/30 p-6 transition-all hover:shadow-xl cursor-pointer" onclick="location.hash='developer'">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-12 h-12 rounded-xl bg-purple-100 flex items-center justify-center group-hover:bg-[#1b1464] transition-colors">
+                <span class="material-symbols-outlined text-purple-600 text-2xl group-hover:text-[#e7eb00] transition-colors">edit_document</span>
+              </div>
+              <div>
+                <div class="text-[10px] font-extrabold uppercase tracking-widest text-purple-500">Phase 2</div>
+                <h3 class="font-headline text-lg font-extrabold text-on-surface">Write</h3>
+              </div>
+            </div>
+            <p class="text-sm text-on-surface-variant leading-relaxed mb-5">
+              Transform your design into a complete official proposal. Write every section of the Form Part B, guided by evaluation criteria and AI assistance.
+            </p>
+            <ul class="space-y-2 mb-5">
+              <li class="flex items-center gap-2 text-xs text-on-surface-variant"><span class="material-symbols-outlined text-purple-400 text-sm">check_circle</span> Official Form Part B structure</li>
+              <li class="flex items-center gap-2 text-xs text-on-surface-variant"><span class="material-symbols-outlined text-purple-400 text-sm">check_circle</span> AI-assisted narrative writing</li>
+              <li class="flex items-center gap-2 text-xs text-on-surface-variant"><span class="material-symbols-outlined text-purple-400 text-sm">check_circle</span> Import existing DOCX proposals</li>
+              <li class="flex items-center gap-2 text-xs text-on-surface-variant"><span class="material-symbols-outlined text-purple-400 text-sm">check_circle</span> Budget calculator (official format)</li>
+            </ul>
+            <div class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs font-bold text-[#e7eb00] bg-[#1b1464] group-hover:bg-[#1b1464]/90 transition-colors">
+              <span class="material-symbols-outlined text-sm">edit_note</span> Start writing
+            </div>
+          </div>
+
+          <!-- Phase 3: Evaluate -->
+          <div class="group relative bg-white rounded-2xl border-2 border-outline-variant/20 hover:border-[#1b1464]/30 p-6 transition-all hover:shadow-xl cursor-pointer" onclick="location.hash='evaluator'">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-12 h-12 rounded-xl bg-green-100 flex items-center justify-center group-hover:bg-[#1b1464] transition-colors">
+                <span class="material-symbols-outlined text-green-600 text-2xl group-hover:text-[#e7eb00] transition-colors">verified</span>
+              </div>
+              <div>
+                <div class="text-[10px] font-extrabold uppercase tracking-widest text-green-600">Phase 3</div>
+                <h3 class="font-headline text-lg font-extrabold text-on-surface">Evaluate &amp; Iterate</h3>
+              </div>
+            </div>
+            <p class="text-sm text-on-surface-variant leading-relaxed mb-5">
+              Score your proposal against official evaluation criteria. Get detailed feedback, improve each section, and iterate until it's competition-ready.
+            </p>
+            <ul class="space-y-2 mb-5">
+              <li class="flex items-center gap-2 text-xs text-on-surface-variant"><span class="material-symbols-outlined text-green-400 text-sm">check_circle</span> EACEA evaluation criteria</li>
+              <li class="flex items-center gap-2 text-xs text-on-surface-variant"><span class="material-symbols-outlined text-green-400 text-sm">check_circle</span> Section-by-section scoring</li>
+              <li class="flex items-center gap-2 text-xs text-on-surface-variant"><span class="material-symbols-outlined text-green-400 text-sm">check_circle</span> AI-powered improvement tips</li>
+              <li class="flex items-center gap-2 text-xs text-on-surface-variant"><span class="material-symbols-outlined text-green-400 text-sm">check_circle</span> Upload &amp; evaluate any DOCX</li>
+            </ul>
+            <div class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs font-bold text-[#e7eb00] bg-[#1b1464] group-hover:bg-[#1b1464]/90 transition-colors">
+              <span class="material-symbols-outlined text-sm">fact_check</span> Start evaluating
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Pipeline visual -->
+        <div class="flex items-center justify-center gap-2 mb-10 px-8">
+          <div class="flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 text-blue-600">
+            <span class="material-symbols-outlined text-base">architecture</span>
+            <span class="text-xs font-bold">Design</span>
+          </div>
+          <div class="w-8 h-0.5 bg-outline-variant/30"></div>
+          <span class="material-symbols-outlined text-on-surface-variant/30 text-base">arrow_forward</span>
+          <div class="w-8 h-0.5 bg-outline-variant/30"></div>
+          <div class="flex items-center gap-2 px-4 py-2 rounded-full bg-purple-50 text-purple-600">
+            <span class="material-symbols-outlined text-base">edit_document</span>
+            <span class="text-xs font-bold">Write</span>
+          </div>
+          <div class="w-8 h-0.5 bg-outline-variant/30"></div>
+          <span class="material-symbols-outlined text-on-surface-variant/30 text-base">arrow_forward</span>
+          <div class="w-8 h-0.5 bg-outline-variant/30"></div>
+          <div class="flex items-center gap-2 px-4 py-2 rounded-full bg-green-50 text-green-600">
+            <span class="material-symbols-outlined text-base">verified</span>
+            <span class="text-xs font-bold">Evaluate</span>
+          </div>
+          <div class="w-8 h-0.5 bg-outline-variant/30"></div>
+          <span class="material-symbols-outlined text-on-surface-variant/30 text-base">replay</span>
+          <div class="w-8 h-0.5 bg-outline-variant/30"></div>
+          <div class="flex items-center gap-2 px-4 py-2 rounded-full bg-[#1b1464]/5 text-[#1b1464]">
+            <span class="material-symbols-outlined text-base">emoji_events</span>
+            <span class="text-xs font-bold">Submit</span>
+          </div>
+        </div>
+
+        <!-- Recent projects -->
+        <div class="mb-10">
+          <div class="flex items-center justify-between mb-5">
+            <div class="flex items-center gap-3">
+              <h2 class="font-headline text-lg font-bold text-primary">Your projects</h2>
+              <div class="flex-1 h-px bg-outline-variant/40"></div>
+            </div>
+            <a href="#my-projects" class="text-xs font-bold text-primary hover:underline">View all</a>
+          </div>
+          <div id="dashboard-recent-projects">
+            <p class="text-sm text-on-surface-variant text-center py-8">Loading projects...</p>
+          </div>
+        </div>
+
+        <!-- Who is it for -->
+        <div class="mb-10">
+          <div class="flex items-center gap-3 mb-6">
+            <h2 class="font-headline text-lg font-bold text-primary">Who is it for</h2>
+            <div class="flex-1 h-px bg-outline-variant/40"></div>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+            <div class="bg-white rounded-xl border border-outline-variant/20 p-6 text-center">
+              <span class="material-symbols-outlined text-3xl text-primary/60 mb-3">school</span>
+              <h4 class="font-headline text-sm font-bold text-primary mb-2">Universities &amp; Schools</h4>
+              <p class="text-xs text-on-surface-variant leading-relaxed">International offices preparing KA1, KA2 or KA3 projects &mdash; first-timers or experienced coordinators.</p>
+            </div>
+            <div class="bg-white rounded-xl border border-outline-variant/20 p-6 text-center">
+              <span class="material-symbols-outlined text-3xl text-primary/60 mb-3">volunteer_activism</span>
+              <h4 class="font-headline text-sm font-bold text-primary mb-2">NGOs &amp; Associations</h4>
+              <p class="text-xs text-on-surface-variant leading-relaxed">Civil society organisations seeking EU funding for youth, education, sport or social innovation.</p>
+            </div>
+            <div class="bg-white rounded-xl border border-outline-variant/20 p-6 text-center">
+              <span class="material-symbols-outlined text-3xl text-primary/60 mb-3">business</span>
+              <h4 class="font-headline text-sm font-bold text-primary mb-2">Consultancies &amp; Writers</h4>
+              <p class="text-xs text-on-surface-variant leading-relaxed">EU project writers managing multiple proposals who need speed, structure and quality assurance.</p>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- My Projects panel -->
+      <section id="panel-my-projects" class="panel">
+        <div class="max-w-6xl mx-auto">
+          <div class="flex items-center justify-between mb-8">
+            <div>
+              <h1 class="font-headline text-3xl font-extrabold tracking-tighter text-primary mb-1">Mis Proyectos</h1>
+              <p class="text-on-surface-variant text-base">Tus propuestas Erasmus+ guardadas.</p>
+            </div>
+            <button type="button" id="my-projects-new-btn"
+              class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-bold text-white bg-primary hover:bg-primary/90 shadow-md transition-all">
+              <span class="material-symbols-outlined text-lg">add</span> Nuevo proyecto
+            </button>
+          </div>
+          <div id="my-projects-list"></div>
+        </div>
+      </section>
+
+      <!-- Create Project panel -->
+      <section id="panel-create" class="panel">
+        <div class="max-w-6xl mx-auto">
+          <h1 class="font-headline text-3xl font-extrabold tracking-tighter text-primary mb-1">Start a project</h1>
+          <p class="text-on-surface-variant text-base mb-8">Choose how you want to begin.</p>
+
+          <!-- Path 1: Design — full width with call selector on the right -->
+          <div class="bg-white rounded-2xl border-2 border-blue-200/50 p-6 mb-4 hover:shadow-lg transition-all">
+            <div class="flex gap-6">
+              <!-- Left: description -->
+              <div class="w-72 flex-shrink-0">
+                <div class="flex items-center gap-3 mb-3">
+                  <div class="w-10 h-10 rounded-xl bg-blue-100 flex items-center justify-center">
+                    <span class="material-symbols-outlined text-blue-600 text-xl">architecture</span>
+                  </div>
+                  <div>
+                    <div class="text-[9px] font-extrabold uppercase tracking-widest text-blue-500">New project</div>
+                    <h3 class="font-headline text-base font-extrabold text-on-surface">Build something new</h3>
+                  </div>
+                </div>
+                <p class="text-xs text-on-surface-variant leading-relaxed mb-4">Select a call, define partners, plan activities and calculate your budget. Build the foundations.</p>
+                <button type="button" id="create-btn-start" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs font-bold text-[#e7eb00] bg-[#1b1464] hover:bg-[#1b1464]/90 transition-colors">
+                  <span class="material-symbols-outlined text-sm">rocket_launch</span> Start designing
+                </button>
+              </div>
+              <!-- Right: call selector -->
+              <div class="flex-1 min-w-0 border-l border-blue-100 pl-6">
+                <div class="flex items-center gap-3 mb-3">
+                  <div class="relative flex-1">
+                    <span class="material-symbols-outlined text-on-surface-variant/40 absolute left-3 top-1/2 -translate-y-1/2 text-base">search</span>
+                    <input type="text" id="create-prog-search" placeholder="Search calls..."
+                      class="w-full pl-9 pr-3 py-2 rounded-lg border border-outline-variant/20 text-xs focus:outline-none focus:ring-2 focus:ring-primary/20 bg-gray-50">
+                  </div>
+                  <div class="flex items-center gap-1 flex-wrap" id="create-prog-filters">
+                    <button data-filter="open" class="create-filter-btn px-2 py-1 rounded text-[9px] font-bold bg-blue-50 text-blue-600 border border-blue-100 transition-colors">Open</button>
+                    <button data-filter="urgent" class="create-filter-btn px-2 py-1 rounded text-[9px] font-bold bg-gray-50 text-gray-500 border border-gray-100 transition-colors">&lt;30d</button>
+                    <button data-filter="ngo" class="create-filter-btn px-2 py-1 rounded text-[9px] font-bold bg-gray-50 text-gray-500 border border-gray-100 transition-colors">NGO</button>
+                    <button data-filter="university" class="create-filter-btn px-2 py-1 rounded text-[9px] font-bold bg-gray-50 text-gray-500 border border-gray-100 transition-colors">Uni</button>
+                    <button data-filter="public_body" class="create-filter-btn px-2 py-1 rounded text-[9px] font-bold bg-gray-50 text-gray-500 border border-gray-100 transition-colors">Public</button>
+                    <button data-filter="all" class="create-filter-btn px-2 py-1 rounded text-[9px] font-bold bg-gray-50 text-gray-500 border border-gray-100 transition-colors">All</button>
+                  </div>
+                </div>
+                <div class="flex flex-col gap-1.5 max-h-[280px] overflow-y-auto pr-1" id="create-prog-list"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Path 2: Already have a proposal -->
+          <div class="group bg-white rounded-2xl border-2 border-purple-200/50 hover:border-purple-300 p-6 mb-4 cursor-pointer transition-all hover:shadow-lg" onclick="location.hash='developer'">
+            <div class="flex items-center gap-5">
+              <div class="w-10 h-10 rounded-xl bg-purple-100 flex items-center justify-center flex-shrink-0 group-hover:bg-purple-500 transition-colors">
+                <span class="material-symbols-outlined text-purple-600 text-xl group-hover:text-white transition-colors">upload_file</span>
+              </div>
+              <div class="flex-1 min-w-0">
+                <h3 class="font-headline text-base font-extrabold text-on-surface">I already have a proposal</h3>
+                <p class="text-xs text-on-surface-variant leading-relaxed mt-1">Upload your existing .docx proposal and take it to the next level with AI-powered writing and expert evaluation criteria.</p>
+              </div>
+              <span class="material-symbols-outlined text-purple-300 group-hover:text-purple-600 text-2xl transition-colors">arrow_forward</span>
+            </div>
+          </div>
+
+          <!-- Hidden fields -->
+          <div style="display:none!important">
+            <span id="create-ro-dl"></span><span id="create-ro-gr"></span><span id="create-ro-co"></span>
+            <span id="create-ro-in"></span><span id="create-ro-sf"></span><span id="create-ro-st"></span>
+            <span id="create-ro-dur"></span>
+          </div>
+          <div id="create-upload-status" class="hidden mt-3"></div>
+          <input type="file" id="create-upload-docx" accept=".docx" class="hidden">
         </div>
       </section>
 
       <!-- Intake panel -->
       <section id="panel-intake" class="panel">
-        <div class="max-w-3xl mx-auto">
+        <div class="max-w-6xl mx-auto">
 
-          <!-- Top actions -->
-          <div class="flex items-center gap-2 mb-6">
-            <div class="flex-1"></div>
-            <button type="button" id="intake-btn-load-file" class="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-semibold text-on-surface-variant border border-outline-variant bg-transparent hover:bg-surface-container-low transition-colors">
-              <span class="material-symbols-outlined text-base">folder_open</span> Cargar JSON
-            </button>
-            <button type="button" id="intake-btn-save-file" class="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-semibold text-on-surface-variant border border-outline-variant bg-transparent hover:bg-surface-container-low transition-colors">
-              <span class="material-symbols-outlined text-base">save</span> Guardar JSON
-            </button>
-            <input type="file" id="intake-file-in" accept=".json" class="hidden">
-          </div>
+          <!-- Top spacer -->
+          <div class="mb-6"></div>
 
-          <!-- Progress bar -->
-          <nav class="flex items-center mb-10" id="intake-step-nav">
-            <div class="flex items-center gap-2 cursor-pointer intake-progress-step" data-step="0">
-              <div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold font-headline border-2 border-primary bg-primary text-white transition-all" id="intake-sd0">1</div>
-              <span class="font-headline text-xs font-bold uppercase tracking-widest text-primary transition-colors intake-progress-label" id="intake-sl0">Programa</span>
-            </div>
-            <div class="flex-1 h-px bg-outline-variant mx-2 transition-colors" id="intake-sc0"></div>
-            <div class="flex items-center gap-2 cursor-pointer intake-progress-step" data-step="1">
-              <div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold font-headline border-2 border-outline-variant bg-surface text-on-surface-variant transition-all" id="intake-sd1">2</div>
-              <span class="font-headline text-xs font-bold uppercase tracking-widest text-on-surface-variant transition-colors intake-progress-label" id="intake-sl1">Proyecto</span>
-            </div>
-            <div class="flex-1 h-px bg-outline-variant mx-2 transition-colors" id="intake-sc1"></div>
-            <div class="flex items-center gap-2 cursor-pointer intake-progress-step" data-step="2">
-              <div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold font-headline border-2 border-outline-variant bg-surface text-on-surface-variant transition-all" id="intake-sd2">3</div>
-              <span class="font-headline text-xs font-bold uppercase tracking-widest text-on-surface-variant transition-colors intake-progress-label" id="intake-sl2">Contexto</span>
-            </div>
-            <div class="flex-1 h-px bg-outline-variant mx-2 transition-colors" id="intake-sc2"></div>
-            <div class="flex items-center gap-2 cursor-pointer intake-progress-step" data-step="3">
-              <div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold font-headline border-2 border-outline-variant bg-surface text-on-surface-variant transition-all" id="intake-sd3">4</div>
-              <span class="font-headline text-xs font-bold uppercase tracking-widest text-on-surface-variant transition-colors intake-progress-label" id="intake-sl3">Resumen</span>
-            </div>
+          <!-- Progress bar (rendered dynamically by intake.js — 8 steps) -->
+          <nav class="flex items-center mb-10 flex-wrap gap-y-2" id="intake-step-nav">
+            <!-- JS will populate this -->
           </nav>
 
-          <!-- STEP 0: Programa -->
-          <div class="intake-step" id="intake-p0">
-            <h1 class="font-headline text-3xl font-extrabold tracking-tighter text-primary mb-1">Programa</h1>
-            <p class="text-on-surface-variant text-base mb-8">Selecciona la convocatoria Erasmus+ o abre un proyecto guardado.</p>
-
-            <!-- Saved projects -->
-            <div class="mb-8">
-              <div class="flex items-center gap-2 text-[11px] font-bold uppercase tracking-widest text-on-surface-variant mb-3">
-                <span class="material-symbols-outlined text-sm">cloud_done</span>
-                <span>Proyectos guardados</span><div class="flex-1 h-px bg-outline-variant"></div>
-              </div>
-              <div id="intake-server-projects"><p class="text-xs text-on-surface-variant">Cargando...</p></div>
-            </div>
-
-            <!-- Program cards -->
-            <div class="flex items-center gap-2 text-[11px] font-bold uppercase tracking-widest text-on-surface-variant mb-3">
-              <span>Nuevo proyecto</span><div class="flex-1 h-px bg-outline-variant"></div>
-            </div>
-            <div class="flex flex-col gap-2 mb-8" id="intake-prog-list"></div>
-
-            <!-- Program details -->
-            <div id="intake-prog-details" class="hidden">
-              <div class="flex items-center gap-2 text-[11px] font-bold uppercase tracking-widest text-on-surface-variant mb-3">
-                <span>Datos de la convocatoria</span><div class="flex-1 h-px bg-outline-variant"></div>
-              </div>
-              <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 mb-6">
-                <div class="bg-surface-container-low border border-outline-variant/50 rounded-lg p-3">
-                  <div class="text-[11px] font-bold uppercase tracking-widest text-on-surface-variant mb-1">Plazo</div>
-                  <div class="font-headline text-sm font-bold text-primary" id="intake-ro-dl">&mdash;</div>
-                </div>
-                <div class="bg-surface-container-low border border-outline-variant/50 rounded-lg p-3">
-                  <div class="text-[11px] font-bold uppercase tracking-widest text-on-surface-variant mb-1">Subvenci&oacute;n m&aacute;x.</div>
-                  <div class="font-headline text-sm font-bold text-primary" id="intake-ro-gr">&mdash;</div>
-                </div>
-                <div class="bg-surface-container-low border border-outline-variant/50 rounded-lg p-3">
-                  <div class="text-[11px] font-bold uppercase tracking-widest text-on-surface-variant mb-1">Cofinanciaci&oacute;n UE</div>
-                  <div class="font-headline text-sm font-bold text-primary" id="intake-ro-co">&mdash;</div>
-                </div>
-                <div class="bg-surface-container-low border border-outline-variant/50 rounded-lg p-3">
-                  <div class="text-[11px] font-bold uppercase tracking-widest text-on-surface-variant mb-1">Costes indirectos</div>
-                  <div class="font-headline text-sm font-bold text-primary" id="intake-ro-in">&mdash;</div>
-                </div>
-                <div class="bg-surface-container-low border border-outline-variant/50 rounded-lg p-3">
-                  <div class="text-[11px] font-bold uppercase tracking-widest text-on-surface-variant mb-1">Inicio desde</div>
-                  <div class="font-headline text-sm font-bold text-primary" id="intake-ro-sf">&mdash;</div>
-                </div>
-                <div class="bg-surface-container-low border border-outline-variant/50 rounded-lg p-3">
-                  <div class="text-[11px] font-bold uppercase tracking-widest text-on-surface-variant mb-1">Inicio hasta</div>
-                  <div class="font-headline text-sm font-bold text-primary" id="intake-ro-st">&mdash;</div>
-                </div>
-              </div>
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div class="flex flex-col gap-1.5">
-                  <label class="text-xs font-semibold text-on-surface-variant">Fecha de inicio prevista <span class="text-primary">*</span></label>
-                  <input type="date" id="intake-f-start" class="w-full px-3 py-2.5 rounded-lg bg-white border border-outline-variant text-on-surface font-body text-sm focus:border-primary focus:ring-2 focus:ring-secondary-fixed outline-none transition-all">
-                </div>
-                <div class="flex flex-col gap-1.5">
-                  <label class="text-xs font-semibold text-on-surface-variant">Duraci&oacute;n <span class="text-primary">*</span></label>
-                  <select id="intake-f-dur" class="w-full px-3 py-2.5 rounded-lg bg-white border border-outline-variant text-on-surface font-body text-sm focus:border-primary focus:ring-2 focus:ring-secondary-fixed outline-none transition-all cursor-pointer appearance-none"></select>
-                </div>
-              </div>
-            </div>
-
-            <div class="flex justify-end mt-10 pt-5 border-t border-outline-variant">
-              <button type="button" class="intake-btn-next inline-flex items-center gap-2 px-8 py-4 rounded-md bg-secondary-fixed text-primary-container font-bold text-base shadow-[0_24px_48px_rgba(27,20,100,0.1)] hover:scale-[1.02] active:scale-95 transition-transform">
-                Siguiente <span class="material-symbols-outlined text-lg">arrow_forward</span>
-              </button>
-            </div>
+          <!-- Hidden fields for program data (populated by create.js) -->
+          <div style="display:none!important">
+            <input type="hidden" id="intake-f-start">
+            <input type="hidden" id="intake-f-dur" value="24">
+            <input type="hidden" id="intake-f-type">
           </div>
 
-          <!-- STEP 1: Proyecto -->
+          <!-- STEP 1: Proyecto (was step 2) -->
           <div class="intake-step hidden" id="intake-p1">
-            <h1 class="font-headline text-3xl font-extrabold tracking-tighter text-primary mb-1">Proyecto</h1>
-            <p class="text-on-surface-variant text-base mb-8">Nombre del proyecto y composici&oacute;n del consorcio.</p>
+            <h1 class="font-headline text-3xl font-extrabold tracking-tighter text-primary mb-1">Project</h1>
+            <p class="text-on-surface-variant text-base mb-8">Define your project identity and build the consortium.</p>
+
+            <!-- Call summary (collapsible context for the user) -->
+            <details id="intake-call-summary-p1" class="hidden rounded-2xl border border-secondary-fixed/30 bg-secondary-fixed/5 mb-6 group">
+              <summary class="flex items-start gap-2.5 px-4 py-3 cursor-pointer select-none">
+                <span class="material-symbols-outlined text-primary text-lg mt-0.5">campaign</span>
+                <div class="flex-1 min-w-0">
+                  <span class="text-[10px] font-bold uppercase tracking-widest text-primary block mb-0.5">About this call</span>
+                  <span id="intake-call-summary-p1-preview" class="text-xs text-on-surface-variant line-clamp-1 group-open:hidden"></span>
+                </div>
+                <span class="material-symbols-outlined text-primary/40 text-sm transition-transform group-open:rotate-180 mt-1">expand_more</span>
+              </summary>
+              <div class="px-4 pb-4">
+                <p id="intake-call-summary-p1-text" class="text-sm text-on-surface leading-relaxed whitespace-pre-line"></p>
+              </div>
+            </details>
 
             <div class="flex items-center gap-2 text-[11px] font-bold uppercase tracking-widest text-on-surface-variant mb-3">
-              <span>Identificaci&oacute;n</span><div class="flex-1 h-px bg-outline-variant"></div>
+              <span>Identification</span><div class="flex-1 h-px bg-outline-variant"></div>
             </div>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
               <div class="flex flex-col gap-1.5">
-                <label class="text-xs font-semibold text-on-surface-variant">Acr&oacute;nimo <span class="text-primary">*</span></label>
-                <input type="text" id="intake-f-name" placeholder="ej. FOCUS" maxlength="50" class="w-full px-3 py-2.5 rounded-lg bg-white border border-outline-variant text-on-surface font-body text-sm focus:border-primary focus:ring-2 focus:ring-secondary-fixed outline-none transition-all">
+                <label class="text-xs font-semibold text-on-surface-variant">Project name <span class="text-primary">*</span></label>
+                <input type="text" id="intake-f-fullname" placeholder="e.g. Action for Resilience and Innovation in Europe" class="w-full px-3 py-2.5 rounded-lg bg-white border border-outline-variant text-on-surface font-body text-sm focus:border-primary focus:ring-2 focus:ring-secondary-fixed outline-none transition-all">
               </div>
               <div class="flex flex-col gap-1.5">
-                <label class="text-xs font-semibold text-on-surface-variant">Tipo de acci&oacute;n</label>
-                <input type="text" id="intake-f-type" readonly class="w-full px-3 py-2.5 rounded-lg bg-surface-container-low border border-outline-variant text-on-surface-variant font-body text-sm cursor-not-allowed">
+                <label class="text-xs font-semibold text-on-surface-variant">Acronym <span class="text-primary">*</span></label>
+                <input type="text" id="intake-f-name" placeholder="e.g. ARISE" maxlength="20" class="w-full px-3 py-2.5 rounded-lg bg-white border border-outline-variant text-on-surface font-body text-sm focus:border-primary focus:ring-2 focus:ring-secondary-fixed outline-none transition-all">
+              </div>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-4">
+              <div class="flex flex-col gap-1.5">
+                <label class="text-xs font-semibold text-on-surface-variant">Duración del proyecto (meses)</label>
+                <input type="number" id="intake-f-dur-visible" value="24" min="6" max="60" step="1" class="w-full px-3 py-2.5 rounded-lg bg-white border border-outline-variant text-on-surface font-body text-sm focus:border-primary focus:ring-2 focus:ring-secondary-fixed outline-none transition-all font-bold">
+              </div>
+              <div class="flex flex-col gap-1.5">
+                <label class="text-xs font-semibold text-on-surface-variant">Fecha de inicio</label>
+                <input type="date" id="intake-f-start-visible" class="w-full px-3 py-2.5 rounded-lg bg-white border border-outline-variant text-on-surface font-body text-sm focus:border-primary focus:ring-2 focus:ring-secondary-fixed outline-none transition-all">
+              </div>
+              <div class="flex flex-col gap-1.5">
+                <label class="text-xs font-semibold text-on-surface-variant">Tipo de acción</label>
+                <input type="text" id="intake-f-type-visible" readonly class="w-full px-3 py-2.5 rounded-lg bg-surface-container-lowest border border-outline-variant/50 text-on-surface-variant font-body text-sm outline-none cursor-default">
               </div>
             </div>
             <div class="flex flex-col gap-1.5 mb-8">
-              <label class="text-xs font-semibold text-on-surface-variant">Descripci&oacute;n breve</label>
-              <textarea id="intake-f-desc" rows="3" placeholder="Describe brevemente el proyecto..." class="w-full px-3 py-2.5 rounded-lg bg-white border border-outline-variant text-on-surface font-body text-sm focus:border-primary focus:ring-2 focus:ring-secondary-fixed outline-none transition-all resize-vertical leading-relaxed"></textarea>
+              <label class="text-xs font-semibold text-on-surface-variant flex items-center gap-1">
+                <span class="material-symbols-outlined text-sm">account_balance</span>Agencia Nacional (dónde se presenta)
+              </label>
+              <p class="text-xs text-on-surface-variant/70 leading-relaxed mb-1">Selecciona la agencia donde vas a presentar la propuesta. El idioma del formulario se ajustará automáticamente según la agencia elegida.</p>
+              <div class="flex items-center gap-3">
+                <select id="intake-f-na" class="flex-1 px-3 py-2.5 rounded-lg bg-white border border-outline-variant text-on-surface font-body text-sm focus:border-primary focus:ring-2 focus:ring-secondary-fixed outline-none transition-all">
+                  <optgroup label="— European Commission —">
+                    <option value="EACEA">EACEA — European Education and Culture Executive Agency</option>
+                  </optgroup>
+                  <optgroup label="Austria">
+                    <option value="AT01">AT01 — OeAD-GmbH – Agentur für Bildung und Internationalisierung</option>
+                  </optgroup>
+                  <optgroup label="Belgium">
+                    <option value="BE01">BE01 — AEF-Europe</option>
+                    <option value="BE02">BE02 — EPOS vzw</option>
+                    <option value="BE03">BE03 — Jugendbüro der Deutschsprachigen Gemeinschaft</option>
+                    <option value="BE04">BE04 — BIJ – Bureau International Jeunesse</option>
+                    <option value="BE05">BE05 — JINT</option>
+                  </optgroup>
+                  <optgroup label="Bulgaria">
+                    <option value="BG01">BG01 — Human Resource Development Centre (HRDC)</option>
+                  </optgroup>
+                  <optgroup label="Croatia">
+                    <option value="HR01">HR01 — Agency for Mobility and EU Programmes (AMPEU)</option>
+                  </optgroup>
+                  <optgroup label="Cyprus">
+                    <option value="CY01">CY01 — Foundation for the Management of European LLL Programmes</option>
+                  </optgroup>
+                  <optgroup label="Czechia">
+                    <option value="CZ01">CZ01 — Dům zahraniční spolupráce (DZS)</option>
+                  </optgroup>
+                  <optgroup label="Denmark">
+                    <option value="DK01">DK01 — Danish Agency for Higher Education and Science</option>
+                  </optgroup>
+                  <optgroup label="Estonia">
+                    <option value="EE01">EE01 — Education and Youth Board / Harno</option>
+                  </optgroup>
+                  <optgroup label="Finland">
+                    <option value="FI01">FI01 — Finnish National Agency for Education (EDUFI)</option>
+                  </optgroup>
+                  <optgroup label="France">
+                    <option value="FR01">FR01 — Agence Erasmus+ France / Education Formation</option>
+                    <option value="FR02">FR02 — Agence Erasmus+ France Jeunesse & Sport</option>
+                  </optgroup>
+                  <optgroup label="Germany">
+                    <option value="DE01">DE01 — NA Erasmus+ Hochschulzusammenarbeit (DAAD)</option>
+                    <option value="DE02">DE02 — NA Bildung für Europa (BiBB)</option>
+                    <option value="DE03">DE03 — NA Erasmus+ Schulbildung</option>
+                    <option value="DE04">DE04 — JUGEND für Europa</option>
+                  </optgroup>
+                  <optgroup label="Greece">
+                    <option value="EL01">EL01 — Greek State Scholarship's Foundation (IKY)</option>
+                    <option value="EL02">EL02 — Youth and Lifelong Learning Foundation (I.NE.DI.VI.M.)</option>
+                  </optgroup>
+                  <optgroup label="Hungary">
+                    <option value="HU01">HU01 — Tempus Public Foundation</option>
+                  </optgroup>
+                  <optgroup label="Iceland">
+                    <option value="IS01">IS01 — The Icelandic Centre for Research (Rannís)</option>
+                  </optgroup>
+                  <optgroup label="Ireland">
+                    <option value="IE01">IE01 — Léargas</option>
+                    <option value="IE02">IE02 — The Higher Education Authority (HEA)</option>
+                  </optgroup>
+                  <optgroup label="Italy">
+                    <option value="IT01">IT01 — INAPP</option>
+                    <option value="IT02">IT02 — Agenzia Nazionale Erasmus+ (INDIRE)</option>
+                    <option value="IT03">IT03 — Agenzia nazionale per i giovani (ANG)</option>
+                  </optgroup>
+                  <optgroup label="Latvia">
+                    <option value="LV01">LV01 — Valsts izglītības attīstības aģentūra (VIAA)</option>
+                    <option value="LV02">LV02 — Jaunatnes starptautisko programmu aģentūra</option>
+                  </optgroup>
+                  <optgroup label="Liechtenstein">
+                    <option value="LI01">LI01 — AIBA | Nationalagentur für Erasmus+ und ESK</option>
+                  </optgroup>
+                  <optgroup label="Lithuania">
+                    <option value="LT01">LT01 — Education Exchanges Support Foundation</option>
+                    <option value="LT02">LT02 — Jaunatnes starptautisko programmu aģentūra</option>
+                  </optgroup>
+                  <optgroup label="Luxembourg">
+                    <option value="LU01">LU01 — Anefore asbl</option>
+                  </optgroup>
+                  <optgroup label="Malta">
+                    <option value="MT01">MT01 — European Union Programmes Agency (EUPA)</option>
+                  </optgroup>
+                  <optgroup label="Netherlands">
+                    <option value="NL01">NL01 — NA Erasmus+ Onderwijs & Training</option>
+                    <option value="NL02">NL02 — Nederlands Jeugdinstituut / NA Erasmus+ Youth</option>
+                  </optgroup>
+                  <optgroup label="Norway">
+                    <option value="NO01">NO01 — Norwegian Directorate for Higher Education and Skills</option>
+                    <option value="NO02">NO02 — Bufdir</option>
+                  </optgroup>
+                  <optgroup label="Poland">
+                    <option value="PL01">PL01 — Foundation for the Development of the Education System (FRSE)</option>
+                  </optgroup>
+                  <optgroup label="Portugal">
+                    <option value="PT01">PT01 — Agência Nacional Erasmus+ Educação e Formação</option>
+                    <option value="PT02">PT02 — Agência Nacional Erasmus+ Juventude / Desporto</option>
+                  </optgroup>
+                  <optgroup label="Romania">
+                    <option value="RO01">RO01 — ANPCDEFP</option>
+                  </optgroup>
+                  <optgroup label="Serbia">
+                    <option value="RS01">RS01 — Fondacija Tempus</option>
+                  </optgroup>
+                  <optgroup label="Slovakia">
+                    <option value="SK01">SK01 — SAAIC</option>
+                    <option value="SK02">SK02 — National Institute for Education and Youth</option>
+                  </optgroup>
+                  <optgroup label="Slovenia">
+                    <option value="SI01">SI01 — CMEPIUS</option>
+                    <option value="SI02">SI02 — MOVIT</option>
+                  </optgroup>
+                  <optgroup label="Spain">
+                    <option value="ES01">ES01 — SEPIE</option>
+                    <option value="ES02">ES02 — INJUVE</option>
+                  </optgroup>
+                  <optgroup label="Sweden">
+                    <option value="SE01">SE01 — Swedish Council for Higher Education (UHR)</option>
+                    <option value="SE02">SE02 — Swedish Agency for Youth and Civil Society (MUCF)</option>
+                  </optgroup>
+                  <optgroup label="Türkiye">
+                    <option value="TR01">TR01 — Turkish National Agency</option>
+                  </optgroup>
+                </select>
+                <span id="intake-na-lang-badge" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold whitespace-nowrap">
+                  <span class="material-symbols-outlined text-sm">translate</span>
+                  <span id="intake-na-lang-label">English</span>
+                </span>
+              </div>
+              <input type="hidden" id="intake-f-lang" value="en">
             </div>
 
             <div class="flex items-center gap-2 text-[11px] font-bold uppercase tracking-widest text-on-surface-variant mb-4">
-              <span>Consorcio</span><div class="flex-1 h-px bg-outline-variant"></div>
+              <span>Consortium</span><div class="flex-1 h-px bg-outline-variant"></div>
             </div>
-            <div class="grid gap-2 items-center mb-2 pb-2 border-b border-outline-variant" style="grid-template-columns:28px 1fr 100px 110px 80px 32px">
+            <div class="grid gap-2 items-center mb-2 pb-2 border-b border-outline-variant" style="grid-template-columns:28px 1fr 100px 110px 32px 80px 32px">
               <span></span>
-              <span class="text-[11px] font-bold uppercase tracking-widest text-on-surface-variant">Organizaci&oacute;n</span>
-              <span class="text-[11px] font-bold uppercase tracking-widest text-on-surface-variant">Ciudad</span>
-              <span class="text-[11px] font-bold uppercase tracking-widest text-on-surface-variant">Pa&iacute;s</span>
-              <span class="text-[11px] font-bold uppercase tracking-widest text-on-surface-variant">Rol</span>
+              <span class="text-[11px] font-bold uppercase tracking-widest text-on-surface-variant">Organisation</span>
+              <span class="text-[11px] font-bold uppercase tracking-widest text-on-surface-variant">City</span>
+              <span class="text-[11px] font-bold uppercase tracking-widest text-on-surface-variant">Country</span>
+              <span></span>
+              <span class="text-[11px] font-bold uppercase tracking-widest text-on-surface-variant">Role</span>
               <span></span>
             </div>
             <div id="intake-pt-list"></div>
             <button type="button" id="intake-btn-add-partner" class="inline-flex items-center gap-1.5 mt-3 px-3 py-2 rounded-lg text-xs font-semibold text-on-surface-variant border border-dashed border-outline bg-transparent hover:bg-surface-container-low transition-colors">
-              <span class="material-symbols-outlined text-base">add</span> A&ntilde;adir socio
+              <span class="material-symbols-outlined text-base">add</span> Add partner
             </button>
 
             <div class="flex justify-between items-center mt-10 pt-5 border-t border-outline-variant">
               <button type="button" class="intake-btn-prev inline-flex items-center gap-2 px-5 py-3 rounded-md text-on-surface-variant font-semibold text-sm border border-outline-variant hover:bg-surface-container-low transition-colors">
-                <span class="material-symbols-outlined text-base">arrow_back</span> Anterior
+                <span class="material-symbols-outlined text-base">arrow_back</span> Back
               </button>
               <button type="button" class="intake-btn-next inline-flex items-center gap-2 px-8 py-4 rounded-md bg-secondary-fixed text-primary-container font-bold text-base shadow-[0_24px_48px_rgba(27,20,100,0.1)] hover:scale-[1.02] active:scale-95 transition-transform">
-                Siguiente <span class="material-symbols-outlined text-lg">arrow_forward</span>
+                Next <span class="material-symbols-outlined text-lg">arrow_forward</span>
               </button>
             </div>
           </div>
@@ -523,55 +863,499 @@ tailwind.config = {
                 <span class="material-symbols-outlined text-base">arrow_back</span> Anterior
               </button>
               <button type="button" class="intake-btn-next inline-flex items-center gap-2 px-8 py-4 rounded-md bg-secondary-fixed text-primary-container font-bold text-base shadow-[0_24px_48px_rgba(27,20,100,0.1)] hover:scale-[1.02] active:scale-95 transition-transform">
-                Ver resumen <span class="material-symbols-outlined text-lg">arrow_forward</span>
+                Tarifas <span class="material-symbols-outlined text-lg">arrow_forward</span>
               </button>
             </div>
           </div>
 
-          <!-- STEP 3: Resumen -->
+          <!-- STEPS: Dynamic calculator steps (rendered by JS) -->
+          <div class="intake-step hidden" id="intake-dynamic">
+            <div id="intake-calc-container">
+              <!-- Calculator render functions inject content here -->
+            </div>
+          </div>
+
+          <!-- STEP: Tareas -->
+          <div class="intake-step hidden" id="intake-tasks">
+            <div id="intake-tasks-container"></div>
+          </div>
+
+          <!-- STEP: Gantt -->
+          <div class="intake-step hidden" id="intake-gantt">
+            <div id="intake-gantt-container"></div>
+          </div>
+
+          <!-- STEP: Resumen & Lanzar (unified) -->
           <div class="intake-step hidden" id="intake-p3">
-            <h1 class="font-headline text-3xl font-extrabold tracking-tighter text-primary mb-1">Resumen</h1>
-            <p class="text-on-surface-variant text-base mb-8">Revisa los datos antes de guardar.</p>
 
-            <div class="mb-8 pb-8 border-b border-outline-variant">
-              <div class="flex items-center gap-2 text-[11px] font-bold uppercase tracking-widest text-on-surface-variant mb-3">
-                <span>Proyecto</span><div class="flex-1 h-px bg-outline-variant"></div>
+            <!-- ── Call Summary (collapsible) ── -->
+            <details id="intake-call-summary-box" class="hidden rounded-2xl border border-secondary-fixed/30 bg-secondary-fixed/5 mb-8 group">
+              <summary class="flex items-start gap-2.5 px-4 py-3 cursor-pointer select-none">
+                <span class="material-symbols-outlined text-primary text-lg mt-0.5">campaign</span>
+                <div class="flex-1 min-w-0">
+                  <span class="text-[10px] font-bold uppercase tracking-widest text-primary block mb-0.5">About this call</span>
+                  <span id="intake-call-summary-preview" class="text-xs text-on-surface-variant line-clamp-1 group-open:hidden"></span>
+                </div>
+                <span class="material-symbols-outlined text-primary/40 text-sm transition-transform group-open:rotate-180 mt-1">expand_more</span>
+              </summary>
+              <div class="px-4 pb-4">
+                <p id="intake-call-summary-text" class="text-sm text-on-surface leading-relaxed whitespace-pre-line"></p>
               </div>
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="intake-sum-proj"></div>
-            </div>
-            <div class="mb-8 pb-8 border-b border-outline-variant">
-              <div class="flex items-center gap-2 text-[11px] font-bold uppercase tracking-widest text-on-surface-variant mb-3">
-                <span>Consorcio</span><div class="flex-1 h-px bg-outline-variant"></div>
+            </details>
+
+            <!-- ══ AI Assistant (always visible at top) ═══════════════ -->
+            <div class="mb-8">
+              <!-- Start button (shown when interview not started) -->
+              <div id="intake-interview-start" class="rounded-2xl border border-primary/15 bg-gradient-to-r from-primary/[0.04] via-transparent to-secondary-fixed/[0.04] p-5 cursor-pointer hover:border-primary/30 hover:shadow-md transition-all group">
+                <div class="flex items-center gap-4">
+                  <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center shadow-md shadow-primary/20 flex-shrink-0">
+                    <span class="material-symbols-outlined text-white text-2xl">smart_toy</span>
+                  </div>
+                  <div class="flex-1">
+                    <h2 class="font-headline text-base font-extrabold text-on-surface mb-0.5">AI Summary Assistant</h2>
+                    <p class="text-xs text-on-surface-variant leading-relaxed">Deja que te guiemos con nuestro agente especialmente disenado para generar un resumen que sirva como base para las siguientes fases de escritura.</p>
+                  </div>
+                  <div class="flex flex-col items-center gap-1 flex-shrink-0">
+                    <div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                      <span class="material-symbols-outlined text-primary text-lg">arrow_forward</span>
+                    </div>
+                    <span class="text-[9px] font-bold text-primary/60 uppercase">5 min</span>
+                  </div>
+                </div>
               </div>
-              <div id="intake-sum-partners"></div>
-            </div>
-            <div class="mb-8 pb-8 border-b border-outline-variant">
-              <div class="flex items-center gap-2 text-[11px] font-bold uppercase tracking-widest text-on-surface-variant mb-3">
-                <span>Contexto IA</span><div class="flex-1 h-px bg-outline-variant"></div>
+
+              <!-- Chat container (hidden until interview starts) -->
+              <div id="intake-interview-chat" class="hidden rounded-2xl border border-outline-variant/20 bg-surface-container-lowest overflow-hidden shadow-sm">
+                <!-- Header -->
+                <div class="flex items-center gap-2.5 px-5 py-3.5 bg-gradient-to-r from-primary/[0.06] to-transparent border-b border-outline-variant/15">
+                  <div class="w-9 h-9 rounded-xl bg-primary flex items-center justify-center shadow-sm">
+                    <span class="material-symbols-outlined text-white text-lg">smart_toy</span>
+                  </div>
+                  <div class="flex-1">
+                    <span class="font-headline text-sm font-bold text-on-surface">AI Summary Assistant</span>
+                    <div class="flex items-center gap-2 mt-0.5">
+                      <div class="flex-1 h-1.5 bg-outline-variant/15 rounded-full overflow-hidden">
+                        <div id="intake-interview-progress-bar" class="h-full bg-gradient-to-r from-primary to-secondary-fixed rounded-full transition-all duration-500" style="width:0%"></div>
+                      </div>
+                      <span id="intake-interview-progress-label" class="text-[10px] text-on-surface-variant font-mono">0/6</span>
+                    </div>
+                  </div>
+                  <button type="button" id="intake-interview-reset" class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-error/10 hover:text-error transition-all" title="Reiniciar entrevista">
+                    <span class="material-symbols-outlined text-base">refresh</span>
+                  </button>
+                </div>
+
+                <!-- Messages area -->
+                <div id="intake-interview-messages" class="px-5 py-4 space-y-3 max-h-[32rem] overflow-y-auto"></div>
+
+                <!-- Input area -->
+                <div id="intake-interview-input-area" class="px-5 py-3 border-t border-outline-variant/15 bg-surface-container-lowest">
+                  <textarea id="intake-interview-input" rows="3"
+                    placeholder="Escribe tu respuesta aqui..."
+                    class="w-full px-4 py-3 rounded-xl bg-white border border-outline-variant/30 text-on-surface text-sm focus:border-primary focus:ring-2 focus:ring-primary/10 outline-none resize-none leading-relaxed mb-2"></textarea>
+                  <div class="flex justify-end">
+                    <button type="button" id="intake-interview-send"
+                      class="px-5 py-2 rounded-xl bg-primary text-white text-sm font-semibold hover:bg-primary/90 transition-colors disabled:opacity-30 disabled:pointer-events-none shadow-sm inline-flex items-center gap-1.5">
+                      <span class="material-symbols-outlined text-base">send</span> Enviar
+                    </button>
+                  </div>
+                </div>
               </div>
-              <div id="intake-sum-ctx"></div>
             </div>
 
-            <div class="grid grid-cols-2 gap-3">
-              <button type="button" id="intake-btn-save-server" class="border border-outline-variant rounded-xl p-5 text-center cursor-pointer bg-white hover:border-primary hover:bg-primary/5 hover:-translate-y-0.5 transition-all">
-                <span class="material-symbols-outlined text-2xl text-primary mb-2 block">cloud_upload</span>
-                <div class="font-headline text-sm font-bold text-primary mb-1">Guardar en servidor</div>
-                <div class="text-xs text-on-surface-variant leading-snug">Guarda en base de datos</div>
-              </button>
-              <button type="button" id="intake-btn-export-wizard" class="border border-outline-variant rounded-xl p-5 text-center cursor-pointer bg-white hover:border-primary hover:bg-primary/5 hover:-translate-y-0.5 transition-all">
-                <span class="material-symbols-outlined text-2xl text-primary mb-2 block">bolt</span>
-                <div class="font-headline text-sm font-bold text-primary mb-1">Exportar para Wizard</div>
-                <div class="text-xs text-on-surface-variant leading-snug">JSON listo para Calculator</div>
-              </button>
+            <!-- ══ Project Summary textarea (always visible) ═══════ -->
+            <div class="mb-8">
+              <div class="flex items-center justify-between mb-3">
+                <div class="flex items-center gap-2">
+                  <div class="w-7 h-7 rounded-lg bg-primary/10 flex items-center justify-center">
+                    <span class="material-symbols-outlined text-primary text-sm">description</span>
+                  </div>
+                  <h2 class="font-headline text-base font-extrabold text-on-surface tracking-tight">Project Summary</h2>
+                </div>
+                <span class="text-[10px] font-bold uppercase tracking-wider text-on-surface-variant/50">Editable</span>
+              </div>
+              <div class="rounded-2xl border border-outline-variant/20 bg-white shadow-sm">
+                <textarea id="intake-f-desc" rows="6"
+                  placeholder="Escribe aqui tu resumen o deja que el asistente lo genere por ti..."
+                  class="w-full px-5 py-4 text-on-surface font-body text-sm outline-none resize-none leading-relaxed overflow-hidden border-none" style="min-height:120px"></textarea>
+              </div>
             </div>
 
-            <div class="flex justify-between items-center mt-10 pt-5 border-t border-outline-variant">
+            <!-- ══ Post-interview: Celebration + Launch (hidden until summary has content) ══ -->
+            <div id="intake-post-interview" class="hidden">
+              <div class="text-center mb-8 py-8 rounded-2xl bg-gradient-to-b from-primary/[0.04] to-transparent border border-primary/10">
+                <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary to-secondary-fixed mx-auto mb-4 flex items-center justify-center shadow-lg shadow-primary/20">
+                  <span class="material-symbols-outlined text-2xl text-white">celebration</span>
+                </div>
+                <h2 class="font-headline text-2xl font-extrabold tracking-tight text-on-surface mb-1">Ya tenemos las bases para comenzar a escribir el proyecto</h2>
+                <p class="text-on-surface-variant text-sm mb-6 max-w-sm mx-auto">¿Listo para la siguiente fase?</p>
+
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6 max-w-lg mx-auto" id="intake-launch-stats"></div>
+
+                <button type="button" id="intake-btn-launch" class="inline-flex items-center gap-3 px-8 py-4 rounded-2xl bg-gradient-to-r from-primary to-primary/80 text-white font-bold text-base shadow-[0_24px_48px_rgba(27,20,100,0.15)] hover:scale-[1.03] hover:shadow-[0_28px_56px_rgba(27,20,100,0.2)] active:scale-95 transition-all">
+                  <span class="material-symbols-outlined text-xl">rocket_launch</span>
+                  Comenzar a escribir este proyecto
+                </button>
+              </div>
+            </div><!-- /intake-post-interview -->
+
+            <!-- ── Nav ───────────────────────────────────────────── -->
+            <div class="flex justify-start items-center pt-5 border-t border-outline-variant">
               <button type="button" class="intake-btn-prev inline-flex items-center gap-2 px-5 py-3 rounded-md text-on-surface-variant font-semibold text-sm border border-outline-variant hover:bg-surface-container-low transition-colors">
                 <span class="material-symbols-outlined text-base">arrow_back</span> Editar
               </button>
-              <button type="button" id="intake-btn-save-server-2" class="inline-flex items-center gap-2 px-8 py-4 rounded-md bg-secondary-fixed text-primary-container font-bold text-base shadow-[0_24px_48px_rgba(27,20,100,0.1)] hover:scale-[1.02] active:scale-95 transition-transform">
-                <span class="material-symbols-outlined text-lg">cloud_upload</span> Guardar en servidor
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ══ PANEL CALCULATOR ═══════════════════════════════════════ -->
+      <section id="panel-calculator" class="panel">
+        <div id="calc-root" class="max-w-6xl mx-auto py-8 px-4">
+          <!-- Calculator content rendered by calculator.js -->
+        </div>
+      </section>
+
+      <!-- ══ PANEL MY DOCUMENTS ════════════════════════════════════ -->
+      <section id="panel-my-documents" class="panel">
+        <div class="max-w-6xl mx-auto py-8 px-4">
+
+          <!-- Header -->
+          <div class="flex items-center justify-between mb-6">
+            <div>
+              <h1 class="font-headline text-2xl font-extrabold text-primary tracking-tight">My Documents</h1>
+              <p class="text-sm text-on-surface-variant mt-1">Your private document library. Upload and manage files for your projects.</p>
+            </div>
+            <button id="btn-upload-doc" class="flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm font-bold bg-sidebar text-secondary-fixed hover:opacity-90 transition-opacity">
+              <span class="material-symbols-outlined text-[18px]">upload_file</span>
+              Upload document
+            </button>
+          </div>
+
+          <!-- Upload modal (hidden) -->
+          <div id="doc-upload-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/40">
+            <div class="bg-surface rounded-2xl shadow-xl p-6 w-full max-w-md mx-4">
+              <h2 class="text-lg font-bold text-primary mb-4">Upload document</h2>
+              <form id="doc-upload-form" class="space-y-4">
+                <div>
+                  <label class="block text-sm font-medium text-on-surface mb-1">File</label>
+                  <input type="file" id="doc-file-input" accept=".pdf,.docx,.xlsx,.txt,.csv" required
+                    class="block w-full text-sm text-on-surface file:mr-3 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-bold file:bg-sidebar file:text-secondary-fixed hover:file:opacity-90"/>
+                  <p class="text-xs text-on-surface-variant mt-1">PDF, DOCX, XLSX, TXT, CSV — max 20MB</p>
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-on-surface mb-1">Title</label>
+                  <input type="text" id="doc-title-input" placeholder="Document title (optional)"
+                    class="w-full px-3 py-2 rounded-lg border border-outline-variant/40 text-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none"/>
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-on-surface mb-1">Description</label>
+                  <textarea id="doc-desc-input" rows="2" placeholder="Brief description (optional)"
+                    class="w-full px-3 py-2 rounded-lg border border-outline-variant/40 text-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none resize-none"></textarea>
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-on-surface mb-1">Document type</label>
+                  <select id="doc-type-input"
+                    class="w-full px-3 py-2 rounded-lg border border-outline-variant/40 text-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none bg-surface">
+                    <option value="support">Support document</option>
+                    <option value="project">Project proposal</option>
+                    <option value="evaluation">Evaluation</option>
+                    <option value="call">Call / Programme guide</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-on-surface mb-1">Tags</label>
+                  <input type="text" id="doc-tags-input" placeholder="e.g. cv, partner, study (comma separated)"
+                    class="w-full px-3 py-2 rounded-lg border border-outline-variant/40 text-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none"/>
+                </div>
+                <div class="flex justify-end gap-3 pt-2">
+                  <button type="button" id="btn-cancel-upload" class="px-4 py-2 text-sm text-on-surface-variant hover:text-on-surface transition-colors">Cancel</button>
+                  <button type="submit" class="px-4 py-2.5 rounded-lg text-sm font-bold bg-sidebar text-secondary-fixed hover:opacity-90 transition-opacity">Upload</button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <!-- Documents list -->
+          <div id="my-docs-list" class="space-y-3">
+            <div class="text-center py-12 text-on-surface-variant">
+              <span class="material-symbols-outlined text-[48px] opacity-30">folder_open</span>
+              <p class="mt-2 text-sm">No documents yet. Upload your first file.</p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ══ PANEL RESEARCH ════════════════════════════════════════ -->
+      <section id="panel-research" class="panel">
+        <div class="max-w-6xl mx-auto py-8 px-4">
+
+          <!-- Header -->
+          <div class="flex items-center justify-between mb-8">
+            <div>
+              <h1 class="text-2xl font-bold text-on-surface">Research</h1>
+              <p class="text-sm text-on-surface-variant mt-1">Browse the library and find sources for your projects</p>
+            </div>
+            <button id="btn-upload-paper" class="flex items-center gap-2 px-4 py-2 rounded-xl bg-sidebar text-secondary-fixed text-sm font-semibold hover:opacity-90 transition-opacity">
+              <span class="material-symbols-outlined text-[18px]">upload_file</span>
+              Upload Paper
+            </button>
+          </div>
+
+          <!-- Search in library -->
+          <div class="bg-surface-container-low rounded-2xl border border-outline-variant/20 p-5 mb-6">
+            <form id="research-search-form" class="flex gap-3">
+              <div class="flex-1 relative">
+                <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px]">search</span>
+                <input id="research-query" type="text" placeholder="Search the library — e.g. digital inclusion, STEM education..."
+                  class="w-full pl-10 pr-4 py-3 rounded-xl bg-surface-container border border-outline-variant/30 text-on-surface text-sm placeholder:text-on-surface-variant/50 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary">
+              </div>
+              <button type="submit" class="px-6 py-3 rounded-xl bg-sidebar text-secondary-fixed text-sm font-semibold hover:opacity-90 transition-opacity">
+                Search
               </button>
+            </form>
+          </div>
+
+          <!-- Tabs: Library / My Sources / OpenAlex -->
+          <div class="flex gap-1 border-b border-outline-variant/20 mb-6">
+            <button data-tab="library" class="research-tab px-4 py-2.5 text-sm font-bold text-primary border-b-2 border-primary transition-colors">Library</button>
+            <button data-tab="my-sources" class="research-tab px-4 py-2.5 text-sm text-on-surface-variant border-b-2 border-transparent hover:text-primary transition-colors">My Sources</button>
+            <button data-tab="openalex" class="research-tab px-4 py-2.5 text-sm text-on-surface-variant border-b-2 border-transparent hover:text-primary transition-colors">Search OpenAlex</button>
+          </div>
+
+          <!-- Tab: Library (public sources) -->
+          <div id="research-tab-library" class="research-tab-content">
+            <div id="research-library-list" class="space-y-3"></div>
+          </div>
+
+          <!-- Tab: My Sources -->
+          <div id="research-tab-my-sources" class="research-tab-content hidden">
+            <div id="research-my-sources-list" class="space-y-3"></div>
+          </div>
+
+          <!-- Tab: OpenAlex search -->
+          <div id="research-tab-openalex" class="research-tab-content hidden">
+            <div class="bg-surface-container-low/50 rounded-xl p-4 mb-4">
+              <div class="flex flex-wrap gap-3">
+                <select id="research-country" class="px-3 py-2 rounded-lg bg-surface-container border border-outline-variant/30 text-on-surface text-xs">
+                  <option value="">All countries</option>
+                  <option value="ES">Spain</option><option value="IT">Italy</option><option value="FR">France</option>
+                  <option value="DE">Germany</option><option value="PT">Portugal</option><option value="PL">Poland</option>
+                  <option value="GR">Greece</option><option value="NL">Netherlands</option><option value="BE">Belgium</option>
+                  <option value="AT">Austria</option><option value="IE">Ireland</option><option value="SE">Sweden</option>
+                  <option value="FI">Finland</option><option value="RO">Romania</option><option value="BG">Bulgaria</option>
+                  <option value="HR">Croatia</option><option value="CZ">Czechia</option><option value="DK">Denmark</option>
+                  <option value="HU">Hungary</option><option value="LT">Lithuania</option><option value="LV">Latvia</option>
+                  <option value="EE">Estonia</option><option value="SI">Slovenia</option><option value="SK">Slovakia</option>
+                  <option value="CY">Cyprus</option><option value="MT">Malta</option><option value="LU">Luxembourg</option>
+                </select>
+                <input id="research-year-from" type="number" min="2000" max="2026" placeholder="Year from"
+                  class="w-28 px-3 py-2 rounded-lg bg-surface-container border border-outline-variant/30 text-on-surface text-xs placeholder:text-on-surface-variant/50">
+                <input id="research-year-to" type="number" min="2000" max="2026" placeholder="Year to"
+                  class="w-28 px-3 py-2 rounded-lg bg-surface-container border border-outline-variant/30 text-on-surface text-xs placeholder:text-on-surface-variant/50">
+                <label class="flex items-center gap-1.5 text-xs text-on-surface-variant cursor-pointer">
+                  <input id="research-oa-only" type="checkbox" checked class="accent-primary">
+                  Open Access only
+                </label>
+              </div>
+            </div>
+            <div id="research-results-info" class="hidden mb-4 text-sm text-on-surface-variant"></div>
+            <div id="research-results" class="space-y-3"></div>
+            <div id="research-pagination" class="hidden flex items-center justify-center gap-3 mt-6">
+              <button id="research-prev" class="px-4 py-2 rounded-lg bg-surface-container border border-outline-variant/30 text-on-surface text-sm hover:bg-surface-container-high transition-colors disabled:opacity-30">Previous</button>
+              <span id="research-page-info" class="text-sm text-on-surface-variant"></span>
+              <button id="research-next" class="px-4 py-2 rounded-lg bg-surface-container border border-outline-variant/30 text-on-surface text-sm hover:bg-surface-container-high transition-colors disabled:opacity-30">Next</button>
+            </div>
+          </div>
+
+          <!-- Upload paper modal -->
+          <div id="paper-upload-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/40">
+            <div class="bg-surface rounded-2xl shadow-xl p-6 w-full max-w-md mx-4">
+              <h2 class="text-lg font-bold text-primary mb-4">Upload a paper or report</h2>
+              <form id="paper-upload-form" class="space-y-4">
+                <div>
+                  <label class="block text-sm font-medium text-on-surface mb-1">File (PDF)</label>
+                  <input type="file" id="paper-file" accept=".pdf" required
+                    class="block w-full text-sm text-on-surface file:mr-3 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-bold file:bg-primary/10 file:text-primary hover:file:bg-primary/20"/>
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-on-surface mb-1">Title</label>
+                  <input type="text" id="paper-title" placeholder="Paper title" required
+                    class="w-full px-3 py-2 rounded-lg border border-outline-variant/40 text-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none"/>
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-on-surface mb-1">Authors</label>
+                  <input type="text" id="paper-authors" placeholder="Author 1, Author 2..."
+                    class="w-full px-3 py-2 rounded-lg border border-outline-variant/40 text-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none"/>
+                </div>
+                <div class="flex gap-3">
+                  <div class="flex-1">
+                    <label class="block text-sm font-medium text-on-surface mb-1">Year</label>
+                    <input type="number" id="paper-year" min="1990" max="2026" placeholder="2024"
+                      class="w-full px-3 py-2 rounded-lg border border-outline-variant/40 text-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none"/>
+                  </div>
+                  <div class="flex-1">
+                    <label class="block text-sm font-medium text-on-surface mb-1">Visibility</label>
+                    <select id="paper-visibility" class="w-full px-3 py-2 rounded-lg border border-outline-variant/40 text-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none">
+                      <option value="public">Public (share with all users)</option>
+                      <option value="private">Private (only me)</option>
+                    </select>
+                  </div>
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-on-surface mb-1">Topics / Tags</label>
+                  <input type="text" id="paper-topics" placeholder="e.g. STEM, inclusion, digital education"
+                    class="w-full px-3 py-2 rounded-lg border border-outline-variant/40 text-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none"/>
+                </div>
+                <div class="flex justify-end gap-3 pt-2">
+                  <button type="button" id="btn-cancel-paper-upload" class="px-4 py-2 text-sm text-on-surface-variant hover:text-on-surface transition-colors">Cancel</button>
+                  <button type="submit" class="px-4 py-2.5 rounded-lg text-sm font-bold bg-sidebar text-secondary-fixed hover:opacity-90 transition-opacity">Upload</button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ══ PANEL DEVELOPER (Write) ═══════════════════════════════ -->
+      <section id="panel-developer" class="panel">
+        <div class="max-w-6xl mx-auto py-8 px-4" id="developer-content">
+          <p class="text-sm text-on-surface-variant text-center py-8">Cargando...</p>
+        </div>
+      </section>
+
+      <!-- ══ PANEL BUDGET ═══════════════════════════════════════ -->
+      <section id="panel-budget" class="panel">
+        <div class="max-w-7xl mx-auto py-8 px-4">
+
+          <!-- Vista 1: Lista de presupuestos -->
+          <div id="budget-list-view" class="budget-view">
+            <div class="flex items-center justify-between mb-6">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-amber-500/10 flex items-center justify-center">
+                  <span class="material-symbols-outlined text-amber-600 text-xl">account_balance_wallet</span>
+                </div>
+                <div>
+                  <h2 class="font-headline text-xl font-extrabold text-primary tracking-tight">Presupuesto</h2>
+                  <p class="text-xs text-on-surface-variant">Detailed Budget — Lump Sum II (EACEA)</p>
+                </div>
+              </div>
+              <button id="budget-new-btn" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold text-white bg-primary hover:bg-primary/90 shadow-md transition-all">
+                <span class="material-symbols-outlined text-sm">add</span> Nuevo presupuesto
+              </button>
+            </div>
+            <div id="budget-list" class="grid gap-3"></div>
+          </div>
+
+          <!-- Vista 2: Editor de presupuesto -->
+          <div id="budget-editor-view" class="budget-view hidden">
+            <!-- Header -->
+            <div class="flex items-center justify-between mb-4 flex-wrap gap-3">
+              <div class="flex items-center gap-3">
+                <button id="budget-back-btn" class="text-xs text-primary hover:text-primary/70 font-semibold flex items-center gap-1 transition-colors">
+                  <span class="material-symbols-outlined text-sm">arrow_back</span> Mis presupuestos
+                </button>
+                <h2 id="budget-title" class="font-headline text-lg font-extrabold text-primary truncate max-w-md"></h2>
+              </div>
+            </div>
+
+            <!-- Config bar: max grant, cofin, indirect -->
+            <div id="budget-config" class="flex items-center gap-4 mb-4 p-4 rounded-2xl bg-amber-50/50 border border-amber-200/50 flex-wrap">
+            </div>
+
+            <!-- Tabs: Setup | Beneficiario 1 | Beneficiario 2 ... | Resumen -->
+            <div id="budget-tabs" class="flex items-center gap-1 mb-4 overflow-x-auto pb-1 border-b border-outline-variant/20">
+            </div>
+
+            <!-- Tab content -->
+            <div id="budget-tab-content" class="min-h-[60vh]">
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ══ PANEL EVALUATOR ═════════════════════════════════════ -->
+      <section id="panel-evaluator" class="panel">
+        <div class="max-w-7xl mx-auto py-8 px-4">
+
+          <!-- Vista 1: Selección de convocatoria -->
+          <div id="eval-user-programs" class="eval-user-view">
+            <div class="mb-6">
+              <div class="flex items-center gap-3 mb-2">
+                <div class="w-10 h-10 rounded-xl bg-primary flex items-center justify-center">
+                  <span class="material-symbols-outlined text-secondary-fixed text-xl">fact_check</span>
+                </div>
+                <div>
+                  <h2 class="font-headline text-xl font-extrabold text-primary tracking-tight">Evaluator</h2>
+                  <p class="text-xs text-on-surface-variant">Sube un proyecto y rellena automáticamente el formulario oficial.</p>
+                </div>
+              </div>
+            </div>
+            <div id="eval-user-program-list" class="grid gap-3"></div>
+          </div>
+
+          <!-- Vista 2: Editor de formulario -->
+          <div id="eval-user-editor" class="eval-user-view hidden">
+            <!-- Header con back + título + upload -->
+            <div class="flex items-center justify-between mb-4 flex-wrap gap-3">
+              <div class="flex items-center gap-3">
+                <button id="eval-user-back" class="text-xs text-primary hover:text-primary/70 font-semibold flex items-center gap-1 transition-colors">
+                  <span class="material-symbols-outlined text-sm">arrow_back</span> Todas las convocatorias
+                </button>
+                <h2 id="eval-user-title" class="font-headline text-lg font-extrabold text-primary truncate max-w-md"></h2>
+              </div>
+              <div class="flex items-center gap-3">
+                <div id="eval-parse-status" class="hidden items-center gap-2 text-xs text-on-surface-variant">
+                  <svg class="animate-spin h-4 w-4 text-primary" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" fill="none"/><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"/></svg>
+                  <span id="eval-parse-text">Analizando...</span>
+                </div>
+                <label id="eval-upload-label" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold text-[#e7eb00] bg-[#1b1464] hover:bg-[#1b1464]/80 cursor-pointer transition-colors shadow-md">
+                  <span class="material-symbols-outlined text-sm">upload_file</span> Subir Proyecto
+                  <input type="file" id="eval-upload-input" accept=".pdf,.docx" class="hidden">
+                </label>
+              </div>
+            </div>
+
+            <!-- Upload drop zone (visible cuando no hay doc) -->
+            <div id="eval-dropzone" class="mb-4 border-2 border-dashed border-primary/30 rounded-2xl p-8 text-center bg-primary/5 hover:bg-primary/10 transition-colors cursor-pointer">
+              <span class="material-symbols-outlined text-4xl text-primary/40 mb-2">cloud_upload</span>
+              <p class="text-sm font-bold text-primary/70">Arrastra tu propuesta aquí o haz clic para seleccionar</p>
+              <p class="text-xs text-on-surface-variant mt-1">PDF o DOCX — máx. 50 MB</p>
+            </div>
+
+            <!-- Progress bar (visible durante parsing) -->
+            <div id="eval-progress-bar" class="hidden mb-4">
+              <div class="flex items-center justify-between text-xs text-on-surface-variant mb-1">
+                <span id="eval-progress-label">Procesando sección 0 de 0...</span>
+                <span id="eval-progress-pct">0%</span>
+              </div>
+              <div class="w-full h-2 bg-outline-variant/20 rounded-full overflow-hidden">
+                <div id="eval-progress-fill" class="h-full bg-primary rounded-full transition-all duration-500" style="width:0%"></div>
+              </div>
+            </div>
+
+            <!-- Layout: sidebar + main -->
+            <div class="flex gap-0" style="min-height:70vh">
+              <!-- Sidebar secciones -->
+              <div id="eval-user-sidebar" class="w-64 flex-shrink-0 bg-[#edf2f9] rounded-l-2xl flex flex-col overflow-hidden border-r border-outline-variant/20">
+                <div class="px-4 py-3 border-b border-outline-variant/20">
+                  <div class="text-[11px] font-bold text-on-surface-variant uppercase tracking-wider">Secciones del formulario</div>
+                </div>
+                <div id="eval-user-sidebar-nav" class="flex-1 overflow-y-auto px-2 py-2"></div>
+              </div>
+              <!-- Main content -->
+              <div id="eval-user-main" class="flex-1 min-w-0 bg-white rounded-r-2xl border border-l-0 border-outline-variant/20">
+                <div id="eval-user-main-content" class="p-6">
+                  <div class="flex flex-col items-center justify-center py-16 text-center">
+                    <span class="material-symbols-outlined text-5xl text-outline-variant/40 mb-3">upload_file</span>
+                    <p class="text-sm text-on-surface-variant">Sube un documento para auto-rellenar o selecciona una sección para escribir manualmente.</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -589,50 +1373,74 @@ tailwind.config = {
           </div>
 
           <!-- Section tabs -->
-          <div id="admin-section-nav" class="flex gap-1 border-b border-outline-variant/40 mb-6">
-            <button data-section="programs"  class="px-4 py-2.5 text-sm border-b-2 border-secondary-fixed text-primary font-bold transition-colors">Convocatorias</button>
-            <button data-section="countries" class="px-4 py-2.5 text-sm border-b-2 border-transparent text-on-surface-variant transition-colors hover:text-primary">Países</button>
-            <button data-section="perdiem"   class="px-4 py-2.5 text-sm border-b-2 border-transparent text-on-surface-variant transition-colors hover:text-primary">Per Diem</button>
-            <button data-section="workers"      class="px-4 py-2.5 text-sm border-b-2 border-transparent text-on-surface-variant transition-colors hover:text-primary">Personal</button>
-            <button data-section="eligibility" class="px-4 py-2.5 text-sm border-b-2 border-transparent text-on-surface-variant transition-colors hover:text-primary">Elegibilidad</button>
+          <div id="admin-section-nav" class="flex gap-1 border-b border-outline-variant/40 mb-6 overflow-x-auto">
+            <button data-section="convocatorias" class="px-4 py-2.5 text-sm border-b-2 border-secondary-fixed text-primary font-bold transition-colors whitespace-nowrap">Convocatorias</button>
+            <button data-section="countries" class="px-4 py-2.5 text-sm border-b-2 border-transparent text-on-surface-variant transition-colors hover:text-primary whitespace-nowrap">Países</button>
+            <button data-section="perdiem"   class="px-4 py-2.5 text-sm border-b-2 border-transparent text-on-surface-variant transition-colors hover:text-primary whitespace-nowrap">Per Diem</button>
+            <button data-section="workers"      class="px-4 py-2.5 text-sm border-b-2 border-transparent text-on-surface-variant transition-colors hover:text-primary whitespace-nowrap">Personal</button>
+            <button data-section="entities"    class="px-4 py-2.5 text-sm border-b-2 border-transparent text-on-surface-variant transition-colors hover:text-primary whitespace-nowrap">Entidades</button>
+            <button data-section="all-docs" class="px-4 py-2.5 text-sm border-b-2 border-transparent text-on-surface-variant transition-colors hover:text-primary whitespace-nowrap">Todos los docs</button>
+            <button data-section="platform-docs" class="px-4 py-2.5 text-sm border-b-2 border-transparent text-on-surface-variant transition-colors hover:text-primary whitespace-nowrap">Docs oficiales</button>
+            <button data-section="library" class="px-4 py-2.5 text-sm border-b-2 border-transparent text-on-surface-variant transition-colors hover:text-primary whitespace-nowrap">Biblioteca</button>
           </div>
 
           <!-- ── Convocatorias ─────────────────────────────────── -->
-          <div id="admin-sec-programs" class="admin-section">
-            <div class="bg-white rounded-xl border border-outline-variant/30 overflow-hidden">
-              <div class="px-5 py-4 border-b border-outline-variant/20 flex items-center justify-between">
-                <h2 class="font-semibold text-primary">Convocatorias Erasmus+</h2>
-                <span class="text-xs text-on-surface-variant">intake_programs</span>
+          <!-- ── Convocatorias (unified) ─────────────────────── -->
+          <div id="admin-sec-convocatorias" class="admin-section">
+            <!-- List view -->
+            <div id="conv-view-list" class="conv-view">
+              <div class="flex items-center gap-3 mb-6">
+                <div class="w-10 h-10 rounded-xl bg-primary flex items-center justify-center">
+                  <span class="material-symbols-outlined text-secondary-fixed text-xl">campaign</span>
+                </div>
+                <div class="flex-1">
+                  <h2 class="font-headline text-xl font-extrabold text-primary tracking-tight">Convocatorias</h2>
+                  <p class="text-xs text-on-surface-variant">Gestiona calls, criterios de evaluación, formularios y documentos</p>
+                </div>
               </div>
-              <div class="overflow-x-auto admin-table-wrap">
-                <table class="w-full text-sm">
-                  <thead class="bg-surface-container-low text-xs text-on-surface-variant uppercase tracking-wide">
-                    <tr>
-                      <th class="px-4 py-3 text-left">ID</th>
-                      <th class="px-4 py-3 text-left">Nombre</th>
-                      <th class="px-4 py-3 text-left">Tipo acción</th>
-                      <th class="px-4 py-3 text-left">Deadline</th>
-                      <th class="px-4 py-3 text-left">Grant máx.</th>
-                      <th class="px-4 py-3 text-left">Estado</th>
-                      <th class="px-4 py-3 text-right">Acciones</th>
-                    </tr>
-                  </thead>
-                  <tbody id="admin-programs-tbody"></tbody>
-                </table>
+              <div id="conv-program-list" class="grid gap-2"></div>
+            </div>
+            <!-- Editor view (5 sub-tabs) -->
+            <div id="conv-view-editor" class="conv-view hidden">
+              <div class="flex items-center gap-3 mb-4">
+                <button id="conv-back-btn" class="w-8 h-8 rounded-lg bg-surface-container-low flex items-center justify-center hover:bg-primary/10 transition-colors">
+                  <span class="material-symbols-outlined text-lg">arrow_back</span>
+                </button>
+                <div class="flex-1 min-w-0">
+                  <div id="conv-editor-title" class="font-headline text-lg font-extrabold text-primary tracking-tight truncate"></div>
+                  <div id="conv-editor-subtitle" class="text-xs text-on-surface-variant"></div>
+                </div>
+                <span id="conv-editor-badge"></span>
               </div>
+              <!-- Sub-tabs -->
+              <div id="conv-subtabs" class="flex gap-1 border-b border-outline-variant/30 mb-5">
+                <button data-subtab="data" class="conv-subtab px-4 py-2.5 text-xs font-bold border-b-2 border-secondary-fixed text-primary transition-colors">Data</button>
+                <button data-subtab="eligibility" class="conv-subtab px-4 py-2.5 text-xs font-bold border-b-2 border-transparent text-on-surface-variant transition-colors hover:text-primary">Eligibility</button>
+                <button data-subtab="intake" class="conv-subtab px-4 py-2.5 text-xs font-bold border-b-2 border-transparent text-on-surface-variant transition-colors hover:text-primary">Intake</button>
+                <button data-subtab="form" class="conv-subtab px-4 py-2.5 text-xs font-bold border-b-2 border-transparent text-on-surface-variant transition-colors hover:text-primary">Form</button>
+                <button data-subtab="budget" class="conv-subtab px-4 py-2.5 text-xs font-bold border-b-2 border-transparent text-on-surface-variant transition-colors hover:text-primary">Budget</button>
+                <button data-subtab="criteria" class="conv-subtab px-4 py-2.5 text-xs font-bold border-b-2 border-transparent text-on-surface-variant transition-colors hover:text-primary">Criteria</button>
+                <button data-subtab="docs" class="conv-subtab px-4 py-2.5 text-xs font-bold border-b-2 border-transparent text-on-surface-variant transition-colors hover:text-primary">Docs</button>
+              </div>
+              <!-- Sub-tab content area -->
+              <div id="conv-subtab-content"></div>
             </div>
           </div>
 
-          <!-- ── Países ─────────────────────────────────────────── -->
+          <!-- ── Países ───────────���─────────────────────────────���─ -->
           <div id="admin-sec-countries" class="admin-section hidden">
             <div class="bg-white rounded-xl border border-outline-variant/30 overflow-hidden">
               <div class="px-5 py-4 border-b border-outline-variant/20 flex items-center justify-between flex-wrap gap-3">
-                <h2 class="font-semibold text-primary">Países elegibles</h2>
+                <h2 class="font-semibold text-primary">Países y regiones</h2>
                 <div class="flex gap-2">
-                  <select id="countries-filter-eu" class="text-xs border border-outline rounded px-2 py-1 bg-surface focus:outline-none focus:ring-1 focus:ring-primary">
-                    <option value="">Todos</option>
-                    <option value="1">Solo UE</option>
-                    <option value="0">No UE</option>
+                  <select id="countries-filter-type" class="text-xs border border-outline rounded px-2 py-1 bg-surface focus:outline-none focus:ring-1 focus:ring-primary">
+                    <option value="">Todos los tipos</option>
+                    <option value="eu_member">Miembros UE</option>
+                    <option value="associated">Asociados</option>
+                    <option value="third_partial">Terceros</option>
+                  </select>
+                  <select id="countries-filter-region" class="text-xs border border-outline rounded px-2 py-1 bg-surface focus:outline-none focus:ring-1 focus:ring-primary">
+                    <option value="">Todas las regiones</option>
                   </select>
                   <select id="countries-filter-zone" class="text-xs border border-outline rounded px-2 py-1 bg-surface focus:outline-none focus:ring-1 focus:ring-primary">
                     <option value="">Todas las zonas</option>
@@ -648,13 +1456,11 @@ tailwind.config = {
                   <thead class="bg-surface-container-low text-xs text-on-surface-variant uppercase tracking-wide">
                     <tr>
                       <th class="px-4 py-3 text-left">ISO</th>
-                      <th class="px-4 py-3 text-left">País (ES)</th>
-                      <th class="px-4 py-3 text-left">País (EN)</th>
-                      <th class="px-4 py-3 text-center">UE</th>
-                      <th class="px-4 py-3 text-center">Erasmus+</th>
+                      <th class="px-4 py-3 text-left">País</th>
+                      <th class="px-4 py-3 text-left">Tipo</th>
+                      <th class="px-4 py-3 text-left">Región</th>
                       <th class="px-4 py-3 text-center">Zona</th>
-                      <th class="px-4 py-3 text-left">Estado</th>
-                      <th class="px-4 py-3 text-right">Acciones</th>
+                      <th class="px-4 py-3 text-center">Elegible</th>
                     </tr>
                   </thead>
                   <tbody id="admin-countries-tbody"></tbody>
@@ -665,82 +1471,61 @@ tailwind.config = {
 
           <!-- ── Per Diem ────────────────────────────────────────── -->
           <div id="admin-sec-perdiem" class="admin-section hidden">
-            <div class="bg-white rounded-xl border border-outline-variant/30 overflow-hidden">
-              <div class="px-5 py-4 border-b border-outline-variant/20 flex items-center justify-between">
-                <h2 class="font-semibold text-primary">Tarifas Per Diem por zona</h2>
-                <span class="text-xs text-on-surface-variant">ref_perdiem_rates</span>
+            <div class="flex items-center justify-between mb-4">
+              <div>
+                <h2 class="text-lg font-bold text-primary">Per Diem por zona</h2>
+                <p class="text-xs text-on-surface-variant mt-0.5">Alojamiento (60%) + Manutención (40%) = Total/día</p>
               </div>
-              <div class="overflow-x-auto admin-table-wrap">
-                <table class="w-full text-sm">
-                  <thead class="bg-surface-container-low text-xs text-on-surface-variant uppercase tracking-wide">
-                    <tr>
-                      <th class="px-4 py-3 text-center">Zona</th>
-                      <th class="px-4 py-3 text-left">Tarifa/día</th>
-                      <th class="px-4 py-3 text-left">Vigente desde</th>
-                      <th class="px-4 py-3 text-left">Hasta</th>
-                      <th class="px-4 py-3 text-left">Notas</th>
-                      <th class="px-4 py-3 text-right">Acciones</th>
-                    </tr>
-                  </thead>
-                  <tbody id="admin-perdiem-tbody"></tbody>
-                </table>
+            </div>
+            <div id="admin-perdiem-cards" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"></div>
+          </div>
+
+          <!-- ── Elegibilidad por convocatoria ─────────────────────── -->
+          <div id="admin-sec-eligibility" class="admin-section hidden">
+            <div id="elig-view-programs" class="elig-view">
+              <div class="flex items-center justify-between mb-4">
+                <div>
+                  <h2 class="text-lg font-bold text-primary">Eligibility criteria</h2>
+                  <p class="text-xs text-on-surface-variant mt-0.5">Select a call to define who can participate</p>
+                </div>
               </div>
+              <div id="elig-program-list" class="space-y-3"></div>
+            </div>
+            <div id="elig-view-editor" class="elig-view hidden">
+              <div class="flex items-center gap-3 mb-5">
+                <button id="elig-back-btn" class="w-8 h-8 rounded-lg bg-surface-container-low flex items-center justify-center hover:bg-primary/10 transition-colors">
+                  <span class="material-symbols-outlined text-lg">arrow_back</span>
+                </button>
+                <h2 class="text-lg font-bold text-primary" id="elig-program-title"></h2>
+              </div>
+              <div id="elig-form-wrap" class="space-y-5"></div>
             </div>
           </div>
 
-          <!-- ── Elegibilidad Erasmus+ ─────────────────────────────── -->
-          <div id="admin-sec-eligibility" class="admin-section hidden">
-            <div class="bg-white rounded-xl border border-outline-variant/30 overflow-hidden">
-              <div class="px-5 py-4 border-b border-outline-variant/20 flex items-center justify-between flex-wrap gap-3">
-                <h2 class="font-semibold text-primary">Países elegibles Erasmus+</h2>
-                <div class="flex gap-2">
-                  <select id="eligibility-filter-type" class="text-xs border border-outline rounded px-2 py-1 bg-surface focus:outline-none focus:ring-1 focus:ring-primary">
-                    <option value="">Todos los tipos</option>
-                    <option value="eu_member">Miembros UE</option>
-                    <option value="associated">Países asociados</option>
-                    <option value="third_partial">Terceros países</option>
-                  </select>
-                  <select id="eligibility-filter-region" class="text-xs border border-outline rounded px-2 py-1 bg-surface focus:outline-none focus:ring-1 focus:ring-primary">
-                    <option value="">Todas las regiones</option>
-                  </select>
-                </div>
-              </div>
-              <div class="overflow-x-auto admin-table-wrap">
-                <table class="w-full text-sm">
-                  <thead class="bg-surface-container-low text-xs text-on-surface-variant uppercase tracking-wide">
-                    <tr>
-                      <th class="px-4 py-3 text-left">ISO</th>
-                      <th class="px-4 py-3 text-left">País</th>
-                      <th class="px-4 py-3 text-left">Tipo</th>
-                      <th class="px-4 py-3 text-left">Región</th>
-                      <th class="px-4 py-3 text-center">Zona per diem</th>
-                      <th class="px-4 py-3 text-center">Elegible</th>
-                    </tr>
-                  </thead>
-                  <tbody id="admin-eligibility-tbody"></tbody>
-                </table>
-              </div>
-            </div>
-          </div>
+          <!-- ── Calls ──────────────────────────────────────────── -->
+          <!-- forms section removed: merged into convocatorias -->
 
           <!-- ── Personal ────────────────────────────────────────── -->
           <div id="admin-sec-workers" class="admin-section hidden">
             <div class="bg-white rounded-xl border border-outline-variant/30 overflow-hidden">
               <div class="px-5 py-4 border-b border-outline-variant/20 flex items-center justify-between">
-                <h2 class="font-semibold text-primary">Categorías de personal</h2>
-                <span class="text-xs text-on-surface-variant">ref_worker_categories</span>
+                <h2 class="font-semibold text-primary">Staff categories</h2>
+                <button id="worker-add-btn" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold text-[#e7eb00] bg-[#1b1464] hover:bg-[#1b1464]/80 transition-colors">
+                  <span class="material-symbols-outlined text-sm">add</span> Add category
+                </button>
               </div>
               <div class="overflow-x-auto admin-table-wrap">
                 <table class="w-full text-sm">
                   <thead class="bg-surface-container-low text-xs text-on-surface-variant uppercase tracking-wide">
                     <tr>
-                      <th class="px-4 py-3 text-left">Código</th>
-                      <th class="px-4 py-3 text-left">Categoría</th>
-                      <th class="px-4 py-3 text-center">Zona A</th>
-                      <th class="px-4 py-3 text-center">Zona B</th>
-                      <th class="px-4 py-3 text-center">Zona C</th>
-                      <th class="px-4 py-3 text-center">Zona D</th>
-                      <th class="px-4 py-3 text-left">Estado</th>
+                      <th class="px-4 py-3 text-left">Code</th>
+                      <th class="px-4 py-3 text-left">Category</th>
+                      <th class="px-4 py-3 text-center">Zone A<br><span class="font-normal normal-case tracking-normal text-[9px] text-on-surface-variant/50">day / PM</span></th>
+                      <th class="px-4 py-3 text-center">Zone B<br><span class="font-normal normal-case tracking-normal text-[9px] text-on-surface-variant/50">day / PM</span></th>
+                      <th class="px-4 py-3 text-center">Zone C<br><span class="font-normal normal-case tracking-normal text-[9px] text-on-surface-variant/50">day / PM</span></th>
+                      <th class="px-4 py-3 text-center">Zone D<br><span class="font-normal normal-case tracking-normal text-[9px] text-on-surface-variant/50">day / PM</span></th>
+                      <th class="px-4 py-3 text-left">Status</th>
+                      <th class="px-4 py-3 text-right">Actions</th>
                     </tr>
                   </thead>
                   <tbody id="admin-workers-tbody"></tbody>
@@ -749,6 +1534,595 @@ tailwind.config = {
             </div>
           </div>
 
+          <!-- ── Entidades ──────────────────────────────────────── -->
+          <div id="admin-sec-entities" class="admin-section hidden">
+            <div class="bg-white rounded-xl border border-outline-variant/30 overflow-hidden">
+              <div class="px-5 py-4 border-b border-outline-variant/20 flex items-center justify-between">
+                <h2 class="font-semibold text-primary">Directorio de entidades</h2>
+                <span class="text-xs text-on-surface-variant">ref_entities</span>
+              </div>
+              <div class="overflow-x-auto">
+                <table class="w-full text-sm">
+                  <thead class="bg-surface-container-low text-xs text-on-surface-variant uppercase tracking-wide">
+                    <tr>
+                      <th class="px-4 py-3 text-left">Nombre</th>
+                      <th class="px-4 py-3 text-left">Ciudad</th>
+                      <th class="px-4 py-3 text-left">Pa&iacute;s</th>
+                      <th class="px-4 py-3 text-left">Tipo</th>
+                      <th class="px-4 py-3 text-left">PIC</th>
+                      <th class="px-4 py-3 text-left">Estado</th>
+                      <th class="px-4 py-3 text-right">Acciones</th>
+                    </tr>
+                  </thead>
+                  <tbody id="admin-entities-tbody"></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- ── Evaluador ──────────────────────────────────────── -->
+          <!-- evaluator section removed: merged into convocatorias -->
+
+          <!-- ── Docs oficiales ─────────────────────────────── -->
+          <div id="admin-sec-all-docs" class="admin-section hidden">
+            <div class="bg-white rounded-xl border border-outline-variant/30 overflow-hidden">
+              <div class="px-5 py-4 border-b border-outline-variant/20 flex items-center justify-between">
+                <h2 class="font-semibold text-primary">Todos los documentos</h2>
+                <div class="flex items-center gap-3">
+                  <input type="text" id="admin-docs-search" placeholder="Buscar por nombre, propietario, tag..."
+                    class="px-3 py-1.5 rounded-lg border border-outline-variant/40 text-xs focus:border-primary focus:ring-1 focus:ring-primary outline-none w-64"/>
+                  <select id="admin-docs-filter-type"
+                    class="px-3 py-1.5 rounded-lg border border-outline-variant/40 text-xs focus:border-primary outline-none bg-surface">
+                    <option value="">Todos los tipos</option>
+                    <option value="support">Support</option>
+                    <option value="project">Project</option>
+                    <option value="evaluation">Evaluation</option>
+                    <option value="call">Call</option>
+                  </select>
+                </div>
+              </div>
+              <div class="overflow-x-auto">
+                <table class="w-full text-xs">
+                  <thead>
+                    <tr class="bg-surface-container-low text-on-surface-variant text-left">
+                      <th class="px-4 py-3 font-semibold">Nombre</th>
+                      <th class="px-4 py-3 font-semibold">Tipo</th>
+                      <th class="px-4 py-3 font-semibold">Propietario</th>
+                      <th class="px-4 py-3 font-semibold">Tags</th>
+                      <th class="px-4 py-3 font-semibold">Vectorizado</th>
+                      <th class="px-4 py-3 font-semibold">Proyectos</th>
+                      <th class="px-4 py-3 font-semibold">Tamaño</th>
+                      <th class="px-4 py-3 font-semibold">Fecha</th>
+                      <th class="px-4 py-3 font-semibold">Acciones</th>
+                    </tr>
+                  </thead>
+                  <tbody id="admin-all-docs-tbody">
+                    <tr><td colspan="9" class="text-center py-8 text-on-surface-variant">Cargando...</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div id="admin-sec-platform-docs" class="admin-section hidden">
+            <div class="bg-white rounded-xl border border-outline-variant/30 overflow-hidden">
+              <div class="px-5 py-4 border-b border-outline-variant/20 flex items-center justify-between">
+                <h2 class="font-semibold text-primary">Documentos oficiales de plataforma</h2>
+                <button id="btn-admin-upload-doc" class="flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-bold bg-sidebar text-secondary-fixed hover:opacity-90 transition-opacity">
+                  <span class="material-symbols-outlined text-[16px]">upload_file</span>
+                  Subir documento
+                </button>
+              </div>
+              <div id="admin-docs-list" class="p-4">
+                <div class="text-center py-8 text-on-surface-variant">
+                  <span class="material-symbols-outlined text-[36px] opacity-30">description</span>
+                  <p class="mt-2 text-sm">No hay documentos oficiales aún.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Upload modal for admin docs -->
+            <div id="admin-doc-upload-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/40">
+              <div class="bg-surface rounded-2xl shadow-xl p-6 w-full max-w-md mx-4">
+                <h2 class="text-lg font-bold text-primary mb-4">Subir documento oficial</h2>
+                <form id="admin-doc-upload-form" class="space-y-4">
+                  <div>
+                    <label class="block text-sm font-medium text-on-surface mb-1">Archivo</label>
+                    <input type="file" id="admin-doc-file" accept=".pdf,.docx,.xlsx,.txt,.csv" required
+                      class="block w-full text-sm text-on-surface file:mr-3 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-bold file:bg-sidebar file:text-secondary-fixed hover:file:opacity-90"/>
+                    <p class="text-xs text-on-surface-variant mt-1">PDF, DOCX, XLSX, TXT, CSV — max 20MB</p>
+                  </div>
+                  <div>
+                    <label class="block text-sm font-medium text-on-surface mb-1">Título</label>
+                    <input type="text" id="admin-doc-title" placeholder="Título del documento"
+                      class="w-full px-3 py-2 rounded-lg border border-outline-variant/40 text-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none"/>
+                  </div>
+                  <div>
+                    <label class="block text-sm font-medium text-on-surface mb-1">Descripción</label>
+                    <textarea id="admin-doc-desc" rows="2" placeholder="Descripción breve"
+                      class="w-full px-3 py-2 rounded-lg border border-outline-variant/40 text-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none resize-none"></textarea>
+                  </div>
+                  <div>
+                    <label class="block text-sm font-medium text-on-surface mb-1">Tags</label>
+                    <input type="text" id="admin-doc-tags" placeholder="ej: guía, KA2, erasmus (separados por coma)"
+                      class="w-full px-3 py-2 rounded-lg border border-outline-variant/40 text-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none"/>
+                  </div>
+                  <div class="flex justify-end gap-3 pt-2">
+                    <button type="button" id="btn-cancel-admin-upload" class="px-4 py-2 text-sm text-on-surface-variant hover:text-on-surface transition-colors">Cancelar</button>
+                    <button type="submit" class="px-4 py-2.5 rounded-lg text-sm font-bold bg-sidebar text-secondary-fixed hover:opacity-90 transition-opacity">Subir</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+
+          <!-- ── Biblioteca (Research Library) ─────────────────── -->
+          <div id="admin-sec-library" class="admin-section hidden">
+            <div class="bg-white rounded-xl border border-outline-variant/30 overflow-hidden">
+              <div class="px-5 py-4 border-b border-outline-variant/20">
+                <div class="flex items-center justify-between mb-3">
+                  <h2 class="font-semibold text-primary">Biblioteca de investigación</h2>
+                  <div class="flex items-center gap-2">
+                    <span id="library-stats" class="text-xs text-on-surface-variant"></span>
+                    <button id="btn-process-all-sources" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold bg-green-600 text-white hover:bg-green-700 transition-colors">
+                      <span class="material-symbols-outlined text-[14px]">downloading</span>
+                      Vectorize All OA
+                    </button>
+                  </div>
+                </div>
+                <!-- Search within library -->
+                <form id="library-search-form" class="flex gap-3">
+                  <div class="flex-1 relative">
+                    <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[18px]">search</span>
+                    <input id="library-search-query" type="text" placeholder="Search OpenAlex — e.g. digital inclusion education Europe"
+                      class="w-full pl-9 pr-4 py-2.5 rounded-lg bg-surface-container border border-outline-variant/30 text-on-surface text-sm placeholder:text-on-surface-variant/50 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary">
+                  </div>
+                  <select id="library-search-country" class="px-3 py-2 rounded-lg bg-surface-container border border-outline-variant/30 text-on-surface text-xs">
+                    <option value="">All countries</option>
+                    <option value="ES">Spain</option><option value="IT">Italy</option><option value="FR">France</option>
+                    <option value="DE">Germany</option><option value="PT">Portugal</option><option value="PL">Poland</option>
+                    <option value="GR">Greece</option><option value="NL">Netherlands</option><option value="BE">Belgium</option>
+                    <option value="AT">Austria</option><option value="IE">Ireland</option><option value="SE">Sweden</option>
+                    <option value="FI">Finland</option><option value="RO">Romania</option><option value="BG">Bulgaria</option>
+                    <option value="HR">Croatia</option><option value="CZ">Czechia</option><option value="DK">Denmark</option>
+                    <option value="HU">Hungary</option><option value="LT">Lithuania</option><option value="LV">Latvia</option>
+                    <option value="EE">Estonia</option><option value="SI">Slovenia</option><option value="SK">Slovakia</option>
+                    <option value="CY">Cyprus</option><option value="MT">Malta</option><option value="LU">Luxembourg</option>
+                  </select>
+                  <label class="flex items-center gap-1.5 text-xs text-on-surface-variant cursor-pointer whitespace-nowrap">
+                    <input id="library-search-oa" type="checkbox" checked class="accent-primary">
+                    Open Access
+                  </label>
+                  <button type="submit" class="px-5 py-2.5 rounded-lg bg-sidebar text-secondary-fixed text-sm font-semibold hover:opacity-90 transition-opacity">
+                    Search
+                  </button>
+                </form>
+              </div>
+
+              <!-- Search results / Library content -->
+              <div id="library-content" class="p-4">
+                <!-- Tabs: Search Results | In Library -->
+                <div class="flex gap-4 mb-4 border-b border-outline-variant/20 pb-2">
+                  <button id="library-tab-search" class="text-sm font-bold text-primary border-b-2 border-primary pb-1">Search Results</button>
+                  <button id="library-tab-saved" class="text-sm text-on-surface-variant hover:text-primary pb-1">In Library (<span id="library-count">0</span>)</button>
+                </div>
+                <div id="library-search-results" class="space-y-2"></div>
+                <div id="library-saved-list" class="space-y-2 hidden"></div>
+                <!-- Pagination -->
+                <div id="library-pagination" class="hidden flex items-center justify-center gap-3 mt-4">
+                  <button id="library-prev" class="px-3 py-1.5 rounded-lg bg-surface-container border border-outline-variant/30 text-on-surface text-xs hover:bg-surface-container-high transition-colors disabled:opacity-30">Prev</button>
+                  <span id="library-page-info" class="text-xs text-on-surface-variant"></span>
+                  <button id="library-next" class="px-3 py-1.5 rounded-lg bg-surface-container border border-outline-variant/30 text-on-surface text-xs hover:bg-surface-container-high transition-colors disabled:opacity-30">Next</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <section id="panel-my-org" class="panel">
+        <div class="max-w-6xl mx-auto py-8 px-4">
+          <div class="flex flex-col sm:flex-row sm:items-center gap-4 mb-6">
+            <h1 class="font-headline text-2xl font-extrabold text-primary">Mi Organización</h1>
+            <div class="sm:ml-auto flex items-center gap-2">
+              <select id="myorg-org-select" class="border border-outline-variant rounded-lg px-3 py-2 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-primary min-w-[200px]">
+                <option value="">Cargando...</option>
+              </select>
+              <button id="myorg-btn-new-org" class="inline-flex items-center gap-1 px-3 py-2 rounded-lg text-xs font-semibold text-primary border border-primary/30 hover:bg-primary/5 transition-colors">
+                <span class="material-symbols-outlined text-base">add</span> Nueva
+              </button>
+            </div>
+          </div>
+
+          <!-- Tab nav -->
+          <div id="myorg-tab-nav" class="flex gap-1 overflow-x-auto border-b border-outline-variant/30 mb-6 pb-0">
+            <button data-tab="general"    class="px-4 py-2.5 text-sm font-medium whitespace-nowrap border-b-2 border-secondary-fixed text-primary font-bold">Datos generales</button>
+            <button data-tab="representatives" class="px-4 py-2.5 text-sm font-medium whitespace-nowrap text-on-surface-variant">Representantes</button>
+            <button data-tab="experience" class="px-4 py-2.5 text-sm font-medium whitespace-nowrap text-on-surface-variant">Experiencia</button>
+            <button data-tab="accreditations" class="px-4 py-2.5 text-sm font-medium whitespace-nowrap text-on-surface-variant">Acreditaciones</button>
+            <button data-tab="stakeholders" class="px-4 py-2.5 text-sm font-medium whitespace-nowrap text-on-surface-variant">Stakeholders</button>
+          </div>
+
+          <!-- TAB: General -->
+          <div id="myorg-tab-general" class="myorg-tab">
+            <div class="bg-white rounded-xl border border-outline-variant/30 p-6">
+
+              <!-- Logo -->
+              <div class="flex items-center gap-5 mb-6 pb-6 border-b border-outline-variant/20">
+                <div id="myorg-logo-preview" class="w-20 h-20 rounded-xl border-2 border-dashed border-outline-variant/40 bg-surface-container-low flex items-center justify-center overflow-hidden flex-shrink-0">
+                  <span class="material-symbols-outlined text-3xl text-on-surface-variant/30" id="myorg-logo-placeholder">image</span>
+                </div>
+                <div>
+                  <div class="text-sm font-semibold text-on-surface mb-1">Logo de la organización</div>
+                  <p class="text-xs text-on-surface-variant mb-2">JPG, PNG o SVG. Máx. 2 MB.</p>
+                  <label class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-primary border border-primary/30 hover:bg-primary/5 cursor-pointer transition-colors">
+                    <span class="material-symbols-outlined text-base">upload</span> Subir logo
+                    <input type="file" id="myorg-logo-input" accept="image/*" class="hidden" />
+                  </label>
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="md:col-span-2">
+                  <label class="block text-xs font-semibold text-on-surface-variant mb-1">Nombre de la organización *</label>
+                  <input data-field="organization_name" type="text" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm" placeholder="Ej: Permacultura Cantabria">
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-on-surface-variant mb-1">Nombre legal completo (idioma nacional)</label>
+                  <input data-field="legal_name_national" type="text" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm">
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-on-surface-variant mb-1">Nombre legal completo (caracteres latinos)</label>
+                  <input data-field="legal_name_latin" type="text" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm">
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-on-surface-variant mb-1">Tipo de organización</label>
+                  <select data-field="org_type" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm">
+                    <option value="">— Seleccionar —</option>
+                    <option>NGO</option><option>University</option><option>School/Institute</option>
+                    <option>Research Centre</option><option>SME</option><option>Large Enterprise</option>
+                    <option>Public body</option><option>Foundation</option><option>Social enterprise</option><option>Other</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-on-surface-variant mb-1">Acrónimo</label>
+                  <input data-field="acronym" type="text" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm">
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-on-surface-variant mb-1">PIC</label>
+                  <input data-field="pic" type="text" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm" placeholder="940435371">
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-on-surface-variant mb-1">NIF / ID Nacional</label>
+                  <input data-field="national_id" type="text" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm">
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-on-surface-variant mb-1">Fecha de fundación</label>
+                  <input data-field="foundation_date" type="date" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm">
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-on-surface-variant mb-1">País</label>
+                  <input data-field="country" type="text" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm">
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-on-surface-variant mb-1">Región</label>
+                  <input data-field="region" type="text" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm">
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-on-surface-variant mb-1">Ciudad</label>
+                  <input data-field="city" type="text" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm">
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-on-surface-variant mb-1">Dirección</label>
+                  <input data-field="address" type="text" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm">
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-on-surface-variant mb-1">Código postal</label>
+                  <input data-field="post_code" type="text" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm">
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-on-surface-variant mb-1">P.O. Box</label>
+                  <input data-field="po_box" type="text" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm">
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-on-surface-variant mb-1">CEDEX</label>
+                  <input data-field="cedex" type="text" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm">
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-on-surface-variant mb-1">Web</label>
+                  <input data-field="website" type="url" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm">
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-on-surface-variant mb-1">Email</label>
+                  <input data-field="email" type="email" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm">
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-on-surface-variant mb-1">Teléfono 1</label>
+                  <input data-field="telephone1" type="tel" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm">
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-on-surface-variant mb-1">Teléfono 2</label>
+                  <input data-field="telephone2" type="tel" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm">
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-on-surface-variant mb-1">Fax</label>
+                  <input data-field="fax" type="tel" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm">
+                </div>
+                <div class="flex items-center gap-6 md:col-span-2">
+                  <label class="flex items-center gap-2 text-sm"><input data-field="is_public_body" type="checkbox" class="rounded border-outline-variant/40"> Public body</label>
+                  <label class="flex items-center gap-2 text-sm"><input data-field="is_non_profit" type="checkbox" class="rounded border-outline-variant/40"> Non-profit</label>
+                  <label class="flex items-center gap-2 text-sm"><input data-field="is_public" type="checkbox" class="rounded border-outline-variant/40" checked> Visible en directorio</label>
+                </div>
+              </div>
+              <div class="mt-6 flex justify-end">
+                <button data-org-save="myorg-tab-general" class="bg-primary text-white px-6 py-2.5 rounded-lg text-sm font-semibold hover:bg-primary/90 transition-colors">Guardar datos generales</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- TAB: Legal Representative -->
+          <!-- TAB: Representantes (legal rep + contact person + key staff) -->
+          <div id="myorg-tab-representatives" class="myorg-tab hidden">
+
+            <!-- Legal Representative -->
+            <div class="bg-white rounded-xl border border-outline-variant/30 p-6 mb-5" id="myorg-sec-legal-rep">
+              <h3 class="text-sm font-bold text-primary mb-4 flex items-center gap-2">
+                <span class="material-symbols-outlined text-lg">gavel</span> Representante legal
+              </h3>
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div>
+                  <label class="block text-xs font-semibold text-on-surface-variant mb-1">Título</label>
+                  <select data-field="legal_rep_title" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm">
+                    <option value="">—</option><option>Mr.</option><option>Mrs.</option><option>Ms.</option><option>Dr.</option><option>Prof.</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-on-surface-variant mb-1">Nombre</label>
+                  <input data-field="legal_rep_first_name" type="text" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm">
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-on-surface-variant mb-1">Apellidos</label>
+                  <input data-field="legal_rep_family_name" type="text" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm">
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-on-surface-variant mb-1">Cargo</label>
+                  <input data-field="legal_rep_position" type="text" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm">
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-on-surface-variant mb-1">Email</label>
+                  <input data-field="legal_rep_email" type="email" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm">
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-on-surface-variant mb-1">Teléfono</label>
+                  <input data-field="legal_rep_telephone1" type="tel" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm">
+                </div>
+              </div>
+            </div>
+
+            <!-- Contact Person -->
+            <div class="bg-white rounded-xl border border-outline-variant/30 p-6 mb-5" id="myorg-sec-contact">
+              <h3 class="text-sm font-bold text-primary mb-4 flex items-center gap-2">
+                <span class="material-symbols-outlined text-lg">contact_mail</span> Persona de contacto
+              </h3>
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div>
+                  <label class="block text-xs font-semibold text-on-surface-variant mb-1">Título</label>
+                  <select data-field="cp_title" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm">
+                    <option value="">—</option><option>Mr.</option><option>Mrs.</option><option>Ms.</option><option>Dr.</option><option>Prof.</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-on-surface-variant mb-1">Nombre</label>
+                  <input data-field="cp_first_name" type="text" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm">
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-on-surface-variant mb-1">Apellidos</label>
+                  <input data-field="cp_family_name" type="text" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm">
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-on-surface-variant mb-1">Cargo</label>
+                  <input data-field="cp_position" type="text" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm">
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-on-surface-variant mb-1">Email</label>
+                  <input data-field="cp_email" type="email" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm">
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-on-surface-variant mb-1">Teléfono</label>
+                  <input data-field="cp_telephone1" type="tel" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm">
+                </div>
+              </div>
+            </div>
+
+            <!-- Key Staff -->
+            <div class="bg-white rounded-xl border border-outline-variant/30 overflow-hidden mb-5">
+              <div class="flex items-center justify-between px-5 py-3 border-b border-outline-variant/20">
+                <h3 class="text-sm font-bold text-primary flex items-center gap-2">
+                  <span class="material-symbols-outlined text-lg">badge</span> Personal clave
+                </h3>
+                <button data-org-add="key-staff" class="flex items-center gap-1 text-xs font-semibold text-primary hover:text-primary/80">
+                  <span class="material-symbols-outlined text-[18px]">add_circle</span> Añadir
+                </button>
+              </div>
+              <div class="overflow-x-auto">
+                <table class="w-full text-sm">
+                  <thead class="bg-surface-container-low text-xs text-on-surface-variant uppercase">
+                    <tr>
+                      <th class="px-3 py-2 text-left">Nombre</th>
+                      <th class="px-3 py-2 text-left">Cargo</th>
+                      <th class="px-3 py-2 text-left">Competencias y experiencia</th>
+                      <th class="px-3 py-2 text-right">Acciones</th>
+                    </tr>
+                  </thead>
+                  <tbody id="org-key-staff-tbody">
+                    <tr><td colspan="4" class="py-4 text-center text-on-surface-variant text-sm">Cargando...</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- Save button for representatives -->
+            <div class="flex justify-end">
+              <button data-org-save="myorg-tab-representatives" class="bg-primary text-white px-6 py-2.5 rounded-lg text-sm font-semibold hover:bg-primary/90 transition-colors">Guardar representantes</button>
+            </div>
+          </div>
+
+          <!-- TAB: Experience -->
+          <div id="myorg-tab-experience" class="myorg-tab hidden">
+            <div class="bg-white rounded-xl border border-outline-variant/30 p-6 space-y-4">
+              <div>
+                <label class="block text-xs font-semibold text-on-surface-variant mb-1">Descripción de la organización</label>
+                <textarea data-field="description" rows="8" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm" placeholder="Tipo, tamaño, ámbito de trabajo, áreas de expertise, contexto social..."></textarea>
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-on-surface-variant mb-1">Actividades y experiencia relevante</label>
+                <textarea data-field="activities_experience" rows="8" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm" placeholder="Actividades, experiencia y competencias del personal clave..."></textarea>
+              </div>
+              <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div>
+                  <label class="block text-xs font-semibold text-on-surface-variant mb-1">Tamaño staff (aprox.)</label>
+                  <input data-field="staff_size" type="number" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm" placeholder="40">
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-on-surface-variant mb-1">Proyectos UE por año</label>
+                  <input data-field="annual_projects" type="number" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm" placeholder="3">
+                </div>
+                <div class="flex items-end">
+                  <label class="flex items-center gap-2 text-sm"><input data-field="has_training_facilities" type="checkbox" class="rounded border-outline-variant/40"> Instalaciones de formación</label>
+                </div>
+                <div class="flex items-end">
+                  <label class="flex items-center gap-2 text-sm"><input data-field="has_digital_infrastructure" type="checkbox" class="rounded border-outline-variant/40"> Infraestructura digital</label>
+                </div>
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-on-surface-variant mb-1">Áreas de expertise (separadas por comas)</label>
+                <input data-field="expertise_areas" type="text" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm" placeholder="Youth, Sustainability, Digital, Inclusion...">
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-on-surface-variant mb-1">Roles Erasmus (separados por comas)</label>
+                <input data-field="erasmus_roles" type="text" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm" placeholder="Coordinator, Partner, Hosting organisation...">
+              </div>
+              <div class="flex items-center">
+                <label class="flex items-center gap-2 text-sm"><input data-field="has_eu_projects" type="checkbox" class="rounded border-outline-variant/40"> Ha participado en proyectos UE en los últimos 3 años</label>
+              </div>
+              <div class="flex justify-end">
+                <button data-org-save="myorg-tab-experience" class="bg-primary text-white px-6 py-2.5 rounded-lg text-sm font-semibold hover:bg-primary/90 transition-colors">Guardar experiencia</button>
+              </div>
+            </div>
+
+            <!-- EU Projects (inside Experience tab) -->
+            <div class="bg-white rounded-xl border border-outline-variant/30 overflow-hidden mt-5">
+              <div class="flex items-center justify-between px-5 py-3 border-b border-outline-variant/20">
+                <h3 class="text-sm font-bold text-primary flex items-center gap-2">
+                  <span class="material-symbols-outlined text-lg">public</span> Proyectos UE concedidos
+                </h3>
+                <button data-org-add="eu-projects" class="flex items-center gap-1 text-xs font-semibold text-primary hover:text-primary/80">
+                  <span class="material-symbols-outlined text-[18px]">add_circle</span> Añadir
+                </button>
+              </div>
+              <div class="overflow-x-auto">
+                <table class="w-full text-sm">
+                  <thead class="bg-surface-container-low text-xs text-on-surface-variant uppercase">
+                    <tr>
+                      <th class="px-3 py-2 text-left">Programa</th>
+                      <th class="px-3 py-2 text-left">Año</th>
+                      <th class="px-3 py-2 text-left">ID Contrato</th>
+                      <th class="px-3 py-2 text-left">Rol</th>
+                      <th class="px-3 py-2 text-left">Título</th>
+                      <th class="px-3 py-2 text-right">Acciones</th>
+                    </tr>
+                  </thead>
+                  <tbody id="org-eu-projects-tbody">
+                    <tr><td colspan="6" class="py-4 text-center text-on-surface-variant text-sm">Cargando...</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- TAB: Accreditations -->
+          <div id="myorg-tab-accreditations" class="myorg-tab hidden">
+            <div class="bg-white rounded-xl border border-outline-variant/30 overflow-hidden">
+              <div class="flex items-center justify-between px-4 py-3 border-b border-outline-variant/20">
+                <h3 class="text-sm font-semibold text-primary">Acreditaciones</h3>
+                <button data-org-add="accreditations" class="flex items-center gap-1 text-xs font-semibold text-primary hover:text-primary/80">
+                  <span class="material-symbols-outlined text-[18px]">add_circle</span> Añadir
+                </button>
+              </div>
+              <div class="overflow-x-auto">
+                <table class="w-full text-sm">
+                  <thead class="bg-surface-container-low text-xs text-on-surface-variant uppercase">
+                    <tr>
+                      <th class="px-3 py-2 text-left">Tipo de acreditación</th>
+                      <th class="px-3 py-2 text-left">Referencia</th>
+                      <th class="px-3 py-2 text-right">Acciones</th>
+                    </tr>
+                  </thead>
+                  <tbody id="org-accreditations-tbody">
+                    <tr><td colspan="3" class="py-4 text-center text-on-surface-variant text-sm">Cargando...</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- TAB: Stakeholders -->
+          <div id="myorg-tab-stakeholders" class="myorg-tab hidden">
+            <div class="bg-white rounded-xl border border-outline-variant/30 overflow-hidden">
+              <div class="flex items-center justify-between px-4 py-3 border-b border-outline-variant/20">
+                <h3 class="text-sm font-semibold text-primary">Stakeholders (entidades relacionadas)</h3>
+                <button data-org-add="stakeholders" class="flex items-center gap-1 text-xs font-semibold text-primary hover:text-primary/80">
+                  <span class="material-symbols-outlined text-[18px]">add_circle</span> Añadir
+                </button>
+              </div>
+              <div class="overflow-x-auto">
+                <table class="w-full text-sm">
+                  <thead class="bg-surface-container-low text-xs text-on-surface-variant uppercase">
+                    <tr>
+                      <th class="px-3 py-2 text-left">Entidad</th>
+                      <th class="px-3 py-2 text-left">Tipo entidad</th>
+                      <th class="px-3 py-2 text-left">Relación</th>
+                      <th class="px-3 py-2 text-left">Contacto</th>
+                      <th class="px-3 py-2 text-left">Email</th>
+                      <th class="px-3 py-2 text-left">Descripción</th>
+                      <th class="px-3 py-2 text-right">Acciones</th>
+                    </tr>
+                  </thead>
+                  <tbody id="org-stakeholders-tbody">
+                    <tr><td colspan="7" class="py-4 text-center text-on-surface-variant text-sm">Cargando...</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ═══ PANEL: DIRECTORIO ORGANIZACIONES ═════════════════ -->
+      <section id="panel-organizations" class="panel">
+        <div class="max-w-6xl mx-auto py-8 px-4">
+          <h1 class="font-headline text-2xl font-extrabold text-primary mb-6">Directorio de Organizaciones</h1>
+
+          <!-- Filters -->
+          <div class="flex flex-wrap gap-3 mb-6">
+            <input id="org-dir-search" type="text" placeholder="Buscar por nombre, ciudad o PIC..."
+              class="flex-1 min-w-[200px] border border-outline-variant/40 rounded-lg px-3 py-2 text-sm">
+            <input id="org-dir-country" type="text" placeholder="País"
+              class="w-36 border border-outline-variant/40 rounded-lg px-3 py-2 text-sm">
+            <select id="org-dir-type" class="w-44 border border-outline-variant/40 rounded-lg px-3 py-2 text-sm">
+              <option value="">Todos los tipos</option>
+              <option>NGO</option><option>University</option><option>School/Institute</option>
+              <option>Research Centre</option><option>SME</option><option>Large Enterprise</option>
+              <option>Public body</option><option>Foundation</option><option>Social enterprise</option><option>Other</option>
+            </select>
+          </div>
+
+          <!-- Org cards grid -->
+          <div id="org-dir-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div class="col-span-full py-12 text-center text-on-surface-variant">Cargando organizaciones...</div>
+          </div>
         </div>
       </section>
 
@@ -763,8 +2137,20 @@ tailwind.config = {
 <script src="/js/api.js"></script>
 <script src="/js/auth.js"></script>
 <script src="/js/app.js"></script>
-<script src="/js/intake.js"></script>
+<script src="/js/my-projects.js"></script>
+<script src="/js/create.js"></script>
+<script src="/js/intake.js?v=20260413b"></script>
 <script src="/js/admin.js"></script>
+<script src="/js/calculator.js?v=20260413b"></script>
+<script src="/js/organizations.js"></script>
+<script src="/js/documents.js"></script>
+<script src="/js/research.js"></script>
+<script src="/js/intake-tasks.js"></script>
+<script src="/js/intake-gantt.js"></script>
+<script src="/js/developer.js"></script>
+<script src="/js/evaluator.js"></script>
+<script src="/js/budget.js"></script>
+<script src="/js/voice-input.js"></script>
 
 <!-- ── Mini modal (reemplaza prompt/confirm nativos) ────────── -->
 <div id="mini-modal" class="hidden fixed inset-0 z-50 flex items-end sm:items-center justify-center p-4 bg-black/40"

@@ -81,6 +81,73 @@ input:focus, select:focus, textarea:focus {
   box-shadow: 0 0 0 3px rgba(6, 0, 62, 0.08);
 }
 
+/* ── Evaluator ───────────────────────────────────────────────── */
+.eval-sec-chip { transition: all .2s ease }
+.eval-sec-chip:hover { background: rgba(6,0,62,.06) }
+.eval-sec-chip.active { background: #06003e; color: #fff; font-weight: 700 }
+.eval-sec-chip.active .eval-sec-dot { background: #fff !important }
+.eval-q-item { transition: all .15s ease; border-left: 3px solid transparent }
+.eval-q-item:hover { background: rgba(6,0,62,.05) }
+.eval-q-item.active { border-left-color: #06003e; background: rgba(6,0,62,.08); font-weight: 600 }
+.eval-crit-card { transition: all .2s ease; border-left: 4px solid transparent }
+.eval-crit-card:hover { box-shadow: 0 2px 8px rgba(6,0,62,.06) }
+@keyframes critIn { from { opacity:0; transform:translateY(8px) } to { opacity:1; transform:translateY(0) } }
+.eval-crit-card { animation: critIn .25s ease }
+
+/* ── Field info tooltips ─────────────────────────────────────── */
+.field-info {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 16px; height: 16px; border-radius: 50%;
+  background: rgba(6,0,62,.08); color: #787682;
+  cursor: pointer; transition: all .2s ease;
+  flex-shrink: 0; vertical-align: middle; margin-left: 4px;
+}
+.field-info:hover { background: #1b1464; color: #e7eb00 }
+.field-info .material-symbols-outlined { font-size: 12px; line-height: 1 }
+
+.field-info-overlay {
+  position: fixed; inset: 0; z-index: 9997;
+  background: rgba(0,0,0,.3);
+  animation: overlayIn .15s ease;
+}
+.field-info-popup {
+  position: fixed; z-index: 9998;
+  background: #1e293b; color: #f1f5f9;
+  border-radius: 14px; padding: 20px 24px;
+  font-size: 13px; line-height: 1.7;
+  box-shadow: 0 12px 40px rgba(0,0,0,.35);
+  max-width: 480px; min-width: 280px; width: 90vw;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 1;
+  pointer-events: auto;
+  max-height: 80vh; overflow-y: auto;
+}
+.field-info-popup h4 {
+  font-size: 14px; font-weight: 700; color: #e7eb00;
+  margin: 0 0 10px 0; letter-spacing: .02em;
+  padding-right: 24px;
+}
+.field-info-popup p { margin: 0 0 8px 0; color: #cbd5e1 }
+.field-info-popup .tip-example {
+  margin: 8px 0; padding: 10px 14px;
+  background: rgba(255,255,255,.08); border-radius: 8px;
+  font-size: 12px; color: #94d3a2; font-style: italic;
+  border-left: 3px solid #22c55e;
+}
+.field-info-popup .tip-close {
+  position: absolute; top: 12px; right: 14px;
+  background: none; border: none; color: #94a3b8;
+  cursor: pointer; font-size: 18px; line-height: 1;
+  padding: 2px;
+}
+.field-info-popup .tip-close:hover { color: #fff }
+@keyframes overlayIn { from { opacity:0 } to { opacity:1 } }
+
+/* ── Per Diem cards ──────────────────────────────────────────── */
+.perdiem-card { transition: transform .2s ease, box-shadow .2s ease }
+.perdiem-card:hover { transform: translateY(-2px); box-shadow: 0 4px 16px rgba(6,0,62,.08) }
+
 /* ── Responsive sidebar ──────────────────────────────────────── */
 @media (max-width: 1023px) {
   #sidebar { transform: translateX(-100%); }
@@ -178,4 +245,265 @@ input:focus, select:focus, textarea:focus {
 @media (max-width: 639px) {
   .intake-progress-label { display: none; }
   .intake-progress-step  { min-width: 32px; }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Calculator
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── Step visibility ─────────────────────────────────────────── */
+.calc-step { display: none; animation: panelIn .3s ease }
+.calc-step.active { display: block }
+
+/* ── Progress bar ────────────────────────────────────────────── */
+.calc-prog-dot {
+  width: 32px; height: 32px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 12px; font-weight: 700;
+  border: 2px solid #c8c5d2; color: #787682;
+  transition: all .2s ease; flex-shrink: 0;
+}
+.calc-prog-dot.active { background: #06003e; border-color: #06003e; color: #fff }
+.calc-prog-dot.done   { background: #2d6a4f; border-color: #2d6a4f; color: #fff }
+.calc-prog-dot.locked { opacity: .4; cursor: default }
+.calc-prog-line { flex: 1; height: 2px; background: #c8c5d2; min-width: 12px }
+.calc-prog-line.done  { background: #2d6a4f }
+
+@media (max-width: 639px) {
+  .calc-prog-label { display: none; }
+  .calc-prog-dot   { width: 28px; height: 28px; font-size: 11px; }
+}
+
+/* ── WP section ──────────────────────────────────────────────── */
+.calc-wp { border: 1px solid rgba(120,118,130,.15); border-radius: 12px; overflow: hidden; margin-bottom: 16px; border-left: 6px solid var(--wp-color, #787682); box-shadow: 0 2px 6px rgba(0,0,0,.08) }
+.calc-wp-head {
+  display: flex; align-items: center; gap: 10px; padding: 12px 16px;
+  cursor: pointer; user-select: none; background: #f7f9fb;
+  border-bottom: 1px solid rgba(120,118,130,.1);
+  transition: background .15s;
+}
+.calc-wp-head:hover { background: #eceef0 }
+.calc-wp-body { display: none; padding: 14px 16px; background: #fff }
+.calc-wp.open .calc-wp-body { display: block }
+.calc-wp-chevron { transition: transform .2s; font-size: 18px; color: #787682 }
+.calc-wp.open .calc-wp-chevron { transform: rotate(180deg) }
+
+/* ── WP title suggestion menu ────────────────────────────────── */
+.wp-title-menu {
+  position: absolute; top: 100%; right: 0; margin-top: 4px; z-index: 200;
+  background: #1e293b; border-radius: 10px; padding: 6px;
+  box-shadow: 0 8px 24px rgba(0,0,0,.3);
+  min-width: 280px; max-height: 320px; overflow-y: auto;
+  animation: panelIn .15s ease;
+}
+.wp-title-group {
+  padding: 8px 12px 4px; font-size: 10px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: .06em;
+  color: #94a3b8; border-top: 1px solid rgba(255,255,255,.06);
+}
+.wp-title-group:first-child { border-top: none }
+.wp-title-item {
+  display: block; width: 100%; text-align: left;
+  padding: 7px 12px; border: none; background: transparent;
+  color: #e2e8f0; font-size: 13px; font-family: Manrope, sans-serif;
+  cursor: pointer; border-radius: 6px; transition: background .12s;
+}
+.wp-title-item:hover { background: rgba(255,255,255,.1); color: #fff }
+
+/* ── Activity cards ──────────────────────────────────────────── */
+.calc-act {
+  border: 2px solid rgba(120,118,130,.25); border-radius: 10px;
+  border-left: 5px solid var(--act-color, #787682);
+  border-bottom: 4px solid var(--act-color, #787682);
+  padding: 14px 16px; margin-bottom: 16px; background: #f7f9fb;
+  position: relative;
+  box-shadow: 0 1px 4px rgba(0,0,0,.06);
+}
+.calc-act-badge {
+  font-size: 10px; font-weight: 700; padding: 2px 8px;
+  border-radius: 20px; letter-spacing: .03em;
+}
+
+/* ── Activity picker grid ────────────────────────────────────── */
+.calc-act-picker {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 6px;
+}
+.calc-act-pick {
+  padding: 8px 10px; border: 1px dashed rgba(120,118,130,.25);
+  border-radius: 6px; background: transparent; cursor: pointer;
+  text-align: left; transition: all .15s; font-family: inherit;
+}
+.calc-act-pick:hover { border-color: #06003e; background: rgba(6,0,62,.04) }
+
+/* ── Gantt ────────────────────────────────────────────────────── */
+.calc-gantt-tip {
+  display: none; position: fixed; z-index: 500;
+  background: #1e293b; color: #fff; border-radius: 8px;
+  padding: 10px 14px; font-size: 12px; line-height: 1.6;
+  pointer-events: none; box-shadow: 0 4px 16px rgba(0,0,0,.3);
+  max-width: 260px;
+}
+
+/* ── Result tabs ─────────────────────────────────────────────── */
+.calc-res-tab {
+  padding: 10px 18px; font-size: 13px; font-weight: 500;
+  border: none; background: transparent; color: #787682;
+  cursor: pointer; border-bottom: 2px solid transparent;
+  transition: all .15s; font-family: inherit;
+}
+.calc-res-tab:hover { color: #191c1e }
+.calc-res-tab.active { color: #06003e; border-bottom-color: #06003e; font-weight: 700 }
+
+/* ── Save indicator ──────────────────────────────────────────── */
+.calc-save {
+  position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
+  z-index: 100; font-size: 12px; font-weight: 600;
+  padding: 6px 16px; border-radius: 20px;
+  transition: all .3s ease; pointer-events: none;
+}
+.calc-save.saving { background: #FEF3C7; color: #92400E; opacity: 1 }
+.calc-save.saved  { background: #D1FAE5; color: #065F46; opacity: 1 }
+.calc-save.error  { background: #FEE2E2; color: #991B1B; opacity: 1 }
+.calc-save.hidden { opacity: 0 }
+
+/* ── Tables inside calculator ────────────────────────────────── */
+.calc-table { width: 100%; border-collapse: collapse; font-size: 13px }
+.calc-table th { padding: 8px 10px; background: #eceef0; font-weight: 600; font-size: 11px; text-transform: uppercase; letter-spacing: .04em; color: #474551; border-bottom: 1px solid rgba(120,118,130,.2) }
+.calc-table td { padding: 8px 10px; border-bottom: 1px solid rgba(120,118,130,.1); vertical-align: top }
+.calc-table tr:last-child td { border-bottom: none }
+.calc-table input[type="number"] { width: 90px; padding: 5px 8px; font-size: 13px; text-align: right }
+
+/* ── Global rounded inputs across calculator & intake ────────── */
+.calc-act input,
+.calc-act select,
+.calc-act textarea,
+.calc-table input,
+.calc-table select,
+#intake-calc-container input,
+#intake-calc-container select,
+#intake-calc-container textarea,
+#panel-intake input:not([type="checkbox"]):not([type="radio"]):not([type="hidden"]):not([type="file"]),
+#panel-intake select,
+#panel-intake textarea {
+  border-radius: 8px;
+  border: 1px solid rgba(120,118,130,.2);
+  outline: none;
+  transition: border-color .15s, box-shadow .15s;
+}
+.calc-act input:focus,
+.calc-act select:focus,
+.calc-act textarea:focus,
+.calc-table input:focus,
+.calc-table select:focus,
+#intake-calc-container input:focus,
+#intake-calc-container select:focus,
+#intake-calc-container textarea:focus,
+#panel-intake input:focus,
+#panel-intake select:focus,
+#panel-intake textarea:focus {
+  border-color: #1b1464;
+  box-shadow: 0 0 0 2px rgba(27,20,100,.1);
+}
+
+/* ── Larger text across intake & calculator ───────────────────── */
+#panel-intake,
+#intake-calc-container,
+.calc-wp-body {
+  font-size: 15px;
+}
+#panel-intake label,
+#intake-calc-container label,
+.calc-act label { font-size: 13px; }
+#panel-intake input,
+#panel-intake select,
+#panel-intake textarea,
+#intake-calc-container input,
+#intake-calc-container select,
+#intake-calc-container textarea,
+.calc-act input,
+.calc-act select,
+.calc-act textarea { font-size: 14px; }
+.calc-table { font-size: 14px; }
+.calc-table th { font-size: 12px; }
+
+@media (max-width: 639px) {
+  .calc-table input[type="number"] { width: 70px; font-size: 14px }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Voice Input — Dictation button on textareas
+   ═══════════════════════════════════════════════════════════════ */
+
+.voice-wrap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-width: 0;
+}
+.voice-wrap textarea,
+.voice-wrap input {
+  padding-right: 44px;
+}
+
+/* Mic button */
+.voice-btn {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  z-index: 2;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid rgba(120,118,130,.2);
+  background: #f7f9fb;
+  color: #787682;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all .2s ease;
+  padding: 0;
+}
+.voice-btn:hover {
+  background: #06003e;
+  color: #e7eb00;
+  border-color: #06003e;
+}
+.voice-btn .material-symbols-outlined {
+  font-size: 18px;
+}
+
+/* Active recording state */
+.voice-btn.voice-active {
+  background: #ba1a1a;
+  border-color: #ba1a1a;
+  color: #fff;
+  animation: voicePulse 1.5s ease-in-out infinite;
+}
+.voice-btn.voice-active .material-symbols-outlined {
+  font-size: 20px;
+  font-variation-settings: 'FILL' 1, 'wght' 700, 'GRAD' 0, 'opsz' 24;
+}
+
+textarea.voice-recording {
+  border-color: #ba1a1a !important;
+  box-shadow: 0 0 0 2px rgba(186,26,26,.15) !important;
+}
+
+@keyframes voicePulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(186,26,26,.4); }
+  50%      { box-shadow: 0 0 0 8px rgba(186,26,26,0); }
+}
+
+/* Loading state (transcribing) */
+.voice-btn.voice-loading {
+  background: #f7f9fb;
+  border-color: #06003e;
+  color: #06003e;
+  cursor: wait;
+  pointer-events: none;
+}
+.voice-spin {
+  animation: spin .8s linear infinite;
 }

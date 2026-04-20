@@ -3,3 +3,10 @@ node_modules/
 .env.local
 *.log
 .DS_Store
+.secrets/
+.claude/
+core-sync.json
+public/uploads/
+node/public/uploads/
+
+.claude/settings.local.json

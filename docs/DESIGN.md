@@ -2,7 +2,20 @@
 
 > Fuente de verdad del diseño.
 > Cuando hay contradicción entre este archivo y cualquier módulo, este archivo tiene razón.
-> Última actualización: 3 de abril de 2026
+> Última actualización: 13 de abril de 2026
+
+---
+
+## Logotipo
+
+**EU Funding School** — Dos versiones (fondo claro y fondo oscuro):
+
+![Logo EU Funding School](/img/logo-eufundingschool.jpg)
+
+- **Versión principal (fondo claro):** Texto Deep Navy + icono lápiz/EU + "u" en Neon Yellow
+- **Versión invertida (fondo oscuro):** Texto blanco + icono blanco + "u" en Neon Yellow
+- **Archivo:** `/public/img/logo-eufundingschool.jpg`
+- **URL pública:** `https://intake.eufundingschool.com/img/logo-eufundingschool.jpg`
 
 ---
 

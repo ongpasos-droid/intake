@@ -9,10 +9,7 @@ async function getPartnerRates(projectId) {
            p.name as partner_name
     FROM partner_rates pr
     JOIN partners p ON p.id = pr.partner_id
-    JOIN projects proj ON proj.id = ?
-    WHERE pr.partner_id IN (
-      SELECT partner_id FROM project_partners WHERE project_id = ?
-    )
+    WHERE p.project_id = ?
     ORDER BY p.name
   `;
   const [rows] = await db.execute(sql, [projectId, projectId]);
@@ -43,9 +40,7 @@ async function getWorkerRates(projectId) {
            p.name as partner_name
     FROM worker_rates wr
     JOIN partners p ON p.id = wr.partner_id
-    WHERE wr.partner_id IN (
-      SELECT partner_id FROM project_partners WHERE project_id = ?
-    )
+    WHERE p.project_id = ?
     ORDER BY p.name, wr.category
   `;
   const [rows] = await db.execute(sql, [projectId]);
@@ -215,7 +210,7 @@ async function deleteExtraDestination(id) {
 
 async function getWorkPackages(projectId) {
   const sql = `
-    SELECT id, project_id, order_index, code, title, category, leader_id
+    SELECT id, project_id, order_index, code, title, summary, category, leader_id
     FROM work_packages
     WHERE project_id = ?
     ORDER BY order_index
@@ -224,7 +219,7 @@ async function getWorkPackages(projectId) {
   return rows;
 }
 
-async function createWorkPackage(projectId, { title, category, leader_id }) {
+async function createWorkPackage(projectId, { title, summary, category, leader_id }) {
   // Get next order_index
   const [maxOrder] = await db.execute(
     'SELECT MAX(order_index) as max_order FROM work_packages WHERE project_id = ?',
@@ -235,25 +230,29 @@ async function createWorkPackage(projectId, { title, category, leader_id }) {
 
   const id = genUUID();
   const sql = `
-    INSERT INTO work_packages (id, project_id, order_index, code, title, category, leader_id, created_at, updated_at)
-    VALUES (?, ?, ?, ?, ?, ?, ?, NOW(), NOW())
+    INSERT INTO work_packages (id, project_id, order_index, code, title, summary, category, leader_id, created_at, updated_at)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, NOW(), NOW())
   `;
-  await db.execute(sql, [id, projectId, nextOrder, code, title, category, leader_id]);
+  await db.execute(sql, [id, projectId, nextOrder, code, title, summary || null, category, leader_id]);
 
   const [rows] = await db.execute(
-    'SELECT id, order_index, code, title, category, leader_id, created_at, updated_at FROM work_packages WHERE id = ?',
+    'SELECT id, order_index, code, title, summary, category, leader_id, created_at, updated_at FROM work_packages WHERE id = ?',
     [id]
   );
   return rows[0];
 }
 
-async function updateWorkPackage(id, { title, category, leader_id, order_index }) {
+async function updateWorkPackage(id, { title, summary, category, leader_id, order_index }) {
   const updates = [];
   const params = [];
 
   if (title !== undefined) {
     updates.push('title = ?');
     params.push(title);
+  }
+  if (summary !== undefined) {
+    updates.push('summary = ?');
+    params.push(summary);
   }
   if (category !== undefined) {
     updates.push('category = ?');
@@ -277,7 +276,7 @@ async function updateWorkPackage(id, { title, category, leader_id, order_index }
   await db.execute(sql, params);
 
   const [rows] = await db.execute(
-    'SELECT id, code, title, category, leader_id, order_index, updated_at FROM work_packages WHERE id = ?',
+    'SELECT id, code, title, summary, category, leader_id, order_index, updated_at FROM work_packages WHERE id = ?',
     [id]
   );
   return rows[0];
@@ -1090,5 +1089,396 @@ module.exports = {
   getActivityDetail,
   createActivityDetail,
   updateActivityDetail,
-  getBudgetSummary
+  getBudgetSummary,
+  saveFullState,
+  loadFullState
 };
+
+// ============ BULK SAVE / LOAD ============
+
+async function saveFullState(projectId, data) {
+  const conn = await db.getConnection();
+  await conn.beginTransaction();
+  try {
+    // Get partner IDs for this project
+    const [partners] = await conn.execute(
+      'SELECT id FROM partners WHERE project_id = ?', [projectId]
+    );
+    const partnerIds = partners.map(p => p.id);
+
+    // 1. Delete existing data (reverse dependency order)
+    if (partnerIds.length) {
+      const ph = partnerIds.map(() => '?').join(',');
+      // Activity details depend on activities which depend on WPs
+      const [existingWPs] = await conn.execute(
+        'SELECT id FROM work_packages WHERE project_id = ?', [projectId]
+      );
+      if (existingWPs.length) {
+        const wpIds = existingWPs.map(w => w.id);
+        const wpPh = wpIds.map(() => '?').join(',');
+        const [existingActs] = await conn.execute(
+          `SELECT id, type FROM activities WHERE wp_id IN (${wpPh})`, wpIds
+        );
+        for (const act of existingActs) {
+          await deleteActivityDetails(conn, act.id, act.type);
+        }
+        await conn.execute(`DELETE FROM activities WHERE wp_id IN (${wpPh})`, wpIds);
+      }
+      await conn.execute('DELETE FROM work_packages WHERE project_id = ?', [projectId]);
+      await conn.execute(`DELETE FROM worker_rates WHERE partner_id IN (${ph})`, partnerIds);
+      await conn.execute(`DELETE FROM partner_rates WHERE partner_id IN (${ph})`, partnerIds);
+    }
+    await conn.execute('DELETE FROM routes WHERE project_id = ?', [projectId]);
+    await conn.execute('DELETE FROM extra_destinations WHERE project_id = ?', [projectId]);
+
+    // 2. Insert partner rates
+    if (data.partnerRates) {
+      for (const [pid, rates] of Object.entries(data.partnerRates)) {
+        if (!partnerIds.includes(pid)) continue;
+        await conn.execute(
+          'INSERT INTO partner_rates (id, partner_id, accommodation_rate, subsistence_rate) VALUES (?, ?, ?, ?)',
+          [genUUID(), pid, rates.aloj || 0, rates.mant || 0]
+        );
+      }
+    }
+
+    // 3. Insert worker rates
+    if (data.workerRates && data.workerRates.length) {
+      for (const wr of data.workerRates) {
+        if (!partnerIds.includes(wr.pid)) continue;
+        await conn.execute(
+          'INSERT INTO worker_rates (id, partner_id, category, rate) VALUES (?, ?, ?, ?)',
+          [genUUID(), wr.pid, wr.category || '', wr.rate || 0]
+        );
+      }
+    }
+
+    // 4. Insert routes
+    if (data.routes) {
+      for (const [key, route] of Object.entries(data.routes)) {
+        const [a, b] = key.split('_');
+        await conn.execute(
+          'INSERT INTO routes (id, project_id, endpoint_a, endpoint_b, distance_km, eco_travel, custom_rate) VALUES (?, ?, ?, ?, ?, ?, ?)',
+          [genUUID(), projectId, a, b, route.km || 0, route.green ? 1 : 0, route.custom_rate != null ? route.custom_rate : null]
+        );
+      }
+    }
+
+    // 5. Insert extra destinations
+    if (data.extraDests && data.extraDests.length) {
+      for (const ed of data.extraDests) {
+        if (!ed.name) continue;
+        await conn.execute(
+          'INSERT INTO extra_destinations (id, project_id, name, country, accommodation_rate, subsistence_rate) VALUES (?, ?, ?, ?, ?, ?)',
+          [genUUID(), projectId, ed.name, ed.country || null, ed.aloj || 0, ed.mant || 0]
+        );
+      }
+    }
+
+    // 6. Insert work packages + activities + details
+    if (data.wps && data.wps.length) {
+      for (let wi = 0; wi < data.wps.length; wi++) {
+        const wp = data.wps[wi];
+        const wpId = genUUID();
+        await conn.execute(
+          'INSERT INTO work_packages (id, project_id, order_index, code, title, summary, category, leader_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
+          [wpId, projectId, wi, `WP${wi + 1}`, wp.name || wp.desc || `WP${wi + 1}`, wp.summary || null, wp._cat || null, wp.leader || null]
+        );
+
+        if (wp.activities && wp.activities.length) {
+          for (let ai = 0; ai < wp.activities.length; ai++) {
+            const act = wp.activities[ai];
+            const actId = genUUID();
+            await conn.execute(
+              `INSERT INTO activities (id, wp_id, type, label, subtype, description, date_start, date_end, online, order_index, gantt_start_month, gantt_end_month) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+              [actId, wpId, act.type, act.label || '', act.subtype || null, act.desc || null,
+               act.date_start || null, act.date_end || null, act.online ? 1 : 0, ai,
+               act._gantt_start || null, act._gantt_end || null]
+            );
+            await insertActivityDetails(conn, actId, act, partnerIds);
+          }
+        }
+      }
+    }
+
+    await conn.commit();
+    console.log(`[saveFullState] ${projectId} OK — ${data.wps?.length || 0} WPs, ${data.wps?.reduce((s, w) => s + (w.activities?.length || 0), 0) || 0} activities`);
+  } catch (err) {
+    await conn.rollback();
+    console.error(`[saveFullState] ${projectId} ROLLBACK — ${err.code || ''}: ${err.message}`);
+    throw err;
+  } finally {
+    conn.release();
+  }
+}
+
+async function deleteActivityDetails(conn, actId, type) {
+  switch (type) {
+    case 'mgmt':
+      await conn.execute('DELETE FROM activity_management_partners WHERE activity_id = ?', [actId]);
+      await conn.execute('DELETE FROM activity_management WHERE activity_id = ?', [actId]);
+      break;
+    case 'meeting': case 'ltta':
+      await conn.execute('DELETE FROM activity_mobility_participants WHERE activity_id = ?', [actId]);
+      await conn.execute('DELETE FROM activity_mobility WHERE activity_id = ?', [actId]);
+      break;
+    case 'io':
+      await conn.execute('DELETE FROM activity_intellectual_outputs WHERE activity_id = ?', [actId]);
+      break;
+    case 'me':
+      await conn.execute('DELETE FROM activity_multiplier_events WHERE activity_id = ?', [actId]);
+      break;
+    case 'local_ws':
+      await conn.execute('DELETE FROM activity_local_workshops WHERE activity_id = ?', [actId]);
+      break;
+    case 'campaign':
+      await conn.execute('DELETE FROM activity_campaigns WHERE activity_id = ?', [actId]);
+      break;
+    default:
+      await conn.execute('DELETE FROM activity_generic_costs WHERE activity_id = ?', [actId]);
+      break;
+  }
+}
+
+async function insertActivityDetails(conn, actId, act, partnerIds) {
+  // partnerIds = valid partner IDs for this project (used to filter FK references)
+  const validPid = pid => !partnerIds || partnerIds.includes(pid);
+
+  switch (act.type) {
+    case 'mgmt': {
+      await conn.execute(
+        'INSERT INTO activity_management (id, activity_id, rate_applicant, rate_partner) VALUES (?, ?, ?, ?)',
+        [genUUID(), actId, act.rate_applicant || 0, act.rate_partner || 0]
+      );
+      break;
+    }
+    case 'meeting': case 'ltta': {
+      const hostValid = act.host && validPid(act.host);
+      if (!hostValid) {
+        console.warn(`[saveFullState] activity ${act.label}: host '${act.host}' not in partners, skipping mobility details`);
+        break;
+      }
+      await conn.execute(
+        'INSERT INTO activity_mobility (id, activity_id, host_partner_id, host_active, pax_per_partner, duration_days, local_pax, local_transport, mat_cost_per_pax) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)',
+        [genUUID(), actId, act.host, act.host_active !== false ? 1 : 0, act.pax || 2, act.days || 3, act.local_pax || 0, act.local_transport || 0, act.mat_cost || 0]
+      );
+      // Participant toggles — only valid partner IDs
+      if (act.participants) {
+        for (const [pid, active] of Object.entries(act.participants)) {
+          if (!validPid(pid)) { console.warn(`[saveFullState] skipping participant '${pid}' — not a valid partner`); continue; }
+          await conn.execute(
+            'INSERT INTO activity_mobility_participants (activity_id, partner_id, active) VALUES (?, ?, ?)',
+            [actId, pid, active !== false ? 1 : 0]
+          );
+        }
+      }
+      break;
+    }
+    case 'io': {
+      if (act.io_staff) {
+        for (const [pid, ps] of Object.entries(act.io_staff)) {
+          if (!ps.active || !validPid(pid)) continue;
+          for (const s of (ps.staff || [])) {
+            await conn.execute(
+              'INSERT INTO activity_intellectual_outputs (id, activity_id, partner_id, days, worker_category) VALUES (?, ?, ?, ?, ?)',
+              [genUUID(), actId, pid, s.days || 0, s.profileId || null]
+            );
+          }
+        }
+      }
+      break;
+    }
+    case 'me': {
+      if (act.me_events) {
+        for (const [pid, ev] of Object.entries(act.me_events)) {
+          if (!validPid(pid)) continue;
+          await conn.execute(
+            'INSERT INTO activity_multiplier_events (id, activity_id, partner_id, active, local_pax, intl_pax, local_rate, intl_rate) VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
+            [genUUID(), actId, pid, ev.active ? 1 : 0, ev.local_pax || 0, ev.intl_pax || 0, ev.local_rate || 0, ev.intl_rate || 0]
+          );
+        }
+      }
+      break;
+    }
+    case 'local_ws': {
+      if (act.ws_partners) {
+        for (const [pid, w] of Object.entries(act.ws_partners)) {
+          if (!validPid(pid)) continue;
+          await conn.execute(
+            'INSERT INTO activity_local_workshops (id, activity_id, partner_id, active, participants, sessions, cost_per_pax) VALUES (?, ?, ?, ?, ?, ?, ?)',
+            [genUUID(), actId, pid, w.active ? 1 : 0, w.ws_pax || 0, w.ws_n || 0, w.ws_cost || 0]
+          );
+        }
+      }
+      break;
+    }
+    case 'campaign': {
+      if (act.camp_partners) {
+        for (const [pid, c] of Object.entries(act.camp_partners)) {
+          if (!validPid(pid)) continue;
+          await conn.execute(
+            'INSERT INTO activity_campaigns (id, activity_id, partner_id, active, monthly_amount, months) VALUES (?, ?, ?, ?, ?, ?)',
+            [genUUID(), actId, pid, c.active ? 1 : 0, c.monthly || 0, c.months || 0]
+          );
+        }
+      }
+      break;
+    }
+    default: { // website, artistic, equipment, goods, consumables, other
+      if (act.note_partners) {
+        for (const [pid, np] of Object.entries(act.note_partners)) {
+          if (!validPid(pid)) continue;
+          await conn.execute(
+            'INSERT INTO activity_generic_costs (id, activity_id, partner_id, active, note, amount, project_pct, lifetime_pct) VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
+            [genUUID(), actId, pid, np.active ? 1 : 0, np.note || null, np.amount || 0, np.project_pct || null, np.lifetime_pct || null]
+          );
+        }
+      }
+      break;
+    }
+  }
+}
+
+async function loadFullState(projectId) {
+  // Get partners
+  const [partners] = await db.execute(
+    'SELECT id, name, city, country, role, order_index FROM partners WHERE project_id = ? ORDER BY order_index', [projectId]
+  );
+  if (!partners.length) return null;
+
+  const partnerIds = partners.map(p => p.id);
+  const ph = partnerIds.map(() => '?').join(',');
+
+  // Partner rates
+  const [prRows] = await db.execute(
+    `SELECT partner_id, accommodation_rate, subsistence_rate FROM partner_rates WHERE partner_id IN (${ph})`, partnerIds
+  );
+  const partnerRates = {};
+  for (const r of prRows) {
+    partnerRates[r.partner_id] = { aloj: Number(r.accommodation_rate), mant: Number(r.subsistence_rate) };
+  }
+
+  // Worker rates
+  const [wrRows] = await db.execute(
+    `SELECT partner_id, category, rate FROM worker_rates WHERE partner_id IN (${ph}) ORDER BY partner_id, category`, partnerIds
+  );
+  const workerRates = wrRows.map(r => ({ pid: r.partner_id, category: r.category, rate: Number(r.rate) }));
+
+  // Routes
+  const [routeRows] = await db.execute(
+    'SELECT endpoint_a, endpoint_b, distance_km, eco_travel, custom_rate FROM routes WHERE project_id = ?', [projectId]
+  );
+  const routes = {};
+  for (const r of routeRows) {
+    const key = r.endpoint_a < r.endpoint_b ? r.endpoint_a + '_' + r.endpoint_b : r.endpoint_b + '_' + r.endpoint_a;
+    routes[key] = { km: r.distance_km || 0, green: !!r.eco_travel, custom_rate: r.custom_rate != null ? Number(r.custom_rate) : null };
+  }
+
+  // Extra destinations
+  const [edRows] = await db.execute(
+    'SELECT name, country, accommodation_rate, subsistence_rate FROM extra_destinations WHERE project_id = ?', [projectId]
+  );
+  const extraDests = edRows.map(r => ({ name: r.name, country: r.country || '', aloj: Number(r.accommodation_rate), mant: Number(r.subsistence_rate) }));
+
+  // Work packages + activities + details
+  const [wpRows] = await db.execute(
+    'SELECT id, order_index, code, title, summary, category, leader_id FROM work_packages WHERE project_id = ? ORDER BY order_index', [projectId]
+  );
+
+  const wps = [];
+  for (const wp of wpRows) {
+    const [actRows] = await db.execute(
+      'SELECT id, type, label, subtype, description, date_start, date_end, online, order_index, gantt_start_month, gantt_end_month FROM activities WHERE wp_id = ? ORDER BY order_index', [wp.id]
+    );
+    const activities = [];
+    for (const act of actRows) {
+      const a = {
+        type: act.type,
+        label: act.label,
+        subtype: act.subtype || undefined,
+        desc: act.description || '',
+        date_start: act.date_start ? act.date_start.toISOString().split('T')[0] : undefined,
+        date_end: act.date_end ? act.date_end.toISOString().split('T')[0] : undefined,
+        online: !!act.online,
+        _gantt_start: act.gantt_start_month || null,
+        _gantt_end: act.gantt_end_month || null,
+      };
+      // Load type-specific details
+      await loadActivityDetails(a, act.id, act.type);
+      activities.push(a);
+    }
+    wps.push({
+      name: wp.title,
+      desc: wp.title,
+      summary: wp.summary || '',
+      leader: wp.leader_id,
+      _cat: wp.category || undefined,
+      activities
+    });
+  }
+
+  return { partnerRates, workerRates, routes, extraDests, wps };
+}
+
+async function loadActivityDetails(a, actId, type) {
+  switch (type) {
+    case 'mgmt': {
+      const [rows] = await db.execute('SELECT rate_applicant, rate_partner FROM activity_management WHERE activity_id = ?', [actId]);
+      if (rows[0]) { a.rate_applicant = Number(rows[0].rate_applicant); a.rate_partner = Number(rows[0].rate_partner); }
+      break;
+    }
+    case 'meeting': case 'ltta': {
+      const [rows] = await db.execute('SELECT host_partner_id, host_active, pax_per_partner, duration_days, local_pax, local_transport, mat_cost_per_pax FROM activity_mobility WHERE activity_id = ?', [actId]);
+      if (rows[0]) {
+        a.host = rows[0].host_partner_id; a.pax = rows[0].pax_per_partner; a.days = rows[0].duration_days;
+        a.local_pax = rows[0].local_pax; a.local_transport = Number(rows[0].local_transport); a.mat_cost = Number(rows[0].mat_cost_per_pax);
+      }
+      const [parts] = await db.execute('SELECT partner_id, active FROM activity_mobility_participants WHERE activity_id = ?', [actId]);
+      if (parts.length) { a.participants = {}; for (const p of parts) a.participants[p.partner_id] = !!p.active; }
+      break;
+    }
+    case 'io': {
+      const [rows] = await db.execute('SELECT partner_id, days, worker_category FROM activity_intellectual_outputs WHERE activity_id = ?', [actId]);
+      if (rows.length) {
+        a.io_staff = {};
+        for (const r of rows) {
+          if (!a.io_staff[r.partner_id]) a.io_staff[r.partner_id] = { active: true, staff: [] };
+          a.io_staff[r.partner_id].staff.push({ days: r.days, profileId: r.worker_category });
+        }
+      }
+      break;
+    }
+    case 'me': {
+      const [rows] = await db.execute('SELECT partner_id, active, local_pax, intl_pax, local_rate, intl_rate FROM activity_multiplier_events WHERE activity_id = ?', [actId]);
+      if (rows.length) {
+        a.me_events = {};
+        for (const r of rows) a.me_events[r.partner_id] = { active: !!r.active, local_pax: r.local_pax, intl_pax: r.intl_pax, local_rate: Number(r.local_rate), intl_rate: Number(r.intl_rate) };
+      }
+      break;
+    }
+    case 'local_ws': {
+      const [rows] = await db.execute('SELECT partner_id, active, participants, sessions, cost_per_pax FROM activity_local_workshops WHERE activity_id = ?', [actId]);
+      if (rows.length) {
+        a.ws_partners = {};
+        for (const r of rows) a.ws_partners[r.partner_id] = { active: !!r.active, ws_pax: r.participants, ws_n: r.sessions, ws_cost: Number(r.cost_per_pax) };
+      }
+      break;
+    }
+    case 'campaign': {
+      const [rows] = await db.execute('SELECT partner_id, active, monthly_amount, months FROM activity_campaigns WHERE activity_id = ?', [actId]);
+      if (rows.length) {
+        a.camp_partners = {};
+        for (const r of rows) a.camp_partners[r.partner_id] = { active: !!r.active, monthly: Number(r.monthly_amount), months: r.months };
+      }
+      break;
+    }
+    default: {
+      const [rows] = await db.execute('SELECT partner_id, active, note, amount, project_pct, lifetime_pct FROM activity_generic_costs WHERE activity_id = ?', [actId]);
+      if (rows.length) {
+        a.note_partners = {};
+        for (const r of rows) a.note_partners[r.partner_id] = { active: !!r.active, note: r.note, amount: Number(r.amount), project_pct: r.project_pct ? Number(r.project_pct) : null, lifetime_pct: r.lifetime_pct ? Number(r.lifetime_pct) : null };
+      }
+      break;
+    }
+  }
+}

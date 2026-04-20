@@ -1,0 +1,1 @@
+ALTER TABLE prep_field_chats MODIFY COLUMN field_key VARCHAR(64) NOT NULL;

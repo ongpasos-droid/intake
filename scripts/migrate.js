@@ -21,20 +21,31 @@ async function run() {
 
   const migrationsDir = path.join(__dirname, '..', 'migrations');
   const files = fs.readdirSync(migrationsDir)
-    .filter(f => f.endsWith('.sql'))
+    .filter(f => f.endsWith('.sql') || f.endsWith('.js'))
     .sort();
 
   console.log(`Found ${files.length} migration(s):`);
 
   for (const file of files) {
-    const sql = fs.readFileSync(path.join(migrationsDir, file), 'utf8');
+    const filePath = path.join(migrationsDir, file);
     console.log(`  Running ${file}...`);
     try {
-      await conn.query(sql);
+      if (file.endsWith('.js')) {
+        const migrationFn = require(filePath);
+        await migrationFn(conn);
+      } else {
+        const sql = fs.readFileSync(filePath, 'utf8');
+        await conn.query(sql);
+      }
       console.log(`  ✓ ${file} done`);
     } catch (err) {
-      console.error(`  ✗ ${file} failed:`, err.message);
-      process.exit(1);
+      // Tolerate "already exists" and "duplicate entry" errors — migrations are re-run on every deploy
+      if (err.code === 'ER_TABLE_EXISTS_ERROR' || err.code === 'ER_DUP_ENTRY' || err.code === 'ER_DUP_KEYNAME' || err.code === 'ER_DUP_FIELDNAME') {
+        console.log(`  ⊘ ${file} skipped (already applied): ${err.message}`);
+      } else {
+        console.error(`  ✗ ${file} failed:`, err.message);
+        process.exit(1);
+      }
     }
   }
 
