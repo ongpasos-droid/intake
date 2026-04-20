@@ -172,10 +172,10 @@ async function markError(countryTaxId, prefix, errorMessage) {
  * Crawl all entities for a given country.
  * @param {string} countryTaxId - ORS taxonomy ID for the country
  * @param {string} countryISO - ISO 2-letter code
- * @param {Object} options - { dryRun, maxPrefixes }
+ * @param {Object} options - { dryRun, maxPrefixes, onProgress }
  */
 async function crawlCountry(countryTaxId, countryISO, options = {}) {
-  const { dryRun = false, maxPrefixes = Infinity } = options;
+  const { dryRun = false, maxPrefixes = Infinity, onProgress = null } = options;
 
   // Build initial 2-letter prefixes (API returns 500 for single chars)
   const queue = [];
@@ -236,6 +236,13 @@ async function crawlCountry(countryTaxId, countryISO, options = {}) {
       }
 
       processedCount++;
+
+      // Progress callback
+      if (onProgress) {
+        try {
+          await onProgress({ processedCount, totalEntities, cappedPrefixes, queueLength: queue.length });
+        } catch (_) { /* don't let report errors stop the crawl */ }
+      }
     } catch (err) {
       console.error(`  [${prefix}] ERROR: ${err.message}`);
       await markError(countryTaxId, prefix, err.message);
