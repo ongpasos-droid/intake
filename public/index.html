@@ -1854,6 +1854,15 @@ tailwind.config = {
                   <label class="flex items-center gap-2 text-sm"><input data-field="is_non_profit" type="checkbox" class="rounded border-outline-variant/40"> Non-profit</label>
                   <label class="flex items-center gap-2 text-sm"><input data-field="is_public" type="checkbox" class="rounded border-outline-variant/40" checked> Visible en directorio</label>
                 </div>
+                <div class="md:col-span-2 mt-2 p-4 bg-surface-container-low/40 rounded-lg border border-outline-variant/30">
+                  <label class="block text-xs font-bold uppercase tracking-widest text-on-surface-variant mb-1">Quién puede usar esta entidad en sus proyectos</label>
+                  <p class="text-xs text-on-surface-variant mb-2">Controla qué otros usuarios pueden añadir tu entidad como aplicante o socia en sus propuestas.</p>
+                  <select data-field="access_mode" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm">
+                    <option value="closed">🔒 Cerrada — solo personas que yo invite</option>
+                    <option value="request">🟡 Bajo solicitud — me llega petición y apruebo/rechazo</option>
+                    <option value="open">🟢 Abierta — cualquier usuario puede usarla sin pedir permiso</option>
+                  </select>
+                </div>
               </div>
               <div class="mt-6 flex justify-end">
                 <button data-org-save="myorg-tab-general" class="bg-primary text-white px-6 py-2.5 rounded-lg text-sm font-semibold hover:bg-primary/90 transition-colors">Guardar datos generales</button>

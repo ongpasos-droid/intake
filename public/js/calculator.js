@@ -3150,6 +3150,51 @@ const Calculator = (() => {
     _setME: (...a) => { setME(...a); scheduleSave(); },
     _setPartnerDetail: (...a) => { setPartnerDetail(...a); scheduleSave(); },
     _toggleWP: toggleWP,
+    _downloadBudgetExcel: async () => {
+      const btn = document.getElementById('calc-download-xlsx');
+      const original = btn ? btn.innerHTML : '';
+      const projectId = state.project?.id || currentProjectId;
+      if (!projectId || String(projectId).startsWith('intake-temp-')) {
+        alert('Guarda el proyecto antes de exportar.');
+        return;
+      }
+      if (btn) { btn.disabled = true; btn.innerHTML = '<span class="material-symbols-outlined text-base animate-spin">progress_activity</span> Generando...'; }
+      try {
+        let budget;
+        try {
+          budget = await API.get(`/budget/by-project/${projectId}`);
+        } catch (notFound) {
+          if (!confirm('Este proyecto aún no tiene un presupuesto en el módulo Budget. ¿Quieres crearlo ahora desde los datos del Intake? (Se poblará con los costes calculados.)')) return;
+          const created = await API.post(`/budget/from-intake/${projectId}`);
+          const newId = created?.id || created?.data?.id;
+          if (!newId) throw new Error('No se pudo crear el presupuesto');
+          budget = { id: newId, name: state.project?.name || 'budget' };
+        }
+        const res = await fetch(`/v1/budget/${budget.id}/export-excel`, {
+          headers: { 'Authorization': `Bearer ${API.getToken()}` },
+          credentials: 'include',
+        });
+        if (!res.ok) {
+          const txt = await res.text();
+          throw new Error(`${res.status}: ${txt.substring(0, 200)}`);
+        }
+        const blob = await res.blob();
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        const safe = (state.project?.name || budget.name || 'budget').replace(/[^a-z0-9_\-]+/gi, '_').substring(0, 40);
+        a.download = `${safe}_EACEA.xlsx`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+      } catch (e) {
+        console.error('[Calc] download error:', e);
+        alert('Error descargando Excel: ' + (e.message || e));
+      } finally {
+        if (btn) { btn.disabled = false; btn.innerHTML = original; }
+      }
+    },
     _switchResTab: switchResTab,
     _setGanttView: setGanttView,
     _ganttToggle: ganttToggle,

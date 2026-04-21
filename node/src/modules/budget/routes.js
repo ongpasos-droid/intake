@@ -29,4 +29,8 @@ router.delete('/:id/work-packages/:wpId',    requireAuth, ctrl.deleteWorkPackage
 router.get   ('/:id/costs',                  requireAuth, ctrl.getCosts);
 router.patch ('/costs/:costId',              requireAuth, ctrl.updateCost);
 
+/* ── Export ──────────────────────────────────────────────────── */
+router.get   ('/:id/export-excel',           requireAuth, ctrl.exportExcel);
+router.get   ('/by-project/:projectId',      requireAuth, ctrl.getByProject);
+
 module.exports = router;

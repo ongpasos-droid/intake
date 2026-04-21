@@ -18,7 +18,7 @@ const ORG_FIELDS = [
   'cp_title','cp_gender','cp_first_name','cp_family_name','cp_department','cp_position',
   'cp_email','cp_telephone1','cp_telephone2','cp_same_address','cp_address','cp_country',
   'cp_region','cp_city','cp_post_code','cp_po_box','cp_cedex',
-  'is_public'
+  'is_public','access_mode'
 ];
 
 function pick(data, fields) {

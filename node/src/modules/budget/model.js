@@ -54,6 +54,14 @@ async function getBudget(id, userId) {
   return rows[0] || null;
 }
 
+async function getBudgetByProject(projectId, userId) {
+  const [rows] = await pool.query(
+    'SELECT * FROM budget_projects WHERE project_id = ? AND user_id = ? ORDER BY updated_at DESC LIMIT 1',
+    [projectId, userId]
+  );
+  return rows[0] || null;
+}
+
 async function updateBudget(id, data) {
   const fields = [];
   const params = [];
@@ -606,7 +614,7 @@ function mapGenericCost(subtype) {
 
 module.exports = {
   COST_TEMPLATE,
-  createBudget, listBudgets, getBudget, updateBudget, deleteBudget,
+  createBudget, listBudgets, getBudget, getBudgetByProject, updateBudget, deleteBudget,
   listBeneficiaries, addBeneficiary, updateBeneficiary, deleteBeneficiary,
   listWorkPackages, addWorkPackage, updateWorkPackage, deleteWorkPackage,
   seedCostLines, getCostLines, updateCostLine,

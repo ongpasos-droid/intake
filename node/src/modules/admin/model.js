@@ -351,6 +351,8 @@ async function upsertEvalQuestion(data, id) {
     const params = [];
     const fieldMap = {
       code: 'code', title: 'title', description: 'description',
+      general_context: 'general_context', connects_from: 'connects_from',
+      connects_to: 'connects_to', global_rule: 'global_rule',
       word_limit: 'word_limit', page_limit: 'page_limit',
       writing_guidance: 'writing_guidance', scoring_logic: 'scoring_logic',
       weight: 'weight', max_score: 'max_score', threshold: 'threshold',
@@ -373,10 +375,15 @@ async function upsertEvalQuestion(data, id) {
   const caps = data.score_caps ? JSON.stringify(data.score_caps) : null;
   const newId = uuid();
   await pool.query(
-    `INSERT INTO eval_questions (id, section_id, code, title, description, word_limit, page_limit,
-     writing_guidance, scoring_logic, weight, max_score, threshold, general_rules, score_caps, sort_order)
-     VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`,
-    [newId, data.section_id, data.code, data.title, desc, data.word_limit || null, data.page_limit || null,
+    `INSERT INTO eval_questions (id, section_id, code, title, description,
+     general_context, connects_from, connects_to, global_rule,
+     word_limit, page_limit, writing_guidance, scoring_logic,
+     weight, max_score, threshold, general_rules, score_caps, sort_order)
+     VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`,
+    [newId, data.section_id, data.code, data.title, desc,
+     data.general_context || null, data.connects_from || null,
+     data.connects_to || null, data.global_rule || null,
+     data.word_limit || null, data.page_limit || null,
      data.writing_guidance || null, data.scoring_logic || 'sum', data.weight ?? 0,
      data.max_score ?? 0, data.threshold ?? 0, rules, caps, data.sort_order ?? 0]);
   return newId;
@@ -388,7 +395,10 @@ async function upsertEvalCriterion(data, id) {
   if (id) {
     const sets = [];
     const params = [];
-    const fields = ['title', 'max_score', 'mandatory', 'meaning', 'structure', 'relations', 'rules', 'red_flags', 'sort_order'];
+    // New narrative brief fields (2026-04 format). Legacy fields kept for back-compat.
+    const fields = ['title', 'max_score', 'mandatory', 'priority',
+                    'intent', 'elements', 'example_weak', 'example_strong', 'avoid',
+                    'meaning', 'structure', 'relations', 'rules', 'red_flags', 'sort_order'];
     for (const f of fields) {
       if (f in data) { sets.push(`${f}=?`); params.push(data[f] ?? null); }
     }
@@ -398,13 +408,16 @@ async function upsertEvalCriterion(data, id) {
     await pool.query(`UPDATE eval_criteria SET ${sets.join(', ')} WHERE id=?`, params);
     return id;
   }
-  const rubric = data.score_rubric ? JSON.stringify(data.score_rubric) : null;
   const newId = uuid();
   await pool.query(
-    `INSERT INTO eval_criteria (id, question_id, title, max_score, mandatory, meaning, structure,
-     relations, rules, red_flags, score_rubric, sort_order) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)`,
-    [newId, data.question_id, data.title, data.max_score ?? 1, data.mandatory ?? 0, data.meaning || null,
-     data.structure || null, data.relations || null, data.rules || null, data.red_flags || null, rubric, data.sort_order ?? 0]);
+    `INSERT INTO eval_criteria (id, question_id, title, max_score, mandatory, priority,
+     intent, elements, example_weak, example_strong, avoid, sort_order)
+     VALUES (?,?,?,?,?,?,?,?,?,?,?,?)`,
+    [newId, data.question_id, data.title, data.max_score ?? 1, data.mandatory ?? 0,
+     data.priority || 'media',
+     data.intent || null, data.elements || null,
+     data.example_weak || null, data.example_strong || null,
+     data.avoid || null, data.sort_order ?? 0]);
   return newId;
 }
 
@@ -431,10 +444,13 @@ async function importEvalRules(programId, jsonData) {
         const q = questions[qi];
         const qId = uuid();
         await conn.query(
-          `INSERT INTO eval_questions (id, section_id, code, title, description, word_limit, page_limit,
-           writing_guidance, scoring_logic, weight, max_score, threshold, general_rules, score_caps, sort_order)
-           VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`,
+          `INSERT INTO eval_questions (id, section_id, code, title, description,
+           general_context, connects_from, connects_to, global_rule,
+           word_limit, page_limit, writing_guidance, scoring_logic,
+           weight, max_score, threshold, general_rules, score_caps, sort_order)
+           VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`,
           [qId, secId, q.code || `${si+1}.${qi+1}`, q.title, q.description || q.prompt || null,
+           q.generalContext || null, q.connectsFrom || null, q.connectsTo || null, q.globalRule || null,
            q.wordLimit || null, q.pageLimit || null, q.writingGuidance || null, q.scoringLogic || 'sum',
            q.weight ?? 0, q.maxScore ?? 0, q.threshold ?? 0,
            q.generalRules ? JSON.stringify(q.generalRules) : null,
@@ -443,11 +459,13 @@ async function importEvalRules(programId, jsonData) {
         for (let ci = 0; ci < criteria.length; ci++) {
           const c = criteria[ci];
           await conn.query(
-            `INSERT INTO eval_criteria (id, question_id, title, max_score, mandatory, meaning, structure,
-             relations, rules, red_flags, score_rubric, sort_order) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)`,
-            [uuid(), qId, c.title, c.maxScore ?? 1, c.mandatory ? 1 : 0,
-             c.meaning || null, c.structure || null, c.relations || null, c.rules || null,
-             c.redFlags || null, c.scoreRubric ? JSON.stringify(c.scoreRubric) : null, ci]);
+            `INSERT INTO eval_criteria (id, question_id, title, max_score, mandatory, priority,
+             intent, elements, example_weak, example_strong, avoid, sort_order)
+             VALUES (?,?,?,?,?,?,?,?,?,?,?,?)`,
+            [uuid(), qId, c.title, c.maxScore ?? 1, c.mandatory ? 1 : 0, c.priority || 'media',
+             c.intent || null, c.elements || null,
+             c.exampleWeak || null, c.exampleStrong || null,
+             c.avoid || null, ci]);
         }
       }
     }
@@ -764,23 +782,27 @@ async function duplicateProgram(sourceId) {
         const newQId = uuid();
         await conn.query(
           `INSERT INTO eval_questions
-            (id, section_id, code, title, description, word_limit, page_limit,
-             writing_guidance, scoring_logic, weight, max_score, threshold,
-             general_rules, score_caps, sort_order)
-           VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`,
-          [newQId, newSecId, q.code, q.title, q.description, q.word_limit, q.page_limit,
-           q.writing_guidance, q.scoring_logic, q.weight, q.max_score, q.threshold,
-           q.general_rules, q.score_caps, q.sort_order]
+            (id, section_id, code, title, description,
+             general_context, connects_from, connects_to, global_rule,
+             word_limit, page_limit, writing_guidance, scoring_logic,
+             weight, max_score, threshold, general_rules, score_caps, sort_order)
+           VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`,
+          [newQId, newSecId, q.code, q.title, q.description,
+           q.general_context, q.connects_from, q.connects_to, q.global_rule,
+           q.word_limit, q.page_limit, q.writing_guidance, q.scoring_logic,
+           q.weight, q.max_score, q.threshold, q.general_rules, q.score_caps, q.sort_order]
         );
         const [criteria] = await conn.query('SELECT * FROM eval_criteria WHERE question_id=? ORDER BY sort_order', [q.id]);
         for (const c of criteria) {
           await conn.query(
             `INSERT INTO eval_criteria
-              (id, question_id, title, max_score, mandatory, meaning, structure,
-               relations, rules, red_flags, score_rubric, sort_order)
-             VALUES (?,?,?,?,?,?,?,?,?,?,?,?)`,
-            [uuid(), newQId, c.title, c.max_score, c.mandatory, c.meaning, c.structure,
-             c.relations, c.rules, c.red_flags, c.score_rubric, c.sort_order]
+              (id, question_id, title, max_score, mandatory, priority,
+               intent, elements, example_weak, example_strong, avoid,
+               meaning, structure, relations, rules, red_flags, score_rubric, sort_order)
+             VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`,
+            [uuid(), newQId, c.title, c.max_score, c.mandatory, c.priority || 'media',
+             c.intent, c.elements, c.example_weak, c.example_strong, c.avoid,
+             c.meaning, c.structure, c.relations, c.rules, c.red_flags, c.score_rubric, c.sort_order]
           );
         }
       }

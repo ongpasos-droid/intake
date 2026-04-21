@@ -1,5 +1,6 @@
 /* ── Budget Controller ────────────────────────────────────────── */
 const m = require('./model');
+const { exportBudgetBuffer } = require('./export');
 
 const ok  = (res, data) => res.json({ ok: true, data });
 const err = (res, msg, status = 400) =>
@@ -130,6 +131,29 @@ exports.updateCost = async (req, res) => {
 /* ── Cost template (for frontend reference) ──────────────────── */
 exports.getCostTemplate = (req, res) => {
   ok(res, m.COST_TEMPLATE);
+};
+
+/* ── Export to EACEA Excel template ─────────────────────────── */
+exports.exportExcel = async (req, res) => {
+  try {
+    const b = await m.getBudget(req.params.id, req.user.id);
+    if (!b) return err(res, 'Not found', 404);
+    const full = await m.getFullBudget(req.params.id);
+    const buf = exportBudgetBuffer(full);
+    const safeName = (b.name || 'budget').replace(/[^a-z0-9_\-]+/gi, '_').substring(0, 40);
+    res.setHeader('Content-Type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+    res.setHeader('Content-Disposition', `attachment; filename="${safeName}_EACEA.xlsx"`);
+    res.send(buf);
+  } catch (e) { err(res, e.message, 500); }
+};
+
+/* ── Lookup budget by project id ─────────────────────────────── */
+exports.getByProject = async (req, res) => {
+  try {
+    const b = await m.getBudgetByProject(req.params.projectId, req.user.id);
+    if (!b) return err(res, 'No budget for this project', 404);
+    ok(res, b);
+  } catch (e) { err(res, e.message, 500); }
 };
 
 /* ── Create from intake ─────────────────────────────────────── */

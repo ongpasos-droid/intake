@@ -166,12 +166,17 @@ async function getEvalCriteria(programType) {
   );
   for (const sec of sections) {
     const [questions] = await db.execute(
-      'SELECT id, title, code, weight, sort_order FROM eval_questions WHERE section_id = ? ORDER BY sort_order',
+      `SELECT id, title, code, weight, sort_order,
+              description, general_context, connects_from, connects_to,
+              global_rule, word_limit, page_limit, writing_guidance
+       FROM eval_questions WHERE section_id = ? ORDER BY sort_order`,
       [sec.id]
     );
     for (const q of questions) {
       const [criteria] = await db.execute(
-        'SELECT id, title, meaning, max_score, score_rubric FROM eval_criteria WHERE question_id = ? ORDER BY sort_order',
+        `SELECT id, title, max_score, mandatory, priority,
+                intent, elements, example_weak, example_strong, avoid
+         FROM eval_criteria WHERE question_id = ? ORDER BY sort_order`,
         [q.id]
       );
       q.criteria = criteria;
@@ -795,6 +800,9 @@ async function generateSection(instanceId, sectionId, projectContext, programId,
   const [instRow] = await db.execute('SELECT project_id FROM form_instances WHERE id = ?', [instanceId]);
   const projId = instRow[0]?.project_id;
 
+  // Get project language (derived from national_agency)
+  const { langName } = projId ? await getProjectMeta(projId) : { langName: 'English' };
+
   // Build section-specific RAG query using project context for smarter retrieval
   const ragQuery = await buildSectionRagQuery(sectionId, sectionTitle, projId);
 
@@ -816,7 +824,10 @@ PERSONA: You are the project coordinator at ${coordinatorName || 'the lead organ
 
 SECTION TO WRITE: "${sectionTitle}"
 LENGTH: 500-700 words. Quality over quantity.
-OUTPUT: Only the section text. No title, no numbering, no meta-commentary.`;
+OUTPUT: Only the section text. No title, no numbering, no meta-commentary.
+
+══ LANGUAGE (MANDATORY) ══
+Write the ENTIRE section in ${langName}. Every paragraph, every sentence, every word must be in ${langName}. Do not switch languages, do not include English fragments unless they are proper nouns or untranslatable terms.`;
 
   // Writing style rules — MANDATORY, highest priority
   if (writingRules.writing_style) {

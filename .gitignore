@@ -10,3 +10,10 @@ public/uploads/
 node/public/uploads/
 
 .claude/settings.local.json
+
+# Local scratch / session artifacts — never commit
+.tmp/
+tmp/
+
+# Video ecosystem (has own deps, rendered output, heavy)
+video/

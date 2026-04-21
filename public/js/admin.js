@@ -1559,74 +1559,56 @@ const Admin = (() => {
       &bull; "Good description" — what makes it good?<br>
       &bull; "Relevant" — relevant to what?</div>` },
 
-    c_meaning: { title: 'Meaning (what to look for)',
-      text: `<p>This is the most important field of the criterion. Explain <strong>what this criterion actually means</strong> and <strong>what type of evidence demonstrates that it has been met</strong>.</p>
-      <p>Think of it as: "If I'm an evaluator reading the proposal, what exactly am I looking for to give points here?"</p>
-      <p>Be as specific as possible. The AI writer will use this to know WHAT to write, and the AI evaluator will use it to know WHAT to check.</p>
-      <div class="tip-example">Example for "Evidence-based problem statement":<br><br>
-      "The proposal must present a clear, data-driven problem statement grounded in verifiable sources. The writer should include: (1) EU-level statistics from official sources like Eurostat, FRA, or WHO demonstrating the scale of the problem; (2) national-level data from each partner country showing how the problem manifests locally; (3) direct quotes or references from affected communities or target groups; (4) recent trends showing the problem is getting worse or needs urgent attention."</div>
-      <p><strong>Key question to ask yourself:</strong> "What would I need to read in the text to be convinced this criterion is fully met?"</p>` },
+    // ── Part A question-level fields (narrative brief format) ────
+    q_general_context: { title: 'Context of the question',
+      text: `<p>One paragraph (4-6 sentences) framing what this question is really about and what the evaluator looks for. It's the mental frame before reading the criteria.</p>
+      <div class="tip-example">Example for 1.1: "This question asks two things at once: explain the problem the project addresses and demonstrate it fits the call's purpose. Even a good idea scores low if relevance to the call is unclear. The evaluator checks: is it a real problem? who is affected? why does it matter? what change will the project create? does it fit this specific call?"</div>` },
 
-    c_structure: { title: 'Structure (how to organize the content)',
-      text: `<p>Specifies how the content for this criterion should be organized within the answer. This tells the AI writer the <strong>format and layout</strong> to use.</p>
-      <p>Different criteria require different structures: some need narrative paragraphs, others need bullet points, tables, or diagrams.</p>
-      <div class="tip-example">Examples by type:<br><br>
-      <strong>Narrative:</strong> "Opening paragraph with EU-level data, followed by one paragraph per partner country with local context."<br><br>
-      <strong>Structured list:</strong> "List of 4-6 specific objectives, each with: (a) objective statement, (b) output indicator, (c) target value, (d) verification method."<br><br>
-      <strong>Table format:</strong> "RACI matrix showing each partner's role (Responsible, Accountable, Consulted, Informed) for each work package."<br><br>
-      <strong>Mixed:</strong> "Introductory paragraph explaining the approach, followed by a bullet-point list of risks with probability/impact/mitigation for each."</div>
-      <p><strong>Why it matters:</strong> A well-structured answer is easier for evaluators to read and score. The structure directly affects the perceived quality of the proposal.</p>` },
+    q_connects_from: { title: 'Connects from (APOYA EN)',
+      text: `<p>Which earlier questions does this one rest on? Write narratively, not as bare bullets. If this is the first question, say "Is the opening question — no prior sections".</p>
+      <div class="tip-example">"Builds on 1.1 (needs) which provides the problem framing; the data described there must be consistent with the quantitative evidence in this answer."</div>` },
 
-    c_relations: { title: 'Relations (cross-references)',
-      text: `<p>What other parts of the project or proposal is this criterion connected to? The AI writer needs this to <strong>maintain coherence</strong> across sections and avoid contradictions.</p>
-      <p>Evaluators check for internal consistency — if you mention 5 objectives in section 1.2 but your work plan in 2.1 only covers 3, that's a red flag.</p>
-      <div class="tip-example">Examples:<br>
-      &bull; "Each objective must link back to a problem identified in 1.1 and forward to activities in 2.1"<br>
-      &bull; "Partner roles described here must match the budget allocation in 2.3"<br>
-      &bull; "The target groups must be consistent with the outreach strategy in 1.3 and the impact indicators in 4.1"<br>
-      &bull; "The methodology must reference the EU policy priorities mentioned in 1.2"</div>
-      <p><strong>Tip:</strong> Think about it as a web of connections. If an evaluator reads section 3.1 about partners, they'll expect to see those same partners mentioned consistently in the work plan, budget, and management structure.</p>` },
+    q_connects_to: { title: 'Connects to (ALIMENTA A)',
+      text: `<p>Which later questions build on this one? This helps the Writer keep cross-references consistent.</p>
+      <div class="tip-example">"Feeds 2.1.1 (methodology) — the objectives defined here must be directly answered by the methodology. Also feeds 3.1 (impact) which must measure change against these objectives."</div>` },
 
-    c_rules: { title: 'Rules (hard requirements)',
-      text: `<p>Non-negotiable constraints that MUST be met for this criterion. These are <strong>pass/fail requirements</strong> — if any rule is violated, the criterion cannot score full points.</p>
-      <p>Rules can come from the Programme Guide, the application form instructions, or from best practices in successful proposals.</p>
-      <div class="tip-example">Examples:<br>
-      &bull; "Must cite at least 3 independent data sources published within the last 3 years"<br>
-      &bull; "Must include specific data from ALL partner countries, not just the coordinator's country"<br>
-      &bull; "Each objective must have at least one quantifiable indicator with a target value"<br>
-      &bull; "Subcontracting must not exceed 30% of the total grant"<br>
-      &bull; "All outputs must be available in at least 2 EU languages"<br>
-      &bull; "Risk register must include minimum 5 risks with probability, impact, and mitigation"</div>
-      <p><strong>Important:</strong> Only include rules that are verifiable and objective. Subjective preferences like "should be well-written" belong in Writing Guidance, not here.</p>` },
+    q_global_rule: { title: 'Global rule (optional)',
+      text: `<p>A transversal principle that applies to ALL criteria of this question. Only for special cases like Small-scale logic. Leave empty if no such rule exists.</p>
+      <div class="tip-example">"Small-scale logic: focused scope, limited objectives, ambition proportional to budget and duration."</div>
+      <p><strong>Rule of thumb:</strong> if it only applies to 1-2 criteria, write it in EVITAR of those criteria instead.</p>` },
 
-    c_red_flags: { title: 'Red flags (what to penalize)',
-      text: `<p>Common mistakes, bad practices, or disqualifying errors that the AI evaluator should actively check for. These are things that <strong>lower the score</strong> when found in the text.</p>
-      <p>Think of it as a checklist of "what NOT to do". This is based on experience with real EU evaluator feedback.</p>
-      <div class="tip-example">Examples:<br>
-      &bull; "Generic, vague statements without specific data or evidence (e.g., 'youth unemployment is a major problem in Europe')"<br>
-      &bull; "Copy-pasted text that clearly comes from another proposal or a different call"<br>
-      &bull; "Missing partner countries from the analysis — if there are 5 partners but only 3 countries are mentioned"<br>
-      &bull; "Outdated data (older than 5 years) presented as current"<br>
-      &bull; "Objectives that are not measurable (e.g., 'raise awareness' without specifying how it will be measured)"<br>
-      &bull; "Budget items without justification"<br>
-      &bull; "Activities that don't connect to any stated objective"<br>
-      &bull; "AI-generated patterns: 'Furthermore', 'It is worth noting', 'In today's rapidly changing world'"</div>
-      <p><strong>Why this matters:</strong> EU evaluators are trained to spot these patterns. A single red flag can drop a criterion score from 2 to 0.</p>` },
+    // ── Criterion fields (narrative brief format) ─────────────────
+    c_priority: { title: 'Priority',
+      text: `<p>How critical this criterion is to the final score. Helps the Writer allocate attention across multiple criteria.</p>
+      <p><strong>Alta:</strong> core criterion; weak performance here tanks the question score.<br>
+      <strong>Media:</strong> important but compensable.<br>
+      <strong>Baja:</strong> nice-to-have, secondary.</p>
+      <p>Not all criteria should be "alta" — that defeats the purpose.</p>` },
 
-    c_score_rubric: { title: 'Score rubric (scoring levels)',
-      text: `<p>A JSON object that defines exactly what each score level means. This is <strong>CRITICAL</strong> for consistent, objective evaluation.</p>
-      <p>Without a rubric, two evaluators (human or AI) would give different scores for the same text. The rubric removes subjectivity.</p>
-      <p><strong>Format:</strong> A JSON object where keys are score values (0, 1, 2...) and values describe what that score means.</p>
-      <div class="tip-example">Example for max_score = 2:<br>
-      {"0": "Not addressed at all, or only generic statements without any evidence or data", "1": "Partially addressed with some evidence but limited to 1-2 sources or only EU-level data without national context", "2": "Fully addressed with 3+ independent sources spanning EU and national levels from all partner countries"}<br><br>
-      Example for max_score = 1 (pass/fail):<br>
-      {"0": "Missing or does not meet the requirement", "1": "Present and clearly meets the requirement"}<br><br>
-      Example for max_score = 3:<br>
-      {"0": "Completely absent", "1": "Mentioned but superficially, without detail", "2": "Developed with some detail but incomplete or inconsistent", "3": "Comprehensive, specific, well-evidenced, and internally consistent"}</div>
-      <p><strong>Rules:</strong><br>
-      &bull; The number of levels must match max_score + 1 (e.g., max_score 2 = levels 0, 1, 2)<br>
-      &bull; Each level must be clearly distinguishable from the others<br>
-      &bull; Use observable, verifiable criteria — not subjective words like "good" or "adequate"</p>` },
+    c_intent: { title: 'INTENCIÓN (what this paragraph must demonstrate)',
+      text: `<p>2-3 sentences that explain what this paragraph must achieve. It's the "purpose" of the criterion — the job it does in the evaluator's mind.</p>
+      <div class="tip-example">"The paragraph must open by describing the situation that led to the project idea. Focus is on the PROBLEM, not on what you will do. The evaluator must understand in 30 seconds what the problem is and why it deserves attention."</div>` },
+
+    c_elements: { title: 'ELEMENTOS (concrete content required)',
+      text: `<p>What must appear concretely in the text. Can be prose or a short list.</p>
+      <div class="tip-example">"Sector and geographic context. One clearly formulated main problem (not mixed). Who is directly affected (specific target groups, not 'society'). Why it matters: consequences of inaction."</div>` },
+
+    c_example_weak: { title: 'EJEMPLO DÉBIL (what a bad writer would put)',
+      text: `<p>1-2 real sentences that a weak writer would use. Contrast to the strong example is the gold of the brief — the AI learns far better from concrete contrast than abstract description.</p>
+      <div class="tip-example">"Sport plays a fundamental role in European society, and there is a need to strengthen its impact on young people."</div>
+      <p><strong>Obligatorio.</strong> Without weak+strong examples, the brief loses 80% of its value.</p>` },
+
+    c_example_strong: { title: 'EJEMPLO FUERTE (what a good writer would put)',
+      text: `<p>1-2 real sentences that a strong writer would use — concrete, evidenced, specific.</p>
+      <div class="tip-example">"In small grassroots sport clubs across northern Spain, over 70% of coaches are volunteers without formal pedagogical training. This contributes to early dropout among adolescents aged 12-16, particularly girls, who leave competitive sport after negative experiences in their first years."</div>
+      <p><strong>Obligatorio.</strong> Should be in the same language as the final proposal.</p>` },
+
+    c_avoid: { title: 'EVITAR (red flags specific to this criterion)',
+      text: `<p>3-4 specific errors that penalize this criterion. Specific, not generic — "avoid generic phrases about sport" is better than "be specific".</p>
+      <div class="tip-example">"Starting with 'This project aims to...'<br>
+      Generic phrases about the importance of sport.<br>
+      Long explanations about Erasmus+ or the call.<br>
+      Mixing several unrelated problems."</div>` },
 
     c_max_score: { title: 'Max score (criterion points)',
       text: `<p>Maximum points that can be awarded for this specific criterion. The sum of all criteria max scores within a question must equal that question's max score.</p>
@@ -2180,6 +2162,33 @@ KEY EVALUATOR FOCUS:
           <label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant flex items-center">Description ${fieldInfo('q_description')}</label>
           <textarea id="eq-description" rows="3" class="px-3 py-2 rounded-lg border border-outline-variant text-sm focus:border-primary outline-none resize-vertical leading-relaxed">${q.description || ''}</textarea>
         </div>
+
+        <!-- PARTE A: bloque genérico de la pregunta (narrative brief) -->
+        <div class="rounded-xl border border-outline-variant/30 p-4 mb-3" style="background:${sec.color}08">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="text-[10px] font-black uppercase tracking-widest" style="color:${sec.color}">Parte A &middot; Bloque de la pregunta</span>
+            <span class="text-[9px] text-on-surface-variant/60">(narrative brief)</span>
+          </div>
+          <div class="flex flex-col gap-1 mb-3">
+            <label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant flex items-center">Contexto de la pregunta ${fieldInfo('q_general_context')}</label>
+            <textarea id="eq-general-context" rows="3" class="px-3 py-2 rounded-lg border border-outline-variant text-sm focus:border-primary outline-none resize-vertical leading-relaxed" placeholder="Un párrafo (4-6 frases) framing what the evaluator looks for...">${q.general_context || ''}</textarea>
+          </div>
+          <div class="grid grid-cols-2 gap-3 mb-3">
+            <div class="flex flex-col gap-1">
+              <label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant flex items-center">Apoya en ${fieldInfo('q_connects_from')}</label>
+              <textarea id="eq-connects-from" rows="2" class="px-3 py-2 rounded-lg border border-outline-variant text-sm focus:border-primary outline-none resize-vertical leading-relaxed" placeholder="Narrativa de qué preguntas previas sustentan ésta...">${q.connects_from || ''}</textarea>
+            </div>
+            <div class="flex flex-col gap-1">
+              <label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant flex items-center">Alimenta a ${fieldInfo('q_connects_to')}</label>
+              <textarea id="eq-connects-to" rows="2" class="px-3 py-2 rounded-lg border border-outline-variant text-sm focus:border-primary outline-none resize-vertical leading-relaxed" placeholder="Narrativa de qué preguntas posteriores se construyen sobre ésta...">${q.connects_to || ''}</textarea>
+            </div>
+          </div>
+          <div class="flex flex-col gap-1">
+            <label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant flex items-center">Regla global (opcional) ${fieldInfo('q_global_rule')}</label>
+            <textarea id="eq-global-rule" rows="2" class="px-3 py-2 rounded-lg border border-outline-variant text-sm focus:border-primary outline-none resize-vertical leading-relaxed" placeholder="Principio transversal aplicable a todos los criterios (ej. small-scale logic). Deja vacío si no aplica.">${q.global_rule || ''}</textarea>
+          </div>
+        </div>
+
         <div class="grid grid-cols-2 gap-3 mb-3">
           <div class="flex flex-col gap-1">
             <label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant flex items-center">Word limit ${fieldInfo('q_word_limit')}</label>
@@ -2264,6 +2273,10 @@ KEY EVALUATOR FOCUS:
           code: document.getElementById('eq-code').value,
           title: document.getElementById('eq-title').value,
           description: document.getElementById('eq-description').value,
+          general_context: document.getElementById('eq-general-context').value || null,
+          connects_from: document.getElementById('eq-connects-from').value || null,
+          connects_to: document.getElementById('eq-connects-to').value || null,
+          global_rule: document.getElementById('eq-global-rule').value || null,
           word_limit: parseInt(document.getElementById('eq-word-limit').value) || null,
           page_limit: parseFloat(document.getElementById('eq-page-limit').value) || null,
           writing_guidance: document.getElementById('eq-writing-guidance').value,
@@ -2825,20 +2838,37 @@ KEY EVALUATOR FOCUS:
 
   function evalCriterionCard(c, i, color) {
     const esc = s => (s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
-    // Alternate subtle blue tints
     const tints = ['#f8fafc', '#eff6ff', '#f0f4fa', '#e8eef6', '#dbeafe', '#edf2f9'];
     const bg = tints[i % tints.length];
+    const priority = c.priority || 'media';
+    const prioColors = {
+      alta:  { bg: 'bg-red-100',    fg: 'text-red-700',    dot: '#dc2626' },
+      media: { bg: 'bg-amber-100',  fg: 'text-amber-700',  dot: '#d97706' },
+      baja:  { bg: 'bg-slate-100',  fg: 'text-slate-600',  dot: '#64748b' }
+    };
+    const pc = prioColors[priority];
+    // Completeness indicator: which narrative fields are filled
+    const hasIntent = !!(c.intent && c.intent.trim());
+    const hasElements = !!(c.elements && c.elements.trim());
+    const hasWeak = !!(c.example_weak && c.example_weak.trim());
+    const hasStrong = !!(c.example_strong && c.example_strong.trim());
+    const hasAvoid = !!(c.avoid && c.avoid.trim());
+    const filled = [hasIntent, hasElements, hasWeak, hasStrong, hasAvoid].filter(Boolean).length;
+    const examplesOk = hasWeak && hasStrong;
+
     return `
       <div class="eval-crit-card rounded-2xl border border-outline-variant/25 p-5 relative overflow-hidden" data-id="${c.id}" style="background:${bg};border-left-color:${color}">
-        <!-- Header -->
         <div class="flex items-center justify-between mb-4">
           <div class="flex items-center gap-3">
             <div class="w-8 h-8 rounded-xl flex items-center justify-center text-xs font-extrabold text-white shadow-sm" style="background:${color}">${i+1}</div>
             <div>
               <div class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Criterion ${i+1}</div>
-              <div class="flex items-center gap-2 mt-0.5">
+              <div class="flex items-center gap-2 mt-0.5 flex-wrap">
                 <span class="px-2 py-0.5 rounded-lg text-[10px] font-bold" style="background:${color}15;color:${color}">max ${c.max_score} pts</span>
+                <span class="px-2 py-0.5 rounded-lg ${pc.bg} ${pc.fg} text-[10px] font-bold uppercase">${priority}</span>
                 ${c.mandatory ? '<span class="px-2 py-0.5 rounded-lg bg-blue-900/10 text-blue-900 text-[10px] font-bold">MANDATORY</span>' : '<span class="px-2 py-0.5 rounded-lg bg-gray-100 text-gray-500 text-[10px] font-semibold">optional</span>'}
+                <span class="px-2 py-0.5 rounded-lg text-[10px] font-semibold ${filled === 5 ? 'bg-green-100 text-green-700' : filled >= 3 ? 'bg-amber-100 text-amber-700' : 'bg-slate-100 text-slate-500'}">${filled}/5 fields</span>
+                ${!examplesOk ? '<span class="px-2 py-0.5 rounded-lg bg-red-50 text-red-600 text-[10px] font-bold">⚠ examples missing</span>' : ''}
               </div>
             </div>
           </div>
@@ -2851,60 +2881,86 @@ KEY EVALUATOR FOCUS:
             </button>
           </div>
         </div>
-        <!-- Fields -->
+        <!-- Narrative brief fields -->
         <div class="grid gap-3">
+          <!-- Title -->
           <div class="flex flex-col gap-1">
-            <label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant flex items-center">Title ${fieldInfo('c_title')}</label>
+            <label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant flex items-center">Título ${fieldInfo('c_title')}</label>
             <input type="text" data-field="title" value="${esc(c.title)}" class="ec-field px-3 py-2.5 rounded-xl border border-outline-variant/40 bg-white text-sm font-semibold focus:border-primary outline-none">
           </div>
-          <div class="grid grid-cols-2 gap-3">
+          <!-- Meta: priority, max_score, mandatory -->
+          <div class="grid grid-cols-3 gap-3">
             <div class="flex flex-col gap-1">
-              <label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant flex items-center">Meaning ${fieldInfo('c_meaning')}</label>
-              <textarea data-field="meaning" rows="2" class="ec-field px-3 py-2 rounded-xl border border-outline-variant/40 bg-white text-xs focus:border-primary outline-none resize-vertical leading-relaxed">${esc(c.meaning)}</textarea>
+              <label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant flex items-center">Prioridad ${fieldInfo('c_priority')}</label>
+              <select data-field="priority" class="ec-field px-3 py-2 rounded-xl border border-outline-variant/40 bg-white text-sm focus:border-primary outline-none cursor-pointer">
+                <option value="alta"  ${priority === 'alta'  ? 'selected' : ''}>Alta</option>
+                <option value="media" ${priority === 'media' ? 'selected' : ''}>Media</option>
+                <option value="baja"  ${priority === 'baja'  ? 'selected' : ''}>Baja</option>
+              </select>
             </div>
-            <div class="flex flex-col gap-1">
-              <label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant flex items-center">Structure ${fieldInfo('c_structure')}</label>
-              <textarea data-field="structure" rows="2" class="ec-field px-3 py-2 rounded-xl border border-outline-variant/40 bg-white text-xs focus:border-primary outline-none resize-vertical leading-relaxed">${esc(c.structure)}</textarea>
-            </div>
-          </div>
-          <div class="grid grid-cols-2 gap-3">
-            <div class="flex flex-col gap-1">
-              <label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant flex items-center">Relations ${fieldInfo('c_relations')}</label>
-              <textarea data-field="relations" rows="2" class="ec-field px-3 py-2 rounded-xl border border-outline-variant/40 bg-white text-xs focus:border-primary outline-none resize-vertical leading-relaxed">${esc(c.relations)}</textarea>
-            </div>
-            <div class="flex flex-col gap-1">
-              <label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant flex items-center">Rules ${fieldInfo('c_rules')}</label>
-              <textarea data-field="rules" rows="2" class="ec-field px-3 py-2 rounded-xl border border-outline-variant/40 bg-white text-xs focus:border-primary outline-none resize-vertical leading-relaxed">${esc(c.rules)}</textarea>
-            </div>
-          </div>
-          <div class="grid grid-cols-2 gap-3">
-            <div class="flex flex-col gap-1">
-              <label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant flex items-center gap-1"><span class="material-symbols-outlined text-xs text-error/60">flag</span> Red flags ${fieldInfo('c_red_flags')}</label>
-              <textarea data-field="red_flags" rows="2" class="ec-field px-3 py-2 rounded-xl border border-outline-variant/40 bg-white text-xs focus:border-primary outline-none resize-vertical leading-relaxed" placeholder="What to penalize...">${esc(c.red_flags)}</textarea>
-            </div>
-            <div class="flex flex-col gap-1">
-              <label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant flex items-center gap-1"><span class="material-symbols-outlined text-xs text-amber-500/60">scoreboard</span> Score rubric ${fieldInfo('c_score_rubric')}</label>
-              <textarea data-field="score_rubric" rows="2" class="ec-field px-3 py-2 rounded-xl border border-outline-variant/40 bg-white text-xs font-mono focus:border-primary outline-none resize-vertical leading-relaxed" placeholder='{"0":"Not addressed","1":"Partial","2":"Complete"}'>${c.score_rubric ? esc(JSON.stringify(c.score_rubric)) : ''}</textarea>
-            </div>
-          </div>
-          <div class="grid grid-cols-2 gap-3">
             <div class="flex flex-col gap-1">
               <label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant flex items-center">Max score ${fieldInfo('c_max_score')}</label>
               <input type="number" data-field="max_score" value="${c.max_score}" step="0.5" min="0" class="ec-field px-3 py-2 rounded-xl border border-outline-variant/40 bg-white text-sm font-bold focus:border-primary outline-none" style="color:${color}">
             </div>
             <div class="flex flex-col gap-1">
-              <label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant flex items-center">Mandatory ${fieldInfo('c_mandatory')}</label>
+              <label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant flex items-center">Obligatorio ${fieldInfo('c_mandatory')}</label>
               <select data-field="mandatory" class="ec-field px-3 py-2 rounded-xl border border-outline-variant/40 bg-white text-sm focus:border-primary outline-none cursor-pointer">
-                <option value="1" ${c.mandatory ? 'selected' : ''}>Yes</option>
+                <option value="1" ${c.mandatory ? 'selected' : ''}>Sí</option>
                 <option value="0" ${!c.mandatory ? 'selected' : ''}>No</option>
               </select>
             </div>
+          </div>
+          <!-- INTENCIÓN -->
+          <div class="flex flex-col gap-1">
+            <label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant flex items-center">INTENCIÓN ${fieldInfo('c_intent')}</label>
+            <textarea data-field="intent" rows="3" class="ec-field px-3 py-2 rounded-xl border border-outline-variant/40 bg-white text-xs focus:border-primary outline-none resize-vertical leading-relaxed" placeholder="2-3 frases: qué debe demostrar este párrafo...">${esc(c.intent)}</textarea>
+          </div>
+          <!-- ELEMENTOS -->
+          <div class="flex flex-col gap-1">
+            <label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant flex items-center">ELEMENTOS ${fieldInfo('c_elements')}</label>
+            <textarea data-field="elements" rows="3" class="ec-field px-3 py-2 rounded-xl border border-outline-variant/40 bg-white text-xs focus:border-primary outline-none resize-vertical leading-relaxed" placeholder="Qué tiene que aparecer concretamente en el texto...">${esc(c.elements)}</textarea>
+          </div>
+          <!-- EJEMPLOS débil / fuerte -->
+          <div class="grid grid-cols-2 gap-3">
+            <div class="flex flex-col gap-1">
+              <label class="text-[10px] font-bold uppercase tracking-widest flex items-center gap-1 ${hasWeak ? 'text-on-surface-variant' : 'text-red-500'}">
+                <span class="material-symbols-outlined text-xs">thumb_down</span> Ejemplo DÉBIL ${fieldInfo('c_example_weak')}
+              </label>
+              <textarea data-field="example_weak" rows="3" class="ec-field px-3 py-2 rounded-xl border ${hasWeak ? 'border-outline-variant/40' : 'border-red-300'} bg-white text-xs italic focus:border-primary outline-none resize-vertical leading-relaxed" placeholder="1-2 frases reales que un mal escritor pondría...">${esc(c.example_weak)}</textarea>
+            </div>
+            <div class="flex flex-col gap-1">
+              <label class="text-[10px] font-bold uppercase tracking-widest flex items-center gap-1 ${hasStrong ? 'text-on-surface-variant' : 'text-red-500'}">
+                <span class="material-symbols-outlined text-xs text-green-600">thumb_up</span> Ejemplo FUERTE ${fieldInfo('c_example_strong')}
+              </label>
+              <textarea data-field="example_strong" rows="3" class="ec-field px-3 py-2 rounded-xl border ${hasStrong ? 'border-outline-variant/40' : 'border-red-300'} bg-white text-xs italic focus:border-primary outline-none resize-vertical leading-relaxed" placeholder="1-2 frases que un buen escritor pondría...">${esc(c.example_strong)}</textarea>
+            </div>
+          </div>
+          <!-- EVITAR -->
+          <div class="flex flex-col gap-1">
+            <label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant flex items-center gap-1">
+              <span class="material-symbols-outlined text-xs text-error/60">block</span> EVITAR ${fieldInfo('c_avoid')}
+            </label>
+            <textarea data-field="avoid" rows="3" class="ec-field px-3 py-2 rounded-xl border border-outline-variant/40 bg-white text-xs focus:border-primary outline-none resize-vertical leading-relaxed" placeholder="3-4 errores típicos específicos que penalizan este criterio...">${esc(c.avoid)}</textarea>
           </div>
         </div>
       </div>`;
   }
 
+  function autoGrowTextarea(el) {
+    const grow = () => {
+      el.style.height = 'auto';
+      el.style.height = (el.scrollHeight + 2) + 'px';
+    };
+    el.style.overflow = 'hidden';
+    el.style.resize = 'none';
+    el.addEventListener('input', grow);
+    // Defer initial grow so CSS/layout has settled (textarea may be briefly 0 height)
+    requestAnimationFrame(grow);
+  }
+
   function evalBindCriteriaEvents(container) {
+    // Auto-grow every textarea in the editor (criteria cards + Part A block)
+    container.querySelectorAll('textarea').forEach(autoGrowTextarea);
     // Save individual criterion
     container.querySelectorAll('.eval-save-crit').forEach(btn => {
       btn.addEventListener('click', async () => {
@@ -2915,10 +2971,6 @@ KEY EVALUATOR FOCUS:
           const field = el.dataset.field;
           if (field === 'mandatory') data[field] = parseInt(el.value);
           else if (field === 'max_score') data[field] = parseFloat(el.value) || 0;
-          else if (field === 'score_rubric') {
-            try { data[field] = el.value ? JSON.parse(el.value) : null; }
-            catch { Toast.show('Invalid JSON in score rubric', 'err'); return; }
-          }
           else data[field] = el.value;
         });
         try {

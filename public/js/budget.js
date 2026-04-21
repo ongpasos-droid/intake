@@ -654,6 +654,38 @@ const Budget = (() => {
     }, 500);
   }
 
+  /* ── Download EACEA Excel ──────────────────────────────────── */
+  async function downloadBudgetXlsx(budgetId, budgetName) {
+    const btn = document.getElementById('budget-download-xlsx-std') || document.getElementById('budget-download-xlsx');
+    const original = btn ? btn.innerHTML : '';
+    if (btn) { btn.disabled = true; btn.innerHTML = '<span class="material-symbols-outlined text-base animate-spin">progress_activity</span> Generando...'; }
+    try {
+      const res = await fetch(`/v1/budget/${budgetId}/export-excel`, {
+        headers: { 'Authorization': `Bearer ${API.getToken()}` },
+        credentials: 'include',
+      });
+      if (!res.ok) {
+        const txt = await res.text();
+        throw new Error(`${res.status}: ${txt.substring(0, 200)}`);
+      }
+      const blob = await res.blob();
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      const safe = (budgetName || 'budget').replace(/[^a-z0-9_\-]+/gi, '_').substring(0, 40);
+      a.download = `${safe}_EACEA.xlsx`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    } catch (e) {
+      console.error('[Budget] download error:', e);
+      alert('Error descargando Excel: ' + (e.message || e));
+    } finally {
+      if (btn) { btn.disabled = false; btn.innerHTML = original; }
+    }
+  }
+
   /* ── Embeddable: open budget editor inside any container ──── */
   async function openInContainer(budgetId, containerEl) {
     // Inject the editor HTML structure into the container

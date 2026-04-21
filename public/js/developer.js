@@ -142,16 +142,6 @@ const Developer = (() => {
   /* ── Flatten template sections into linear list ────────────── */
   function flattenSections(tmpl) {
     const flat = [];
-    if (tmpl.project_summary) {
-      flat.push({
-        id: 'summary',
-        fieldId: 'summary_text',
-        number: '0',
-        title: 'Project Summary',
-        guidance: tmpl.project_summary.fields?.[0]?.guidance || '',
-        parent: null,
-      });
-    }
     for (const sec of (tmpl.sections || [])) {
       // Collect all subsections — handle both direct subsections and subsections_groups
       const allSubs = [];
@@ -181,6 +171,17 @@ const Developer = (() => {
         }
       }
     }
+    // Project Summary goes LAST: synthesizes content from all prior sections
+    if (tmpl.project_summary) {
+      flat.push({
+        id: 'summary',
+        fieldId: 'summary_text',
+        number: '7',
+        title: 'Project Summary',
+        guidance: tmpl.project_summary.fields?.[0]?.guidance || '',
+        parent: null,
+      });
+    }
     return flat;
   }
 
@@ -191,7 +192,6 @@ const Developer = (() => {
     { id: 'relevancia',   label: 'Relevancia',   icon: 'lightbulb' },
     { id: 'actividades',  label: 'Actividades',  icon: 'task_alt' },
     { id: 'tareas',       label: 'Tareas',       icon: 'checklist' },
-    { id: 'analisis',     label: 'Analisis',     icon: 'analytics' },
     { id: 2,  label: 'Escribir',     icon: 'edit_note' },
     { id: 4,  label: 'Revisar',      icon: 'fact_check' },
   ];
@@ -430,7 +430,6 @@ const Developer = (() => {
         case 'actividades':  await renderPrepActividades(el); break;
         case 'tareas':       await renderPrepTareas(el); break;
         case 'cronograma':   await renderPrepCronograma(el); break;
-        case 'analisis':     await renderPrepAnalisis(el); break;
       }
     } catch (err) {
       el.innerHTML = `<div class="text-center py-8 text-error"><span class="material-symbols-outlined text-3xl mb-2">error</span><p class="text-sm">Error cargando ${tab}: ${esc(err.message)}</p></div>`;
@@ -1328,50 +1327,6 @@ const Developer = (() => {
     }
   }
 
-  /* ── Sub-tab: Analisis ─────────────────────────────────────────── */
-  async function renderPrepAnalisis(el) {
-    const pid = currentProject.id;
-    const gaps = await API.get('/developer/projects/' + pid + '/gap-analysis').catch(() => ({ gaps: [], strengths: [], stats: {} }));
-    prepCache.analisis = gaps;
-
-    const totalReady = (gaps.strengths?.length || 0);
-    const totalGaps = (gaps.gaps?.length || 0);
-
-    el.innerHTML = `
-      <div class="space-y-4">
-        <h3 class="font-headline text-base font-bold">Analisis de preparacion</h3>
-        <p class="text-xs text-on-surface-variant mb-2">Estado del material disponible para que la IA escriba tu propuesta.</p>
-
-        <!-- Summary counters -->
-        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-4">
-          <div class="bg-green-50 border border-green-200 rounded-xl p-3 text-center">
-            <div class="font-headline text-lg font-extrabold text-green-600">${totalReady}</div>
-            <div class="text-[9px] uppercase tracking-wider text-green-700 font-bold">Puntos fuertes</div>
-          </div>
-          <div class="bg-amber-50 border border-amber-200 rounded-xl p-3 text-center">
-            <div class="font-headline text-lg font-extrabold text-amber-600">${totalGaps}</div>
-            <div class="text-[9px] uppercase tracking-wider text-amber-700 font-bold">Gaps a cubrir</div>
-          </div>
-        </div>
-
-        <!-- Detail -->
-        <div class="bg-white rounded-2xl border border-outline-variant/20 p-5">
-          ${(gaps.strengths || []).map(s => `
-            <div class="flex items-center gap-2 py-1.5">
-              <span class="material-symbols-outlined text-sm text-green-500">check_circle</span>
-              <span class="text-sm text-on-surface">${esc(s)}</span>
-            </div>
-          `).join('')}
-          ${(gaps.gaps || []).map(g => `
-            <div class="flex items-center gap-2 py-1.5">
-              <span class="material-symbols-outlined text-sm text-amber-500">warning</span>
-              <span class="text-sm text-on-surface">${esc(g.area)}: <span class="text-on-surface-variant">${esc(g.detail)}</span></span>
-            </div>
-          `).join('')}
-        </div>
-      </div>`;
-  }
-
   async function handleDocUpload(e) {
     const file = e.target.files[0];
     if (!file) return;
@@ -1638,7 +1593,7 @@ const Developer = (() => {
       <div class="flex items-center justify-between mt-2 mb-4">
         <span class="text-xs text-on-surface-variant" id="dev-cascade-wc">${wc} palabras</span>
         <button onclick="Developer._cascadeRegenerate()" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-bold text-primary border border-primary/30 hover:bg-primary/5 transition-colors">
-          <span class="material-symbols-outlined text-sm">auto_awesome</span> Regenerar con IA
+          <span class="material-symbols-outlined text-sm">auto_awesome</span> Generar con IA
         </button>
       </div>
 
@@ -1732,7 +1687,7 @@ const Developer = (() => {
     const sec = flatSections[cascadeIndex];
     if (!sec) return;
     const textarea = document.getElementById('dev-textarea');
-    if (textarea) textarea.value = 'Regenerando con IA...';
+    if (textarea) textarea.value = 'Generando con IA...';
     try {
       const result = await API.post('/developer/instances/' + currentInstance.id + '/generate', { sections: [sec.fieldId] });
       const text = result[sec.fieldId] || '';
