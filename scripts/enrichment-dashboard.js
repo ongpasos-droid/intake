@@ -74,6 +74,11 @@ function buildHtml(rows) {
   .detail-grid { display: grid; grid-template-columns: 200px 1fr; gap: 4px 16px; }
   .detail-grid dt { color: #94a3b8; }
   .detail-grid dd { margin: 0; word-break: break-word; color: #e2e8f0; }
+  .social-pill { display: inline-block; background: #334155; color: #cbd5e1 !important; padding: 1px 5px; border-radius: 8px; font-size: 10px; font-weight: 600; text-decoration: none; margin-right: 2px; }
+  .social-pill:hover { background: #475569; }
+  .more { color: #94a3b8; font-size: 10px; margin-left: 4px; }
+  td a { text-decoration: none; }
+  td a:hover { text-decoration: underline; }
 </style>
 </head>
 <body>
@@ -112,28 +117,42 @@ const DATA = ${payload};
 
 const COLS = [
   { key: 'oid',               label: 'OID',          w: 80 },
-  { key: 'extracted_name',    label: 'Name',         w: 260 },
-  { key: '_status',           label: 'Status',       w: 80, html: true },
-  { key: 'error_type',        label: 'Error',        w: 130 },
+  { key: 'extracted_name',    label: 'Name',         w: 240 },
+  { key: '_status',           label: 'Status',       w: 70, html: true },
+  { key: 'error_type',        label: 'Error',        w: 120 },
   { key: 'legal_form',        label: 'Legal form',   w: 90 },
-  { key: 'cms_detected',      label: 'CMS',          w: 110 },
+  { key: 'cms_detected',      label: 'CMS',          w: 100 },
   { key: 'score_professionalism', label: 'P',        w: 40, html: true, num: true },
   { key: 'score_eu_readiness', label: 'EU',          w: 40, html: true, num: true },
   { key: 'score_vitality',    label: 'V',            w: 40, html: true, num: true },
   { key: 'score_squat_risk',  label: 'SQ',           w: 40, html: true, num: true, risk: true },
   { key: 'mismatch_level',    label: 'Mismatch',     w: 100 },
-  { key: '_has_email',        label: '@',            w: 40, num: true },
+  { key: '_first_email',      label: 'Email',        w: 200, html: true },
+  { key: '_first_phone',      label: 'Phone',        w: 130 },
+  { key: '_socials_short',    label: 'Socials',      w: 120, html: true },
   { key: 'year_founded',      label: 'Since',        w: 60, num: true },
   { key: 'copyright_year',    label: '©',            w: 60, num: true },
-  { key: 'final_url',         label: 'URL',          w: 220, html: true },
+  { key: 'final_url',         label: 'URL',          w: 200, html: true },
 ];
+
+const SOCIAL_ICONS = {
+  facebook: 'FB', instagram: 'IG', linkedin: 'LI', twitter: 'X', youtube: 'YT',
+  tiktok: 'TT', whatsapp: 'WA', telegram: 'TG', spotify: 'SP',
+};
 
 // Enrich rows with derived display fields
 for (const r of DATA) {
   r._status = r.error_type ? 'ERROR' : 'OK';
-  r._has_email = Array.isArray(r.emails) ? r.emails.length : 0;
+  r._first_email = Array.isArray(r.emails) && r.emails[0] ? r.emails[0] : '';
+  r._email_count = Array.isArray(r.emails) ? r.emails.length : 0;
+  r._first_phone = Array.isArray(r.phones) && r.phones[0] ? r.phones[0] : '';
+  const socials = r.social_links || {};
+  r._socials_short = Object.keys(socials).map(k => {
+    const short = SOCIAL_ICONS[k] || k.slice(0, 2).toUpperCase();
+    return '<a href="' + socials[k] + '" target="_blank" onclick="event.stopPropagation()" title="' + k + '" class="social-pill">' + short + '</a>';
+  }).join(' ');
   r._final_url_host = (() => { try { return new URL(r.final_url).hostname; } catch { return ''; } })();
-  r._searchable = [r.oid, r.extracted_name, r.description, r._final_url_host, r.legal_form, r.cms_detected].filter(Boolean).join(' ').toLowerCase();
+  r._searchable = [r.oid, r.extracted_name, r.description, r._final_url_host, r.legal_form, r.cms_detected, r._first_email].filter(Boolean).join(' ').toLowerCase();
 }
 
 const state = { sort: { key: 'score_eu_readiness', dir: 'desc' } };
@@ -211,7 +230,15 @@ function render() {
         }
         if (c.key === 'final_url' && v) {
           const host = (()=>{ try { return new URL(v).hostname; } catch { return v; }})();
-          return '<td><a href="' + v + '" target="_blank">' + host + '</a></td>';
+          return '<td><a href="' + v + '" target="_blank" onclick="event.stopPropagation()">' + host + '</a></td>';
+        }
+        if (c.key === '_first_email') {
+          if (!v) return '<td></td>';
+          const extra = r._email_count > 1 ? ' <span class="more">+' + (r._email_count - 1) + '</span>' : '';
+          return '<td><a href="mailto:' + v + '" onclick="event.stopPropagation()">' + v + '</a>' + extra + '</td>';
+        }
+        if (c.key === '_socials_short') {
+          return '<td class="wrap">' + v + '</td>';
         }
         if (c.num) {
           if (v === '' || v === null) return '<td></td>';
