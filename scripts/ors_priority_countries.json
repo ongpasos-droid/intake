@@ -6,7 +6,7 @@
   {"iso": "DE", "reason": "frequent coordinator"},
   {"iso": "NL", "reason": "frequent coordinator"},
   {"iso": "BE", "reason": "Brussels hub, EACEA"},
-  {"iso": "GR", "reason": "KA2 common partner"},
+  {"iso": "EL", "reason": "KA2 common partner (ORS uses EL for Greece, not GR)"},
   {"iso": "PL", "reason": "KA2 common partner"},
   {"iso": "RO", "reason": "KA2 common partner"},
   {"iso": "BG", "reason": "KA2 common partner"},

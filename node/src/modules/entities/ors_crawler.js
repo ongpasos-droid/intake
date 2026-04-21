@@ -7,6 +7,7 @@ const ors = require('./ors_client');
 
 const ALPHABET = 'abcdefghijklmnopqrstuvwxyz0123456789'.split('');
 const MIN_PREFIX_LENGTH = 2; // ORS API returns 500 for single-char prefixes
+const GLOBAL_TAX_ID = 'ALL'; // marker for the single global sweep (ORS API ignores the country filter)
 
 // Validity type mapping
 const VALIDITY_MAP = {
@@ -61,13 +62,19 @@ function buildISOToTaxMap(countries) {
 
 /**
  * Upsert a single entity from ORS API response into the DB.
+ * Country is taken from raw.country (taxId) and resolved to ISO via taxToISO map.
+ * The ORS API ignores the `country` filter in the request body, so we always
+ * trust the `country` field of the response, not the filter we sent.
  */
-async function upsertEntity(raw, countryISO, countryTaxId) {
+async function upsertEntity(raw, taxToISO) {
   const oid = (raw.organisationId || '').trim();
   if (!oid) return;
 
   const legalName = (raw.legalName || '').trim();
   if (!legalName) return;
+
+  const rawTaxId = (raw.country || '').toString().trim() || null;
+  const countryISO = rawTaxId && taxToISO ? (taxToISO.get(rawTaxId) || null) : null;
 
   const validityLabel = VALIDITY_MAP[raw.validityType] || (raw.validityType ? 'unknown' : null);
 
@@ -97,8 +104,8 @@ async function upsertEntity(raw, countryISO, countryTaxId) {
       (raw.pic || '').trim() || null,
       legalName,
       (raw.businessName || '').trim() || null,
-      countryISO || null,
-      countryTaxId || null,
+      countryISO,
+      rawTaxId,
       (raw.city || '').trim() || null,
       (raw.website || '').trim() || null,
       (raw.websiteShow || '').trim() || null,
@@ -169,26 +176,54 @@ async function markError(countryTaxId, prefix, errorMessage) {
 }
 
 /**
- * Crawl all entities for a given country.
- * @param {string} countryTaxId - ORS taxonomy ID for the country
- * @param {string} countryISO - ISO 2-letter code
- * @param {Object} options - { dryRun, maxPrefixes, onProgress }
+ * Global ORS crawl: one single sweep by legalName prefix (aa, ab, ..., 99),
+ * expanding deeper prefixes (aaa, aab, ...) when the 200-result cap is hit.
+ *
+ * Country filtering is done on the response side (raw.country) because the ORS
+ * advancedSearch endpoint silently ignores the `country` field in the body.
+ *
+ * State is tracked in ors_crawl_state with country_tax_id = 'ALL'.
+ *
+ * @param {Map<string,string>} taxToISO - taxId -> ISO map (from buildCountryMap)
+ * @param {Object} options - { dryRun, maxPrefixes, onProgress, saturationThreshold }
  */
-async function crawlCountry(countryTaxId, countryISO, options = {}) {
-  const { dryRun = false, maxPrefixes = Infinity, onProgress = null } = options;
+async function crawlGlobal(taxToISO, options = {}) {
+  const { dryRun = false, maxPrefixes = Infinity, onProgress = null, saturationThreshold = 5 } = options;
+  const stateKey = GLOBAL_TAX_ID;
 
-  // Build initial 2-letter prefixes (API returns 500 for single chars)
+  const queued = new Set();
   const queue = [];
+  const enqueue = (p) => { if (!queued.has(p)) { queued.add(p); queue.push(p); } };
   for (const a of ALPHABET) {
     for (const b of ALPHABET) {
-      queue.push(a + b);
+      enqueue(a + b);
     }
   }
+
+  // Resume-safe: rehydrate children of previously capped prefixes (lost on process kill)
+  const [cappedRows] = await pool.execute(
+    `SELECT prefix FROM ors_crawl_state WHERE country_tax_id = ? AND status = 'capped'`,
+    [stateKey]
+  );
+  for (const { prefix } of cappedRows) {
+    for (const letter of ALPHABET) enqueue(prefix + letter);
+  }
+
+  // Also rehydrate pending longer prefixes (from a previously interrupted run)
+  const [pendingRows] = await pool.execute(
+    `SELECT prefix FROM ors_crawl_state WHERE country_tax_id = ? AND status IN ('pending','in_progress') AND CHAR_LENGTH(prefix) > 2`,
+    [stateKey]
+  );
+  for (const { prefix } of pendingRows) enqueue(prefix);
+
+  console.log(`[crawler] Queue primed: ${queue.length} prefixes (incl. ${cappedRows.length} capped → children, ${pendingRows.length} pending)`);
+
   let processedCount = 0;
   let totalEntities = 0;
   let cappedPrefixes = 0;
+  let saturatedSkipped = 0;
 
-  console.log(`[crawler] Starting crawl for ${countryISO} (taxId: ${countryTaxId})`);
+  console.log(`[crawler] Starting GLOBAL crawl (taxId filter disabled; country resolved from response)`);
   if (dryRun) console.log('[crawler] DRY RUN mode — limited prefixes');
 
   while (queue.length > 0) {
@@ -199,60 +234,70 @@ async function crawlCountry(countryTaxId, countryISO, options = {}) {
 
     const prefix = queue.shift();
 
-    // Skip if already done
-    if (await isPrefixDone(countryTaxId, prefix)) {
-      console.log(`  [${prefix}] already done, skipping`);
+    if (await isPrefixDone(stateKey, prefix)) {
       continue;
     }
 
-    await markInProgress(countryTaxId, prefix);
+    await markInProgress(stateKey, prefix);
 
     try {
+      // Do NOT send `country`: the ORS API ignores it and returns the global pool anyway.
       const { results, cappedAtLimit, durationMs, httpStatus } = await ors.advancedSearch({
-        country: countryTaxId,
         legalName: prefix,
       });
 
-      // Log the request
-      await ors.logRequest(countryTaxId, prefix, httpStatus, results.length, durationMs, null);
+      await ors.logRequest(stateKey, prefix, httpStatus, results.length, durationMs, null);
 
-      // Upsert all entities
+      // Novelty check BEFORE upsert — unique OIDs not yet in DB
+      let newOids = 0;
+      const oids = results.map(r => (r.organisationId || '').trim()).filter(Boolean);
+      if (oids.length > 0) {
+        const placeholders = oids.map(() => '?').join(',');
+        const [existing] = await pool.execute(
+          `SELECT oid FROM entities WHERE oid IN (${placeholders})`, oids
+        );
+        newOids = oids.length - existing.length;
+      }
+
+      // Upsert all entities — each one tagged with its real country from raw.country
       for (const r of results) {
-        await upsertEntity(r, countryISO, countryTaxId);
+        await upsertEntity(r, taxToISO);
       }
       totalEntities += results.length;
 
       if (cappedAtLimit) {
-        // Add deeper prefixes to queue
-        for (const letter of ALPHABET) {
-          queue.push(prefix + letter);
+        if (newOids < saturationThreshold) {
+          await markDone(stateKey, prefix, results.length);
+          saturatedSkipped++;
+          console.log(`  [${prefix}] 200 results, only ${newOids} new → SATURATED, not expanding, ${durationMs}ms`);
+        } else {
+          for (const letter of ALPHABET) enqueue(prefix + letter);
+          await markCapped(stateKey, prefix, results.length);
+          cappedPrefixes++;
+          console.log(`  [${prefix}] 200 results, ${newOids} new (CAPPED) — expanding, ${durationMs}ms`);
         }
-        await markCapped(countryTaxId, prefix, results.length);
-        cappedPrefixes++;
-        console.log(`  [${prefix}] ${results.length} results (CAPPED) — expanding, ${durationMs}ms`);
       } else {
-        await markDone(countryTaxId, prefix, results.length);
-        console.log(`  [${prefix}] ${results.length} results, ${durationMs}ms`);
+        await markDone(stateKey, prefix, results.length);
+        console.log(`  [${prefix}] ${results.length} results (${newOids} new), ${durationMs}ms`);
       }
 
       processedCount++;
 
-      // Progress callback
       if (onProgress) {
         try {
-          await onProgress({ processedCount, totalEntities, cappedPrefixes, queueLength: queue.length });
+          await onProgress({ processedCount, totalEntities, cappedPrefixes, saturatedSkipped, queueLength: queue.length });
         } catch (_) { /* don't let report errors stop the crawl */ }
       }
     } catch (err) {
       console.error(`  [${prefix}] ERROR: ${err.message}`);
-      await markError(countryTaxId, prefix, err.message);
-      await ors.logRequest(countryTaxId, prefix, null, null, null, err.message);
+      await markError(stateKey, prefix, err.message);
+      await ors.logRequest(stateKey, prefix, null, null, null, err.message);
       processedCount++;
     }
   }
 
-  console.log(`[crawler] Done: ${processedCount} prefixes processed, ${totalEntities} entities upserted, ${cappedPrefixes} capped`);
-  return { processedCount, totalEntities, cappedPrefixes, remaining: queue.length };
+  console.log(`[crawler] Done: ${processedCount} prefixes processed, ${totalEntities} entities upserted, ${cappedPrefixes} capped, ${saturatedSkipped} saturated-skipped`);
+  return { processedCount, totalEntities, cappedPrefixes, saturatedSkipped, remaining: queue.length };
 }
 
 /**
@@ -275,9 +320,10 @@ async function getProgress(countryTaxId) {
 }
 
 module.exports = {
-  crawlCountry,
+  crawlGlobal,
   getProgress,
   buildCountryMap,
   buildISOToTaxMap,
   upsertEntity,
+  GLOBAL_TAX_ID,
 };

@@ -1,12 +1,15 @@
 #!/usr/bin/env node
 /**
- * ORS Crawl Entry Point
- * Usage:
- *   node scripts/crawl_ors.js --country=ES
- *   node scripts/crawl_ors.js --country=ES --dry-run --max-prefixes=3
- *   node scripts/crawl_ors.js --all
+ * ORS Global Crawl Entry Point
  *
- * Sends Telegram reports on: country start, country finish, errors, every 50 prefixes.
+ * The ORS advancedSearch endpoint silently ignores the `country` filter, so
+ * we do ONE global sweep across legalName prefixes (aa..99 → deeper when
+ * capped) and tag each entity with its real country from the response.
+ *
+ * Usage:
+ *   node scripts/crawl_ors.js
+ *   node scripts/crawl_ors.js --dry-run --max-prefixes=10
+ *
  * Spec: docs/ORS_CRAWL_SPEC.md §7, §10
  */
 require('dotenv').config();
@@ -14,23 +17,16 @@ const ors = require('../node/src/modules/entities/ors_client');
 const crawler = require('../node/src/modules/entities/ors_crawler');
 const pool = require('../node/src/utils/db');
 
-const priorityCountries = require('./ors_priority_countries.json');
-
-// Telegram config
 const TG_TOKEN = process.env.TELEGRAM_BOT_TOKEN || '8695918145:AAHkWahytlmei-OHEAWwGyS7Q1d1S6MVBHg';
 const TG_CHAT_ID = process.env.TELEGRAM_CHAT_ID || '848223828';
-const REPORT_EVERY_N_PREFIXES = 50;
+const REPORT_INTERVAL_MS = 30 * 60 * 1000; // 30 min between progress reports
 
 async function sendTelegram(text) {
   try {
     await fetch(`https://api.telegram.org/bot${TG_TOKEN}/sendMessage`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        chat_id: TG_CHAT_ID,
-        text,
-        parse_mode: 'HTML',
-      }),
+      body: JSON.stringify({ chat_id: TG_CHAT_ID, text, parse_mode: 'HTML' }),
     });
   } catch (err) {
     console.error(`[telegram] Failed to send: ${err.message}`);
@@ -38,11 +34,13 @@ async function sendTelegram(text) {
 }
 
 async function getGlobalStats() {
-  const [entities] = await pool.execute(
-    'SELECT country_code, COUNT(*) AS cnt FROM entities GROUP BY country_code ORDER BY cnt DESC'
+  const [byCountry] = await pool.execute(
+    `SELECT country_code, COUNT(*) AS cnt FROM entities
+     WHERE country_code IS NOT NULL
+     GROUP BY country_code ORDER BY cnt DESC`
   );
   const [total] = await pool.execute('SELECT COUNT(*) AS cnt FROM entities');
-  return { byCountry: entities, total: total[0].cnt };
+  return { byCountry, total: total[0].cnt };
 }
 
 function parseArgs() {
@@ -59,139 +57,76 @@ function parseArgs() {
 async function main() {
   const args = parseArgs();
   const dryRun = !!args['dry-run'];
-  const maxPrefixes = args['max-prefixes'] ? parseInt(args['max-prefixes'], 10) : (dryRun ? 3 : Infinity);
+  const maxPrefixes = args['max-prefixes']
+    ? parseInt(args['max-prefixes'], 10)
+    : (dryRun ? 3 : Infinity);
 
-  console.log('=== ORS Crawl ===');
+  console.log('=== ORS Global Crawl ===');
   console.log(`Mode: ${dryRun ? 'DRY RUN' : 'FULL'}`);
 
-  // Fetch country taxonomy
-  console.log('Fetching country taxonomy...');
+  // Country taxonomy (used only to resolve raw.country → ISO on upsert)
   let countries;
   try {
     countries = await ors.getCountries();
-    const countryCount = Array.isArray(countries) ? countries.length : Object.keys(countries).length;
-    console.log(`  Got ${countryCount} countries from ORS`);
   } catch (err) {
     console.error(`FATAL: Cannot fetch country taxonomy: ${err.message}`);
     await sendTelegram(`🔴 <b>ORS Crawl FATAL</b>\nNo puedo obtener taxonomía de países: ${err.message}`);
     process.exit(1);
   }
-
-  const isoToTax = crawler.buildISOToTaxMap(countries);
-
-  // Determine which countries to crawl
-  let targetCountries = [];
-
-  if (args.country) {
-    const iso = args.country.toUpperCase();
-    const taxId = isoToTax.get(iso);
-    if (!taxId) {
-      console.error(`ERROR: Country ${iso} not found in ORS taxonomy.`);
-      process.exit(1);
-    }
-    targetCountries = [{ iso, taxId }];
-  } else if (args.all) {
-    targetCountries = priorityCountries
-      .map(c => ({ iso: c.iso, taxId: isoToTax.get(c.iso) }))
-      .filter(c => {
-        if (!c.taxId) {
-          console.warn(`  WARNING: ${c.iso} not found in taxonomy, skipping`);
-          return false;
-        }
-        return true;
-      });
-  } else {
-    console.error('Usage: --country=ES or --all');
-    process.exit(1);
-  }
-
-  const countryList = targetCountries.map(c => c.iso).join(', ');
-  console.log(`Crawling ${targetCountries.length} country(s): ${countryList}`);
-
-  await sendTelegram(
-    `🟢 <b>ORS Crawl iniciado</b>\n` +
-    `Modo: ${dryRun ? 'DRY RUN' : 'COMPLETO'}\n` +
-    `Países: ${targetCountries.length} (${countryList})`
-  );
+  const taxToISO = crawler.buildCountryMap(countries);
+  console.log(`  Loaded ${taxToISO.size} country mappings`);
 
   // Reset stale in_progress prefixes (from interrupted runs)
   await pool.execute(
-    `UPDATE ors_crawl_state SET status = 'pending' WHERE status = 'in_progress'`
+    `UPDATE ors_crawl_state SET status = 'pending'
+     WHERE country_tax_id = ? AND status = 'in_progress'`,
+    [crawler.GLOBAL_TAX_ID]
+  );
+
+  await sendTelegram(
+    `🟢 <b>ORS Crawl global iniciado</b>\n` +
+    `Modo: ${dryRun ? 'DRY RUN' : 'COMPLETO'}\n` +
+    `Barrido único por prefijo de nombre (país se resuelve del response).`
   );
 
   const startTime = Date.now();
+  const reportState = { lastReport: 0 };
 
-  // Crawl each country sequentially
-  for (let i = 0; i < targetCountries.length; i++) {
-    const { iso, taxId } = targetCountries[i];
-    const countryStart = Date.now();
+  const result = await crawler.crawlGlobal(taxToISO, {
+    dryRun,
+    maxPrefixes,
+    onProgress: async (stats) => {
+      const now = Date.now();
+      if (now - reportState.lastReport >= REPORT_INTERVAL_MS) {
+        reportState.lastReport = now;
+        const globalStats = await getGlobalStats();
+        const top5 = globalStats.byCountry.slice(0, 5)
+          .map(c => `  ${c.country_code}: ${c.cnt}`).join('\n');
+        await sendTelegram(
+          `📊 <b>Progreso global</b>\n` +
+          `Prefijos procesados: ${stats.processedCount}\n` +
+          `Upserts en este run: ${stats.totalEntities}\n` +
+          `Total global: ${globalStats.total}\n` +
+          `Capped: ${stats.cappedPrefixes} | Saturados: ${stats.saturatedSkipped} | Pendientes: ${stats.queueLength}\n\n` +
+          `<b>Top 5:</b>\n${top5}`
+        );
+      }
+    },
+  });
 
-    console.log(`\n${'='.repeat(50)}`);
-    console.log(`Country ${i + 1}/${targetCountries.length}: ${iso} (taxId: ${taxId})`);
-    console.log('='.repeat(50));
-
-    await sendTelegram(
-      `🔵 <b>Crawling ${iso}</b> (${i + 1}/${targetCountries.length})\n` +
-      `TaxID: ${taxId}`
-    );
-
-    try {
-      const result = await crawler.crawlCountry(taxId, iso, {
-        dryRun,
-        maxPrefixes,
-        onProgress: async (stats) => {
-          // Called every prefix — we report every N
-          if (stats.processedCount > 0 && stats.processedCount % REPORT_EVERY_N_PREFIXES === 0) {
-            const [entRows] = await pool.execute(
-              'SELECT COUNT(*) AS cnt FROM entities WHERE country_code = ?', [iso]
-            );
-            await sendTelegram(
-              `📊 <b>Progreso ${iso}</b>\n` +
-              `Prefijos: ${stats.processedCount} procesados\n` +
-              `Entidades ${iso}: ${entRows[0].cnt}\n` +
-              `Capped: ${stats.cappedPrefixes} | Pendientes en cola: ${stats.queueLength}`
-            );
-          }
-        },
-      });
-
-      // Country finished — full report
-      const progress = await crawler.getProgress(taxId);
-      const [entRows] = await pool.execute(
-        'SELECT COUNT(*) AS cnt FROM entities WHERE country_code = ?', [iso]
-      );
-      const elapsed = Math.round((Date.now() - countryStart) / 60000);
-
-      const summary =
-        `✅ <b>${iso} completado</b> (${i + 1}/${targetCountries.length})\n` +
-        `Entidades: ${entRows[0].cnt}\n` +
-        `Prefijos: ${progress.done} done, ${progress.capped} capped, ${progress.errors} errors\n` +
-        `Tiempo: ${elapsed} min\n` +
-        `Upserts en este run: ${result.totalEntities}`;
-
-      console.log(summary.replace(/<[^>]+>/g, ''));
-      await sendTelegram(summary);
-
-    } catch (err) {
-      console.error(`ERROR crawling ${iso}: ${err.message}`);
-      await sendTelegram(
-        `🔴 <b>Error en ${iso}</b>\n${err.message.slice(0, 300)}\n\nContinuando con el siguiente país...`
-      );
-    }
-  }
-
-  // Final global report
   const stats = await getGlobalStats();
   const totalElapsed = Math.round((Date.now() - startTime) / 60000);
-  const topCountries = stats.byCountry.slice(0, 10)
-    .map(c => `  ${c.country_code}: ${c.cnt}`)
-    .join('\n');
+  const top10 = stats.byCountry.slice(0, 10)
+    .map(c => `  ${c.country_code}: ${c.cnt}`).join('\n');
 
   const finalReport =
-    `🏁 <b>ORS Crawl TERMINADO</b>\n` +
+    `🏁 <b>ORS Crawl global TERMINADO</b>\n` +
     `Tiempo total: ${totalElapsed} min\n` +
-    `Total entidades: ${stats.total}\n\n` +
-    `<b>Top 10 países:</b>\n${topCountries}`;
+    `Prefijos procesados: ${result.processedCount}\n` +
+    `Upserts en este run: ${result.totalEntities}\n` +
+    `Total entidades en DB: ${stats.total}\n` +
+    `Países distintos: ${stats.byCountry.length}\n\n` +
+    `<b>Top 10 países:</b>\n${top10}`;
 
   console.log(finalReport.replace(/<[^>]+>/g, ''));
   await sendTelegram(finalReport);
