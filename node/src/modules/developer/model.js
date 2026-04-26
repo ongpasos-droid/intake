@@ -1441,7 +1441,35 @@ async function getWpHeader(wpId, userId) {
     [wpId, userId]
   );
   if (!rows.length) { const e = new Error('Work package not found'); e.status = 404; throw e; }
-  return rows[0];
+  const wp = rows[0];
+
+  // Auto-derive duration from activities Gantt months if not set.
+  // Persist on first compute so subsequent loads are fast and the value
+  // becomes the user-editable default (they can overwrite via the form).
+  if (wp.duration_from_month == null || wp.duration_to_month == null) {
+    const [[derived]] = await db.execute(
+      `SELECT MIN(gantt_start_month) AS from_m,
+              MAX(COALESCE(gantt_end_month, gantt_start_month)) AS to_m
+         FROM activities
+        WHERE wp_id = ? AND gantt_start_month IS NOT NULL`,
+      [wpId]
+    );
+    const fromM = wp.duration_from_month != null ? wp.duration_from_month : (derived?.from_m ?? null);
+    const toM   = wp.duration_to_month   != null ? wp.duration_to_month   : (derived?.to_m   ?? null);
+    if (fromM != null || toM != null) {
+      await db.execute(
+        `UPDATE work_packages
+            SET duration_from_month = COALESCE(duration_from_month, ?),
+                duration_to_month   = COALESCE(duration_to_month, ?)
+          WHERE id = ?`,
+        [fromM, toM, wpId]
+      );
+      wp.duration_from_month = fromM;
+      wp.duration_to_month   = toM;
+    }
+  }
+
+  return wp;
 }
 
 async function updateWpHeader(wpId, userId, data) {
