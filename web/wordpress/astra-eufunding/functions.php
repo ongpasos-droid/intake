@@ -57,7 +57,12 @@ add_filter( 'template_include', function ( $template ) {
 } );
 
 add_filter( 'body_class', function ( $classes ) {
-	if ( is_page() ) {
+	// La home NUNCA recibe la clase efs-landing-page aunque use el template
+	// "Landing (sin menú)": queremos top bar en eufundingschool.com porque el
+	// tráfico actual es orgánico/recomendación (necesita acceso a Blog y Sandbox).
+	// El template page-landing.php se reserva para landings de campañas pagadas
+	// en URLs específicas tipo /lp/ka210-sports.
+	if ( is_page() && ! is_front_page() ) {
 		$tpl = get_post_meta( get_the_ID(), '_wp_page_template', true );
 		if ( 'page-landing.php' === $tpl ) $classes[] = 'efs-landing-page';
 	}
@@ -131,9 +136,11 @@ add_action( 'after_setup_theme', function () {
 } );
 
 // Inyectar el top bar al abrir <body>. Se queda fixed arriba en TODAS las
-// páginas excepto las que usen la plantilla "Landing (sin menú)".
+// páginas excepto las que usen la plantilla "Landing (sin menú)" — pero la
+// home siempre lleva top bar aunque use ese template (Fase 1 = tráfico orgánico
+// que necesita descubrir Blog y Sandbox).
 add_action( 'wp_body_open', function () {
-	if ( is_page_template( 'page-landing.php' ) ) return;
+	if ( is_page_template( 'page-landing.php' ) && ! is_front_page() ) return;
 	?>
 	<header class="efs-topbar" role="banner">
 		<div class="efs-topbar__inner">
