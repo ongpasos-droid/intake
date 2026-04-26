@@ -9,9 +9,18 @@ const crypto = require('node:crypto');
 const { sanitizeHtml, cleanField, cleanArray } = require('./sanitizer');
 
 // ── Regex helpers ─────────────────────────────────────────────────
-const EMAIL_RX = /[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}/g;
-// E.164 and common European formats. Deliberately lax — we'll de-duplicate.
-const PHONE_RX = /(?:\+\d{1,3}[\s.\-]?)?(?:\(?\d{1,4}\)?[\s.\-]?){2,5}\d{2,4}/g;
+// Emails: TLD capped at 24 and word-boundary lookahead so trailing letters
+// pasted to an email ("foo@bar.comst") don't get captured.
+const EMAIL_RX = /[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9\-]+(?:\.[a-zA-Z0-9\-]+)*\.[a-zA-Z]{2,24}(?![a-zA-Z0-9])/g;
+// Phones: require either (a) leading + country code, or (b) at least one
+// separator between digit groups. Raw 8-digit runs are rejected (they are
+// usually postal codes, IDs or tax numbers, not phones).
+const PHONE_RX = /(?:\+\d{1,3}[\s.\-]+(?:\(?\d{1,4}\)?[\s.\-]*){1,4}\d{2,4}|\(?\d{2,4}\)?[\s.\-]+\d{2,4}(?:[\s.\-]+\d{2,4}){1,3})/g;
+// Year range "2012-2026" — very common false positive in copyright footers.
+const YEAR_RANGE_RX = /^(?:19|20)\d{2}[\s.\-]+(?:19|20)\d{2}$/;
+// Dates in any common layout (YYYY-MM-DD, DD.MM.YYYY, DD/MM/YY, etc.)
+// Rejected as phone candidates — school calendars throw these off by the hundreds.
+const DATE_RX = /(?:\b(?:19|20)\d{2}[-./\s]+\d{1,2}[-./\s]+\d{1,2}\b|\b\d{1,2}[-./]\d{1,2}[-./](?:\d{2}|\d{4})\b|\b(?:19|20)\d{2}\s+\d{1,2}[.\-/]\d{1,2})/;
 const YEAR_RX = /\b(19|20)\d{2}\b/g;
 // Italian VAT (P.IVA) and Tax ID (Codice Fiscale)
 const IT_PIVA_RX = /P\.?\s?IVA[:\s]*([0-9]{11})/i;
@@ -37,34 +46,63 @@ function extractEmails(text, $) {
   $('a[href^="mailto:"]').each((_, el) => {
     const href = $(el).attr('href') || '';
     const m = href.match(/mailto:([^?]+)/i);
-    if (m) set.add(m[1].trim().toLowerCase());
+    if (m) {
+      try {
+        set.add(decodeURIComponent(m[1]).trim().toLowerCase());
+      } catch {
+        set.add(m[1].trim().toLowerCase());
+      }
+    }
   });
   // Regex over text
   const matches = text.match(EMAIL_RX) || [];
   for (const m of matches) {
     const clean = m.toLowerCase();
-    // Filter obvious noise
     if (clean.includes('example.') || clean.startsWith('[email') || clean.length > 80) continue;
     set.add(clean);
   }
-  return set.size > 0 ? [...set].slice(0, 20) : null;
+  // Dedup: drop any email that is a prefix-extension of a cleaner one
+  // (e.g. "admin@foo.com" beats "admin@foo.comst" which is word-pasted).
+  const emails = [...set];
+  const filtered = emails.filter(e => !emails.some(other => other !== e && e.startsWith(other)));
+  return filtered.length > 0 ? filtered.slice(0, 20) : null;
+}
+
+// Normalize a raw tel: href value.
+// Handles URL-encoded chars (%E2%80%A0 daggers etc.), strips control chars,
+// and splits on separators that indicate multiple phones concatenated.
+function normalizeTelHref(raw) {
+  if (!raw) return [];
+  let h = raw.replace(/^tel:/i, '');
+  try { h = decodeURIComponent(h); } catch {}
+  // Keep only phone-ish chars; replace everything else with a space separator.
+  h = h.replace(/[^\d+\-\s.()]/g, ' ').replace(/\s+/g, ' ').trim();
+  // If decoding surfaced a split point (two+ spaces / comma-equivalent), break.
+  return h.split(/\s{2,}|,/).map(s => s.trim()).filter(Boolean);
 }
 
 function extractPhones(text, $) {
   const set = new Set();
-  // tel: links
+  // tel: links first — highest confidence
   $('a[href^="tel:"]').each((_, el) => {
-    const href = ($(el).attr('href') || '').replace('tel:', '');
-    const norm = href.replace(/\s+/g, '').trim();
-    if (norm.length >= 6) set.add(norm);
+    const href = $(el).attr('href') || '';
+    for (const p of normalizeTelHref(href)) {
+      const digits = p.replace(/\D/g, '');
+      if (digits.length >= 7 && digits.length <= 15) set.add(p);
+    }
   });
   // Regex over text — be conservative to avoid matching dates/zip codes
   const matches = text.match(PHONE_RX) || [];
-  for (const m of matches) {
+  for (const raw of matches) {
+    const m = raw.trim();
     const digits = m.replace(/\D/g, '');
     if (digits.length < 7 || digits.length > 15) continue;
-    if (/^(19|20)\d{2}$/.test(digits)) continue; // year
-    set.add(m.trim());
+    if (/^(19|20)\d{2}$/.test(digits)) continue;      // single year
+    if (YEAR_RANGE_RX.test(m)) continue;              // year range
+    if (DATE_RX.test(m)) continue;                    // any date-looking string
+    // Strip trailing punctuation that got greedily captured.
+    const trimmed = m.replace(/[\s.\-]+$/, '');
+    set.add(trimmed);
     if (set.size >= 15) break;
   }
   return set.size > 0 ? [...set].slice(0, 10) : null;
@@ -211,12 +249,68 @@ function extractName($, finalUrl) {
   return cleanField(hostnameAsName(finalUrl), 300);
 }
 
-function extractAddresses($, text) {
+// Recursively scan JSON-LD for schema.org PostalAddress nodes.
+function walkForAddress(node, out) {
+  if (!node || typeof node !== 'object') return;
+  if (Array.isArray(node)) {
+    for (const n of node) walkForAddress(n, out);
+    return;
+  }
+  const type = node['@type'];
+  const isAddr = type === 'PostalAddress'
+    || (Array.isArray(type) && type.includes('PostalAddress'));
+  if (isAddr) {
+    const parts = [
+      node.streetAddress, node.postalCode, node.addressLocality,
+      node.addressRegion, node.addressCountry && (
+        typeof node.addressCountry === 'string'
+          ? node.addressCountry
+          : node.addressCountry.name
+      ),
+    ].filter(Boolean).map(s => String(s).replace(/\s+/g, ' ').trim());
+    const joined = parts.join(', ');
+    if (joined.length > 10 && joined.length < 300) out.push(joined);
+  }
+  for (const v of Object.values(node)) walkForAddress(v, out);
+}
+
+// Parse <script type="application/ld+json"> blocks from RAW html (sanitizer
+// drops them). Pure-data extraction — never expose the text back to any LLM.
+function extractJsonLdAddresses(rawHtml) {
   const out = [];
-  // schema.org address (microdata / JSON-LD we already strip, so try common patterns)
+  if (!rawHtml) return out;
+  const rx = /<script[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi;
+  let m;
+  while ((m = rx.exec(rawHtml)) !== null) {
+    const raw = m[1].trim();
+    if (!raw) continue;
+    try {
+      walkForAddress(JSON.parse(raw), out);
+    } catch {
+      // Some sites embed multiple JSON objects per block; try line-split fallback.
+      for (const line of raw.split(/\n\s*\n/)) {
+        try { walkForAddress(JSON.parse(line), out); } catch {}
+      }
+    }
+  }
+  return out;
+}
+
+function extractAddresses($, rawHtml) {
+  const seen = new Set();
+  const out = [];
+  // 1) schema.org JSON-LD (extracted from RAW html before sanitize)
+  for (const a of extractJsonLdAddresses(rawHtml)) {
+    const key = a.toLowerCase().replace(/[^\w]+/g, '');
+    if (!seen.has(key)) { seen.add(key); out.push(a); }
+  }
+  // 2) <address> tags in sanitized DOM
   $('address').each((_, el) => {
     const t = $(el).text().replace(/\s+/g, ' ').trim();
-    if (t.length > 10 && t.length < 300) out.push(t);
+    if (t.length > 10 && t.length < 300) {
+      const key = t.toLowerCase().replace(/[^\w]+/g, '');
+      if (!seen.has(key)) { seen.add(key); out.push(t); }
+    }
   });
   return out.length > 0 ? out.slice(0, 5) : null;
 }
@@ -350,7 +444,7 @@ function extract(rawHtml, finalUrl) {
     description: extractDescription($),
     emails: extractEmails(text, $),
     phones: phones && phones.length > 0 ? phones : null,
-    addresses: extractAddresses($, text),
+    addresses: extractAddresses($, rawHtml),
     website_languages: extractLanguages($),
     social_links: extractSocialLinks($),
     copyright_year: extractCopyrightYear(text),
