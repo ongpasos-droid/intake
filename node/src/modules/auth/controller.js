@@ -198,6 +198,30 @@ const AuthController = {
     }
   },
 
+  /* ── GET /v1/auth/session-status ───────────────────────────── */
+  /* Public, cookie-only check used by eufundingschool.com (WP) to
+   * decide whether to render "Iniciar sesión" or "Mi cuenta · Name"
+   * in the menu. Never throws auth errors — always 200 with data. */
+  async sessionStatus(req, res) {
+    try {
+      const token = req.cookies?.refresh_token;
+      if (!token) return res.json({ ok: true, data: { logged_in: false } });
+
+      let payload;
+      try { payload = verifyRefreshToken(token); }
+      catch { return res.json({ ok: true, data: { logged_in: false } }); }
+
+      const user = await User.findById(payload.sub);
+      if (!user) return res.json({ ok: true, data: { logged_in: false } });
+
+      const firstName = (user.name || '').trim().split(/\s+/)[0] || null;
+      return res.json({ ok: true, data: { logged_in: true, first_name: firstName } });
+    } catch (err) {
+      console.error('[AUTH] Session status error:', err.message);
+      return res.json({ ok: true, data: { logged_in: false } });
+    }
+  },
+
   /* ── POST /v1/auth/logout ──────────────────────────────────── */
   logout(_req, res) {
     res.clearCookie('refresh_token', {

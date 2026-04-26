@@ -21,6 +21,7 @@ router.post('/login',    authLimiter, validate({ email: 'required', password: 'r
 router.post('/google',   authLimiter, controller.google);
 router.post('/refresh',  controller.refresh);
 router.get('/me',        requireAuth, controller.me);
+router.get('/session-status', controller.sessionStatus);
 router.post('/logout',   controller.logout);
 
 module.exports = router;

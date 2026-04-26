@@ -11,7 +11,7 @@
 
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-define( 'EFS_CHILD_VERSION', '0.2.0' );
+define( 'EFS_CHILD_VERSION', '0.3.0' );
 
 /* -------------------------------------------------------------------------
  * Enqueue parent + child styles + Poppins
@@ -110,3 +110,99 @@ add_filter( 'excerpt_more',   function () { return '…'; }, 999 );
 // Disable wp_page_menu() fallback globally — we always want the assigned nav_menu,
 // never an auto-generated list of every published page.
 add_filter( 'wp_page_menu', '__return_empty_string', 999 );
+
+/* -------------------------------------------------------------------------
+ * TOP BAR común (web + tool).
+ *
+ * Render: franja delgada en la cabecera con logo + 3 items de menú +
+ * CTA "Iniciar sesión" / "Mi cuenta · Nombre". Los items del centro los
+ * controlas en wp-admin → Apariencia → Menús, asignándolos al location
+ * "EFS Top Bar".
+ *
+ * El visual debe coincidir 1:1 con el del tool (public/index.html).
+ * Si tocas algo en el HTML aquí, replícalo allá.
+ * ------------------------------------------------------------------------- */
+
+// Registrar location del menú principal del top bar.
+add_action( 'after_setup_theme', function () {
+	register_nav_menus( array(
+		'efs_primary' => __( 'EFS Top Bar (header común)', 'astra-eufunding' ),
+	) );
+} );
+
+// Inyectar el top bar al abrir <body>. Se queda fixed arriba en TODAS las
+// páginas excepto las que usen la plantilla "Landing (sin menú)".
+add_action( 'wp_body_open', function () {
+	if ( is_page_template( 'page-landing.php' ) ) return;
+	?>
+	<header class="efs-topbar" role="banner">
+		<div class="efs-topbar__inner">
+			<a class="efs-topbar__brand" href="<?php echo esc_url( home_url( '/' ) ); ?>" aria-label="EU Funding School — Inicio">
+				<span class="efs-topbar__logo" aria-hidden="true"></span>
+				<span class="efs-topbar__name">EU Funding School</span>
+			</a>
+			<nav class="efs-topbar__nav" aria-label="Primary">
+				<?php
+				wp_nav_menu( array(
+					'theme_location' => 'efs_primary',
+					'container'      => false,
+					'menu_class'     => 'efs-topbar__menu',
+					'fallback_cb'    => '__return_empty_string',
+					'depth'          => 1,
+				) );
+				?>
+			</nav>
+			<div class="efs-topbar__cta">
+				<a class="efs-topbar__login efs-app-login" href="https://intake.eufundingschool.com/">
+					Iniciar sesión
+				</a>
+			</div>
+		</div>
+	</header>
+	<?php
+} );
+
+/* -------------------------------------------------------------------------
+ * Cross-ecosystem session detection.
+ *
+ * Si el visitante ya tiene sesión iniciada en el tool (app.eufundingschool.com)
+ * cualquier enlace del menú con la clase CSS `efs-app-login` se reescribe a
+ * "Mi cuenta · Nombre" y apunta a la home del tool. Si no hay sesión, se queda
+ * tal cual ("Iniciar sesión", "Empezar", lo que Oscar haya puesto en wp-admin).
+ *
+ * Cómo activarlo en wp-admin:
+ *   Apariencia → Menús → editar el item "Iniciar sesión" → Clases CSS → añadir `efs-app-login`.
+ *
+ * Funciona en producción cuando WP y el tool comparten registrable domain
+ * (eufundingschool.com / app.eufundingschool.com). En dev cross-domain
+ * (eufundingschool.test ↔ localhost:3000) el navegador no envía la cookie
+ * por SameSite=Lax — comportamiento esperado, no es bug.
+ * ------------------------------------------------------------------------- */
+add_action( 'wp_footer', function () {
+	?>
+	<script>
+	(function () {
+		var h = location.hostname;
+		var isDev  = (h === 'eufundingschool.test' || h === 'localhost' || h === '127.0.0.1');
+		var origin = isDev ? 'http://localhost:3000' : 'https://intake.eufundingschool.com';
+		var targets = document.querySelectorAll('.efs-app-login, .efs-app-login a, .menu-item.efs-app-login a');
+		if (!targets.length) return;
+
+		fetch(origin + '/v1/auth/session-status', { credentials: 'include' })
+			.then(function (r) { return r.json(); })
+			.then(function (j) {
+				if (!j || !j.ok || !j.data || !j.data.logged_in) return;
+				var name = j.data.first_name || '';
+				targets.forEach(function (el) {
+					// If the item is a wrapper, find the inner <a>; otherwise use the el itself
+					var a = el.tagName === 'A' ? el : el.querySelector('a');
+					if (!a) return;
+					a.textContent = name ? ('Mi cuenta · ' + name) : 'Mi cuenta';
+					a.setAttribute('href', origin + '/');
+				});
+			})
+			.catch(function () { /* sin sesión / red caída → dejar el botón tal cual */ });
+	})();
+	</script>
+	<?php
+} );

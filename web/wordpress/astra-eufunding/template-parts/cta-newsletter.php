@@ -124,7 +124,7 @@ $cls     = $bare ? 'efs-newsletter efs-newsletter--bare' : 'efs-cta efs-cta--new
 		if (h === 'eufundingschool.test' || h === 'localhost' || h === '127.0.0.1') {
 			return 'http://localhost:3000';
 		}
-		return 'https://app.eufundingschool.com';
+		return 'https://intake.eufundingschool.com';
 	}
 
 	document.addEventListener('submit', function (e) {

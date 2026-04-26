@@ -213,3 +213,67 @@ body.efs-landing-page .site-header,
 body.efs-landing-page .site-footer,
 body.efs-landing-page .ast-header-break-point,
 body.efs-landing-page #masthead { display: none !important; }
+
+/* ======================================================================
+   TOP BAR común (sincronizado con el tool E+ en public/index.html).
+   Si tocas estilos aquí, replícalos en public/index.html sección "TOP BAR".
+   ====================================================================== */
+/* Ocultar el header de Astra en TODAS las páginas (excepto landing,
+   ya excluida arriba). Ahora el header es nuestro top bar custom. */
+body:not(.efs-landing-page) .site-header,
+body:not(.efs-landing-page) #masthead,
+body:not(.efs-landing-page) .ast-header-break-point { display: none !important; }
+
+/* Empuja el contenido 48px hacia abajo para no quedar tapado por el top bar fixed */
+body:not(.efs-landing-page) .site { padding-top: 48px; }
+
+.efs-topbar {
+	position: fixed; top: 0; left: 0; right: 0; height: 48px; z-index: 999;
+	background: #1b1464; color: #fff;
+	font-family: var(--efs-font-body, 'Poppins', sans-serif);
+	font-size: 14px; font-weight: 500;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+.efs-topbar__inner {
+	max-width: 1280px; height: 100%; margin: 0 auto; padding: 0 1.25rem;
+	display: flex; align-items: center; gap: 2rem;
+}
+.efs-topbar__brand {
+	display: inline-flex; align-items: center; gap: .5rem;
+	color: #fff; text-decoration: none; font-weight: 800;
+	letter-spacing: -0.01em; white-space: nowrap;
+}
+.efs-topbar__brand:hover { color: #fbff12; }
+.efs-topbar__logo {
+	width: 22px; height: 22px; background: #fbff12;
+	border-radius: 4px; flex: 0 0 auto; display: inline-block;
+}
+.efs-topbar__nav { flex: 1; display: flex; }
+.efs-topbar__menu {
+	list-style: none; margin: 0; padding: 0;
+	display: flex; gap: 1.5rem;
+}
+.efs-topbar__menu li { margin: 0; }
+.efs-topbar__menu a {
+	color: rgba(255, 255, 255, 0.78); text-decoration: none;
+	padding: .25rem 0; border-bottom: 2px solid transparent;
+	transition: color .15s, border-color .15s; font-size: 14px;
+}
+.efs-topbar__menu a:hover { color: #fff; }
+.efs-topbar__menu .is-current > a,
+.efs-topbar__menu .current-menu-item > a {
+	color: #fff; border-bottom-color: #fbff12;
+}
+.efs-topbar__cta { margin-left: auto; }
+.efs-topbar__login {
+	display: inline-flex; align-items: center; gap: .4rem;
+	padding: .35rem .85rem; background: #fbff12; color: #1b1464;
+	border-radius: 6px; text-decoration: none;
+	font-weight: 700; font-size: 13px; transition: transform .15s;
+}
+.efs-topbar__login:hover { transform: translateY(-1px); color: #1b1464; }
+@media (max-width: 720px) {
+	.efs-topbar__inner { gap: .75rem; padding: 0 .75rem; }
+	.efs-topbar__nav { display: none; }
+	.efs-topbar__brand .efs-topbar__name { display: none; }
+}

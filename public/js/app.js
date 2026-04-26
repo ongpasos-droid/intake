@@ -59,6 +59,11 @@ const App = (() => {
   function showAuth() {
     document.getElementById('auth-screen').classList.remove('hidden');
     document.getElementById('app-shell').classList.add('hidden');
+    // Topbar CTA: "Volver a la web" mientras no hay sesión
+    const back = document.getElementById('topbar-cta-back');
+    const acct = document.getElementById('topbar-cta-account');
+    if (back) back.style.display = '';
+    if (acct) acct.style.display = 'none';
     showAuthTab('login');
 
     // Show Google fallback if SDK didn't load
@@ -75,6 +80,11 @@ const App = (() => {
   function showApp() {
     document.getElementById('auth-screen').classList.add('hidden');
     document.getElementById('app-shell').classList.remove('hidden');
+    // Topbar CTA: "Mi cuenta · Nombre" cuando hay sesión
+    const back = document.getElementById('topbar-cta-back');
+    const acct = document.getElementById('topbar-cta-account');
+    if (back) back.style.display = 'none';
+    if (acct) acct.style.display = '';
     updateUserUI();
 
     // Navigate to hash or default
@@ -101,6 +111,8 @@ const App = (() => {
     if (!currentUser) return;
     document.getElementById('user-name').textContent = currentUser.name;
     document.getElementById('user-email').textContent = currentUser.email;
+    const topbarName = document.getElementById('topbar-user-name');
+    if (topbarName) topbarName.textContent = (currentUser.name || '').split(/\s+/)[0] || currentUser.name;
 
     // Avatar initials
     const initials = currentUser.name
