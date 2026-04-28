@@ -109,19 +109,24 @@ const Intake = (() => {
     calcNeedsReinit = false;
     if (selectedProgram) selectProgram(selectedProgram.id);
     setStep(0);
+    // Activate contextual sidebar with a placeholder name (real name lands on first save)
+    if (typeof App !== 'undefined' && App.setActiveProject) {
+      App.setActiveProject({ id: null, name: selectedProgram?.name || 'Nuevo proyecto' });
+    }
   }
 
-  /* ── Dynamic step nav ───────────────────────────────────────── */
+  /* ── Dynamic step nav (uses unified PhaseTabs component) ──── */
   function renderStepNav() {
     const nav = document.getElementById('intake-step-nav');
-    if (!nav) return;
-    nav.innerHTML = STEPS.map((s, i) => {
-      const dot = `<div class="w-7 h-7 rounded-full flex items-center justify-center text-[10px] font-bold font-headline border-2 border-outline-variant bg-surface text-on-surface-variant transition-all" id="intake-sd${i}">${i + 1}</div>`;
-      const lbl = `<span class="font-headline text-[10px] font-bold uppercase tracking-widest text-on-surface-variant transition-colors hidden sm:inline" id="intake-sl${i}">${s.label}</span>`;
-      const step = `<div class="flex items-center gap-1.5 cursor-pointer intake-progress-step" data-step="${i}">${dot}${lbl}</div>`;
-      const conn = i < STEPS.length - 1 ? `<div class="flex-1 h-px bg-outline-variant mx-1 transition-colors min-w-[8px]" id="intake-sc${i}"></div>` : '';
-      return step + conn;
-    }).join('');
+    if (!nav || typeof PhaseTabs === 'undefined') return;
+    PhaseTabs.render(nav, {
+      tabs: STEPS.map(s => ({ key: s.key, label: s.label, icon: s.icon })),
+      activeKey: STEPS[step]?.key,
+      onSelect: (key) => {
+        const idx = STEPS.findIndex(s => s.key === key);
+        if (idx >= 0) setStep(idx);
+      },
+    });
   }
 
   /* ── Event binding ───────────────────────────────────────────── */
@@ -301,6 +306,8 @@ const Intake = (() => {
 
       // Notify Sandbox so the banner reflects the loaded project.
       if (typeof Sandbox !== 'undefined') Sandbox.setActiveProject(project);
+      // Notify App so the contextual sidebar shows the right project name.
+      if (typeof App !== 'undefined' && App.setActiveProject) App.setActiveProject(project);
 
       // Load project fields
       document.getElementById('intake-f-name').value = project.name || '';
@@ -447,6 +454,8 @@ const Intake = (() => {
         // Crear nuevo proyecto
         const project = await API.post('/intake/projects', projectData);
         currentProjectId = project.id;
+        // Update contextual sidebar with the persisted project (real id + name).
+        if (typeof App !== 'undefined' && App.setActiveProject) App.setActiveProject(project);
 
         // Socios y contexto en paralelo
         const ops = [];
@@ -521,30 +530,13 @@ const Intake = (() => {
     // If going to summary, build it with budget data + launch stats
     if (cfg.key === 'resumen') { renderLaunchStep(); setTimeout(autoResizeDesc, 60); }
 
-    // Update nav dots
-    for (let i = 0; i < STEPS.length; i++) {
-      const dot = document.getElementById('intake-sd' + i);
-      const lbl = document.getElementById('intake-sl' + i);
-      const con = i < STEPS.length - 1 ? document.getElementById('intake-sc' + i) : null;
-      if (!dot) continue;
-
-      dot.className = 'w-7 h-7 rounded-full flex items-center justify-center text-[10px] font-bold font-headline border-2 transition-all';
-      if (i === s) {
-        dot.className += ' border-primary bg-primary text-white';
-        dot.textContent = i + 1;
-        if (lbl) lbl.className = 'font-headline text-[10px] font-bold uppercase tracking-widest text-primary transition-colors hidden sm:inline';
-      } else if (i < s) {
-        dot.className += ' border-primary bg-primary/10 text-primary';
-        dot.textContent = '\u2713';
-        if (lbl) lbl.className = 'font-headline text-[10px] font-bold uppercase tracking-widest text-on-surface transition-colors hidden sm:inline';
-      } else {
-        dot.className += ' border-outline-variant bg-surface text-on-surface-variant';
-        dot.textContent = i + 1;
-        if (lbl) lbl.className = 'font-headline text-[10px] font-bold uppercase tracking-widest text-on-surface-variant transition-colors hidden sm:inline';
+    // Update unified phase-tabs: active + completion status
+    if (typeof PhaseTabs !== 'undefined') {
+      PhaseTabs.setActive('intake-step-nav', cfg.key);
+      for (let i = 0; i < STEPS.length; i++) {
+        const status = i < s ? 'complete' : (i === s ? 'in_progress' : 'pending');
+        PhaseTabs.setStatus('intake-step-nav', STEPS[i].key, status);
       }
-      if (con) con.className = i < s
-        ? 'flex-1 h-px bg-primary mx-1 transition-colors min-w-[8px]'
-        : 'flex-1 h-px bg-outline-variant mx-1 transition-colors min-w-[8px]';
     }
 
     step = s;
@@ -1289,22 +1281,12 @@ const Intake = (() => {
 
   /* ── Launch step (step 10) ─────────────────────────────────── */
   function renderLaunchStep() {
-    // Force nav dot for Resumen step (index 4) to be active
+    // Mark Resumen as active and the previous step as complete in the phase tabs.
     const resIdx = STEPS.length - 1;
-    const resDot = document.getElementById('intake-sd' + resIdx);
-    if (resDot) {
-      resDot.className = 'w-7 h-7 rounded-full flex items-center justify-center text-[10px] font-bold font-headline border-2 transition-all border-primary bg-primary text-white';
-      resDot.textContent = resIdx + 1;
-      const resLbl = document.getElementById('intake-sl' + resIdx);
-      if (resLbl) resLbl.className = 'font-headline text-[10px] font-bold uppercase tracking-widest text-primary transition-colors hidden sm:inline';
-      // Mark previous step as completed (not active)
-      const prevDot = document.getElementById('intake-sd' + (resIdx - 1));
-      if (prevDot && prevDot.textContent !== '\u2713') {
-        prevDot.className = 'w-7 h-7 rounded-full flex items-center justify-center text-[10px] font-bold font-headline border-2 transition-all border-primary bg-primary/10 text-primary';
-        prevDot.textContent = '\u2713';
-      }
-      const prevCon = document.getElementById('intake-sc' + (resIdx - 1));
-      if (prevCon) prevCon.className = 'flex-1 h-px bg-primary mx-1 transition-colors min-w-[8px]';
+    if (typeof PhaseTabs !== 'undefined') {
+      PhaseTabs.setActive('intake-step-nav', STEPS[resIdx].key);
+      if (resIdx > 0) PhaseTabs.setStatus('intake-step-nav', STEPS[resIdx - 1].key, 'complete');
+      PhaseTabs.setStatus('intake-step-nav', STEPS[resIdx].key, 'in_progress');
     }
 
     // Show call summary if available
@@ -1903,7 +1885,11 @@ const Intake = (() => {
       link.classList.toggle('active', link.dataset.route === 'intake');
     });
     location.hash = 'intake';
-    document.getElementById('topbar-title').textContent = 'Intake';
+    document.getElementById('topbar-title').textContent = 'Presupuestar';
+    // Activate contextual sidebar with the project name (loadFromServer fills the rest later)
+    if (typeof App !== 'undefined' && App.setActiveProject) {
+      App.setActiveProject({ id, name: 'Cargando...' });
+    }
     // Load project and go to step 0 (Proyecto)
     loadFromServer(id, 0);
   }
