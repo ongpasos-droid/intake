@@ -1,0 +1,472 @@
+{
+  "2027-01": [
+    {
+      "topic_id": "ERASMUS-SPORT-2027-SNCESE",
+      "family": "Not-for-profit Sport Events",
+      "manager": "EACEA",
+      "deadline_iso": "2027-01-22",
+      "speculative": true,
+      "variant_count": 3,
+      "amount_min": 200000,
+      "amount_max": 450000
+    },
+    {
+      "topic_id": "ERASMUS-SPORT-2027-LSSNCESE",
+      "family": "Not-for-profit Sport Events",
+      "manager": "EACEA",
+      "deadline_iso": "2027-01-22",
+      "speculative": true,
+      "variant_count": 2,
+      "amount_min": 1000000,
+      "amount_max": 1500000
+    }
+  ],
+  "2027-02": [
+    {
+      "topic_id": "ERASMUS-YOUTH-2027-CB-WB",
+      "family": "Capacity Building Youth",
+      "manager": "EACEA",
+      "deadline_iso": "2027-02-26",
+      "speculative": true,
+      "variant_count": 1,
+      "amount_min": 300000,
+      "amount_max": 300000
+    },
+    {
+      "topic_id": "ERASMUS-YOUTH-2027-CB-NE",
+      "family": "Capacity Building Youth",
+      "manager": "EACEA",
+      "deadline_iso": "2027-02-26",
+      "speculative": true,
+      "variant_count": 1,
+      "amount_min": 300000,
+      "amount_max": 300000
+    },
+    {
+      "topic_id": "ERASMUS-YOUTH-2027-CB-SMC",
+      "family": "Capacity Building Youth",
+      "manager": "EACEA",
+      "deadline_iso": "2027-02-26",
+      "speculative": true,
+      "variant_count": 1,
+      "amount_min": 300000,
+      "amount_max": 300000
+    },
+    {
+      "topic_id": "ERASMUS-YOUTH-2027-CB-SSA",
+      "family": "Capacity Building Youth",
+      "manager": "EACEA",
+      "deadline_iso": "2027-02-26",
+      "speculative": true,
+      "variant_count": 1,
+      "amount_min": 450000,
+      "amount_max": 450000
+    },
+    {
+      "topic_id": "ERASMUS-YOUTH-2027-YOUTH-TOG",
+      "family": "KA3 European Youth Together",
+      "manager": "EACEA",
+      "deadline_iso": "2027-02-26",
+      "speculative": true,
+      "variant_count": 1,
+      "amount_min": 500000,
+      "amount_max": 500000
+    },
+    {
+      "topic_id": "ERASMUS-EDU-2027-PEX-EMJM-MOB",
+      "family": "Partnerships for Excellence",
+      "manager": "EACEA",
+      "deadline_iso": "2027-02-11",
+      "speculative": true,
+      "variant_count": 1,
+      "amount_min": 5000000,
+      "amount_max": 5000000
+    },
+    {
+      "topic_id": "ERASMUS-EDU-2027-EMJM-DESIGN",
+      "family": "Partnerships for Excellence",
+      "manager": "EACEA",
+      "deadline_iso": "2027-02-11",
+      "speculative": true,
+      "variant_count": 1,
+      "amount_min": 55000,
+      "amount_max": 55000
+    },
+    {
+      "topic_id": "ERASMUS-EDU-2027-CBHE-WB",
+      "family": "Capacity Building HE (CBHE)",
+      "manager": "EACEA",
+      "deadline_iso": "2027-02-10",
+      "speculative": true,
+      "variant_count": 6,
+      "amount_min": 200000,
+      "amount_max": 1000000
+    },
+    {
+      "topic_id": "ERASMUS-EDU-2027-CBHE-NE",
+      "family": "Capacity Building HE (CBHE)",
+      "manager": "EACEA",
+      "deadline_iso": "2027-02-10",
+      "speculative": true,
+      "variant_count": 7,
+      "amount_min": 200000,
+      "amount_max": 2000000
+    },
+    {
+      "topic_id": "ERASMUS-EDU-2027-CBHE-SMC",
+      "family": "Capacity Building HE (CBHE)",
+      "manager": "EACEA",
+      "deadline_iso": "2027-02-10",
+      "speculative": true,
+      "variant_count": 6,
+      "amount_min": 200000,
+      "amount_max": 1000000
+    },
+    {
+      "topic_id": "ERASMUS-EDU-2027-CBHE-ASIA",
+      "family": "Capacity Building HE (CBHE)",
+      "manager": "EACEA",
+      "deadline_iso": "2027-02-10",
+      "speculative": true,
+      "variant_count": 6,
+      "amount_min": 200000,
+      "amount_max": 1000000
+    },
+    {
+      "topic_id": "ERASMUS-EDU-2027-CBHE-CA",
+      "family": "Capacity Building HE (CBHE)",
+      "manager": "EACEA",
+      "deadline_iso": "2027-02-10",
+      "speculative": true,
+      "variant_count": 6,
+      "amount_min": 200000,
+      "amount_max": 1000000
+    },
+    {
+      "topic_id": "ERASMUS-EDU-2027-CBHE-ME",
+      "family": "Capacity Building HE (CBHE)",
+      "manager": "EACEA",
+      "deadline_iso": "2027-02-10",
+      "speculative": true,
+      "variant_count": 6,
+      "amount_min": 200000,
+      "amount_max": 1000000
+    },
+    {
+      "topic_id": "ERASMUS-EDU-2027-CBHE-PAC",
+      "family": "Capacity Building HE (CBHE)",
+      "manager": "EACEA",
+      "deadline_iso": "2027-02-10",
+      "speculative": true,
+      "variant_count": 6,
+      "amount_min": 200000,
+      "amount_max": 1000000
+    },
+    {
+      "topic_id": "ERASMUS-EDU-2027-CBHE-SSA",
+      "family": "Capacity Building HE (CBHE)",
+      "manager": "EACEA",
+      "deadline_iso": "2027-02-10",
+      "speculative": true,
+      "variant_count": 6,
+      "amount_min": 200000,
+      "amount_max": 1000000
+    },
+    {
+      "topic_id": "ERASMUS-EDU-2027-CBHE-LA",
+      "family": "Capacity Building HE (CBHE)",
+      "manager": "EACEA",
+      "deadline_iso": "2027-02-10",
+      "speculative": true,
+      "variant_count": 6,
+      "amount_min": 200000,
+      "amount_max": 1000000
+    },
+    {
+      "topic_id": "ERASMUS-EDU-2027-CBHE-CARIB",
+      "family": "Capacity Building HE (CBHE)",
+      "manager": "EACEA",
+      "deadline_iso": "2027-02-10",
+      "speculative": true,
+      "variant_count": 6,
+      "amount_min": 200000,
+      "amount_max": 1000000
+    },
+    {
+      "topic_id": "ERASMUS-EDU-2027-CBHE-CROSS-REGIONAL",
+      "family": "Capacity Building HE (CBHE)",
+      "manager": "EACEA",
+      "deadline_iso": "2027-02-10",
+      "speculative": true,
+      "variant_count": 6,
+      "amount_min": 200000,
+      "amount_max": 1000000
+    }
+  ],
+  "2027-03": [
+    {
+      "topic_id": "ERASMUS-SPORT-2027-CB",
+      "family": "Capacity Building Sport",
+      "manager": "EACEA",
+      "deadline_iso": "2027-03-05",
+      "speculative": true,
+      "variant_count": 2,
+      "amount_min": 100000,
+      "amount_max": 200000
+    },
+    {
+      "topic_id": "ERASMUS-SPORT-2027-SCP",
+      "family": "Cooperation Partnerships (Sport)",
+      "manager": "EACEA",
+      "deadline_iso": "2027-03-05",
+      "speculative": true,
+      "variant_count": 3,
+      "amount_min": 120000,
+      "amount_max": 400000
+    },
+    {
+      "topic_id": "ERASMUS-SPORT-2027-SSCP",
+      "family": "Small-Scale Partnerships (Sport)",
+      "manager": "EACEA",
+      "deadline_iso": "2027-03-05",
+      "speculative": true,
+      "variant_count": 2,
+      "amount_min": 30000,
+      "amount_max": 60000
+    },
+    {
+      "topic_id": "ERASMUS-EDU-2027-CB-VET-WB",
+      "family": "Capacity Building VET",
+      "manager": "EACEA",
+      "deadline_iso": "2027-03-26",
+      "speculative": true,
+      "variant_count": 1,
+      "amount_min": 500000,
+      "amount_max": 500000
+    },
+    {
+      "topic_id": "ERASMUS-EDU-2027-CB-VET-NE",
+      "family": "Capacity Building VET",
+      "manager": "EACEA",
+      "deadline_iso": "2027-03-26",
+      "speculative": true,
+      "variant_count": 1,
+      "amount_min": 500000,
+      "amount_max": 500000
+    },
+    {
+      "topic_id": "ERASMUS-EDU-2027-CB-VET-SMC",
+      "family": "Capacity Building VET",
+      "manager": "EACEA",
+      "deadline_iso": "2027-03-26",
+      "speculative": true,
+      "variant_count": 1,
+      "amount_min": 500000,
+      "amount_max": 500000
+    },
+    {
+      "topic_id": "ERASMUS-EDU-2027-CB-VET-SSA",
+      "family": "Capacity Building VET",
+      "manager": "EACEA",
+      "deadline_iso": "2027-03-26",
+      "speculative": true,
+      "variant_count": 1,
+      "amount_min": 500000,
+      "amount_max": 500000
+    },
+    {
+      "topic_id": "ERASMUS-EDU-2027-CB-VET-LA",
+      "family": "Capacity Building VET",
+      "manager": "EACEA",
+      "deadline_iso": "2027-03-26",
+      "speculative": true,
+      "variant_count": 1,
+      "amount_min": 500000,
+      "amount_max": 500000
+    },
+    {
+      "topic_id": "ERASMUS-EDU-2027-CB-VET-CA",
+      "family": "Capacity Building VET",
+      "manager": "EACEA",
+      "deadline_iso": "2027-03-26",
+      "speculative": true,
+      "variant_count": 1,
+      "amount_min": 500000,
+      "amount_max": 500000
+    },
+    {
+      "topic_id": "KA220-SCH-2027",
+      "family": "Cooperation Partnerships (KA220)",
+      "manager": "National Agency",
+      "deadline_iso": "2027-03-05",
+      "speculative": true,
+      "variant_count": 3,
+      "amount_min": 120000,
+      "amount_max": 400000
+    },
+    {
+      "topic_id": "KA220-VET-2027",
+      "family": "Cooperation Partnerships (KA220)",
+      "manager": "National Agency",
+      "deadline_iso": "2027-03-05",
+      "speculative": true,
+      "variant_count": 3,
+      "amount_min": 120000,
+      "amount_max": 400000
+    },
+    {
+      "topic_id": "KA220-HED-2027",
+      "family": "Cooperation Partnerships (KA220)",
+      "manager": "National Agency",
+      "deadline_iso": "2027-03-05",
+      "speculative": true,
+      "variant_count": 3,
+      "amount_min": 120000,
+      "amount_max": 400000
+    },
+    {
+      "topic_id": "KA220-ADU-2027",
+      "family": "Cooperation Partnerships (KA220)",
+      "manager": "National Agency",
+      "deadline_iso": "2027-03-05",
+      "speculative": true,
+      "variant_count": 3,
+      "amount_min": 120000,
+      "amount_max": 400000
+    },
+    {
+      "topic_id": "KA220-YOU-2027",
+      "family": "Cooperation Partnerships (KA220)",
+      "manager": "National Agency",
+      "deadline_iso": "2027-03-05",
+      "speculative": true,
+      "variant_count": 3,
+      "amount_min": 120000,
+      "amount_max": 400000
+    },
+    {
+      "topic_id": "ERASMUS-EDU-2027-PCOOP-ENGO",
+      "family": "Cooperation Partnerships (European NGOs)",
+      "manager": "EACEA",
+      "deadline_iso": "2027-03-05",
+      "speculative": true,
+      "variant_count": 3,
+      "amount_min": 120000,
+      "amount_max": 400000
+    },
+    {
+      "topic_id": "ERASMUS-YOUTH-2027-PCOOP-ENGO",
+      "family": "Cooperation Partnerships (European NGOs)",
+      "manager": "EACEA",
+      "deadline_iso": "2027-03-05",
+      "speculative": true,
+      "variant_count": 3,
+      "amount_min": 120000,
+      "amount_max": 400000
+    },
+    {
+      "topic_id": "KA210-SCH-2027",
+      "family": "Small-Scale Partnerships (KA210)",
+      "manager": "National Agency",
+      "deadline_iso": "2027-03-05",
+      "speculative": true,
+      "variant_count": 2,
+      "amount_min": 30000,
+      "amount_max": 60000
+    },
+    {
+      "topic_id": "KA210-VET-2027",
+      "family": "Small-Scale Partnerships (KA210)",
+      "manager": "National Agency",
+      "deadline_iso": "2027-03-05",
+      "speculative": true,
+      "variant_count": 2,
+      "amount_min": 30000,
+      "amount_max": 60000
+    },
+    {
+      "topic_id": "KA210-ADU-2027",
+      "family": "Small-Scale Partnerships (KA210)",
+      "manager": "National Agency",
+      "deadline_iso": "2027-03-05",
+      "speculative": true,
+      "variant_count": 2,
+      "amount_min": 30000,
+      "amount_max": 60000
+    },
+    {
+      "topic_id": "KA210-YOU-2027",
+      "family": "Small-Scale Partnerships (KA210)",
+      "manager": "National Agency",
+      "deadline_iso": "2027-03-05",
+      "speculative": true,
+      "variant_count": 2,
+      "amount_min": 30000,
+      "amount_max": 60000
+    },
+    {
+      "topic_id": "ERASMUS-EDU-2027-PI-ALL-INNO-EDU-ENTERP",
+      "family": "Alliances for Innovation",
+      "manager": "EACEA",
+      "deadline_iso": "2027-03-10",
+      "speculative": true,
+      "variant_count": 2,
+      "amount_min": 1000000,
+      "amount_max": 1500000
+    },
+    {
+      "topic_id": "ERASMUS-EDU-2027-PI-ALL-INNO-BLUEPRINT",
+      "family": "Alliances for Innovation",
+      "manager": "EACEA",
+      "deadline_iso": "2027-03-10",
+      "speculative": true,
+      "variant_count": 1,
+      "amount_min": 4000000,
+      "amount_max": 4000000
+    },
+    {
+      "topic_id": "ERASMUS-EDU-2027-PI-ALL-INNO-STEM",
+      "family": "Alliances for Innovation",
+      "manager": "EACEA",
+      "deadline_iso": "2027-03-10",
+      "speculative": true,
+      "variant_count": 1,
+      "amount_min": 1500000,
+      "amount_max": 1500000
+    },
+    {
+      "topic_id": "ERASMUS-EDU-2027-PEX-TEACH-ACA",
+      "family": "Partnerships for Excellence",
+      "manager": "EACEA",
+      "deadline_iso": "2027-03-26",
+      "speculative": true,
+      "variant_count": 1,
+      "amount_min": 1500000,
+      "amount_max": 1500000
+    }
+  ],
+  "2027-04": [
+    {
+      "topic_id": "KA240-SCH-2027",
+      "family": "European Partnerships for School Development (EPSD)",
+      "manager": "National Agency",
+      "deadline_iso": "2027-04-09",
+      "speculative": true,
+      "variant_count": 1,
+      "amount_min": 400000,
+      "amount_max": 400000
+    }
+  ],
+  "2027-09": [
+    {
+      "topic_id": "ERASMUS-EDU-2027-PEX-COVE",
+      "family": "Partnerships for Excellence",
+      "manager": "EACEA",
+      "deadline_iso": "2027-09-03",
+      "speculative": true,
+      "variant_count": 1,
+      "amount_min": 4000000,
+      "amount_max": 4000000
+    }
+  ]
+}
