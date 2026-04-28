@@ -26,6 +26,13 @@ const App = (() => {
               text: 'continue_with', size: 'large', width: 360 }
           );
         }
+      } else {
+        // No client_id configured → hide the whole Google block so we don't
+        // render a broken button that throws "Missing required parameter: client_id".
+        const container = document.getElementById('google-btn-container');
+        const divider   = document.getElementById('google-divider');
+        if (container) { container.classList.add('hidden'); container.dataset.disabled = '1'; }
+        if (divider)   { divider.classList.add('hidden');   divider.dataset.disabled   = '1'; }
       }
     } catch (e) {
       console.warn('Config load failed:', e.message);
@@ -38,6 +45,21 @@ const App = (() => {
 
     // Detect ?sandbox=start in URL before showing any auth UI.
     if (typeof Sandbox !== 'undefined') Sandbox.init();
+
+    // Handle email verification + password reset URLs before any session restore.
+    // These flows are stateless: visitor lands here from an email link.
+    const path = window.location.pathname;
+    const params = new URLSearchParams(window.location.search);
+    if (path === '/verify-email' && params.get('token')) {
+      showAuth();
+      await Auth.handleVerifyEmailUrl(params.get('token'));
+      return;
+    }
+    if (path === '/reset-password' && params.get('token')) {
+      showAuth();
+      Auth.handleResetPasswordUrl(params.get('token'));
+      return;
+    }
 
     // Try to restore session from refresh token cookie
     const restored = await Auth.tryRestore();
@@ -124,33 +146,71 @@ const App = (() => {
     document.getElementById('user-avatar').textContent = initials;
 
     // Show admin nav only for admins
-    if (currentUser.role === 'admin') {
+    if (currentUser.role === 'admin' || currentUser.role === 'scribe') {
       document.getElementById('admin-nav-item')?.classList.remove('hidden');
     }
   }
 
   /* ── Auth tab switcher ─────────────────────────────────────── */
+  // Modes: 'login' | 'register' | 'forgot' | 'reset' | 'info'
   function showAuthTab(tab) {
-    const loginForm  = document.getElementById('form-login');
-    const regForm    = document.getElementById('form-register');
-    const tabLogin   = document.getElementById('tab-login');
-    const tabReg     = document.getElementById('tab-register');
+    const panels = {
+      login:    document.getElementById('form-login'),
+      register: document.getElementById('form-register'),
+      forgot:   document.getElementById('form-forgot'),
+      reset:    document.getElementById('form-reset'),
+      info:     document.getElementById('auth-info'),
+    };
+    Object.entries(panels).forEach(([k, el]) => {
+      if (!el) return;
+      el.classList.toggle('hidden', k !== tab);
+    });
+
+    // Tabs (only meaningful for login/register)
+    const tabLogin = document.getElementById('tab-login');
+    const tabReg   = document.getElementById('tab-register');
+    const tabsBar  = tabLogin?.parentElement;
+    const showTabsForModes = ['login', 'register'];
+    if (tabsBar) tabsBar.style.display = showTabsForModes.includes(tab) ? '' : 'none';
 
     if (tab === 'login') {
-      loginForm.classList.remove('hidden');
-      regForm.classList.add('hidden');
-      tabLogin.classList.add('text-primary', 'border-secondary-fixed');
-      tabLogin.classList.remove('text-on-surface-variant', 'border-transparent');
-      tabReg.classList.remove('text-primary', 'border-secondary-fixed');
-      tabReg.classList.add('text-on-surface-variant', 'border-transparent');
-    } else {
-      regForm.classList.remove('hidden');
-      loginForm.classList.add('hidden');
-      tabReg.classList.add('text-primary', 'border-secondary-fixed');
-      tabReg.classList.remove('text-on-surface-variant', 'border-transparent');
-      tabLogin.classList.remove('text-primary', 'border-secondary-fixed');
-      tabLogin.classList.add('text-on-surface-variant', 'border-transparent');
+      tabLogin?.classList.add('text-primary', 'border-secondary-fixed');
+      tabLogin?.classList.remove('text-on-surface-variant', 'border-transparent');
+      tabReg?.classList.remove('text-primary', 'border-secondary-fixed');
+      tabReg?.classList.add('text-on-surface-variant', 'border-transparent');
+    } else if (tab === 'register') {
+      tabReg?.classList.add('text-primary', 'border-secondary-fixed');
+      tabReg?.classList.remove('text-on-surface-variant', 'border-transparent');
+      tabLogin?.classList.remove('text-primary', 'border-secondary-fixed');
+      tabLogin?.classList.add('text-on-surface-variant', 'border-transparent');
     }
+
+    // Hide Google block on non-credential modes (forgot/reset/info)
+    const googleBlock = document.getElementById('google-btn-container');
+    const googleDiv   = document.getElementById('google-divider');
+    const hideGoogle  = !['login', 'register'].includes(tab);
+    googleBlock?.classList.toggle('hidden', hideGoogle || googleBlock?.dataset.disabled === '1');
+    googleDiv?.classList.toggle('hidden',   hideGoogle || googleDiv?.dataset.disabled === '1');
+  }
+
+  /* ── Show an info screen (post-register, success, etc.) ───── */
+  function showAuthInfo({ icon, title, body, actions }) {
+    document.getElementById('auth-info-icon').textContent  = icon || '📩';
+    document.getElementById('auth-info-title').textContent = title || '';
+    document.getElementById('auth-info-body').textContent  = body || '';
+    const actionsEl = document.getElementById('auth-info-actions');
+    actionsEl.innerHTML = '';
+    (actions || []).forEach(a => {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.textContent = a.label;
+      btn.className = a.primary
+        ? 'w-full py-3 rounded-lg bg-secondary-fixed text-primary-container text-sm font-bold hover:scale-[1.02] active:scale-[0.98] transition-transform'
+        : 'w-full py-3 rounded-lg border border-outline-variant/50 bg-white text-on-surface text-sm font-semibold hover:bg-surface-container-low transition-colors';
+      btn.addEventListener('click', a.onClick);
+      actionsEl.appendChild(btn);
+    });
+    showAuthTab('info');
   }
 
   /* ── SPA Navigation ────────────────────────────────────────── */
@@ -249,7 +309,7 @@ const App = (() => {
   }
 
   /* ── Public API ────────────────────────────────────────────── */
-  return { init, onAuth, onLogout, showAuthTab, navigate, toggleSidebar };
+  return { init, onAuth, onLogout, showAuthTab, showAuthInfo, navigate, toggleSidebar };
 })();
 
 
@@ -279,6 +339,18 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ── Auth tab buttons ─────────────────────────────────────── */
   document.getElementById('tab-login')?.addEventListener('click', () => App.showAuthTab('login'));
   document.getElementById('tab-register')?.addEventListener('click', () => App.showAuthTab('register'));
+
+  /* ── Forgot/reset links + forms ───────────────────────────── */
+  document.getElementById('link-forgot')?.addEventListener('click', (e) => {
+    e.preventDefault();
+    App.showAuthTab('forgot');
+  });
+  document.getElementById('link-back-login')?.addEventListener('click', (e) => {
+    e.preventDefault();
+    App.showAuthTab('login');
+  });
+  document.getElementById('form-forgot')?.addEventListener('submit', (e) => Auth.forgotPassword(e));
+  document.getElementById('form-reset')?.addEventListener('submit', (e) => Auth.resetPassword(e));
 
   /* ── Auth forms ───────────────────────────────────────────── */
   document.getElementById('form-login')?.addEventListener('submit', (e) => Auth.login(e));
