@@ -208,6 +208,54 @@ exports.eaceaNetwork = async (req, res) => {
   } catch (e) { fail(res, e); }
 };
 
+/* ── /v1/vps/eacea/bertopic ─────────────────────────────────── */
+exports.eaceaBertopic = async (req, res) => {
+  const { family } = req.query;
+  try {
+    const params = []; let where = 'WHERE topic_id <> -1';
+    if (family) { params.push(family); where += ` AND eacea_family = $${params.length}`; }
+    const rows = await m.query(`
+      SELECT eacea_family, topic_id, label, words, projects, representative_titles
+      FROM directory.eacea_bertopic_topics
+      ${where}
+      ORDER BY projects DESC
+      LIMIT 200`, params);
+    ok(res, rows);
+  } catch (e) { fail(res, e); }
+};
+
+/* ── /v1/vps/eacea/similar (proxy a microservicio Python 5051) ── */
+const SIMILAR_URL = process.env.EACEA_SIMILAR_URL || 'http://127.0.0.1:5051';
+
+exports.eaceaSimilar = async (req, res) => {
+  const { q, family, topk = 20 } = req.body || {};
+  if (!q || typeof q !== 'string' || q.trim().length < 3) {
+    return res.status(400).json({ ok: false, error: { code: 'BAD_QUERY', message: 'q (>=3 chars) requerido' } });
+  }
+  try {
+    const r = await fetch(`${SIMILAR_URL}/similar`, {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({ q: q.trim(), family: family || null, topk: Math.min(parseInt(topk) || 20, 50) })
+    });
+    const j = await r.json();
+    if (!j.ok) return res.status(502).json({ ok: false, error: { code: 'SIMILAR_DOWN', message: j.error || 'similarity service error' } });
+    res.json({ ok: true, data: j.data });
+  } catch (e) {
+    fail(res, e);
+  }
+};
+
+exports.eaceaSimilarHealth = async (req, res) => {
+  try {
+    const r = await fetch(`${SIMILAR_URL}/health`);
+    const j = await r.json();
+    res.json({ ok: true, data: j });
+  } catch (e) {
+    res.status(502).json({ ok: false, error: { code: 'SIMILAR_DOWN', message: e.message } });
+  }
+};
+
 /* ── /v1/vps/eacea/families ─────────────────────────────────── */
 exports.eaceaFamilies = async (req, res) => {
   try {

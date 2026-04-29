@@ -26,6 +26,8 @@
     <a data-board="growth"><span class="material-symbols-outlined">show_chart</span>Crecimiento país</a>
     <a data-board="writing"><span class="material-symbols-outlined">edit_note</span>Métricas de redacción</a>
     <a data-board="network"><span class="material-symbols-outlined">hub</span>Network países</a>
+    <a data-board="bertopic"><span class="material-symbols-outlined">bubble_chart</span>Mapa temático IA (BERTopic)</a>
+    <a data-board="similar"><span class="material-symbols-outlined">search_insights</span>Buscar similar (IA)</a>
   </nav>
   <footer>
     <button id="logout-btn" class="logout"><span class="material-symbols-outlined">logout</span>Salir</button>
@@ -119,6 +121,41 @@
     </div>
     <div class="panel"><div class="table-wrap" id="tbl-writing"></div></div>
     <div class="panel"><h3>Mapa de calor de prioridades léxicas</h3><canvas id="ch-writing"></canvas></div>
+  </section>
+
+  <section class="board" data-board="bertopic">
+    <div class="board-head">
+      <h2>Mapa temático con IA (BERTopic)</h2>
+      <p style="font-size:11px;color:var(--muted);max-width:780px">Sub-tópicos descubiertos automáticamente por <em>familia EACEA</em> a partir de los embeddings semánticos. UMAP + HDBSCAN sobre <code>multilingual-e5-large</code>. Cada fila es un cluster de proyectos con vocabulario similar.</p>
+      <div class="filter-bar"><label>Familia <select id="filter-bertopic-family"></select></label></div>
+    </div>
+    <div class="panel"><div class="table-wrap" id="tbl-bertopic"></div></div>
+  </section>
+
+  <section class="board" data-board="similar">
+    <div class="board-head">
+      <h2>Búsqueda semántica de proyectos aprobados</h2>
+      <p style="font-size:11px;color:var(--muted);max-width:780px">Pega un párrafo o describe la idea de proyecto. La IA busca entre los <strong>12.360</strong> resúmenes EACEA aprobados los más parecidos por significado (multilingüe). Útil para: ver si tu idea ya existe, encontrar referencias, identificar consorcios afines.</p>
+    </div>
+    <div class="panel">
+      <div style="display:flex;gap:10px;align-items:flex-end;flex-wrap:wrap;margin-bottom:14px">
+        <div style="flex:1;min-width:380px">
+          <label style="font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;font-weight:700;display:block;margin-bottom:6px">Texto de búsqueda</label>
+          <textarea id="similar-q" rows="4" placeholder="Ej: Plataforma digital para formar profesores de FP en transición ecológica usando metodologías activas y aprendizaje basado en proyectos…" style="width:100%;background:var(--panel2);border:1px solid var(--line);color:var(--txt);padding:10px 12px;border-radius:6px;font-family:inherit;font-size:13px;resize:vertical"></textarea>
+        </div>
+        <div>
+          <label style="font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;font-weight:700;display:block;margin-bottom:6px">Familia</label>
+          <select id="similar-family" style="background:var(--panel);border:1px solid var(--line);color:var(--txt);padding:8px 10px;border-radius:6px;font-family:inherit;font-size:12px;min-width:160px"></select>
+        </div>
+        <div>
+          <label style="font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;font-weight:700;display:block;margin-bottom:6px">Top K</label>
+          <input id="similar-topk" type="number" min="5" max="50" value="20" style="background:var(--panel);border:1px solid var(--line);color:var(--txt);padding:8px 10px;border-radius:6px;font-family:inherit;font-size:12px;width:80px">
+        </div>
+        <button id="similar-go" style="background:var(--acc);color:var(--bg);border:none;padding:11px 22px;border-radius:6px;font-family:inherit;font-size:12px;font-weight:800;cursor:pointer;text-transform:uppercase;letter-spacing:0.08em">Buscar</button>
+      </div>
+      <div id="similar-status" style="font-size:11px;color:var(--muted);margin-bottom:10px"></div>
+      <div class="table-wrap" id="tbl-similar"></div>
+    </div>
   </section>
 
   <section class="board" data-board="network">

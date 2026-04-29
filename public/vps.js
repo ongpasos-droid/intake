@@ -354,6 +354,82 @@ loaders.network = async () => {
   await refresh();
 };
 
+/* ── Board: bertopic ─────────────────────────────────────── */
+loaders.bertopic = async () => {
+  await loadFamilies();
+  const sel = document.getElementById('filter-bertopic-family');
+  const refresh = async () => {
+    const rows = await api('/v1/vps/eacea/bertopic', { family: sel.value });
+    table('tbl-bertopic', [
+      { key: 'eacea_family', label: 'Familia', fmt: fmt.family },
+      { key: 'topic_id', label: '#', num: true },
+      { key: 'projects', label: 'Proyectos', num: true, fmt: fmt.int },
+      { key: 'words', label: 'Palabras clave', fmt: w => Array.isArray(w) ? w.slice(0,8).map(x => `<span class="pill" style="margin-right:4px">${x}</span>`).join('') : '' },
+      { key: 'representative_titles', label: 'Proyectos representativos', fmt: t => Array.isArray(t) && t.length ? t.map(x => `<div style="font-size:11px;color:rgba(255,255,255,0.65);margin:2px 0">${x}</div>`).join('') : '<span class="muted">—</span>' }
+    ], rows);
+  };
+  sel.addEventListener('change', refresh);
+  await refresh();
+};
+
+/* ── Board: similar (búsqueda semántica) ─────────────────── */
+loaders.similar = async () => {
+  await loadFamilies();
+  const q = document.getElementById('similar-q');
+  const fam = document.getElementById('similar-family');
+  const topk = document.getElementById('similar-topk');
+  const status = document.getElementById('similar-status');
+  const btn = document.getElementById('similar-go');
+
+  // Health
+  try {
+    const h = await api('/v1/vps/eacea/similar/health');
+    status.textContent = `Index: ${fmt.int(h.embeddings_count)} resúmenes · modelo ${h.model}`;
+  } catch {
+    status.textContent = '⚠ Servicio de búsqueda inactivo';
+    status.style.color = '#ff7878';
+  }
+
+  const search = async () => {
+    const text = q.value.trim();
+    if (text.length < 5) { status.textContent = 'Escribe al menos 5 caracteres.'; return; }
+    status.textContent = 'Buscando…';
+    btn.disabled = true;
+    try {
+      const t0 = performance.now();
+      const r = await fetch('/v1/vps/eacea/similar', {
+        method: 'POST',
+        headers: {
+          'content-type': 'application/json',
+          'authorization': 'Bearer ' + getToken()
+        },
+        body: JSON.stringify({ q: text, family: fam.value || null, topk: parseInt(topk.value) || 20 })
+      });
+      const j = await r.json();
+      const dt = Math.round(performance.now() - t0);
+      if (!j.ok) throw new Error(j.error?.message || 'error');
+      status.textContent = `${j.data.length} proyectos similares (${dt} ms)`;
+      table('tbl-similar', [
+        { key: 'score', label: 'Score', num: true, fmt: v => (+v).toFixed(3) },
+        { key: 'project_title', label: 'Título', fmt: (v, r) => r.results_url ? `<a href="${r.results_url}" target="_blank" style="color:#fff;text-decoration:none">${v || '—'}</a>` : (v || '—') },
+        { key: 'eacea_family', label: 'Familia', fmt: fmt.family },
+        { key: 'coordinator_country', label: 'País' },
+        { key: 'coordinator_name', label: 'Coordinador', fmt: v => v ? v.slice(0, 50) : '—' },
+        { key: 'funding_year', label: 'Año', num: true },
+        { key: 'eu_grant_eur', label: 'Grant', num: true, fmt: v => v ? fmt.eur(v) : '—' },
+        { key: 'is_good_practice', label: 'GP', fmt: v => v ? '<span class="pill">GP</span>' : '' },
+        { key: 'european_innovative_award', label: 'Award', fmt: v => v ? '<span class="pill">★</span>' : '' }
+      ], j.data);
+    } catch (e) {
+      status.textContent = 'Error: ' + e.message;
+    } finally {
+      btn.disabled = false;
+    }
+  };
+  btn.addEventListener('click', search);
+  q.addEventListener('keydown', e => { if (e.key === 'Enter' && (e.ctrlKey || e.metaKey)) search(); });
+};
+
 /* ── Bootstrap ──────────────────────────────────────────── */
 loadHealth();
 loadFamilies();

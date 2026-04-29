@@ -27,5 +27,10 @@ router.get('/eacea/topic-winners',   guard, ctrl.eaceaTopicWinners);
 router.get('/eacea/growth',          guard, ctrl.eaceaGrowth);
 router.get('/eacea/writing',         guard, ctrl.eaceaWriting);
 router.get('/eacea/network',         guard, ctrl.eaceaNetwork);
+router.get('/eacea/bertopic',        guard, ctrl.eaceaBertopic);
+
+/* ── Búsqueda semántica (proxy a microservicio Python) ──────── */
+router.post('/eacea/similar',        guard, ctrl.eaceaSimilar);
+router.get ('/eacea/similar/health', guard, ctrl.eaceaSimilarHealth);
 
 module.exports = router;
