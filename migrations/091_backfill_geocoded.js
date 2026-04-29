@@ -10,11 +10,14 @@
  *   1) data/cities_curated.json   (city_centroid, ~500m de jitter)
  *   2) data/country_centroids.json (country_centroid, ±0.4° de jitter)
  *
- * El script standalone (scripts/backfill_geocoded.js) sigue funcionando para
- * desarrollo local y para el modo --rebuild (recalcular fuentes city_centroid).
+ * Updates batched en chunks de BATCH_SIZE filas con CASE WHEN para evitar
+ * 288k round-trips a MySQL (que tardaban >10min y rompían el healthcheck
+ * de Coolify provocando 502 Bad Gateway).
  */
 const fs = require('fs');
 const path = require('path');
+
+const BATCH_SIZE = 500;
 
 function normCity(s) {
   if (!s) return '';
@@ -78,11 +81,12 @@ module.exports = async function (conn) {
 
   console.log(`    ✓ 091 backfilling ${pending} entities (${curated.size} curated cities, ${Object.keys(countries).length} países)`);
 
-  // 4. Procesar pendientes
+  // 4. Construir todas las actualizaciones en memoria
   const [rows] = await conn.query(
     `SELECT oid, city, country_code FROM entities WHERE geocoded_lat IS NULL`
   );
 
+  const updates = [];
   let nCity = 0, nCountry = 0, nSkip = 0;
   for (const row of rows) {
     const cc = (row.country_code || '').toUpperCase();
@@ -106,10 +110,38 @@ module.exports = async function (conn) {
       continue;
     }
 
-    await conn.execute(
-      `UPDATE entities SET geocoded_lat=?, geocoded_lng=?, geocoded_source=?, geocoded_at=NOW() WHERE oid=?`,
-      [lat.toFixed(6), lng.toFixed(6), source, row.oid]
-    );
+    updates.push({
+      oid: row.oid,
+      lat: Number(lat.toFixed(6)),
+      lng: Number(lng.toFixed(6)),
+      source,
+    });
+  }
+
+  // 5. Aplicar en batches con CASE WHEN (un round-trip por batch)
+  for (let i = 0; i < updates.length; i += BATCH_SIZE) {
+    const chunk = updates.slice(i, i + BATCH_SIZE);
+
+    const latCase = chunk.map(() => 'WHEN ? THEN ?').join(' ');
+    const lngCase = chunk.map(() => 'WHEN ? THEN ?').join(' ');
+    const srcCase = chunk.map(() => 'WHEN ? THEN ?').join(' ');
+    const inMarks = chunk.map(() => '?').join(',');
+
+    const sql =
+      `UPDATE entities SET ` +
+      `  geocoded_lat = CASE oid ${latCase} END, ` +
+      `  geocoded_lng = CASE oid ${lngCase} END, ` +
+      `  geocoded_source = CASE oid ${srcCase} END, ` +
+      `  geocoded_at = NOW() ` +
+      `WHERE oid IN (${inMarks})`;
+
+    const params = [];
+    for (const u of chunk) params.push(u.oid, u.lat);
+    for (const u of chunk) params.push(u.oid, u.lng);
+    for (const u of chunk) params.push(u.oid, u.source);
+    for (const u of chunk) params.push(u.oid);
+
+    await conn.query(sql, params);
   }
 
   console.log(`    ✓ 091 done — city=${nCity} country=${nCountry} skip=${nSkip}`);
