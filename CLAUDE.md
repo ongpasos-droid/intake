@@ -1,5 +1,10 @@
 # E+ Tools — Reglas para Claude Code
 
+## Tareas pendientes
+
+Lista canónica de trabajo pendiente coordinado entre sesiones: **`docs/PENDING.md`**.
+Cuando Oscar pregunte "¿qué tareas tenemos pendientes?", abrir ese fichero antes de cualquier otra cosa. Cuando se cierre una tarea, mover a §3 con fecha. Cuando se planifique una nueva, añadir a §1 o §2 con doc canónico en `docs/` si aplica.
+
 ## Protocolo de ramas
 
 Este repo tiene dos Claudes trabajando en paralelo, cada uno en su rama:
