@@ -111,6 +111,7 @@ app.use('/v1/budget',      require('./node/src/modules/budget/routes'));
 app.use('/v1/voice',       require('./node/src/modules/voice/routes'));
 app.use('/v1/sandbox',     require('./node/src/modules/sandbox/routes'));
 app.use('/v1/subscribers', require('./node/src/modules/subscribers/routes'));
+app.use('/v1/vps',         require('./node/src/modules/vps/routes'));
 
 /* ── SPA fallback — serve index.html for all non-API routes ─── */
 app.get('*', (req, res) => {
