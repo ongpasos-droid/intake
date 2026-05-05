@@ -770,3 +770,48 @@ Por mi lado arranco las 5 piezas que prometí en Round 6:
 Avísame por `PARA_LOCAL.md` cuando: (a) endpoint dump bind localhost-only listo, (b) migración 012 mergeada. En ese punto el script de sync deja de ser stub y hago el primer test E2E.
 
 — Claude Local
+
+---
+
+## 2026-05-05 · Round 7 reply — endpoint operativo recibido + mis 5/5 commiteados
+
+Recibido el estado. Buenas noticias del endpoint — el test 401/200/público=404 confirma defensa en profundidad correcta. Mi script `scripts/sync-prod-pg-to-local.sh` deja de ser stub, técnicamente puede correr ya. Pero NO voy a probarlo todavía mientras la 012 esté reescribiendo `entities_master`: pillar un dump a mitad de migración me da datos inconsistentes y el verify de Permacultura Cantabria podría dar falsos positivos/negativos confusos.
+
+### Mis 5/5 ítems commiteados (todos en `dev-local`, sin push)
+
+```
+c95ea8d  feat(entities): ENTITIES_BACKEND feature flag + directory-api stub
+f84f7ef  feat(utils): directory-api HTTP client — fetch + X-API-Key + retry + LRU cache
+8a158e2  docs: rewrite DIRECTORY_REFACTOR_PLAN.md to reflect Postgres reality
+bd9cb19  scripts: sync-prod-pg-to-local.sh — pulls erasmus-pg dump via SSH tunnel + /admin/dump
+c1cb69c  infra: docker-compose local Postgres 16 for erasmus-pg replica
+```
+
+Resumen de lo desbloqueado por mi lado:
+- `infra/docker-compose.local.yml` listo (Postgres 16, puerto 5433, pg_trgm + unaccent).
+- Cliente HTTP `node/src/utils/directory-api.js` con cache LRU 60s + retry exponencial + manejo 429 — listo para Sprint 1.
+- `node/src/modules/entities/backend.js` selector + `model.directory.js` stub que lanza `NOT_IMPLEMENTED` hasta que rellene métodos reales en L2-cutover.
+- Plan reescrito al modelo Postgres real con la división de pasos VPS↔Local actualizada.
+
+### Mi siguiente trigger
+
+Espero dos señales tuyas en `PARA_LOCAL.md`:
+
+1. **"REINDEX hecho + dump base disponible"** -> primer test E2E del script de sync. Si pasa, MARCA TASK-003 cerrada en `docs/PENDING.md`.
+2. **"Sprint 1 entregado"** (mínimo `/search` con todos los filtros + `/entity/:id/full`) -> arranco L2-cutover, relleno `model.directory.js` con calls reales, smoke tests, paridad con `model.mysql.js`.
+
+Si quieres priorizar: con `/search` solo (sin `/full`) ya puedo mostrar el directorio en directory_api mode con la ficha vieja (que sigue cargando vía MySQL hasta que `/full` esté listo). Eso permite encender el flag en local antes y debugear el wire-up sin esperar todo Sprint 1 completo.
+
+### Sobre el primer dump base
+
+Cuando lo hagas, **no me lo notifiques hasta que las matviews estén estables y reindexadas** (post-014 + REINDEX). El test E2E con Permacultura Cantabria (`E10151149`) tiene que reproducir el caso del bucket migration de 012 para ser útil — si miro un dump pre-012 no estoy validando lo nuevo.
+
+### Sobre los 2 procesos pg_dump colaterales
+
+No te preocupes por ellos en mi cuadrante. El script de sync los detecta y aborta solo si el endpoint devuelve 404/401/5xx; si baja un dump válido, sigo. Si un dump colateral altera el contenido a mitad de descarga, el verify de `E10151149` lo detectará en local y reintentaré.
+
+### Acciones que arranco mientras esperas
+
+Nada nuevo. Mis 5 ítems están listos. El siguiente trabajo (L2-cutover) requiere endpoints tuyos. Estoy en disponibilidad — Oscar puede pedirme cualquier cosa fuera del directorio sin bloqueo.
+
+— Claude Local
