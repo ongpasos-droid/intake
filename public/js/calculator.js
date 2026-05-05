@@ -48,8 +48,10 @@ const Calculator = (() => {
       await API.put('/calculator/projects/' + currentProjectId + '/state', serializeState());
       showSaveStatus('saved');
     } catch (err) {
-      console.error('[Calc] autosave error:', err);
+      console.error('[Calc] autosave error:', err && (err.code || err.status), err && err.message, err);
       showSaveStatus('error');
+      // Soft retry once after 6s — handles transient 401-after-refresh and brief network blips
+      setTimeout(() => { if (currentProjectId && !_saving) scheduleSave(); }, 6000);
     } finally {
       _saving = false;
       if (_saveQueued) { _saveQueued = false; scheduleSave(); }
@@ -73,7 +75,7 @@ const Calculator = (() => {
     }
     if (status === 'saving') { el.textContent = 'Guardando...'; el.style.color = '#9ca3af'; el.style.opacity = '1'; }
     else if (status === 'saved') { el.textContent = 'Guardado'; el.style.color = '#22c55e'; el.style.opacity = '1'; setTimeout(() => { el.style.opacity = '0'; }, 2000); }
-    else if (status === 'error') { el.textContent = 'Error al guardar'; el.style.color = '#ef4444'; el.style.opacity = '1'; }
+    else if (status === 'error') { el.textContent = 'Error al guardar — reintentando'; el.style.color = '#ef4444'; el.style.opacity = '1'; setTimeout(() => { el.style.opacity = '0'; }, 4000); }
   }
 
   /* ── Constants ──────────────────────────────────────────────── */
@@ -987,6 +989,7 @@ const Calculator = (() => {
     const { total } = applyIndirectCosts(directTotal);
     const { totalProject } = getFinancials();
     const usePct = totalProject > 0 ? Math.min(total / totalProject * 100, 100).toFixed(1) : 0;
+    const isOver = Math.round(totalProject - total) < 0;
 
     container.innerHTML = `
       <h2 class="font-headline text-lg font-bold mb-1">Activities</h2>
@@ -1008,8 +1011,8 @@ const Calculator = (() => {
         </div>
         <div class="flex-[2] min-w-[150px]">
           <div class="text-[10px] opacity-40 mb-1">Budget usage</div>
-          <div class="h-1.5 rounded bg-white/20 overflow-hidden">
-            <div class="h-full rounded bg-white transition-all" id="calc-live-bar" style="width:${usePct}%"></div>
+          <div class="h-3 rounded-full bg-white/20 overflow-hidden">
+            <div class="h-full rounded-full ${isOver ? 'bg-red-500' : 'bg-green-500'} transition-all" id="calc-live-bar" style="width:${usePct}%"></div>
           </div>
         </div>
       </div>
@@ -1609,7 +1612,13 @@ const Calculator = (() => {
     const elBar = $('calc-live-bar');
     if (elTotal) elTotal.textContent = euros(total);
     if (elDiff) { elDiff.textContent = (diff >= 0 ? '+ ' : '− ') + euros(Math.abs(diff)); elDiff.style.color = diff < 0 ? '#FCA5A5' : ''; }
-    if (elBar) elBar.style.width = usePct + '%';
+    if (elBar) {
+      elBar.style.width = usePct + '%';
+      const over = diff < 0; // diff = Math.round(totalProject - total), céntimos no cuentan
+      elBar.classList.toggle('bg-red-500', over);
+      elBar.classList.toggle('bg-green-500', !over);
+      elBar.classList.remove('bg-white');
+    }
   }
 
   /* ══════════════════════════════════════════════════════════════
@@ -2919,6 +2928,7 @@ const Calculator = (() => {
     const { total } = applyIndirectCosts(directTotal);
     const { totalProject } = getFinancials();
     const usePct = totalProject > 0 ? Math.min(total / totalProject * 100, 100).toFixed(1) : 0;
+    const isOver = Math.round(totalProject - total) < 0;
 
     const nav = _embeddedMode ? embeddedNavButtons(1, 3, 'Presupuesto \u2192') : navButtons(0, 2, 'Activities \u2192');
 
@@ -2948,8 +2958,8 @@ const Calculator = (() => {
         </div>
         <div class="flex-[2] min-w-[150px]">
           <div class="text-[10px] opacity-40 mb-1">Budget usage</div>
-          <div class="h-1.5 rounded bg-white/20 overflow-hidden">
-            <div class="h-full rounded bg-white transition-all" id="calc-live-bar" style="width:${usePct}%"></div>
+          <div class="h-3 rounded-full bg-white/20 overflow-hidden">
+            <div class="h-full rounded-full ${isOver ? 'bg-red-500' : 'bg-green-500'} transition-all" id="calc-live-bar" style="width:${usePct}%"></div>
           </div>
         </div>
       </div>

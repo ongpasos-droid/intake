@@ -15,6 +15,7 @@ const Intake = (() => {
   let calcInitialized = false;
   let calcNeedsReinit = false;
   let _intakeSaveTimer = null;
+  let _lastSaveError = null;
 
   function scheduleIntakeSave() {
     clearTimeout(_intakeSaveTimer);
@@ -22,6 +23,20 @@ const Intake = (() => {
       const name = document.getElementById('intake-f-name')?.value?.trim();
       if (name) saveToServer(true);
     }, 3000);
+  }
+
+  function showIntakeSaveStatus(status, msg) {
+    let el = document.getElementById('intake-save-status');
+    if (!el) {
+      el = document.createElement('span');
+      el.id = 'intake-save-status';
+      el.className = 'text-[10px] font-medium ml-2 transition-opacity duration-500';
+      const topbar = document.getElementById('topbar-title');
+      if (topbar) topbar.parentElement.appendChild(el);
+    }
+    if (status === 'saving') { el.textContent = 'Guardando...'; el.style.color = '#9ca3af'; el.style.opacity = '1'; }
+    else if (status === 'saved') { el.textContent = 'Guardado'; el.style.color = '#22c55e'; el.style.opacity = '1'; setTimeout(() => { el.style.opacity = '0'; }, 2000); }
+    else if (status === 'error') { el.textContent = 'Error: ' + (msg || 'no se pudo guardar'); el.style.color = '#ef4444'; el.style.opacity = '1'; setTimeout(() => { el.style.opacity = '0'; }, 5000); }
   }
 
   /* ── Step configuration (5 steps — contexto, tareas, gantt moved to Writer) */
@@ -398,6 +413,7 @@ const Intake = (() => {
     const name = document.getElementById('intake-f-name').value.trim();
     if (!name) { if (!silent) Toast.show('Escribe un nombre de proyecto', 'err'); return; }
 
+    if (silent) showIntakeSaveStatus('saving');
     try {
       const projectData = {
         name,
@@ -478,8 +494,13 @@ const Intake = (() => {
         _dirty = false;
         if (!silent) Toast.show('Proyecto guardado en servidor', 'ok');
       }
+      _lastSaveError = null;
+      if (silent) showIntakeSaveStatus('saved');
       if (!silent) loadServerProjects();
     } catch (err) {
+      _lastSaveError = err;
+      console.error('[Intake] saveToServer failed:', err && (err.code || err.status), err && err.message, err);
+      if (silent) showIntakeSaveStatus('error', err && err.message);
       if (!silent) Toast.show('Error: ' + (err.message || err), 'err');
     }
   }
@@ -1354,7 +1375,11 @@ const Intake = (() => {
       const name = document.getElementById('intake-f-name')?.value?.trim();
       if (!name) { Toast.show('Guarda el proyecto antes de iniciar la entrevista', 'err'); return; }
       await saveToServer(true);
-      if (!currentProjectId) { Toast.show('Error guardando el proyecto', 'err'); return; }
+      if (!currentProjectId) {
+        const detail = _lastSaveError && (_lastSaveError.message || _lastSaveError.code) || 'causa desconocida';
+        Toast.show('Error guardando el proyecto: ' + detail, 'err');
+        return;
+      }
     }
     // Also save calculator state so backend has WP data
     if (typeof Calculator !== 'undefined') {
@@ -1557,7 +1582,11 @@ const Intake = (() => {
       const name = document.getElementById('intake-f-name')?.value?.trim();
       if (!name) { Toast.show('Escribe un nombre de proyecto antes de continuar', 'err'); return; }
       await saveToServer(true);
-      if (!currentProjectId) { Toast.show('Error guardando el proyecto', 'err'); return; }
+      if (!currentProjectId) {
+        const detail = _lastSaveError && (_lastSaveError.message || _lastSaveError.code) || 'causa desconocida';
+        Toast.show('Error guardando el proyecto: ' + detail, 'err');
+        return;
+      }
     }
 
     // Save current state first (project + partners)
