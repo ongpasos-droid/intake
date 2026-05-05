@@ -49,7 +49,26 @@ Sesión auditando el desajuste Consortium↔Directorio en LIVE. Confirmado contr
 
 ## 2 · Pendientes sin bloqueante (cuando se quiera)
 
-> *(vacío por ahora — añadir aquí lo que se quiera priorizar)*
+### TASK-002 — Sync prod -> Laragon local (datos para test offline)
+**Status:** LISTO_PARA_EMPEZAR
+**Doc canónico:** `docs/LOCAL_SAMPLE.md`
+**Script:** `scripts/sync-prod-mysql-to-local.sh`
+**Fecha plan:** 2026-05-05
+
+**Qué incluye:**
+- Réplica de MySQL `eplus_tools` (288k entities + enrichment + ref_*) en Laragon vía túnel SSH ya montado.
+- Excluye `users / auth_tokens / newsletter / ai_logs / llm_cache` (privacy + volumen).
+- Verifica que Permacultura Cantabria (`E10151149`) y volumen ~288k entities estén tras el import.
+- No incluye proyectos EU históricos (Erasmus+ 2014-2025) — esos viven en Postgres `erasmus-pg` (Directory API). Plan de sample de Postgres pendiente (§3 de LOCAL_SAMPLE.md).
+
+**Qué falta para correr:**
+1. Levantar túnel: `~/.claude/tunnel-mysql-prod.bat`
+2. Crear `~/.claude/local-sync.env` con `CLAUDE_RO_PASS=...` (extraer de `~/.claude.json` -> `mcpServers.mysql-prod.env.MYSQL_PASS`)
+3. Añadir `/c/laragon/bin/mysql/.../bin` al PATH
+4. `bash scripts/sync-prod-mysql-to-local.sh`
+
+**Decisión cerrada (2026-05-05):**
+Oscar planteó si copiar 150 GB completos. Descartado: la BD que pesa 150 GB es la Postgres `erasmus-pg` (proyectos EU), no la MySQL `eplus_tools` (que pesa <500 MB). Para test offline basta con MySQL completo + Directory API on-demand para proyectos EU.
 
 ---
 
