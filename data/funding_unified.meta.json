@@ -1,0 +1,53 @@
+{
+  "generatedAt": "2026-05-06T23:48:11.738Z",
+  "total": 647,
+  "bySource": {
+    "sedia": 542,
+    "salto": 77,
+    "bdns": 28
+  },
+  "byCategory": {
+    "call_for_proposals": 570,
+    "training": 77
+  },
+  "byLevel": {
+    "eu": 619,
+    "local": 21,
+    "ccaa": 5,
+    "otros": 2
+  },
+  "byStatus": {
+    "open": 354,
+    "forthcoming": 287,
+    "closed": 6
+  },
+  "byProgramme": {
+    "European Solidarity Corps": 1,
+    "ED": 1,
+    "Creative Europe": 4,
+    "Just Transition": 1,
+    "Digital Europe": 11,
+    "Pericles IV": 1,
+    "EU Anti-Fraud": 7,
+    "NDICI / EuropeAid": 34,
+    "Horizon Europe": 406,
+    "Erasmus+ Youth (SALTO)": 77,
+    "UCPM": 1,
+    "Single Market Programme": 2,
+    "Concurrencia competitiva - canónica": 25,
+    "EUBA": 3,
+    "ISF": 1,
+    "Erasmus+": 2,
+    "Pilot Projects": 4,
+    "European Defence Fund": 36,
+    "EaSI / SOCPL": 2,
+    "Connecting Europe Facility": 5,
+    "LIFE": 16,
+    "CERV": 3,
+    "ESF+": 1,
+    "Concesión directa - canónica": 3
+  },
+  "curatedEnrichmentCount": 1,
+  "sumBudgetEur": 265107549492.4399,
+  "summaryEsPendingCount": 619
+}
