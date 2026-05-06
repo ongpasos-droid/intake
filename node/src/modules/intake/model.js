@@ -75,7 +75,7 @@ async function createProject(userId, projectData) {
 async function findProjectById(projectId, userId) {
   const sql = `
     SELECT id, user_id, name, full_name, type, description, proposal_lang, national_agency, start_date, duration_months,
-           deadline, eu_grant, cofin_pct, indirect_pct, status, calc_state, created_at, updated_at
+           deadline, eu_grant, cofin_pct, indirect_pct, status, is_sandbox, calc_state, created_at, updated_at
     FROM projects
     WHERE id = ? AND user_id = ?
   `;
@@ -96,7 +96,7 @@ async function findProjectsByUserId(userId, page = 1, perPage = 20) {
 
   const sql = `
     SELECT id, user_id, name, full_name, type, description, proposal_lang, start_date, duration_months,
-           deadline, eu_grant, cofin_pct, indirect_pct, status, created_at, updated_at
+           deadline, eu_grant, cofin_pct, indirect_pct, status, is_sandbox, created_at, updated_at
     FROM projects
     WHERE user_id = ?
     ORDER BY updated_at DESC
@@ -180,14 +180,32 @@ async function findPartnersByProjectId(projectId, userId) {
   const project = await findProjectById(projectId, userId);
   if (!project) return null;
 
+  // LEFT JOIN organizations + entities para devolver coords cuando el partner está
+  // vinculado. Prioridad: organizations.lat/lng (user-edited) > entities.geocoded_lat/lng (auto).
+  // Calculator lo usa para auto-derivar bandas km.
   const sql = `
-    SELECT id, project_id, name, legal_name, city, country, role, order_index, organization_id, created_at, updated_at
-    FROM partners
-    WHERE project_id = ?
-    ORDER BY order_index ASC
+    SELECT
+      p.id, p.project_id, p.name, p.legal_name, p.city, p.country, p.role,
+      p.order_index, p.organization_id, p.created_at, p.updated_at,
+      o.oid AS oid,
+      COALESCE(o.lat, e.geocoded_lat) AS lat,
+      COALESCE(o.lng, e.geocoded_lng) AS lng,
+      CASE
+        WHEN o.lat IS NOT NULL THEN o.geocoded_source
+        ELSE e.geocoded_source
+      END AS geo_source
+    FROM partners p
+    LEFT JOIN organizations o ON o.id = p.organization_id
+    LEFT JOIN entities      e ON e.oid = o.oid
+    WHERE p.project_id = ?
+    ORDER BY p.order_index ASC
   `;
   const [rows] = await db.execute(sql, [projectId]);
-  return rows;
+  return rows.map(r => ({
+    ...r,
+    lat: r.lat != null ? Number(r.lat) : null,
+    lng: r.lng != null ? Number(r.lng) : null,
+  }));
 }
 
 /**

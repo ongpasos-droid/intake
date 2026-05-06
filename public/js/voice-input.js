@@ -46,6 +46,10 @@ const VoiceInput = (() => {
   /* ── Attach mic button to a textarea ─────────────────────────── */
   function attach(textarea) {
     if (!textarea || textarea.dataset.voiceAttached) return;
+    // Opt-out: explicit attribute or any ancestor marked .voice-skip.
+    // Used by table-cell textareas where a mic button would crowd the cell.
+    if (textarea.dataset.noVoice === '1') return;
+    if (typeof textarea.closest === 'function' && textarea.closest('.voice-skip')) return;
     textarea.dataset.voiceAttached = '1';
 
     // Wrap textarea in a relative container

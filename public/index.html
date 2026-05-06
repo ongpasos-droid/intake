@@ -7,32 +7,46 @@
 
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
 
 <!-- Tailwind CDN -->
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+<!-- ApexCharts (used by Entities ficha for score donuts, by Stats dashboard) -->
+<script src="https://cdn.jsdelivr.net/npm/apexcharts@3.49.1/dist/apexcharts.min.js" defer></script>
+
+<!-- D3 (KPI/bars helpers, mantienen compat con stats antiguos) -->
+<script src="https://cdn.jsdelivr.net/npm/d3@7" defer></script>
+<!-- MapLibre GL JS v5+ — Atlas 2D + 3D con vector tiles. La proyección `globe` requiere v5.0+ -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/maplibre-gl@5.6.1/dist/maplibre-gl.css">
+<script src="https://cdn.jsdelivr.net/npm/maplibre-gl@5.6.1/dist/maplibre-gl.js" defer></script>
+
+<!-- Leaflet (sólo para el pin editor de Mi Organización) -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css">
+<script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js" defer></script>
 <script>
 tailwind.config = {
   darkMode: "class",
   theme: {
     extend: {
       colors: {
-        "primary":"#06003e","primary-container":"#1b1464",
-        "secondary-fixed":"#e7eb00","secondary-fixed-dim":"#cbce00",
-        "surface":"#f0f4fa","surface-dim":"#d8dadc","surface-bright":"#f7f9fb",
-        "surface-container":"#eceef0","surface-container-low":"#e8eef6",
-        "surface-container-high":"#e6e8ea","surface-container-lowest":"#ffffff",
+        "primary":"#1b1464","primary-container":"#1b1464",
+        "secondary-fixed":"#fbff12","secondary-fixed-dim":"#e7eb00",
+        "accent-warm":"#c7afdf",
+        "surface":"#f8f8f8","surface-dim":"#cccccc","surface-bright":"#ffffff",
+        "surface-container":"#eeeeee","surface-container-low":"#f8f8f8",
+        "surface-container-high":"#eeeeee","surface-container-lowest":"#ffffff",
         "on-surface":"#191c1e","on-surface-variant":"#474551",
-        "outline":"#787682","outline-variant":"#c8c5d2",
+        "outline":"#888888","outline-variant":"#cccccc",
         "error":"#ba1a1a","error-container":"#ffdad6",
         "on-error-container":"#93000a",
-        "surface-tint":"#5855a3",
-        "on-primary-container":"#8481d3",
+        "surface-tint":"#c7afdf",
+        "on-primary-container":"#c7afdf",
       },
       fontFamily: {
-        "headline":["Manrope","sans-serif"],
-        "body":["Manrope","sans-serif"],
+        "headline":["Poppins","sans-serif"],
+        "body":["Poppins","sans-serif"],
       }
     }
   }
@@ -43,9 +57,75 @@ tailwind.config = {
 <script src="https://accounts.google.com/gsi/client" async defer></script>
 
 <link rel="stylesheet" href="/css/main.css">
+
+<!-- ═══ TOP BAR común (sincronizado con el child theme WP).
+     Si tocas estilos aquí, replícalos en
+     web/wordpress/astra-eufunding/style.css (sección "TOP BAR común"). ═══ -->
+<style>
+.efs-topbar { position: fixed; top: 0; left: 0; right: 0; height: 48px; z-index: 50;
+  background: #1b1464; color: #fff; font-family: 'Poppins', sans-serif; font-size: 14px; font-weight: 500;
+  border-bottom: 1px solid rgba(255,255,255,0.08); }
+.efs-topbar__inner { max-width: 1280px; height: 100%; margin: 0 auto; padding: 0 1.25rem;
+  display: flex; align-items: center; gap: 2rem; }
+.efs-topbar__brand { display: inline-flex; align-items: center; gap: .5rem;
+  color: #fff; text-decoration: none; font-weight: 800; letter-spacing: -0.01em; white-space: nowrap; }
+.efs-topbar__brand:hover { color: #fbff12; }
+.efs-topbar__logo { width: 22px; height: 22px; background: #fbff12; border-radius: 4px; flex: 0 0 auto; display: inline-block; }
+.efs-topbar__nav { flex: 1; display: flex; }
+.efs-topbar__menu { list-style: none; margin: 0; padding: 0; display: flex; gap: 1.5rem; }
+.efs-topbar__menu a { color: rgba(255,255,255,0.78); text-decoration: none;
+  padding: .25rem 0; border-bottom: 2px solid transparent; transition: color .15s, border-color .15s; font-size: 14px; }
+.efs-topbar__menu a:hover { color: #fff; }
+.efs-topbar__menu .is-current > a,
+.efs-topbar__menu .current-menu-item > a { color: #fff; border-bottom-color: #fbff12; }
+.efs-topbar__cta { margin-left: auto; }
+.efs-topbar__login { display: inline-flex; align-items: center; gap: .4rem;
+  padding: .35rem .85rem; background: #fbff12; color: #1b1464;
+  border-radius: 6px; text-decoration: none; font-weight: 700; font-size: 13px; transition: transform .15s; }
+.efs-topbar__login:hover { transform: translateY(-1px); }
+@media (max-width: 720px) {
+  .efs-topbar__inner { gap: .75rem; padding: 0 .75rem; }
+  .efs-topbar__nav { display: none; }
+  .efs-topbar__brand .efs-topbar__name { display: none; }
+}
+</style>
 </head>
 
 <body class="bg-surface text-on-surface font-body text-sm font-medium tracking-tight min-h-screen">
+
+<!-- ═══ TOP BAR común (siempre visible — auth screen y app shell) ═══ -->
+<header class="efs-topbar" role="banner">
+  <div class="efs-topbar__inner">
+    <a class="efs-topbar__brand" href="https://eufundingschool.com/" aria-label="EU Funding School — Inicio">
+      <span class="efs-topbar__logo" aria-hidden="true"></span>
+      <span class="efs-topbar__name">EU Funding School</span>
+    </a>
+    <nav class="efs-topbar__nav" aria-label="Primary">
+      <ul class="efs-topbar__menu">
+        <li><a href="https://eufundingschool.com/recursos/" target="_top">Recursos</a></li>
+        <li><a href="https://eufundingschool.com/academia/" target="_top">Academia</a></li>
+        <li class="is-current"><a href="#my-projects">Proyectos</a></li>
+      </ul>
+    </nav>
+    <div class="efs-topbar__cta">
+      <a id="topbar-cta-back" class="efs-topbar__login" href="https://eufundingschool.com/" style="background:transparent;color:#fff;border:1px solid rgba(255,255,255,0.3);">
+        ← Volver a la web
+      </a>
+      <a id="topbar-cta-account" class="efs-topbar__login" href="#my-projects" style="display:none;">
+        Mi cuenta · <span id="topbar-user-name">…</span>
+      </a>
+    </div>
+  </div>
+</header>
+<!-- En dev (localhost), reescribir enlaces del topbar a eufundingschool.test -->
+<script>
+(function(){
+  if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') return;
+  document.querySelectorAll('.efs-topbar a[href*="eufundingschool.com"]').forEach(function(a){
+    a.href = a.href.replace('https://eufundingschool.com', 'http://eufundingschool.test');
+  });
+})();
+</script>
 
 <!-- ═══ AUTH SCREENS (visible when not logged in) ═══════════════ -->
 <div id="auth-screen" class="hidden">
@@ -54,7 +134,7 @@ tailwind.config = {
   <div class="fixed top-0 right-0 w-[50vw] h-[512px] bg-gradient-to-bl from-secondary-fixed/5 to-transparent blur-3xl pointer-events-none -z-[1]"></div>
   <div class="fixed bottom-0 left-0 w-[50vw] h-[512px] bg-gradient-to-tr from-primary-container/5 to-transparent blur-3xl pointer-events-none -z-[1]"></div>
 
-  <div class="min-h-screen flex items-center justify-center px-4">
+  <div class="min-h-screen pt-12 flex items-center justify-center px-4">
     <div class="w-full max-w-md">
 
       <!-- Logo -->
@@ -100,7 +180,65 @@ tailwind.config = {
                    hover:scale-[1.02] active:scale-[0.98] transition-transform shadow-md shadow-primary/10">
             Sign In
           </button>
+          <div class="text-center pt-1">
+            <a href="#forgot" id="link-forgot" class="text-xs font-semibold text-primary hover:underline">
+              ¿Olvidaste tu contraseña?
+            </a>
+          </div>
         </form>
+
+        <!-- ── FORGOT PASSWORD FORM ────────────────────────── -->
+        <form id="form-forgot" class="space-y-4 hidden">
+          <div class="text-sm text-on-surface-variant">
+            Introduce tu email y te enviaremos un enlace para restablecer tu contraseña.
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-on-surface-variant mb-1.5" for="forgot-email">Email</label>
+            <input id="forgot-email" name="email" type="email" required autocomplete="email"
+              class="w-full px-4 py-3 rounded-lg bg-surface-container-low border border-outline-variant/50 text-on-surface text-sm
+                     focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors"
+              placeholder="you@organization.eu">
+          </div>
+          <div id="forgot-error" class="hidden text-xs text-error font-semibold"></div>
+          <button type="submit" id="btn-forgot"
+            class="w-full py-3 rounded-lg bg-secondary-fixed text-primary-container text-sm font-bold
+                   hover:scale-[1.02] active:scale-[0.98] transition-transform shadow-md shadow-primary/10">
+            Enviar enlace
+          </button>
+          <div class="text-center pt-1">
+            <a href="#login" id="link-back-login" class="text-xs font-semibold text-primary hover:underline">
+              ← Volver al login
+            </a>
+          </div>
+        </form>
+
+        <!-- ── RESET PASSWORD FORM (token in URL) ──────────── -->
+        <form id="form-reset" class="space-y-4 hidden">
+          <div class="text-sm text-on-surface-variant">
+            Elige una nueva contraseña para tu cuenta.
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-on-surface-variant mb-1.5" for="reset-password">Nueva contraseña</label>
+            <input id="reset-password" name="password" type="password" required minlength="8" autocomplete="new-password"
+              class="w-full px-4 py-3 rounded-lg bg-surface-container-low border border-outline-variant/50 text-on-surface text-sm
+                     focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors"
+              placeholder="Mín. 8 caracteres, 1 mayúscula, 1 número">
+          </div>
+          <div id="reset-error" class="hidden text-xs text-error font-semibold"></div>
+          <button type="submit" id="btn-reset"
+            class="w-full py-3 rounded-lg bg-secondary-fixed text-primary-container text-sm font-bold
+                   hover:scale-[1.02] active:scale-[0.98] transition-transform shadow-md shadow-primary/10">
+            Cambiar contraseña
+          </button>
+        </form>
+
+        <!-- ── INFO PANEL (post-register, post-forgot, post-verify, etc.) -->
+        <div id="auth-info" class="hidden text-center space-y-3">
+          <div id="auth-info-icon" class="text-4xl">📩</div>
+          <h3 id="auth-info-title" class="text-base font-bold text-on-surface">Revisa tu correo</h3>
+          <p id="auth-info-body" class="text-sm text-on-surface-variant"></p>
+          <div id="auth-info-actions" class="pt-2 space-y-2"></div>
+        </div>
 
         <!-- ── REGISTER FORM ───────────────────────────────── -->
         <form id="form-register" class="space-y-4 hidden">
@@ -134,7 +272,7 @@ tailwind.config = {
         </form>
 
         <!-- ── Divider ─────────────────────────────────────── -->
-        <div class="flex items-center gap-3 my-5">
+        <div id="google-divider" class="flex items-center gap-3 my-5">
           <div class="flex-1 h-px bg-outline-variant/40"></div>
           <span class="text-xs text-on-surface-variant font-medium">or</span>
           <div class="flex-1 h-px bg-outline-variant/40"></div>
@@ -179,8 +317,8 @@ tailwind.config = {
   <!-- Sidebar overlay (mobile) -->
   <div id="sidebar-overlay"></div>
 
-  <!-- Sidebar -->
-  <aside id="sidebar" class="fixed top-0 left-0 bottom-0 w-60 bg-primary-container z-40 flex flex-col transition-all duration-300">
+  <!-- Sidebar (offset 48px abajo del top bar) -->
+  <aside id="sidebar" class="fixed top-12 left-0 bottom-0 w-60 bg-primary-container z-40 flex flex-col transition-all duration-300">
 
     <!-- Logo -->
     <div class="h-16 flex items-center gap-2 px-5 border-b border-white/10">
@@ -190,39 +328,42 @@ tailwind.config = {
 
     <!-- Nav links -->
     <nav class="flex-1 py-4 px-3 space-y-1 overflow-y-auto" id="sidebar-nav">
-      <a href="#dashboard"
-        class="nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-white/70 hover:bg-white/10 transition-colors text-sm font-medium"
-        data-route="dashboard">
-        <span class="material-symbols-outlined text-[20px]">dashboard</span>
-        Dashboard
-      </a>
       <a href="#my-projects"
         class="nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-white/70 hover:bg-white/10 transition-colors text-sm font-medium"
         data-route="my-projects">
         <span class="material-symbols-outlined text-[20px]">folder_shared</span>
         Mis Proyectos
       </a>
+      <a href="#my-evaluations"
+        class="nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-white/70 hover:bg-white/10 transition-colors text-sm font-medium"
+        data-route="my-evaluations">
+        <span class="material-symbols-outlined text-[20px]">fact_check</span>
+        Mis Evaluaciones
+      </a>
 
-      <!-- Projects: 3 phases -->
-      <div class="mt-3 mb-1 px-3 text-[10px] font-semibold tracking-[.2em] uppercase text-white/30">Proposal Builder</div>
-      <a href="#create"
-        class="nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-white/70 hover:bg-white/10 transition-colors text-sm font-medium"
-        data-route="create">
-        <span class="material-symbols-outlined text-[20px]" style="color:#60a5fa">architecture</span>
-        Design
-      </a>
-      <a href="#developer"
-        class="nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-white/70 hover:bg-white/10 transition-colors text-sm font-medium"
-        data-route="developer">
-        <span class="material-symbols-outlined text-[20px]" style="color:#a78bfa">edit_document</span>
-        Write
-      </a>
-      <a href="#evaluator"
-        class="nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-white/70 hover:bg-white/10 transition-colors text-sm font-medium"
-        data-route="evaluator">
-        <span class="material-symbols-outlined text-[20px]" style="color:#4ade80">verified</span>
-        Evaluate
-      </a>
+      <!-- Active project phases (rendered contextually by app.js when a project is open) -->
+      <div id="sidebar-project-section" class="hidden">
+        <div class="mt-3 mb-1 px-3 text-[10px] font-semibold tracking-[.2em] uppercase text-white/30">Proyecto activo</div>
+        <div id="sidebar-project-name" class="px-3 mb-2 text-xs font-bold text-white truncate"></div>
+        <a href="#intake"
+          class="nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-white/70 hover:bg-white/10 transition-colors text-sm font-medium"
+          data-route="intake">
+          <span class="material-symbols-outlined text-[20px]" style="color:#60a5fa">architecture</span>
+          Presupuestar
+        </a>
+        <a href="#developer"
+          class="nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-white/70 hover:bg-white/10 transition-colors text-sm font-medium"
+          data-route="developer">
+          <span class="material-symbols-outlined text-[20px]" style="color:#a78bfa">edit_document</span>
+          Escribir
+        </a>
+        <a href="#evaluator"
+          class="nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-white/70 hover:bg-white/10 transition-colors text-sm font-medium"
+          data-route="evaluator">
+          <span class="material-symbols-outlined text-[20px]" style="color:#4ade80">verified</span>
+          Evaluar
+        </a>
+      </div>
       <!-- Organization -->
       <div class="mt-3 mb-1 px-3 text-[10px] font-semibold tracking-[.2em] uppercase text-white/30">Organization</div>
       <a href="#my-org"
@@ -236,6 +377,18 @@ tailwind.config = {
         data-route="organizations">
         <span class="material-symbols-outlined text-[20px]">corporate_fare</span>
         Directorio
+      </a>
+      <a href="#shortlists"
+        class="nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-white/70 hover:bg-white/10 transition-colors text-sm font-medium"
+        data-route="shortlists">
+        <span class="material-symbols-outlined text-[20px]">favorite</span>
+        Mi Pool
+      </a>
+      <a href="#atlas-stats"
+        class="nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-white/70 hover:bg-white/10 transition-colors text-sm font-medium"
+        data-route="atlas-stats">
+        <span class="material-symbols-outlined text-[20px]">insights</span>
+        Atlas Stats
       </a>
 
       <!-- Library -->
@@ -283,8 +436,8 @@ tailwind.config = {
     </div>
   </aside>
 
-  <!-- Main content area (offset by sidebar width) -->
-  <div class="lg:ml-60 min-h-screen transition-all duration-300" id="main-wrapper">
+  <!-- Main content area (offset by sidebar width + top bar height) -->
+  <div class="lg:ml-60 pt-12 min-h-screen transition-all duration-300" id="main-wrapper">
 
     <!-- Top bar -->
     <header class="sticky top-0 z-30 h-16 flex items-center gap-4 px-4 lg:px-8 bg-white/80 backdrop-blur-md border-b border-primary-container/10">
@@ -308,6 +461,9 @@ tailwind.config = {
       </button>
     </header>
 
+    <!-- Sandbox banner (shown when active project has is_sandbox=1) -->
+    <div id="sandbox-banner" class="hidden sticky top-16 z-20 bg-primary text-white px-4 lg:px-8 py-2 text-sm"></div>
+
     <!-- Content panels (one per module) -->
     <main class="p-4 lg:p-8" id="content-area">
 
@@ -317,7 +473,7 @@ tailwind.config = {
         <!-- Hero -->
         <div class="relative bg-[#1b1464] rounded-2xl p-10 md:p-14 mb-10 overflow-hidden">
           <div class="absolute top-0 right-0 w-80 h-80 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/3 blur-2xl pointer-events-none"></div>
-          <div class="absolute bottom-0 left-0 w-60 h-60 bg-[#e7eb00]/10 rounded-full translate-y-1/2 -translate-x-1/4 blur-3xl pointer-events-none"></div>
+          <div class="absolute bottom-0 left-0 w-60 h-60 bg-[#fbff12]/10 rounded-full translate-y-1/2 -translate-x-1/4 blur-3xl pointer-events-none"></div>
           <div class="relative z-10 max-w-2xl">
             <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 text-[11px] font-bold uppercase tracking-widest text-white/80 mb-6">
               <span class="material-symbols-outlined text-sm">euro</span>
@@ -325,7 +481,7 @@ tailwind.config = {
             </div>
             <h1 class="font-headline text-3xl md:text-4xl font-extrabold tracking-tighter text-white leading-tight mb-4">
               From idea to funded project.<br>
-              <span class="text-[#e7eb00]">Three steps. One platform.</span>
+              <span class="text-[#fbff12]">Three steps. One platform.</span>
             </h1>
             <p class="text-white/60 text-base leading-relaxed mb-8 max-w-xl">
               Design your project, write a winning proposal, and evaluate it against real criteria &mdash; all before you submit.
@@ -337,10 +493,10 @@ tailwind.config = {
         <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-10">
 
           <!-- Phase 1: Design -->
-          <div class="group relative bg-white rounded-2xl border-2 border-outline-variant/20 hover:border-[#1b1464]/30 p-6 transition-all hover:shadow-xl cursor-pointer" onclick="location.hash='create'">
+          <div class="group relative bg-white rounded-2xl border-2 border-outline-variant/20 hover:border-[#1b1464]/30 p-6 transition-all hover:shadow-xl cursor-pointer" onclick="location.hash='my-projects'; setTimeout(() => window.openCreateModal && window.openCreateModal(), 100)">
             <div class="flex items-center gap-3 mb-4">
               <div class="w-12 h-12 rounded-xl bg-blue-100 flex items-center justify-center group-hover:bg-[#1b1464] transition-colors">
-                <span class="material-symbols-outlined text-blue-600 text-2xl group-hover:text-[#e7eb00] transition-colors">architecture</span>
+                <span class="material-symbols-outlined text-blue-600 text-2xl group-hover:text-[#fbff12] transition-colors">architecture</span>
               </div>
               <div>
                 <div class="text-[10px] font-extrabold uppercase tracking-widest text-blue-500">Phase 1</div>
@@ -356,7 +512,7 @@ tailwind.config = {
               <li class="flex items-center gap-2 text-xs text-on-surface-variant"><span class="material-symbols-outlined text-blue-400 text-sm">check_circle</span> Plan activities &amp; work packages</li>
               <li class="flex items-center gap-2 text-xs text-on-surface-variant"><span class="material-symbols-outlined text-blue-400 text-sm">check_circle</span> Calculate EU-compliant budget</li>
             </ul>
-            <div class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs font-bold text-[#e7eb00] bg-[#1b1464] group-hover:bg-[#1b1464]/90 transition-colors">
+            <div class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs font-bold text-[#fbff12] bg-[#1b1464] group-hover:bg-[#1b1464]/90 transition-colors">
               <span class="material-symbols-outlined text-sm">rocket_launch</span> Start designing
             </div>
           </div>
@@ -365,7 +521,7 @@ tailwind.config = {
           <div class="group relative bg-white rounded-2xl border-2 border-outline-variant/20 hover:border-[#1b1464]/30 p-6 transition-all hover:shadow-xl cursor-pointer" onclick="location.hash='developer'">
             <div class="flex items-center gap-3 mb-4">
               <div class="w-12 h-12 rounded-xl bg-purple-100 flex items-center justify-center group-hover:bg-[#1b1464] transition-colors">
-                <span class="material-symbols-outlined text-purple-600 text-2xl group-hover:text-[#e7eb00] transition-colors">edit_document</span>
+                <span class="material-symbols-outlined text-purple-600 text-2xl group-hover:text-[#fbff12] transition-colors">edit_document</span>
               </div>
               <div>
                 <div class="text-[10px] font-extrabold uppercase tracking-widest text-purple-500">Phase 2</div>
@@ -381,7 +537,7 @@ tailwind.config = {
               <li class="flex items-center gap-2 text-xs text-on-surface-variant"><span class="material-symbols-outlined text-purple-400 text-sm">check_circle</span> Import existing DOCX proposals</li>
               <li class="flex items-center gap-2 text-xs text-on-surface-variant"><span class="material-symbols-outlined text-purple-400 text-sm">check_circle</span> Budget calculator (official format)</li>
             </ul>
-            <div class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs font-bold text-[#e7eb00] bg-[#1b1464] group-hover:bg-[#1b1464]/90 transition-colors">
+            <div class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs font-bold text-[#fbff12] bg-[#1b1464] group-hover:bg-[#1b1464]/90 transition-colors">
               <span class="material-symbols-outlined text-sm">edit_note</span> Start writing
             </div>
           </div>
@@ -390,7 +546,7 @@ tailwind.config = {
           <div class="group relative bg-white rounded-2xl border-2 border-outline-variant/20 hover:border-[#1b1464]/30 p-6 transition-all hover:shadow-xl cursor-pointer" onclick="location.hash='evaluator'">
             <div class="flex items-center gap-3 mb-4">
               <div class="w-12 h-12 rounded-xl bg-green-100 flex items-center justify-center group-hover:bg-[#1b1464] transition-colors">
-                <span class="material-symbols-outlined text-green-600 text-2xl group-hover:text-[#e7eb00] transition-colors">verified</span>
+                <span class="material-symbols-outlined text-green-600 text-2xl group-hover:text-[#fbff12] transition-colors">verified</span>
               </div>
               <div>
                 <div class="text-[10px] font-extrabold uppercase tracking-widest text-green-600">Phase 3</div>
@@ -406,7 +562,7 @@ tailwind.config = {
               <li class="flex items-center gap-2 text-xs text-on-surface-variant"><span class="material-symbols-outlined text-green-400 text-sm">check_circle</span> AI-powered improvement tips</li>
               <li class="flex items-center gap-2 text-xs text-on-surface-variant"><span class="material-symbols-outlined text-green-400 text-sm">check_circle</span> Upload &amp; evaluate any DOCX</li>
             </ul>
-            <div class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs font-bold text-[#e7eb00] bg-[#1b1464] group-hover:bg-[#1b1464]/90 transition-colors">
+            <div class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs font-bold text-[#fbff12] bg-[#1b1464] group-hover:bg-[#1b1464]/90 transition-colors">
               <span class="material-symbols-outlined text-sm">fact_check</span> Start evaluating
             </div>
           </div>
@@ -493,44 +649,64 @@ tailwind.config = {
             </div>
             <button type="button" id="my-projects-new-btn"
               class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-bold text-white bg-primary hover:bg-primary/90 shadow-md transition-all">
-              <span class="material-symbols-outlined text-lg">add</span> Nuevo proyecto
+              <span class="material-symbols-outlined text-lg">add</span> Nuevo desde call
             </button>
           </div>
           <div id="my-projects-list"></div>
         </div>
       </section>
 
-      <!-- Create Project panel -->
-      <section id="panel-create" class="panel">
+      <!-- My Evaluations panel (Path B — proyectos antiguos solo para diagnóstico) -->
+      <section id="panel-my-evaluations" class="panel">
         <div class="max-w-6xl mx-auto">
-          <h1 class="font-headline text-3xl font-extrabold tracking-tighter text-primary mb-1">Start a project</h1>
-          <p class="text-on-surface-variant text-base mb-8">Choose how you want to begin.</p>
+          <div class="flex items-center justify-between mb-8">
+            <div>
+              <h1 class="font-headline text-3xl font-extrabold tracking-tighter text-primary mb-1">Mis Evaluaciones</h1>
+              <p class="text-on-surface-variant text-base">Sube un proyecto presentado y obtén un diagnóstico estilo EACEA. Si quieres, conviértelo en proyecto editable.</p>
+            </div>
+            <button type="button" id="my-evaluations-new-btn"
+              class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-bold text-white bg-primary hover:bg-primary/90 shadow-md transition-all">
+              <span class="material-symbols-outlined text-lg">upload_file</span> Subir proyecto
+            </button>
+          </div>
+          <div id="my-evaluations-list"></div>
+        </div>
+      </section>
 
-          <!-- Path 1: Design — full width with call selector on the right -->
-          <div class="bg-white rounded-2xl border-2 border-blue-200/50 p-6 mb-4 hover:shadow-lg transition-all">
+      <!-- Create Project modal (call selector — opens from "Nuevo desde call" in Mis Proyectos) -->
+      <div id="create-modal" class="hidden fixed inset-0 z-50 bg-black/50 backdrop-blur-sm items-center justify-center p-4" onclick="if(event.target===this)window.closeCreateModal()">
+        <div class="bg-white rounded-2xl shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto">
+          <div class="flex items-center justify-between p-6 border-b border-outline-variant/20">
+            <div>
+              <h2 class="font-headline text-xl font-extrabold text-primary">Nuevo proyecto desde una convocatoria</h2>
+              <p class="text-xs text-on-surface-variant mt-1">Elige la call sobre la que vas a construir tu propuesta.</p>
+            </div>
+            <button type="button" onclick="window.closeCreateModal()"
+              class="w-8 h-8 flex items-center justify-center rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors">
+              <span class="material-symbols-outlined">close</span>
+            </button>
+          </div>
+          <div class="p-6">
             <div class="flex gap-6">
-              <!-- Left: description -->
-              <div class="w-72 flex-shrink-0">
+              <!-- Left: description + start button -->
+              <div class="w-64 flex-shrink-0">
                 <div class="flex items-center gap-3 mb-3">
                   <div class="w-10 h-10 rounded-xl bg-blue-100 flex items-center justify-center">
                     <span class="material-symbols-outlined text-blue-600 text-xl">architecture</span>
                   </div>
-                  <div>
-                    <div class="text-[9px] font-extrabold uppercase tracking-widest text-blue-500">New project</div>
-                    <h3 class="font-headline text-base font-extrabold text-on-surface">Build something new</h3>
-                  </div>
+                  <h3 class="font-headline text-base font-extrabold text-on-surface">Empezar desde cero</h3>
                 </div>
-                <p class="text-xs text-on-surface-variant leading-relaxed mb-4">Select a call, define partners, plan activities and calculate your budget. Build the foundations.</p>
-                <button type="button" id="create-btn-start" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs font-bold text-[#e7eb00] bg-[#1b1464] hover:bg-[#1b1464]/90 transition-colors">
-                  <span class="material-symbols-outlined text-sm">rocket_launch</span> Start designing
+                <p class="text-xs text-on-surface-variant leading-relaxed mb-4">Selecciona una convocatoria, define el consorcio, planifica actividades y calcula tu presupuesto.</p>
+                <button type="button" id="create-btn-start" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs font-bold text-[#fbff12] bg-[#1b1464] hover:bg-[#1b1464]/90 transition-colors">
+                  <span class="material-symbols-outlined text-sm">rocket_launch</span> Empezar
                 </button>
               </div>
               <!-- Right: call selector -->
-              <div class="flex-1 min-w-0 border-l border-blue-100 pl-6">
+              <div class="flex-1 min-w-0 border-l border-outline-variant/20 pl-6">
                 <div class="flex items-center gap-3 mb-3">
                   <div class="relative flex-1">
                     <span class="material-symbols-outlined text-on-surface-variant/40 absolute left-3 top-1/2 -translate-y-1/2 text-base">search</span>
-                    <input type="text" id="create-prog-search" placeholder="Search calls..."
+                    <input type="text" id="create-prog-search" placeholder="Buscar convocatorias..."
                       class="w-full pl-9 pr-3 py-2 rounded-lg border border-outline-variant/20 text-xs focus:outline-none focus:ring-2 focus:ring-primary/20 bg-gray-50">
                   </div>
                   <div class="flex items-center gap-1 flex-wrap" id="create-prog-filters">
@@ -542,35 +718,20 @@ tailwind.config = {
                     <button data-filter="all" class="create-filter-btn px-2 py-1 rounded text-[9px] font-bold bg-gray-50 text-gray-500 border border-gray-100 transition-colors">All</button>
                   </div>
                 </div>
-                <div class="flex flex-col gap-1.5 max-h-[280px] overflow-y-auto pr-1" id="create-prog-list"></div>
+                <div class="flex flex-col gap-1.5 max-h-[400px] overflow-y-auto pr-1" id="create-prog-list"></div>
               </div>
             </div>
           </div>
-
-          <!-- Path 2: Already have a proposal -->
-          <div class="group bg-white rounded-2xl border-2 border-purple-200/50 hover:border-purple-300 p-6 mb-4 cursor-pointer transition-all hover:shadow-lg" onclick="location.hash='developer'">
-            <div class="flex items-center gap-5">
-              <div class="w-10 h-10 rounded-xl bg-purple-100 flex items-center justify-center flex-shrink-0 group-hover:bg-purple-500 transition-colors">
-                <span class="material-symbols-outlined text-purple-600 text-xl group-hover:text-white transition-colors">upload_file</span>
-              </div>
-              <div class="flex-1 min-w-0">
-                <h3 class="font-headline text-base font-extrabold text-on-surface">I already have a proposal</h3>
-                <p class="text-xs text-on-surface-variant leading-relaxed mt-1">Upload your existing .docx proposal and take it to the next level with AI-powered writing and expert evaluation criteria.</p>
-              </div>
-              <span class="material-symbols-outlined text-purple-300 group-hover:text-purple-600 text-2xl transition-colors">arrow_forward</span>
-            </div>
-          </div>
-
-          <!-- Hidden fields -->
+          <!-- Hidden fields needed by create.js (kept inside modal so they exist in DOM) -->
           <div style="display:none!important">
             <span id="create-ro-dl"></span><span id="create-ro-gr"></span><span id="create-ro-co"></span>
             <span id="create-ro-in"></span><span id="create-ro-sf"></span><span id="create-ro-st"></span>
             <span id="create-ro-dur"></span>
+            <div id="create-upload-status"></div>
+            <input type="file" id="create-upload-docx" accept=".docx">
           </div>
-          <div id="create-upload-status" class="hidden mt-3"></div>
-          <input type="file" id="create-upload-docx" accept=".docx" class="hidden">
         </div>
-      </section>
+      </div>
 
       <!-- Intake panel -->
       <section id="panel-intake" class="panel">
@@ -1313,7 +1474,7 @@ tailwind.config = {
                   <svg class="animate-spin h-4 w-4 text-primary" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" fill="none"/><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"/></svg>
                   <span id="eval-parse-text">Analizando...</span>
                 </div>
-                <label id="eval-upload-label" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold text-[#e7eb00] bg-[#1b1464] hover:bg-[#1b1464]/80 cursor-pointer transition-colors shadow-md">
+                <label id="eval-upload-label" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold text-[#fbff12] bg-[#1b1464] hover:bg-[#1b1464]/80 cursor-pointer transition-colors shadow-md">
                   <span class="material-symbols-outlined text-sm">upload_file</span> Subir Proyecto
                   <input type="file" id="eval-upload-input" accept=".pdf,.docx" class="hidden">
                 </label>
@@ -1339,13 +1500,13 @@ tailwind.config = {
             </div>
 
             <!-- Layout: sidebar + main -->
-            <div class="flex gap-0" style="min-height:70vh">
+            <div class="flex gap-0 items-start" style="min-height:70vh">
               <!-- Sidebar secciones -->
-              <div id="eval-user-sidebar" class="w-64 flex-shrink-0 bg-[#edf2f9] rounded-l-2xl flex flex-col overflow-hidden border-r border-outline-variant/20">
+              <div id="eval-user-sidebar" class="w-64 flex-shrink-0 bg-[#edf2f9] rounded-l-2xl flex flex-col border-r border-outline-variant/20">
                 <div class="px-4 py-3 border-b border-outline-variant/20">
                   <div class="text-[11px] font-bold text-on-surface-variant uppercase tracking-wider">Secciones del formulario</div>
                 </div>
-                <div id="eval-user-sidebar-nav" class="flex-1 overflow-y-auto px-2 py-2"></div>
+                <div id="eval-user-sidebar-nav" class="px-2 py-2"></div>
               </div>
               <!-- Main content -->
               <div id="eval-user-main" class="flex-1 min-w-0 bg-white rounded-r-2xl border border-l-0 border-outline-variant/20">
@@ -1510,7 +1671,7 @@ tailwind.config = {
             <div class="bg-white rounded-xl border border-outline-variant/30 overflow-hidden">
               <div class="px-5 py-4 border-b border-outline-variant/20 flex items-center justify-between">
                 <h2 class="font-semibold text-primary">Staff categories</h2>
-                <button id="worker-add-btn" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold text-[#e7eb00] bg-[#1b1464] hover:bg-[#1b1464]/80 transition-colors">
+                <button id="worker-add-btn" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold text-[#fbff12] bg-[#1b1464] hover:bg-[#1b1464]/80 transition-colors">
                   <span class="material-symbols-outlined text-sm">add</span> Add category
                 </button>
               </div>
@@ -1794,6 +1955,10 @@ tailwind.config = {
                   <input data-field="pic" type="text" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm" placeholder="940435371">
                 </div>
                 <div>
+                  <label class="block text-xs font-semibold text-on-surface-variant mb-1">OID (Erasmus+)</label>
+                  <input data-field="oid" type="text" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm" placeholder="E10175142">
+                </div>
+                <div>
                   <label class="block text-xs font-semibold text-on-surface-variant mb-1">NIF / ID Nacional</label>
                   <input data-field="national_id" type="text" class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm">
                 </div>
@@ -1862,6 +2027,29 @@ tailwind.config = {
                     <option value="request">🟡 Bajo solicitud — me llega petición y apruebo/rechazo</option>
                     <option value="open">🟢 Abierta — cualquier usuario puede usarla sin pedir permiso</option>
                   </select>
+                </div>
+
+                <!-- Pin de ubicación (Leaflet) -->
+                <div class="md:col-span-2 mt-2 p-4 bg-surface-container-low/40 rounded-lg border border-outline-variant/30">
+                  <div class="flex items-baseline justify-between mb-2">
+                    <label class="block text-xs font-bold uppercase tracking-widest text-on-surface-variant">Ubicación en el mapa</label>
+                    <span id="myorg-coords-label" class="text-[10px] text-on-surface-variant font-mono"></span>
+                  </div>
+                  <p class="text-xs text-on-surface-variant mb-3">Arrastra el pin a la dirección exacta. Esta posición alimenta el Atlas 3D y las bandas km del Calculator.</p>
+                  <div id="myorg-map" class="w-full rounded-lg border border-outline-variant/40" style="height: 320px; background: #f0f0f5"></div>
+                  <div class="flex flex-wrap gap-2 mt-3">
+                    <button type="button" id="myorg-self-locate"
+                      class="inline-flex items-center gap-1.5 text-xs font-semibold text-primary bg-secondary-fixed hover:bg-secondary-fixed-dim px-3 py-1.5 rounded-lg transition-colors">
+                      <span class="material-symbols-outlined text-[16px]">my_location</span>
+                      Usar mi ubicación
+                    </button>
+                    <button type="button" id="myorg-save-pin"
+                      class="inline-flex items-center gap-1.5 text-xs font-semibold text-white bg-primary hover:bg-primary/90 px-3 py-1.5 rounded-lg transition-colors">
+                      <span class="material-symbols-outlined text-[16px]">save</span>
+                      Guardar ubicación
+                    </button>
+                    <span id="myorg-coords-source" class="text-[11px] text-on-surface-variant ml-auto self-center"></span>
+                  </div>
                 </div>
               </div>
               <div class="mt-6 flex justify-end">
@@ -2109,34 +2297,278 @@ tailwind.config = {
         </div>
       </section>
 
-      <!-- ═══ PANEL: DIRECTORIO ORGANIZACIONES ═════════════════ -->
-      <section id="panel-organizations" class="panel">
-        <div class="max-w-6xl mx-auto py-8 px-4">
-          <h1 class="font-headline text-2xl font-extrabold text-primary mb-6">Directorio de Organizaciones</h1>
+      <!-- ═══ PANEL: ATLAS STATS (Mapa + dashboard) ════════════ -->
+      <section id="panel-atlas-stats" class="panel">
+        <div class="max-w-7xl mx-auto px-4 lg:px-8 py-8">
 
-          <!-- Filters -->
-          <div class="flex flex-wrap gap-3 mb-6">
-            <input id="org-dir-search" type="text" placeholder="Buscar por nombre, ciudad o PIC..."
-              class="flex-1 min-w-[200px] border border-outline-variant/40 rounded-lg px-3 py-2 text-sm">
-            <input id="org-dir-country" type="text" placeholder="País"
-              class="w-36 border border-outline-variant/40 rounded-lg px-3 py-2 text-sm">
-            <select id="org-dir-type" class="w-44 border border-outline-variant/40 rounded-lg px-3 py-2 text-sm">
-              <option value="">Todos los tipos</option>
-              <option>NGO</option><option>University</option><option>School/Institute</option>
-              <option>Research Centre</option><option>SME</option><option>Large Enterprise</option>
-              <option>Public body</option><option>Foundation</option><option>Social enterprise</option><option>Other</option>
-            </select>
+          <!-- Hero -->
+          <header class="mb-6 relative overflow-visible">
+            <div class="splash-yellow-sm hidden lg:block" aria-hidden="true"></div>
+            <div class="relative">
+              <h1 class="font-headline text-3xl lg:text-4xl font-extrabold text-primary tracking-tight">
+                Atlas <span class="yellow-underline">Erasmus+</span>
+              </h1>
+              <p class="text-on-surface-variant text-sm mt-2 max-w-2xl">
+                Vista panorámica de las <strong id="stats-total-hero" class="text-primary">165.606</strong>
+                entidades europeas verificadas. Click en un país para filtrar el directorio.
+              </p>
+            </div>
+          </header>
+
+          <!-- KPIs row -->
+          <div id="stats-kpis" class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6"></div>
+
+          <!-- Atlas: vista 2D (mapa cartográfico) + 3D (globo) ─────── -->
+          <div class="bg-white rounded-2xl border border-outline-variant/25 mb-6 overflow-hidden">
+            <div class="flex flex-wrap items-center justify-between gap-3 px-5 pt-5 pb-3">
+              <div class="min-w-0">
+                <h3 class="font-bold text-primary text-sm">Atlas — entidades geolocalizadas</h3>
+                <p id="atlas-mode-hint" class="text-[11px] text-on-surface-variant">Pan y zoom · click una entidad para abrir su ficha</p>
+              </div>
+              <div class="flex items-center gap-3">
+                <!-- Toggle 2D / 3D -->
+                <div class="inline-flex bg-surface-container rounded-lg p-1" role="tablist">
+                  <button id="atlas-mode-2d" class="atlas-mode-btn px-3 py-1.5 text-xs font-bold rounded-md transition-colors bg-primary text-white" type="button">
+                    <span class="material-symbols-outlined text-[14px] align-middle mr-1">map</span>2D mapa
+                  </button>
+                  <button id="atlas-mode-3d" class="atlas-mode-btn px-3 py-1.5 text-xs font-bold rounded-md transition-colors text-primary" type="button">
+                    <span class="material-symbols-outlined text-[14px] align-middle mr-1">public</span>3D globo
+                  </button>
+                </div>
+                <!-- Leyenda tier -->
+                <div class="hidden lg:flex items-center gap-2 text-[10px] text-on-surface-variant">
+                  <span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full" style="background:#fbff12;border:1px solid #1b1464"></span>Premium</span>
+                  <span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full" style="background:#c7afdf"></span>Buena</span>
+                  <span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full" style="background:#9aa0a6"></span>Aceptable</span>
+                  <span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full" style="background:#5a5a6a"></span>Mínima</span>
+                  <span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full" style="background:#3a3a48"></span>Sin enriquecer</span>
+                </div>
+              </div>
+            </div>
+            <!-- Mapa único (MapLibre): toggle 2D/3D = toggle de proyección, mismos vector tiles -->
+            <div id="stats-map-container" class="relative w-full" style="height:620px; background:#f0f0f5"></div>
           </div>
 
-          <!-- Org cards grid -->
-          <div id="org-dir-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            <div class="col-span-full py-12 text-center text-on-surface-variant">Cargando organizaciones...</div>
+          <!-- Tier donut + filter -->
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 mb-6">
+            <div class="bg-white rounded-2xl border border-outline-variant/25 p-5">
+              <h3 class="font-bold text-primary text-sm mb-3">Calidad del dataset</h3>
+              <div id="stats-tier-donut" class="min-h-[260px]"></div>
+              <p class="text-[11px] text-on-surface-variant mt-2">
+                Tier según campos rellenos por entidad (sobre 9 indicadores).
+              </p>
+            </div>
+            <div class="bg-white rounded-2xl border border-outline-variant/25 p-5">
+              <h3 class="font-bold text-primary text-sm mb-3">Filtra el globo</h3>
+              <div id="stats-globe-filters" class="flex flex-wrap gap-2"></div>
+              <p class="text-[11px] text-on-surface-variant mt-3">
+                Selecciona un tier para resaltar entidades de esa calidad. Click sobre un punto del globo para abrir la ficha.
+              </p>
+            </div>
+          </div>
+
+          <!-- Bars row -->
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 mb-6">
+            <div class="bg-white rounded-2xl border border-outline-variant/25 p-5">
+              <h3 class="font-bold text-primary text-sm mb-3">Top 15 países</h3>
+              <div id="stats-bar-countries" class="min-h-[340px]"></div>
+            </div>
+            <div class="bg-white rounded-2xl border border-outline-variant/25 p-5">
+              <h3 class="font-bold text-primary text-sm mb-3">Top categorías</h3>
+              <div id="stats-bar-categories" class="min-h-[340px]"></div>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
+            <div class="bg-white rounded-2xl border border-outline-variant/25 p-5">
+              <h3 class="font-bold text-primary text-sm mb-3">Top CMS</h3>
+              <div id="stats-bar-cms" class="min-h-[300px]"></div>
+            </div>
+            <div class="bg-white rounded-2xl border border-outline-variant/25 p-5">
+              <h3 class="font-bold text-primary text-sm mb-3">Top idiomas web</h3>
+              <div id="stats-bar-languages" class="min-h-[300px]"></div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ═══ PANEL: SHORTLISTS (Mi Pool) ══════════════════════ -->
+      <section id="panel-shortlists" class="panel">
+        <div class="max-w-7xl mx-auto px-4 lg:px-8 py-8">
+          <header class="flex items-end gap-3 mb-6">
+            <div class="min-w-0 flex-1">
+              <h1 class="font-headline text-3xl font-extrabold text-primary tracking-tight">
+                Mi <span class="yellow-underline">Pool</span>
+              </h1>
+              <p class="text-on-surface-variant text-sm mt-1">Tus colecciones de partners para futuras propuestas Erasmus+.</p>
+            </div>
+            <button id="shortlists-new-btn" type="button"
+              class="inline-flex items-center gap-1.5 text-sm font-semibold text-primary bg-secondary-fixed hover:bg-secondary-fixed-dim px-4 py-2 rounded-lg transition-colors">
+              <span class="material-symbols-outlined text-[18px]">add</span>
+              Nueva shortlist
+            </button>
+          </header>
+
+          <div id="shortlists-tabs" class="flex flex-wrap gap-2 mb-6"></div>
+
+          <div id="shortlist-detail"></div>
+        </div>
+      </section>
+
+      <!-- ═══ PANEL: PARTNER ENGINE (Directorio europeo) ══════ -->
+      <section id="panel-organizations" class="panel">
+
+        <!-- Hero strip -->
+        <div class="entities-hero relative px-4 lg:px-8 pt-8 pb-6">
+          <div class="splash-yellow hidden lg:block" aria-hidden="true"></div>
+          <div class="max-w-7xl mx-auto relative">
+            <div class="flex flex-wrap items-end gap-4 mb-6">
+              <div class="min-w-0">
+                <h1 class="font-headline text-3xl lg:text-4xl font-extrabold text-primary tracking-tight">
+                  Partner <span class="yellow-underline">Engine</span>
+                </h1>
+                <p class="text-on-surface-variant text-sm mt-2 max-w-xl">
+                  <strong id="entities-total-real" class="text-primary">165.606</strong>
+                  entidades europeas Erasmus+ verificadas. Encuentra los socios reales para tu próxima propuesta.
+                </p>
+              </div>
+              <div class="ml-auto flex items-center gap-3 text-xs text-on-surface-variant">
+                <span class="inline-flex items-center gap-1.5">
+                  <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                  <span id="entities-sync-meta">Datos sincronizados</span>
+                </span>
+              </div>
+            </div>
+
+            <!-- Searchbar -->
+            <div class="flex flex-col sm:flex-row gap-2">
+              <div class="relative flex-1">
+                <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-primary text-[22px] pointer-events-none">search</span>
+                <input id="entities-q" type="text" autocomplete="off"
+                  placeholder="Busca por nombre, descripción, ciudad…"
+                  class="w-full pl-12 pr-32 py-4 rounded-xl bg-white border border-outline-variant/30
+                         text-base font-medium placeholder:text-on-surface-variant/60
+                         focus:outline-none focus:border-primary focus:ring-4 focus:ring-secondary-fixed/40
+                         transition-shadow duration-200">
+                <div id="entities-q-meta" class="absolute right-5 top-1/2 -translate-y-1/2 text-[11px] text-on-surface-variant pointer-events-none"></div>
+              </div>
+              <button id="entities-smart-btn" type="button"
+                class="inline-flex items-center justify-center gap-2 px-5 py-4 rounded-xl bg-primary text-white font-semibold text-sm hover:bg-primary/90 transition-colors shrink-0">
+                <span class="material-symbols-outlined text-[20px]">auto_awesome</span>
+                Smart Shortlist
+              </button>
+            </div>
+            <p class="text-[11px] text-on-surface-variant mt-2">
+              <span class="font-semibold">Tip:</span> usa <strong>Smart Shortlist</strong> para preguntar en lenguaje natural — ej: "5 ONGs en Italia con web en inglés y email".
+            </p>
           </div>
         </div>
+
+        <!-- Active filter chips -->
+        <div class="max-w-7xl mx-auto px-4 lg:px-8">
+          <div id="entities-active-chips" class="flex flex-wrap gap-2 min-h-[2px]"></div>
+        </div>
+
+        <!-- Layout: filters + grid -->
+        <div class="max-w-7xl mx-auto px-4 lg:px-8 pb-16 pt-4">
+          <div class="grid grid-cols-1 lg:grid-cols-[260px_1fr] gap-6">
+
+            <!-- Filter sidebar -->
+            <aside id="entities-filters" class="space-y-5 lg:sticky lg:top-24 self-start">
+              <div class="text-[10px] font-bold tracking-[.2em] uppercase text-on-surface-variant mb-1">Filtros</div>
+
+              <!-- Calidad -->
+              <div class="filter-group">
+                <div class="filter-label">Calidad</div>
+                <div class="space-y-1.5" data-filter-group="tier">
+                  <label class="filter-radio"><input type="radio" name="ent-tier" value=""><span>Todas</span></label>
+                  <label class="filter-radio"><input type="radio" name="ent-tier" value="premium+"><span>Premium + Buena</span></label>
+                  <label class="filter-radio"><input type="radio" name="ent-tier" value="premium"><span class="badge-tier badge-premium">Premium</span></label>
+                  <label class="filter-radio"><input type="radio" name="ent-tier" value="good"><span class="badge-tier badge-good">Buena</span></label>
+                  <label class="filter-radio"><input type="radio" name="ent-tier" value="acceptable"><span class="badge-tier badge-acceptable">Aceptable</span></label>
+                </div>
+              </div>
+
+              <!-- País -->
+              <div class="filter-group">
+                <div class="filter-label">País</div>
+                <div id="entities-filter-country" class="space-y-1 max-h-56 overflow-y-auto pr-1"></div>
+              </div>
+
+              <!-- Categoría -->
+              <div class="filter-group">
+                <div class="filter-label">Tipo</div>
+                <div id="entities-filter-category" class="space-y-1 max-h-48 overflow-y-auto pr-1"></div>
+              </div>
+
+              <!-- Idioma -->
+              <div class="filter-group">
+                <div class="filter-label">Idioma web</div>
+                <div id="entities-filter-language" class="space-y-1 max-h-40 overflow-y-auto pr-1"></div>
+              </div>
+
+              <!-- Contacto -->
+              <div class="filter-group">
+                <div class="filter-label">Contacto</div>
+                <label class="filter-toggle">
+                  <input id="ent-has-email" type="checkbox">
+                  <span>Con email</span>
+                </label>
+                <label class="filter-toggle">
+                  <input id="ent-has-phone" type="checkbox">
+                  <span>Con teléfono</span>
+                </label>
+              </div>
+
+              <button id="entities-clear" type="button"
+                class="w-full text-xs font-semibold text-primary hover:bg-secondary-fixed/30 transition-colors px-3 py-2 rounded-lg border border-outline-variant/30 hidden">
+                Limpiar filtros
+              </button>
+            </aside>
+
+            <!-- Results -->
+            <div>
+              <div class="flex items-center gap-3 mb-4">
+                <div id="entities-results-count" class="text-sm font-semibold text-on-surface">Cargando…</div>
+                <div class="flex-1"></div>
+                <label class="text-xs text-on-surface-variant flex items-center gap-2">
+                  <span>Ordenar:</span>
+                  <select id="entities-sort"
+                    class="text-xs px-3 py-1.5 rounded-lg border border-outline-variant/40 bg-white font-medium">
+                    <option value="quality">Mejor calidad</option>
+                    <option value="name">Nombre A-Z</option>
+                    <option value="country">País</option>
+                    <option value="recent">Más recientes</option>
+                  </select>
+                </label>
+              </div>
+
+              <div id="entities-grid"
+                class="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-5">
+              </div>
+
+              <div id="entities-sentinel" class="h-1"></div>
+              <div id="entities-loadmore" class="py-6 text-center text-xs text-on-surface-variant"></div>
+            </div>
+
+          </div>
+        </div>
+
       </section>
 
     </main>
   </div>
+</div>
+
+<!-- ═══ ENTITY FICHA OVERLAY (global — works from any panel) ═══ -->
+<div id="entity-ficha-overlay" class="hidden fixed inset-0 z-40">
+  <div id="entity-ficha-backdrop" class="absolute inset-0 bg-primary/30 backdrop-blur-sm"></div>
+  <aside id="entity-ficha-panel"
+    class="absolute right-0 top-0 bottom-0 w-full max-w-3xl bg-white shadow-2xl overflow-y-auto
+           transform transition-transform duration-300">
+    <div id="entity-ficha-content" class="min-h-full"></div>
+  </aside>
 </div>
 
 <!-- ═══ TOAST ═══════════════════════════════════════════════════ -->
@@ -2145,13 +2577,18 @@ tailwind.config = {
 <!-- ═══ Scripts ═════════════════════════════════════════════════ -->
 <script src="/js/api.js"></script>
 <script src="/js/auth.js"></script>
+<script src="/js/components/phase-tabs.js"></script>
 <script src="/js/app.js"></script>
 <script src="/js/my-projects.js"></script>
+<script src="/js/my-evaluations.js"></script>
 <script src="/js/create.js"></script>
 <script src="/js/intake.js?v=20260413b"></script>
 <script src="/js/admin.js"></script>
 <script src="/js/calculator.js?v=20260413b"></script>
-<script src="/js/organizations.js"></script>
+<script src="/js/organizations.js?v=20260426f"></script>
+<script src="/js/entities.js?v=20260426k"></script>
+<script src="/js/shortlists.js?v=20260426b"></script>
+<script src="/js/atlas-stats.js?v=20260426k"></script>
 <script src="/js/documents.js"></script>
 <script src="/js/research.js"></script>
 <script src="/js/intake-tasks.js"></script>
@@ -2160,6 +2597,7 @@ tailwind.config = {
 <script src="/js/evaluator.js"></script>
 <script src="/js/budget.js"></script>
 <script src="/js/voice-input.js"></script>
+<script src="/js/sandbox.js"></script>
 
 <!-- ── Mini modal (reemplaza prompt/confirm nativos) ────────── -->
 <div id="mini-modal" class="hidden fixed inset-0 z-50 flex items-end sm:items-center justify-center p-4 bg-black/40"
@@ -2167,6 +2605,8 @@ tailwind.config = {
   <div class="bg-white rounded-2xl w-full max-w-sm p-6 shadow-2xl">
     <p id="mini-modal-msg" class="text-sm font-semibold text-on-surface mb-4"></p>
     <input id="mini-modal-input" type="number" min="0" step="1" aria-label="Valor"
+      class="w-full border border-outline rounded-lg px-3 py-3 text-base mb-4 hidden focus:outline-none focus:ring-2 focus:ring-primary" />
+    <input id="mini-modal-input-text" type="text" aria-label="Texto"
       class="w-full border border-outline rounded-lg px-3 py-3 text-base mb-4 hidden focus:outline-none focus:ring-2 focus:ring-primary" />
     <div class="flex gap-3">
       <button id="mini-modal-cancel" class="flex-1 py-3 rounded-xl border border-outline text-sm font-semibold text-on-surface-variant">Cancelar</button>
@@ -2184,8 +2624,45 @@ window.Modal = {
       this._resolve = resolve;
       document.getElementById('mini-modal-msg').textContent = msg;
       const inp = document.getElementById('mini-modal-input');
-      inp.classList.toggle('hidden', !input);
-      if (input) { inp.value = defaultVal; setTimeout(() => inp.focus(), 100); }
+      const txt = document.getElementById('mini-modal-input-text');
+      inp.classList.add('hidden');
+      txt.classList.add('hidden');
+      if (input === true || input === 'number') {
+        inp.classList.remove('hidden');
+        inp.value = defaultVal || '';
+        setTimeout(() => inp.focus(), 100);
+      } else if (input === 'text') {
+        txt.classList.remove('hidden');
+        txt.value = defaultVal || '';
+        if (typeof input === 'object' && input?.placeholder) txt.placeholder = input.placeholder;
+        setTimeout(() => { txt.focus(); txt.select(); }, 100);
+      }
+      this._mode = input;
+      document.getElementById('mini-modal').classList.remove('hidden');
+    });
+  },
+  prompt(msg, defaultVal = '', opts = {}) {
+    return new Promise(resolve => {
+      this._resolve = resolve;
+      document.getElementById('mini-modal-msg').textContent = msg;
+      const inp = document.getElementById('mini-modal-input');
+      const txt = document.getElementById('mini-modal-input-text');
+      inp.classList.add('hidden');
+      txt.classList.remove('hidden');
+      txt.value = defaultVal || '';
+      txt.placeholder = opts.placeholder || '';
+      this._mode = 'text';
+      document.getElementById('mini-modal').classList.remove('hidden');
+      setTimeout(() => { txt.focus(); txt.select(); }, 100);
+    });
+  },
+  confirm(msg) {
+    return new Promise(resolve => {
+      this._resolve = resolve;
+      document.getElementById('mini-modal-msg').textContent = msg;
+      document.getElementById('mini-modal-input').classList.add('hidden');
+      document.getElementById('mini-modal-input-text').classList.add('hidden');
+      this._mode = 'confirm';
       document.getElementById('mini-modal').classList.remove('hidden');
     });
   },
@@ -2195,11 +2672,39 @@ window.Modal = {
   }
 };
 document.getElementById('mini-modal-confirm').addEventListener('click', () => {
-  const inp = document.getElementById('mini-modal-input');
-  Modal._close(inp.classList.contains('hidden') ? true : inp.value);
+  const mode = Modal._mode;
+  if (mode === 'text') {
+    Modal._close(document.getElementById('mini-modal-input-text').value || null);
+  } else if (mode === true || mode === 'number') {
+    Modal._close(document.getElementById('mini-modal-input').value);
+  } else {
+    Modal._close(true);
+  }
 });
 document.getElementById('mini-modal-cancel').addEventListener('click', () => Modal._close(null));
 document.getElementById('mini-modal').addEventListener('click', e => { if (e.target === e.currentTarget) Modal._close(null); });
+document.getElementById('mini-modal-input-text').addEventListener('keydown', e => { if (e.key === 'Enter') document.getElementById('mini-modal-confirm').click(); });
+
+/* Create-project modal: open/close + ESC to dismiss */
+window.openCreateModal = function() {
+  const m = document.getElementById('create-modal');
+  if (!m) return;
+  m.classList.remove('hidden');
+  m.classList.add('flex');
+  if (typeof CreateProject !== 'undefined') CreateProject.init();
+};
+window.closeCreateModal = function() {
+  const m = document.getElementById('create-modal');
+  if (!m) return;
+  m.classList.add('hidden');
+  m.classList.remove('flex');
+};
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    const m = document.getElementById('create-modal');
+    if (m && !m.classList.contains('hidden')) window.closeCreateModal();
+  }
+});
 </script>
 
 </body>

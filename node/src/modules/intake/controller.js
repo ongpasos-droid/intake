@@ -1,6 +1,7 @@
 /* ── Intake Controller — Business logic for intake endpoints ───────── */
 
 const model = require('./model');
+const subscribersModel = require('../subscribers/model');
 
 /* ── GET /v1/intake/programs ─────────────────────────────────────── */
 async function listPrograms(req, res, next) {
@@ -83,6 +84,14 @@ async function createProject(req, res, next) {
 
     const project = await model.createProject(req.user.id, projectData);
 
+    // Fire-and-forget: real project → promote newsletter subscriber to 'hot'.
+    // Sandbox projects never trigger this (they go via /v1/sandbox/start).
+    if (req.user?.email && !project.is_sandbox) {
+      subscribersModel
+        .promoteByEmail(req.user.email, 'hot', req.user.id)
+        .catch(err => console.warn('[subscribers] promote hot failed:', err.message));
+    }
+
     res.status(201).json({
       ok: true,
       data: project
@@ -136,6 +145,21 @@ async function launchProject(req, res, next) {
     const db = require('../../utils/db');
     const projectId = req.params.id;
     const userId = req.user.id;
+
+    // Block launch for sandbox projects — user must graduate first.
+    const [sbRows] = await db.execute(
+      'SELECT is_sandbox FROM projects WHERE id = ? AND user_id = ?',
+      [projectId, userId]
+    );
+    if (sbRows.length && sbRows[0].is_sandbox) {
+      return res.status(422).json({
+        ok: false,
+        error: {
+          code: 'SANDBOX_LOCKED',
+          message: 'Este proyecto está en modo demo. Gradúalo a proyecto real para continuar.'
+        }
+      });
+    }
 
     const [result] = await db.execute(
       'UPDATE projects SET status = ? WHERE id = ? AND user_id = ?',

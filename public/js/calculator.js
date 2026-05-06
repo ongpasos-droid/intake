@@ -48,8 +48,10 @@ const Calculator = (() => {
       await API.put('/calculator/projects/' + currentProjectId + '/state', serializeState());
       showSaveStatus('saved');
     } catch (err) {
-      console.error('[Calc] autosave error:', err);
+      console.error('[Calc] autosave error:', err && (err.code || err.status), err && err.message, err);
       showSaveStatus('error');
+      // Soft retry once after 6s — handles transient 401-after-refresh and brief network blips
+      setTimeout(() => { if (currentProjectId && !_saving) scheduleSave(); }, 6000);
     } finally {
       _saving = false;
       if (_saveQueued) { _saveQueued = false; scheduleSave(); }
@@ -73,7 +75,7 @@ const Calculator = (() => {
     }
     if (status === 'saving') { el.textContent = 'Guardando...'; el.style.color = '#9ca3af'; el.style.opacity = '1'; }
     else if (status === 'saved') { el.textContent = 'Guardado'; el.style.color = '#22c55e'; el.style.opacity = '1'; setTimeout(() => { el.style.opacity = '0'; }, 2000); }
-    else if (status === 'error') { el.textContent = 'Error al guardar'; el.style.color = '#ef4444'; el.style.opacity = '1'; }
+    else if (status === 'error') { el.textContent = 'Error al guardar — reintentando'; el.style.color = '#ef4444'; el.style.opacity = '1'; setTimeout(() => { el.style.opacity = '0'; }, 4000); }
   }
 
   /* ── Constants ──────────────────────────────────────────────── */
@@ -324,6 +326,29 @@ const Calculator = (() => {
   function getPartnerPerdiemTotal(pid) { const r = getPartnerPerdiem(pid); return (r.aloj||0) + (r.mant||0); }
   function getBand(km) { return DISTANCE_BANDS.find(b => km >= b.min && km <= b.max) || DISTANCE_BANDS[0]; }
   function routeKey(a, b) { return a < b ? a + '_' + b : b + '_' + a; }
+
+  /* ── Haversine — distancia geodésica en km (gran círculo)
+     E+ Distance Calculator usa exactamente esta fórmula, no carretera. */
+  function haversineKm(lat1, lng1, lat2, lng2) {
+    if (lat1 == null || lng1 == null || lat2 == null || lng2 == null) return null;
+    const R = 6371; // radio terrestre km
+    const toRad = (d) => (d * Math.PI) / 180;
+    const dLat = toRad(lat2 - lat1);
+    const dLng = toRad(lng2 - lng1);
+    const a = Math.sin(dLat / 2) ** 2
+            + Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) * Math.sin(dLng / 2) ** 2;
+    return Math.round(2 * R * Math.asin(Math.sqrt(a)));
+  }
+  function partnerCoords(pid) {
+    const p = state.partners.find(x => x.id === pid);
+    if (!p || p.lat == null || p.lng == null) return null;
+    return { lat: Number(p.lat), lng: Number(p.lng) };
+  }
+  function autoKmBetween(aId, bId) {
+    const a = partnerCoords(aId), b = partnerCoords(bId);
+    if (!a || !b) return null;
+    return haversineKm(a.lat, a.lng, b.lat, b.lng);
+  }
   function getRoute(a, b) {
     const k = routeKey(a, b);
     if (!state.routes[k]) {
@@ -485,13 +510,25 @@ const Calculator = (() => {
         });
       });
 
-      // Init routes — default to 2000-2999km band with eco travel
+      // Init routes — auto-derive km vía Haversine si ambos partners tienen lat/lng,
+      // si no, fallback al default 2000-2999km band con eco
       state.routes = {};
       const defaultBand = DISTANCE_BANDS[4]; // 2000-2999 km
       const defaultKm = Math.round((defaultBand.min + defaultBand.max) / 2);
-      for (let i = 0; i < state.partners.length; i++)
-        for (let j = i+1; j < state.partners.length; j++)
-          state.routes[routeKey(state.partners[i].id, state.partners[j].id)] = { km: defaultKm, green: true, custom_rate: defaultBand.green };
+      for (let i = 0; i < state.partners.length; i++) {
+        for (let j = i + 1; j < state.partners.length; j++) {
+          const aId = state.partners[i].id, bId = state.partners[j].id;
+          const km = autoKmBetween(aId, bId);
+          const useKm = km != null ? km : defaultKm;
+          const band = getBand(useKm);
+          state.routes[routeKey(aId, bId)] = {
+            km: useKm,
+            green: true,
+            custom_rate: band.green,
+            auto: km != null, // marca para mostrar el badge "auto"
+          };
+        }
+      }
 
       // Init WPs
       state.wps = [];
@@ -706,8 +743,12 @@ const Calculator = (() => {
     const band = DISTANCE_BANDS[selIdx];
     const official = r.green ? band.green : band.std;
     const custom = (r.custom_rate !== null && r.custom_rate !== undefined) ? r.custom_rate : '';
+    const autoKm = autoKmBetween(aId, bId);
+    const autoBadge = autoKm != null
+      ? `<button title="Recalcular distancia desde coordenadas (${autoKm} km)" onclick="Calculator._autoRoute('${aId}','${bId}')" class="ml-1 inline-flex items-center gap-0.5 text-[10px] font-bold px-1.5 py-0.5 rounded ${r.auto ? 'bg-secondary-fixed text-primary' : 'bg-outline-variant/30 text-on-surface-variant hover:bg-secondary-fixed hover:text-primary'}">⌖ ${autoKm}km</button>`
+      : '';
     return `<tr>
-      <td>${aLabel} <span class="text-on-surface-variant mx-1">↔</span> ${bLabel}</td>
+      <td>${aLabel} <span class="text-on-surface-variant mx-1">↔</span> ${bLabel}${autoBadge}</td>
       <td class="text-center">
         <label class="flex items-center justify-center gap-1 cursor-pointer">
           <input type="checkbox" ${r.green?'checked':''} class="w-3.5 h-3.5" onchange="Calculator._setRoute('${aId}','${bId}','green',this.checked)">
@@ -948,6 +989,7 @@ const Calculator = (() => {
     const { total } = applyIndirectCosts(directTotal);
     const { totalProject } = getFinancials();
     const usePct = totalProject > 0 ? Math.min(total / totalProject * 100, 100).toFixed(1) : 0;
+    const isOver = Math.round(totalProject - total) < 0;
 
     container.innerHTML = `
       <h2 class="font-headline text-lg font-bold mb-1">Activities</h2>
@@ -969,8 +1011,8 @@ const Calculator = (() => {
         </div>
         <div class="flex-[2] min-w-[150px]">
           <div class="text-[10px] opacity-40 mb-1">Budget usage</div>
-          <div class="h-1.5 rounded bg-white/20 overflow-hidden">
-            <div class="h-full rounded bg-white transition-all" id="calc-live-bar" style="width:${usePct}%"></div>
+          <div class="h-3 rounded-full bg-white/20 overflow-hidden">
+            <div class="h-full rounded-full ${isOver ? 'bg-red-500' : 'bg-green-500'} transition-all" id="calc-live-bar" style="width:${usePct}%"></div>
           </div>
         </div>
       </div>
@@ -1570,7 +1612,13 @@ const Calculator = (() => {
     const elBar = $('calc-live-bar');
     if (elTotal) elTotal.textContent = euros(total);
     if (elDiff) { elDiff.textContent = (diff >= 0 ? '+ ' : '− ') + euros(Math.abs(diff)); elDiff.style.color = diff < 0 ? '#FCA5A5' : ''; }
-    if (elBar) elBar.style.width = usePct + '%';
+    if (elBar) {
+      elBar.style.width = usePct + '%';
+      const over = diff < 0; // diff = Math.round(totalProject - total), céntimos no cuentan
+      elBar.classList.toggle('bg-red-500', over);
+      elBar.classList.toggle('bg-green-500', !over);
+      elBar.classList.remove('bg-white');
+    }
   }
 
   /* ══════════════════════════════════════════════════════════════
@@ -2314,12 +2362,31 @@ const Calculator = (() => {
     if (!state.routes[k]) state.routes[k] = { km:2500, green:true, custom_rate:DISTANCE_BANDS[4].green };
     const band = DISTANCE_BANDS[bandIdx] || DISTANCE_BANDS[0];
     state.routes[k].km = band.max === Infinity ? 8000 : Math.round((band.min + band.max) / 2);
+    state.routes[k].auto = false;  // user manual override
     const official = state.routes[k].green ? band.green : band.std;
     state.routes[k].custom_rate = official;
     const offEl = $('calc-route-off-' + k);
     const custEl = $('calc-route-custom-' + k);
     if (offEl) offEl.textContent = '€' + official;
     if (custEl) custEl.value = official;
+  }
+
+  /* ── Auto-recalcular km de una ruta desde coords del partner ── */
+  function autoRoute(aId, bId) {
+    const km = autoKmBetween(aId, bId);
+    if (km == null) {
+      if (typeof Toast !== 'undefined') Toast.show('No hay coordenadas para esos partners', 'err');
+      return;
+    }
+    const k = routeKey(aId, bId);
+    if (!state.routes[k]) state.routes[k] = { km, green:true, custom_rate:0 };
+    const r = state.routes[k];
+    r.km = km;
+    r.auto = true;
+    const band = getBand(km);
+    r.custom_rate = r.green ? band.green : band.std;
+    renderRoutes(getRouteContainer());
+    if (typeof Toast !== 'undefined') Toast.show(`Distancia: ${km} km · ${band.label}`, 'ok');
   }
 
   function getRouteContainer() {
@@ -2754,13 +2821,24 @@ const Calculator = (() => {
       });
     });
 
-    // Init default routes
+    // Init default routes — auto-derive km vía Haversine si hay coords
     state.routes = {};
     const defaultBand2 = DISTANCE_BANDS[4]; // 2000-2999 km
     const defaultKm2 = Math.round((defaultBand2.min + defaultBand2.max) / 2);
-    for (let i = 0; i < state.partners.length; i++)
-      for (let j = i + 1; j < state.partners.length; j++)
-        state.routes[routeKey(state.partners[i].id, state.partners[j].id)] = { km: defaultKm2, green: true, custom_rate: defaultBand2.green };
+    for (let i = 0; i < state.partners.length; i++) {
+      for (let j = i + 1; j < state.partners.length; j++) {
+        const aId = state.partners[i].id, bId = state.partners[j].id;
+        const km = autoKmBetween(aId, bId);
+        const useKm = km != null ? km : defaultKm2;
+        const band = getBand(useKm);
+        state.routes[routeKey(aId, bId)] = {
+          km: useKm,
+          green: true,
+          custom_rate: band.green,
+          auto: km != null,
+        };
+      }
+    }
 
     // Init default WPs (4)
     state.wps = [];
@@ -2850,6 +2928,7 @@ const Calculator = (() => {
     const { total } = applyIndirectCosts(directTotal);
     const { totalProject } = getFinancials();
     const usePct = totalProject > 0 ? Math.min(total / totalProject * 100, 100).toFixed(1) : 0;
+    const isOver = Math.round(totalProject - total) < 0;
 
     const nav = _embeddedMode ? embeddedNavButtons(1, 3, 'Presupuesto \u2192') : navButtons(0, 2, 'Activities \u2192');
 
@@ -2879,8 +2958,8 @@ const Calculator = (() => {
         </div>
         <div class="flex-[2] min-w-[150px]">
           <div class="text-[10px] opacity-40 mb-1">Budget usage</div>
-          <div class="h-1.5 rounded bg-white/20 overflow-hidden">
-            <div class="h-full rounded bg-white transition-all" id="calc-live-bar" style="width:${usePct}%"></div>
+          <div class="h-3 rounded-full bg-white/20 overflow-hidden">
+            <div class="h-full rounded-full ${isOver ? 'bg-red-500' : 'bg-green-500'} transition-all" id="calc-live-bar" style="width:${usePct}%"></div>
           </div>
         </div>
       </div>
@@ -3104,6 +3183,7 @@ const Calculator = (() => {
     _removeWorkerRate: (...a) => { removeWorkerRate(...a); scheduleSave(); },
     _setRouteBand: (...a) => { setRouteBand(...a); scheduleSave(); },
     _setRoute: (...a) => { setRoute(...a); scheduleSave(); },
+    _autoRoute: (...a) => { autoRoute(...a); scheduleSave(); },
     _addExtraDest: (...a) => { addExtraDest(...a); scheduleSave(); },
     _removeExtraDest: (...a) => { removeExtraDest(...a); scheduleSave(); },
     _setExtraDest: (...a) => { setExtraDest(...a); scheduleSave(); },

@@ -4,14 +4,18 @@ const { requireAuth } = require('../../middleware/auth');
 const ctrl = require('./controller');
 
 /* ── Admin guard middleware ───────────────────────────────────── */
-function requireAdmin(req, res, next) {
-  if (req.user?.role !== 'admin') {
+// Allows 'admin' (full access) and 'scribe' (data-entry role for call info).
+// Scribes can read/write all program/eligibility/eval/form data but cannot
+// touch Documents, Subscribers, or Research-admin (those guards stay 'admin'-only).
+function requireAdminOrScribe(req, res, next) {
+  const role = req.user?.role;
+  if (role !== 'admin' && role !== 'scribe') {
     return res.status(403).json({ ok: false, error: { code: 'FORBIDDEN', message: 'Admin only' } });
   }
   next();
 }
 
-const guard = [requireAuth, requireAdmin];
+const guard = [requireAuth, requireAdminOrScribe];
 
 /* ── Convocatorias (intake_programs) ─────────────────────────── */
 router.get   ('/data/programs/full',   guard, ctrl.listProgramsWithCounts);

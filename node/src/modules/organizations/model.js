@@ -5,7 +5,7 @@ const uuid = require('../../utils/uuid');
 /* ── Scalar fields for INSERT / UPDATE ───────────────────────── */
 const ORG_FIELDS = [
   'organization_name','legal_name_national','legal_name_latin','acronym','logo_url',
-  'org_type','national_id','pic','foundation_date','country','region','city',
+  'org_type','national_id','oid','pic','foundation_date','country','region','city',
   'address','post_code','po_box','cedex','website','email','telephone1',
   'telephone2','fax','is_public_body','is_non_profit','description',
   'activities_experience','has_eu_projects',
@@ -160,7 +160,98 @@ async function isOrgOwner(userId, orgId) {
   return rows.length > 0;
 }
 
+/* ══ ORS (Erasmus+ Organisation Registration System) proxy ═════
+   Public API, no auth. Discovery documented in docs/ORS_CRAWL_SPEC.md.
+   Used to prefill entity data when a user creates a new organization.
+   ───────────────────────────────────────────────────────────── */
+
+const ORS_BASE = 'https://webgate.ec.europa.eu/eac-eescp-backend';
+const ORS_HEADERS = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json, text/plain, */*',
+  'X-Lang-Param': 'en',
+  'Origin': 'https://webgate.ec.europa.eu',
+  'Referer': 'https://webgate.ec.europa.eu/erasmus-esc/index/organisations/search-for-an-organisation',
+};
+
+let _countryTaxToIso = null;
+
+async function loadCountryTaxonomy() {
+  if (_countryTaxToIso) return _countryTaxToIso;
+  try {
+    const r = await fetch(`${ORS_BASE}/configuration/countries`, { headers: ORS_HEADERS });
+    if (!r.ok) throw new Error(`HTTP ${r.status}`);
+    const list = await r.json();
+    const map = {};
+    for (const c of (list || [])) {
+      if (c.id && c.isoCode) map[String(c.id)] = c.isoCode;
+      else if (c.id && c.code) map[String(c.id)] = c.code;
+    }
+    _countryTaxToIso = map;
+  } catch (err) {
+    console.warn('[ors] country taxonomy fetch failed:', err.message);
+    _countryTaxToIso = {};
+  }
+  return _countryTaxToIso;
+}
+
+const VALIDITY_LABEL = {
+  '42284353': 'certified',
+  '42284356': 'waiting',
+};
+
+async function orsLookup(q) {
+  const filter = (q || '').trim();
+  if (filter.length < 2) return [];
+  const [tax] = await Promise.all([loadCountryTaxonomy()]);
+  const res = await fetch(`${ORS_BASE}/ext-api/organisation-registration/simpleSearch`, {
+    method: 'POST',
+    headers: ORS_HEADERS,
+    body: JSON.stringify({ filter }),
+  });
+  if (!res.ok) {
+    const err = new Error(`ORS returned HTTP ${res.status}`);
+    err.status = 502;
+    throw err;
+  }
+  const raw = await res.json();
+  const rows = Array.isArray(raw) ? raw : [];
+  return rows.slice(0, 25).map(r => normaliseOrsRow(r, tax));
+}
+
+function trim(v) { return typeof v === 'string' ? v.trim() : v; }
+
+function normaliseOrsRow(r, countryMap) {
+  const countryTax = r.country ? String(r.country) : null;
+  const iso = countryTax && countryMap[countryTax] ? countryMap[countryTax] : null;
+  return {
+    oid:             trim(r.organisationId) || null,
+    pic:             trim(r.pic) || null,
+    legal_name:      trim(r.legalName) || '',
+    business_name:   trim(r.businessName) || null,
+    country_iso:     iso,
+    country_tax_id:  countryTax,
+    city:            trim(r.city) || null,
+    website:         trim(r.website) || null,
+    website_show:    trim(r.websiteShow) || null,
+    vat:             trim(r.vat) || null,
+    registration_no: trim(r.registration) || null,
+    validity_label:  VALIDITY_LABEL[String(r.validityType)] || null,
+    go_to_link:      trim(r.goTolink) || null,
+  };
+}
+
+/* ── Coords (self-geolocate / pin draggable) ────────────────── */
+
+async function updateOrgCoords(orgId, lat, lng, source) {
+  await pool.query(
+    `UPDATE organizations SET lat=?, lng=?, geocoded_source=?, geocoded_at=NOW() WHERE id=?`,
+    [Number(lat).toFixed(6), Number(lng).toFixed(6), source, orgId]
+  );
+}
+
 module.exports = {
   getOrgById, getOrgByUserId, getOrgsByUserId, upsertOrg, linkUserToOrg, deleteOrg,
-  listOrgs, listChildren, upsertChild, deleteChild, isOrgOwner
+  listOrgs, listChildren, upsertChild, deleteChild, isOrgOwner,
+  orsLookup, updateOrgCoords,
 };

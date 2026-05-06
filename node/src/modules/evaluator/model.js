@@ -142,6 +142,16 @@ async function updateParseJob(jobId, data) {
   await pool.query(`UPDATE ai_parse_jobs SET ${fields.join(', ')} WHERE id = ?`, params);
 }
 
+async function deleteUserFormInstance(id, userId) {
+  // Cascade delete is assumed via FK; if not, child rows (form_field_values, ai_parse_jobs)
+  // should be cleaned up here. Verifying ownership first.
+  const [res] = await pool.query(
+    `DELETE FROM form_instances WHERE id = ? AND user_id = ?`,
+    [id, userId]
+  );
+  return res.affectedRows > 0;
+}
+
 module.exports = {
   listAvailablePrograms,
   createUserFormInstance,
@@ -152,4 +162,5 @@ module.exports = {
   createParseJob,
   getParseJob,
   updateParseJob,
+  deleteUserFormInstance,
 };

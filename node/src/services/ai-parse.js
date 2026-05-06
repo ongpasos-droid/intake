@@ -5,6 +5,8 @@
 
 let Anthropic = null;
 const evalModel = require('../modules/evaluator/model');
+const aiContext = require('../utils/aiContext');
+const { logUsage } = require('../utils/ai');
 
 const MODEL = process.env.AI_MODEL || 'claude-sonnet-4-20250514';
 
@@ -175,10 +177,14 @@ async function parseDocument({ jobId, instanceId, documentText, templateJson }) 
 /* ── Parse a batch of sections ───────────────────────────────── */
 async function parseBatch(client, documentText, fieldsPrompt, sections) {
 
-  const response = await client.messages.create({
-    model: MODEL,
-    max_tokens: 8192,
-    messages: [{
+  const ctx = aiContext.get();
+  const t0 = Date.now();
+  let response;
+  try {
+    response = await client.messages.create({
+      model: MODEL,
+      max_tokens: 8192,
+      messages: [{
       role: 'user',
       content: `You are an expert at extracting structured content from Erasmus+ project proposals (Form Part B format).
 
@@ -208,8 +214,13 @@ ${documentText}
 
 Return ONLY a valid JSON object. No markdown, no explanation, no code fences.
 Example: {"sec_1_1.s1_1_text": "The project addresses...", "cover.call_id": "ERASMUS-2026-YOUTH"}`
-    }],
-  });
+      }],
+    });
+    logUsage({ ctx, model: MODEL, usage: response.usage, status: 'success', durationMs: Date.now() - t0 });
+  } catch (err) {
+    logUsage({ ctx, model: MODEL, usage: null, status: 'error', durationMs: Date.now() - t0 });
+    throw err;
+  }
 
   const text = response.content[0]?.text || '{}';
 

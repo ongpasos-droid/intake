@@ -1,6 +1,10 @@
 const OpenAI = require('openai');
 
-const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+let _openai = null;
+function getOpenAI() {
+  if (!_openai) _openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+  return _openai;
+}
 
 // ISO code → full language name (for GPT translation prompt)
 const LANG_NAMES = {
@@ -39,7 +43,7 @@ exports.transcribe = async (req, res) => {
     // 1. Transcribe with Whisper (auto-detect spoken language)
     const file = new File([req.file.buffer], 'audio.webm', { type: req.file.mimetype || 'audio/webm' });
 
-    const transcription = await openai.audio.transcriptions.create({
+    const transcription = await getOpenAI().audio.transcriptions.create({
       file,
       model: 'whisper-1',
       response_format: 'verbose_json',
@@ -55,7 +59,7 @@ exports.transcribe = async (req, res) => {
     // 3. Always translate to target language (even if detection failed, to be safe)
     if (needsTranslation && text.length > 0) {
       const targetName = LANG_NAMES[writeLang] || 'English';
-      const chat = await openai.chat.completions.create({
+      const chat = await getOpenAI().chat.completions.create({
         model: 'gpt-4o-mini',
         messages: [
           {

@@ -1,0 +1,65 @@
+/* ═══════════════════════════════════════════════════════════════
+   Entities Controller — Partner Engine endpoints
+   ═══════════════════════════════════════════════════════════════ */
+
+const m = require('./model');
+
+const ok  = (res, data) => res.json({ ok: true, data });
+const err = (res, msg, status = 400) =>
+  res.status(status).json({ ok: false, error: { message: msg } });
+
+/* ── List & search (mismo endpoint, filtros opcionales) ──────── */
+exports.listEntities = async (req, res) => {
+  try {
+    ok(res, await m.listEntities(req.query));
+  } catch (e) { err(res, e.message, 500); }
+};
+
+/* ── Ficha individual ────────────────────────────────────────── */
+exports.getEntity = async (req, res) => {
+  try {
+    const entity = await m.getEntityById(req.params.oid);
+    if (!entity) return err(res, 'Entity not found', 404);
+    ok(res, entity);
+  } catch (e) { err(res, e.message, 500); }
+};
+
+/* ── Similares ───────────────────────────────────────────────── */
+exports.listSimilar = async (req, res) => {
+  try {
+    const limit = parseInt(req.query.limit, 10) || 3;
+    ok(res, await m.listSimilar(req.params.oid, limit));
+  } catch (e) { err(res, e.message, 500); }
+};
+
+/* ── Geo markers para el Atlas 3D mundial ────────────────────── */
+exports.listGeoMarkers = async (req, res) => {
+  try {
+    const data = await m.listGeoMarkers(req.query);
+    res.set('Cache-Control', 'public, max-age=300'); // 5 min cache (cambia con backfill)
+    ok(res, data);
+  } catch (e) { err(res, e.message, 500); }
+};
+
+/* ── Stats (lectura del cache precomputado) ──────────────────── */
+exports.statGlobal       = (req, res) => sendStat(res, 'global_kpis');
+exports.statByCountry    = (req, res) => sendStat(res, 'by_country');
+exports.statByCategory   = (req, res) => sendStat(res, 'by_category');
+exports.statByCms        = (req, res) => sendStat(res, 'by_cms');
+exports.statByLanguage   = (req, res) => sendStat(res, 'by_language');
+exports.statTiers        = (req, res) => sendStat(res, 'tier_distribution');
+
+async function sendStat(res, key) {
+  try {
+    const stat = await m.getStat(key);
+    if (!stat) return err(res, `Metric "${key}" not yet computed`, 404);
+    ok(res, stat);
+  } catch (e) { err(res, e.message, 500); }
+}
+
+/* ── Facets (opciones de filtros) ────────────────────────────── */
+exports.getFacets = async (req, res) => {
+  try {
+    ok(res, await m.getFilterFacets());
+  } catch (e) { err(res, e.message, 500); }
+};

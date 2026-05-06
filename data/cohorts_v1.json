@@ -1,0 +1,254 @@
+[
+  {
+    "key": "SPORT_COOP_CAP",
+    "name": "Sport Cooperation & Capacity",
+    "deadline": "2027-03-05",
+    "topics": [
+      "ERASMUS-SPORT-2027-CB",
+      "ERASMUS-SPORT-2027-SCP",
+      "ERASMUS-SPORT-2027-SSCP"
+    ],
+    "sku_count": 7,
+    "managers": [
+      "EACEA"
+    ],
+    "amount_min": 30000,
+    "amount_max": 400000,
+    "slot_price_min": 300,
+    "slot_price_max": 4000,
+    "sample_amounts": [],
+    "topic_count": 3
+  },
+  {
+    "key": "SPORT_EVENTS",
+    "name": "Sport Events",
+    "deadline": "2027-01-22",
+    "topics": [
+      "ERASMUS-SPORT-2027-SNCESE",
+      "ERASMUS-SPORT-2027-LSSNCESE"
+    ],
+    "sku_count": 5,
+    "managers": [
+      "EACEA"
+    ],
+    "amount_min": 200000,
+    "amount_max": 1500000,
+    "slot_price_min": 2000,
+    "slot_price_max": 15000,
+    "sample_amounts": [],
+    "topic_count": 2
+  },
+  {
+    "key": "CB_VET",
+    "name": "Capacity Building VET",
+    "deadline": "2027-03-26",
+    "topics": [
+      "ERASMUS-EDU-2027-CB-VET-WB",
+      "ERASMUS-EDU-2027-CB-VET-NE",
+      "ERASMUS-EDU-2027-CB-VET-SMC",
+      "ERASMUS-EDU-2027-CB-VET-SSA",
+      "ERASMUS-EDU-2027-CB-VET-LA",
+      "ERASMUS-EDU-2027-CB-VET-CA"
+    ],
+    "sku_count": 6,
+    "managers": [
+      "EACEA"
+    ],
+    "amount_min": 500000,
+    "amount_max": 500000,
+    "slot_price_min": 5000,
+    "slot_price_max": 5000,
+    "sample_amounts": [],
+    "topic_count": 6
+  },
+  {
+    "key": "CB_YOUTH_EYT",
+    "name": "Capacity Building Youth + KA3 EYT",
+    "deadline": "2027-02-26",
+    "topics": [
+      "ERASMUS-YOUTH-2027-CB-WB",
+      "ERASMUS-YOUTH-2027-CB-NE",
+      "ERASMUS-YOUTH-2027-CB-SMC",
+      "ERASMUS-YOUTH-2027-CB-SSA",
+      "ERASMUS-YOUTH-2027-YOUTH-TOG"
+    ],
+    "sku_count": 5,
+    "managers": [
+      "EACEA"
+    ],
+    "amount_min": 300000,
+    "amount_max": 500000,
+    "slot_price_min": 3000,
+    "slot_price_max": 5000,
+    "sample_amounts": [],
+    "topic_count": 5
+  },
+  {
+    "key": "KA2_COOP_SS_NA",
+    "name": "KA2 Cooperation & Small-Scale + ENGO",
+    "deadline": "2027-03-05",
+    "topics": [
+      "KA220-SCH-2027",
+      "KA220-VET-2027",
+      "KA220-HED-2027",
+      "KA220-ADU-2027",
+      "KA220-YOU-2027",
+      "ERASMUS-EDU-2027-PCOOP-ENGO",
+      "ERASMUS-YOUTH-2027-PCOOP-ENGO",
+      "KA210-SCH-2027",
+      "KA210-VET-2027",
+      "KA210-ADU-2027",
+      "KA210-YOU-2027"
+    ],
+    "sku_count": 29,
+    "managers": [
+      "National Agency",
+      "EACEA"
+    ],
+    "amount_min": 30000,
+    "amount_max": 400000,
+    "slot_price_min": 300,
+    "slot_price_max": 4000,
+    "sample_amounts": [],
+    "topic_count": 11
+  },
+  {
+    "key": "EPSD",
+    "name": "EPSD (KA240-SCH, nuevo 2026)",
+    "deadline": "2027-04-09",
+    "topics": [
+      "KA240-SCH-2027"
+    ],
+    "sku_count": 1,
+    "managers": [
+      "National Agency"
+    ],
+    "amount_min": 400000,
+    "amount_max": 400000,
+    "slot_price_min": 4000,
+    "slot_price_max": 4000,
+    "sample_amounts": [],
+    "topic_count": 1
+  },
+  {
+    "key": "AOI",
+    "name": "Alliances for Innovation (3 lots)",
+    "deadline": "2027-03-10",
+    "topics": [
+      "ERASMUS-EDU-2027-PI-ALL-INNO-EDU-ENTERP",
+      "ERASMUS-EDU-2027-PI-ALL-INNO-BLUEPRINT",
+      "ERASMUS-EDU-2027-PI-ALL-INNO-STEM"
+    ],
+    "sku_count": 4,
+    "managers": [
+      "EACEA"
+    ],
+    "amount_min": 1000000,
+    "amount_max": 4000000,
+    "slot_price_min": 10000,
+    "slot_price_max": 40000,
+    "sample_amounts": [],
+    "topic_count": 3
+  },
+  {
+    "key": "COVE",
+    "name": "CoVE (calendario propio septiembre)",
+    "deadline": "2027-09-03",
+    "topics": [
+      "ERASMUS-EDU-2027-PEX-COVE"
+    ],
+    "sku_count": 1,
+    "managers": [
+      "EACEA"
+    ],
+    "amount_min": 4000000,
+    "amount_max": 4000000,
+    "slot_price_min": 40000,
+    "slot_price_max": 40000,
+    "sample_amounts": [],
+    "topic_count": 1
+  },
+  {
+    "key": "TEACHER_ACA",
+    "name": "Teacher Academies",
+    "deadline": "2027-03-26",
+    "topics": [
+      "ERASMUS-EDU-2027-PEX-TEACH-ACA"
+    ],
+    "sku_count": 1,
+    "managers": [
+      "EACEA"
+    ],
+    "amount_min": 1500000,
+    "amount_max": 1500000,
+    "slot_price_min": 15000,
+    "slot_price_max": 15000,
+    "sample_amounts": [],
+    "topic_count": 1
+  },
+  {
+    "key": "EUR_UNIV",
+    "name": "European Universities (consultivo, ticket muy alto)",
+    "deadline": "varía",
+    "topics": [
+      "ERASMUS-EDU-2027-EUR-UNIV"
+    ],
+    "sku_count": 1,
+    "managers": [
+      "EACEA"
+    ],
+    "amount_min": 6400000,
+    "amount_max": 6400000,
+    "slot_price_min": 64000,
+    "slot_price_max": 64000,
+    "sample_amounts": [],
+    "topic_count": 1
+  },
+  {
+    "key": "EMJM",
+    "name": "Erasmus Mundus Joint Masters (Mob + Design)",
+    "deadline": "2027-02-11",
+    "topics": [
+      "ERASMUS-EDU-2027-PEX-EMJM-MOB",
+      "ERASMUS-EDU-2027-EMJM-DESIGN"
+    ],
+    "sku_count": 2,
+    "managers": [
+      "EACEA"
+    ],
+    "amount_min": 55000,
+    "amount_max": 5000000,
+    "slot_price_min": 550,
+    "slot_price_max": 50000,
+    "sample_amounts": [],
+    "topic_count": 2
+  },
+  {
+    "key": "CBHE",
+    "name": "CBHE — Capacity Building Higher Education",
+    "deadline": "2027-02-10",
+    "topics": [
+      "ERASMUS-EDU-2027-CBHE-WB",
+      "ERASMUS-EDU-2027-CBHE-NE",
+      "ERASMUS-EDU-2027-CBHE-SMC",
+      "ERASMUS-EDU-2027-CBHE-ASIA",
+      "ERASMUS-EDU-2027-CBHE-CA",
+      "ERASMUS-EDU-2027-CBHE-ME",
+      "ERASMUS-EDU-2027-CBHE-PAC",
+      "ERASMUS-EDU-2027-CBHE-SSA",
+      "ERASMUS-EDU-2027-CBHE-LA",
+      "ERASMUS-EDU-2027-CBHE-CARIB",
+      "ERASMUS-EDU-2027-CBHE-CROSS-REGIONAL"
+    ],
+    "sku_count": 67,
+    "managers": [
+      "EACEA"
+    ],
+    "amount_min": 200000,
+    "amount_max": 2000000,
+    "slot_price_min": 2000,
+    "slot_price_max": 20000,
+    "sample_amounts": [],
+    "topic_count": 11
+  }
+]

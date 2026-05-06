@@ -207,7 +207,7 @@ const Budget = (() => {
     el.className = 'flex items-center gap-1 mb-6 bg-surface-container-lowest rounded-xl border border-outline-variant/20 p-1.5 overflow-x-auto';
     el.innerHTML = tabs.map(t => `
       <button class="budget-tab flex-1 inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg text-xs font-bold whitespace-nowrap transition-all
-        ${activeTab === t.id ? 'bg-[#1b1464] text-[#e7eb00] shadow-md' : 'text-on-surface-variant hover:bg-surface-container-low'}"
+        ${activeTab === t.id ? 'bg-[#1b1464] text-[#fbff12] shadow-md' : 'text-on-surface-variant hover:bg-surface-container-low'}"
         data-tab="${t.id}">
         <span class="material-symbols-outlined text-sm">${t.icon}</span> ${esc(t.label)}
       </button>`).join('');

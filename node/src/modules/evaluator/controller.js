@@ -2,6 +2,8 @@
 const path = require('path');
 const m = require('./model');
 const docModel = require('../documents/model');
+const intakeModel = require('../intake/model');
+const pool = require('../../utils/db');
 const { extractText } = require('../../services/vectorize');
 const { processDocument } = require('../../services/vectorize');
 
@@ -231,5 +233,42 @@ exports.getParseStatus = async (req, res) => {
     if (!job) return err(res, 'Job not found', 404);
     if (job.user_id !== req.user.id) return err(res, 'Forbidden', 403);
     ok(res, job);
+  } catch (e) { err(res, e.message, 500); }
+};
+
+/* ── Delete instance ─────────────────────────────────────────── */
+exports.deleteInstance = async (req, res) => {
+  try {
+    const removed = await m.deleteUserFormInstance(req.params.id, req.user.id);
+    if (!removed) return err(res, 'Not found', 404);
+    ok(res, { id: req.params.id });
+  } catch (e) { err(res, e.message, 500); }
+};
+
+/* ── Promote evaluation → editable project ────────────────────────
+   Creates a new project (origin='imported') seeded from a form_instance
+   the user uploaded for evaluation. Lets the user "rewrite" an old
+   proposal using the platform.
+   ────────────────────────────────────────────────────────────── */
+exports.promoteToProject = async (req, res) => {
+  try {
+    const inst = await m.getUserFormInstance(req.params.id, req.user.id);
+    if (!inst) return err(res, 'Evaluation not found', 404);
+
+    const projectName = (inst.title || inst.program_name || 'Imported project').toString().slice(0, 200);
+
+    const project = await intakeModel.createProject(req.user.id, {
+      name: projectName,
+      type: inst.action_type || null,
+      proposal_lang: 'en',
+    });
+
+    // Mark provenance: this project was imported from an evaluation.
+    await pool.query(
+      `UPDATE projects SET origin = 'imported', source_evaluation_id = ? WHERE id = ? AND user_id = ?`,
+      [inst.id, project.id, req.user.id]
+    );
+
+    ok(res, { id: project.id, name: projectName, origin: 'imported', source_evaluation_id: inst.id });
   } catch (e) { err(res, e.message, 500); }
 };

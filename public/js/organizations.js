@@ -39,15 +39,134 @@ const Organizations = (() => {
         loadAllChildren();
       } catch (e) { Toast.show(e.message || 'Error', 'error'); }
     });
-    document.getElementById('myorg-btn-new-org')?.addEventListener('click', async () => {
-      const name = await Modal.show('Nombre de la nueva organización:', { input: true });
-      if (!name) return;
-      try {
-        const res = await API.put('/organizations/mine', { organization_name: name });
-        Toast.show('Organización creada', 'ok');
-        loadMyOrgs();
-      } catch (e) { Toast.show(e.message || 'Error', 'error'); }
+    document.getElementById('myorg-btn-new-org')?.addEventListener('click', () => {
+      openNewOrgModal();
     });
+  }
+
+  /* ── New org modal with ORS prefill search ────────────────── */
+  function openNewOrgModal() {
+    document.getElementById('org-new-modal')?.remove();
+    const overlay = document.createElement('div');
+    overlay.id = 'org-new-modal';
+    overlay.className = 'fixed inset-0 bg-black/40 z-50 flex items-start justify-center pt-16 pb-8 overflow-y-auto';
+    overlay.innerHTML = `
+      <div class="bg-white rounded-2xl shadow-2xl w-full max-w-2xl mx-4 overflow-hidden">
+        <div class="bg-primary text-white px-6 py-4 flex items-center justify-between">
+          <div>
+            <h2 class="font-headline text-lg font-bold">Nueva organización</h2>
+            <p class="text-white/70 text-xs">Busca en el registro Erasmus+ (ORS) para precargar datos.</p>
+          </div>
+          <button class="org-new-close text-white/70 hover:text-white" aria-label="Cerrar">
+            <span class="material-symbols-outlined">close</span>
+          </button>
+        </div>
+        <div class="p-5 space-y-4">
+          <div class="relative">
+            <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px]">search</span>
+            <input id="org-new-search" type="text" autocomplete="off"
+              placeholder="Busca por nombre, acrónimo, ciudad, OID o PIC..."
+              class="w-full pl-10 pr-3 py-3 text-sm border border-outline-variant/40 rounded-lg bg-white focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none" />
+          </div>
+          <div id="org-new-results" class="max-h-[50vh] overflow-y-auto divide-y divide-outline-variant/20 border border-outline-variant/20 rounded-lg hidden"></div>
+          <div id="org-new-hint" class="text-xs text-on-surface-variant">
+            Escribe al menos 2 caracteres. Si tu entidad no sale, puedes crearla vacía y rellenar los datos a mano.
+          </div>
+        </div>
+        <div class="px-5 py-4 border-t border-outline-variant/20 flex items-center justify-between bg-surface-container-low/40">
+          <button class="org-new-empty text-sm text-primary font-semibold hover:underline">
+            <span class="material-symbols-outlined align-middle text-[18px]">add</span>
+            No la encuentro — crear vacía
+          </button>
+          <button class="org-new-cancel text-sm text-on-surface-variant font-semibold hover:text-on-surface">Cancelar</button>
+        </div>
+      </div>
+    `;
+    document.body.appendChild(overlay);
+    overlay.addEventListener('click', e => { if (e.target === overlay) close(); });
+    const input = overlay.querySelector('#org-new-search');
+    const resultsBox = overlay.querySelector('#org-new-results');
+    const hint = overlay.querySelector('#org-new-hint');
+    setTimeout(() => input.focus(), 60);
+
+    const close = () => overlay.remove();
+    overlay.querySelector('.org-new-close').addEventListener('click', close);
+    overlay.querySelector('.org-new-cancel').addEventListener('click', close);
+    overlay.querySelector('.org-new-empty').addEventListener('click', async () => {
+      const name = prompt('Nombre de la nueva organización:');
+      if (!name || !name.trim()) return;
+      await createOrgFromData({ organization_name: name.trim() });
+      close();
+    });
+
+    input.addEventListener('input', debounce(async () => {
+      const q = input.value.trim();
+      if (q.length < 2) {
+        resultsBox.classList.add('hidden');
+        hint.textContent = 'Escribe al menos 2 caracteres. Si tu entidad no sale, puedes crearla vacía y rellenar los datos a mano.';
+        return;
+      }
+      resultsBox.classList.remove('hidden');
+      resultsBox.innerHTML = '<div class="py-6 text-center text-on-surface-variant text-sm">Buscando en ORS…</div>';
+      hint.textContent = '';
+      try {
+        const rows = await API.post('/organizations/ors-lookup', { q });
+        if (!rows || !rows.length) {
+          resultsBox.innerHTML = '<div class="py-6 text-center text-on-surface-variant text-sm">Sin resultados. Prueba con otro término o crea la entidad vacía.</div>';
+          return;
+        }
+        resultsBox.innerHTML = rows.map((r, i) => `
+          <button class="org-new-pick w-full text-left px-4 py-3 hover:bg-primary/5 transition-colors" data-idx="${i}">
+            <div class="flex items-start justify-between gap-3">
+              <div class="flex-1 min-w-0">
+                <div class="font-semibold text-sm text-on-surface truncate">${esc(r.legal_name)}</div>
+                <div class="text-xs text-on-surface-variant mt-0.5">
+                  ${r.city ? esc(r.city) : ''}${r.city && r.country_iso ? ', ' : ''}${r.country_iso ? esc(r.country_iso) : ''}
+                  ${r.website_show ? ` · ${esc(r.website_show)}` : ''}
+                </div>
+              </div>
+              <div class="shrink-0 text-right text-[10px] font-mono leading-tight">
+                ${r.oid ? `<div class="text-primary">${esc(r.oid)}</div>` : ''}
+                ${r.pic ? `<div class="text-on-surface-variant">PIC ${esc(r.pic)}</div>` : ''}
+                ${r.validity_label ? `<div class="${r.validity_label === 'certified' ? 'text-green-600' : 'text-amber-600'} uppercase mt-0.5">${esc(r.validity_label)}</div>` : ''}
+              </div>
+            </div>
+          </button>
+        `).join('');
+        resultsBox.querySelectorAll('.org-new-pick').forEach(btn => {
+          btn.addEventListener('click', async () => {
+            const r = rows[parseInt(btn.dataset.idx, 10)];
+            await createOrgFromData(mapOrsToOrg(r));
+            close();
+          });
+        });
+      } catch (e) {
+        resultsBox.innerHTML = `<div class="py-6 text-center text-error text-sm">Error consultando ORS: ${esc(e.message || 'Error')}</div>`;
+      }
+    }, 350));
+  }
+
+  function mapOrsToOrg(r) {
+    return {
+      organization_name:   r.legal_name,
+      legal_name_national: r.legal_name,
+      oid:                 r.oid,
+      pic:                 r.pic,
+      country:             r.country_iso,
+      city:                r.city,
+      website:             r.website,
+      national_id:         r.vat || r.registration_no || null,
+    };
+  }
+
+  async function createOrgFromData(data) {
+    try {
+      await API.put('/organizations/mine', data);
+      Toast.show('Organización creada', 'ok');
+      loadMyOrgs();
+    } catch (e) {
+      Toast.show(e.message || 'Error', 'error');
+    }
   }
 
   async function loadMyOrgs() {
@@ -88,6 +207,10 @@ const Organizations = (() => {
         btn.classList.remove('text-on-surface-variant');
         document.querySelectorAll('.myorg-tab').forEach(s => s.classList.add('hidden'));
         document.getElementById(`myorg-tab-${activeTab}`)?.classList.remove('hidden');
+        // Leaflet necesita recalcular tamaño cuando vuelve a ser visible
+        if (activeTab === 'general' && _orgMap) {
+          setTimeout(() => _orgMap.invalidateSize(), 50);
+        }
       });
     });
 
@@ -120,6 +243,10 @@ const Organizations = (() => {
     document.querySelectorAll('[data-org-add]').forEach(btn => {
       btn.addEventListener('click', () => addChild(btn.dataset.orgAdd));
     });
+
+    // Pin de ubicación
+    document.getElementById('myorg-self-locate')?.addEventListener('click', selfLocate);
+    document.getElementById('myorg-save-pin')?.addEventListener('click', savePin);
   }
 
   async function loadMyOrg() {
@@ -128,6 +255,8 @@ const Organizations = (() => {
       if (myOrg) {
         fillForm(myOrg);
         loadAllChildren();
+        // Lazy-init map cuando el panel está visible (evita render con tamaño 0)
+        setTimeout(() => initOrgMap(), 100);
       }
     } catch (e) {
       console.error('loadMyOrg', e);
@@ -200,6 +329,127 @@ const Organizations = (() => {
     loadChildTable('eu-projects');
     loadChildTable('key-staff');
     loadChildTable('stakeholders');
+  }
+
+  /* ── Pin de ubicación (Leaflet) ───────────────────────────── */
+
+  let _orgMap = null;
+  let _orgMarker = null;
+  let _orgCoords = { lat: null, lng: null, source: null };
+
+  function initOrgMap() {
+    if (typeof L === 'undefined') {
+      // Leaflet aún no cargado; reintentar
+      return setTimeout(initOrgMap, 200);
+    }
+    const el = document.getElementById('myorg-map');
+    if (!el) return;
+
+    // Si ya existe, solo actualizar (otra org seleccionada)
+    if (_orgMap) {
+      _orgMap.remove();
+      _orgMap = null;
+      _orgMarker = null;
+    }
+
+    // Coords iniciales: org guardadas → centroide país → Europa
+    const lat0 = myOrg?.lat != null ? Number(myOrg.lat) : null;
+    const lng0 = myOrg?.lng != null ? Number(myOrg.lng) : null;
+    const center = lat0 != null && lng0 != null
+      ? [lat0, lng0]
+      : [47, 12]; // Europa central
+    const zoom = lat0 != null ? 13 : 4;
+
+    _orgMap = L.map(el).setView(center, zoom);
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+      maxZoom: 19,
+      subdomains: 'abcd',
+      attribution: '© OpenStreetMap · © CARTO',
+    }).addTo(_orgMap);
+
+    if (lat0 != null && lng0 != null) {
+      _orgMarker = L.marker([lat0, lng0], { draggable: true }).addTo(_orgMap);
+      _orgCoords = { lat: lat0, lng: lng0, source: myOrg.geocoded_source || 'manual_pin' };
+      updateCoordsLabel();
+      _orgMarker.on('dragend', onMarkerMove);
+    } else {
+      // Click en el mapa para colocar el primer pin
+      _orgMap.on('click', (ev) => placeMarker(ev.latlng.lat, ev.latlng.lng, 'manual_pin'));
+    }
+  }
+
+  function placeMarker(lat, lng, source) {
+    if (!_orgMap) return;
+    if (_orgMarker) {
+      _orgMarker.setLatLng([lat, lng]);
+    } else {
+      _orgMarker = L.marker([lat, lng], { draggable: true }).addTo(_orgMap);
+      _orgMarker.on('dragend', onMarkerMove);
+    }
+    _orgCoords = { lat, lng, source: source || 'manual_pin' };
+    _orgMap.setView([lat, lng], Math.max(_orgMap.getZoom(), 13));
+    updateCoordsLabel();
+  }
+
+  function onMarkerMove(ev) {
+    const ll = ev.target.getLatLng();
+    _orgCoords = { lat: ll.lat, lng: ll.lng, source: 'manual_pin' };
+    updateCoordsLabel();
+  }
+
+  function updateCoordsLabel() {
+    const lbl = document.getElementById('myorg-coords-label');
+    const src = document.getElementById('myorg-coords-source');
+    if (lbl) lbl.textContent = _orgCoords.lat != null
+      ? `${_orgCoords.lat.toFixed(5)}, ${_orgCoords.lng.toFixed(5)}`
+      : 'Sin pin — click en el mapa o usa "Mi ubicación"';
+    if (src) {
+      const labels = {
+        manual_pin: '📍 Pin manual',
+        self_geolocate: '🛰️ Tu ubicación (GPS)',
+        mapbox: 'Mapbox geocoding',
+        google: 'Google geocoding',
+        nominatim: 'OSM Nominatim',
+      };
+      src.textContent = _orgCoords.source ? (labels[_orgCoords.source] || _orgCoords.source) : '';
+    }
+  }
+
+  function selfLocate() {
+    if (!('geolocation' in navigator)) {
+      Toast.show('Tu navegador no soporta geolocalización', 'error');
+      return;
+    }
+    Toast.show('Obteniendo tu ubicación…', 'ok');
+    navigator.geolocation.getCurrentPosition(
+      (pos) => placeMarker(pos.coords.latitude, pos.coords.longitude, 'self_geolocate'),
+      (err) => Toast.show(err.message || 'No se pudo obtener tu ubicación', 'error'),
+      { enableHighAccuracy: true, timeout: 10000, maximumAge: 60000 }
+    );
+  }
+
+  async function savePin() {
+    if (!myOrg?.id) {
+      Toast.show('Guarda primero los datos generales para crear la organización', 'error');
+      return;
+    }
+    if (_orgCoords.lat == null) {
+      Toast.show('Coloca un pin en el mapa primero', 'error');
+      return;
+    }
+    try {
+      await API.patch(`/organizations/${myOrg.id}/coords`, {
+        lat: _orgCoords.lat,
+        lng: _orgCoords.lng,
+        source: _orgCoords.source,
+      });
+      myOrg.lat = _orgCoords.lat;
+      myOrg.lng = _orgCoords.lng;
+      myOrg.geocoded_source = _orgCoords.source;
+      Toast.show('Ubicación guardada', 'ok');
+    } catch (e) {
+      Toast.show(e.message || 'Error al guardar', 'error');
+    }
   }
 
   async function loadChildTable(type) {
@@ -535,6 +785,7 @@ const Organizations = (() => {
         <div class="p-6 space-y-6 max-h-[70vh] overflow-y-auto">
           ${detailSection('Datos generales', `
             ${detailRow('Tipo', org.org_type)}
+            ${detailRow('OID (Erasmus+)', org.oid)}
             ${detailRow('PIC', org.pic)}
             ${detailRow('NIF / ID Nacional', org.national_id)}
             ${detailRow('Fecha fundación', org.foundation_date?.slice(0,10))}

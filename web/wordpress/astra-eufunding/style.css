@@ -1,0 +1,279 @@
+/*
+Theme Name:     EU Funding School — Astra Child
+Theme URI:      https://eufundingschool.com/
+Description:    Child theme de Astra para eufundingschool.com. Consume los brand tokens compartidos del monorepo (web/brand/tokens.css). Desplegado desde Coolify.
+Author:         Oscar Argumosa
+Author URI:     https://eufundingschool.com/
+Template:       astra
+Version:        0.2.0
+Text Domain:    astra-eufunding
+*/
+
+/* ======================================================================
+   Brand tokens — fuente de verdad compartida con el tool E+
+   Si falta algún token aquí, añadirlo en web/brand/tokens.css.
+   Los valores de :root debajo son un fallback; el brand/tokens.css real
+   se sirve vía functions.php (wp_enqueue_style) y pisa estos.
+   ====================================================================== */
+:root {
+	--efs-color-bg:                #ffffff;
+	--efs-color-surface:           #f8f8f8;
+	--efs-color-text:              #191c1e;
+	--efs-color-muted:             #474551;
+	--efs-color-primary:           #1b1464;
+	--efs-color-primary-2:         #1b1464;
+	--efs-color-accent:            #fbff12;
+	--efs-color-accent-warm:       #c7afdf;
+	--efs-color-line:              #cccccc;
+
+	--efs-font-body:    'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+	--efs-font-display: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+
+	--efs-radius:       0.25rem;
+	--efs-shadow-soft:  0px 24px 48px rgba(27, 20, 100, 0.06);
+	--efs-max-w:        720px;
+	--efs-max-w-wide:   1100px;
+}
+
+/* ======================================================================
+   Base typography for blog templates
+   ====================================================================== */
+.efs-single,
+.efs-archive,
+.efs-landing {
+	color: var(--efs-color-text);
+	font-family: var(--efs-font-body);
+	font-weight: 500; /* Poppins medium = body default per DESIGN.md */
+	line-height: 1.65;
+	-webkit-font-smoothing: antialiased;
+}
+
+.efs-single h1, .efs-archive h1, .efs-landing h1 {
+	font-family: var(--efs-font-display);
+	font-weight: 800; /* extrabold */
+	letter-spacing: -0.02em;
+	color: var(--efs-color-primary);
+	line-height: 1.15;
+}
+
+.efs-single h2, .efs-archive h2, .efs-landing h2 {
+	font-family: var(--efs-font-display);
+	font-weight: 700;
+	letter-spacing: -0.01em;
+	color: var(--efs-color-primary);
+	margin-top: 2em;
+}
+
+/* ======================================================================
+   Blog archive / home (listado de posts)
+   ====================================================================== */
+.efs-archive-header {
+	max-width: var(--efs-max-w-wide);
+	margin: 2.5rem auto 2rem;
+	padding: 0 1.25rem;
+}
+
+.efs-archive-header h1 { font-size: clamp(2rem, 4vw, 3rem); margin: 0 0 .5em; }
+.efs-archive-header p  { color: var(--efs-color-muted); font-size: 1.1rem; margin: 0; max-width: 640px; }
+
+.efs-post-grid {
+	max-width: var(--efs-max-w-wide);
+	margin: 0 auto 3rem;
+	padding: 0 1.25rem;
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+	gap: 1.75rem;
+}
+
+.efs-post-card {
+	background: var(--efs-color-bg);
+	border: 1px solid var(--efs-color-line);
+	border-radius: var(--efs-radius);
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	transition: transform .15s ease, box-shadow .15s ease;
+}
+.efs-post-card:hover {
+	transform: translateY(-2px);
+	box-shadow: var(--efs-shadow-soft);
+}
+
+.efs-post-card__thumb {
+	aspect-ratio: 16 / 9;
+	background: var(--efs-color-surface);
+	background-size: cover;
+	background-position: center;
+}
+
+.efs-post-card__body { padding: 1.25rem 1.25rem 1.5rem; display: flex; flex-direction: column; gap: .5rem; flex: 1; }
+.efs-post-card__cats { font-size: .75rem; text-transform: uppercase; letter-spacing: .05em; color: var(--efs-color-primary-2); font-weight: 700; }
+.efs-post-card__cats a { color: inherit; text-decoration: none; }
+.efs-post-card__title { font-size: 1.25rem; line-height: 1.3; font-weight: 700; margin: 0; }
+.efs-post-card__title a { color: var(--efs-color-primary); text-decoration: none; }
+.efs-post-card__title a:hover { text-decoration: underline; }
+.efs-post-card__excerpt { color: var(--efs-color-muted); margin: 0; flex: 1; }
+.efs-post-card__meta { font-size: .8rem; color: var(--efs-color-muted); border-top: 1px solid var(--efs-color-line); padding-top: .75rem; margin-top: .5rem; }
+
+/* ======================================================================
+   Single post
+   ====================================================================== */
+.efs-single-wrap {
+	max-width: var(--efs-max-w);
+	margin: 2.5rem auto 3rem;
+	padding: 0 1.25rem;
+}
+
+.efs-single__cats { font-size: .8rem; text-transform: uppercase; letter-spacing: .06em; color: var(--efs-color-primary-2); font-weight: 700; margin-bottom: .5rem; }
+.efs-single__cats a { color: inherit; text-decoration: none; }
+
+.efs-single-wrap h1 { font-size: clamp(2rem, 4.5vw, 3rem); margin: 0 0 .5em; }
+.efs-single__excerpt { color: var(--efs-color-muted); font-size: 1.15rem; line-height: 1.5; margin-bottom: 1.5rem; }
+
+.efs-single__meta { font-size: .85rem; color: var(--efs-color-muted); display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--efs-color-line); }
+.efs-single__meta strong { color: var(--efs-color-text); }
+
+.efs-single__hero { aspect-ratio: 16/9; background: var(--efs-color-surface); background-size: cover; background-position: center; border-radius: var(--efs-radius); margin-bottom: 2rem; }
+
+.efs-single__content { font-size: 1.05rem; }
+.efs-single__content p, .efs-single__content ul, .efs-single__content ol, .efs-single__content blockquote { margin-bottom: 1.25em; }
+.efs-single__content img { border-radius: var(--efs-radius); }
+.efs-single__content blockquote { border-left: 3px solid var(--efs-color-accent); padding: .5rem 1.25rem; background: var(--efs-color-surface); font-style: normal; color: var(--efs-color-primary); }
+.efs-single__content hr { border: none; border-top: 1px solid var(--efs-color-line); margin: 2rem 0; }
+
+.efs-single__toc { background: var(--efs-color-surface); border-radius: var(--efs-radius); padding: 1rem 1.25rem; font-size: .92rem; margin-bottom: 2rem; }
+.efs-single__toc strong { display: block; margin-bottom: .25rem; color: var(--efs-color-primary); }
+
+/* ======================================================================
+   CTA boxes (newsletter, sandbox) — reutilizables
+   ====================================================================== */
+.efs-cta {
+	background: var(--efs-color-primary);
+	color: #fff;
+	border-radius: var(--efs-radius);
+	padding: 2rem 1.75rem;
+	margin: 2.5rem 0;
+}
+.efs-cta h3 { color: #fff; margin: 0 0 .5em; font-size: 1.35rem; font-weight: 700; }
+.efs-cta p { color: rgba(255,255,255,0.82); margin: 0 0 1.25rem; }
+.efs-cta__btn {
+	display: inline-block;
+	background: var(--efs-color-accent);
+	color: var(--efs-color-primary-2);
+	padding: .7rem 1.2rem;
+	border-radius: var(--efs-radius);
+	text-decoration: none;
+	font-weight: 700;
+	font-size: .95rem;
+	transition: transform .1s ease;
+	box-shadow: var(--efs-shadow-soft);
+}
+.efs-cta__btn:hover { transform: translateY(-1px); color: var(--efs-color-primary-2); }
+.efs-cta--light { background: var(--efs-color-surface); color: var(--efs-color-text); border: 1px solid var(--efs-color-line); }
+.efs-cta--light h3 { color: var(--efs-color-primary); }
+.efs-cta--light p  { color: var(--efs-color-muted); }
+
+/* ======================================================================
+   Menu: CTA-style item (class "menu-cta" added when creating menu item)
+   ====================================================================== */
+.main-header-menu li.menu-cta > a,
+.main-navigation li.menu-cta > a {
+	background: var(--efs-color-accent);
+	color: var(--efs-color-primary-2) !important;
+	padding: .45rem 1rem !important;
+	border-radius: var(--efs-radius);
+	font-weight: 700;
+}
+
+/* ======================================================================
+   Landing pages (sin menú; body class controlled via page template)
+   ====================================================================== */
+.efs-landing {
+	max-width: var(--efs-max-w-wide);
+	margin: 0 auto;
+	padding: 2rem 1.25rem 4rem;
+}
+.efs-landing__hero {
+	padding: 4rem 0 3rem;
+	text-align: left;
+}
+.efs-landing__hero h1 { font-size: clamp(2.25rem, 5vw, 3.5rem); margin: 0 0 .35em; }
+.efs-landing__hero .efs-landing__sub { font-size: 1.25rem; color: var(--efs-color-muted); max-width: 640px; }
+
+.efs-landing__facts { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1rem; margin: 2rem 0; }
+.efs-landing__fact  { background: var(--efs-color-surface); border-radius: var(--efs-radius); padding: 1rem 1.25rem; }
+.efs-landing__fact strong { display: block; font-size: 1.5rem; color: var(--efs-color-primary); margin-bottom: .15rem; font-weight: 700; }
+.efs-landing__fact span   { font-size: .85rem; color: var(--efs-color-muted); }
+
+/* ======================================================================
+   Utilities
+   ====================================================================== */
+.efs-hidden-on-landing { display: none !important; }
+body.efs-landing-page .site-header,
+body.efs-landing-page .site-footer,
+body.efs-landing-page .ast-header-break-point,
+body.efs-landing-page #masthead { display: none !important; }
+
+/* ======================================================================
+   TOP BAR común (sincronizado con el tool E+ en public/index.html).
+   Si tocas estilos aquí, replícalos en public/index.html sección "TOP BAR".
+   ====================================================================== */
+/* Ocultar el header de Astra en TODAS las páginas (excepto landing,
+   ya excluida arriba). Ahora el header es nuestro top bar custom. */
+body:not(.efs-landing-page) .site-header,
+body:not(.efs-landing-page) #masthead,
+body:not(.efs-landing-page) .ast-header-break-point { display: none !important; }
+
+/* Empuja el contenido 48px hacia abajo para no quedar tapado por el top bar fixed */
+body:not(.efs-landing-page) .site { padding-top: 48px; }
+
+.efs-topbar {
+	position: fixed; top: 0; left: 0; right: 0; height: 48px; z-index: 999;
+	background: #1b1464; color: #fff;
+	font-family: var(--efs-font-body, 'Poppins', sans-serif);
+	font-size: 14px; font-weight: 500;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+.efs-topbar__inner {
+	max-width: 1280px; height: 100%; margin: 0 auto; padding: 0 1.25rem;
+	display: flex; align-items: center; gap: 2rem;
+}
+.efs-topbar__brand {
+	display: inline-flex; align-items: center; gap: .5rem;
+	color: #fff; text-decoration: none; font-weight: 800;
+	letter-spacing: -0.01em; white-space: nowrap;
+}
+.efs-topbar__brand:hover { color: #fbff12; }
+.efs-topbar__logo {
+	width: 22px; height: 22px; background: #fbff12;
+	border-radius: 4px; flex: 0 0 auto; display: inline-block;
+}
+.efs-topbar__nav { flex: 1; display: flex; }
+.efs-topbar__menu {
+	list-style: none; margin: 0; padding: 0;
+	display: flex; gap: 1.5rem;
+}
+.efs-topbar__menu li { margin: 0; }
+.efs-topbar__menu a {
+	color: rgba(255, 255, 255, 0.78); text-decoration: none;
+	padding: .25rem 0; border-bottom: 2px solid transparent;
+	transition: color .15s, border-color .15s; font-size: 14px;
+}
+.efs-topbar__menu a:hover { color: #fff; }
+.efs-topbar__menu .is-current > a,
+.efs-topbar__menu .current-menu-item > a {
+	color: #fff; border-bottom-color: #fbff12;
+}
+.efs-topbar__cta { margin-left: auto; }
+.efs-topbar__login {
+	display: inline-flex; align-items: center; gap: .4rem;
+	padding: .35rem .85rem; background: #fbff12; color: #1b1464;
+	border-radius: 6px; text-decoration: none;
+	font-weight: 700; font-size: 13px; transition: transform .15s;
+}
+.efs-topbar__login:hover { transform: translateY(-1px); color: #1b1464; }
+@media (max-width: 720px) {
+	.efs-topbar__inner { gap: .75rem; padding: 0 .75rem; }
+	.efs-topbar__nav { display: none; }
+	.efs-topbar__brand .efs-topbar__name { display: none; }
+}

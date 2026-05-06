@@ -14,7 +14,7 @@ tailwind.config = {
   theme: {
     extend: {
       colors: {
-        "primary":"#06003e","primary-container":"#1b1464",
+        "primary":"#1b1464","primary-container":"#1b1464",
         "secondary-fixed":"#e7eb00","secondary-fixed-dim":"#cbce00",
         "surface":"#f7f9fb","surface-dim":"#d8dadc","surface-bright":"#f7f9fb",
         "surface-container":"#eceef0","surface-container-low":"#f2f4f6",
@@ -63,7 +63,7 @@ tailwind.config = {
     pointer-events:none;font-family:Manrope,sans-serif;
   }
   #toast.show{transform:translateY(0);opacity:1}
-  #toast.ok{background:#06003e;color:#fff}
+  #toast.ok{background:#1b1464;color:#fff}
   #toast.err{background:#ba1a1a;color:#fff}
 
   /* Scrollbar sutil */
@@ -769,7 +769,7 @@ function updateWC(c) {
     f.style.width = '100%'; f.style.background = '#ba1a1a';
   } else {
     b.className = 'text-xs font-semibold font-headline px-2.5 py-0.5 rounded border border-green-300 bg-green-50 text-green-700 transition-all';
-    f.style.width = (n / c.max * 100) + '%'; f.style.background = '#06003e';
+    f.style.width = (n / c.max * 100) + '%'; f.style.background = '#1b1464';
   }
 }
 

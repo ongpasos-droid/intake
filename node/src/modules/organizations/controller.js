@@ -36,6 +36,37 @@ exports.upsertMyOrg = async (req, res) => {
   } catch (e) { err(res, e.message, 500); }
 };
 
+/* ── Coords (self-geolocate / pin draggable) ────────────────── */
+
+exports.updateCoords = async (req, res) => {
+  try {
+    const { lat, lng, source } = req.body || {};
+    const orgId = req.params.id;
+
+    // Validar inputs
+    const latN = Number(lat);
+    const lngN = Number(lng);
+    if (!Number.isFinite(latN) || !Number.isFinite(lngN)) {
+      return err(res, 'lat/lng must be numbers', 400);
+    }
+    if (latN < -90 || latN > 90 || lngN < -180 || lngN > 180) {
+      return err(res, 'lat/lng out of range', 400);
+    }
+    const allowedSources = ['manual_pin','self_geolocate','mapbox','google','nominatim'];
+    const src = allowedSources.includes(source) ? source : 'manual_pin';
+
+    // Comprobar ownership: usuario debe ser owner_user_id de la org
+    const org = await m.getOrgById(orgId);
+    if (!org) return err(res, 'Organization not found', 404);
+    if (org.owner_user_id !== req.user.id && req.user.role !== 'admin') {
+      return err(res, 'Forbidden', 403);
+    }
+
+    await m.updateOrgCoords(orgId, latN, lngN, src);
+    ok(res, { id: orgId, lat: latN, lng: lngN, source: src });
+  } catch (e) { err(res, e.message, 500); }
+};
+
 /* ── Directory ───────────────────────────────────────────────── */
 
 exports.listOrgs = async (req, res) => {
@@ -86,6 +117,18 @@ exports.deleteChild = async (req, res) => {
     await m.deleteChild(req.params.type, req.params.id, req.params.orgId);
     ok(res, null);
   } catch (e) { err(res, e.message, 500); }
+};
+
+/* ── ORS lookup (prefill on new-org) ─────────────────────────── */
+
+exports.orsLookup = async (req, res) => {
+  try {
+    const q = (req.body?.q || req.query?.q || '').toString();
+    const results = await m.orsLookup(q);
+    ok(res, results);
+  } catch (e) {
+    err(res, e.message || 'ORS lookup failed', e.status || 500);
+  }
 };
 
 exports.uploadLogo = async (req, res) => {

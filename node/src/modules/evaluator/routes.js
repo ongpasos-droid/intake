@@ -13,11 +13,15 @@ router.get('/programs', requireAuth, ctrl.listPrograms);
 router.post  ('/instances',              requireAuth, ctrl.createInstance);
 router.get   ('/instances',              requireAuth, ctrl.listInstances);
 router.get   ('/instances/:id',          requireAuth, ctrl.getInstance);
+router.delete('/instances/:id',          requireAuth, ctrl.deleteInstance);
 router.get   ('/instances/:id/values',   requireAuth, ctrl.getValues);
 router.put   ('/instances/:id/values',   requireAuth, ctrl.saveValues);
 
 /* ── Upload + AI parse ───────────────────────────────────────── */
 router.post  ('/instances/:id/upload-parse', requireAuth, upload.single('file'), ctrl.uploadAndParse);
 router.get   ('/parse-jobs/:jobId',          requireAuth, ctrl.getParseStatus);
+
+/* ── Promote evaluation → editable project (Path B) ──────────── */
+router.post  ('/instances/:id/promote-to-project', requireAuth, ctrl.promoteToProject);
 
 module.exports = router;

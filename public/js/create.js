@@ -41,7 +41,7 @@ const CreateProject = (() => {
         activeFilter = btn.dataset.filter;
         document.querySelectorAll('.create-filter-btn').forEach(b => {
           b.className = b.dataset.filter === activeFilter
-            ? 'create-filter-btn px-2.5 py-1 rounded-lg text-[10px] font-bold bg-[#1b1464] text-[#e7eb00] border border-[#1b1464] transition-colors'
+            ? 'create-filter-btn px-2.5 py-1 rounded-lg text-[10px] font-bold bg-[#1b1464] text-[#fbff12] border border-[#1b1464] transition-colors'
             : 'create-filter-btn px-2.5 py-1 rounded-lg text-[10px] font-bold bg-gray-50 text-gray-500 border border-gray-100 transition-colors';
         });
         renderCards();
@@ -104,14 +104,14 @@ const CreateProject = (() => {
       return `
       <div class="create-prog-card group rounded-2xl ${isSelected ? 'bg-[#1b1464] shadow-lg' : 'bg-white shadow-sm hover:shadow-md'} cursor-pointer transition-all" data-id="${p.id}">
         <div class="flex items-center gap-3 px-4 py-3">
-          <div class="w-5 h-5 rounded-full border-2 ${isSelected ? 'border-[#e7eb00] bg-[#e7eb00]' : 'border-gray-300'} flex items-center justify-center flex-shrink-0">
+          <div class="w-5 h-5 rounded-full border-2 ${isSelected ? 'border-[#fbff12] bg-[#fbff12]' : 'border-gray-300'} flex items-center justify-center flex-shrink-0">
             ${isSelected ? '<div class="w-2 h-2 rounded-full bg-[#1b1464]"></div>' : ''}
           </div>
           <div class="flex-1 min-w-0">
             <div class="text-sm font-bold ${isSelected ? 'text-white' : 'text-on-surface group-hover:text-primary'} transition-colors truncate">${esc(p.name)}</div>
             <div class="text-[10px] ${isSelected ? 'text-white/40' : 'text-on-surface-variant/40'} mt-0.5">${esc(p.action_type || '')}</div>
           </div>
-          ${grant ? `<span class="px-2.5 py-1 rounded-lg ${isSelected ? 'bg-white/15 text-[#e7eb00]' : 'bg-green-50 text-green-700'} text-[10px] font-extrabold flex-shrink-0">${grant}</span>` : ''}
+          ${grant ? `<span class="px-2.5 py-1 rounded-lg ${isSelected ? 'bg-white/15 text-[#fbff12]' : 'bg-green-50 text-green-700'} text-[10px] font-extrabold flex-shrink-0">${grant}</span>` : ''}
           <div class="flex-shrink-0 px-3 py-1.5 rounded-xl ${isSelected ? 'bg-white/10' : dl.badgeBg}" style="min-width:110px">
             <div class="flex items-center gap-2">
               <div class="w-2.5 h-2.5 rounded-full flex-shrink-0 ${dl.diff !== null && dl.diff >= 0 && dl.diff <= 14 ? 'animate-pulse' : ''}" style="background:${dl.dotColor}"></div>
@@ -155,6 +155,9 @@ const CreateProject = (() => {
       Intake.startNew();
     }
 
+    // Close the create modal if open
+    if (typeof window.closeCreateModal === 'function') window.closeCreateModal();
+
     // Switch to intake panel
     document.querySelectorAll('#content-area .panel').forEach(panel => panel.classList.remove('active'));
     document.getElementById('panel-intake')?.classList.add('active');
@@ -162,7 +165,7 @@ const CreateProject = (() => {
       link.classList.toggle('active', link.dataset.route === 'intake');
     });
     location.hash = 'intake';
-    document.getElementById('topbar-title').textContent = 'Intake';
+    document.getElementById('topbar-title').textContent = 'Presupuestar';
   }
 
   async function uploadDocx(e) {
@@ -219,7 +222,7 @@ const CreateProject = (() => {
             <span class="text-sm font-bold text-on-surface">${esc(data.cover?.project_name || file.name)}</span>
             ${data.cover?.acronym ? '<span class="px-2 py-0.5 rounded bg-primary/10 text-primary text-xs font-bold">' + esc(data.cover.acronym) + '</span>' : ''}
           </div>
-          <button id="create-import-parsed" class="mt-3 inline-flex items-center gap-2 px-6 py-2.5 rounded-xl text-sm font-bold text-[#e7eb00] bg-[#1b1464] hover:bg-[#1b1464]/80 transition-colors w-full justify-center">
+          <button id="create-import-parsed" class="mt-3 inline-flex items-center gap-2 px-6 py-2.5 rounded-xl text-sm font-bold text-[#fbff12] bg-[#1b1464] hover:bg-[#1b1464]/80 transition-colors w-full justify-center">
             <span class="material-symbols-outlined text-base">rocket_launch</span> Import and create project
           </button>
         </div>`;

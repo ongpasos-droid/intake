@@ -1,0 +1,731 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>EU Funding School — Pricing &amp; Operations Framework 2026-2027</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --blue:#1b1464;
+  --blue-deep:#0d093a;
+  --yellow:#fbff12;
+  --yellow-dim:#e7eb00;
+  --lavender:#c7afdf;
+  --lavender-soft:#e6dbf2;
+  --ink:#1a1a1a;
+  --paper:#fafafa;
+  --line:#e0e0e0;
+  --muted:#666;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{font-family:'Poppins',sans-serif;background:#222;color:var(--ink);font-weight:400;line-height:1.5;}
+body{padding:24px}
+.deck{max-width:1100px;margin:0 auto;}
+.slide{
+  background:var(--paper);
+  width:100%;
+  aspect-ratio:16/10;
+  margin-bottom:24px;
+  border-radius:12px;
+  overflow:hidden;
+  position:relative;
+  box-shadow:0 8px 32px rgba(0,0,0,.4);
+  display:flex;
+  flex-direction:column;
+}
+.slide.dark{background:var(--blue);color:#fff;}
+.slide.deeper{background:var(--blue-deep);color:#fff;}
+.slide.lavender{background:var(--lavender-soft);}
+.slide-num{position:absolute;bottom:18px;right:24px;font-size:11px;color:var(--muted);letter-spacing:.05em;font-weight:500;}
+.slide.dark .slide-num,.slide.deeper .slide-num{color:rgba(255,255,255,.5);}
+.slide-body{padding:56px 64px;flex:1;display:flex;flex-direction:column;}
+h1{font-size:54px;font-weight:800;letter-spacing:-.02em;line-height:1.05;}
+h2{font-size:36px;font-weight:700;letter-spacing:-.01em;line-height:1.1;margin-bottom:24px;}
+h3{font-size:22px;font-weight:600;letter-spacing:-.005em;margin-bottom:12px;}
+h4{font-size:14px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:10px;}
+.lead{font-size:20px;font-weight:300;color:var(--muted);max-width:780px;line-height:1.5;}
+.dark .lead{color:rgba(255,255,255,.85);}
+.eyebrow{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.15em;color:var(--yellow);margin-bottom:16px;}
+.dark .eyebrow{color:var(--yellow);}
+.brand-strip{height:6px;background:linear-gradient(90deg,var(--yellow) 0%,var(--lavender) 100%);}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:32px;}
+.cards.cards-2{grid-template-columns:repeat(2,1fr);}
+.cards.cards-4{grid-template-columns:repeat(4,1fr);}
+.card{background:#fff;padding:22px;border-radius:10px;border:1px solid var(--line);}
+.dark .card{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.1);color:#fff;}
+.card .num{font-size:42px;font-weight:800;color:var(--blue);line-height:1;margin-bottom:6px;}
+.dark .card .num{color:var(--yellow);}
+.card .label{font-size:13px;font-weight:500;color:var(--muted);}
+.dark .card .label{color:rgba(255,255,255,.7);}
+.card .body{font-size:14px;color:var(--ink);line-height:1.5;}
+.dark .card .body{color:rgba(255,255,255,.85);}
+.card-yellow{background:var(--yellow);border-color:var(--yellow);}
+.card-yellow .num{color:var(--blue);}
+.card-yellow .body, .card-yellow .label{color:var(--blue);}
+.card-blue{background:var(--blue);color:#fff;border-color:var(--blue);}
+.card-blue .num{color:var(--yellow);}
+.card-blue .body, .card-blue .label{color:rgba(255,255,255,.9);}
+.card-lavender{background:var(--lavender-soft);border-color:var(--lavender);}
+.kvtable{width:100%;border-collapse:collapse;margin-top:16px;font-size:14px;}
+.kvtable th{text-align:left;font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);padding:10px 12px;border-bottom:2px solid var(--blue);}
+.kvtable td{padding:10px 12px;border-bottom:1px solid var(--line);}
+.kvtable tr:hover{background:rgba(27,20,100,.03);}
+.kvtable .num-cell{font-weight:600;color:var(--blue);font-variant-numeric:tabular-nums;text-align:right;}
+.dark .kvtable th{color:rgba(255,255,255,.7);border-bottom-color:var(--yellow);}
+.dark .kvtable td{border-bottom-color:rgba(255,255,255,.15);color:rgba(255,255,255,.9);}
+.dark .kvtable .num-cell{color:var(--yellow);}
+.pill{display:inline-block;padding:4px 12px;border-radius:99px;font-size:12px;font-weight:600;background:var(--lavender);color:var(--blue);margin:0 6px 6px 0;}
+.pill-yellow{background:var(--yellow);}
+.pill-blue{background:var(--blue);color:var(--yellow);}
+.kvgrid{display:grid;grid-template-columns:max-content 1fr;gap:14px 24px;margin-top:18px;font-size:14px;}
+.kvgrid dt{font-weight:600;color:var(--blue);}
+.dark .kvgrid dt{color:var(--yellow);}
+.kvgrid dd{color:var(--ink);}
+.dark .kvgrid dd{color:rgba(255,255,255,.85);}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:32px;flex:1;align-items:start;}
+.split-30-70{grid-template-columns:30% 1fr;}
+.split-70-30{grid-template-columns:1fr 30%;}
+.giant{font-size:120px;font-weight:900;line-height:.95;letter-spacing:-.04em;color:var(--blue);}
+.dark .giant{color:var(--yellow);}
+.giant-medium{font-size:80px;font-weight:800;line-height:.95;letter-spacing:-.03em;color:var(--blue);}
+.dark .giant-medium{color:var(--yellow);}
+.fade{color:var(--muted);}
+.dark .fade{color:rgba(255,255,255,.55);}
+.timeline{position:relative;padding:32px 0 16px;display:grid;grid-template-columns:repeat(9,1fr);gap:6px;}
+.timeline-month{position:relative;text-align:center;font-size:11px;color:var(--muted);}
+.dark .timeline-month{color:rgba(255,255,255,.7);}
+.timeline-month .month{font-weight:600;color:var(--ink);font-size:12px;}
+.dark .timeline-month .month{color:#fff;}
+.timeline-month .bar{height:6px;background:var(--lavender);border-radius:3px;margin:8px 0;}
+.timeline-month.active .bar{background:var(--yellow);}
+.timeline-month.peak .bar{background:var(--blue);}
+.dark .timeline-month .bar{background:rgba(199,175,223,.4);}
+.dark .timeline-month.active .bar{background:var(--yellow);}
+.dark .timeline-month.peak .bar{background:var(--lavender);}
+.q{font-style:italic;font-size:24px;font-weight:300;line-height:1.4;color:var(--blue);border-left:4px solid var(--yellow);padding-left:24px;max-width:760px;}
+.dark .q{color:#fff;border-left-color:var(--yellow);}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+.step{position:relative;padding:18px 16px 16px;background:#fff;border:1px solid var(--line);border-radius:10px;}
+.step .step-num{font-size:11px;font-weight:700;letter-spacing:.1em;color:var(--blue);margin-bottom:8px;}
+.step h4{margin-bottom:8px;font-size:13px;color:var(--blue);}
+.step p{font-size:13px;color:var(--ink);line-height:1.4;}
+.dark .step{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.1);color:#fff;}
+.dark .step .step-num,.dark .step h4{color:var(--yellow);}
+.dark .step p{color:rgba(255,255,255,.85);}
+.kicker{display:flex;gap:8px;align-items:baseline;margin-bottom:12px;}
+.kicker .dot{width:8px;height:8px;background:var(--yellow);border-radius:50%;}
+.center{display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;flex:1;}
+.center h1{margin-bottom:24px;}
+.bottom-strip{margin-top:auto;display:flex;justify-content:space-between;align-items:flex-end;gap:16px;}
+.foot-note{font-size:11px;color:var(--muted);max-width:480px;line-height:1.4;}
+.dark .foot-note{color:rgba(255,255,255,.55);}
+.bullets{list-style:none;padding:0;margin:0;}
+.bullets li{padding:6px 0 6px 22px;position:relative;font-size:14px;line-height:1.5;}
+.bullets li::before{content:'';position:absolute;left:0;top:14px;width:8px;height:8px;background:var(--yellow);border-radius:50%;}
+.dark .bullets li::before{background:var(--yellow);}
+.muted{color:var(--muted);}
+.dark .muted{color:rgba(255,255,255,.7);}
+.flow{display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
+.flow-step{padding:14px 18px;background:#fff;border:1px solid var(--line);border-radius:8px;font-size:13px;font-weight:500;}
+.flow-step.hot{background:var(--yellow);font-weight:600;}
+.flow-arrow{font-size:18px;color:var(--blue);}
+.dark .flow-step{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.15);color:#fff;}
+.dark .flow-arrow{color:var(--yellow);}
+.hr{height:1px;background:var(--line);margin:20px 0;}
+.dark .hr{background:rgba(255,255,255,.15);}
+
+@media print{
+  body{background:#fff;padding:0;margin:0;}
+  .deck{max-width:none;}
+  .slide{
+    page-break-after:always;
+    page-break-inside:avoid;
+    box-shadow:none;
+    margin:0;
+    border-radius:0;
+    width:297mm;
+    height:210mm;
+    aspect-ratio:auto;
+  }
+  .slide:last-child{page-break-after:auto;}
+}
+
+@page{size:A4 landscape;margin:0;}
+</style>
+</head>
+<body>
+<div class="deck">
+
+<!-- ───── SLIDE 1: COVER ───── -->
+<section class="slide deeper">
+  <div class="brand-strip"></div>
+  <div class="slide-body center">
+    <div class="eyebrow">EU Funding School · 2026-04-28</div>
+    <h1 style="max-width:900px;text-align:center;">Pricing &amp; Operations<br>Framework 2026—2027</h1>
+    <p class="lead" style="margin-top:32px;text-align:center;max-width:680px;">
+      Cómo cobramos por <strong style="color:var(--yellow);">acompañar a una entidad</strong>
+      a presentar una propuesta Erasmus+ competitiva.
+    </p>
+    <div style="margin-top:48px;display:flex;gap:32px;justify-content:center;font-size:13px;color:rgba(255,255,255,.6);letter-spacing:.05em;">
+      <div>129 SKUs</div>
+      <div>·</div>
+      <div>47 Topic IDs</div>
+      <div>·</div>
+      <div>12 Cohortes</div>
+      <div>·</div>
+      <div>4 Tiers</div>
+    </div>
+  </div>
+  <div class="slide-num">01</div>
+</section>
+
+<!-- ───── SLIDE 2: PROBLEMA ───── -->
+<section class="slide">
+  <div class="slide-body">
+    <div class="eyebrow" style="color:var(--blue);">El reto</div>
+    <h2>El cliente no busca software.<br>Busca <span style="color:var(--blue);text-decoration:underline;text-decoration-color:var(--yellow);text-decoration-thickness:6px;text-underline-offset:6px;">presentar una convocatoria concreta</span>.</h2>
+    <div class="split" style="margin-top:32px;">
+      <div>
+        <h4>Lo que hay en el mercado</h4>
+        <ul class="bullets">
+          <li>Software puro de IA → no enseña.</li>
+          <li>Consultoría tradicional → no escala.</li>
+          <li>Cursos genéricos → no tienen producto al final.</li>
+          <li>Hacerlo solo → meses de aprendizaje y reescritura.</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Lo que vendemos</h4>
+        <ul class="bullets">
+          <li>Acceso a una <strong>cohorte por convocatoria</strong>.</li>
+          <li>8 clases live + lecciones grabadas + comunidad.</li>
+          <li>Herramienta de IA + iteración hasta deadline.</li>
+          <li>Ancla a una <strong>deadline real</strong>, no aprendizaje en abstracto.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="slide-num">02</div>
+</section>
+
+<!-- ───── SLIDE 3: POSICIONAMIENTO ───── -->
+<section class="slide lavender">
+  <div class="slide-body">
+    <div class="eyebrow" style="color:var(--blue);">Posicionamiento</div>
+    <h2 style="max-width:900px;">No vendemos una IA que escribe proyectos.<br>Vendemos <em>infraestructura para ganar convocatorias</em>.</h2>
+    <div class="cards" style="margin-top:48px;">
+      <div class="card">
+        <div class="num">1%</div>
+        <div class="label">del presupuesto del proyecto</div>
+        <p class="body" style="margin-top:8px;">Precio del slot escala con el valor del cliente, no con un tier abstracto.</p>
+      </div>
+      <div class="card card-yellow">
+        <div class="num">12</div>
+        <div class="label">cohortes pedagógicas</div>
+        <p class="body" style="margin-top:8px;">Una por familia. 47 topics absorbidos en módulos didácticos.</p>
+      </div>
+      <div class="card card-blue">
+        <div class="num">€25k</div>
+        <div class="label">cap absoluto del slot</div>
+        <p class="body" style="margin-top:8px;">Por encima → propuesta consultiva individual, no SaaS.</p>
+      </div>
+    </div>
+  </div>
+  <div class="slide-num">03</div>
+</section>
+
+<!-- ───── SLIDE 4: EL CATÁLOGO ───── -->
+<section class="slide">
+  <div class="slide-body">
+    <div class="eyebrow" style="color:var(--blue);">Punto de partida — el catálogo Erasmus+</div>
+    <h2>129 SKUs reales en 14 familias.</h2>
+    <p class="lead" style="margin-top:8px;">Source de verdad: <code style="background:#eee;padding:2px 6px;border-radius:4px;font-size:14px;">data/erasmus_plus_2027_calls_speculative.clean.json</code></p>
+    <div class="cards cards-4" style="margin-top:32px;">
+      <div class="card"><div class="num">XS</div><div class="label">&lt; 60.000 €</div><p class="body" style="margin-top:8px;"><strong>6 SKUs</strong><br>KA210, Sport SSCP, EMJM Design</p></div>
+      <div class="card card-yellow"><div class="num">S</div><div class="label">60.000 – 500.000 €</div><p class="body" style="margin-top:8px;"><strong>72 SKUs (56%)</strong><br>El corazón comercial</p></div>
+      <div class="card card-yellow"><div class="num">M</div><div class="label">500.000 – 1,5M €</div><p class="body" style="margin-top:8px;"><strong>42 SKUs (33%)</strong><br>Profesional</p></div>
+      <div class="card"><div class="num">L</div><div class="label">≥ 1,5M €</div><p class="body" style="margin-top:8px;"><strong>9 SKUs</strong><br>Consultivo / cap</p></div>
+    </div>
+    <div class="bottom-strip">
+      <p class="foot-note">El 88% del catálogo está concentrado en S+M. La diferenciación entre EACEA (33 topics, Form Part B único, corto plazo) y National Agency (14 topics, formularios por país, otoño 2026) ordena el roadmap. KA1 espera a guía 2028.</p>
+    </div>
+  </div>
+  <div class="slide-num">04</div>
+</section>
+
+<!-- ───── SLIDE 5: 47 → 12 ───── -->
+<section class="slide dark">
+  <div class="slide-body">
+    <div class="eyebrow">El cambio de mentalidad</div>
+    <h2 style="max-width:900px;">Las cohortes <span style="color:var(--yellow);">las define la guía</span>.<br>Las regiones son mini-módulos didácticos, no cursos separados.</h2>
+    <div class="split-70-30 split" style="margin-top:48px;">
+      <table class="kvtable" style="font-size:13px;">
+        <thead><tr><th>Cohorte</th><th>Topics</th><th>Deadline</th><th class="num-cell">Tickets</th></tr></thead>
+        <tbody>
+          <tr><td>CBHE (módulos 11 regiones)</td><td>11</td><td>10-feb</td><td class="num-cell">200k–2M</td></tr>
+          <tr><td>CB Youth + KA3 EYT</td><td>5</td><td>26-feb</td><td class="num-cell">300k–500k</td></tr>
+          <tr><td>CB VET (módulos 6 regiones)</td><td>6</td><td>26-mar</td><td class="num-cell">500k flat</td></tr>
+          <tr><td>Sport Cooperation &amp; Capacity</td><td>3</td><td>5-mar</td><td class="num-cell">30k–400k</td></tr>
+          <tr><td>Sport Events</td><td>2</td><td>22-ene</td><td class="num-cell">200k–1,5M</td></tr>
+          <tr><td>KA2 Coop+SS+ENGO (módulos sector)</td><td>11</td><td>5-mar</td><td class="num-cell">30k–400k</td></tr>
+          <tr><td>Alliances for Innovation</td><td>3</td><td>10-mar</td><td class="num-cell">1M–4M</td></tr>
+          <tr><td>EMJM (Mob + Design)</td><td>2</td><td>11-feb</td><td class="num-cell">55k–5M</td></tr>
+          <tr><td>Teacher Academies</td><td>1</td><td>26-mar</td><td class="num-cell">1,5M</td></tr>
+          <tr><td>EPSD (KA240-SCH)</td><td>1</td><td>9-abr</td><td class="num-cell">400k</td></tr>
+          <tr><td>CoVE (calendario propio)</td><td>1</td><td>3-sep</td><td class="num-cell">4M</td></tr>
+          <tr><td>European Universities (consultivo)</td><td>1</td><td>varía</td><td class="num-cell">6,4M</td></tr>
+        </tbody>
+      </table>
+      <div>
+        <div class="giant" style="color:var(--yellow);">12</div>
+        <p style="margin-top:8px;font-size:14px;color:rgba(255,255,255,.8);">cohortes pedagógicas reales que cubren todo el catálogo.</p>
+        <div class="hr"></div>
+        <p style="font-size:13px;color:rgba(255,255,255,.7);">Comparado con 47 topics o 129 SKUs, esto es operativamente manejable con 4-5 profesores en pico.</p>
+      </div>
+    </div>
+  </div>
+  <div class="slide-num">05</div>
+</section>
+
+<!-- ───── SLIDE 6: CALENDARIO ───── -->
+<section class="slide">
+  <div class="slide-body">
+    <div class="eyebrow" style="color:var(--blue);">El descubrimiento gordo</div>
+    <h2>94% de las deadlines en 11 semanas.</h2>
+    <p class="lead">22 enero – 9 abril 2027. CoVE en septiembre vive en otro calendario.</p>
+    <div class="timeline">
+      <div class="timeline-month"><div class="month">SEP 26</div><div class="bar" style="background:var(--lavender);"></div><div>captación</div></div>
+      <div class="timeline-month"><div class="month">OCT 26</div><div class="bar" style="background:var(--lavender);"></div><div>3 cohortes ↑</div></div>
+      <div class="timeline-month active"><div class="month">NOV 26</div><div class="bar"></div><div>+4 cohortes</div></div>
+      <div class="timeline-month peak"><div class="month">DIC 26</div><div class="bar"></div><div>8 paralelas</div></div>
+      <div class="timeline-month peak"><div class="month">ENE 27</div><div class="bar"></div><div>1ª deadline</div></div>
+      <div class="timeline-month peak"><div class="month">FEB 27</div><div class="bar"></div><div>CBHE+EMJM</div></div>
+      <div class="timeline-month peak"><div class="month">MAR 27</div><div class="bar"></div><div>16 topics</div></div>
+      <div class="timeline-month"><div class="month">ABR 27</div><div class="bar"></div><div>EPSD</div></div>
+      <div class="timeline-month"><div class="month">SEP 27</div><div class="bar" style="background:var(--yellow);"></div><div>CoVE</div></div>
+    </div>
+    <div class="cards" style="margin-top:32px;">
+      <div class="card card-lavender">
+        <h4 style="color:var(--blue);">Implicación 1</h4>
+        <p class="body">El año tiene <strong>UN PICO</strong>, no flujo continuo. La operación se diseña alrededor del pico.</p>
+      </div>
+      <div class="card card-lavender">
+        <h4 style="color:var(--blue);">Implicación 2</h4>
+        <p class="body">El <strong>calendario público</strong> con countdowns es el lead magnet principal. Contenido SEO de alta intención.</p>
+      </div>
+      <div class="card card-lavender">
+        <h4 style="color:var(--blue);">Implicación 3</h4>
+        <p class="body">Cada deadline genera una <strong>cohorte natural</strong>. Comunidad, comparación, aprendizaje cruzado.</p>
+      </div>
+    </div>
+  </div>
+  <div class="slide-num">06</div>
+</section>
+
+<!-- ───── SLIDE 7: 3 UNIDADES ───── -->
+<section class="slide">
+  <div class="slide-body">
+    <div class="eyebrow" style="color:var(--blue);">Tres unidades vendibles</div>
+    <h2>Cada slot empaqueta tres servicios distintos.</h2>
+    <div class="cards" style="margin-top:32px;">
+      <div class="card">
+        <div style="font-size:36px;margin-bottom:12px;">🎓</div>
+        <h3 style="color:var(--blue);">Academia</h3>
+        <p class="body" style="margin-top:8px;color:var(--muted);">8 clases live × 2h con experto · Lecciones grabadas evergreen · Comunidad de la cohorte · Acceso anual a actualizaciones.</p>
+        <div class="hr"></div>
+        <p class="body" style="font-size:12px;color:var(--muted);">Coste real: producción contenido (alta) + profesor (variable).</p>
+      </div>
+      <div class="card card-yellow">
+        <div style="font-size:36px;margin-bottom:12px;">🔧</div>
+        <h3 style="color:var(--blue);">Slot</h3>
+        <p class="body" style="margin-top:8px;color:var(--blue);">Acceso a la herramienta full · IA sin tope técnico · Iteración hasta deadline · Cap presupuestario funcional · Soporte asíncrono.</p>
+        <div class="hr" style="background:rgba(27,20,100,.2);"></div>
+        <p class="body" style="font-size:12px;color:var(--blue);">Coste real: IA por uso (~0,08€/refinado) + plataforma + soporte.</p>
+      </div>
+      <div class="card">
+        <div style="font-size:36px;margin-bottom:12px;">⭐</div>
+        <h3 style="color:var(--blue);">Premium</h3>
+        <p class="body" style="margin-top:8px;color:var(--muted);">Consultoría 1:1 · Evaluación profunda · Anuncios Partner Finder · Asesoría estratégica.</p>
+        <div class="hr"></div>
+        <p class="body" style="font-size:12px;color:var(--muted);">Coste real: tiempo experto humano. Margen alto.</p>
+      </div>
+    </div>
+    <div class="bottom-strip">
+      <p class="foot-note">El cliente compra <strong>el slot completo</strong> (Academia + Slot técnico). El Premium es up-sell separado, opcional, ticket alto.</p>
+    </div>
+  </div>
+  <div class="slide-num">07</div>
+</section>
+
+<!-- ───── SLIDE 8: 3 MECÁNICAS ───── -->
+<section class="slide">
+  <div class="slide-body">
+    <div class="eyebrow" style="color:var(--blue);">El funnel de cliente</div>
+    <h2>Tres mecánicas conviven, una por etapa de funnel.</h2>
+    <div class="cards" style="margin-top:32px;">
+      <div class="card card-lavender">
+        <span class="pill">cold</span>
+        <h3 style="margin-top:12px;color:var(--blue);">2 — Curso primero, slot después</h3>
+        <p class="body" style="margin-top:10px;">Entra por Academia (curso suelto). Al final, oferta de slot con descuento.</p>
+        <p class="body" style="margin-top:10px;font-size:12px;color:var(--muted);">Canal: blog, masterclasses gratuitas, ads.</p>
+      </div>
+      <div class="card card-yellow">
+        <span class="pill pill-blue">warm</span>
+        <h3 style="margin-top:12px;color:var(--blue);">1 — Slot con curso incluido</h3>
+        <p class="body" style="margin-top:10px;">Compra primer slot → cohorte de la familia incluida durante todo el ciclo.</p>
+        <p class="body" style="margin-top:10px;font-size:12px;color:var(--blue);">Canal: sandbox, recomendación, calendario público.</p>
+      </div>
+      <div class="card card-blue">
+        <span class="pill pill-yellow">hot</span>
+        <h3 style="margin-top:12px;color:var(--yellow);">3 — Slot directo, curso opcional</h3>
+        <p class="body" style="margin-top:10px;">Sube proyecto rechazado al Evaluador → identificación familia → slot directo.</p>
+        <p class="body" style="margin-top:10px;font-size:12px;">Canal: profesionales veteranos, escribas freelance.</p>
+      </div>
+    </div>
+    <div class="bottom-strip">
+      <p class="foot-note">Las tres mecánicas mapean a las tags ya implementadas en centralize.es: <code style="background:#eee;padding:1px 6px;border-radius:4px;">efs:cold</code> · <code style="background:#eee;padding:1px 6px;border-radius:4px;">efs:warm</code> · <code style="background:#eee;padding:1px 6px;border-radius:4px;">efs:hot</code></p>
+    </div>
+  </div>
+  <div class="slide-num">08</div>
+</section>
+
+<!-- ───── SLIDE 9: PRICING — la fórmula ───── -->
+<section class="slide deeper">
+  <div class="slide-body">
+    <div class="eyebrow">El pricing</div>
+    <h2 style="max-width:900px;">Slot = <span style="color:var(--yellow);">1 % del presupuesto</span><br>con curva regresiva &gt; 800k.</h2>
+    <table class="kvtable" style="margin-top:32px;font-size:14px;">
+      <thead><tr><th>Tramo del presupuesto</th><th class="num-cell">Tasa marginal</th><th class="num-cell">Acumulado al final del tramo</th></tr></thead>
+      <tbody>
+        <tr><td>0 – 800.000 €</td><td class="num-cell">1,0 %</td><td class="num-cell">8.000 €</td></tr>
+        <tr><td>800.000 – 1.500.000 €</td><td class="num-cell">0,7 %</td><td class="num-cell">12.900 €</td></tr>
+        <tr><td>1.500.000 – 3.000.000 €</td><td class="num-cell">0,5 %</td><td class="num-cell">20.400 €</td></tr>
+        <tr><td>≥ 3.000.000 €</td><td class="num-cell">0,3 %</td><td class="num-cell">hasta cap</td></tr>
+        <tr style="background:var(--yellow);"><td style="color:var(--blue);font-weight:600;">Cap absoluto</td><td class="num-cell" style="color:var(--blue);">—</td><td class="num-cell" style="color:var(--blue);">25.000 €</td></tr>
+      </tbody>
+    </table>
+    <div class="bottom-strip" style="margin-top:32px;">
+      <p class="q" style="color:var(--yellow);border-left-color:var(--yellow);">"El precio de tu slot es el 1% del presupuesto de tu proyecto. A partir de 800.000€ aplicamos descuentos progresivos para que ningún slot supere los 25.000€. Por encima de ese tamaño hablamos de una propuesta consultiva personalizada."</p>
+    </div>
+  </div>
+  <div class="slide-num">09</div>
+</section>
+
+<!-- ───── SLIDE 10: CURVA EN PUNTOS ───── -->
+<section class="slide">
+  <div class="slide-body">
+    <div class="eyebrow" style="color:var(--blue);">La curva en puntos clave</div>
+    <h2>Aterrizado a presupuestos reales del catálogo.</h2>
+    <table class="kvtable" style="margin-top:24px;font-size:14px;">
+      <thead><tr><th>Presupuesto</th><th class="num-cell">Slot v1 (1% lineal)</th><th class="num-cell">Slot v2 (regresivo)</th><th>Cohorte ejemplo</th></tr></thead>
+      <tbody>
+        <tr><td>30.000 €</td><td class="num-cell">300 €</td><td class="num-cell">300 €</td><td class="muted">KA210, Sport SSCP</td></tr>
+        <tr><td>120.000 €</td><td class="num-cell">1.200 €</td><td class="num-cell">1.200 €</td><td class="muted">KA220 mín, ENGO mín</td></tr>
+        <tr><td>400.000 €</td><td class="num-cell">4.000 €</td><td class="num-cell">4.000 €</td><td class="muted">KA220 alto, EPSD</td></tr>
+        <tr><td>500.000 €</td><td class="num-cell">5.000 €</td><td class="num-cell">5.000 €</td><td class="muted">CB VET, EYT</td></tr>
+        <tr><td>800.000 €</td><td class="num-cell">8.000 €</td><td class="num-cell">8.000 €</td><td class="muted">CBHE strand 2</td></tr>
+        <tr style="background:var(--lavender-soft);"><td>1.000.000 €</td><td class="num-cell">10.000 €</td><td class="num-cell">9.400 €</td><td class="muted">CBHE strand 3, AoI mín</td></tr>
+        <tr style="background:var(--lavender-soft);"><td>1.500.000 €</td><td class="num-cell">15.000 €</td><td class="num-cell">12.900 €</td><td class="muted">Teacher Acad, AoI Lot 1</td></tr>
+        <tr style="background:var(--lavender-soft);"><td>2.000.000 €</td><td class="num-cell">20.000 €</td><td class="num-cell">15.400 €</td><td class="muted">CBHE EU-Moldova</td></tr>
+        <tr style="background:var(--yellow);"><td style="color:var(--blue);">4.000.000 €</td><td class="num-cell" style="color:var(--blue);">40.000 €</td><td class="num-cell" style="color:var(--blue);">23.400 €</td><td style="color:var(--blue);">CoVE, AoI Blueprint</td></tr>
+        <tr style="background:var(--yellow);"><td style="color:var(--blue);">5.000.000 €</td><td class="num-cell" style="color:var(--blue);">50.000 €</td><td class="num-cell" style="color:var(--blue);">25.000 €*</td><td style="color:var(--blue);">EMJM Mobility</td></tr>
+        <tr style="background:var(--yellow);"><td style="color:var(--blue);">6.400.000 €</td><td class="num-cell" style="color:var(--blue);">64.000 €</td><td class="num-cell" style="color:var(--blue);">25.000 €*</td><td style="color:var(--blue);">European Universities</td></tr>
+      </tbody>
+    </table>
+    <p class="foot-note" style="margin-top:14px;">* Cap absoluto activado. Por encima del cap el producto sale del catálogo automático y se vende como propuesta consultiva individual.</p>
+  </div>
+  <div class="slide-num">10</div>
+</section>
+
+<!-- ───── SLIDE 11: MATRIZ COHORTE × TIER ───── -->
+<section class="slide">
+  <div class="slide-body">
+    <div class="eyebrow" style="color:var(--blue);">Catálogo final</div>
+    <h2>Matriz cohorte × tier.</h2>
+    <table class="kvtable" style="margin-top:24px;font-size:13px;">
+      <thead><tr><th>Cohorte</th><th class="num-cell">XS &lt;60k</th><th class="num-cell">S 60k–500k</th><th class="num-cell">M 500k–1,5M</th><th class="num-cell">L ≥1,5M</th></tr></thead>
+      <tbody>
+        <tr><td>Sport Coop &amp; Capacity</td><td class="num-cell">300€</td><td class="num-cell">600€–4.000€</td><td class="num-cell fade">—</td><td class="num-cell fade">—</td></tr>
+        <tr><td>Sport Events</td><td class="num-cell fade">—</td><td class="num-cell">2.000€–4.500€</td><td class="num-cell">9.400€</td><td class="num-cell">12.900€</td></tr>
+        <tr><td>CBHE</td><td class="num-cell fade">—</td><td class="num-cell">2.000€–4.000€</td><td class="num-cell">6.000€–9.400€</td><td class="num-cell">15.400€</td></tr>
+        <tr><td>CB Youth + EYT</td><td class="num-cell fade">—</td><td class="num-cell">3.000€–4.500€</td><td class="num-cell">5.000€</td><td class="num-cell fade">—</td></tr>
+        <tr><td>KA2 Coop+SS+ENGO</td><td class="num-cell">300€</td><td class="num-cell">600€–4.000€</td><td class="num-cell fade">—</td><td class="num-cell fade">—</td></tr>
+        <tr><td>AoI</td><td class="num-cell fade">—</td><td class="num-cell fade">—</td><td class="num-cell">9.400€</td><td class="num-cell">12.900€–23.400€</td></tr>
+        <tr><td>CB VET</td><td class="num-cell fade">—</td><td class="num-cell fade">—</td><td class="num-cell">5.000€</td><td class="num-cell fade">—</td></tr>
+        <tr><td>Teacher Academies</td><td class="num-cell fade">—</td><td class="num-cell fade">—</td><td class="num-cell fade">—</td><td class="num-cell">12.900€</td></tr>
+        <tr><td>EPSD</td><td class="num-cell fade">—</td><td class="num-cell">4.000€</td><td class="num-cell fade">—</td><td class="num-cell fade">—</td></tr>
+        <tr><td>EMJM</td><td class="num-cell">550€</td><td class="num-cell fade">—</td><td class="num-cell fade">—</td><td class="num-cell" style="color:var(--blue);background:rgba(251,255,18,.4);">25.000€ *</td></tr>
+        <tr><td>CoVE</td><td class="num-cell fade">—</td><td class="num-cell fade">—</td><td class="num-cell fade">—</td><td class="num-cell">23.400€</td></tr>
+        <tr><td>European Universities</td><td class="num-cell fade">—</td><td class="num-cell fade">—</td><td class="num-cell fade">—</td><td class="num-cell" style="color:var(--blue);background:rgba(251,255,18,.4);">25.000€ *</td></tr>
+      </tbody>
+    </table>
+    <p class="foot-note" style="margin-top:14px;">* Cap consultivo: el producto sale del catálogo automático y se vende como propuesta personalizada.</p>
+  </div>
+  <div class="slide-num">11</div>
+</section>
+
+<!-- ───── SLIDE 12: UX RECORRIDO ───── -->
+<section class="slide lavender">
+  <div class="slide-body">
+    <div class="eyebrow" style="color:var(--blue);">El recorrido del cliente</div>
+    <h2>Tienda con asesoramiento, no catálogo de 129 productos.</h2>
+    <div class="steps" style="margin-top:32px;">
+      <div class="step">
+        <div class="step-num">PASO 1</div>
+        <h4>Selecciono cohorte</h4>
+        <p>Veo 12 opciones agrupadas. Escojo la que me toca: <em>"Cooperation Partnerships KA220"</em>.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">PASO 2</div>
+        <h4>Selecciono presupuesto</h4>
+        <p>Dentro de KA220 hay 3 amounts oficiales: 120k, 250k, 400k. Elijo 250k porque es lo que mi entidad va a pedir.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">PASO 3</div>
+        <h4>Veo el slot completo</h4>
+        <p><strong>Slot 2.500€</strong>. Incluye 8 clases live, lecciones grabadas, herramienta + IA, cohorte nov-ene, deadline 5-mar.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">PASO 4</div>
+        <h4>Compro o pruebo</h4>
+        <p>Compro slot directamente, o pruebo el sandbox Sport SSCP 30k gratis primero.</p>
+      </div>
+    </div>
+    <div class="bottom-strip" style="margin-top:32px;">
+      <p class="q" style="font-size:18px;font-style:normal;font-weight:500;">El cliente nunca ve los 129 SKUs. Ve solo los 3 amounts de SU cohorte. Y el sistema le dice <strong>el precio único</strong> que aplica a su elección.</p>
+    </div>
+  </div>
+  <div class="slide-num">12</div>
+</section>
+
+<!-- ───── SLIDE 13: CAPACIDAD ───── -->
+<section class="slide dark">
+  <div class="slide-body">
+    <div class="eyebrow">Capacidad operativa</div>
+    <h2 style="max-width:900px;"><span style="color:var(--yellow);">8 cohortes</span> activas en paralelo en pico.<br><span style="color:var(--yellow);">4-5 profesores</span> rotando.</h2>
+    <div class="split" style="margin-top:32px;">
+      <div>
+        <div class="kvgrid">
+          <dt>Pico operativo</dt><dd>10-dic-2026 → 24-feb-2027</dd>
+          <dt>Cohortes activas</dt><dd>8 en paralelo</dd>
+          <dt>Profesores</dt><dd>4-5 (incl. Oscar)</dd>
+          <dt>Ratio</dt><dd>1,6-2 cohortes / profesor</dd>
+          <dt>Carga semanal</dt><dd>~25-30h docencia / profesor</dd>
+          <dt>Capacidad por cohorte</dt><dd>~30 alumnos (sin cerrar)</dd>
+        </div>
+      </div>
+      <div>
+        <h4 style="color:var(--yellow);">Si la demanda excede capacidad</h4>
+        <ul class="bullets" style="color:rgba(255,255,255,.85);">
+          <li><strong style="color:#fff;">Subir precio</strong> en la siguiente edición.</li>
+          <li><strong style="color:#fff;">Abrir 2ª cohorte paralela</strong> con otro profesor.</li>
+          <li><strong style="color:#fff;">Lista de espera</strong> hasta el ciclo siguiente.</li>
+        </ul>
+        <div class="hr"></div>
+        <p style="color:rgba(255,255,255,.75);font-size:13px;">Filosofía adoptada: precio premium desde el inicio + descuento "primer año" (30-40%) para suavizar entrada y crear sensación de oportunidad limitada.</p>
+      </div>
+    </div>
+  </div>
+  <div class="slide-num">13</div>
+</section>
+
+<!-- ───── SLIDE 14: POLÍTICA CAMBIO GUÍA ───── -->
+<section class="slide">
+  <div class="slide-body">
+    <div class="eyebrow" style="color:var(--blue);">Riesgo gestionado</div>
+    <h2>La guía 2027 se publica el 15-dic-2026.<br><span class="muted">Para entonces ya tendremos 6-8 semanas de cursos en marcha.</span></h2>
+    <div class="cards" style="margin-top:32px;">
+      <div class="card card-lavender">
+        <h4 style="color:var(--blue);">Cambio cosmético</h4>
+        <p class="body" style="margin-top:8px;">Presupuesto +/- 10%, nombre, alguna región nueva.</p>
+        <div class="hr"></div>
+        <p class="body"><strong>Curso y slot siguen.</strong> Actualizamos contenido en 1-2 semanas. Solo notificación al cliente.</p>
+      </div>
+      <div class="card card-yellow">
+        <h4 style="color:var(--blue);">Cambio sustancial con equivalente</h4>
+        <p class="body" style="margin-top:8px;color:var(--blue);">Cambia estructura pero hay programa similar.</p>
+        <div class="hr" style="background:rgba(27,20,100,.2);"></div>
+        <p class="body" style="color:var(--blue);"><strong>Reasignación automática.</strong> El cliente confirma o pide devolución. Default: reasigna.</p>
+      </div>
+      <div class="card card-blue">
+        <h4 style="color:var(--yellow);">Desaparición sin equivalente</h4>
+        <p class="body" style="margin-top:8px;">Raro, sólo al cierre del periodo 2021-2027.</p>
+        <div class="hr" style="background:rgba(255,255,255,.2);"></div>
+        <p class="body"><strong>Cliente elige.</strong> Devolución completa O crédito íntegro a otra cohorte.</p>
+      </div>
+    </div>
+    <p class="foot-note" style="margin-top:24px;"><strong>Disclaimer en T&amp;C:</strong> "Las convocatorias Erasmus+ son publicadas oficialmente por la Comisión Europea a mediados de diciembre del año previo. Si el programa cambia o desaparece, tu acceso se actualiza automáticamente al equivalente; si no hay equivalente, puedes elegir entre devolución completa o crédito en plataforma."</p>
+  </div>
+  <div class="slide-num">14</div>
+</section>
+
+<!-- ───── SLIDE 15: ESTIMACIONES ───── -->
+<section class="slide">
+  <div class="slide-body">
+    <div class="eyebrow" style="color:var(--blue);">Proyección económica temporada 2026-2027</div>
+    <h2>Tres escenarios.</h2>
+    <div class="cards" style="margin-top:32px;">
+      <div class="card">
+        <h4 style="color:var(--muted);">Conservador</h4>
+        <div class="num" style="color:var(--blue);">880k €</div>
+        <p class="body" style="margin-top:12px;">Cohortes al 50% de ocupación, 2-3 contratos consultivos. Posición sana primer año.</p>
+      </div>
+      <div class="card card-yellow">
+        <h4 style="color:var(--blue);">Realista</h4>
+        <div class="num" style="color:var(--blue);">1,8M – 2M €</div>
+        <p class="body" style="margin-top:12px;color:var(--blue);">30 alumnos / cohorte ordinaria, 5-10 contratos consultivos, +10-20% up-sell.</p>
+      </div>
+      <div class="card card-blue">
+        <h4 style="color:var(--yellow);">Costes operativos</h4>
+        <div class="num" style="color:var(--yellow);">110-185k €</div>
+        <p class="body" style="margin-top:12px;">Profesorado, contenido, IA, plataforma, marketing. Margen operativo estimado: <strong style="color:var(--yellow);">80-90%</strong>.</p>
+      </div>
+    </div>
+    <div class="bottom-strip" style="margin-top:32px;">
+      <p class="foot-note">Comparado con BUSINESS_PLAN.md v2.0 (482k–1.200k€), el framework nuevo da techo natural ~2M€ por la cobertura de 12 cohortes operadas en paralelo. Proyección detallada en docs/PRICING_FRAMEWORK.md §12.</p>
+    </div>
+  </div>
+  <div class="slide-num">15</div>
+</section>
+
+<!-- ───── SLIDE 16: ROADMAP VISUAL ───── -->
+<section class="slide deeper">
+  <div class="slide-body">
+    <div class="eyebrow">Roadmap operativo</div>
+    <h2 style="color:#fff;">De ahora a julio 2027.</h2>
+    <div style="margin-top:32px;font-size:12px;">
+      <div style="display:grid;grid-template-columns:120px 1fr;gap:8px 16px;">
+        <div style="font-weight:700;color:var(--yellow);">MAY 2026</div>
+        <div style="color:rgba(255,255,255,.85);">BD cohorts/slots, pricing engine, MERGE pendiente. Decisiones abiertas: % repetición, % primer año.</div>
+        <div style="font-weight:700;color:var(--yellow);">JUN-JUL</div>
+        <div style="color:rgba(255,255,255,.85);">UI selector cohorte + checkout Stripe + calendario público SEO. Producción contenido CBHE + KA2.</div>
+        <div style="font-weight:700;color:var(--yellow);">AGO-SEP</div>
+        <div style="color:rgba(255,255,255,.85);">Sistema gestión cohortes. Resto contenido evergreen. Lanzamiento ads, primera masterclass, inscripciones abiertas.</div>
+        <div style="font-weight:700;color:var(--yellow);">OCT-NOV</div>
+        <div style="color:rgba(255,255,255,.85);">Sport Events arranca 8-oct · CBHE 27-oct · EMJM 28-oct · CB Youth 12-nov · KA2/Sport Coop 19-nov · AoI 24-nov.</div>
+        <div style="font-weight:700;color:var(--yellow);">DIC 2026</div>
+        <div style="color:rgba(255,255,255,.85);">CB VET + Teacher Acad arrancan 10-dic · 8 COHORTES PARALELAS · 15-dic guía 2027 oficial · EPSD arranca 24-dic.</div>
+        <div style="font-weight:700;color:var(--yellow);">ENE-MAR 2027</div>
+        <div style="color:rgba(255,255,255,.85);">Pico de uso herramienta. Cierres de cohorte en cascada. Deadlines: 22-ene Sport Events · 10-feb CBHE · 5-mar KA2 (16 topics) · 26-mar CB VET.</div>
+        <div style="font-weight:700;color:var(--yellow);">ABR-MAY 2027</div>
+        <div style="color:rgba(255,255,255,.85);">9-abr deadline EPSD. Post-mortem temporada principal. Mejoras producto. Captación CoVE.</div>
+        <div style="font-weight:700;color:var(--yellow);">JUN-JUL 2027</div>
+        <div style="color:rgba(255,255,255,.85);">19-jun cohorte CoVE arranca. Resultados Erasmus+ llegando. Up-sell "reescritura premium" para no aprobados. Plan 2027-2028.</div>
+        <div style="font-weight:700;color:var(--yellow);">SEP 2027</div>
+        <div style="color:rgba(255,255,255,.85);">3-sep deadline CoVE. Cierre ciclo año.</div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-num">16</div>
+</section>
+
+<!-- ───── SLIDE 17: HITOS CRÍTICOS ───── -->
+<section class="slide">
+  <div class="slide-body">
+    <div class="eyebrow" style="color:var(--blue);">Hitos críticos (decisiones go/no-go)</div>
+    <h2>Lo que tiene que estar listo o se cae el ciclo.</h2>
+    <table class="kvtable" style="margin-top:24px;">
+      <thead><tr><th>Fecha</th><th>Hito</th><th>Si no se cumple</th></tr></thead>
+      <tbody>
+        <tr><td>31-may-2026</td><td>BD cohorts/slots seedeados</td><td class="muted">Bloquea todo el dev posterior</td></tr>
+        <tr><td>15-jul-2026</td><td>Calendario público publicado</td><td class="muted">Reduce ventana SEO antes del pico de captación</td></tr>
+        <tr><td>31-ago-2026</td><td>Producción contenido CBHE+KA2 lista</td><td class="muted">Imposible abrir esas cohortes</td></tr>
+        <tr style="background:var(--yellow);"><td style="color:var(--blue);font-weight:700;">8-oct-2026</td><td style="color:var(--blue);font-weight:600;">Apertura primera cohorte</td><td style="color:var(--blue);">Retraso arranque temporada</td></tr>
+        <tr style="background:var(--lavender-soft);"><td>15-dic-2026</td><td><strong>Procesar guía 2027 oficial</strong></td><td class="muted">Riesgo legal si los cursos avanzan con catálogo desactualizado</td></tr>
+        <tr><td>22-ene-2027</td><td>1ª deadline real (Sport Events)</td><td class="muted">Feedback inicial perdido</td></tr>
+        <tr><td>9-abr-2027</td><td>Última deadline temporada principal</td><td class="muted">Cierre temporada</td></tr>
+        <tr><td>3-sep-2027</td><td>Deadline CoVE</td><td class="muted">Cierre ciclo año</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="slide-num">17</div>
+</section>
+
+<!-- ───── SLIDE 18: RIESGOS ───── -->
+<section class="slide">
+  <div class="slide-body">
+    <div class="eyebrow" style="color:var(--blue);">Lo que puede salir mal</div>
+    <h2>Riesgos identificados y mitigaciones.</h2>
+    <div class="cards cards-2" style="margin-top:24px;">
+      <div class="card">
+        <h4>⚠ Cambio gordo en guía 2027 (15-dic)</h4>
+        <p class="body" style="margin-top:8px;">Probabilidad media · Impacto alto · <strong>Mitigado</strong> con política de reasignación documentada.</p>
+      </div>
+      <div class="card">
+        <h4>⚠ Profesor enferma en pico</h4>
+        <p class="body" style="margin-top:8px;">Probabilidad alta (aritmética) · Impacto medio-alto · <strong>Mitigado</strong> con backup + clases grabables.</p>
+      </div>
+      <div class="card">
+        <h4>⚠ Plataforma cae bajo carga ene-mar</h4>
+        <p class="body" style="margin-top:8px;">Probabilidad media · Impacto alto · Stress test sept-oct, autoscaling Hetzner.</p>
+      </div>
+      <div class="card">
+        <h4>⚠ Cliente: "me degradaron la IA"</h4>
+        <p class="body" style="margin-top:8px;">Probabilidad alta si fallamos · Impacto alto · <strong>Decisión:</strong> NUNCA degradar IA. Capping por iteraciones, mensaje claro.</p>
+      </div>
+      <div class="card">
+        <h4>⚠ Devoluciones masivas tras cambio guía</h4>
+        <p class="body" style="margin-top:8px;">Probabilidad media · Impacto alto · Disclaimer T&amp;C + reasignación default.</p>
+      </div>
+      <div class="card">
+        <h4>⚠ Primer año bajo proyección</h4>
+        <p class="body" style="margin-top:8px;">Probabilidad alta · Impacto medio · Costes operativos contenidos en 110-185k €. Soportable.</p>
+      </div>
+    </div>
+  </div>
+  <div class="slide-num">18</div>
+</section>
+
+<!-- ───── SLIDE 19: PRÓXIMOS PASOS ───── -->
+<section class="slide lavender">
+  <div class="slide-body">
+    <div class="eyebrow" style="color:var(--blue);">Lo siguiente</div>
+    <h2>Decisiones abiertas que cerrar antes del 31-may-2026.</h2>
+    <div class="cards cards-2" style="margin-top:24px;">
+      <div class="card">
+        <h4 style="color:var(--blue);">Pricing fino</h4>
+        <ul class="bullets">
+          <li>% descuento de repetición en familia (banda 40-50%)</li>
+          <li>% descuento "primer año" (banda 30-40%)</li>
+          <li>Precio del curso suelto (49-300€ por cohorte)</li>
+          <li>Bandas de consultoría 1:1 (80-1.500€)</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4 style="color:var(--blue);">Producto + operación</h4>
+        <ul class="bullets">
+          <li>Sub-formato auto-servicio para XS (KA210/SSCP)</li>
+          <li>Decisión EMJM Design: dónde encajarlo</li>
+          <li>Profesores invitados: contratos / honorarios</li>
+          <li>Cap real por cohorte (sin cerrar; subir si se llena)</li>
+        </ul>
+      </div>
+    </div>
+    <div class="bottom-strip" style="margin-top:32px;">
+      <p class="foot-note"><strong>Documentos canónicos:</strong> docs/PRICING_FRAMEWORK.md (base teórica) · docs/ROADMAP_2026_2027.md (plan temporal) · data/pricing_v2_regressive.json (matriz precios) · data/cohorts_v1.json (12 cohortes)</p>
+    </div>
+  </div>
+  <div class="slide-num">19</div>
+</section>
+
+<!-- ───── SLIDE 20: CIERRE ───── -->
+<section class="slide deeper">
+  <div class="slide-body center">
+    <div class="brand-strip" style="position:absolute;top:0;left:0;right:0;"></div>
+    <h1 style="text-align:center;max-width:900px;color:#fff;">Aprender → Construir → Evaluar<br>→ Mejorar → <span style="color:var(--yellow);">Ganar</span> → Conectar.</h1>
+    <p class="lead" style="margin-top:32px;text-align:center;color:rgba(255,255,255,.8);max-width:680px;">
+      No vendemos software. No vendemos un curso suelto.<br>
+      Vendemos la capacidad real de competir por una convocatoria europea.
+    </p>
+    <div style="margin-top:48px;font-size:13px;color:rgba(255,255,255,.6);letter-spacing:.05em;">
+      EU Funding School · Pricing &amp; Operations Framework · 2026-04-28
+    </div>
+  </div>
+  <div class="slide-num">20</div>
+</section>
+
+</div>
+</body>
+</html>

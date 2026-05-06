@@ -1,4 +1,6 @@
 const model = require('./model');
+const dmsGenerator = require('./dms-generator');
+const { enforceRefineCap } = require('../../utils/ai');
 
 // GET /v1/developer/projects/:projectId/context
 exports.getContext = async (req, res, next) => {
@@ -402,5 +404,409 @@ exports.improveField = async (req, res, next) => {
 
     const improved = await model.improveSection(text, action, section_title, projectContext, programId);
     res.json({ ok: true, data: { text: improved } });
+  } catch (err) { next(err); }
+};
+
+// POST /v1/developer/instances/:id/refine/evaluate
+// Phase 1 of Evaluate-and-Refine: returns the diagnosis + which weaknesses
+// would be targeted if the user opts to continue with phase 2.
+exports.refineEvaluate = async (req, res, next) => {
+  try {
+    const { field_id, text } = req.body;
+    if (!field_id || !text) {
+      return res.status(400).json({ ok: false, error: { code: 'BAD_REQUEST', message: 'field_id y text son obligatorios' } });
+    }
+    await enforceRefineCap(req.user.id, req.user.role);
+    const instance = await model.getInstance(req.params.id, req.user.id);
+    if (!instance) return res.status(404).json({ ok: false, error: { code: 'NOT_FOUND' } });
+
+    const programId = instance.program_id || null;
+    const result = await model.refineEvaluatePhase(instance.id, field_id, text, programId);
+    res.json({ ok: true, data: result });
+  } catch (err) { next(err); }
+};
+
+// POST /v1/developer/instances/:id/refine/apply
+// Phase 2 of Evaluate-and-Refine: takes the evaluation from phase 1, runs a
+// targeted improve + re-evaluation, returns the result. Auto-reverts on regression.
+exports.refineApply = async (req, res, next) => {
+  try {
+    const { field_id, text, evaluation } = req.body;
+    if (!field_id || !text || !evaluation) {
+      return res.status(400).json({ ok: false, error: { code: 'BAD_REQUEST', message: 'field_id, text y evaluation son obligatorios' } });
+    }
+    await enforceRefineCap(req.user.id, req.user.role);
+    const instance = await model.getInstance(req.params.id, req.user.id);
+    if (!instance) return res.status(404).json({ ok: false, error: { code: 'NOT_FOUND' } });
+
+    const programId = instance.program_id || null;
+    const projectContext = instance.project_id
+      ? await model.buildEnrichedContext(instance.project_id, req.user.id)
+      : '';
+    const ctx = instance.project_id ? await model.getProjectContext(instance.project_id, req.user.id) : null;
+    const coordName = ctx?.partners?.[0]?.name || 'the lead organisation';
+
+    const result = await model.refineApplyPhase(
+      instance.id, field_id, text, evaluation, projectContext, programId, coordName
+    );
+    res.json({ ok: true, data: result });
+  } catch (err) { next(err); }
+};
+
+// POST /v1/developer/instances/:id/refine
+// Legacy one-shot auto-refine (kept for backwards compat).
+exports.refineField = async (req, res, next) => {
+  try {
+    const { field_id, text } = req.body;
+    if (!field_id || !text) {
+      return res.status(400).json({ ok: false, error: { code: 'BAD_REQUEST', message: 'field_id y text son obligatorios' } });
+    }
+    await enforceRefineCap(req.user.id, req.user.role);
+
+    const instance = await model.getInstance(req.params.id, req.user.id);
+    if (!instance) return res.status(404).json({ ok: false, error: { code: 'NOT_FOUND' } });
+
+    const programId = instance.program_id || null;
+    const projectContext = instance.project_id
+      ? await model.buildEnrichedContext(instance.project_id, req.user.id)
+      : '';
+    const ctx = instance.project_id ? await model.getProjectContext(instance.project_id, req.user.id) : null;
+    const coordName = ctx?.partners?.[0]?.name || 'the lead organisation';
+
+    const result = await model.refineSectionAuto(
+      instance.id, field_id, text, projectContext, programId, coordName
+    );
+    res.json({ ok: true, data: result });
+  } catch (err) { next(err); }
+};
+
+// POST /v1/developer/instances/:id/improve-custom
+// Accepts a free-text user_request from the coordinator and revises the current
+// section text applying that request, using the same enriched context as generate.
+exports.improveFieldCustom = async (req, res, next) => {
+  try {
+    const { field_id, text, user_request } = req.body;
+    if (!field_id || !text || !user_request || !user_request.trim()) {
+      return res.status(400).json({ ok: false, error: { code: 'BAD_REQUEST', message: 'field_id, text y user_request son obligatorios' } });
+    }
+
+    const instance = await model.getInstance(req.params.id, req.user.id);
+    if (!instance) return res.status(404).json({ ok: false, error: { code: 'NOT_FOUND' } });
+
+    const programId = instance.program_id || null;
+    const projectContext = instance.project_id
+      ? await model.buildEnrichedContext(instance.project_id, req.user.id)
+      : '';
+    const ctx = instance.project_id ? await model.getProjectContext(instance.project_id, req.user.id) : null;
+    const coordName = ctx?.partners?.[0]?.name || 'the lead organisation';
+
+    const improved = await model.improveSectionCustom(
+      instance.id, field_id, text, user_request.trim(), projectContext, programId, coordName
+    );
+    res.json({ ok: true, data: { text: improved } });
+  } catch (err) { next(err); }
+};
+
+/* ── Writer Phase 2 — Milestones ─────────────────────────────── */
+
+exports.listMilestones = async (req, res, next) => {
+  try {
+    const rows = await model.listMilestones(req.params.wpId);
+    res.json({ ok: true, data: rows });
+  } catch (err) { next(err); }
+};
+
+exports.createMilestone = async (req, res, next) => {
+  try {
+    const id = await model.createMilestone(req.params.wpId, req.user.id, req.body || {});
+    res.json({ ok: true, data: { id } });
+  } catch (err) { next(err); }
+};
+
+exports.updateMilestone = async (req, res, next) => {
+  try {
+    await model.updateMilestone(req.params.id, req.user.id, req.body || {});
+    res.json({ ok: true, data: { saved: true } });
+  } catch (err) { next(err); }
+};
+
+exports.deleteMilestone = async (req, res, next) => {
+  try {
+    await model.deleteMilestone(req.params.id, req.user.id);
+    res.json({ ok: true, data: { deleted: true } });
+  } catch (err) { next(err); }
+};
+
+/* ── Writer Phase 2 — Deliverables ────────────────────────────── */
+
+exports.listDeliverables = async (req, res, next) => {
+  try {
+    const rows = await model.listDeliverables(req.params.wpId);
+    res.json({ ok: true, data: rows });
+  } catch (err) { next(err); }
+};
+
+exports.createDeliverable = async (req, res, next) => {
+  try {
+    const id = await model.createDeliverable(req.params.wpId, req.user.id, req.body || {});
+    res.json({ ok: true, data: { id } });
+  } catch (err) { next(err); }
+};
+
+exports.updateDeliverable = async (req, res, next) => {
+  try {
+    await model.updateDeliverable(req.params.id, req.user.id, req.body || {});
+    res.json({ ok: true, data: { saved: true } });
+  } catch (err) { next(err); }
+};
+
+exports.deleteDeliverable = async (req, res, next) => {
+  try {
+    await model.deleteDeliverable(req.params.id, req.user.id);
+    res.json({ ok: true, data: { deleted: true } });
+  } catch (err) { next(err); }
+};
+
+/* ── Writer Phase 3 — full WP form ───────────────────────────── */
+
+exports.getWpHeader = async (req, res, next) => {
+  try {
+    const data = await model.getWpHeader(req.params.wpId, req.user.id);
+    res.json({ ok: true, data });
+  } catch (err) { next(err); }
+};
+
+exports.updateWpHeader = async (req, res, next) => {
+  try {
+    await model.updateWpHeader(req.params.wpId, req.user.id, req.body || {});
+    res.json({ ok: true, data: { saved: true } });
+  } catch (err) { next(err); }
+};
+
+exports.listWpTasks = async (req, res, next) => {
+  try {
+    const rows = await model.listWpTasks(req.params.wpId);
+    res.json({ ok: true, data: rows });
+  } catch (err) { next(err); }
+};
+
+exports.createWpTask = async (req, res, next) => {
+  try {
+    const id = await model.createWpTask(req.params.wpId, req.user.id, req.body || {});
+    res.json({ ok: true, data: { id } });
+  } catch (err) { next(err); }
+};
+
+exports.updateWpTask = async (req, res, next) => {
+  try {
+    await model.updateWpTask(req.params.id, req.user.id, req.body || {});
+    res.json({ ok: true, data: { saved: true } });
+  } catch (err) { next(err); }
+};
+
+exports.deleteWpTask = async (req, res, next) => {
+  try {
+    await model.deleteWpTask(req.params.id, req.user.id);
+    res.json({ ok: true, data: { deleted: true } });
+  } catch (err) { next(err); }
+};
+
+exports.setTaskParticipant = async (req, res, next) => {
+  try {
+    await model.setTaskParticipant(req.params.id, req.user.id, req.params.partnerId, (req.body || {}).role);
+    res.json({ ok: true, data: { saved: true } });
+  } catch (err) { next(err); }
+};
+
+exports.removeTaskParticipant = async (req, res, next) => {
+  try {
+    await model.removeTaskParticipant(req.params.id, req.user.id, req.params.partnerId);
+    res.json({ ok: true, data: { deleted: true } });
+  } catch (err) { next(err); }
+};
+
+exports.getWpBudget = async (req, res, next) => {
+  try {
+    const data = await model.getWpBudget(req.params.wpId, req.user.id);
+    res.json({ ok: true, data });
+  } catch (err) { next(err); }
+};
+
+exports.listProjectPartners = async (req, res, next) => {
+  try {
+    const data = await model.listProjectPartners(req.params.projectId, req.user.id);
+    res.json({ ok: true, data });
+  } catch (err) { next(err); }
+};
+
+exports.aiFillWp = async (req, res, next) => {
+  try {
+    const targets = req.body && Array.isArray(req.body.targets) ? req.body.targets : null;
+    const data = await model.aiFillWp(req.params.wpId, req.user.id, { targets });
+    res.json({ ok: true, data });
+  } catch (err) { next(err); }
+};
+
+exports.resyncWpTasks = async (req, res, next) => {
+  try {
+    const seeded = await model.resyncWpTasks(req.params.wpId, req.user.id);
+    res.json({ ok: true, data: { seeded } });
+  } catch (err) { next(err); }
+};
+
+/* ── Project-level Deliverables & Milestones ─────────────────── */
+
+exports.listProjectDeliverables = async (req, res, next) => {
+  try {
+    const data = await model.listProjectDeliverables(req.params.projectId, req.user.id);
+    res.json({ ok: true, data });
+  } catch (err) { next(err); }
+};
+
+exports.listProjectMilestones = async (req, res, next) => {
+  try {
+    const data = await model.listProjectMilestones(req.params.projectId, req.user.id);
+    res.json({ ok: true, data });
+  } catch (err) { next(err); }
+};
+
+// (Legacy autoDistributeDeliverables / autoGenerateMilestones controllers removed
+//  2026-04-28. Replaced by dmsPreviewV2 / dmsApplyV2 below.)
+
+exports.getDeliverableSummary = async (req, res, next) => {
+  try {
+    const data = await model.getDeliverableSummary(req.params.projectId, req.user.id);
+    res.json({ ok: true, data });
+  } catch (err) { next(err); }
+};
+
+// POST /v1/developer/projects/:projectId/deliverables-milestones/preview-v2
+// Runs the 3-pass holistic generator and returns a preview without persisting.
+exports.dmsPreviewV2 = async (req, res, next) => {
+  try {
+    const data = await dmsGenerator.generatePreview(req.params.projectId, req.user.id);
+    res.json({ ok: true, data });
+  } catch (err) { next(err); }
+};
+
+// POST /v1/developer/projects/:projectId/deliverables-milestones/apply-v2
+// Persists a previously generated preview ({ plan, copy }).
+exports.dmsApplyV2 = async (req, res, next) => {
+  try {
+    const data = await dmsGenerator.applyPreview(req.params.projectId, req.user.id, req.body);
+    res.json({ ok: true, data });
+  } catch (err) { next(err); }
+};
+
+// GET /v1/developer/projects/:projectId/dms/tasks  (project-level wp_tasks list)
+exports.dmsListTasks = async (req, res, next) => {
+  try {
+    const data = await dmsGenerator.listProjectTasks(req.params.projectId, req.user.id);
+    res.json({ ok: true, data });
+  } catch (err) { next(err); }
+};
+
+// GET /v1/developer/projects/:projectId/deliverables-milestones/programme
+exports.dmsProgrammeMeta = async (req, res, next) => {
+  try {
+    const data = await dmsGenerator.getProgrammeMeta(req.params.projectId, req.user.id);
+    res.json({ ok: true, data });
+  } catch (err) { next(err); }
+};
+
+// GET /v1/developer/projects/:projectId/deliverables-milestones/validate
+exports.dmsValidate = async (req, res, next) => {
+  try {
+    const data = await dmsGenerator.validateExistingPlan(req.params.projectId, req.user.id);
+    res.json({ ok: true, data });
+  } catch (err) { next(err); }
+};
+
+// POST /v1/developer/projects/:projectId/deliverables-milestones/apply-fixes
+exports.dmsApplyFixes = async (req, res, next) => {
+  try {
+    const data = await dmsGenerator.applySuggestedFixes(req.params.projectId, req.user.id);
+    res.json({ ok: true, data });
+  } catch (err) { next(err); }
+};
+
+// POST /v1/developer/projects/:projectId/deliverables-milestones/autolink
+exports.dmsAutolink = async (req, res, next) => {
+  try {
+    const data = await dmsGenerator.autolinkOrphanMilestones(req.params.projectId, req.user.id);
+    res.json({ ok: true, data });
+  } catch (err) { next(err); }
+};
+
+// POST /v1/developer/deliverables/:id/regenerate
+exports.dmsRegenerateDeliverable = async (req, res, next) => {
+  try {
+    const data = await dmsGenerator.regenerateDeliverable(req.params.id, req.user.id, req.body?.hint || '');
+    res.json({ ok: true, data });
+  } catch (err) { next(err); }
+};
+
+// GET /v1/developer/projects/:projectId/dms/snapshots
+exports.dmsListSnapshots = async (req, res, next) => {
+  try {
+    const data = await dmsGenerator.listSnapshots(req.params.projectId, req.user.id);
+    res.json({ ok: true, data });
+  } catch (err) { next(err); }
+};
+
+// POST /v1/developer/dms/snapshots/:id/restore
+exports.dmsRestoreSnapshot = async (req, res, next) => {
+  try {
+    const data = await dmsGenerator.restoreSnapshot(req.params.id, req.user.id);
+    res.json({ ok: true, data });
+  } catch (err) { next(err); }
+};
+
+// GET /v1/developer/projects/:projectId/dms/ai-history
+exports.dmsAiHistory = async (req, res, next) => {
+  try {
+    const data = await dmsGenerator.listAiHistory(req.params.projectId, req.user.id, req.query.limit);
+    res.json({ ok: true, data });
+  } catch (err) { next(err); }
+};
+
+// GET /v1/developer/projects/:projectId/dms/comments?target_kind=...&target_id=...
+exports.dmsListComments = async (req, res, next) => {
+  try {
+    const data = req.query.target_id
+      ? await dmsGenerator.listComments(req.params.projectId, req.user.id, req.query.target_kind, req.query.target_id)
+      : await dmsGenerator.listAllComments(req.params.projectId, req.user.id);
+    res.json({ ok: true, data });
+  } catch (err) { next(err); }
+};
+
+exports.dmsCreateComment = async (req, res, next) => {
+  try {
+    const data = await dmsGenerator.createComment(req.params.projectId, req.user.id, req.body);
+    res.json({ ok: true, data });
+  } catch (err) { next(err); }
+};
+
+exports.dmsUpdateComment = async (req, res, next) => {
+  try {
+    const data = await dmsGenerator.updateComment(req.params.id, req.user.id, req.body);
+    res.json({ ok: true, data });
+  } catch (err) { next(err); }
+};
+
+exports.dmsDeleteComment = async (req, res, next) => {
+  try {
+    const data = await dmsGenerator.deleteComment(req.params.id, req.user.id);
+    res.json({ ok: true, data });
+  } catch (err) { next(err); }
+};
+
+// GET /v1/developer/projects/:projectId/dms/export.csv
+exports.dmsExportCsv = async (req, res, next) => {
+  try {
+    const csv = await dmsGenerator.exportCsv(req.params.projectId, req.user.id);
+    res.setHeader('Content-Type', 'text/csv; charset=utf-8');
+    res.setHeader('Content-Disposition', 'attachment; filename="deliverables-milestones.csv"');
+    res.send('﻿' + csv);  // UTF-8 BOM so Excel opens it correctly
   } catch (err) { next(err); }
 };

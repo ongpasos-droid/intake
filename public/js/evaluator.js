@@ -443,7 +443,7 @@ const Evaluator = (() => {
               }).join('')}
             </div>
             <div class="px-6 py-3 bg-gray-50 flex justify-end sticky bottom-0">
-              <button id="expand-save" class="px-5 py-2 rounded-xl text-xs font-bold text-[#e7eb00] bg-[#1b1464] hover:bg-[#1b1464]/80 transition-colors">Save</button>
+              <button id="expand-save" class="px-5 py-2 rounded-xl text-xs font-bold text-[#fbff12] bg-[#1b1464] hover:bg-[#1b1464]/80 transition-colors">Save</button>
             </div>
           </div>`;
         document.body.appendChild(overlay);
@@ -813,7 +813,7 @@ const Evaluator = (() => {
     let html = `
       <div class="flex items-center gap-3 mb-5">
         <div class="w-10 h-10 rounded-xl bg-[#1b1464] flex items-center justify-center flex-shrink-0">
-          <span class="text-sm font-extrabold text-[#e7eb00]">${wpNum}</span>
+          <span class="text-sm font-extrabold text-[#fbff12]">${wpNum}</span>
         </div>
         <div class="flex-1">
           <div class="text-[10px] font-bold uppercase tracking-widest text-primary">Work Package ${wpNum}</div>
@@ -903,7 +903,7 @@ const Evaluator = (() => {
               }).join('')}
             </div>
             <div class="px-6 py-3 bg-gray-50 flex justify-end sticky bottom-0">
-              <button id="expand-save" class="px-5 py-2 rounded-xl text-xs font-bold text-[#e7eb00] bg-[#1b1464] hover:bg-[#1b1464]/80 transition-colors">Save</button>
+              <button id="expand-save" class="px-5 py-2 rounded-xl text-xs font-bold text-[#fbff12] bg-[#1b1464] hover:bg-[#1b1464]/80 transition-colors">Save</button>
             </div>
           </div>`;
         document.body.appendChild(overlay);

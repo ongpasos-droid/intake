@@ -19,6 +19,10 @@ router.put('/instances/:id/field', requireAuth, ctrl.saveField);
 router.post('/instances/:id/generate', requireAuth, ctrl.generateDraft);
 router.post('/instances/:id/evaluate', requireAuth, ctrl.evaluateField);
 router.post('/instances/:id/improve', requireAuth, ctrl.improveField);
+router.post('/instances/:id/improve-custom', requireAuth, ctrl.improveFieldCustom);
+router.post('/instances/:id/refine', requireAuth, ctrl.refineField);
+router.post('/instances/:id/refine/evaluate', requireAuth, ctrl.refineEvaluate);
+router.post('/instances/:id/refine/apply', requireAuth, ctrl.refineApply);
 
 // Eval criteria (read-only)
 router.get('/eval-criteria', requireAuth, ctrl.getEvalCriteria);
@@ -63,5 +67,55 @@ router.post('/projects/:projectId/prep/wp/:wpId/generate-summary', requireAuth, 
 router.post('/projects/:projectId/prep/wp/:wpId/improve-summary', requireAuth, ctrl.improveWpSummary);
 router.post('/projects/:projectId/prep/activity/:activityId/generate-description', requireAuth, ctrl.generateActivityDescriptionDraft);
 router.post('/projects/:projectId/prep/activity/:activityId/improve-description', requireAuth, ctrl.improveActivityDescription);
+
+// Writer Phase 2 — per-WP structured tables (milestones + deliverables)
+router.get   ('/wp/:wpId/milestones',   requireAuth, ctrl.listMilestones);
+router.post  ('/wp/:wpId/milestones',   requireAuth, ctrl.createMilestone);
+router.patch ('/milestones/:id',        requireAuth, ctrl.updateMilestone);
+router.delete('/milestones/:id',        requireAuth, ctrl.deleteMilestone);
+router.get   ('/wp/:wpId/deliverables', requireAuth, ctrl.listDeliverables);
+router.post  ('/wp/:wpId/deliverables', requireAuth, ctrl.createDeliverable);
+router.patch ('/deliverables/:id',      requireAuth, ctrl.updateDeliverable);
+router.delete('/deliverables/:id',      requireAuth, ctrl.deleteDeliverable);
+
+// Writer Phase 3 — full WP form (Application Form Part B section 4.2)
+router.get   ('/wp/:wpId/header',                          requireAuth, ctrl.getWpHeader);
+router.put   ('/wp/:wpId/header',                          requireAuth, ctrl.updateWpHeader);
+router.get   ('/wp/:wpId/tasks',                           requireAuth, ctrl.listWpTasks);
+router.post  ('/wp/:wpId/tasks',                           requireAuth, ctrl.createWpTask);
+router.patch ('/tasks/:id',                                requireAuth, ctrl.updateWpTask);
+router.delete('/tasks/:id',                                requireAuth, ctrl.deleteWpTask);
+router.put   ('/tasks/:id/participants/:partnerId',        requireAuth, ctrl.setTaskParticipant);
+router.delete('/tasks/:id/participants/:partnerId',        requireAuth, ctrl.removeTaskParticipant);
+router.get   ('/wp/:wpId/budget',                          requireAuth, ctrl.getWpBudget);
+router.get   ('/projects/:projectId/partners',             requireAuth, ctrl.listProjectPartners);
+router.post  ('/wp/:wpId/ai-fill',                         requireAuth, ctrl.aiFillWp);
+router.post  ('/wp/:wpId/tasks/resync',                    requireAuth, ctrl.resyncWpTasks);
+
+// Project-level Deliverables & Milestones (Phase 4)
+router.get   ('/projects/:projectId/deliverables',         requireAuth, ctrl.listProjectDeliverables);
+router.get   ('/projects/:projectId/milestones',           requireAuth, ctrl.listProjectMilestones);
+router.get   ('/projects/:projectId/deliverables/summary', requireAuth, ctrl.getDeliverableSummary);
+// v2 holistic generator (3-pass: plan → copy → critic)
+router.post  ('/projects/:projectId/deliverables-milestones/preview-v2',   requireAuth, ctrl.dmsPreviewV2);
+router.post  ('/projects/:projectId/deliverables-milestones/apply-v2',     requireAuth, ctrl.dmsApplyV2);
+router.get   ('/projects/:projectId/deliverables-milestones/programme',    requireAuth, ctrl.dmsProgrammeMeta);
+router.get   ('/projects/:projectId/dms/tasks',                            requireAuth, ctrl.dmsListTasks);
+router.get   ('/projects/:projectId/deliverables-milestones/validate',     requireAuth, ctrl.dmsValidate);
+router.post  ('/projects/:projectId/deliverables-milestones/autolink',     requireAuth, ctrl.dmsAutolink);
+router.post  ('/projects/:projectId/deliverables-milestones/apply-fixes',  requireAuth, ctrl.dmsApplyFixes);
+router.post  ('/deliverables/:id/regenerate',                              requireAuth, ctrl.dmsRegenerateDeliverable);
+
+// Snapshots, audit log, exports
+router.get   ('/projects/:projectId/dms/snapshots',     requireAuth, ctrl.dmsListSnapshots);
+router.post  ('/dms/snapshots/:id/restore',             requireAuth, ctrl.dmsRestoreSnapshot);
+router.get   ('/projects/:projectId/dms/ai-history',    requireAuth, ctrl.dmsAiHistory);
+router.get   ('/projects/:projectId/dms/export.csv',    requireAuth, ctrl.dmsExportCsv);
+
+// Comments thread on D / MS rows
+router.get   ('/projects/:projectId/dms/comments',  requireAuth, ctrl.dmsListComments);
+router.post  ('/projects/:projectId/dms/comments',  requireAuth, ctrl.dmsCreateComment);
+router.patch ('/dms/comments/:id',                  requireAuth, ctrl.dmsUpdateComment);
+router.delete('/dms/comments/:id',                  requireAuth, ctrl.dmsDeleteComment);
 
 module.exports = router;

@@ -20,7 +20,7 @@ const MyProjects = (() => {
   function init() {
     loadProjects();
     document.getElementById('my-projects-new-btn')?.addEventListener('click', () => {
-      location.hash = 'create';
+      if (typeof window.openCreateModal === 'function') window.openCreateModal();
     });
   }
 
@@ -45,7 +45,7 @@ const MyProjects = (() => {
             </button>
           </div>`;
         document.getElementById('my-projects-empty-new')?.addEventListener('click', () => {
-          App.navigate('intake', true, true);
+          if (typeof window.openCreateModal === 'function') window.openCreateModal();
         });
         return;
       }

@@ -1,4 +1,5 @@
 const jwt = require('jsonwebtoken');
+const aiContext = require('../utils/aiContext');
 
 const SECRET         = () => process.env.JWT_SECRET || 'dev-secret-change-me';
 const REFRESH_SECRET = () => process.env.JWT_REFRESH_SECRET || process.env.JWT_SECRET || 'dev-secret-change-me';
@@ -50,6 +51,7 @@ function requireAuth(req, res, next) {
       role:         payload.role,
       subscription: payload.subscription
     };
+    aiContext.set({ userId: payload.sub, role: payload.role });
     next();
   } catch (err) {
     const code = err.name === 'TokenExpiredError' ? 'TOKEN_EXPIRED' : 'UNAUTHORIZED';

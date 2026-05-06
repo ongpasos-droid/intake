@@ -1,5 +1,49 @@
 const db = require('../../utils/db');
 const genUUID = require('../../utils/uuid');
+const TASK_TEMPLATES = require('../../data/task-templates');
+
+// Activity.type → task-template category (mirrors public/js/intake-tasks.js TYPE_MAP)
+const ACT_TYPE_TO_TEMPLATE_CAT = {
+  mgmt: 'project_management',
+  meeting: 'transnational_meeting',
+  ltta: 'ltta_mobility',
+  io: 'intellectual_output',
+  me: 'multiplier_event',
+  local_ws: 'local_workshop',
+  campaign: 'dissemination',
+  website: 'website',
+  artistic: 'artistic_fees',
+  equipment: 'equipment',
+  goods: 'other_goods',
+  consumables: 'consumables',
+  other: 'other_costs',
+};
+
+function _findTemplateBySubtypeLabel(category, subtypeLabel) {
+  const cat = TASK_TEMPLATES.find(c => c.category === category);
+  if (!cat) return null;
+  if (!subtypeLabel) return cat.subtypes[0] || null;
+  const norm = String(subtypeLabel).toLowerCase().trim();
+  return cat.subtypes.find(s => s.label.toLowerCase().trim() === norm) || cat.subtypes[0] || null;
+}
+
+function _findTemplateBySubtypeKey(category, subtypeKey) {
+  const cat = TASK_TEMPLATES.find(c => c.category === category);
+  if (!cat || !subtypeKey) return null;
+  return cat.subtypes.find(s => s.key === subtypeKey) || null;
+}
+
+// Shorten description to ~10 words for table display.
+// Prefers the first sentence; truncates with ellipsis if still too long.
+function _shortDescription(text, maxWords = 10) {
+  if (!text) return null;
+  const cleaned = String(text).replace(/\s+/g, ' ').trim();
+  if (!cleaned) return null;
+  const firstSentence = cleaned.split(/(?<=[.!?])\s/)[0] || cleaned;
+  const words = firstSentence.split(' ');
+  if (words.length <= maxWords) return firstSentence;
+  return words.slice(0, maxWords).join(' ').replace(/[,;:.]+$/, '') + '…';
+}
 
 // ============ PROJECT CONTEXT (read-only from intake) ============
 
@@ -35,6 +79,16 @@ async function getProjectContext(projectId, userId) {
       [wp.id]
     );
     wp.activities = acts;
+    const [ms] = await db.execute(
+      'SELECT id, code, title, description, due_month, verification, sort_order FROM milestones WHERE work_package_id = ? ORDER BY sort_order, created_at',
+      [wp.id]
+    ).catch(() => [[]]);
+    wp.milestones = ms || [];
+    const [dels] = await db.execute(
+      'SELECT id, code, title, description, type, dissemination_level, due_month, sort_order FROM deliverables WHERE work_package_id = ? ORDER BY sort_order, created_at',
+      [wp.id]
+    ).catch(() => [[]]);
+    wp.deliverables = dels || [];
   }
 
   // Budget totals (from Calculator state if saved)
@@ -123,7 +177,7 @@ async function getFieldValues(instanceId) {
   for (const r of rows) {
     values[r.field_id] = {
       text: r.value_text || '',
-      json: r.value_json ? JSON.parse(r.value_json) : null,
+      json: r.value_json ? (typeof r.value_json === 'string' ? JSON.parse(r.value_json) : r.value_json) : null,
       section: r.section_path,
       updated: r.updated_at,
     };
@@ -132,16 +186,24 @@ async function getFieldValues(instanceId) {
 }
 
 async function saveFieldValue(instanceId, fieldId, sectionPath, text, json) {
-  // Upsert
+  // Upsert. json === undefined means "don't touch value_json" (preserve existing);
+  // json === null clears it; json object stringifies.
   const [existing] = await db.execute(
     'SELECT id FROM form_field_values WHERE instance_id = ? AND field_id = ?',
     [instanceId, fieldId]
   );
   if (existing.length) {
-    await db.execute(
-      'UPDATE form_field_values SET value_text = ?, value_json = ?, section_path = ?, updated_at = NOW() WHERE instance_id = ? AND field_id = ?',
-      [text || '', json ? JSON.stringify(json) : null, sectionPath || '', instanceId, fieldId]
-    );
+    if (json === undefined) {
+      await db.execute(
+        'UPDATE form_field_values SET value_text = ?, section_path = ?, updated_at = NOW() WHERE instance_id = ? AND field_id = ?',
+        [text || '', sectionPath || '', instanceId, fieldId]
+      );
+    } else {
+      await db.execute(
+        'UPDATE form_field_values SET value_text = ?, value_json = ?, section_path = ?, updated_at = NOW() WHERE instance_id = ? AND field_id = ?',
+        [text || '', json ? JSON.stringify(json) : null, sectionPath || '', instanceId, fieldId]
+      );
+    }
   } else {
     await db.execute(
       'INSERT INTO form_field_values (id, instance_id, field_id, section_path, value_text, value_json, updated_at) VALUES (?, ?, ?, ?, ?, ?, NOW())',
@@ -768,6 +830,49 @@ async function getPreviousSections(instanceId, currentFieldId) {
   return context;
 }
 
+// Strip markdown / list / table artefacts from AI output so the text can be
+// pasted directly into the EACEA PDF form. Safety net in case the model
+// ignores the OUTPUT FORMAT instructions in the prompt.
+function sanitizeProposalText(text) {
+  if (!text || typeof text !== 'string') return text;
+  let out = text;
+
+  // Drop markdown table blocks (lines with pipes + a separator line with ---)
+  out = out.replace(/(^|\n)\s*\|[^\n]*\|[^\n]*(\n\s*\|[\s\-:|]+\|[^\n]*)?(\n\s*\|[^\n]*\|[^\n]*)+/g, '$1');
+  // Any remaining single pipe-framed line
+  out = out.replace(/^\s*\|[^\n]*\|\s*$/gm, '');
+
+  // Strip heading markers at start of line: #, ##, ###…
+  out = out.replace(/^\s{0,3}#{1,6}\s+/gm, '');
+
+  // Remove ** bold and * italics wrappers, keep the inner text
+  out = out.replace(/\*\*([^*\n]+?)\*\*/g, '$1');
+  out = out.replace(/(^|[\s(])\*([^*\n]+?)\*(?=[\s).,;:!?]|$)/g, '$1$2');
+  // Remove __ bold / _ italics
+  out = out.replace(/__([^_\n]+?)__/g, '$1');
+  out = out.replace(/(^|[\s(])_([^_\n]+?)_(?=[\s).,;:!?]|$)/g, '$1$2');
+
+  // Strip blockquote markers
+  out = out.replace(/^\s{0,3}>\s?/gm, '');
+
+  // Turn bullet / numbered list markers into prose — drop the marker, keep content
+  out = out.replace(/^\s*[-*•▪→]\s+/gm, '');
+  out = out.replace(/^\s*\d{1,2}[.)]\s+/gm, '');
+  out = out.replace(/^\s*[a-z][.)]\s+/gm, '');
+
+  // Remove decorative rules / separators
+  out = out.replace(/^\s*[═─━_*=\-]{3,}\s*$/gm, '');
+
+  // Backticks (inline and fenced)
+  out = out.replace(/```[\s\S]*?```/g, (m) => m.replace(/```[a-zA-Z]*\n?|```/g, ''));
+  out = out.replace(/`([^`\n]+)`/g, '$1');
+
+  // Collapse 3+ blank lines to 2
+  out = out.replace(/\n{3,}/g, '\n\n');
+
+  return out.trim();
+}
+
 // ── Main generation function ────────────────────────────────
 
 async function generateSection(instanceId, sectionId, projectContext, programId, coordinatorName) {
@@ -794,7 +899,7 @@ async function generateSection(instanceId, sectionId, projectContext, programId,
     's5_2_text': '5.2 Security',
   };
 
-  const sectionTitle = sectionNames[sectionId] || sectionId;
+  let sectionTitle = sectionNames[sectionId] || sectionId;
 
   // Get project ID from instance
   const [instRow] = await db.execute('SELECT project_id FROM form_instances WHERE id = ?', [instanceId]);
@@ -802,6 +907,14 @@ async function generateSection(instanceId, sectionId, projectContext, programId,
 
   // Get project language (derived from national_agency)
   const { langName } = projId ? await getProjectMeta(projId) : { langName: 'English' };
+
+  // Dynamic per-WP section: resolve a human title + a focused WP context block
+  let wpFocusBlock = '';
+  if (typeof sectionId === 'string' && sectionId.startsWith('s4_2_wp_')) {
+    const wpId = sectionId.substring('s4_2_wp_'.length);
+    sectionTitle = await getSectionTitleAsync(sectionId);
+    wpFocusBlock = await buildWpFocusContext(wpId);
+  }
 
   // Build section-specific RAG query using project context for smarter retrieval
   const ragQuery = await buildSectionRagQuery(sectionId, sectionTitle, projId);
@@ -862,10 +975,27 @@ Write the ENTIRE section in ${langName}. Every paragraph, every sentence, every 
 - Reference prior experience with SPECIFIC lessons learned, not generic "track record"
 - Use numbers that come from YOUR needs assessment, not EU-level statistics
 - Write as if explaining to a colleague, not a bureaucrat
-- Vary paragraph length dramatically: one 5-line paragraph, then a 2-line paragraph, then 4 lines`;
+- Vary paragraph length dramatically: one 5-line paragraph, then a 2-line paragraph, then 4 lines
+
+══ OUTPUT FORMAT (MANDATORY — THIS TEXT GOES INTO AN OFFICIAL EACEA PDF FORM) ══
+The output MUST be plain prose. Pasting markdown into the EACEA form gives it away as AI-generated and looks unprofessional.
+- NO markdown at all. NO "**bold**", NO "*italics*", NO "##" or "#" headings, NO "> quotes", NO backticks.
+- NO markdown tables (pipes "|" or "---" separators). If you need to compare things, do it in prose ("Unlike ERDF which is top-down, our approach is bottom-up...").
+- NO bullet lists or numbered lists. NO lines starting with "- ", "* ", "• ", "→ ", "1.", "2.", "a)", "b)", etc. Write it as continuous prose.
+- NO subheadings or internal section titles (you are writing the BODY of one single section).
+- NO emojis, NO ASCII art, NO decorative symbols ("═", "──", "▪").
+- Paragraphs separated by a single blank line, that's all the formatting you get.`;
 
   // Build user prompt
   let user = `══ YOUR PROJECT ══\n${projectContext}`;
+
+  // Per-WP focus: tell the model EXACTLY which WP it is writing about and give
+  // it the activities/leader/category for THAT WP specifically. Without this,
+  // 4.2 WP1 and 4.2 WP2 would get the same generic prompt and produce
+  // near-identical text.
+  if (wpFocusBlock) {
+    user += `\n\n══ WRITE THIS SPECIFIC WORK PACKAGE (NOT THE OTHERS) ══\n${wpFocusBlock}\nWrite a narrative that describes this WP concretely: its objective, the sequence of its activities, who leads and who contributes, expected outputs/deliverables, and how the timing fits the project. Reference other WPs only when coherence demands it. Do NOT summarise the whole workplan — only this WP.`;
+  }
 
   if (evalGuidance) {
     user += `\n\n══ WHAT THE EVALUATOR SCORES IN THIS SECTION ══\n${evalGuidance}\nAddress ALL of these points, but naturally woven into the narrative — not as a checklist.`;
@@ -891,28 +1021,32 @@ Write the ENTIRE section in ${langName}. Every paragraph, every sentence, every 
   const seed = Math.random().toString(36).substring(2, 8);
   user += `\n\n══ NOW WRITE ══\nWrite section "${sectionTitle}" for this specific project. Use the coordinator's own words and research documents as your primary material. The call documents are secondary context. Write with conviction and specificity. [v:${seed}]`;
 
-  return await callAI(system, user, 'generate');
+  const raw = await callAI(system, user, 'generate');
+  return sanitizeProposalText(raw);
 }
 
 // ── Evaluate section with full criteria context ─────────────
 
-async function evaluateSection(text, sectionTitle, criteria, programId) {
+async function evaluateSection(text, sectionTitle, criteria, programId, langName) {
   if (!process.env.ANTHROPIC_API_KEY) return { score: 'pending', feedback: 'API key not configured' };
 
   const writingRules = programId ? await getWritingRules(programId) : {};
+  const outputLang = langName || 'English';
 
   const system = `You are a senior Erasmus+ proposal evaluator with extensive experience scoring EU project applications. You evaluate rigorously but constructively.
 
 Evaluate the section text below. Score each aspect and provide actionable feedback.
 
+LANGUAGE (MANDATORY): the "strengths", "weaknesses", "suggestions" and "missing_elements" fields MUST be written in ${outputLang}. Every sentence of those fields in ${outputLang}. The "overall" field keeps its English enum value (excellent|good|fair|weak).
+
 Respond ONLY in valid JSON:
 {
   "overall": "excellent|good|fair|weak",
   "score_estimate": 8,
-  "strengths": ["specific strength 1", "specific strength 2"],
-  "weaknesses": ["specific weakness 1"],
-  "suggestions": ["actionable improvement 1", "actionable improvement 2", "actionable improvement 3"],
-  "missing_elements": ["element the evaluator would expect but is missing"],
+  "strengths": ["fortaleza específica en ${outputLang} 1", "fortaleza específica en ${outputLang} 2"],
+  "weaknesses": ["debilidad específica en ${outputLang} 1"],
+  "suggestions": ["mejora accionable en ${outputLang} 1", "mejora accionable en ${outputLang} 2", "mejora accionable en ${outputLang} 3"],
+  "missing_elements": ["elemento que el evaluador esperaría pero falta, en ${outputLang}"],
   "word_count_ok": true
 }`;
 
@@ -948,8 +1082,1164 @@ async function improveSection(text, action, sectionTitle, projectContext, progra
   let user = `Section: ${sectionTitle}\n\nInstruction: ${actions[action] || actions.improve}`;
   if (projectContext) user += `\n\nProject context for reference:\n${projectContext.substring(0, 3000)}`;
   user += `\n\nOriginal text to improve:\n${text}`;
+  user += `\n\nOUTPUT: plain prose only. No markdown, no bullets, no tables, no headings, no bold/italics, no backticks. Paragraphs separated by blank lines.`;
 
-  return await callClaude(system, user, 4096);
+  const raw = await callClaude(system, user, 4096);
+  return sanitizeProposalText(raw);
+}
+
+// ── Improve section with a CUSTOM user request (free-text from coordinator) ──
+// Uses the same enriched context as generateSection so the revision is grounded
+// in the full project data (partners, budget, activities, RAG, eval guidance,
+// previous sections, research docs). The user_request is injected as a top-level
+// mandate for the revision.
+async function improveSectionCustom(instanceId, sectionId, currentText, userRequest, projectContext, programId, coordinatorName, opts = {}) {
+  if (!process.env.ANTHROPIC_API_KEY) return currentText;
+
+  const sectionNames = {
+    'summary_text': 'Project Summary',
+    's1_1_text': '1.1 Background and general objectives',
+    's1_2_text': '1.2 Needs analysis and specific objectives',
+    's1_3_text': '1.3 Complementarity, innovation and European added value',
+    's2_1_1_text': '2.1.1 Concept and methodology',
+    's2_1_2_text': '2.1.2 Project management, quality assurance and monitoring',
+    's2_1_4_text': '2.1.4 Cost effectiveness and financial management',
+    's2_2_1_text': '2.2.1 Consortium set-up and cooperation',
+    's2_2_2_text': '2.2.2 Consortium management and decision-making',
+    's3_1_text': '3.1 Impact and ambition',
+    's3_2_text': '3.2 Communication, dissemination and visibility',
+    's3_3_text': '3.3 Sustainability and continuation',
+    's4_1_text': '4.1 Work plan overview',
+    's4_2_text': '4.2 Work packages, activities, resources and timing',
+    's5_1_text': '5.1 Ethics',
+    's5_2_text': '5.2 Security',
+  };
+  let sectionTitle = sectionNames[sectionId] || sectionId;
+
+  const [instRow] = await db.execute('SELECT project_id FROM form_instances WHERE id = ?', [instanceId]);
+  const projId = instRow[0]?.project_id;
+  const { langName } = projId ? await getProjectMeta(projId) : { langName: 'English' };
+
+  // Per-WP dynamic section support
+  let wpFocusBlock = '';
+  if (typeof sectionId === 'string' && sectionId.startsWith('s4_2_wp_')) {
+    const wpId = sectionId.substring('s4_2_wp_'.length);
+    sectionTitle = await getSectionTitleAsync(sectionId);
+    wpFocusBlock = await buildWpFocusContext(wpId);
+  }
+
+  const ragQuery = await buildSectionRagQuery(sectionId, sectionTitle, projId);
+
+  const [ragChunks, writingRules, evalGuidance, previousSections, researchChunks] = await Promise.all([
+    programId ? retrieveRelevantChunks(ragQuery, programId, 8) : Promise.resolve(''),
+    programId ? getWritingRules(programId) : Promise.resolve({}),
+    getEvalGuidanceForSection(sectionId),
+    getPreviousSections(instanceId, sectionId),
+    projId ? retrieveResearchChunks(ragQuery, projId, 6) : Promise.resolve(''),
+  ]);
+
+  console.log(`[Writer/improve-custom] section=${sectionId} req="${(userRequest || '').substring(0, 80)}..." writingRules=${writingRules.writing_style ? 'Y' : 'N'} evalGuidance=${evalGuidance ? 'Y' : 'N'} RAG=${ragChunks ? ragChunks.length : 0}ch prev=${previousSections ? 'Y' : 'N'}`);
+
+  let system = `You are a real project coordinator revising a funding proposal. You are NOT an AI assistant — you are a practitioner refining your own text based on your own judgement.
+
+PERSONA: You are the project coordinator at ${coordinatorName || 'the lead organisation'}. You wrote the original text and you now want to improve it for a SPECIFIC reason.
+
+SECTION: "${sectionTitle}"
+OUTPUT: Only the revised section text. No title, no numbering, no meta-commentary, no explanation of what you changed.
+LENGTH: Keep a similar length to the original unless the coordinator's request explicitly asks to expand or shorten it.
+
+══ LANGUAGE (MANDATORY) ══
+Write the ENTIRE revised section in ${langName}. Every paragraph, every sentence, every word must be in ${langName}.
+
+══ HOW TO REVISE ══
+- Apply the coordinator's request faithfully — it is the PRIMARY instruction.
+- Keep the parts of the original that already work. Do NOT rewrite from scratch unless the request asks for it.
+- Preserve the narrative voice and the specific facts/names/numbers from the original.
+- Ground any new content in the project context, RAG references and previous sections below.
+- Do not invent partners, figures, deliverables or countries that are not in the project context.
+
+══ ANTI-REGRESSION RULES (CRITICAL — REVISIONS OFTEN MAKE TEXT WORSE, DON'T) ══
+- If the instruction is about LENGTH ("too long", "shorten", "concise"), reduce by AT MOST 10% of the original word count. Never cut specific examples, partner names, city names, data points, percentages, dates, or references to EU policies. Remove only filler phrases and redundancies. A shorter-but-emptier text scores WORSE, not better.
+- If the instruction is about STRUCTURE ("bullet points", "tables", "clearer"), convert the form but keep 100% of the content.
+- If the instruction is vague ("improve", "polish"), make minimal surgical changes — you will usually cause regressions if you rewrite paragraphs wholesale.
+- Strengths identified by the evaluator (when provided) are LOAD-BEARING. Removing or diluting them drops the score. If addressing a weakness would damage a strength, find a less destructive path.
+
+══ OUTPUT FORMAT (MANDATORY — THIS TEXT GOES INTO AN OFFICIAL EACEA PDF FORM) ══
+The output MUST be plain prose. Pasting markdown into the EACEA form gives it away as AI-generated.
+- NO markdown at all. NO "**bold**", NO "*italics*", NO "##" or "#" headings, NO "> quotes", NO backticks.
+- NO markdown tables (pipes "|" or "---" separators). Compare things in prose instead.
+- NO bullet lists or numbered lists. NO lines starting with "- ", "* ", "• ", "→ ", "1.", "2.", "a)", "b)". Write continuous prose.
+- NO subheadings or internal section titles (you are writing the BODY of one single section).
+- NO emojis, ASCII art, decorative symbols ("═", "──", "▪").
+- Paragraphs separated by a single blank line, that's all the formatting you get.`;
+
+  if (writingRules.writing_style) {
+    system += `\n\n══ WRITING STYLE (FOLLOW STRICTLY) ══\n${writingRules.writing_style}`;
+  }
+  if (writingRules.ai_detection_rules) {
+    system += `\n\n══ ANTI-AI DETECTION (MANDATORY) ══\n${writingRules.ai_detection_rules}`;
+  }
+
+  let user = `══ COORDINATOR'S REQUEST (PRIMARY INSTRUCTION) ══\n${userRequest}\n\n`;
+
+  // Score-aware context: when the caller provides the current evaluation and
+  // a target score (used by the auto-refine loop), spell out the gap so the
+  // model knows what it's optimising for.
+  if (opts.evaluation) {
+    const ev = opts.evaluation;
+    const curScore = typeof ev.score_estimate === 'number' ? ev.score_estimate : (ev.score || null);
+    const target = opts.targetScore || 9;
+    user += `══ CURRENT EVALUATOR SCORE ══\nThe current text scores ${curScore ?? '?'}/10 according to the EACEA rubric. Your job is to push this text to ${target}/10 or higher.\n`;
+    if (ev.weaknesses && ev.weaknesses.length) {
+      user += `\nWEAKNESSES THE EVALUATOR FLAGGED (address ALL of these, they are the gap between current score and ${target}):\n`;
+      ev.weaknesses.forEach((w, i) => { user += `${i + 1}. ${w}\n`; });
+    }
+    if (ev.suggestions && ev.suggestions.length) {
+      user += `\nEVALUATOR SUGGESTIONS (apply these — they are concrete fixes):\n`;
+      ev.suggestions.forEach((s, i) => { user += `${i + 1}. ${s}\n`; });
+    }
+    if (ev.strengths && ev.strengths.length) {
+      user += `\nSTRENGTHS TO PRESERVE (do NOT remove or weaken these):\n`;
+      ev.strengths.forEach((s, i) => { user += `${i + 1}. ${s}\n`; });
+    }
+    user += `\n`;
+  }
+
+  user += `══ ORIGINAL TEXT TO REVISE ══\n${currentText}\n\n`;
+  if (projectContext) user += `══ YOUR PROJECT ══\n${projectContext}\n\n`;
+  if (wpFocusBlock) user += `══ FOCUS WORK PACKAGE (revise ONLY this WP, not the full workplan) ══\n${wpFocusBlock}\n\n`;
+  if (evalGuidance) user += `══ WHAT THE EVALUATOR SCORES IN THIS SECTION ══\n${evalGuidance}\n\n`;
+  if (ragChunks) {
+    const limitedRag = ragChunks.substring(0, 8000);
+    user += `══ REFERENCE DOCUMENTS (cite naturally, don't list) ══\n${limitedRag}\n\n`;
+  }
+  if (researchChunks) user += `══ THEMATIC RESEARCH (uploaded by coordinator) ══\n${researchChunks}\n\n`;
+  if (previousSections) user += `══ WHAT YOU ALREADY WROTE IN OTHER SECTIONS (stay coherent, don't repeat) ══\n${previousSections}\n\n`;
+  user += `══ NOW REVISE ══\nReturn ONLY the revised text for section "${sectionTitle}", applying the coordinator's request above.`;
+
+  const raw = await callAI(system, user, 'generate');
+  return sanitizeProposalText(raw);
+}
+
+// Central section-title mapping shared by all refine/evaluate/improve paths.
+const SECTION_NAMES = {
+  'summary_text': 'Project Summary',
+  's1_1_text': '1.1 Background and general objectives',
+  's1_2_text': '1.2 Needs analysis and specific objectives',
+  's1_3_text': '1.3 Complementarity, innovation and European added value',
+  's2_1_1_text': '2.1.1 Concept and methodology',
+  's2_1_2_text': '2.1.2 Project management, quality assurance and monitoring',
+  's2_1_4_text': '2.1.4 Cost effectiveness and financial management',
+  's2_2_1_text': '2.2.1 Consortium set-up and cooperation',
+  's2_2_2_text': '2.2.2 Consortium management and decision-making',
+  's3_1_text': '3.1 Impact and ambition',
+  's3_2_text': '3.2 Communication, dissemination and visibility',
+  's3_3_text': '3.3 Sustainability and continuation',
+  's4_1_text': '4.1 Work plan overview',
+  's4_2_text': '4.2 Work packages, activities, resources and timing',
+  's5_1_text': '5.1 Ethics',
+  's5_2_text': '5.2 Security',
+};
+function getSectionTitle(sectionId) { return SECTION_NAMES[sectionId] || sectionId; }
+
+// Async version that resolves dynamic per-WP section IDs (s4_2_wp_{uuid}) by
+// looking up the WP in the DB. Falls back to the static map for known IDs.
+async function getSectionTitleAsync(sectionId) {
+  if (SECTION_NAMES[sectionId]) return SECTION_NAMES[sectionId];
+  if (typeof sectionId === 'string' && sectionId.startsWith('s4_2_wp_')) {
+    const wpId = sectionId.substring('s4_2_wp_'.length);
+    try {
+      const [rows] = await db.execute('SELECT code, title, order_index FROM work_packages WHERE id = ?', [wpId]);
+      if (rows[0]) {
+        const code = rows[0].code || ('WP' + ((rows[0].order_index || 0) + 1));
+        const t = rows[0].title || 'Work Package';
+        return `4.2 ${code} — ${t}`;
+      }
+    } catch (e) { /* fall through */ }
+    return '4.2 Work Package';
+  }
+  return sectionId;
+}
+
+// Load a WP-focused block (WP header, activities, deliverables, budget) that
+// the LLM can use to write or revise section 4.2 for a specific WP. Kept small
+// and narrative so it plugs into existing prompts cleanly.
+async function buildWpFocusContext(wpId) {
+  if (!wpId) return '';
+  const [[wp]] = await db.execute(
+    'SELECT wp.id, wp.code, wp.title, wp.category, wp.order_index, wp.leader_id, p.name AS leader_name, p.country AS leader_country FROM work_packages wp LEFT JOIN partners p ON p.id = wp.leader_id WHERE wp.id = ?',
+    [wpId]
+  ).then(r => [r]).catch(() => [[]]);
+  if (!wp) return '';
+
+  const [activities] = await db.execute(
+    'SELECT id, type, label, subtype, date_start, date_end, description, order_index FROM activities WHERE wp_id = ? ORDER BY order_index, date_start',
+    [wpId]
+  ).catch(() => [[]]);
+
+  let block = `FOCUS WORK PACKAGE: ${wp.code || ('WP' + ((wp.order_index || 0) + 1))} — ${wp.title || ''}\n`;
+  if (wp.category) block += `Category: ${wp.category}\n`;
+  if (wp.leader_name) block += `Lead Beneficiary: ${wp.leader_name}${wp.leader_country ? ' (' + wp.leader_country + ')' : ''}\n`;
+
+  if (activities.length) {
+    block += `\nActivities / Tasks in this WP (${activities.length}):\n`;
+    activities.forEach((a, i) => {
+      block += `  T${(wp.order_index || 0) + 1}.${i + 1} — ${a.label || a.type}`;
+      if (a.subtype) block += ` (${a.subtype})`;
+      if (a.date_start && a.date_end) block += ` [${a.date_start} → ${a.date_end}]`;
+      if (a.description) block += `\n      ${a.description.substring(0, 400)}`;
+      block += `\n`;
+    });
+  } else {
+    block += `\n(No activities defined yet in Intake for this WP — produce a plausible set based on the WP title and the project context.)\n`;
+  }
+
+  const [milestones] = await db.execute(
+    'SELECT code, title, description, due_month, verification FROM milestones WHERE work_package_id = ? ORDER BY sort_order, created_at',
+    [wpId]
+  ).catch(() => [[]]);
+  if (milestones && milestones.length) {
+    block += `\nMilestones for this WP (${milestones.length}):\n`;
+    milestones.forEach(m => {
+      block += `  ${m.code ? m.code + ' — ' : ''}${m.title}`;
+      if (m.due_month) block += ` (M${m.due_month})`;
+      block += '\n';
+      if (m.description) block += `      ${m.description.substring(0, 300)}\n`;
+      if (m.verification) block += `      Verification: ${m.verification.substring(0, 200)}\n`;
+    });
+  }
+
+  const [deliverables] = await db.execute(
+    'SELECT code, title, description, type, dissemination_level, due_month FROM deliverables WHERE work_package_id = ? ORDER BY sort_order, created_at',
+    [wpId]
+  ).catch(() => [[]]);
+  if (deliverables && deliverables.length) {
+    block += `\nDeliverables for this WP (${deliverables.length}):\n`;
+    deliverables.forEach(d => {
+      block += `  ${d.code ? d.code + ' — ' : ''}${d.title}`;
+      if (d.type) block += ` [${d.type}]`;
+      if (d.dissemination_level) block += ` (${d.dissemination_level})`;
+      if (d.due_month) block += ` (M${d.due_month})`;
+      block += '\n';
+      if (d.description) block += `      ${d.description.substring(0, 300)}\n`;
+    });
+  }
+
+  return block;
+}
+
+/* ══ Milestones + Deliverables CRUD (Writer Phase 2) ══════════
+   First-class rows per WP. UI renders as structured tables.
+   ─────────────────────────────────────────────────────────── */
+
+async function _assertWp(wpId, userId) {
+  const [rows] = await db.execute(
+    `SELECT wp.id, wp.project_id FROM work_packages wp
+       JOIN projects p ON p.id = wp.project_id
+      WHERE wp.id = ? AND p.user_id = ?`,
+    [wpId, userId]
+  );
+  if (!rows.length) {
+    const err = new Error('Work package not found');
+    err.status = 404;
+    throw err;
+  }
+  return rows[0];
+}
+
+async function _assertPartnerInProject(projectId, partnerId) {
+  if (!partnerId) return;
+  const [rows] = await db.execute(
+    'SELECT id FROM partners WHERE id = ? AND project_id = ?',
+    [partnerId, projectId]
+  );
+  if (!rows.length) {
+    const err = new Error('Lead partner does not belong to this project');
+    err.status = 400;
+    throw err;
+  }
+}
+
+async function _assertWpInProject(projectId, wpId) {
+  if (!wpId) return;
+  const [rows] = await db.execute(
+    'SELECT id FROM work_packages WHERE id = ? AND project_id = ?',
+    [wpId, projectId]
+  );
+  if (!rows.length) {
+    const err = new Error('Work package does not belong to this project');
+    err.status = 400;
+    throw err;
+  }
+}
+
+async function listMilestones(wpId) {
+  const [rows] = await db.execute(
+    `SELECT m.*, p.name AS lead_partner_name
+       FROM milestones m
+       LEFT JOIN partners p ON p.id = m.lead_partner_id
+      WHERE m.work_package_id = ?
+      ORDER BY m.sort_order, m.created_at`,
+    [wpId]
+  );
+  return rows;
+}
+
+async function createMilestone(wpId, userId, data) {
+  const wp = await _assertWp(wpId, userId);
+  await _assertPartnerInProject(wp.project_id, data.lead_partner_id || null);
+  const id = genUUID();
+  await db.execute(
+    `INSERT INTO milestones (id, work_package_id, project_id, code, title, description, due_month, verification, lead_partner_id, sort_order)
+     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+    [
+      id, wpId, wp.project_id,
+      data.code || null,
+      data.title || 'New milestone',
+      data.description || null,
+      data.due_month || null,
+      data.verification || null,
+      data.lead_partner_id || null,
+      data.sort_order || 0,
+    ]
+  );
+  return id;
+}
+
+async function updateMilestone(msId, userId, data) {
+  const [rows] = await db.execute(
+    `SELECT m.id, m.project_id FROM milestones m JOIN projects p ON p.id = m.project_id
+      WHERE m.id = ? AND p.user_id = ?`,
+    [msId, userId]
+  );
+  if (!rows.length) { const e = new Error('Milestone not found'); e.status = 404; throw e; }
+  if (data.lead_partner_id) await _assertPartnerInProject(rows[0].project_id, data.lead_partner_id);
+  const allowed = ['code','title','description','due_month','verification','lead_partner_id','sort_order','deliverable_id','kind','rationale'];
+  const contentFields = new Set(['code','title','description','due_month','verification','lead_partner_id','deliverable_id','kind','rationale']);
+  const sets = [];
+  const vals = [];
+  let touchedContent = false;
+  for (const k of allowed) {
+    if (data[k] !== undefined) {
+      sets.push(`${k} = ?`); vals.push(data[k] === '' ? null : data[k]);
+      if (contentFields.has(k)) touchedContent = true;
+    }
+  }
+  if (!sets.length) return;
+  if (touchedContent) sets.push('auto_generated = 0');
+  vals.push(msId);
+  await db.execute(`UPDATE milestones SET ${sets.join(', ')} WHERE id = ?`, vals);
+}
+
+async function deleteMilestone(msId, userId) {
+  const [rows] = await db.execute(
+    `SELECT m.id FROM milestones m JOIN projects p ON p.id = m.project_id
+      WHERE m.id = ? AND p.user_id = ?`,
+    [msId, userId]
+  );
+  if (!rows.length) { const e = new Error('Milestone not found'); e.status = 404; throw e; }
+  await db.execute('DELETE FROM milestones WHERE id = ?', [msId]);
+}
+
+async function listDeliverables(wpId) {
+  const [rows] = await db.execute(
+    `SELECT d.*, p.name AS lead_partner_name
+       FROM deliverables d
+       LEFT JOIN partners p ON p.id = d.lead_partner_id
+      WHERE d.work_package_id = ?
+      ORDER BY d.sort_order, d.created_at`,
+    [wpId]
+  );
+  return rows;
+}
+
+async function createDeliverable(wpId, userId, data) {
+  const wp = await _assertWp(wpId, userId);
+  await _assertPartnerInProject(wp.project_id, data.lead_partner_id || null);
+  const id = genUUID();
+  await db.execute(
+    `INSERT INTO deliverables (id, work_package_id, project_id, code, title, description, type, dissemination_level, due_month, lead_partner_id, sort_order)
+     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+    [
+      id, wpId, wp.project_id,
+      data.code || null,
+      data.title || 'New deliverable',
+      data.description || null,
+      data.type || null,
+      data.dissemination_level || null,
+      data.due_month || null,
+      data.lead_partner_id || null,
+      data.sort_order || 0,
+    ]
+  );
+  return id;
+}
+
+async function updateDeliverable(dId, userId, data) {
+  const [rows] = await db.execute(
+    `SELECT d.id, d.project_id FROM deliverables d JOIN projects p ON p.id = d.project_id
+      WHERE d.id = ? AND p.user_id = ?`,
+    [dId, userId]
+  );
+  if (!rows.length) { const e = new Error('Deliverable not found'); e.status = 404; throw e; }
+  if (data.lead_partner_id)   await _assertPartnerInProject(rows[0].project_id, data.lead_partner_id);
+  if (data.work_package_id)   await _assertWpInProject(rows[0].project_id, data.work_package_id);
+  const allowed = ['code','title','description','type','dissemination_level','due_month','lead_partner_id','sort_order','work_package_id','rationale','kpi'];
+  const contentFields = new Set(['code','title','description','type','dissemination_level','due_month','lead_partner_id','rationale','kpi']);
+  const sets = [];
+  const vals = [];
+  let touchedContent = false;
+  for (const k of allowed) {
+    if (data[k] !== undefined) {
+      sets.push(`${k} = ?`); vals.push(data[k] === '' ? null : data[k]);
+      if (contentFields.has(k)) touchedContent = true;
+    }
+  }
+  // Update task linkage if provided as task_ids array
+  if (Array.isArray(data.task_ids)) {
+    await db.execute(`DELETE FROM deliverable_tasks WHERE deliverable_id = ?`, [dId]);
+    for (const tid of data.task_ids) {
+      try { await db.execute(`INSERT INTO deliverable_tasks (deliverable_id, task_id) VALUES (?, ?)`, [dId, tid]); }
+      catch (e) { /* ignore dup or invalid */ }
+    }
+    touchedContent = true;
+  }
+  if (!sets.length && !Array.isArray(data.task_ids)) return;
+  if (sets.length) {
+    if (touchedContent) sets.push('auto_generated = 0');
+    vals.push(dId);
+    await db.execute(`UPDATE deliverables SET ${sets.join(', ')} WHERE id = ?`, vals);
+  }
+}
+
+async function deleteDeliverable(dId, userId) {
+  const [rows] = await db.execute(
+    `SELECT d.id FROM deliverables d JOIN projects p ON p.id = d.project_id
+      WHERE d.id = ? AND p.user_id = ?`,
+    [dId, userId]
+  );
+  if (!rows.length) { const e = new Error('Deliverable not found'); e.status = 404; throw e; }
+  await db.execute('DELETE FROM deliverables WHERE id = ?', [dId]);
+}
+
+/* ── Writer Phase 3: full WP form (Application Form Part B 4.2) ──
+   Header (objectives + duration + lead), Tasks + participants,
+   Budget pivot. Milestones/deliverables already covered above.
+   ────────────────────────────────────────────────────────────── */
+
+async function getWpHeader(wpId, userId) {
+  const [rows] = await db.execute(
+    `SELECT wp.id, wp.code, wp.title, wp.summary, wp.objectives,
+            wp.duration_from_month, wp.duration_to_month, wp.leader_id,
+            p.name AS leader_name, p.country AS leader_country
+       FROM work_packages wp
+       JOIN projects pr ON pr.id = wp.project_id
+       LEFT JOIN partners p ON p.id = wp.leader_id
+      WHERE wp.id = ? AND pr.user_id = ?`,
+    [wpId, userId]
+  );
+  if (!rows.length) { const e = new Error('Work package not found'); e.status = 404; throw e; }
+  const wp = rows[0];
+
+  // Auto-derive duration from activities Gantt months if not set.
+  // Persist on first compute so subsequent loads are fast and the value
+  // becomes the user-editable default (they can overwrite via the form).
+  if (wp.duration_from_month == null || wp.duration_to_month == null) {
+    const [[derived]] = await db.execute(
+      `SELECT MIN(gantt_start_month) AS from_m,
+              MAX(COALESCE(gantt_end_month, gantt_start_month)) AS to_m
+         FROM activities
+        WHERE wp_id = ? AND gantt_start_month IS NOT NULL`,
+      [wpId]
+    );
+    const fromM = wp.duration_from_month != null ? wp.duration_from_month : (derived?.from_m ?? null);
+    const toM   = wp.duration_to_month   != null ? wp.duration_to_month   : (derived?.to_m   ?? null);
+    if (fromM != null || toM != null) {
+      await db.execute(
+        `UPDATE work_packages
+            SET duration_from_month = COALESCE(duration_from_month, ?),
+                duration_to_month   = COALESCE(duration_to_month, ?)
+          WHERE id = ?`,
+        [fromM, toM, wpId]
+      );
+      wp.duration_from_month = fromM;
+      wp.duration_to_month   = toM;
+    }
+  }
+
+  return wp;
+}
+
+async function updateWpHeader(wpId, userId, data) {
+  await _assertWp(wpId, userId);
+  const allowed = ['title', 'objectives', 'duration_from_month', 'duration_to_month', 'leader_id'];
+  const sets = [];
+  const vals = [];
+  for (const k of allowed) {
+    if (data[k] !== undefined) { sets.push(`${k} = ?`); vals.push(data[k] === '' ? null : data[k]); }
+  }
+  if (!sets.length) return;
+  vals.push(wpId);
+  await db.execute(`UPDATE work_packages SET ${sets.join(', ')} WHERE id = ?`, vals);
+}
+
+// Auto-seed wp_tasks for a WP from project_tasks (Tareas page) +
+// activity templates. Used when wp_tasks is empty for a WP, and
+// callable manually via the resync endpoint.
+//
+// Sources (deduplicated):
+//   1. WP1 only: project_management selections from project_tasks (mgmt checklist)
+//   2. All WPs: activity-derived tasks (one per non-mgmt activity)
+//        — uses saved-edit version from project_tasks if present, else template
+//   3. All WPs: custom tasks from project_tasks (category='custom', subtype=String(wi))
+//
+// Descriptions are shortened to ≤10 words so tables stay compact.
+async function seedWpTasksFromProject(wpId) {
+  const [[wp]] = await db.execute(
+    `SELECT id, project_id, order_index, code FROM work_packages WHERE id = ?`,
+    [wpId]
+  );
+  if (!wp) return 0;
+  const wi = String(wp.order_index ?? 0);
+
+  const [acts] = await db.execute(
+    `SELECT id, type, subtype, label, order_index FROM activities WHERE wp_id = ? ORDER BY order_index`,
+    [wpId]
+  );
+
+  const [savedTasks] = await db.execute(
+    `SELECT category, subtype, title, description, wp_id FROM project_tasks
+      WHERE project_id = ? ORDER BY sort_order, created_at`,
+    [wp.project_id]
+  );
+
+  const seedRows = [];
+
+  // 1. WP1 only: management selections (dedup by subtype to handle stale duplicates)
+  if (wi === '0') {
+    const seenSub = new Set();
+    for (const t of savedTasks) {
+      if (t.category !== 'project_management') continue;
+      if (seenSub.has(t.subtype)) continue;
+      seenSub.add(t.subtype);
+      const tmpl = _findTemplateBySubtypeKey('project_management', t.subtype);
+      seedRows.push({
+        title: t.title || tmpl?.title || 'Project management task',
+        description: _shortDescription(t.description || tmpl?.description),
+      });
+    }
+  }
+
+  // 2. Activities-derived (skip mgmt — already covered above for WP1)
+  for (const act of acts) {
+    if (act.type === 'mgmt') continue;
+    const category = ACT_TYPE_TO_TEMPLATE_CAT[act.type];
+    if (!category) continue;
+    const tmpl = _findTemplateBySubtypeLabel(category, act.subtype);
+    if (!tmpl) continue;
+    const saved = savedTasks.find(t =>
+      t.category === category && t.subtype === tmpl.key && String(t.wp_id) === wi
+    );
+    seedRows.push({
+      title: saved?.title || tmpl.title,
+      description: _shortDescription(saved?.description || tmpl.description),
+    });
+  }
+
+  // 3. Custom tasks for this WP
+  for (const t of savedTasks) {
+    if (t.category !== 'custom' || t.subtype !== wi) continue;
+    if (!t.title && !t.description) continue;
+    seedRows.push({
+      title: t.title || 'Custom task',
+      description: _shortDescription(t.description),
+    });
+  }
+
+  // Code prefix derived from wp.code or order
+  const wpNum = parseInt(String(wp.code || '').replace(/[^0-9]/g, '')) || ((wp.order_index ?? 0) + 1);
+  for (let i = 0; i < seedRows.length; i++) {
+    await db.execute(
+      `INSERT INTO wp_tasks (id, work_package_id, project_id, code, title, description, sort_order)
+       VALUES (?, ?, ?, ?, ?, ?, ?)`,
+      [genUUID(), wpId, wp.project_id, `T${wpNum}.${i + 1}`, seedRows[i].title, seedRows[i].description, i]
+    );
+  }
+  return seedRows.length;
+}
+
+// Wipe + re-seed wp_tasks for a WP (used by resync button).
+// Cascades: wp_task_participants are removed via FK ON DELETE CASCADE.
+async function resyncWpTasks(wpId, userId) {
+  await _assertWp(wpId, userId);
+  await db.execute(`DELETE FROM wp_tasks WHERE work_package_id = ?`, [wpId]);
+  return await seedWpTasksFromProject(wpId);
+}
+
+async function listWpTasks(wpId) {
+  let [tasks] = await db.execute(
+    `SELECT * FROM wp_tasks WHERE work_package_id = ? ORDER BY sort_order, created_at`,
+    [wpId]
+  );
+  if (!tasks.length) {
+    const seeded = await seedWpTasksFromProject(wpId);
+    if (seeded > 0) {
+      [tasks] = await db.execute(
+        `SELECT * FROM wp_tasks WHERE work_package_id = ? ORDER BY sort_order, created_at`,
+        [wpId]
+      );
+    }
+  }
+  if (!tasks.length) return [];
+  const taskIds = tasks.map(t => t.id);
+  const placeholders = taskIds.map(() => '?').join(',');
+  const [parts] = await db.execute(
+    `SELECT tp.task_id, tp.partner_id, tp.role, tp.sort_order,
+            p.name AS partner_name, p.country AS partner_country
+       FROM wp_task_participants tp
+       JOIN partners p ON p.id = tp.partner_id
+      WHERE tp.task_id IN (${placeholders})
+      ORDER BY tp.sort_order, p.order_index`,
+    taskIds
+  );
+  const partsByTask = {};
+  for (const p of parts) {
+    (partsByTask[p.task_id] ||= []).push(p);
+  }
+  return tasks.map(t => ({ ...t, participants: partsByTask[t.id] || [] }));
+}
+
+async function createWpTask(wpId, userId, data) {
+  const wp = await _assertWp(wpId, userId);
+  const id = genUUID();
+  await db.execute(
+    `INSERT INTO wp_tasks (id, work_package_id, project_id, code, title, description, in_kind_subcontracting, sort_order)
+     VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
+    [
+      id, wpId, wp.project_id,
+      data.code || null,
+      data.title || 'New task',
+      data.description || null,
+      data.in_kind_subcontracting || null,
+      data.sort_order || 0,
+    ]
+  );
+  if (Array.isArray(data.participants)) {
+    for (const part of data.participants) {
+      if (!part.partner_id) continue;
+      await db.execute(
+        `INSERT INTO wp_task_participants (id, task_id, partner_id, role, sort_order)
+         VALUES (?, ?, ?, ?, ?)
+         ON DUPLICATE KEY UPDATE role = VALUES(role)`,
+        [genUUID(), id, part.partner_id, part.role || 'BEN', part.sort_order || 0]
+      );
+    }
+  }
+  return id;
+}
+
+async function _assertTask(taskId, userId) {
+  const [rows] = await db.execute(
+    `SELECT t.id, t.work_package_id, t.project_id
+       FROM wp_tasks t
+       JOIN projects p ON p.id = t.project_id
+      WHERE t.id = ? AND p.user_id = ?`,
+    [taskId, userId]
+  );
+  if (!rows.length) { const e = new Error('Task not found'); e.status = 404; throw e; }
+  return rows[0];
+}
+
+async function updateWpTask(taskId, userId, data) {
+  await _assertTask(taskId, userId);
+  const allowed = ['code', 'title', 'description', 'in_kind_subcontracting', 'sort_order'];
+  const sets = [];
+  const vals = [];
+  for (const k of allowed) {
+    if (data[k] !== undefined) { sets.push(`${k} = ?`); vals.push(data[k] === '' ? null : data[k]); }
+  }
+  if (!sets.length) return;
+  vals.push(taskId);
+  await db.execute(`UPDATE wp_tasks SET ${sets.join(', ')} WHERE id = ?`, vals);
+}
+
+async function deleteWpTask(taskId, userId) {
+  await _assertTask(taskId, userId);
+  await db.execute('DELETE FROM wp_tasks WHERE id = ?', [taskId]);
+}
+
+async function setTaskParticipant(taskId, userId, partnerId, role) {
+  await _assertTask(taskId, userId);
+  await db.execute(
+    `INSERT INTO wp_task_participants (id, task_id, partner_id, role)
+     VALUES (?, ?, ?, ?)
+     ON DUPLICATE KEY UPDATE role = VALUES(role)`,
+    [genUUID(), taskId, partnerId, role || 'BEN']
+  );
+}
+
+async function removeTaskParticipant(taskId, userId, partnerId) {
+  await _assertTask(taskId, userId);
+  await db.execute(
+    'DELETE FROM wp_task_participants WHERE task_id = ? AND partner_id = ?',
+    [taskId, partnerId]
+  );
+}
+
+/* ── WP Budget pivot ────────────────────────────────────────────
+   Reads from budget_costs and pivots into the form columns:
+   A · B · C.1a (Travel) · C.1b (Accommodation) · C.1c (Subsistence)
+   · C.2 (Equipment) · C.3 (Other) · D.1 · E (indirect) · Total.
+   The match between budget_work_packages and work_packages is by
+   label prefix (label = `${wp.code} — ${wp.title}` at sync time).
+   ────────────────────────────────────────────────────────────── */
+
+async function getWpBudget(wpId, userId) {
+  const wp = await _assertWp(wpId, userId);
+  const [wpInfo] = await db.execute(
+    `SELECT code, order_index FROM work_packages WHERE id = ?`,
+    [wpId]
+  );
+  if (!wpInfo.length) return null;
+  const wpCode = wpInfo[0].code;
+  const wpOrder = wpInfo[0].order_index;
+
+  const [budgets] = await db.execute(
+    `SELECT id, indirect_pct FROM budget_projects WHERE project_id = ? LIMIT 1`,
+    [wp.project_id]
+  );
+  if (!budgets.length) return { rows: [], total: 0, indirect_pct: 0, matched: false };
+  const budgetId = budgets[0].id;
+  const indirectPct = Number(budgets[0].indirect_pct || 0);
+
+  // Find the matching budget_work_package: prefer label starting with `${wpCode} —`,
+  // fall back to ordinal position (number = order_index + 1).
+  const [bwps] = await db.execute(
+    `SELECT id, number, label FROM budget_work_packages WHERE budget_id = ? ORDER BY number`,
+    [budgetId]
+  );
+  let bwp = bwps.find(b => b.label && wpCode && b.label.startsWith(wpCode + ' '));
+  if (!bwp) bwp = bwps[Math.max(0, wpOrder)] || null;
+  if (!bwp) return { rows: [], total: 0, indirect_pct: indirectPct, matched: false };
+
+  // Pivot per beneficiary
+  const [rows] = await db.execute(
+    `SELECT bb.id AS beneficiary_id, bb.name, bb.acronym, bb.is_coordinator,
+            COALESCE(SUM(CASE WHEN bc.category = 'A' THEN bc.total_cost ELSE 0 END), 0) AS a_personnel,
+            COALESCE(SUM(CASE WHEN bc.category = 'B' THEN bc.total_cost ELSE 0 END), 0) AS b_subcontracting,
+            COALESCE(SUM(CASE WHEN bc.category = 'C' AND bc.subcategory = 'C1' AND bc.line_item = 'Travel'        THEN bc.total_cost ELSE 0 END), 0) AS c1a_travel,
+            COALESCE(SUM(CASE WHEN bc.category = 'C' AND bc.subcategory = 'C1' AND bc.line_item = 'Accommodation' THEN bc.total_cost ELSE 0 END), 0) AS c1b_accommodation,
+            COALESCE(SUM(CASE WHEN bc.category = 'C' AND bc.subcategory = 'C1' AND bc.line_item = 'Subsistence'   THEN bc.total_cost ELSE 0 END), 0) AS c1c_subsistence,
+            COALESCE(SUM(CASE WHEN bc.category = 'C' AND bc.subcategory = 'C2' THEN bc.total_cost ELSE 0 END), 0) AS c2_equipment,
+            COALESCE(SUM(CASE WHEN bc.category = 'C' AND bc.subcategory = 'C3' THEN bc.total_cost ELSE 0 END), 0) AS c3_other,
+            COALESCE(SUM(CASE WHEN bc.category = 'D' THEN bc.total_cost ELSE 0 END), 0) AS d1_third_parties,
+            COALESCE(SUM(bc.total_cost), 0) AS direct_total
+       FROM budget_beneficiaries bb
+       LEFT JOIN budget_costs bc
+         ON bc.beneficiary_id = bb.id
+        AND bc.budget_id = bb.budget_id
+        AND bc.wp_id = ?
+      WHERE bb.budget_id = ?
+      GROUP BY bb.id
+      ORDER BY bb.sort_order, bb.number`,
+    [bwp.id, budgetId]
+  );
+
+  const enriched = rows.map(r => {
+    const direct = Number(r.direct_total || 0);
+    const e_indirect = Math.round(direct * indirectPct) / 100;
+    return { ...r, e_indirect, total: direct + e_indirect };
+  });
+  const total = enriched.reduce((s, r) => s + r.total, 0);
+  return { rows: enriched, total, indirect_pct: indirectPct, matched: true };
+}
+
+async function listProjectPartners(projectId, userId) {
+  const [rows] = await db.execute(
+    `SELECT pa.id, pa.name, pa.legal_name, pa.country, pa.role, pa.order_index
+       FROM partners pa
+       JOIN projects pr ON pr.id = pa.project_id
+      WHERE pa.project_id = ? AND pr.user_id = ?
+      ORDER BY pa.order_index`,
+    [projectId, userId]
+  );
+  return rows;
+}
+
+/* ── AI auto-fill for the whole WP form ─────────────────────────
+   Synthesises Objectives / Tasks / Milestones / Deliverables from
+   project context (Intake activities + partners + WP summary +
+   problem/target_groups). REPLACES existing rows for this WP.
+   ────────────────────────────────────────────────────────────── */
+
+async function aiFillWp(wpId, userId, options = {}) {
+  const ai = require('../../utils/ai');
+  const wp = await _assertWp(wpId, userId);
+
+  const VALID_TARGETS = ['objectives','tasks','milestones','deliverables'];
+  const requested = Array.isArray(options.targets) ? options.targets.filter(t => VALID_TARGETS.includes(t)) : null;
+  const targets = new Set(requested && requested.length ? requested : VALID_TARGETS);
+
+  // Gather context: WP, partners, activities for this WP, project meta
+  const [wpRows] = await db.execute(
+    `SELECT id, code, title, summary, objectives, duration_from_month, duration_to_month
+       FROM work_packages WHERE id = ?`,
+    [wpId]
+  );
+  const wpInfo = wpRows[0] || {};
+
+  const [partners] = await db.execute(
+    `SELECT id, name, legal_name, country, role FROM partners
+      WHERE project_id = ? ORDER BY order_index`,
+    [wp.project_id]
+  );
+
+  const [activities] = await db.execute(
+    `SELECT id, type, label, description FROM activities
+      WHERE wp_id = ? ORDER BY order_index`,
+    [wpId]
+  );
+
+  const [contexts] = await db.execute(
+    `SELECT problem, target_groups, approach FROM intake_contexts
+      WHERE project_id = ? LIMIT 1`,
+    [wp.project_id]
+  );
+  const ctx = contexts[0] || {};
+
+  const [projects] = await db.execute(
+    `SELECT name, type, description, duration_months FROM projects WHERE id = ?`,
+    [wp.project_id]
+  );
+  const project = projects[0] || {};
+
+  const wpNum = (wpInfo.code || '').replace(/\D/g, '') || '1';
+
+  const partnersForPrompt = partners.map(p =>
+    `  - id=${p.id} | ${p.name || p.legal_name} (${p.country || '?'}) [${p.role}]`
+  ).join('\n');
+
+  const activitiesForPrompt = activities.length
+    ? activities.map(a => `  - [${a.type}] ${a.label}${a.description ? ': ' + a.description.slice(0, 200) : ''}`).join('\n')
+    : '  (no activities planned in Intake yet — synthesise reasonable defaults from the WP summary)';
+
+  const sectionSpecs = {
+    objectives: `"objectives": string. 2–4 short bullet lines starting with "• ", separated by \\n.`,
+    tasks: `"tasks": array of 3–5 objects, each: { "code": "T${wpNum}.N", "title": short, "description": one line, "in_kind_subcontracting": "No" or "Yes — short reason", "participants": [{"partner_id": uuid_from_list, "role": one of "COO"|"BEN"|"AE"|"AP"|"OTHER"}] }. The applicant partner is COO; others default to BEN. Most tasks involve 2–4 partners.`,
+    milestones: `"milestones": array of 2–3 objects, each: { "code": "MSN" (continuous globally — start at 1 for WP1), "title": short, "due_month": integer 1–${project.duration_months || 24}, "lead_partner_id": uuid_from_list, "description": one line, "verification": short means of verification }.`,
+    deliverables: `"deliverables": array of 3–5 objects, each: { "code": "D${wpNum}.N", "title": short, "type": one of "R"|"DEM"|"DEC"|"DATA"|"DMP"|"ETHICS"|"SECURITY"|"OTHER", "dissemination_level": one of "PU"|"SEN"|"R-UE/EU-R"|"C-UE/EU-C"|"S-UE/EU-S", "due_month": integer, "lead_partner_id": uuid_from_list, "description": one line including format and language }.`,
+  };
+  const targetKeys = [...targets];
+  const keysJson = targetKeys.map(k => `"${k}"`).join(', ');
+  const specsBlock = targetKeys.map(k => sectionSpecs[k]).join('\n');
+
+  const systemPrompt = `You are an Erasmus+ proposal expert filling Section 4.2 (Work Packages) of the EU Application Form Part B.
+
+Output ONE JSON object with exactly these keys: ${keysJson}.
+
+CONSTRAINTS — every cell must be SHORT (max ~one line, ~80 chars). The form has limited table space.
+
+${specsBlock}
+
+Use ONLY partner_id values from the provided list. Do not invent UUIDs.
+Output only valid JSON, no markdown fences, no commentary.`;
+
+  const userPrompt = `PROJECT: ${project.name || ''} (${project.type || ''})
+Total duration: ${project.duration_months || 24} months
+Problem: ${ctx.problem || '(not specified)'}
+Target groups: ${ctx.target_groups || '(not specified)'}
+Approach: ${ctx.approach || '(not specified)'}
+
+THIS WORK PACKAGE: ${wpInfo.code || ''} — ${wpInfo.title || ''}
+Summary: ${wpInfo.summary || '(not specified)'}
+Duration: months ${wpInfo.duration_from_month || '?'} – ${wpInfo.duration_to_month || '?'}
+
+PARTNERS (use these UUIDs as partner_id and lead_partner_id):
+${partnersForPrompt || '  (no partners — leave participants/lead empty)'}
+
+INTAKE ACTIVITIES PLANNED FOR THIS WP (synthesise tasks from these):
+${activitiesForPrompt}
+
+Return the JSON now.`;
+
+  const raw = await ai.callClaude(systemPrompt, userPrompt, 4096);
+  let parsed;
+  try {
+    // Strip optional code fences just in case
+    const cleaned = raw.replace(/^```json\s*/i, '').replace(/^```\s*/, '').replace(/\s*```$/, '').trim();
+    parsed = JSON.parse(cleaned);
+  } catch (e) {
+    const err = new Error('AI returned invalid JSON: ' + (e.message || ''));
+    err.status = 502;
+    throw err;
+  }
+
+  const partnerIds = new Set(partners.map(p => p.id));
+
+  // Persist: only target sections are touched. Each target wipes-and-replaces
+  // its rows for THIS WP. Other tables and other WPs are left untouched.
+  const conn = await db.getConnection();
+  try {
+    await conn.beginTransaction();
+
+    if (targets.has('objectives') && typeof parsed.objectives === 'string') {
+      await conn.execute(`UPDATE work_packages SET objectives = ? WHERE id = ?`, [parsed.objectives, wpId]);
+    }
+
+    if (targets.has('tasks')) {
+      await conn.execute(`DELETE FROM wp_tasks WHERE work_package_id = ?`, [wpId]);
+      if (Array.isArray(parsed.tasks)) {
+        for (let i = 0; i < parsed.tasks.length; i++) {
+          const t = parsed.tasks[i] || {};
+          const taskId = genUUID();
+          await conn.execute(
+            `INSERT INTO wp_tasks (id, work_package_id, project_id, code, title, description, in_kind_subcontracting, sort_order)
+             VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
+            [taskId, wpId, wp.project_id, t.code || `T${wpNum}.${i + 1}`, (t.title || 'Task').slice(0, 250), t.description || null, t.in_kind_subcontracting || null, i]
+          );
+          if (Array.isArray(t.participants)) {
+            for (const p of t.participants) {
+              if (!p.partner_id || !partnerIds.has(p.partner_id)) continue;
+              try {
+                await conn.execute(
+                  `INSERT INTO wp_task_participants (id, task_id, partner_id, role) VALUES (?, ?, ?, ?)`,
+                  [genUUID(), taskId, p.partner_id, (p.role || 'BEN').toUpperCase()]
+                );
+              } catch (e) { /* ignore dup */ }
+            }
+          }
+        }
+      }
+    }
+
+    if (targets.has('milestones')) {
+      await conn.execute(`DELETE FROM milestones WHERE work_package_id = ?`, [wpId]);
+      if (Array.isArray(parsed.milestones)) {
+        for (let i = 0; i < parsed.milestones.length; i++) {
+          const m = parsed.milestones[i] || {};
+          const lead = partnerIds.has(m.lead_partner_id) ? m.lead_partner_id : null;
+          await conn.execute(
+            `INSERT INTO milestones (id, work_package_id, project_id, code, title, description, due_month, verification, lead_partner_id, sort_order, auto_generated)
+             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1)`,
+            [genUUID(), wpId, wp.project_id, m.code || null, (m.title || 'Milestone').slice(0, 250), m.description || null, parseInt(m.due_month, 10) || null, m.verification || null, lead, i]
+          );
+        }
+      }
+    }
+
+    if (targets.has('deliverables')) {
+      await conn.execute(`DELETE FROM deliverables WHERE work_package_id = ?`, [wpId]);
+      if (Array.isArray(parsed.deliverables)) {
+        for (let i = 0; i < parsed.deliverables.length; i++) {
+          const d = parsed.deliverables[i] || {};
+          const lead = partnerIds.has(d.lead_partner_id) ? d.lead_partner_id : null;
+          await conn.execute(
+            `INSERT INTO deliverables (id, work_package_id, project_id, code, title, description, type, dissemination_level, due_month, lead_partner_id, sort_order, auto_generated)
+             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1)`,
+            [genUUID(), wpId, wp.project_id, d.code || null, (d.title || 'Deliverable').slice(0, 250), d.description || null, d.type || null, d.dissemination_level || null, parseInt(d.due_month, 10) || null, lead, i]
+          );
+        }
+      }
+    }
+
+    await conn.commit();
+  } catch (err) {
+    await conn.rollback();
+    throw err;
+  } finally {
+    conn.release();
+  }
+
+  return {
+    targets: targetKeys,
+    objectives: targets.has('objectives') ? (parsed.objectives || '') : undefined,
+    tasks_count: targets.has('tasks') ? (parsed.tasks || []).length : undefined,
+    milestones_count: targets.has('milestones') ? (parsed.milestones || []).length : undefined,
+    deliverables_count: targets.has('deliverables') ? (parsed.deliverables || []).length : undefined,
+  };
+}
+
+// Phase 1 of Evaluate-and-Refine: evaluate the current text, return the
+// diagnosis + which 2 weaknesses would be targeted if the user chooses to
+// refine. Decides whether refining makes sense at all (skip_reason).
+async function refineEvaluatePhase(instanceId, sectionId, currentText, programId) {
+  if (!process.env.ANTHROPIC_API_KEY) {
+    return { skip_reason: 'AI key not configured.' };
+  }
+  const sectionTitle = await getSectionTitleAsync(sectionId);
+  const [instRow] = await db.execute('SELECT project_id FROM form_instances WHERE id = ?', [instanceId]);
+  const projId = instRow[0]?.project_id;
+  const { langName } = projId ? await getProjectMeta(projId) : { langName: 'English' };
+  const evaluation = await evaluateSection(currentText, sectionTitle, null, programId, langName);
+  const score = typeof evaluation.score_estimate === 'number' ? evaluation.score_estimate : null;
+  const weaknesses = evaluation.weaknesses || [];
+  const suggestions = evaluation.suggestions || [];
+
+  let skip_reason = null;
+  if (score != null && score >= 8.5) {
+    skip_reason = `Ya estás en ${score}/10 — zona de rendimientos decrecientes. Refinar podría empeorar el texto. Si quieres cambios puntuales, usa "Mejorar con IA" con una instrucción específica.`;
+  } else if (!weaknesses.length) {
+    skip_reason = 'El evaluador no ha identificado debilidades claras. No hay nada que refinar automáticamente.';
+  }
+
+  return {
+    ...evaluation,
+    would_target_weaknesses: weaknesses.slice(0, 2),
+    would_target_suggestions: suggestions.slice(0, 3),
+    skip_reason,
+  };
+}
+
+// Phase 2 of Evaluate-and-Refine: takes the evaluation from phase 1 and a
+// targeted improve pass, then re-evaluates. Auto-reverts on regression.
+async function refineApplyPhase(instanceId, sectionId, currentText, beforeEval, projectContext, programId, coordinatorName) {
+  if (!process.env.ANTHROPIC_API_KEY) {
+    return { text: currentText, before: beforeEval, after: beforeEval, delta: 0, weaknesses_targeted: [] };
+  }
+  const sectionTitle = await getSectionTitleAsync(sectionId);
+  const [instRow] = await db.execute('SELECT project_id FROM form_instances WHERE id = ?', [instanceId]);
+  const projId = instRow[0]?.project_id;
+  const { langName } = projId ? await getProjectMeta(projId) : { langName: 'English' };
+  const beforeScore = typeof beforeEval.score_estimate === 'number' ? beforeEval.score_estimate : null;
+  const topWeaknesses = (beforeEval.weaknesses || []).slice(0, 2);
+  const topSuggestions = (beforeEval.suggestions || []).slice(0, 3);
+
+  const targetScore = Math.min(10, Math.max(9, Math.ceil((beforeScore || 7) + 1.5)));
+  const userRequest = `Improve this section to reach ${targetScore}/10. Focus ONLY on these high-impact issues, not a general polish:\n` +
+    topWeaknesses.map((w, i) => `Issue ${i + 1}: ${w}`).join('\n') +
+    (topSuggestions.length ? `\n\nConcrete suggestions to apply:\n` + topSuggestions.map((s) => `- ${s}`).join('\n') : '');
+
+  const improved = await improveSectionCustom(
+    instanceId, sectionId, currentText, userRequest, projectContext, programId, coordinatorName,
+    { evaluation: beforeEval, targetScore }
+  );
+
+  const afterEval = await evaluateSection(improved, sectionTitle, null, programId, langName);
+  const afterScore = typeof afterEval.score_estimate === 'number' ? afterEval.score_estimate : null;
+  const delta = (beforeScore != null && afterScore != null) ? (afterScore - beforeScore) : null;
+  console.log(`[Writer/refine-apply] ${beforeScore} → ${afterScore} (delta ${delta})`);
+
+  if (delta != null && delta < -0.5) {
+    return {
+      text: currentText,
+      before: beforeEval,
+      after: afterEval,
+      delta,
+      weaknesses_targeted: topWeaknesses,
+      reverted: true,
+      note: `La refinación bajó la puntuación de ${beforeScore} a ${afterScore} (delta ${delta.toFixed(1)}). Se ha restaurado el texto original. Prueba con "Mejorar con IA" dando una instrucción más específica.`,
+    };
+  }
+
+  return {
+    text: improved,
+    before: beforeEval,
+    after: afterEval,
+    delta,
+    weaknesses_targeted: topWeaknesses,
+  };
+}
+
+// ── Legacy one-shot auto-refine (kept for backwards compat, will be removed).
+async function refineSectionAuto(instanceId, sectionId, currentText, projectContext, programId, coordinatorName) {
+  if (!process.env.ANTHROPIC_API_KEY) {
+    return { text: currentText, before: null, after: null, weaknesses_targeted: [] };
+  }
+
+  const sectionNames = {
+    'summary_text': 'Project Summary',
+    's1_1_text': '1.1 Background and general objectives',
+    's1_2_text': '1.2 Needs analysis and specific objectives',
+    's1_3_text': '1.3 Complementarity, innovation and European added value',
+    's2_1_1_text': '2.1.1 Concept and methodology',
+    's2_1_2_text': '2.1.2 Project management, quality assurance and monitoring',
+    's2_1_4_text': '2.1.4 Cost effectiveness and financial management',
+    's2_2_1_text': '2.2.1 Consortium set-up and cooperation',
+    's2_2_2_text': '2.2.2 Consortium management and decision-making',
+    's3_1_text': '3.1 Impact and ambition',
+    's3_2_text': '3.2 Communication, dissemination and visibility',
+    's3_3_text': '3.3 Sustainability and continuation',
+    's4_1_text': '4.1 Work plan overview',
+    's4_2_text': '4.2 Work packages, activities, resources and timing',
+    's5_1_text': '5.1 Ethics',
+    's5_2_text': '5.2 Security',
+  };
+  const sectionTitle = sectionNames[sectionId] || sectionId;
+
+  // 1. Evaluate current text
+  const beforeEval = await evaluateSection(currentText, sectionTitle, null, programId);
+  const beforeScore = typeof beforeEval.score_estimate === 'number' ? beforeEval.score_estimate : null;
+  console.log(`[Writer/refine] before: ${beforeScore}/10, weaknesses=${(beforeEval.weaknesses || []).length}, suggestions=${(beforeEval.suggestions || []).length}`);
+
+  // 2. Pick the top 2 weaknesses (most impactful, not a laundry list)
+  const topWeaknesses = (beforeEval.weaknesses || []).slice(0, 2);
+  const topSuggestions = (beforeEval.suggestions || []).slice(0, 3);
+
+  // High-score guard: above 8.5 we're in diminishing returns; refining here
+  // often regresses because the improver overcorrects on a weakness while
+  // eroding existing strengths. Return a clear message instead of risking it.
+  if (beforeScore != null && beforeScore >= 8.5) {
+    return {
+      text: currentText,
+      before: beforeEval,
+      after: beforeEval,
+      delta: 0,
+      weaknesses_targeted: [],
+      note: `Ya estás en ${beforeScore}/10 — zona de rendimientos decrecientes. Usa "Mejorar con IA" con una instrucción muy específica si quieres cambiar algo puntual, o déjalo como está.`,
+    };
+  }
+
+  if (!topWeaknesses.length) {
+    return {
+      text: currentText,
+      before: beforeEval,
+      after: beforeEval,
+      delta: 0,
+      weaknesses_targeted: [],
+      note: 'El evaluador no ha identificado debilidades claras. No hay nada que refinar.',
+    };
+  }
+
+  // 3. Build a focused improve instruction from the top weaknesses only
+  const targetScore = Math.min(10, Math.max(9, Math.ceil((beforeScore || 7) + 1.5)));
+  const userRequest = `Improve this section to reach ${targetScore}/10. Focus ONLY on these high-impact issues, not a general polish:\n` +
+    topWeaknesses.map((w, i) => `Issue ${i + 1}: ${w}`).join('\n') +
+    (topSuggestions.length ? `\n\nConcrete suggestions to apply:\n` + topSuggestions.map((s, i) => `- ${s}`).join('\n') : '');
+
+  // 4. Run targeted improve
+  const improved = await improveSectionCustom(
+    instanceId, sectionId, currentText, userRequest, projectContext, programId, coordinatorName,
+    { evaluation: beforeEval, targetScore }
+  );
+
+  // 5. Re-evaluate
+  const afterEval = await evaluateSection(improved, sectionTitle, null, programId);
+  const afterScore = typeof afterEval.score_estimate === 'number' ? afterEval.score_estimate : null;
+  const delta = (beforeScore != null && afterScore != null) ? (afterScore - beforeScore) : null;
+  console.log(`[Writer/refine] after: ${afterScore}/10 (delta ${delta})`);
+
+  // Regression guard: if the refined version is worse by more than 0.5 points,
+  // revert to the original. Better to keep the user's current text than to
+  // ship a regression. The UI shows the delta so the user understands why.
+  if (delta != null && delta < -0.5) {
+    return {
+      text: currentText,  // revert
+      before: beforeEval,
+      after: afterEval,
+      delta,
+      weaknesses_targeted: topWeaknesses,
+      reverted: true,
+      note: `La refinación bajó la puntuación de ${beforeScore} a ${afterScore} (delta ${delta.toFixed(1)}). Se ha restaurado el texto original para no perder calidad. Prueba con "Mejorar con IA" dando una instrucción más específica.`,
+    };
+  }
+
+  return {
+    text: improved,
+    before: beforeEval,
+    after: afterEval,
+    delta,
+    weaknesses_targeted: topWeaknesses,
+  };
 }
 
 // ============ PREP STUDIO v2: 5-TAB CONTEXT ============
@@ -1927,6 +3217,105 @@ async function improveActivityDescription(projectId, activityId, userMessage) {
   return result;
 }
 
+/* ── Writer Phase 4: project-level Deliverables & Milestones ──
+   Hard cap of 15 deliverables per project (EU evaluator-friendly limit).
+   Order intentionally inverted from the EACEA form: deliverables drive
+   milestones, so the user defines deliverables first and milestones are
+   auto-generated 1:1 + 2 fixed (kick-off, final report).
+   ────────────────────────────────────────────────────────────── */
+
+const PROJECT_DELIVERABLE_HARD_CAP = 15;
+
+async function _assertProject(projectId, userId) {
+  const [rows] = await db.execute(
+    `SELECT id, duration_months FROM projects WHERE id = ? AND user_id = ?`,
+    [projectId, userId]
+  );
+  if (!rows.length) {
+    const err = new Error('Project not found');
+    err.status = 404;
+    throw err;
+  }
+  return rows[0];
+}
+
+function _shortTitle(text, maxWords = 8) {
+  if (!text) return '';
+  const cleaned = String(text).replace(/\s+/g, ' ').trim();
+  const words = cleaned.split(' ');
+  if (words.length <= maxWords) return cleaned;
+  return words.slice(0, maxWords).join(' ');
+}
+
+async function listProjectDeliverables(projectId, userId) {
+  await _assertProject(projectId, userId);
+  const [rows] = await db.execute(
+    `SELECT d.*, wp.code AS wp_code, wp.title AS wp_title, wp.order_index AS wp_order_index,
+            p.name AS lead_partner_name
+       FROM deliverables d
+       JOIN work_packages wp ON wp.id = d.work_package_id
+       LEFT JOIN partners p ON p.id = d.lead_partner_id
+      WHERE d.project_id = ?
+      ORDER BY wp.order_index, d.sort_order, d.created_at`,
+    [projectId]
+  );
+  if (!rows.length) return rows;
+  // Attach source tasks per deliverable for trazabilidad in the UI
+  const ids = rows.map(d => d.id);
+  const placeholders = ids.map(() => '?').join(',');
+  const [taskRows] = await db.execute(
+    `SELECT dt.deliverable_id, t.id AS task_id, t.code, t.title
+       FROM deliverable_tasks dt JOIN wp_tasks t ON t.id = dt.task_id
+      WHERE dt.deliverable_id IN (${placeholders})`,
+    ids
+  );
+  const tasksByD = {};
+  for (const t of taskRows) {
+    (tasksByD[t.deliverable_id] ||= []).push({ id: t.task_id, code: t.code, title: t.title });
+  }
+  for (const d of rows) d.source_tasks = tasksByD[d.id] || [];
+  return rows;
+}
+
+async function listProjectMilestones(projectId, userId) {
+  await _assertProject(projectId, userId);
+  const [rows] = await db.execute(
+    `SELECT m.*, wp.code AS wp_code, wp.title AS wp_title, wp.order_index AS wp_order_index,
+            p.name AS lead_partner_name,
+            d.code AS deliverable_code
+       FROM milestones m
+       JOIN work_packages wp ON wp.id = m.work_package_id
+       LEFT JOIN partners p ON p.id = m.lead_partner_id
+       LEFT JOIN deliverables d ON d.id = m.deliverable_id
+      WHERE m.project_id = ?
+      ORDER BY wp.order_index, m.sort_order, m.created_at`,
+    [projectId]
+  );
+  return rows;
+}
+
+
+// (Removed 2026-04-28: legacy autoDistributeDeliverables / autoGenerateMilestones /
+//  _computeDeliverableAllocation. Replaced by dms-generator.js holistic v2 flow.)
+
+
+async function getDeliverableSummary(projectId, userId) {
+  await _assertProject(projectId, userId);
+  const [[counts]] = await db.execute(
+    `SELECT COUNT(*) AS deliverables_count FROM deliverables WHERE project_id = ?`,
+    [projectId]
+  );
+  const [[ms]] = await db.execute(
+    `SELECT COUNT(*) AS milestones_count FROM milestones WHERE project_id = ?`,
+    [projectId]
+  );
+  return {
+    deliverables_count: counts.deliverables_count,
+    milestones_count: ms.milestones_count,
+    hard_cap: PROJECT_DELIVERABLE_HARD_CAP,
+  };
+}
+
 module.exports = {
   getProjectContext,
   getOrCreateInstance,
@@ -1949,6 +3338,10 @@ module.exports = {
   generateSection,
   evaluateSection,
   improveSection,
+  improveSectionCustom,
+  refineSectionAuto,
+  refineEvaluatePhase,
+  refineApplyPhase,
   retrieveRelevantChunks,
   getWritingRules,
   // Prep Studio v2
@@ -1977,4 +3370,30 @@ module.exports = {
   generateActivityDescriptionDraft,
   improveWpSummary,
   improveActivityDescription,
+  // Writer Phase 2 — per-WP structured tables
+  listMilestones,
+  createMilestone,
+  updateMilestone,
+  deleteMilestone,
+  listDeliverables,
+  createDeliverable,
+  updateDeliverable,
+  deleteDeliverable,
+  // Writer Phase 3 — full WP form (Application Form Part B section 4.2)
+  getWpHeader,
+  updateWpHeader,
+  listWpTasks,
+  createWpTask,
+  updateWpTask,
+  deleteWpTask,
+  setTaskParticipant,
+  removeTaskParticipant,
+  getWpBudget,
+  listProjectPartners,
+  aiFillWp,
+  resyncWpTasks,
+  // Phase 4 — project-level Deliverables & Milestones (v2 generator lives in dms-generator.js)
+  listProjectDeliverables,
+  listProjectMilestones,
+  getDeliverableSummary,
 };

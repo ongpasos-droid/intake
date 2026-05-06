@@ -22,26 +22,62 @@ app.use(helmet({
   contentSecurityPolicy: {
     directives: {
       defaultSrc:  ["'self'"],
-      scriptSrc:    ["'self'", "'unsafe-inline'", "https://cdn.tailwindcss.com", "https://accounts.google.com", "https://apis.google.com"],
+      scriptSrc:    ["'self'", "'unsafe-inline'", "https://cdn.tailwindcss.com", "https://cdn.jsdelivr.net", "https://accounts.google.com", "https://apis.google.com"],
       scriptSrcAttr:["'unsafe-inline'"],
-      styleSrc:    ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com", "https://accounts.google.com"],
+      styleSrc:    ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com", "https://accounts.google.com", "https://cdn.jsdelivr.net"],
       fontSrc:     ["'self'", "https://fonts.gstatic.com"],
-      imgSrc:      ["'self'", "data:", "https:"],
-      connectSrc:  ["'self'", "https://accounts.google.com"],
+      imgSrc:      ["'self'", "data:", "blob:", "https:"],
+      connectSrc:  ["'self'", "https://cdn.jsdelivr.net", "https://accounts.google.com",
+                    "https://tiles.openfreemap.org", "https://*.openfreemap.org",
+                    "https://*.basemaps.cartocdn.com"],
       frameSrc:    ["https://accounts.google.com"],
+      // MapLibre GL JS usa Web Workers desde un blob para decodificar vector tiles
+      workerSrc:   ["'self'", "blob:"],
+      childSrc:    ["'self'", "blob:"],
     }
-  }
+  },
+  // Default helmet pone Referrer-Policy: no-referrer, lo que rompe los tile servers
+  // (OSM y otros requieren Referer para identificar la fuente). Usamos la política
+  // estándar más restrictiva que sí envía origin cross-origin.
+  referrerPolicy: { policy: 'strict-origin-when-cross-origin' },
 }));
 
+// CORS allow-list. Tool origins + WP origins (local + prod) so the WP
+// newsletter form can POST to /v1/subscribers. Env var can override.
+const ALLOWED_ORIGINS = (process.env.CORS_ORIGINS || [
+  process.env.CORS_ORIGIN || 'http://localhost:3000',
+  'http://localhost:3000',
+  'http://eufundingschool.test',
+  'https://eufundingschool.com',
+  'https://www.eufundingschool.com',
+  'https://intake.eufundingschool.com',
+  'https://app.eufundingschool.com',
+].join(','))
+  .split(',')
+  .map(s => s.trim())
+  .filter(Boolean);
+
 app.use(cors({
-  origin: process.env.CORS_ORIGIN || 'http://localhost:3000',
-  credentials: true
+  origin: (origin, cb) => {
+    // No Origin header: same-origin, curl, native apps. Allow.
+    if (!origin) return cb(null, true);
+    if (ALLOWED_ORIGINS.includes(origin)) return cb(null, true);
+    return cb(new Error(`CORS: origin ${origin} not allowed`), false);
+  },
+  credentials: true,
 }));
 
 /* ── Body parsing ─────────────────────────────────────────────── */
 app.use(express.json({ limit: '1mb' }));
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+
+/* ── AI request context (propagates userId/endpoint to ai.js) ── */
+const aiContext = require('./node/src/utils/aiContext');
+app.use((req, _res, next) => {
+  const endpoint = (req.method + ' ' + (req.originalUrl || req.url || '')).split('?')[0];
+  aiContext.run({ endpoint }, next);
+});
 
 /* ── Static files (SPA) ──────────────────────────────────────── */
 app.use(express.static(path.join(__dirname, 'public')));
@@ -64,6 +100,7 @@ app.use('/v1/calculator', require('./node/src/modules/calculator/routes'));
 app.use('/v1/admin', require('./node/src/modules/admin/routes'));
 app.use('/v1/documents', require('./node/src/modules/documents/routes'));
 app.use('/v1/organizations', require('./node/src/modules/organizations/routes'));
+app.use('/v1/entities', require('./node/src/modules/entities/routes'));
 app.use('/v1/research', require('./node/src/modules/research/routes'));
 
 // Future modules:
@@ -72,6 +109,9 @@ app.use('/v1/developer',   require('./node/src/modules/developer/routes'));
 app.use('/v1/evaluator',   require('./node/src/modules/evaluator/routes'));
 app.use('/v1/budget',      require('./node/src/modules/budget/routes'));
 app.use('/v1/voice',       require('./node/src/modules/voice/routes'));
+app.use('/v1/sandbox',     require('./node/src/modules/sandbox/routes'));
+app.use('/v1/subscribers', require('./node/src/modules/subscribers/routes'));
+app.use('/v1/vps',         require('./node/src/modules/vps/routes'));
 
 /* ── SPA fallback — serve index.html for all non-API routes ─── */
 app.get('*', (req, res) => {

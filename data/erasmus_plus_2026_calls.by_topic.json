@@ -1,0 +1,1896 @@
+[
+  {
+    "topic_id": "ERASMUS-SPORT-2026-CB",
+    "family": "Capacity Building Sport",
+    "manager": "EACEA",
+    "duration": "12-36 months",
+    "funding_rate": "80%",
+    "deadline_iso": null,
+    "deadline_speculative": null,
+    "action_sublines": [
+      "CB Sport (Region 1+2)"
+    ],
+    "variants": [
+      {
+        "action_subline": "CB Sport (Region 1+2)",
+        "amount_text": "100,000 €",
+        "amount_eur": 100000,
+        "amount_type": "Min budget-based",
+        "tier": "S",
+        "notes": "Min of the 100k-200k range. Total project budget ≥ 125% of EU grant; 20% own/third-party resources."
+      },
+      {
+        "action_subline": "CB Sport (Region 1+2)",
+        "amount_text": "200,000 €",
+        "amount_eur": 200000,
+        "amount_type": "Max budget-based",
+        "tier": "S",
+        "notes": "Max of the 100k-200k range. Total project budget ≥ 125% of EU grant; 20% own/third-party resources."
+      }
+    ],
+    "variant_count": 2,
+    "amount_min": 100000,
+    "amount_max": 200000
+  },
+  {
+    "topic_id": "ERASMUS-SPORT-2026-SNCESE",
+    "family": "Not-for-profit Sport Events",
+    "manager": "EACEA",
+    "duration": "12 or 18 months",
+    "funding_rate": "Pre-fixed lump sum",
+    "deadline_iso": null,
+    "deadline_speculative": null,
+    "action_sublines": [
+      "European Local event Type I",
+      "European Local event Type II",
+      "European-wide event"
+    ],
+    "variants": [
+      {
+        "action_subline": "European Local event Type I",
+        "amount_text": "200,000 €",
+        "amount_eur": 200000,
+        "amount_type": "Pre-defined lump sum",
+        "tier": "S",
+        "notes": "3-5 orgs from 3-5 countries. Total project cost expected higher than lump sum."
+      },
+      {
+        "action_subline": "European Local event Type II",
+        "amount_text": "300,000 €",
+        "amount_eur": 300000,
+        "amount_type": "Pre-defined lump sum",
+        "tier": "S",
+        "notes": "Min 6 orgs from 6 countries. Total project cost expected higher than lump sum."
+      },
+      {
+        "action_subline": "European-wide event",
+        "amount_text": "450,000 €",
+        "amount_eur": 450000,
+        "amount_type": "Pre-defined lump sum",
+        "tier": "S",
+        "notes": "Min 10 orgs from 10 countries. Total project cost expected higher than lump sum."
+      }
+    ],
+    "variant_count": 3,
+    "amount_min": 200000,
+    "amount_max": 450000
+  },
+  {
+    "topic_id": "ERASMUS-SPORT-2026-LSSNCESE",
+    "family": "Not-for-profit Sport Events",
+    "manager": "EACEA",
+    "duration": "12 or 18 months",
+    "funding_rate": "Pre-fixed lump sum",
+    "deadline_iso": null,
+    "deadline_speculative": null,
+    "action_sublines": [
+      "Large-Scale European event (min)",
+      "Large-Scale European event (max)"
+    ],
+    "variants": [
+      {
+        "action_subline": "Large-Scale European event (min)",
+        "amount_text": "1,000,000 €",
+        "amount_eur": 1000000,
+        "amount_type": "Min fixed lump sum",
+        "tier": "M",
+        "notes": "Min 15 orgs from 15 countries. Total project cost expected higher than lump sum."
+      },
+      {
+        "action_subline": "Large-Scale European event (max)",
+        "amount_text": "1,500,000 €",
+        "amount_eur": 1500000,
+        "amount_type": "Max fixed lump sum",
+        "tier": "L",
+        "notes": "Min 15 orgs from 15 countries. Total project cost expected higher than lump sum."
+      }
+    ],
+    "variant_count": 2,
+    "amount_min": 1000000,
+    "amount_max": 1500000
+  },
+  {
+    "topic_id": "ERASMUS-SPORT-2026-SCP",
+    "family": "Cooperation Partnerships (Sport)",
+    "manager": "EACEA",
+    "duration": "12-36 months",
+    "funding_rate": "Pre-fixed lump sum",
+    "deadline_iso": null,
+    "deadline_speculative": null,
+    "action_sublines": [
+      "Sport CP - small",
+      "Sport CP - medium",
+      "Sport CP - large"
+    ],
+    "variants": [
+      {
+        "action_subline": "Sport CP - small",
+        "amount_text": "120,000 €",
+        "amount_eur": 120000,
+        "amount_type": "Pre-defined lump sum",
+        "tier": "S",
+        "notes": "3 fixed amounts. Total project cost expected HIGHER than lump sum."
+      },
+      {
+        "action_subline": "Sport CP - medium",
+        "amount_text": "250,000 €",
+        "amount_eur": 250000,
+        "amount_type": "Pre-defined lump sum",
+        "tier": "S",
+        "notes": "3 fixed amounts. Total project cost expected HIGHER than lump sum."
+      },
+      {
+        "action_subline": "Sport CP - large",
+        "amount_text": "400,000 €",
+        "amount_eur": 400000,
+        "amount_type": "Pre-defined lump sum",
+        "tier": "S",
+        "notes": "3 fixed amounts. Total project cost expected HIGHER than lump sum."
+      }
+    ],
+    "variant_count": 3,
+    "amount_min": 120000,
+    "amount_max": 400000
+  },
+  {
+    "topic_id": "ERASMUS-SPORT-2026-SSCP",
+    "family": "Small-Scale Partnerships (Sport)",
+    "manager": "EACEA",
+    "duration": "6-24 months",
+    "funding_rate": "Pre-fixed lump sum",
+    "deadline_iso": null,
+    "deadline_speculative": null,
+    "action_sublines": [
+      "Sport SSP - small",
+      "Sport SSP - medium"
+    ],
+    "variants": [
+      {
+        "action_subline": "Sport SSP - small",
+        "amount_text": "30,000 €",
+        "amount_eur": 30000,
+        "amount_type": "Pre-defined lump sum",
+        "tier": "XS",
+        "notes": "2 fixed amounts. Total project cost expected HIGHER than lump sum."
+      },
+      {
+        "action_subline": "Sport SSP - medium",
+        "amount_text": "60,000 €",
+        "amount_eur": 60000,
+        "amount_type": "Pre-defined lump sum",
+        "tier": "S",
+        "notes": "2 fixed amounts. Total project cost expected HIGHER than lump sum."
+      }
+    ],
+    "variant_count": 2,
+    "amount_min": 30000,
+    "amount_max": 60000
+  },
+  {
+    "topic_id": "ERASMUS-EDU-2026-CB-VET-WB",
+    "family": "Capacity Building VET",
+    "manager": "EACEA",
+    "duration": "36 months",
+    "funding_rate": "80%",
+    "deadline_iso": null,
+    "deadline_speculative": null,
+    "action_sublines": [
+      "CB VET Western Balkans"
+    ],
+    "variants": [
+      {
+        "action_subline": "CB VET Western Balkans",
+        "amount_text": "500,000 €",
+        "amount_eur": 500000,
+        "amount_type": "Max budget-based",
+        "tier": "M",
+        "notes": "No minimum. Total project budget ≥ 125% of EU grant; 20% own/third-party resources."
+      }
+    ],
+    "variant_count": 1,
+    "amount_min": 500000,
+    "amount_max": 500000
+  },
+  {
+    "topic_id": "ERASMUS-EDU-2026-CB-VET-NE",
+    "family": "Capacity Building VET",
+    "manager": "EACEA",
+    "duration": "36 months",
+    "funding_rate": "80%",
+    "deadline_iso": null,
+    "deadline_speculative": null,
+    "action_sublines": [
+      "CB VET Neighbourhood East"
+    ],
+    "variants": [
+      {
+        "action_subline": "CB VET Neighbourhood East",
+        "amount_text": "500,000 €",
+        "amount_eur": 500000,
+        "amount_type": "Max budget-based",
+        "tier": "M",
+        "notes": "No minimum. Total project budget ≥ 125% of EU grant; 20% own/third-party resources."
+      }
+    ],
+    "variant_count": 1,
+    "amount_min": 500000,
+    "amount_max": 500000
+  },
+  {
+    "topic_id": "ERASMUS-EDU-2026-CB-VET-SMC",
+    "family": "Capacity Building VET",
+    "manager": "EACEA",
+    "duration": "36 months",
+    "funding_rate": "80%",
+    "deadline_iso": null,
+    "deadline_speculative": null,
+    "action_sublines": [
+      "CB VET South-Mediterranean"
+    ],
+    "variants": [
+      {
+        "action_subline": "CB VET South-Mediterranean",
+        "amount_text": "500,000 €",
+        "amount_eur": 500000,
+        "amount_type": "Max budget-based",
+        "tier": "M",
+        "notes": "No minimum. Total project budget ≥ 125% of EU grant; 20% own/third-party resources."
+      }
+    ],
+    "variant_count": 1,
+    "amount_min": 500000,
+    "amount_max": 500000
+  },
+  {
+    "topic_id": "ERASMUS-EDU-2026-CB-VET-SSA",
+    "family": "Capacity Building VET",
+    "manager": "EACEA",
+    "duration": "36 months",
+    "funding_rate": "80%",
+    "deadline_iso": null,
+    "deadline_speculative": null,
+    "action_sublines": [
+      "CB VET Sub-Saharan Africa"
+    ],
+    "variants": [
+      {
+        "action_subline": "CB VET Sub-Saharan Africa",
+        "amount_text": "500,000 €",
+        "amount_eur": 500000,
+        "amount_type": "Max budget-based",
+        "tier": "M",
+        "notes": "No minimum. Total project budget ≥ 125% of EU grant; 20% own/third-party resources."
+      }
+    ],
+    "variant_count": 1,
+    "amount_min": 500000,
+    "amount_max": 500000
+  },
+  {
+    "topic_id": "ERASMUS-EDU-2026-CB-VET-LA",
+    "family": "Capacity Building VET",
+    "manager": "EACEA",
+    "duration": "36 months",
+    "funding_rate": "80%",
+    "deadline_iso": null,
+    "deadline_speculative": null,
+    "action_sublines": [
+      "CB VET Latin America"
+    ],
+    "variants": [
+      {
+        "action_subline": "CB VET Latin America",
+        "amount_text": "500,000 €",
+        "amount_eur": 500000,
+        "amount_type": "Max budget-based",
+        "tier": "M",
+        "notes": "No minimum. Total project budget ≥ 125% of EU grant; 20% own/third-party resources."
+      }
+    ],
+    "variant_count": 1,
+    "amount_min": 500000,
+    "amount_max": 500000
+  },
+  {
+    "topic_id": "ERASMUS-EDU-2026-CB-VET-CA",
+    "family": "Capacity Building VET",
+    "manager": "EACEA",
+    "duration": "36 months",
+    "funding_rate": "80%",
+    "deadline_iso": null,
+    "deadline_speculative": null,
+    "action_sublines": [
+      "CB VET Caribbean"
+    ],
+    "variants": [
+      {
+        "action_subline": "CB VET Caribbean",
+        "amount_text": "500,000 €",
+        "amount_eur": 500000,
+        "amount_type": "Max budget-based",
+        "tier": "M",
+        "notes": "No minimum. Total project budget ≥ 125% of EU grant; 20% own/third-party resources."
+      }
+    ],
+    "variant_count": 1,
+    "amount_min": 500000,
+    "amount_max": 500000
+  },
+  {
+    "topic_id": "ERASMUS-YOUTH-2026-CB-WB",
+    "family": "Capacity Building Youth",
+    "manager": "EACEA",
+    "duration": "12-36 months",
+    "funding_rate": "80%",
+    "deadline_iso": null,
+    "deadline_speculative": null,
+    "action_sublines": [
+      "CBY Western Balkans"
+    ],
+    "variants": [
+      {
+        "action_subline": "CBY Western Balkans",
+        "amount_text": "300,000 €",
+        "amount_eur": 300000,
+        "amount_type": "Max budget-based",
+        "tier": "S",
+        "notes": "Total project budget ≥ 125% of EU grant; 20% own/third-party resources."
+      }
+    ],
+    "variant_count": 1,
+    "amount_min": 300000,
+    "amount_max": 300000
+  },
+  {
+    "topic_id": "ERASMUS-YOUTH-2026-CB-NE",
+    "family": "Capacity Building Youth",
+    "manager": "EACEA",
+    "duration": "12-36 months",
+    "funding_rate": "80%",
+    "deadline_iso": null,
+    "deadline_speculative": null,
+    "action_sublines": [
+      "CBY Neighbourhood East"
+    ],
+    "variants": [
+      {
+        "action_subline": "CBY Neighbourhood East",
+        "amount_text": "300,000 €",
+        "amount_eur": 300000,
+        "amount_type": "Max budget-based",
+        "tier": "S",
+        "notes": "Total project budget ≥ 125% of EU grant; 20% own/third-party resources."
+      }
+    ],
+    "variant_count": 1,
+    "amount_min": 300000,
+    "amount_max": 300000
+  },
+  {
+    "topic_id": "ERASMUS-YOUTH-2026-CB-SMC",
+    "family": "Capacity Building Youth",
+    "manager": "EACEA",
+    "duration": "12-36 months",
+    "funding_rate": "80%",
+    "deadline_iso": null,
+    "deadline_speculative": null,
+    "action_sublines": [
+      "CBY South-Mediterranean"
+    ],
+    "variants": [
+      {
+        "action_subline": "CBY South-Mediterranean",
+        "amount_text": "300,000 €",
+        "amount_eur": 300000,
+        "amount_type": "Max budget-based",
+        "tier": "S",
+        "notes": "Total project budget ≥ 125% of EU grant; 20% own/third-party resources."
+      }
+    ],
+    "variant_count": 1,
+    "amount_min": 300000,
+    "amount_max": 300000
+  },
+  {
+    "topic_id": "ERASMUS-YOUTH-2026-CB-SSA",
+    "family": "Capacity Building Youth",
+    "manager": "EACEA",
+    "duration": "12-36 months",
+    "funding_rate": "80%",
+    "deadline_iso": null,
+    "deadline_speculative": null,
+    "action_sublines": [
+      "CBY Sub-Saharan Africa"
+    ],
+    "variants": [
+      {
+        "action_subline": "CBY Sub-Saharan Africa",
+        "amount_text": "450,000 €",
+        "amount_eur": 450000,
+        "amount_type": "Max budget-based",
+        "tier": "S",
+        "notes": "Includes Youth Exchanges. Total project budget ≥ 125% of EU grant; 20% own/third-party resources."
+      }
+    ],
+    "variant_count": 1,
+    "amount_min": 450000,
+    "amount_max": 450000
+  },
+  {
+    "topic_id": "ERASMUS-YOUTH-2026-YOUTH-TOG",
+    "family": "KA3 European Youth Together",
+    "manager": "EACEA",
+    "duration": "24 months",
+    "funding_rate": "80%",
+    "deadline_iso": null,
+    "deadline_speculative": null,
+    "action_sublines": [
+      "EYT"
+    ],
+    "variants": [
+      {
+        "action_subline": "EYT",
+        "amount_text": "500,000 €",
+        "amount_eur": 500000,
+        "amount_type": "Max budget-based",
+        "tier": "M",
+        "notes": "Min 5 partners from 5 countries. Total project budget ≥ 125% of EU grant; 20% own/third-party resources."
+      }
+    ],
+    "variant_count": 1,
+    "amount_min": 500000,
+    "amount_max": 500000
+  },
+  {
+    "topic_id": "KA220-SCH-2026",
+    "family": "Cooperation Partnerships (KA220)",
+    "manager": "National Agency",
+    "duration": "12-36 months",
+    "funding_rate": "Pre-fixed lump sum",
+    "deadline_iso": null,
+    "deadline_speculative": null,
+    "action_sublines": [
+      "School Education (KA220-SCH)"
+    ],
+    "variants": [
+      {
+        "action_subline": "School Education (KA220-SCH)",
+        "amount_text": "120,000 €",
+        "amount_eur": 120000,
+        "amount_type": "Pre-defined lump sum",
+        "tier": "S",
+        "notes": "Total project cost expected HIGHER than lump sum (own funds, in-kind, services)."
+      },
+      {
+        "action_subline": "School Education (KA220-SCH)",
+        "amount_text": "250,000 €",
+        "amount_eur": 250000,
+        "amount_type": "Pre-defined lump sum",
+        "tier": "S",
+        "notes": "Total project cost expected HIGHER than lump sum (own funds, in-kind, services)."
+      },
+      {
+        "action_subline": "School Education (KA220-SCH)",
+        "amount_text": "400,000 €",
+        "amount_eur": 400000,
+        "amount_type": "Pre-defined lump sum",
+        "tier": "S",
+        "notes": "Total project cost expected HIGHER than lump sum (own funds, in-kind, services)."
+      }
+    ],
+    "variant_count": 3,
+    "amount_min": 120000,
+    "amount_max": 400000
+  },
+  {
+    "topic_id": "KA220-VET-2026",
+    "family": "Cooperation Partnerships (KA220)",
+    "manager": "National Agency",
+    "duration": "12-36 months",
+    "funding_rate": "Pre-fixed lump sum",
+    "deadline_iso": null,
+    "deadline_speculative": null,
+    "action_sublines": [
+      "VET (KA220-VET)"
+    ],
+    "variants": [
+      {
+        "action_subline": "VET (KA220-VET)",
+        "amount_text": "120,000 €",
+        "amount_eur": 120000,
+        "amount_type": "Pre-defined lump sum",
+        "tier": "S",
+        "notes": "Total project cost expected HIGHER than lump sum (own funds, in-kind, services)."
+      },
+      {
+        "action_subline": "VET (KA220-VET)",
+        "amount_text": "250,000 €",
+        "amount_eur": 250000,
+        "amount_type": "Pre-defined lump sum",
+        "tier": "S",
+        "notes": "Total project cost expected HIGHER than lump sum (own funds, in-kind, services)."
+      },
+      {
+        "action_subline": "VET (KA220-VET)",
+        "amount_text": "400,000 €",
+        "amount_eur": 400000,
+        "amount_type": "Pre-defined lump sum",
+        "tier": "S",
+        "notes": "Total project cost expected HIGHER than lump sum (own funds, in-kind, services)."
+      }
+    ],
+    "variant_count": 3,
+    "amount_min": 120000,
+    "amount_max": 400000
+  },
+  {
+    "topic_id": "KA220-HED-2026",
+    "family": "Cooperation Partnerships (KA220)",
+    "manager": "National Agency",
+    "duration": "12-36 months",
+    "funding_rate": "Pre-fixed lump sum",
+    "deadline_iso": null,
+    "deadline_speculative": null,
+    "action_sublines": [
+      "Higher Education (KA220-HED)"
+    ],
+    "variants": [
+      {
+        "action_subline": "Higher Education (KA220-HED)",
+        "amount_text": "120,000 €",
+        "amount_eur": 120000,
+        "amount_type": "Pre-defined lump sum",
+        "tier": "S",
+        "notes": "Total project cost expected HIGHER than lump sum (own funds, in-kind, services)."
+      },
+      {
+        "action_subline": "Higher Education (KA220-HED)",
+        "amount_text": "250,000 €",
+        "amount_eur": 250000,
+        "amount_type": "Pre-defined lump sum",
+        "tier": "S",
+        "notes": "Total project cost expected HIGHER than lump sum (own funds, in-kind, services)."
+      },
+      {
+        "action_subline": "Higher Education (KA220-HED)",
+        "amount_text": "400,000 €",
+        "amount_eur": 400000,
+        "amount_type": "Pre-defined lump sum",
+        "tier": "S",
+        "notes": "Total project cost expected HIGHER than lump sum (own funds, in-kind, services)."
+      }
+    ],
+    "variant_count": 3,
+    "amount_min": 120000,
+    "amount_max": 400000
+  },
+  {
+    "topic_id": "KA220-ADU-2026",
+    "family": "Cooperation Partnerships (KA220)",
+    "manager": "National Agency",
+    "duration": "12-36 months",
+    "funding_rate": "Pre-fixed lump sum",
+    "deadline_iso": null,
+    "deadline_speculative": null,
+    "action_sublines": [
+      "Adult Education (KA220-ADU)"
+    ],
+    "variants": [
+      {
+        "action_subline": "Adult Education (KA220-ADU)",
+        "amount_text": "120,000 €",
+        "amount_eur": 120000,
+        "amount_type": "Pre-defined lump sum",
+        "tier": "S",
+        "notes": "Total project cost expected HIGHER than lump sum (own funds, in-kind, services)."
+      },
+      {
+        "action_subline": "Adult Education (KA220-ADU)",
+        "amount_text": "250,000 €",
+        "amount_eur": 250000,
+        "amount_type": "Pre-defined lump sum",
+        "tier": "S",
+        "notes": "Total project cost expected HIGHER than lump sum (own funds, in-kind, services)."
+      },
+      {
+        "action_subline": "Adult Education (KA220-ADU)",
+        "amount_text": "400,000 €",
+        "amount_eur": 400000,
+        "amount_type": "Pre-defined lump sum",
+        "tier": "S",
+        "notes": "Total project cost expected HIGHER than lump sum (own funds, in-kind, services)."
+      }
+    ],
+    "variant_count": 3,
+    "amount_min": 120000,
+    "amount_max": 400000
+  },
+  {
+    "topic_id": "KA220-YOU-2026",
+    "family": "Cooperation Partnerships (KA220)",
+    "manager": "National Agency",
+    "duration": "12-36 months",
+    "funding_rate": "Pre-fixed lump sum",
+    "deadline_iso": null,
+    "deadline_speculative": null,
+    "action_sublines": [
+      "Youth (KA220-YOU)"
+    ],
+    "variants": [
+      {
+        "action_subline": "Youth (KA220-YOU)",
+        "amount_text": "120,000 €",
+        "amount_eur": 120000,
+        "amount_type": "Pre-defined lump sum",
+        "tier": "S",
+        "notes": "Total project cost expected HIGHER than lump sum (own funds, in-kind, services)."
+      },
+      {
+        "action_subline": "Youth (KA220-YOU)",
+        "amount_text": "250,000 €",
+        "amount_eur": 250000,
+        "amount_type": "Pre-defined lump sum",
+        "tier": "S",
+        "notes": "Total project cost expected HIGHER than lump sum (own funds, in-kind, services)."
+      },
+      {
+        "action_subline": "Youth (KA220-YOU)",
+        "amount_text": "400,000 €",
+        "amount_eur": 400000,
+        "amount_type": "Pre-defined lump sum",
+        "tier": "S",
+        "notes": "Total project cost expected HIGHER than lump sum (own funds, in-kind, services)."
+      }
+    ],
+    "variant_count": 3,
+    "amount_min": 120000,
+    "amount_max": 400000
+  },
+  {
+    "topic_id": "ERASMUS-EDU-2026-PCOOP-ENGO",
+    "family": "Cooperation Partnerships (European NGOs)",
+    "manager": "EACEA",
+    "duration": "12-36 months",
+    "funding_rate": "Pre-fixed lump sum",
+    "deadline_iso": null,
+    "deadline_speculative": null,
+    "action_sublines": [
+      "European NGOs - Education & Training"
+    ],
+    "variants": [
+      {
+        "action_subline": "European NGOs - Education & Training",
+        "amount_text": "120,000 €",
+        "amount_eur": 120000,
+        "amount_type": "Pre-defined lump sum",
+        "tier": "S",
+        "notes": "Same logic as KA220 sectorial. Total project cost expected HIGHER than EU lump sum."
+      },
+      {
+        "action_subline": "European NGOs - Education & Training",
+        "amount_text": "250,000 €",
+        "amount_eur": 250000,
+        "amount_type": "Pre-defined lump sum",
+        "tier": "S",
+        "notes": "Same logic as KA220 sectorial. Total project cost expected HIGHER than EU lump sum."
+      },
+      {
+        "action_subline": "European NGOs - Education & Training",
+        "amount_text": "400,000 €",
+        "amount_eur": 400000,
+        "amount_type": "Pre-defined lump sum",
+        "tier": "S",
+        "notes": "Same logic as KA220 sectorial. Total project cost expected HIGHER than EU lump sum."
+      }
+    ],
+    "variant_count": 3,
+    "amount_min": 120000,
+    "amount_max": 400000
+  },
+  {
+    "topic_id": "ERASMUS-YOUTH-2026-PCOOP-ENGO",
+    "family": "Cooperation Partnerships (European NGOs)",
+    "manager": "EACEA",
+    "duration": "12-36 months",
+    "funding_rate": "Pre-fixed lump sum",
+    "deadline_iso": null,
+    "deadline_speculative": null,
+    "action_sublines": [
+      "European NGOs - Youth"
+    ],
+    "variants": [
+      {
+        "action_subline": "European NGOs - Youth",
+        "amount_text": "120,000 €",
+        "amount_eur": 120000,
+        "amount_type": "Pre-defined lump sum",
+        "tier": "S",
+        "notes": "Same logic as KA220 sectorial. Total project cost expected HIGHER than EU lump sum."
+      },
+      {
+        "action_subline": "European NGOs - Youth",
+        "amount_text": "250,000 €",
+        "amount_eur": 250000,
+        "amount_type": "Pre-defined lump sum",
+        "tier": "S",
+        "notes": "Same logic as KA220 sectorial. Total project cost expected HIGHER than EU lump sum."
+      },
+      {
+        "action_subline": "European NGOs - Youth",
+        "amount_text": "400,000 €",
+        "amount_eur": 400000,
+        "amount_type": "Pre-defined lump sum",
+        "tier": "S",
+        "notes": "Same logic as KA220 sectorial. Total project cost expected HIGHER than EU lump sum."
+      }
+    ],
+    "variant_count": 3,
+    "amount_min": 120000,
+    "amount_max": 400000
+  },
+  {
+    "topic_id": "KA210-SCH-2026",
+    "family": "Small-Scale Partnerships (KA210)",
+    "manager": "National Agency",
+    "duration": "6-24 months",
+    "funding_rate": "Pre-fixed lump sum",
+    "deadline_iso": null,
+    "deadline_speculative": null,
+    "action_sublines": [
+      "School Education (KA210-SCH)"
+    ],
+    "variants": [
+      {
+        "action_subline": "School Education (KA210-SCH)",
+        "amount_text": "30,000 €",
+        "amount_eur": 30000,
+        "amount_type": "Pre-defined lump sum",
+        "tier": "XS",
+        "notes": "Total project cost expected HIGHER than lump sum."
+      },
+      {
+        "action_subline": "School Education (KA210-SCH)",
+        "amount_text": "60,000 €",
+        "amount_eur": 60000,
+        "amount_type": "Pre-defined lump sum",
+        "tier": "S",
+        "notes": "Total project cost expected HIGHER than lump sum."
+      }
+    ],
+    "variant_count": 2,
+    "amount_min": 30000,
+    "amount_max": 60000
+  },
+  {
+    "topic_id": "KA210-VET-2026",
+    "family": "Small-Scale Partnerships (KA210)",
+    "manager": "National Agency",
+    "duration": "6-24 months",
+    "funding_rate": "Pre-fixed lump sum",
+    "deadline_iso": null,
+    "deadline_speculative": null,
+    "action_sublines": [
+      "VET (KA210-VET)"
+    ],
+    "variants": [
+      {
+        "action_subline": "VET (KA210-VET)",
+        "amount_text": "30,000 €",
+        "amount_eur": 30000,
+        "amount_type": "Pre-defined lump sum",
+        "tier": "XS",
+        "notes": "Total project cost expected HIGHER than lump sum."
+      },
+      {
+        "action_subline": "VET (KA210-VET)",
+        "amount_text": "60,000 €",
+        "amount_eur": 60000,
+        "amount_type": "Pre-defined lump sum",
+        "tier": "S",
+        "notes": "Total project cost expected HIGHER than lump sum."
+      }
+    ],
+    "variant_count": 2,
+    "amount_min": 30000,
+    "amount_max": 60000
+  },
+  {
+    "topic_id": "KA210-ADU-2026",
+    "family": "Small-Scale Partnerships (KA210)",
+    "manager": "National Agency",
+    "duration": "6-24 months",
+    "funding_rate": "Pre-fixed lump sum",
+    "deadline_iso": null,
+    "deadline_speculative": null,
+    "action_sublines": [
+      "Adult Education (KA210-ADU)"
+    ],
+    "variants": [
+      {
+        "action_subline": "Adult Education (KA210-ADU)",
+        "amount_text": "30,000 €",
+        "amount_eur": 30000,
+        "amount_type": "Pre-defined lump sum",
+        "tier": "XS",
+        "notes": "Total project cost expected HIGHER than lump sum."
+      },
+      {
+        "action_subline": "Adult Education (KA210-ADU)",
+        "amount_text": "60,000 €",
+        "amount_eur": 60000,
+        "amount_type": "Pre-defined lump sum",
+        "tier": "S",
+        "notes": "Total project cost expected HIGHER than lump sum."
+      }
+    ],
+    "variant_count": 2,
+    "amount_min": 30000,
+    "amount_max": 60000
+  },
+  {
+    "topic_id": "KA210-YOU-2026",
+    "family": "Small-Scale Partnerships (KA210)",
+    "manager": "National Agency",
+    "duration": "6-24 months",
+    "funding_rate": "Pre-fixed lump sum",
+    "deadline_iso": null,
+    "deadline_speculative": null,
+    "action_sublines": [
+      "Youth (KA210-YOU)"
+    ],
+    "variants": [
+      {
+        "action_subline": "Youth (KA210-YOU)",
+        "amount_text": "30,000 €",
+        "amount_eur": 30000,
+        "amount_type": "Pre-defined lump sum",
+        "tier": "XS",
+        "notes": "Total project cost expected HIGHER than lump sum."
+      },
+      {
+        "action_subline": "Youth (KA210-YOU)",
+        "amount_text": "60,000 €",
+        "amount_eur": 60000,
+        "amount_type": "Pre-defined lump sum",
+        "tier": "S",
+        "notes": "Total project cost expected HIGHER than lump sum."
+      }
+    ],
+    "variant_count": 2,
+    "amount_min": 30000,
+    "amount_max": 60000
+  },
+  {
+    "topic_id": "KA240-SCH-2026",
+    "family": "European Partnerships for School Development (EPSD)",
+    "manager": "National Agency",
+    "duration": "36 months",
+    "funding_rate": "Pre-fixed lump sum",
+    "deadline_iso": null,
+    "deadline_speculative": null,
+    "action_sublines": [
+      "EPSD (KA240-SCH)"
+    ],
+    "variants": [
+      {
+        "action_subline": "EPSD (KA240-SCH)",
+        "amount_text": "400,000 €",
+        "amount_eur": 400000,
+        "amount_type": "Fixed lump sum",
+        "tier": "S",
+        "notes": "NEW 2026 ACTION. School authorities expected to contribute additional resources for systemic impact."
+      }
+    ],
+    "variant_count": 1,
+    "amount_min": 400000,
+    "amount_max": 400000
+  },
+  {
+    "topic_id": "ERASMUS-EDU-2026-PI-ALL-INNO-EDU-ENTERP",
+    "family": "Alliances for Innovation",
+    "manager": "EACEA",
+    "duration": "2 years",
+    "funding_rate": "80%",
+    "deadline_iso": null,
+    "deadline_speculative": null,
+    "action_sublines": [
+      "Lot 1 - Education & Enterprises (2 yr)",
+      "Lot 1 - Education & Enterprises (3 yr)"
+    ],
+    "variants": [
+      {
+        "action_subline": "Lot 1 - Education & Enterprises (2 yr)",
+        "amount_text": "1,000,000 €",
+        "amount_eur": 1000000,
+        "amount_type": "Max budget-based",
+        "tier": "M",
+        "notes": "Total project budget ≥ 125% of EU grant; industrial partners often contribute heavily."
+      },
+      {
+        "action_subline": "Lot 1 - Education & Enterprises (3 yr)",
+        "amount_text": "1,500,000 €",
+        "amount_eur": 1500000,
+        "amount_type": "Max budget-based",
+        "tier": "L",
+        "notes": "Total project budget ≥ 125% of EU grant; industrial partners often contribute heavily."
+      }
+    ],
+    "variant_count": 2,
+    "amount_min": 1000000,
+    "amount_max": 1500000
+  },
+  {
+    "topic_id": "ERASMUS-EDU-2026-PI-ALL-INNO-BLUEPRINT",
+    "family": "Alliances for Innovation",
+    "manager": "EACEA",
+    "duration": "4 years",
+    "funding_rate": "80%",
+    "deadline_iso": null,
+    "deadline_speculative": null,
+    "action_sublines": [
+      "Lot 2 - Sectoral Cooperation (Blueprint)"
+    ],
+    "variants": [
+      {
+        "action_subline": "Lot 2 - Sectoral Cooperation (Blueprint)",
+        "amount_text": "4,000,000 €",
+        "amount_eur": 4000000,
+        "amount_type": "Max budget-based",
+        "tier": "L",
+        "notes": "Total project budget ≥ 125% of EU grant; 20% own/third-party resources."
+      }
+    ],
+    "variant_count": 1,
+    "amount_min": 4000000,
+    "amount_max": 4000000
+  },
+  {
+    "topic_id": "ERASMUS-EDU-2026-PI-ALL-INNO-STEM",
+    "family": "Alliances for Innovation",
+    "manager": "EACEA",
+    "duration": "2 years",
+    "funding_rate": "80%",
+    "deadline_iso": null,
+    "deadline_speculative": null,
+    "action_sublines": [
+      "Lot 3 - STEM Skills Foundries"
+    ],
+    "variants": [
+      {
+        "action_subline": "Lot 3 - STEM Skills Foundries",
+        "amount_text": "1,500,000 €",
+        "amount_eur": 1500000,
+        "amount_type": "Max budget-based",
+        "tier": "L",
+        "notes": "New 2026 lot. Total project budget ≥ 125% of EU grant; 20% own/third-party resources."
+      }
+    ],
+    "variant_count": 1,
+    "amount_min": 1500000,
+    "amount_max": 1500000
+  },
+  {
+    "topic_id": "ERASMUS-EDU-2026-PEX-COVE",
+    "family": "Partnerships for Excellence",
+    "manager": "EACEA",
+    "duration": "48 months",
+    "funding_rate": "80%",
+    "deadline_iso": null,
+    "deadline_speculative": null,
+    "action_sublines": [
+      "Centres of Vocational Excellence (CoVE)"
+    ],
+    "variants": [
+      {
+        "action_subline": "Centres of Vocational Excellence (CoVE)",
+        "amount_text": "4,000,000 €",
+        "amount_eur": 4000000,
+        "amount_type": "Max budget-based",
+        "tier": "L",
+        "notes": "Total project budget ≥ 125% of EU grant; 20% own/third-party resources."
+      }
+    ],
+    "variant_count": 1,
+    "amount_min": 4000000,
+    "amount_max": 4000000
+  },
+  {
+    "topic_id": "ERASMUS-EDU-2026-PEX-TEACH-ACA",
+    "family": "Partnerships for Excellence",
+    "manager": "EACEA",
+    "duration": "36 months",
+    "funding_rate": "80%",
+    "deadline_iso": null,
+    "deadline_speculative": null,
+    "action_sublines": [
+      "Erasmus+ Teacher Academies"
+    ],
+    "variants": [
+      {
+        "action_subline": "Erasmus+ Teacher Academies",
+        "amount_text": "1,500,000 €",
+        "amount_eur": 1500000,
+        "amount_type": "Max budget-based",
+        "tier": "L",
+        "notes": "Total project budget ≥ 125% of EU grant; 20% own/third-party resources."
+      }
+    ],
+    "variant_count": 1,
+    "amount_min": 1500000,
+    "amount_max": 1500000
+  },
+  {
+    "topic_id": "ERASMUS-EDU-2026-EUR-UNIV",
+    "family": "Partnerships for Excellence",
+    "manager": "EACEA",
+    "duration": "24 months",
+    "funding_rate": "80%",
+    "deadline_iso": null,
+    "deadline_speculative": null,
+    "action_sublines": [
+      "European Universities"
+    ],
+    "variants": [
+      {
+        "action_subline": "European Universities",
+        "amount_text": "6,400,000 €",
+        "amount_eur": 6400000,
+        "amount_type": "Max budget-based (indicative)",
+        "tier": "L",
+        "notes": "Total budget call: 145.6M / ~22-24 alliances. National/regional co-funding typically added."
+      }
+    ],
+    "variant_count": 1,
+    "amount_min": 6400000,
+    "amount_max": 6400000
+  },
+  {
+    "topic_id": "ERASMUS-EDU-2026-PEX-EMJM-MOB",
+    "family": "Partnerships for Excellence",
+    "manager": "EACEA",
+    "duration": "Up to 78 months",
+    "funding_rate": "Mixed (lump sums + scholarships)",
+    "deadline_iso": null,
+    "deadline_speculative": null,
+    "action_sublines": [
+      "Erasmus Mundus Joint Masters (EMJM)"
+    ],
+    "variants": [
+      {
+        "action_subline": "Erasmus Mundus Joint Masters (EMJM)",
+        "amount_text": "5,000,000 €",
+        "amount_eur": 5000000,
+        "amount_type": "Max budget-based (variable)",
+        "tier": "L",
+        "notes": "Approx ceiling. Tuition fees and additional costs may be co-financed by institutions."
+      }
+    ],
+    "variant_count": 1,
+    "amount_min": 5000000,
+    "amount_max": 5000000
+  },
+  {
+    "topic_id": "ERASMUS-EDU-2026-EMJM-DESIGN",
+    "family": "Partnerships for Excellence",
+    "manager": "EACEA",
+    "duration": "15 months",
+    "funding_rate": "Pre-fixed lump sum",
+    "deadline_iso": null,
+    "deadline_speculative": null,
+    "action_sublines": [
+      "Erasmus Mundus Design Measures"
+    ],
+    "variants": [
+      {
+        "action_subline": "Erasmus Mundus Design Measures",
+        "amount_text": "55,000 €",
+        "amount_eur": 55000,
+        "amount_type": "Fixed lump sum",
+        "tier": "XS",
+        "notes": "Single small lump sum; institutions cover additional design-phase costs."
+      }
+    ],
+    "variant_count": 1,
+    "amount_min": 55000,
+    "amount_max": 55000
+  },
+  {
+    "topic_id": "ERASMUS-EDU-2026-CBHE-WB",
+    "family": "Capacity Building HE (CBHE)",
+    "manager": "EACEA",
+    "duration": "24-36 months",
+    "funding_rate": "90%",
+    "deadline_iso": null,
+    "deadline_speculative": null,
+    "action_sublines": [
+      "Region 1 Western Balkans - Strand 1 (min)",
+      "Region 1 Western Balkans - Strand 1 (max)",
+      "Region 1 Western Balkans - Strand 2 (min)",
+      "Region 1 Western Balkans - Strand 2 (max)",
+      "Region 1 Western Balkans - Strand 3 (min)",
+      "Region 1 Western Balkans - Strand 3 (max)"
+    ],
+    "variants": [
+      {
+        "action_subline": "Region 1 Western Balkans - Strand 1 (min)",
+        "amount_text": "200,000 €",
+        "amount_eur": 200000,
+        "amount_type": "Min budget-based",
+        "tier": "S",
+        "notes": "Strand 1 (Fostering access). Region 1. ONLY action with 90% rate."
+      },
+      {
+        "action_subline": "Region 1 Western Balkans - Strand 1 (max)",
+        "amount_text": "400,000 €",
+        "amount_eur": 400000,
+        "amount_type": "Max budget-based",
+        "tier": "S",
+        "notes": "Strand 1 (Fostering access). Region 1. ONLY action with 90% rate."
+      },
+      {
+        "action_subline": "Region 1 Western Balkans - Strand 2 (min)",
+        "amount_text": "400,000 €",
+        "amount_eur": 400000,
+        "amount_type": "Min budget-based",
+        "tier": "S",
+        "notes": "Strand 2 (Partnerships for transformation). Region 1. ONLY action with 90% rate."
+      },
+      {
+        "action_subline": "Region 1 Western Balkans - Strand 2 (max)",
+        "amount_text": "800,000 €",
+        "amount_eur": 800000,
+        "amount_type": "Max budget-based",
+        "tier": "M",
+        "notes": "Strand 2 (Partnerships for transformation). Region 1. ONLY action with 90% rate."
+      },
+      {
+        "action_subline": "Region 1 Western Balkans - Strand 3 (min)",
+        "amount_text": "600,000 €",
+        "amount_eur": 600000,
+        "amount_type": "Min budget-based",
+        "tier": "M",
+        "notes": "Strand 3 (Structural Reform). Region 1. ONLY action with 90% rate."
+      },
+      {
+        "action_subline": "Region 1 Western Balkans - Strand 3 (max)",
+        "amount_text": "1,000,000 €",
+        "amount_eur": 1000000,
+        "amount_type": "Max budget-based",
+        "tier": "M",
+        "notes": "Strand 3 (Structural Reform). Region 1. ONLY action with 90% rate."
+      }
+    ],
+    "variant_count": 6,
+    "amount_min": 200000,
+    "amount_max": 1000000
+  },
+  {
+    "topic_id": "ERASMUS-EDU-2026-CBHE-NE",
+    "family": "Capacity Building HE (CBHE)",
+    "manager": "EACEA",
+    "duration": "24-36 months",
+    "funding_rate": "90%",
+    "deadline_iso": null,
+    "deadline_speculative": null,
+    "action_sublines": [
+      "Region 2 Neighbourhood East - Strand 1 (min)",
+      "Region 2 Neighbourhood East - Strand 1 (max)",
+      "Region 2 Neighbourhood East - Strand 2 (min)",
+      "Region 2 Neighbourhood East - Strand 2 (max)",
+      "Region 2 Neighbourhood East - Strand 3 (min)",
+      "Region 2 Neighbourhood East - Strand 3 (max)",
+      "Region 2 EU-Moldova Master's (Strand 3)"
+    ],
+    "variants": [
+      {
+        "action_subline": "Region 2 Neighbourhood East - Strand 1 (min)",
+        "amount_text": "200,000 €",
+        "amount_eur": 200000,
+        "amount_type": "Min budget-based",
+        "tier": "S",
+        "notes": "Strand 1 (Fostering access). Region 2. ONLY action with 90% rate."
+      },
+      {
+        "action_subline": "Region 2 Neighbourhood East - Strand 1 (max)",
+        "amount_text": "400,000 €",
+        "amount_eur": 400000,
+        "amount_type": "Max budget-based",
+        "tier": "S",
+        "notes": "Strand 1 (Fostering access). Region 2. ONLY action with 90% rate."
+      },
+      {
+        "action_subline": "Region 2 Neighbourhood East - Strand 2 (min)",
+        "amount_text": "400,000 €",
+        "amount_eur": 400000,
+        "amount_type": "Min budget-based",
+        "tier": "S",
+        "notes": "Strand 2 (Partnerships for transformation). Region 2. ONLY action with 90% rate."
+      },
+      {
+        "action_subline": "Region 2 Neighbourhood East - Strand 2 (max)",
+        "amount_text": "800,000 €",
+        "amount_eur": 800000,
+        "amount_type": "Max budget-based",
+        "tier": "M",
+        "notes": "Strand 2 (Partnerships for transformation). Region 2. ONLY action with 90% rate."
+      },
+      {
+        "action_subline": "Region 2 Neighbourhood East - Strand 3 (min)",
+        "amount_text": "600,000 €",
+        "amount_eur": 600000,
+        "amount_type": "Min budget-based",
+        "tier": "M",
+        "notes": "Strand 3 (Structural Reform). Region 2. ONLY action with 90% rate."
+      },
+      {
+        "action_subline": "Region 2 Neighbourhood East - Strand 3 (max)",
+        "amount_text": "1,000,000 €",
+        "amount_eur": 1000000,
+        "amount_type": "Max budget-based",
+        "tier": "M",
+        "notes": "Strand 3 (Structural Reform). Region 2. ONLY action with 90% rate."
+      },
+      {
+        "action_subline": "Region 2 EU-Moldova Master's (Strand 3)",
+        "amount_text": "2,000,000 €",
+        "amount_eur": 2000000,
+        "amount_type": "Max budget-based",
+        "tier": "L",
+        "notes": "SPECIAL 2026 ACTION. Master's programme in European Affairs in Moldova. Strand 3, Region 2 only."
+      }
+    ],
+    "variant_count": 7,
+    "amount_min": 200000,
+    "amount_max": 2000000
+  },
+  {
+    "topic_id": "ERASMUS-EDU-2026-CBHE-SMC",
+    "family": "Capacity Building HE (CBHE)",
+    "manager": "EACEA",
+    "duration": "24-36 months",
+    "funding_rate": "90%",
+    "deadline_iso": null,
+    "deadline_speculative": null,
+    "action_sublines": [
+      "Region 3 South-Mediterranean Countries - Strand 1 (min)",
+      "Region 3 South-Mediterranean Countries - Strand 1 (max)",
+      "Region 3 South-Mediterranean Countries - Strand 2 (min)",
+      "Region 3 South-Mediterranean Countries - Strand 2 (max)",
+      "Region 3 South-Mediterranean Countries - Strand 3 (min)",
+      "Region 3 South-Mediterranean Countries - Strand 3 (max)"
+    ],
+    "variants": [
+      {
+        "action_subline": "Region 3 South-Mediterranean Countries - Strand 1 (min)",
+        "amount_text": "200,000 €",
+        "amount_eur": 200000,
+        "amount_type": "Min budget-based",
+        "tier": "S",
+        "notes": "Strand 1 (Fostering access). Region 3. ONLY action with 90% rate."
+      },
+      {
+        "action_subline": "Region 3 South-Mediterranean Countries - Strand 1 (max)",
+        "amount_text": "400,000 €",
+        "amount_eur": 400000,
+        "amount_type": "Max budget-based",
+        "tier": "S",
+        "notes": "Strand 1 (Fostering access). Region 3. ONLY action with 90% rate."
+      },
+      {
+        "action_subline": "Region 3 South-Mediterranean Countries - Strand 2 (min)",
+        "amount_text": "400,000 €",
+        "amount_eur": 400000,
+        "amount_type": "Min budget-based",
+        "tier": "S",
+        "notes": "Strand 2 (Partnerships for transformation). Region 3. ONLY action with 90% rate."
+      },
+      {
+        "action_subline": "Region 3 South-Mediterranean Countries - Strand 2 (max)",
+        "amount_text": "800,000 €",
+        "amount_eur": 800000,
+        "amount_type": "Max budget-based",
+        "tier": "M",
+        "notes": "Strand 2 (Partnerships for transformation). Region 3. ONLY action with 90% rate."
+      },
+      {
+        "action_subline": "Region 3 South-Mediterranean Countries - Strand 3 (min)",
+        "amount_text": "600,000 €",
+        "amount_eur": 600000,
+        "amount_type": "Min budget-based",
+        "tier": "M",
+        "notes": "Strand 3 (Structural Reform). Region 3. ONLY action with 90% rate."
+      },
+      {
+        "action_subline": "Region 3 South-Mediterranean Countries - Strand 3 (max)",
+        "amount_text": "1,000,000 €",
+        "amount_eur": 1000000,
+        "amount_type": "Max budget-based",
+        "tier": "M",
+        "notes": "Strand 3 (Structural Reform). Region 3. ONLY action with 90% rate."
+      }
+    ],
+    "variant_count": 6,
+    "amount_min": 200000,
+    "amount_max": 1000000
+  },
+  {
+    "topic_id": "ERASMUS-EDU-2026-CBHE-ASIA",
+    "family": "Capacity Building HE (CBHE)",
+    "manager": "EACEA",
+    "duration": "24-36 months",
+    "funding_rate": "90%",
+    "deadline_iso": null,
+    "deadline_speculative": null,
+    "action_sublines": [
+      "Region 5a Asia - Strand 1 (min)",
+      "Region 5a Asia - Strand 1 (max)",
+      "Region 5a Asia - Strand 2 (min)",
+      "Region 5a Asia - Strand 2 (max)",
+      "Region 5a Asia - Strand 3 (min)",
+      "Region 5a Asia - Strand 3 (max)"
+    ],
+    "variants": [
+      {
+        "action_subline": "Region 5a Asia - Strand 1 (min)",
+        "amount_text": "200,000 €",
+        "amount_eur": 200000,
+        "amount_type": "Min budget-based",
+        "tier": "S",
+        "notes": "Strand 1 (Fostering access). Region 5a. ONLY action with 90% rate."
+      },
+      {
+        "action_subline": "Region 5a Asia - Strand 1 (max)",
+        "amount_text": "400,000 €",
+        "amount_eur": 400000,
+        "amount_type": "Max budget-based",
+        "tier": "S",
+        "notes": "Strand 1 (Fostering access). Region 5a. ONLY action with 90% rate."
+      },
+      {
+        "action_subline": "Region 5a Asia - Strand 2 (min)",
+        "amount_text": "400,000 €",
+        "amount_eur": 400000,
+        "amount_type": "Min budget-based",
+        "tier": "S",
+        "notes": "Strand 2 (Partnerships for transformation). Region 5a. ONLY action with 90% rate."
+      },
+      {
+        "action_subline": "Region 5a Asia - Strand 2 (max)",
+        "amount_text": "800,000 €",
+        "amount_eur": 800000,
+        "amount_type": "Max budget-based",
+        "tier": "M",
+        "notes": "Strand 2 (Partnerships for transformation). Region 5a. ONLY action with 90% rate."
+      },
+      {
+        "action_subline": "Region 5a Asia - Strand 3 (min)",
+        "amount_text": "600,000 €",
+        "amount_eur": 600000,
+        "amount_type": "Min budget-based",
+        "tier": "M",
+        "notes": "Strand 3 (Structural Reform). Region 5a. ONLY action with 90% rate."
+      },
+      {
+        "action_subline": "Region 5a Asia - Strand 3 (max)",
+        "amount_text": "1,000,000 €",
+        "amount_eur": 1000000,
+        "amount_type": "Max budget-based",
+        "tier": "M",
+        "notes": "Strand 3 (Structural Reform). Region 5a. ONLY action with 90% rate."
+      }
+    ],
+    "variant_count": 6,
+    "amount_min": 200000,
+    "amount_max": 1000000
+  },
+  {
+    "topic_id": "ERASMUS-EDU-2026-CBHE-CA",
+    "family": "Capacity Building HE (CBHE)",
+    "manager": "EACEA",
+    "duration": "24-36 months",
+    "funding_rate": "90%",
+    "deadline_iso": null,
+    "deadline_speculative": null,
+    "action_sublines": [
+      "Region 6 Central Asia - Strand 1 (min)",
+      "Region 6 Central Asia - Strand 1 (max)",
+      "Region 6 Central Asia - Strand 2 (min)",
+      "Region 6 Central Asia - Strand 2 (max)",
+      "Region 6 Central Asia - Strand 3 (min)",
+      "Region 6 Central Asia - Strand 3 (max)"
+    ],
+    "variants": [
+      {
+        "action_subline": "Region 6 Central Asia - Strand 1 (min)",
+        "amount_text": "200,000 €",
+        "amount_eur": 200000,
+        "amount_type": "Min budget-based",
+        "tier": "S",
+        "notes": "Strand 1 (Fostering access). Region 6. ONLY action with 90% rate."
+      },
+      {
+        "action_subline": "Region 6 Central Asia - Strand 1 (max)",
+        "amount_text": "400,000 €",
+        "amount_eur": 400000,
+        "amount_type": "Max budget-based",
+        "tier": "S",
+        "notes": "Strand 1 (Fostering access). Region 6. ONLY action with 90% rate."
+      },
+      {
+        "action_subline": "Region 6 Central Asia - Strand 2 (min)",
+        "amount_text": "400,000 €",
+        "amount_eur": 400000,
+        "amount_type": "Min budget-based",
+        "tier": "S",
+        "notes": "Strand 2 (Partnerships for transformation). Region 6. ONLY action with 90% rate."
+      },
+      {
+        "action_subline": "Region 6 Central Asia - Strand 2 (max)",
+        "amount_text": "800,000 €",
+        "amount_eur": 800000,
+        "amount_type": "Max budget-based",
+        "tier": "M",
+        "notes": "Strand 2 (Partnerships for transformation). Region 6. ONLY action with 90% rate."
+      },
+      {
+        "action_subline": "Region 6 Central Asia - Strand 3 (min)",
+        "amount_text": "600,000 €",
+        "amount_eur": 600000,
+        "amount_type": "Min budget-based",
+        "tier": "M",
+        "notes": "Strand 3 (Structural Reform). Region 6. ONLY action with 90% rate."
+      },
+      {
+        "action_subline": "Region 6 Central Asia - Strand 3 (max)",
+        "amount_text": "1,000,000 €",
+        "amount_eur": 1000000,
+        "amount_type": "Max budget-based",
+        "tier": "M",
+        "notes": "Strand 3 (Structural Reform). Region 6. ONLY action with 90% rate."
+      }
+    ],
+    "variant_count": 6,
+    "amount_min": 200000,
+    "amount_max": 1000000
+  },
+  {
+    "topic_id": "ERASMUS-EDU-2026-CBHE-ME",
+    "family": "Capacity Building HE (CBHE)",
+    "manager": "EACEA",
+    "duration": "24-36 months",
+    "funding_rate": "90%",
+    "deadline_iso": null,
+    "deadline_speculative": null,
+    "action_sublines": [
+      "Region 7a Middle East - Strand 1 (min)",
+      "Region 7a Middle East - Strand 1 (max)",
+      "Region 7a Middle East - Strand 2 (min)",
+      "Region 7a Middle East - Strand 2 (max)",
+      "Region 7a Middle East - Strand 3 (min)",
+      "Region 7a Middle East - Strand 3 (max)"
+    ],
+    "variants": [
+      {
+        "action_subline": "Region 7a Middle East - Strand 1 (min)",
+        "amount_text": "200,000 €",
+        "amount_eur": 200000,
+        "amount_type": "Min budget-based",
+        "tier": "S",
+        "notes": "Strand 1 (Fostering access). Region 7a. ONLY action with 90% rate."
+      },
+      {
+        "action_subline": "Region 7a Middle East - Strand 1 (max)",
+        "amount_text": "400,000 €",
+        "amount_eur": 400000,
+        "amount_type": "Max budget-based",
+        "tier": "S",
+        "notes": "Strand 1 (Fostering access). Region 7a. ONLY action with 90% rate."
+      },
+      {
+        "action_subline": "Region 7a Middle East - Strand 2 (min)",
+        "amount_text": "400,000 €",
+        "amount_eur": 400000,
+        "amount_type": "Min budget-based",
+        "tier": "S",
+        "notes": "Strand 2 (Partnerships for transformation). Region 7a. ONLY action with 90% rate."
+      },
+      {
+        "action_subline": "Region 7a Middle East - Strand 2 (max)",
+        "amount_text": "800,000 €",
+        "amount_eur": 800000,
+        "amount_type": "Max budget-based",
+        "tier": "M",
+        "notes": "Strand 2 (Partnerships for transformation). Region 7a. ONLY action with 90% rate."
+      },
+      {
+        "action_subline": "Region 7a Middle East - Strand 3 (min)",
+        "amount_text": "600,000 €",
+        "amount_eur": 600000,
+        "amount_type": "Min budget-based",
+        "tier": "M",
+        "notes": "Strand 3 (Structural Reform). Region 7a. ONLY action with 90% rate."
+      },
+      {
+        "action_subline": "Region 7a Middle East - Strand 3 (max)",
+        "amount_text": "1,000,000 €",
+        "amount_eur": 1000000,
+        "amount_type": "Max budget-based",
+        "tier": "M",
+        "notes": "Strand 3 (Structural Reform). Region 7a. ONLY action with 90% rate."
+      }
+    ],
+    "variant_count": 6,
+    "amount_min": 200000,
+    "amount_max": 1000000
+  },
+  {
+    "topic_id": "ERASMUS-EDU-2026-CBHE-PAC",
+    "family": "Capacity Building HE (CBHE)",
+    "manager": "EACEA",
+    "duration": "24-36 months",
+    "funding_rate": "90%",
+    "deadline_iso": null,
+    "deadline_speculative": null,
+    "action_sublines": [
+      "Region 8a Pacific - Strand 1 (min)",
+      "Region 8a Pacific - Strand 1 (max)",
+      "Region 8a Pacific - Strand 2 (min)",
+      "Region 8a Pacific - Strand 2 (max)",
+      "Region 8a Pacific - Strand 3 (min)",
+      "Region 8a Pacific - Strand 3 (max)"
+    ],
+    "variants": [
+      {
+        "action_subline": "Region 8a Pacific - Strand 1 (min)",
+        "amount_text": "200,000 €",
+        "amount_eur": 200000,
+        "amount_type": "Min budget-based",
+        "tier": "S",
+        "notes": "Strand 1 (Fostering access). Region 8a. ONLY action with 90% rate."
+      },
+      {
+        "action_subline": "Region 8a Pacific - Strand 1 (max)",
+        "amount_text": "400,000 €",
+        "amount_eur": 400000,
+        "amount_type": "Max budget-based",
+        "tier": "S",
+        "notes": "Strand 1 (Fostering access). Region 8a. ONLY action with 90% rate."
+      },
+      {
+        "action_subline": "Region 8a Pacific - Strand 2 (min)",
+        "amount_text": "400,000 €",
+        "amount_eur": 400000,
+        "amount_type": "Min budget-based",
+        "tier": "S",
+        "notes": "Strand 2 (Partnerships for transformation). Region 8a. ONLY action with 90% rate."
+      },
+      {
+        "action_subline": "Region 8a Pacific - Strand 2 (max)",
+        "amount_text": "800,000 €",
+        "amount_eur": 800000,
+        "amount_type": "Max budget-based",
+        "tier": "M",
+        "notes": "Strand 2 (Partnerships for transformation). Region 8a. ONLY action with 90% rate."
+      },
+      {
+        "action_subline": "Region 8a Pacific - Strand 3 (min)",
+        "amount_text": "600,000 €",
+        "amount_eur": 600000,
+        "amount_type": "Min budget-based",
+        "tier": "M",
+        "notes": "Strand 3 (Structural Reform). Region 8a. ONLY action with 90% rate."
+      },
+      {
+        "action_subline": "Region 8a Pacific - Strand 3 (max)",
+        "amount_text": "1,000,000 €",
+        "amount_eur": 1000000,
+        "amount_type": "Max budget-based",
+        "tier": "M",
+        "notes": "Strand 3 (Structural Reform). Region 8a. ONLY action with 90% rate."
+      }
+    ],
+    "variant_count": 6,
+    "amount_min": 200000,
+    "amount_max": 1000000
+  },
+  {
+    "topic_id": "ERASMUS-EDU-2026-CBHE-SSA",
+    "family": "Capacity Building HE (CBHE)",
+    "manager": "EACEA",
+    "duration": "24-36 months",
+    "funding_rate": "90%",
+    "deadline_iso": null,
+    "deadline_speculative": null,
+    "action_sublines": [
+      "Region 9 Sub-Saharan Africa - Strand 1 (min)",
+      "Region 9 Sub-Saharan Africa - Strand 1 (max)",
+      "Region 9 Sub-Saharan Africa - Strand 2 (min)",
+      "Region 9 Sub-Saharan Africa - Strand 2 (max)",
+      "Region 9 Sub-Saharan Africa - Strand 3 (min)",
+      "Region 9 Sub-Saharan Africa - Strand 3 (max)"
+    ],
+    "variants": [
+      {
+        "action_subline": "Region 9 Sub-Saharan Africa - Strand 1 (min)",
+        "amount_text": "200,000 €",
+        "amount_eur": 200000,
+        "amount_type": "Min budget-based",
+        "tier": "S",
+        "notes": "Strand 1 (Fostering access). Region 9. ONLY action with 90% rate."
+      },
+      {
+        "action_subline": "Region 9 Sub-Saharan Africa - Strand 1 (max)",
+        "amount_text": "400,000 €",
+        "amount_eur": 400000,
+        "amount_type": "Max budget-based",
+        "tier": "S",
+        "notes": "Strand 1 (Fostering access). Region 9. ONLY action with 90% rate."
+      },
+      {
+        "action_subline": "Region 9 Sub-Saharan Africa - Strand 2 (min)",
+        "amount_text": "400,000 €",
+        "amount_eur": 400000,
+        "amount_type": "Min budget-based",
+        "tier": "S",
+        "notes": "Strand 2 (Partnerships for transformation). Region 9. ONLY action with 90% rate."
+      },
+      {
+        "action_subline": "Region 9 Sub-Saharan Africa - Strand 2 (max)",
+        "amount_text": "800,000 €",
+        "amount_eur": 800000,
+        "amount_type": "Max budget-based",
+        "tier": "M",
+        "notes": "Strand 2 (Partnerships for transformation). Region 9. ONLY action with 90% rate."
+      },
+      {
+        "action_subline": "Region 9 Sub-Saharan Africa - Strand 3 (min)",
+        "amount_text": "600,000 €",
+        "amount_eur": 600000,
+        "amount_type": "Min budget-based",
+        "tier": "M",
+        "notes": "Strand 3 (Structural Reform). Region 9. ONLY action with 90% rate."
+      },
+      {
+        "action_subline": "Region 9 Sub-Saharan Africa - Strand 3 (max)",
+        "amount_text": "1,000,000 €",
+        "amount_eur": 1000000,
+        "amount_type": "Max budget-based",
+        "tier": "M",
+        "notes": "Strand 3 (Structural Reform). Region 9. ONLY action with 90% rate."
+      }
+    ],
+    "variant_count": 6,
+    "amount_min": 200000,
+    "amount_max": 1000000
+  },
+  {
+    "topic_id": "ERASMUS-EDU-2026-CBHE-LA",
+    "family": "Capacity Building HE (CBHE)",
+    "manager": "EACEA",
+    "duration": "24-36 months",
+    "funding_rate": "90%",
+    "deadline_iso": null,
+    "deadline_speculative": null,
+    "action_sublines": [
+      "Region 10 Latin America - Strand 1 (min)",
+      "Region 10 Latin America - Strand 1 (max)",
+      "Region 10 Latin America - Strand 2 (min)",
+      "Region 10 Latin America - Strand 2 (max)",
+      "Region 10 Latin America - Strand 3 (min)",
+      "Region 10 Latin America - Strand 3 (max)"
+    ],
+    "variants": [
+      {
+        "action_subline": "Region 10 Latin America - Strand 1 (min)",
+        "amount_text": "200,000 €",
+        "amount_eur": 200000,
+        "amount_type": "Min budget-based",
+        "tier": "S",
+        "notes": "Strand 1 (Fostering access). Region 10. ONLY action with 90% rate."
+      },
+      {
+        "action_subline": "Region 10 Latin America - Strand 1 (max)",
+        "amount_text": "400,000 €",
+        "amount_eur": 400000,
+        "amount_type": "Max budget-based",
+        "tier": "S",
+        "notes": "Strand 1 (Fostering access). Region 10. ONLY action with 90% rate."
+      },
+      {
+        "action_subline": "Region 10 Latin America - Strand 2 (min)",
+        "amount_text": "400,000 €",
+        "amount_eur": 400000,
+        "amount_type": "Min budget-based",
+        "tier": "S",
+        "notes": "Strand 2 (Partnerships for transformation). Region 10. ONLY action with 90% rate."
+      },
+      {
+        "action_subline": "Region 10 Latin America - Strand 2 (max)",
+        "amount_text": "800,000 €",
+        "amount_eur": 800000,
+        "amount_type": "Max budget-based",
+        "tier": "M",
+        "notes": "Strand 2 (Partnerships for transformation). Region 10. ONLY action with 90% rate."
+      },
+      {
+        "action_subline": "Region 10 Latin America - Strand 3 (min)",
+        "amount_text": "600,000 €",
+        "amount_eur": 600000,
+        "amount_type": "Min budget-based",
+        "tier": "M",
+        "notes": "Strand 3 (Structural Reform). Region 10. ONLY action with 90% rate."
+      },
+      {
+        "action_subline": "Region 10 Latin America - Strand 3 (max)",
+        "amount_text": "1,000,000 €",
+        "amount_eur": 1000000,
+        "amount_type": "Max budget-based",
+        "tier": "M",
+        "notes": "Strand 3 (Structural Reform). Region 10. ONLY action with 90% rate."
+      }
+    ],
+    "variant_count": 6,
+    "amount_min": 200000,
+    "amount_max": 1000000
+  },
+  {
+    "topic_id": "ERASMUS-EDU-2026-CBHE-CARIB",
+    "family": "Capacity Building HE (CBHE)",
+    "manager": "EACEA",
+    "duration": "24-36 months",
+    "funding_rate": "90%",
+    "deadline_iso": null,
+    "deadline_speculative": null,
+    "action_sublines": [
+      "Region 11 Caribbean - Strand 1 (min)",
+      "Region 11 Caribbean - Strand 1 (max)",
+      "Region 11 Caribbean - Strand 2 (min)",
+      "Region 11 Caribbean - Strand 2 (max)",
+      "Region 11 Caribbean - Strand 3 (min)",
+      "Region 11 Caribbean - Strand 3 (max)"
+    ],
+    "variants": [
+      {
+        "action_subline": "Region 11 Caribbean - Strand 1 (min)",
+        "amount_text": "200,000 €",
+        "amount_eur": 200000,
+        "amount_type": "Min budget-based",
+        "tier": "S",
+        "notes": "Strand 1 (Fostering access). Region 11. ONLY action with 90% rate."
+      },
+      {
+        "action_subline": "Region 11 Caribbean - Strand 1 (max)",
+        "amount_text": "400,000 €",
+        "amount_eur": 400000,
+        "amount_type": "Max budget-based",
+        "tier": "S",
+        "notes": "Strand 1 (Fostering access). Region 11. ONLY action with 90% rate."
+      },
+      {
+        "action_subline": "Region 11 Caribbean - Strand 2 (min)",
+        "amount_text": "400,000 €",
+        "amount_eur": 400000,
+        "amount_type": "Min budget-based",
+        "tier": "S",
+        "notes": "Strand 2 (Partnerships for transformation). Region 11. ONLY action with 90% rate."
+      },
+      {
+        "action_subline": "Region 11 Caribbean - Strand 2 (max)",
+        "amount_text": "800,000 €",
+        "amount_eur": 800000,
+        "amount_type": "Max budget-based",
+        "tier": "M",
+        "notes": "Strand 2 (Partnerships for transformation). Region 11. ONLY action with 90% rate."
+      },
+      {
+        "action_subline": "Region 11 Caribbean - Strand 3 (min)",
+        "amount_text": "600,000 €",
+        "amount_eur": 600000,
+        "amount_type": "Min budget-based",
+        "tier": "M",
+        "notes": "Strand 3 (Structural Reform). Region 11. ONLY action with 90% rate."
+      },
+      {
+        "action_subline": "Region 11 Caribbean - Strand 3 (max)",
+        "amount_text": "1,000,000 €",
+        "amount_eur": 1000000,
+        "amount_type": "Max budget-based",
+        "tier": "M",
+        "notes": "Strand 3 (Structural Reform). Region 11. ONLY action with 90% rate."
+      }
+    ],
+    "variant_count": 6,
+    "amount_min": 200000,
+    "amount_max": 1000000
+  },
+  {
+    "topic_id": "ERASMUS-EDU-2026-CBHE-CROSS-REGIONAL",
+    "family": "Capacity Building HE (CBHE)",
+    "manager": "EACEA",
+    "duration": "24-36 months",
+    "funding_rate": "90%",
+    "deadline_iso": null,
+    "deadline_speculative": null,
+    "action_sublines": [
+      "Cross-Regional - Strand 1 (min)",
+      "Cross-Regional - Strand 1 (max)",
+      "Cross-Regional - Strand 2 (min)",
+      "Cross-Regional - Strand 2 (max)",
+      "Cross-Regional - Strand 3 (min)",
+      "Cross-Regional - Strand 3 (max)"
+    ],
+    "variants": [
+      {
+        "action_subline": "Cross-Regional - Strand 1 (min)",
+        "amount_text": "200,000 €",
+        "amount_eur": 200000,
+        "amount_type": "Min budget-based",
+        "tier": "S",
+        "notes": "Cross-Regional panel (multi-region projects). Indicatively 10% of total CBHE budget."
+      },
+      {
+        "action_subline": "Cross-Regional - Strand 1 (max)",
+        "amount_text": "400,000 €",
+        "amount_eur": 400000,
+        "amount_type": "Max budget-based",
+        "tier": "S",
+        "notes": "Cross-Regional panel (multi-region projects). Indicatively 10% of total CBHE budget."
+      },
+      {
+        "action_subline": "Cross-Regional - Strand 2 (min)",
+        "amount_text": "400,000 €",
+        "amount_eur": 400000,
+        "amount_type": "Min budget-based",
+        "tier": "S",
+        "notes": "Cross-Regional panel (multi-region projects). Indicatively 10% of total CBHE budget."
+      },
+      {
+        "action_subline": "Cross-Regional - Strand 2 (max)",
+        "amount_text": "800,000 €",
+        "amount_eur": 800000,
+        "amount_type": "Max budget-based",
+        "tier": "M",
+        "notes": "Cross-Regional panel (multi-region projects). Indicatively 10% of total CBHE budget."
+      },
+      {
+        "action_subline": "Cross-Regional - Strand 3 (min)",
+        "amount_text": "600,000 €",
+        "amount_eur": 600000,
+        "amount_type": "Min budget-based",
+        "tier": "M",
+        "notes": "Cross-Regional panel (multi-region projects). Indicatively 10% of total CBHE budget."
+      },
+      {
+        "action_subline": "Cross-Regional - Strand 3 (max)",
+        "amount_text": "1,000,000 €",
+        "amount_eur": 1000000,
+        "amount_type": "Max budget-based",
+        "tier": "M",
+        "notes": "Cross-Regional panel (multi-region projects). Indicatively 10% of total CBHE budget."
+      }
+    ],
+    "variant_count": 6,
+    "amount_min": 200000,
+    "amount_max": 1000000
+  }
+]

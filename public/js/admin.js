@@ -167,7 +167,7 @@ const Admin = (() => {
         list.innerHTML = `<div class="text-center py-16">
           <span class="material-symbols-outlined text-5xl text-outline-variant/40 mb-4">campaign</span>
           <p class="text-sm text-on-surface-variant mb-4">No hay convocatorias configuradas</p>
-          <button id="conv-first-call" class="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-xl text-xs font-bold text-[#e7eb00] bg-[#1b1464] hover:bg-[#1b1464]/80 transition-colors">
+          <button id="conv-first-call" class="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-xl text-xs font-bold text-[#fbff12] bg-[#1b1464] hover:bg-[#1b1464]/80 transition-colors">
             <span class="material-symbols-outlined text-sm">add</span> Nueva convocatoria
           </button>
         </div>`;
@@ -192,7 +192,7 @@ const Admin = (() => {
 
       list.innerHTML = `
         <div class="flex items-center justify-between mb-4">
-          <button id="conv-new-program" class="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl text-xs font-bold text-[#e7eb00] bg-[#1b1464] hover:bg-[#1b1464]/80 transition-colors">
+          <button id="conv-new-program" class="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl text-xs font-bold text-[#fbff12] bg-[#1b1464] hover:bg-[#1b1464]/80 transition-colors">
             <span class="material-symbols-outlined text-sm">add</span> Nueva convocatoria
           </button>
           <span class="text-xs text-on-surface-variant">${programs.length} convocatoria${programs.length !== 1 ? 's' : ''}</span>
@@ -348,7 +348,7 @@ const Admin = (() => {
             <h3 class="font-headline text-lg font-bold text-primary mb-2">Generar estructura de evaluacion desde el formulario</h3>
             <p class="text-sm text-on-surface-variant mb-6">Esta convocatoria tiene un form template vinculado pero no tiene criterios de evaluacion. Puedes generar automaticamente las secciones y preguntas basandote en la estructura del formulario.</p>
             <p class="text-xs text-on-surface-variant mb-6">Se crearan las secciones (Relevance, Quality, Partnership, Impact, etc.) con todas sus preguntas. Los pesos y criterios los configuras despues.</p>
-            <button id="conv-generate-eval" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-bold text-[#e7eb00] bg-[#1b1464] hover:bg-[#1b1464]/80 transition-colors shadow-md">
+            <button id="conv-generate-eval" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-bold text-[#fbff12] bg-[#1b1464] hover:bg-[#1b1464]/80 transition-colors shadow-md">
               <span class="material-symbols-outlined text-lg">auto_awesome</span> Generar desde form template
             </button>
             <div class="mt-6 w-full border-t border-outline-variant/20 pt-4">
@@ -383,12 +383,12 @@ const Admin = (() => {
 
   function convRenderCriteriaEditor(content) {
     content.innerHTML = `
-      <div class="flex gap-0" style="min-height:70vh">
-        <div id="eval-sidebar" class="w-72 flex-shrink-0 bg-[#edf2f9] rounded-l-2xl flex flex-col overflow-hidden border-r border-outline-variant/20">
+      <div class="flex gap-0 items-start" style="min-height:70vh">
+        <div id="eval-sidebar" class="w-72 flex-shrink-0 bg-[#edf2f9] rounded-l-2xl flex flex-col border-r border-outline-variant/20">
           <div class="px-5 py-3">
             <div class="text-[11px] text-on-surface-variant font-medium">Evaluation framework</div>
           </div>
-          <div id="eval-sidebar-sections" class="flex-1 overflow-y-auto px-3 py-1"></div>
+          <div id="eval-sidebar-sections" class="px-3 py-1"></div>
           <div class="p-3">
             <button id="eval-add-section-btn" class="w-full inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl text-[11px] font-bold text-primary border border-dashed border-primary/30 hover:bg-primary/5 transition-colors">
               <span class="material-symbols-outlined text-sm">add</span> Add section
@@ -457,7 +457,7 @@ const Admin = (() => {
             </label>
           `).join('')}
         </div>
-        <button id="intake-tpl-save" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs font-bold text-[#e7eb00] bg-[#1b1464] hover:bg-[#1b1464]/80 transition-colors">
+        <button id="intake-tpl-save" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs font-bold text-[#fbff12] bg-[#1b1464] hover:bg-[#1b1464]/80 transition-colors">
           <span class="material-symbols-outlined text-sm">save</span> Guardar
         </button>
       </div>`;
@@ -505,7 +505,7 @@ const Admin = (() => {
             </label>
           `).join('')}
         </div>
-        <button id="budget-tpl-save" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs font-bold text-[#e7eb00] bg-[#1b1464] hover:bg-[#1b1464]/80 transition-colors">
+        <button id="budget-tpl-save" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs font-bold text-[#fbff12] bg-[#1b1464] hover:bg-[#1b1464]/80 transition-colors">
           <span class="material-symbols-outlined text-sm">save</span> Guardar
         </button>
       </div>`;
@@ -546,7 +546,7 @@ const Admin = (() => {
               <option value="">— Seleccionar template —</option>
               ${templates.map(t => `<option value="${t.id}">${esc(t.name)} (v${t.version}, ${t.year || '—'})</option>`).join('')}
             </select>
-            <button id="conv-link-template" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs font-bold text-[#e7eb00] bg-[#1b1464] hover:bg-[#1b1464]/80 transition-colors">
+            <button id="conv-link-template" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs font-bold text-[#fbff12] bg-[#1b1464] hover:bg-[#1b1464]/80 transition-colors">
               <span class="material-symbols-outlined text-sm">link</span> Vincular template
             </button>
           </div>`;
@@ -600,8 +600,8 @@ const Admin = (() => {
           </div>
           <button id="conv-change-template" class="text-xs text-primary hover:underline">Cambiar template</button>
         </div>
-        <div class="flex gap-4" style="min-height:60vh">
-          <div id="conv-form-nav" class="w-56 flex-shrink-0 space-y-0.5 sticky top-0 overflow-y-auto" style="max-height:70vh">
+        <div class="flex gap-4 items-start" style="min-height:60vh">
+          <div id="conv-form-nav" class="w-56 flex-shrink-0 space-y-0.5">
             ${navItems.map(it => `
             <div class="conv-form-nav-item flex items-center gap-2 px-3 py-2 rounded-xl cursor-pointer transition-all text-xs ${fm.activeSection === it.id ? 'bg-[#1b1464] text-white font-bold' : 'text-primary/70 hover:bg-primary/5'}"
                  data-sid="${it.id}" style="${it.level ? 'padding-left:'+(12 + it.level * 12)+'px' : ''}">
@@ -654,7 +654,7 @@ const Admin = (() => {
           <h4 class="text-xs font-bold uppercase text-on-surface-variant mb-3">Subir documento nuevo</h4>
           <form id="conv-doc-upload-form" class="space-y-3">
             <input type="file" id="conv-doc-file" accept=".pdf,.docx,.txt,.csv,.xlsx" required
-              class="w-full text-sm file:mr-3 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-[#1b1464] file:text-[#e7eb00] file:cursor-pointer">
+              class="w-full text-sm file:mr-3 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-[#1b1464] file:text-[#fbff12] file:cursor-pointer">
             <div class="grid grid-cols-3 gap-3">
               <input type="text" id="conv-doc-title" placeholder="Titulo (opcional)"
                 class="px-3 py-2 rounded-xl border border-outline-variant/30 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20">
@@ -676,7 +676,7 @@ const Admin = (() => {
                 <span class="text-[10px] text-on-surface-variant/60">(disponible para todas las calls)</span>
               </label>
             </div>
-            <button type="submit" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs font-bold text-[#e7eb00] bg-[#1b1464] hover:bg-[#1b1464]/80 transition-colors">
+            <button type="submit" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs font-bold text-[#fbff12] bg-[#1b1464] hover:bg-[#1b1464]/80 transition-colors">
               <span class="material-symbols-outlined text-sm">cloud_upload</span> Subir y vectorizar
             </button>
           </form>
@@ -779,7 +779,7 @@ const Admin = (() => {
           <div class="flex-1 overflow-y-auto px-3 py-2">${listHtml}</div>
           <div class="px-5 py-3 border-t border-outline-variant/20 flex items-center justify-between">
             <span id="pick-doc-count" class="text-xs text-on-surface-variant">0 seleccionados</span>
-            <button id="pick-doc-confirm" class="px-5 py-2.5 rounded-xl text-xs font-bold text-[#e7eb00] bg-[#1b1464] hover:bg-[#1b1464]/80 transition-colors disabled:opacity-30" disabled>
+            <button id="pick-doc-confirm" class="px-5 py-2.5 rounded-xl text-xs font-bold text-[#fbff12] bg-[#1b1464] hover:bg-[#1b1464]/80 transition-colors disabled:opacity-30" disabled>
               Vincular seleccionados
             </button>
           </div>
@@ -1053,7 +1053,7 @@ const Admin = (() => {
               <span class="perdiem-edit-total text-sm font-bold text-primary">Total: €${total.toFixed(2)}</span>
               <div class="flex gap-2">
                 <button class="perdiem-cancel-btn text-xs px-3 py-1.5 rounded-lg border border-outline-variant/30 text-on-surface-variant hover:bg-gray-50">Cancelar</button>
-                <button class="perdiem-save-btn text-xs px-3 py-1.5 rounded-lg bg-[#1b1464] text-[#e7eb00] font-semibold hover:bg-[#1b1464]/80">Save</button>
+                <button class="perdiem-save-btn text-xs px-3 py-1.5 rounded-lg bg-[#1b1464] text-[#fbff12] font-semibold hover:bg-[#1b1464]/80">Save</button>
               </div>
             </div>
           </div>
@@ -1158,7 +1158,7 @@ const Admin = (() => {
     });
 
     actionsTd.innerHTML = `
-      <button class="worker-save-btn text-xs px-3 py-1 rounded bg-[#1b1464] text-[#e7eb00] font-semibold hover:bg-[#1b1464]/80">Save</button>
+      <button class="worker-save-btn text-xs px-3 py-1 rounded bg-[#1b1464] text-[#fbff12] font-semibold hover:bg-[#1b1464]/80">Save</button>
       <button class="worker-cancel-btn text-xs px-3 py-1 rounded border border-outline-variant/30 text-on-surface-variant ml-1">Cancel</button>`;
 
     actionsTd.querySelector('.worker-cancel-btn').addEventListener('click', () => loadWorkers());
@@ -1196,7 +1196,7 @@ const Admin = (() => {
         <td class="px-4 py-2 text-center"><input type="number" step="0.01" placeholder="Zone ${z}" class="w-20 ${INP} text-center" id="new-worker-zone-${z}"></td>`).join('')}
       <td class="px-4 py-2">&nbsp;</td>
       <td class="px-4 py-2 text-right">
-        <button id="new-worker-save" class="text-xs px-3 py-1 rounded bg-[#1b1464] text-[#e7eb00] font-semibold hover:bg-[#1b1464]/80">Add</button>
+        <button id="new-worker-save" class="text-xs px-3 py-1 rounded bg-[#1b1464] text-[#fbff12] font-semibold hover:bg-[#1b1464]/80">Add</button>
         <button id="new-worker-cancel" class="text-xs px-3 py-1 rounded border border-outline-variant/30 text-on-surface-variant ml-1">Cancel</button>
       </td>`;
     tbody.prepend(tr);
@@ -1436,7 +1436,7 @@ const Admin = (() => {
 
       <!-- Save -->
       <div class="flex justify-end">
-        <button id="elig-save-btn" class="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl text-sm font-bold text-[#e7eb00] bg-[#1b1464] hover:bg-[#1b1464]/80 transition-colors">
+        <button id="elig-save-btn" class="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl text-sm font-bold text-[#fbff12] bg-[#1b1464] hover:bg-[#1b1464]/80 transition-colors">
           <span class="material-symbols-outlined text-sm">save</span> Save eligibility
         </button>
       </div>`;
@@ -1737,7 +1737,7 @@ const Admin = (() => {
 
       list.innerHTML = `
         <div class="flex items-center justify-between mb-4">
-          <button id="eval-new-program" class="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl text-xs font-bold text-[#e7eb00] bg-[#1b1464] hover:bg-[#1b1464]/80 transition-colors">
+          <button id="eval-new-program" class="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl text-xs font-bold text-[#fbff12] bg-[#1b1464] hover:bg-[#1b1464]/80 transition-colors">
             <span class="material-symbols-outlined text-sm">add</span> New call
           </button>
           <span class="text-xs text-on-surface-variant">${programs.length} call${programs.length !== 1 ? 's' : ''} · sorted by deadline</span>
@@ -2214,7 +2214,7 @@ KEY EVALUATOR FOCUS:
           </div>
         </div>
         <div class="flex justify-end">
-          <button id="eq-save" class="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-xl text-xs font-bold text-[#e7eb00] bg-[#1b1464] hover:bg-[#1b1464]/80 transition-colors shadow-sm">
+          <button id="eq-save" class="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-xl text-xs font-bold text-[#fbff12] bg-[#1b1464] hover:bg-[#1b1464]/80 transition-colors shadow-sm">
             <span class="material-symbols-outlined text-sm">save</span> Save question
           </button>
         </div>
@@ -2228,7 +2228,7 @@ KEY EVALUATOR FOCUS:
             <span class="text-[11px] font-bold uppercase tracking-widest text-on-surface-variant">Evaluation criteria</span>
             <span class="px-2 py-0.5 rounded-full text-[10px] font-bold" style="background:${sec.color}15;color:${sec.color}">${criteria.length}</span>
           </div>
-          <button id="eval-add-crit" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold text-[#e7eb00] bg-[#1b1464] hover:bg-[#1b1464]/80 transition-colors shadow-sm">
+          <button id="eval-add-crit" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold text-[#fbff12] bg-[#1b1464] hover:bg-[#1b1464]/80 transition-colors shadow-sm">
             <span class="material-symbols-outlined text-sm">add</span> Add criterion
           </button>
         </div>
@@ -2648,7 +2648,7 @@ KEY EVALUATOR FOCUS:
           </div>
         </div>
         <div class="flex justify-end mt-4">
-          <button id="cd-save" class="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-xl text-xs font-bold text-[#e7eb00] bg-[#1b1464] hover:bg-[#1b1464]/80 transition-colors shadow-sm">
+          <button id="cd-save" class="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-xl text-xs font-bold text-[#fbff12] bg-[#1b1464] hover:bg-[#1b1464]/80 transition-colors shadow-sm">
             <span class="material-symbols-outlined text-sm">save</span> Save call data
           </button>
         </div>
@@ -2805,7 +2805,7 @@ KEY EVALUATOR FOCUS:
 
         <!-- Save -->
         <div class="flex justify-end">
-          <button id="ev-elig-save-btn" class="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl text-sm font-bold text-[#e7eb00] bg-[#1b1464] hover:bg-[#1b1464]/80 transition-colors">
+          <button id="ev-elig-save-btn" class="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl text-sm font-bold text-[#fbff12] bg-[#1b1464] hover:bg-[#1b1464]/80 transition-colors">
             <span class="material-symbols-outlined text-sm">save</span> Save eligibility
           </button>
         </div>
@@ -2873,7 +2873,7 @@ KEY EVALUATOR FOCUS:
             </div>
           </div>
           <div class="flex items-center gap-1.5">
-            <button class="eval-save-crit inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-[11px] font-bold text-[#e7eb00] bg-[#1b1464] hover:bg-[#1b1464]/80 transition-colors shadow-sm" data-id="${c.id}">
+            <button class="eval-save-crit inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-[11px] font-bold text-[#fbff12] bg-[#1b1464] hover:bg-[#1b1464]/80 transition-colors shadow-sm" data-id="${c.id}">
               <span class="material-symbols-outlined text-sm">save</span> Save
             </button>
             <button class="eval-del-crit w-8 h-8 flex items-center justify-center rounded-lg text-on-surface-variant/40 hover:bg-error/10 hover:text-error transition-colors" data-id="${c.id}">
@@ -3624,7 +3624,7 @@ KEY EVALUATOR FOCUS:
           <h4 class="text-xs font-bold uppercase text-on-surface-variant mb-3">Upload document</h4>
           <form id="call-doc-upload-form" class="space-y-3">
             <input type="file" id="call-doc-file" accept=".pdf,.docx,.txt,.csv,.xlsx" required
-              class="w-full text-sm file:mr-3 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-[#1b1464] file:text-[#e7eb00] file:cursor-pointer">
+              class="w-full text-sm file:mr-3 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-[#1b1464] file:text-[#fbff12] file:cursor-pointer">
             <div class="grid grid-cols-2 gap-3">
               <input type="text" id="call-doc-title" placeholder="Title (optional, defaults to filename)"
                 class="px-3 py-2 rounded-xl border border-outline-variant/30 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20">
@@ -3633,7 +3633,7 @@ KEY EVALUATOR FOCUS:
             </div>
             <textarea id="call-doc-desc" rows="2" placeholder="Description..."
               class="w-full px-3 py-2 rounded-xl border border-outline-variant/30 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20"></textarea>
-            <button type="submit" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs font-bold text-[#e7eb00] bg-[#1b1464] hover:bg-[#1b1464]/80 transition-colors">
+            <button type="submit" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs font-bold text-[#fbff12] bg-[#1b1464] hover:bg-[#1b1464]/80 transition-colors">
               <span class="material-symbols-outlined text-sm">cloud_upload</span> Upload & vectorize
             </button>
           </form>
@@ -4080,7 +4080,7 @@ KEY EVALUATOR FOCUS:
       html += `<details class="rounded-2xl border-2 border-primary/15 bg-white mb-3 group/wp" ${i <= 2 ? 'open' : ''}>
         <summary class="flex items-center gap-3 px-5 py-4 cursor-pointer select-none">
           <div class="w-9 h-9 rounded-xl bg-[#1b1464] flex items-center justify-center flex-shrink-0">
-            <span class="text-xs font-extrabold text-[#e7eb00]">${i}</span>
+            <span class="text-xs font-extrabold text-[#fbff12]">${i}</span>
           </div>
           <span class="font-bold text-primary text-sm flex-1">${esc(wpLabel)}</span>
           <span class="material-symbols-outlined text-primary/40 group-open/wp:rotate-180 transition-transform">expand_more</span>

@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 1080" font-family="Poppins, sans-serif">
+  <style>
+    .num   { font-size: 13px; font-weight: 800; fill: #1b1464; opacity: 0.55; }
+    .label { font-size: 10px; font-weight: 500; fill: #474551; text-anchor: middle; }
+    .title { font-size: 20px; font-weight: 800; fill: #1b1464; }
+    .sub   { font-size: 11px; font-weight: 500; fill: #474551; }
+    .cell  { fill: none; stroke: #eeeeee; stroke-width: 1; }
+    .stk   { fill: none; stroke: #fbff12; stroke-linecap: round; stroke-linejoin: round; }
+    .fil   { fill: #fbff12; stroke: none; }
+  </style>
+
+  <rect width="1240" height="1080" fill="#ffffff"/>
+  <text class="title" x="30" y="38">Brand devices amarillos — 30 variantes</text>
+  <text class="sub"   x="30" y="58">Color #fbff12 · Dime qué números te gustan y cuáles descartas. Trazo orgánico, no geométrico.</text>
+
+  <!-- ═══ ROW 1 ═══ -->
+  <!-- 01: Subrayado pincelada recta -->
+  <rect class="cell" x="20"  y="80" width="200" height="180"/>
+  <text class="num"   x="30"  y="100">01</text>
+  <g transform="translate(120,165)">
+    <path class="stk" d="M-70,3 C-45,-2 -20,6 0,2 C25,-3 50,5 70,-1" stroke-width="10"/>
+  </g>
+  <text class="label" x="120" y="245">Subrayado recto</text>
+
+  <!-- 02: Subrayado curvo (sonrisa) -->
+  <rect class="cell" x="220" y="80" width="200" height="180"/>
+  <text class="num"   x="230" y="100">02</text>
+  <g transform="translate(320,165)">
+    <path class="stk" d="M-70,-8 Q0,22 70,-5" stroke-width="9"/>
+  </g>
+  <text class="label" x="320" y="245">Subrayado curvo</text>
+
+  <!-- 03: Subrayado doble -->
+  <rect class="cell" x="420" y="80" width="200" height="180"/>
+  <text class="num"   x="430" y="100">03</text>
+  <g transform="translate(520,165)">
+    <path class="stk" d="M-60,-6 C-35,-2 5,-10 60,-3" stroke-width="6"/>
+    <path class="stk" d="M-55,12 C-25,8 20,16 55,10" stroke-width="5"/>
+  </g>
+  <text class="label" x="520" y="245">Subrayado doble</text>
+
+  <!-- 04: Subrayado zigzag -->
+  <rect class="cell" x="620" y="80" width="200" height="180"/>
+  <text class="num"   x="630" y="100">04</text>
+  <g transform="translate(720,165)">
+    <path class="stk" d="M-60,5 L-36,-8 L-12,7 L12,-8 L36,7 L60,-5" stroke-width="6"/>
+  </g>
+  <text class="label" x="720" y="245">Subrayado zigzag</text>
+
+  <!-- 05: Subrayado con swoop final -->
+  <rect class="cell" x="820" y="80" width="200" height="180"/>
+  <text class="num"   x="830" y="100">05</text>
+  <g transform="translate(920,165)">
+    <path class="stk" d="M-70,10 C-40,4 -10,-2 30,2 Q55,3 60,-25" stroke-width="9"/>
+  </g>
+  <text class="label" x="920" y="245">Subrayado con swoop</text>
+
+  <!-- 06: Subrayado tapered (grosor variable stack) -->
+  <rect class="cell" x="1020" y="80" width="200" height="180"/>
+  <text class="num"   x="1030" y="100">06</text>
+  <g transform="translate(1120,165)">
+    <path class="stk" d="M-65,2 L-30,0" stroke-width="3"/>
+    <path class="stk" d="M-35,1 L10,0" stroke-width="6"/>
+    <path class="stk" d="M5,0 L55,-1" stroke-width="11"/>
+  </g>
+  <text class="label" x="1120" y="245">Subrayado engrosado</text>
+
+  <!-- ═══ ROW 2 ═══ -->
+  <!-- 07: Flecha recta gruesa -->
+  <rect class="cell" x="20"  y="260" width="200" height="180"/>
+  <text class="num"   x="30"  y="280">07</text>
+  <g transform="translate(120,350)">
+    <path class="stk" d="M-60,0 L30,0" stroke-width="9"/>
+    <path class="stk" d="M15,-18 L45,0 L15,18" stroke-width="9"/>
+  </g>
+  <text class="label" x="120" y="425">Flecha recta</text>
+
+  <!-- 08: Flecha curva (como Texto e imagen 2) -->
+  <rect class="cell" x="220" y="260" width="200" height="180"/>
+  <text class="num"   x="230" y="280">08</text>
+  <g transform="translate(320,350)">
+    <path class="stk" d="M-55,-25 Q-30,25 40,15" stroke-width="9"/>
+    <polygon class="fil" points="20,0 50,18 28,28"/>
+  </g>
+  <text class="label" x="320" y="425">Flecha curva</text>
+
+  <!-- 09: Flecha squiggly -->
+  <rect class="cell" x="420" y="260" width="200" height="180"/>
+  <text class="num"   x="430" y="280">09</text>
+  <g transform="translate(520,350)">
+    <path class="stk" d="M-60,0 C-45,-14 -28,12 -10,-4 C8,-18 26,10 42,-2" stroke-width="7"/>
+    <path class="stk" d="M35,-14 L50,-2 L38,12" stroke-width="7"/>
+  </g>
+  <text class="label" x="520" y="425">Flecha ondulada</text>
+
+  <!-- 10: Flecha con punta gorda -->
+  <rect class="cell" x="620" y="260" width="200" height="180"/>
+  <text class="num"   x="630" y="280">10</text>
+  <g transform="translate(720,350)">
+    <path class="stk" d="M-55,0 L15,0" stroke-width="11"/>
+    <polygon class="fil" points="10,-22 50,0 10,22"/>
+  </g>
+  <text class="label" x="720" y="425">Flecha punta gorda</text>
+
+  <!-- 11: Flecha diagonal arriba-derecha -->
+  <rect class="cell" x="820" y="260" width="200" height="180"/>
+  <text class="num"   x="830" y="280">11</text>
+  <g transform="translate(920,350)">
+    <path class="stk" d="M-40,30 C-15,5 10,-15 28,-25" stroke-width="9"/>
+    <polygon class="fil" points="15,-35 40,-27 25,-10"/>
+  </g>
+  <text class="label" x="920" y="425">Flecha diagonal</text>
+
+  <!-- 12: Flecha lightning-zigzag -->
+  <rect class="cell" x="1020" y="260" width="200" height="180"/>
+  <text class="num"   x="1030" y="280">12</text>
+  <g transform="translate(1120,350)">
+    <path class="stk" d="M-55,-20 L-25,-20 L-35,-2 L5,-2 L-5,16 L30,16" stroke-width="7"/>
+    <path class="stk" d="M22,3 L40,16 L22,28" stroke-width="7"/>
+  </g>
+  <text class="label" x="1120" y="425">Flecha zigzag</text>
+
+  <!-- ═══ ROW 3 ═══ -->
+  <!-- 13: Círculo suelto (como Portadilla) -->
+  <rect class="cell" x="20"  y="440" width="200" height="180"/>
+  <text class="num"   x="30"  y="460">13</text>
+  <g transform="translate(120,530)">
+    <path class="stk" d="M-45,-22 C-65,-5 -55,30 -15,35 C30,40 58,10 50,-20 C42,-42 -8,-45 -35,-28 C-48,-18 -52,5 -35,22 C-10,40 30,28 42,10" stroke-width="6"/>
+  </g>
+  <text class="label" x="120" y="605">Círculo suelto</text>
+
+  <!-- 14: Círculo doble -->
+  <rect class="cell" x="220" y="440" width="200" height="180"/>
+  <text class="num"   x="230" y="460">14</text>
+  <g transform="translate(320,530)">
+    <ellipse class="stk" cx="-3" cy="-2" rx="52" ry="26" stroke-width="6"/>
+    <ellipse class="stk" cx="3"  cy="3"  rx="45" ry="22" stroke-width="5"/>
+  </g>
+  <text class="label" x="320" y="605">Círculo doble</text>
+
+  <!-- 15: Espiral -->
+  <rect class="cell" x="420" y="440" width="200" height="180"/>
+  <text class="num"   x="430" y="460">15</text>
+  <g transform="translate(520,530)">
+    <path class="stk" d="M0,0 m0,-8 a8,8 0 1,1 -1,16 a18,18 0 1,1 2,-35 a28,28 0 1,1 -3,55 a38,38 0 1,1 4,-76" stroke-width="5"/>
+  </g>
+  <text class="label" x="520" y="605">Espiral</text>
+
+  <!-- 16: Scribble apretado -->
+  <rect class="cell" x="620" y="440" width="200" height="180"/>
+  <text class="num"   x="630" y="460">16</text>
+  <g transform="translate(720,530)">
+    <path class="stk" d="M-35,-18 C-48,-28 -38,-5 -18,-22 C2,-32 32,-18 38,-6 C48,6 32,26 12,26 C-20,30 -42,15 -36,0 C-30,-10 -20,-5 0,-10 C22,-16 32,-5 26,12" stroke-width="4"/>
+  </g>
+  <text class="label" x="720" y="605">Scribble apretado</text>
+
+  <!-- 17: Óvalo horizontal -->
+  <rect class="cell" x="820" y="440" width="200" height="180"/>
+  <text class="num"   x="830" y="460">17</text>
+  <g transform="translate(920,530)">
+    <path class="stk" d="M-55,2 C-58,-20 -30,-22 0,-20 C30,-18 58,-22 58,-2 C58,18 30,22 0,20 C-30,18 -55,22 -55,2 Z" stroke-width="6"/>
+  </g>
+  <text class="label" x="920" y="605">Óvalo orgánico</text>
+
+  <!-- 18: Infinito / cacahuete -->
+  <rect class="cell" x="1020" y="440" width="200" height="180"/>
+  <text class="num"   x="1030" y="460">18</text>
+  <g transform="translate(1120,530)">
+    <path class="stk" d="M-42,0 C-42,-22 -15,-22 0,0 C15,22 40,22 40,0 C40,-22 15,-22 0,0 C-15,22 -42,22 -42,0 Z" stroke-width="6"/>
+  </g>
+  <text class="label" x="1120" y="605">Infinito / cacahuete</text>
+
+  <!-- ═══ ROW 4 ═══ -->
+  <!-- 19: Marker swipe (highlight grueso filled) -->
+  <rect class="cell" x="20"  y="620" width="200" height="180"/>
+  <text class="num"   x="30"  y="640">19</text>
+  <g transform="translate(120,710)">
+    <path class="fil" d="M-65,-12 C-25,-16 30,-8 65,-14 C68,-2 64,10 65,13 C32,8 -22,18 -62,14 C-68,8 -62,-4 -65,-12 Z"/>
+  </g>
+  <text class="label" x="120" y="785">Highlight marker</text>
+
+  <!-- 20: Highlight curvo (banana) -->
+  <rect class="cell" x="220" y="620" width="200" height="180"/>
+  <text class="num"   x="230" y="640">20</text>
+  <g transform="translate(320,710)">
+    <path class="fil" d="M-55,8 Q-15,-18 25,-12 Q55,-5 62,2 L55,18 Q20,2 -15,14 Q-50,22 -55,22 Z"/>
+  </g>
+  <text class="label" x="320" y="785">Highlight curvo</text>
+
+  <!-- 21: Blob irregular -->
+  <rect class="cell" x="420" y="620" width="200" height="180"/>
+  <text class="num"   x="430" y="640">21</text>
+  <g transform="translate(520,710)">
+    <path class="fil" d="M-38,-28 Q-62,-8 -48,22 Q-12,42 28,32 Q62,18 55,-12 Q40,-38 5,-34 Q-22,-38 -38,-28 Z"/>
+  </g>
+  <text class="label" x="520" y="785">Blob irregular</text>
+
+  <!-- 22: Marker con huecos (dashed) -->
+  <rect class="cell" x="620" y="620" width="200" height="180"/>
+  <text class="num"   x="630" y="640">22</text>
+  <g transform="translate(720,710)">
+    <path class="stk" d="M-62,-2 L-32,0" stroke-width="11"/>
+    <path class="stk" d="M-18,2 L22,-4" stroke-width="10"/>
+    <path class="stk" d="M36,-1 L62,2" stroke-width="11"/>
+  </g>
+  <text class="label" x="720" y="785">Highlight con huecos</text>
+
+  <!-- 23: Comillas apertura curvas -->
+  <rect class="cell" x="820" y="620" width="200" height="180"/>
+  <text class="num"   x="830" y="640">23</text>
+  <g transform="translate(920,710)">
+    <path class="stk" d="M-18,-22 C-25,-5 -18,12 -6,18" stroke-width="10"/>
+    <path class="stk" d="M16,-22 C9,-5 16,12 28,18" stroke-width="10"/>
+  </g>
+  <text class="label" x="920" y="785">Comillas curvas</text>
+
+  <!-- 24: Comillas tipográficas (estilo Frase importante) -->
+  <rect class="cell" x="1020" y="620" width="200" height="180"/>
+  <text class="num"   x="1030" y="640">24</text>
+  <g transform="translate(1120,710)">
+    <ellipse class="fil" cx="-14" cy="-14" rx="6" ry="16" transform="rotate(18 -14 -14)"/>
+    <ellipse class="fil" cx="4"   cy="-14" rx="6" ry="16" transform="rotate(18 4 -14)"/>
+    <ellipse class="fil" cx="-4"  cy="16"  rx="6" ry="16" transform="rotate(18 -4 16)"/>
+    <ellipse class="fil" cx="14"  cy="16"  rx="6" ry="16" transform="rotate(18 14 16)"/>
+  </g>
+  <text class="label" x="1120" y="785">Comillas tipográficas</text>
+
+  <!-- ═══ ROW 5 ═══ -->
+  <!-- 25: Splash / estrella irregular -->
+  <rect class="cell" x="20"  y="800" width="200" height="180"/>
+  <text class="num"   x="30"  y="820">25</text>
+  <g transform="translate(120,890)">
+    <path class="fil" d="M0,-38 L14,-12 L38,-16 L20,4 L38,26 L6,22 L-4,42 L-16,22 L-38,26 L-24,4 L-38,-16 L-14,-12 Z"/>
+  </g>
+  <text class="label" x="120" y="965">Splash estrella</text>
+
+  <!-- 26: Rayo / lightning bolt (como Texto y varias gráficas) -->
+  <rect class="cell" x="220" y="800" width="200" height="180"/>
+  <text class="num"   x="230" y="820">26</text>
+  <g transform="translate(320,890)">
+    <path class="fil" d="M-12,-40 L-32,6 L-6,4 L-22,44 L24,-4 L-2,-2 L18,-40 Z"/>
+  </g>
+  <text class="label" x="320" y="965">Rayo / lightning</text>
+
+  <!-- 27: Swirl decorativo -->
+  <rect class="cell" x="420" y="800" width="200" height="180"/>
+  <text class="num"   x="430" y="820">27</text>
+  <g transform="translate(520,890)">
+    <path class="stk" d="M32,-28 C12,-35 -25,-26 -30,2 C-35,28 8,38 28,26 C42,18 42,-2 26,-6 C12,-10 2,2 10,14" stroke-width="7"/>
+  </g>
+  <text class="label" x="520" y="965">Swirl decorativo</text>
+
+  <!-- 28: Scribble X (doble trazo) -->
+  <rect class="cell" x="620" y="800" width="200" height="180"/>
+  <text class="num"   x="630" y="820">28</text>
+  <g transform="translate(720,890)">
+    <path class="stk" d="M-28,-28 C-18,-10 10,18 30,30" stroke-width="7"/>
+    <path class="stk" d="M-30,-18 C-12,-5 18,14 28,20" stroke-width="4"/>
+    <path class="stk" d="M-28,30 C-10,14 14,-10 30,-28" stroke-width="7"/>
+    <path class="stk" d="M-28,20 C-8,8 10,-10 28,-20" stroke-width="4"/>
+  </g>
+  <text class="label" x="720" y="965">Scribble X</text>
+
+  <!-- 29: Check mark orgánico -->
+  <rect class="cell" x="820" y="800" width="200" height="180"/>
+  <text class="num"   x="830" y="820">29</text>
+  <g transform="translate(920,890)">
+    <path class="stk" d="M-35,2 C-22,18 -12,22 -2,16 C10,8 22,-12 28,-28 C30,-32 32,-30 30,-22" stroke-width="10"/>
+  </g>
+  <text class="label" x="920" y="965">Check orgánico</text>
+
+  <!-- 30: Sparkle / estrella 4 puntas -->
+  <rect class="cell" x="1020" y="800" width="200" height="180"/>
+  <text class="num"   x="1030" y="820">30</text>
+  <g transform="translate(1120,890)">
+    <path class="fil" d="M0,-38 C3,-12 5,-6 8,-4 C20,-2 32,1 36,3 C10,6 4,8 2,10 C0,24 -2,30 -3,38 C-6,14 -8,8 -10,6 C-24,4 -30,2 -38,-1 C-14,-4 -8,-6 -6,-8 C-4,-22 -2,-28 0,-38 Z"/>
+  </g>
+  <text class="label" x="1120" y="965">Sparkle estrella</text>
+
+  <!-- Footer -->
+  <text class="sub" x="30" y="1020">Archivo: web/brand/devices/brand-devices-preview.svg · Abre en navegador para ver a tamaño real.</text>
+  <text class="sub" x="30" y="1040">Respóndeme con: "me gustan 2, 5, 13, 26..." y descarto el resto.</text>
+</svg>
