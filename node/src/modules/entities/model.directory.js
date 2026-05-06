@@ -61,8 +61,10 @@ function normalizeSearchResponse(resp, requestedLimit) {
                 : Array.isArray(resp.rows)    ? resp.rows
                 : Array.isArray(resp)         ? resp
                 : [];
-  const total  = typeof resp.count === 'number' ? resp.count
+  // Preferimos `total` (absoluto) si VPS lo entrega; `count` puede ser page-size.
+  const total  = typeof resp.total === 'number' ? resp.total
                : (resp.meta && typeof resp.meta.total === 'number') ? resp.meta.total
+               : typeof resp.count === 'number' ? resp.count
                : results.length;
   const limit  = typeof resp.limit  === 'number' ? resp.limit  : (requestedLimit || 24);
   const offset = typeof resp.offset === 'number' ? resp.offset : 0;
@@ -193,7 +195,26 @@ async function listGeoMarkers(args = {}) {
 }
 
 async function getStat(key) {
-  // TODO Sprint 1B: dir.getStatsBreakdown(dim) cuando esté listo
+  // 'global_kpis' → /api/stats del VPS (total_entities + breakdown).
+  // Otras keys siguen en MySQL hasta que VPS Claude entregue Sprint 1B.
+  if (key === 'global_kpis') {
+    try {
+      const s = await dir.getGlobalStats();
+      const total_alive = parseInt(s?.total_entities, 10) || 0;
+      const total_projects = parseInt(s?.total_projects, 10) || 0;
+      const total_certified = (s?.by_bucket || []).find(b => b.status_bucket === 'certified');
+      return {
+        value: {
+          total_alive,
+          total_projects,
+          total_certified: total_certified ? parseInt(total_certified.count, 10) : null,
+        },
+        computed_at: new Date().toISOString(),
+      };
+    } catch {
+      return mysqlModel.getStat(key);
+    }
+  }
   return mysqlModel.getStat(key);
 }
 

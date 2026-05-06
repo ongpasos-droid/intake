@@ -184,6 +184,11 @@ async function getStatsBreakdown(dim) {
   return fetchJson('/stats/breakdown', { query: { dim } });
 }
 
+// GET /stats   (KPI global: total_entities, total_projects, by_bucket, ...)
+async function getGlobalStats() {
+  return fetchJson('/stats');
+}
+
 // GET /map?country=&tier=
 async function getMapMarkers(params = {}) {
   return fetchJson('/map', { query: params });
@@ -216,6 +221,7 @@ module.exports = {
   bulkLookup,
   getFacets,
   getStatsBreakdown,
+  getGlobalStats,
   getMapMarkers,
   health,
   // ops
