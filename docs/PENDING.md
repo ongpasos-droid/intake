@@ -75,6 +75,101 @@ Sesión auditando el desajuste Consortium↔Directorio en LIVE. Confirmado contr
 **Decisión cerrada (2026-05-05):**
 Oscar planteó si copiar 150 GB completos. Descartado: la BD que pesa 150 GB es la Postgres `erasmus-pg` (proyectos EU), no la MySQL `eplus_tools` (que pesa <500 MB). Para test offline basta con MySQL completo + Directory API on-demand para proyectos EU.
 
+### TASK-004 — SALTO Calendar → sección de noticias propia
+**Status:** FASE 1 HECHA · resto LISTO_PARA_EMPEZAR (cuando Oscar elija web destino)
+**Doc canónico:** `docs/SALTO_NEWS_PIPELINE.md`
+**Script:** `scripts/salto/scrape-salto.js`
+**Fecha plan:** 2026-05-06
+
+**Qué incluye:**
+- Fase 1 (hecha): scraper paginado con cheerio, output JSON+CSV+snapshot diario en `data/salto/`. 77 ofertas extraídas el 2026-05-06.
+- Fase 2: migration `salto_trainings` + script ingest con UPSERT por `salto_id` y `archived_at` para deadlines pasados.
+- Fase 3: cron diario (Task Scheduler local + systemd timer en VPS).
+- Fase 4: endpoint `GET /api/news/trainings` con filtros (país, tipo, deadline_after).
+- Fase 5: sección frontend en la web destino (a decidir: WP eufundingschool o sandbox).
+
+**Limitación detectada:** SALTO no tiene API ni RSS. `robots.txt` desautoriza `b_offset` (paginación). Compliant: solo página 1 + URLs de detalle conocidas. Para uso sostenido a escala conviene escribir a SALTO pidiendo permiso/feed.
+
+**Atribución obligatoria:** "Source: SALTO-YOUTH European Training Calendar" + link en cada item.
+
+### TASK-005 — BD unificada de financiación (EU + España)
+**Status:** FASE 1 (SEDIA) HECHA · resto LISTO_PARA_EMPEZAR · 2 decisiones de Oscar pendientes
+**Owner:** Local Claude (eplus-tools) — consolidado el 2026-05-06
+**Fecha plan:** 2026-05-06
+**Origen:** scope traspasado por Cantabria Claude (`docs/handoffs/FROM_CANTABRIA_FINAL_2026-05-06.md`)
+
+**Qué incluye:**
+- **Fase 1 ✅ SEDIA EU calls** (hecha 2026-05-06): `scripts/sedia/sync.js` + `data/calls/` con 542 calls extraídos (Open + Forthcoming). 9 programas con cobertura: Horizon Europe (406), EDF (36), NDICI/EuropeAid (34), LIFE (16), Digital (11), EUAF (7), CEF (5), Pilot Projects (4), Creative Europe (4), CERV (3), Erasmus+ (2), resto.
+- **Fase 2 BDNS España** (pendiente): fetcher de `pap.hacienda.gob.es/bdnstrans/api/convocatorias`. Cantabria Claude verificó endpoints y dejó schema 31-field + 6 gotchas documentados.
+- **Fase 3 BOE Datos Abiertos** (pendiente): `boe.es/datosabiertos/`, complementario al BDNS para texto íntegro de bases reguladoras.
+- **Fase 4 BOC Cantabria** (pendiente): RSS + scraping HTML para regional Cantabria (lag vs BDNS).
+- **Fase 5 SEPIE / INJUVE** (pendiente, condicional): solo si la BD necesita plazos por agencia nacional Erasmus+ que SEDIA central no detalla.
+- **Fase 6 Schema unificado + Postgres** (pendiente): tabla `funding_call` con shape común. Probable mismo cluster Postgres que `erasmus-pg` del VPS para sinergia con `directory.entities` (organismos publicadores).
+- **Fase 7 API REST** (pendiente): endpoint público `/v1/funding-calls` para que `erasmuscantabria.com` consuma desde WP.
+- **Fase 8 Refresh diario** (pendiente): cron por fuente, idempotente con upsert por `(source, source_id)`.
+
+**Decisiones de Oscar pendientes:**
+1. **Arquitectura A' vs B':**
+   - A' BD en eplus-tools + API REST consumida por WP.
+   - B' BD en eplus-tools + dump JSON nightly committeado al repo WP.
+2. **Cómo rellenar los 3 campos que SEDIA no devuelve** (`expectedGrants`, `min/max contribution`, `cofinancing_rate`):
+   - A Catálogo curado manual (rápido, requiere mantenimiento).
+   - B Parsear call-fiche PDF con `pdf-parse` (auto, parser frágil).
+   - C Híbrido (A para Erasmus+/LIFE, B para Horizon/EDF).
+3. **Idioma:** SEDIA fetch en EN + traducir resumen a ES con Sonnet 4.6. BDNS solo viene en ES (`source_lang='es'`, skip translation). Confirmar.
+
+**Schema preliminar acordado con Cantabria Claude (Round 1+2):**
+```sql
+funding_call(
+  call_id              UUID,           -- generado en ETL para evitar colisiones cross-source
+  source_id            VARCHAR,        -- ID nativo (SEDIA identifier, BDNS codigoBDNS)
+  source               VARCHAR,        -- 'sedia' | 'bdns' | 'boe' | 'boc_cantabria' | 'sepie' | 'injuve'
+  source_lang          VARCHAR(8),     -- 'en' | 'es' | 'fr' ...
+  level                VARCHAR,        -- 'eu' | 'national' | 'regional' | 'local'
+  programme            VARCHAR,
+  sub_programme        VARCHAR,
+  publishing_authority_code VARCHAR,   -- BDNS vpd, SEDIA programmeDivision, BOE sección
+  nuts_code            VARCHAR,        -- ES13 = Cantabria, etc.
+  title                TEXT,
+  title_lang           VARCHAR(8),
+  summary              TEXT,           -- 2-3 frases en ES (traducir si origen EN)
+  status               VARCHAR,        -- 'forthcoming' | 'open' | 'closed'
+  publication_date     DATE,
+  open_date            DATE,
+  deadline             DATE,
+  deadline_model       VARCHAR,        -- 'single-stage' | 'two-stage' | 'continuous' | 'multiple-national'
+  deadlines_extra      JSONB,          -- array para multi-deadline
+  budget_total_eur     DECIMAL(14,2),
+  budget_per_project_min_eur DECIMAL(14,2),
+  budget_per_project_max_eur DECIMAL(14,2),
+  expected_grants      INT,
+  cofinancing_pct      INT,            -- 80, no 0.80
+  duration_months      INT,
+  audience             TEXT,           -- ES, quién puede pedirlo
+  eligible_orgs        JSONB,          -- ['VET','SME','NGO',...]
+  eligible_countries   JSONB,          -- ['ES','EU27',...]
+  apply_url            TEXT,
+  details_url          TEXT,
+  documents            JSONB,          -- [{label, url}]
+  tags                 JSONB,
+  mrr_flag             BOOLEAN,        -- true = PRTR/Next Generation EU
+  raw                  JSONB,          -- respuesta cruda de la fuente
+  first_seen_at        TIMESTAMPTZ,
+  last_seen_at         TIMESTAMPTZ,
+  source_updated_at    TIMESTAMPTZ
+);
+```
+
+**Conocimiento heredado de Cantabria Claude (no perder):**
+- BDNS encoding bug: respuestas en UTF-8 mal mappeado de Latin-1. Decode con `Buffer.from(text, 'latin1').toString('utf8')`.
+- BDNS `vpd=A07` NO es Cantabria, devolvió Castilla y León. Hay que descubrir el código real iterando.
+- BDNS `abiertas=true` y `region=ES13` se ignoran como query param. Filtrar post-fetch.
+- BDNS incluye municipales y universitarias (más amplio de lo esperado).
+- BDNS `presupuestoTotal` puede venir null (no filtrar agresivo por > 0).
+- SEDIA `grantsTenders.json` static (122 MB) no contiene Erasmus+ 2026 todavía — la search API va más al día.
+
+**Bonus**: Cantabria Claude se reenfoca a web pública (`erasmuscantabria.com` en Hetzner+Coolify). Cuando esté la API, mandar handoff de vuelta `FROM_LOCAL_API_READY.md` con base URL + endpoints + auth + schema.
+
 ---
 
 ## 3 · Recientemente cerrado
