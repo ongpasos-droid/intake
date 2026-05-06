@@ -1,47 +1,205 @@
 /* ═══════════════════════════════════════════════════════════════
    Entities Model — directory-api backend (HTTP proxy)
    ═══════════════════════════════════════════════════════════════
-   STUB implementation. Usado cuando ENTITIES_BACKEND=directory_api.
+   Implementación para ENTITIES_BACKEND=directory_api.
 
-   Estado actual: los endpoints del directory-api del VPS aún
-   no soportan toda la superficie que necesita la app (Sprint 1
-   pendiente — ver docs/handoffs/PARA_VPS.md).
+   Delega en `node/src/utils/directory-api.js` (HTTP client a
+   directorio.eufundingschool.com/api/*).
 
-   Cuando VPS Claude entregue Sprint 1, este módulo se completará
-   delegando en `node/src/utils/directory-api.js`. Hasta entonces,
-   activar ENTITIES_BACKEND=directory_api debe fallar de forma
-   ruidosa para que nadie lo encienda en producción por error.
+   Estado de paridad con `./model` (MySQL, legacy):
+
+     listEntities      → dir.search()              ✅ Sprint 1A
+     getEntityById     → dir.getEntityFull()       ✅ Sprint 1A
+     listSimilar       → fallback con search()     ⚠️  Sprint 2 lo simplifica
+     listGeoMarkers    → fallback MySQL            ⏳ Sprint 2 entrega /map
+     getStat           → fallback MySQL            ⏳ Sprint 1B entrega /stats/breakdown
+     getFilterFacets   → fallback MySQL            ⏳ Sprint 1B entrega /facets
+
+   Los fallbacks a MySQL son intencionales: permiten encender el
+   feature flag con un cutover parcial sin romper pestañas que
+   dependen de endpoints que VPS Claude aún no entregó.
+
+   Shapes reales del directory-api (verificadas 2026-05-06):
+
+   GET /search?q=...&country=...&limit=...
+     {
+       count: 12345,                          // total filas
+       limit: 24,
+       offset: 0,
+       results: [                             // ← NO `rows`
+         { pic, oid, name, country_code, city, org_type, website,
+           validity_label, status_bucket, is_certified, can_apply,
+           total_projects, as_coordinator, last_project_date,
+           score_professionalism, score_eu_readiness, score_vitality,
+           logo_url, category, category_confidence,
+           quality_score_raw, quality_tier, cms_detected,
+           website_languages }
+       ]
+     }
+
+   GET /entity/:id/full
+     Casi todo plano top-level (oid, name, country_code, ..., total_projects,
+     last_project_date), pero `category`, `quality` y `enrichment` vienen
+     como bloques anidados:
+       category    = { category: "cultural", confidence: "medium", matched_signals: [...] }
+       quality     = { score_raw, score, tier, ... }
+       enrichment  = { description, parent_organization, vat_number, cms_detected,
+                       website_languages, mismatch_level, has_donate_button,
+                       has_newsletter_signup, has_privacy_policy, ... }
+     + recent_projects[], top_copartners[], timeline[]
    ═══════════════════════════════════════════════════════════════ */
 
 const dir = require('../../utils/directory-api');
+const mysqlModel = require('./model');
 
-function notImplemented(method) {
-  const err = new Error(
-    `entities/model.directory.${method}() not yet implemented. ` +
-    `Waiting for VPS Sprint 1 endpoints (see docs/DIRECTORY_REFACTOR_PLAN.md L2-cutover).`
-  );
-  err.code = 'NOT_IMPLEMENTED';
-  return err;
+/* ── Mapping de la respuesta de /search a la shape MySQL {rows, meta} ── */
+
+function normalizeSearchResponse(resp, requestedLimit) {
+  if (!resp || typeof resp !== 'object') return { rows: [], meta: { total: 0, page: 1, limit: requestedLimit || 24, pages: 0 } };
+
+  const results = Array.isArray(resp.results) ? resp.results
+                : Array.isArray(resp.rows)    ? resp.rows
+                : Array.isArray(resp)         ? resp
+                : [];
+  const total  = typeof resp.count === 'number' ? resp.count
+               : (resp.meta && typeof resp.meta.total === 'number') ? resp.meta.total
+               : results.length;
+  const limit  = typeof resp.limit  === 'number' ? resp.limit  : (requestedLimit || 24);
+  const offset = typeof resp.offset === 'number' ? resp.offset : 0;
+  const page   = limit > 0 ? Math.floor(offset / limit) + 1 : 1;
+  const pages  = limit > 0 ? Math.ceil(total / limit) : 0;
+
+  // Para cada row, expongo `display_name` (que la UI espera) sin perder `name`.
+  const rows = results.map(r => ({
+    ...r,
+    display_name: r.display_name || r.name || null,
+  }));
+
+  return { rows, meta: { total, page, limit, pages } };
 }
 
-async function listEntities(_args = {}) {
-  // TODO Sprint 1: dir.search(args) -> mapear a la shape que espera controller
-  throw notImplemented('listEntities');
+/* ── Mapping de la respuesta de /entity/:id/full a v_entities_public plana ── */
+
+function flattenEntityFull(full) {
+  if (!full || typeof full !== 'object') return null;
+
+  const category   = full.category   && typeof full.category   === 'object' ? full.category   : null;
+  const quality    = full.quality    && typeof full.quality    === 'object' ? full.quality    : null;
+  const enrichment = full.enrichment && typeof full.enrichment === 'object' ? full.enrichment : null;
+
+  // Subo enrichment al primer nivel sin pisar campos ya presentes.
+  const enrichFlat = {};
+  if (enrichment) {
+    for (const [k, v] of Object.entries(enrichment)) {
+      if (full[k] === undefined || full[k] === null) enrichFlat[k] = v;
+    }
+  }
+
+  return {
+    ...full,
+    ...enrichFlat,
+
+    // Aplanar bloques anidados (sobreescribe el campo "object" original)
+    category:            category ? (category.category ?? null) : (typeof full.category === 'string' ? full.category : null),
+    category_confidence: category ? (category.confidence ?? null) : (full.category_confidence ?? null),
+    matched_signals:     category ? (category.matched_signals ?? null) : (full.matched_signals ?? null),
+
+    quality_score_raw: quality ? (quality.score_raw ?? quality.score ?? quality.quality_score_raw ?? null) : (full.quality_score_raw ?? null),
+    quality_tier:      quality ? (quality.tier ?? quality.quality_tier ?? null) : (full.quality_tier ?? null),
+
+    // Display name por compatibilidad con la UI MySQL
+    display_name: full.display_name || full.name || full.legal_name || null,
+
+    // Bloques agregados
+    recent_projects: Array.isArray(full.recent_projects) ? full.recent_projects : [],
+    top_copartners:  Array.isArray(full.top_copartners)  ? full.top_copartners  : [],
+    timeline:        Array.isArray(full.timeline)        ? full.timeline        : [],
+  };
 }
 
-async function getEntityById(_oid) {
-  // TODO Sprint 1: dir.getEntityFull(oid) -> shape compatible con v_entities_public
-  throw notImplemented('getEntityById');
+/* ── listEntities ────────────────────────────────────────────── */
+
+async function listEntities(args = {}) {
+  const limit = args.limit;
+  const resp = await dir.search({
+    q: args.q,
+    country: args.country,
+    category: args.category,
+    tier: args.tier,
+    language: args.language,
+    cms: args.cms,
+    has_email: args.has_email,
+    has_phone: args.has_phone,
+    sort: args.sort,
+    page: args.page,
+    limit: args.limit,
+  });
+  return normalizeSearchResponse(resp, limit);
 }
 
-async function listSimilar(_oid, _limit) {
-  // TODO Sprint 2: dir.getEntitySimilar(oid, { limit })
-  throw notImplemented('listSimilar');
+/* ── getEntityById ───────────────────────────────────────────── */
+
+async function getEntityById(oid) {
+  if (!oid) return null;
+  try {
+    const full = await dir.getEntityFull(oid);
+    return flattenEntityFull(full);
+  } catch (e) {
+    if (e.status === 404) return null;
+    throw e;
+  }
 }
 
-async function listGeoMarkers(_args = {}) {
-  // TODO Sprint 1: dir.getMapMarkers(args)
-  throw notImplemented('listGeoMarkers');
+/* ── listSimilar (fallback hasta Sprint 2 /entity/:id/similar) ── */
+
+async function listSimilar(oid, limit = 3) {
+  if (!oid) return [];
+  let seed;
+  try {
+    seed = await dir.getEntityFull(oid);
+  } catch (e) {
+    if (e.status === 404) return [];
+    throw e;
+  }
+  if (!seed) return [];
+
+  const flat = flattenEntityFull(seed) || {};
+  const country  = flat.country_code || null;
+  const category = flat.category || null;
+  if (!country && !category) return [];
+
+  const want = parseInt(limit, 10) || 3;
+  const resp = await dir.search({
+    country,
+    category,
+    sort: 'quality',
+    limit: Math.min(20, want + 1),
+  });
+  const list = (resp && Array.isArray(resp.results)) ? resp.results
+             : (resp && Array.isArray(resp.rows))    ? resp.rows
+             : Array.isArray(resp)                   ? resp
+             : [];
+  return list
+    .filter(r => r.oid !== oid)
+    .slice(0, want)
+    .map(r => ({ ...r, display_name: r.display_name || r.name || null }));
+}
+
+/* ── Métodos delegados a MySQL hasta que VPS entregue su endpoint ── */
+
+async function listGeoMarkers(args = {}) {
+  // TODO Sprint 2: dir.getMapMarkers(args)
+  return mysqlModel.listGeoMarkers(args);
+}
+
+async function getStat(key) {
+  // TODO Sprint 1B: dir.getStatsBreakdown(dim) cuando esté listo
+  return mysqlModel.getStat(key);
+}
+
+async function getFilterFacets() {
+  // TODO Sprint 1B: dir.getFacets()
+  return mysqlModel.getFilterFacets();
 }
 
 module.exports = {
@@ -49,6 +207,10 @@ module.exports = {
   getEntityById,
   listSimilar,
   listGeoMarkers,
+  getStat,
+  getFilterFacets,
   // Helpers expuestos por si las pruebas los necesitan:
   _client: dir,
+  _flattenEntityFull: flattenEntityFull,
+  _normalizeSearchResponse: normalizeSearchResponse,
 };

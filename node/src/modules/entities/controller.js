@@ -2,7 +2,7 @@
    Entities Controller — Partner Engine endpoints
    ═══════════════════════════════════════════════════════════════ */
 
-const m = require('./model');
+const m = require('./backend');
 
 const ok  = (res, data) => res.json({ ok: true, data });
 const err = (res, msg, status = 400) =>

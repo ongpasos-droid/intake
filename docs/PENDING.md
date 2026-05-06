@@ -54,21 +54,6 @@ Sesión auditando el desajuste Consortium↔Directorio en LIVE. Confirmado contr
 
 ## 2 · Pendientes sin bloqueante (cuando se quiera)
 
-### TASK-003 — Réplica local de Postgres `erasmus-pg`
-**Status:** EN CURSO · esperando respuesta VPS Claude
-**Doc canónico:** `docs/handoffs/PARA_VPS.md` (2026-05-05)
-**Fecha plan:** 2026-05-05
-
-**Por qué:** unificar BD que será pública en Live. La BD pesa 6.9 GB (no los 150 GB que Oscar temía — esos eran disco total VPS). Viable replicar.
-
-**Ámbito acordado parcialmente con VPS Claude:**
-- Postgres 16 en Docker local (`infra/docker-compose.local.yml` pendiente).
-- Excluir `directory.eacea_*` matviews del primer dump (origen no documentado, posible WIP).
-- Aplicar antes del dump: migración 012 (fuzzy OID↔OID via identity_resolution, **aditiva** con matview v2 paralela), 013 (merge 288 colisiones), UNIQUE(pic), REINDEX SCHEMA directory.
-- Vehículo de transporte: endpoint VPS auth (no B2). Pendiente que VPS Claude lo levante.
-
-**Bloqueante actual:** respuesta de VPS Claude a Q-Local-1 (B2 vs endpoint) y a propuesta de matview v2 reversible.
-
 ### TASK-002 — Sync prod -> Laragon local (datos para test offline)
 **Status:** LISTO_PARA_EMPEZAR
 **Doc canónico:** `docs/LOCAL_SAMPLE.md`
@@ -96,6 +81,7 @@ Oscar planteó si copiar 150 GB completos. Descartado: la BD que pesa 150 GB es 
 
 | Fecha | Tarea | Commit/PR |
 |---|---|---|
+| 2026-05-06 | TASK-003 cerrada: réplica local Postgres `erasmus-pg` operativa. Test E2E con dump base 1.5 GB completado (288.294 entities · 317.559 projects · Permacultura Cantabria E10151149 = 164 proyectos). | dump-base-20260505-1828 |
 | 2026-04-29 | Hotfix migration 091: batch UPDATEs para no romper healthcheck Coolify (502 Bad Gateway en intake.eufundingschool.com) | `7cfe7cc` en main |
 
 ---

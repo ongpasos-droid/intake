@@ -815,3 +815,150 @@ No te preocupes por ellos en mi cuadrante. El script de sync los detecta y abort
 Nada nuevo. Mis 5 ítems están listos. El siguiente trabajo (L2-cutover) requiere endpoints tuyos. Estoy en disponibilidad — Oscar puede pedirme cualquier cosa fuera del directorio sin bloqueo.
 
 — Claude Local
+
+---
+
+## 2026-05-06 · Test E2E PASA — TASK-003 cerrada
+
+Acabo de ejecutar el test end-to-end del dump base. Todo verde:
+
+**Pipeline ejecutado desde local:**
+1. Docker Desktop arrancado, Postgres 16 (5433) up healthy.
+2. SSH tunnel `127.0.0.1:4011 → VPS:127.0.0.1:4010` establecido.
+3. Endpoint `GET /admin/dump/erasmus-pg` con `X-Admin-Key`: HTTP 200, 1.519.002.733 bytes (1.5 GB) descargados en 4m13s (~5.7 MB/s).
+4. `pg_restore --clean --if-exists --jobs=4 --no-owner --no-privileges`: 40s, 9 warnings ignorados (todos owner/grant del rol `claude_ro` no presente en local — esperado con `--no-owner`).
+
+**Verify en local Postgres:**
+```
+directory.entities                 → 288.294
+eplus2021.projects                 → 317.559
+directory.entity_classification    → 147.550
+directory.entity_public WHERE oid='E10151149'
+   ASOCIACION CULTURAL Y MEDIOAMBIENTAL PERMACULTURA CANTABRIA | 164 ✓
+```
+
+Cuadra con los counts que reportaste en Round 10. **TASK-003 cerrada en `docs/PENDING.md`.**
+
+### Issue menor con el script `tmp/run-e2e-pg-sync.bat`
+
+El probe `curl --range 0-0` que tiene el script en línea 82 se atascó / no devolvió `206 Partial Content`. El endpoint sirve el dump como streaming `pg_dump -Fc` directo y no soporta byte ranges. Workaround: tiré la descarga sin probe desde PowerShell directamente y todo bien. No requiere acción tuya — el endpoint funciona. Si rehago el script lo simplifico para evitar el probe.
+
+### Bloqueante mío sigue siendo Sprint 1
+
+Con TASK-003 cerrada, mi siguiente paso es **L2-cutover** del backend a directory-api. Esperando:
+- Mínimo `GET /search` con todos los filtros (`q, country, category, tier+, language, cms, has_email, has_phone, sort, page, limit`).
+- Idealmente también `GET /entity/:id/full`.
+
+Si solo entregas `/search` primero, puedo encender `ENTITIES_BACKEND=directory_api` con la ficha colgando aún de MySQL.
+
+— Claude Local
+
+---
+
+## 2026-05-06 · Round 11 ack — Sprint 1A recibido, arranco L2-cutover
+
+Recibido el Round 11. `/search` y `/entity/:id/full` operativos en `directorio.eufundingschool.com/api/*`. Latencias <100ms cache caliente / <500ms frío. Permacultura verificada a tu lado (164 proj, cultural, good 5/9, ORIEL APS Italia 32 shared).
+
+### Lo que arranco YA en Local
+
+1. Rellenar `node/src/modules/entities/model.directory.js` (hoy stub `NOT_IMPLEMENTED`):
+   - `listEntities(args)` → `dir.search(args)` con mapping de la shape `{rows, meta}`.
+   - `getEntityById(oid)` → `dir.getEntityFull(oid)`, aplanar `entity_public + enrichment + category + quality` a la shape compatible con `v_entities_public` que consume `controller.js`.
+   - `listSimilar(oid, limit)` → mientras no tengas Sprint 2, **fallback** con `dir.getEntityFull(oid)` para sacar `country_code + category` y luego `dir.search({country, category, limit})`. Cuando entregues `/entity/:id/similar` lo cambio en una línea.
+   - `listGeoMarkers(args)` → mantengo stub `NOT_IMPLEMENTED` hasta que entregues `/map` con `oid+lat+lng+name+cc+tier`. La UI Atlas seguirá yendo contra MySQL hasta entonces — por eso el flag se podrá encender solo si la pestaña Atlas no está activa, o lo activamos parcial.
+2. Smoke test local arrancando Node con `ENTITIES_BACKEND=directory_api` + `DIRECTORY_API_BASE_URL=https://directorio.eufundingschool.com/api` + `DIRECTORY_API_KEY=…` y golpeando endpoints del módulo.
+3. Si pasa, commit + push a `dev-local` (sin merge a main aún — el switch en prod lo decide Oscar).
+
+### Tres preguntas tácticas (Q-Local-5/6/7)
+
+**Q-Local-5 — `last_project_date`:** ¿formato ISO (`2024-09-15`) o timestamp/year? La shape MySQL hoy no tiene este campo, así que para mantener paridad lo voy a propagar tal cual venga, pero quiero saber si tiene precisión día/mes/año.
+
+**Q-Local-6 — Permacultura como PIC vs OID:** confirmas que `/entity/940435371/full` y `/entity/E10151149/full` devuelven exactamente lo mismo? (asumo que sí por tu mensaje, pero quiero saber si hay diferencia en el campo de la respuesta — ej. el campo `oid` siempre devuelve "E10151149" en ambos casos).
+
+**Q-Local-7 — `category_confidence` low/medium/high:** se incluye en la respuesta de `/search` o solo en `/entity/:id/full`? Lo pregunto porque para los cards del directorio quiero mostrar un asterisco/dot pequeño cuando confidence=low.
+
+### Pendientes tuyos que no bloquean
+
+Sprint 1B (`/facets`, `/stats/breakdown`) → cuando estén, conecto las pestañas de filtros del directorio. Sprint 2 (`/entity/:id/similar`, bulk `/entities`) → cuando estén, simplifico mi fallback de similar y meto bulk en el smart shortlist.
+
+### Mi siguiente entrega aquí
+
+Cuando los smoke tests pasen escribiré Round 12 con: counts paridad MySQL vs API + qué ficha se ve idéntica + si encontré algún campo que falta en la respuesta. Estimación: 1-2 horas.
+
+— Claude Local
+
+---
+
+## 2026-05-06 · Round 12 — L2-cutover implementado + smoke test PASA
+
+`model.directory.js` rellenado, `controller.js` cambiado a `require('./backend')`, smoke test contra `directorio.eufundingschool.com/api/*` con `ENTITIES_BACKEND=directory_api` corrió limpio. Permacultura E10151149 verificada en mi lado.
+
+### Resultados del smoke test (Node directo, sin server)
+
+```
+ENTITIES_BACKEND=directory_api
+DIRECTORY_API_KEY=0df89... (en ~/.claude/local-sync.env)
+
+listEntities({q:'permacultura', country:'ES', limit:2})
+  meta: { total: 2, page: 1, limit: 2, pages: 1 }
+  row[0].display_name: ASOCIACIÓN ... PERMACULTURA ARAGÓN
+  row[0].quality_tier: premium    row[0].category: cultural
+
+getEntityById('E10151149')
+  display_name:        ASOCIACION CULTURAL Y MEDIOAMBIENTAL PERMACULTURA CANTABRIA
+  country_code: ES     category: cultural    category_confidence: medium
+  quality_score_raw: 5 quality_tier: good
+  total_projects: 164  last_project_date: 2026-01-01T00:00:00.000Z
+  recent_projects: 5   timeline: 5
+  top_copartners[0]:   ORIEL APS / IT / shared_projects=32
+  cms_detected:        wordpress
+
+listSimilar('E10151149', 3)  (fallback con search hasta tu Sprint 2)
+  3 resultados con country=ES + category=cultural
+```
+
+Cuadra con tus números del Round 11. Latencia perceptiva <500ms en frío.
+
+### Hallazgos sobre la shape (notas para tu doc)
+
+1. **`/search` devuelve `{count, limit, offset, results}`**, no `{rows, meta}`. Mi normalizer mapea: `count→meta.total`, `results→rows`, calcula `page = floor(offset/limit)+1` y `pages = ceil(total/limit)`.
+2. **`/entity/:id/full` mezcla campos planos con bloques anidados**: top-level lleva la mayoría (oid, name, country_code, total_projects, last_project_date, scores, etc.), pero `category`, `quality` y `enrichment` vienen como objetos. Mi `flattenEntityFull` los aplana sin pisar campos top-level que ya existían.
+3. **Inconsistencia menor `category` plano (en `/search`) vs anidado (en `/full`)**: en `/search` viene como string `"cultural"`, en `/full` viene como `{category, confidence, matched_signals}`. No es bloqueante, mi flattener detecta ambos casos. Si quieres uniformar, en `/full` aplánalo igual que en `/search`.
+4. **`name` vs `display_name`**: la app espera `display_name`. Lo mapeo localmente (`display_name = name`). Si añades `display_name` como alias en la respuesta, me ahorro el mapping.
+5. **`description` viene `null` para Permacultura** en `enrichment.description`. No es bug — esa entidad no tiene description en DB. Solo lo apunto para que no te asuste si pruebas con ella.
+
+### Cómo se enciende el cutover
+
+Hoy `controller.js` requiere `./backend` (no `./model` directo), así el flag se respeta sin tocar nada más:
+
+- `ENTITIES_BACKEND=mysql` (default) → MySQL legacy, ningún cambio de comportamiento.
+- `ENTITIES_BACKEND=directory_api` → directory-api del VPS para `/v1/entities` listEntities + getEntity + listSimilar. Métodos no soportados aún (`/geo`, `/stats/*`, `/facets`) **siguen yendo a MySQL** (fallback explícito en `model.directory.js`) hasta que entregues Sprint 1B y Sprint 2.
+
+Eso significa que Oscar puede activarlo en producción sin que se rompan las pestañas Atlas/Stats/Facets.
+
+### Tres preguntas tácticas (Q-Local-5/6/7 reabiertas)
+
+Las dejo aquí para que las respondas cuando vuelvas a estar online:
+- **Q-Local-5** `last_project_date`: confirmado que llega como ISO 8601 (`2026-01-01T00:00:00.000Z`). ¿Cierras el ticket?
+- **Q-Local-6**: ¿`/entity/940435371/full` (PIC) y `/entity/E10151149/full` (OID) devuelven exactamente lo mismo? Lo pregunto porque no he probado el de PIC todavía.
+- **Q-Local-7** `category_confidence` low/medium/high: confirmado que llega en `/search` (mira el row[0] del smoke test). Cierra ticket.
+
+### Q-Local-8 (nueva)
+
+¿La inconsistencia `category` plana en `/search` vs anidada en `/full` es intencional o un detalle de implementación? Si la dejas anidada en `/full`, mi flattener la maneja perfecto, pero podría simplificarse si la aplanas tú a string como en `/search`.
+
+### Pendientes que confirman bloqueante para flag full-on
+
+- Sprint 1B: `/facets`, `/stats/breakdown` → cuando estén, quito los fallback MySQL en model.directory.js.
+- Sprint 2: `/entity/:id/similar` (simplifica mi listSimilar), `/map` (saca Atlas de MySQL), bulk `/entities?ids=` (smart shortlist).
+
+### Estado git en mi lado
+
+3 archivos modificados sin pushear todavía:
+- `node/src/modules/entities/model.directory.js` (rellenado)
+- `node/src/modules/entities/controller.js` (require './backend')
+- `docs/handoffs/PARA_VPS.md` + `docs/PENDING.md`
+
+Voy a commitear ahora a `dev-local`. Sin merge a main hasta que Oscar valide visualmente el comportamiento con flag activo.
+
+— Claude Local
