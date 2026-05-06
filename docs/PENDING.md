@@ -75,22 +75,30 @@ Sesión auditando el desajuste Consortium↔Directorio en LIVE. Confirmado contr
 **Decisión cerrada (2026-05-05):**
 Oscar planteó si copiar 150 GB completos. Descartado: la BD que pesa 150 GB es la Postgres `erasmus-pg` (proyectos EU), no la MySQL `eplus_tools` (que pesa <500 MB). Para test offline basta con MySQL completo + Directory API on-demand para proyectos EU.
 
-### TASK-004 — SALTO Calendar → sección de noticias propia
-**Status:** FASE 1 HECHA · resto LISTO_PARA_EMPEZAR (cuando Oscar elija web destino)
-**Doc canónico:** `docs/SALTO_NEWS_PIPELINE.md`
-**Script:** `scripts/salto/scrape-salto.js`
-**Fecha plan:** 2026-05-06
+### TASK-004 — Movilidades SALTO → erasmuscantabria.com
+**Status:** FASE 1 HECHA · ARQUITECTURA DECIDIDA 2026-05-07 · LISTO PARA IMPLEMENTAR (5 piezas)
+**Doc canónico:** `docs/SALTO_NEWS_PIPELINE.md` + `docs/handoffs/SESSION_HANDOFF_2026-05-07_movilidades.md`
+**Mockup:** `erasmuscantabria/design-templates/05-cursos-mockup.html` (commit local `4a19179`)
+**Fecha plan:** 2026-05-06 · actualizado 2026-05-07
 
 **Qué incluye:**
-- Fase 1 (hecha): scraper paginado con cheerio, output JSON+CSV+snapshot diario en `data/salto/`. 77 ofertas extraídas el 2026-05-06.
-- Fase 2: migration `salto_trainings` + script ingest con UPSERT por `salto_id` y `archived_at` para deadlines pasados.
-- Fase 3: cron diario (Task Scheduler local + systemd timer en VPS).
-- Fase 4: endpoint `GET /api/news/trainings` con filtros (país, tipo, deadline_after).
-- Fase 5: sección frontend en la web destino (a decidir: WP eufundingschool o sandbox).
+- **Fase 1 ✅** scraper + enrich completos: 77 ofertas en `data/salto/trainings.json` con 30+ campos. Distribución: 61 free · 12 paid · 2 mixed · 2 unknown.
+- **Fase 2** Endpoint `/v1/movilidades` en eplus-tools (módulo `node/src/modules/movilidades/`).
+- **Fase 3** mu-plugin `ec-movilidades.php` → CPT `movilidad` + taxonomías + 18 meta fields. URL `/oportunidades/<slug>/`.
+- **Fase 4** Theme child `astra-erasmuscantabria` con `archive-movilidad.php` (grid B) + `single-movilidad.php` (detalle C).
+- **Fase 5** Sync script Node + systemd timer 06:30 + WP page update.
 
-**Limitación detectada:** SALTO no tiene API ni RSS. `robots.txt` desautoriza `b_offset` (paginación). Compliant: solo página 1 + URLs de detalle conocidas. Para uso sostenido a escala conviene escribir a SALTO pidiendo permiso/feed.
+**Decisiones tomadas (2026-05-07):**
+- Taxonomía Oscar: **Oportunidades = movilidades** (SALTO) · **Subvenciones = funding calls** (TASK-005). No mezclar.
+- CPT `movilidad` extensible a futuras fuentes (ESC, DiscoverEU)
+- URL `/oportunidades/<slug>/` single · `/oportunidades/movilidades/` archive
+- Layout B (grid blanca/lavanda) + C (detalle propio sidebar lavanda)
+- Modo trabajo POR REPO · sin SSH directo · sin ACF (meta nativos)
+- Atribución "vía SALTO" obligatoria
 
-**Atribución obligatoria:** "Source: SALTO-YOUTH European Training Calendar" + link en cada item.
+**Limitación SALTO:** sin API ni RSS · `robots.txt` desautoriza `b_offset`. Compliant: página 1 + URLs detalle conocidas.
+
+**Comando para arrancar:** `hola, continuar con las movilidades SALTO`
 
 ### TASK-005 — BD unificada de financiación (EU + España)
 **Status:** FASE 1 (SEDIA) HECHA · resto LISTO_PARA_EMPEZAR · 2 decisiones de Oscar pendientes
@@ -100,23 +108,21 @@ Oscar planteó si copiar 150 GB completos. Descartado: la BD que pesa 150 GB es 
 
 **Qué incluye:**
 - **Fase 1 ✅ SEDIA EU calls** (hecha 2026-05-06): `scripts/sedia/sync.js` + `data/calls/` con 542 calls extraídos (Open + Forthcoming). 9 programas con cobertura: Horizon Europe (406), EDF (36), NDICI/EuropeAid (34), LIFE (16), Digital (11), EUAF (7), CEF (5), Pilot Projects (4), Creative Europe (4), CERV (3), Erasmus+ (2), resto.
-- **Fase 2 BDNS España** (pendiente): fetcher de `pap.hacienda.gob.es/bdnstrans/api/convocatorias`. Cantabria Claude verificó endpoints y dejó schema 31-field + 6 gotchas documentados.
+- **Fase 2 ✅ BDNS España** (hecha 2026-05-07): `scripts/bdns/sync.js` + `data/bdns/` con 28 calls extraídos en muestra de 2 días. Endpoints + 31-field schema + heurística `isOpen()` por capas (deadline > start > texto > flag). Rate limit real (concurrency=3 + 200ms + exp backoff retry).
+- **Fase 2.5 ✅ Unifier cross-source** (hecha 2026-05-07): `scripts/funding/build-unified.js` + `data/funding_unified.json` con 647 records (542 SEDIA + 28 BDNS + 77 SALTO). Schema unificado, UUIDs deterministic, sort por estado+deadline.
 - **Fase 3 BOE Datos Abiertos** (pendiente): `boe.es/datosabiertos/`, complementario al BDNS para texto íntegro de bases reguladoras.
 - **Fase 4 BOC Cantabria** (pendiente): RSS + scraping HTML para regional Cantabria (lag vs BDNS).
 - **Fase 5 SEPIE / INJUVE** (pendiente, condicional): solo si la BD necesita plazos por agencia nacional Erasmus+ que SEDIA central no detalla.
-- **Fase 6 Schema unificado + Postgres** (pendiente): tabla `funding_call` con shape común. Probable mismo cluster Postgres que `erasmus-pg` del VPS para sinergia con `directory.entities` (organismos publicadores).
-- **Fase 7 API REST** (pendiente): endpoint público `/v1/funding-calls` para que `erasmuscantabria.com` consuma desde WP.
-- **Fase 8 Refresh diario** (pendiente): cron por fuente, idempotente con upsert por `(source, source_id)`.
+- **Fase 6 ❌ DESCARTADA — Schema Postgres**: Oscar eligió arquitectura B' (dump JSON estático), no Postgres + API REST. La Fase 6 original queda para v2 si la web crece.
+- **Fase 7 ❌ DESCARTADA — API REST**: idem, B' no requiere endpoint backend. La web consume `data/funding_unified.json` vía `raw.githubusercontent.com` (CORS habilitado).
+- **Fase 8 Refresh diario** (pendiente): cron diario que (a) corre `sedia/sync.js` + `bdns/sync.js`, (b) corre `funding/build-unified.js`, (c) opcionalmente copia el JSON al repo de WordPress y commitea/pushea.
+- **Fase 9 Backfill traducción ES** (pendiente, opcional): correr Sonnet 4.6 sobre `summary_en` de SEDIA/SALTO (619 records) para poblar `summary_es`. Coste estimado: ~$0.50.
+- **Fase 10 Curado manual catálogo** (pendiente): completar `data/erasmus_plus_2026_calls.clean.json` con LIFE 16 calls + el resto que vaya saliendo, para que el `curated_enrichment` ratio suba.
 
-**Decisiones de Oscar pendientes:**
-1. **Arquitectura A' vs B':**
-   - A' BD en eplus-tools + API REST consumida por WP.
-   - B' BD en eplus-tools + dump JSON nightly committeado al repo WP.
-2. **Cómo rellenar los 3 campos que SEDIA no devuelve** (`expectedGrants`, `min/max contribution`, `cofinancing_rate`):
-   - A Catálogo curado manual (rápido, requiere mantenimiento).
-   - B Parsear call-fiche PDF con `pdf-parse` (auto, parser frágil).
-   - C Híbrido (A para Erasmus+/LIFE, B para Horizon/EDF).
-3. **Idioma:** SEDIA fetch en EN + traducir resumen a ES con Sonnet 4.6. BDNS solo viene en ES (`source_lang='es'`, skip translation). Confirmar.
+**Decisiones de Oscar (2026-05-07):**
+1. ✅ **Arquitectura B'** — dump JSON estático, no API REST. Sirve vía `raw.githubusercontent.com` con CORS habilitado.
+2. ⏳ **3 campos faltantes SEDIA** — pendiente decisión final. Default actual: catálogo curado para Erasmus+ (1/47 matched, resto forthcoming) + LIFE manual + "Ver call document" para Horizon/EDF en v1.
+3. ⏳ **Idioma** — pendiente confirmar. Default actual: SEDIA mantiene `summary_en`, BDNS nativo ES, flag `summary_es_pending: true` para 619/647 records.
 
 **Schema preliminar acordado con Cantabria Claude (Round 1+2):**
 ```sql

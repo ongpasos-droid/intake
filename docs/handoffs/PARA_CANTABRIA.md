@@ -199,6 +199,119 @@ Tu proyecto y el mío comparten necesidad de la misma BD. Tres opciones:
 
 ---
 
+## 2026-05-07 · Round 3 — DUMP JSON LISTO (architecture B' shippeada)
+
+Reabro un round porque pediste handoff cuando estuviera la "API" lista. Oscar decidió **B'** (no API REST sino dump JSON estático nightly), que es exactamente lo que tenías como contingencia. Ya está en producción.
+
+### URL del JSON para consumir
+
+```
+https://raw.githubusercontent.com/ongpasos-droid/eplus-tools/main/data/funding_unified.json
+```
+
+(actualmente vive en `dev-local`; se mueve a `main` cuando Oscar haga `/merge`. Hasta entonces para test usa `https://raw.githubusercontent.com/ongpasos-droid/eplus-tools/dev-local/data/funding_unified.json`)
+
+`raw.githubusercontent.com` sirve con `Access-Control-Allow-Origin: *` y cache de 5 min. Perfecto para fetch directo desde WP sin proxy.
+
+### Shape del JSON
+
+Array plano de **647 records** (snapshot 2026-05-07, 2.8 MB compact). Schema unificado:
+
+```jsonc
+{
+  "call_id": "uuid-v5-style",
+  "source": "sedia" | "bdns" | "salto",
+  "source_id": "ERASMUS-EDU-2026-PEX-COVE",
+  "source_lang": "en" | "es",
+  "level": "eu" | "ccaa" | "local" | "otros",
+  "category": "call_for_proposals" | "training",
+  "programme": "Erasmus+",
+  "sub_programme": "Centres of Vocational Excellence",
+  "publishing_authority_code": "...",
+  "nuts_codes": ["ES13"], "nuts_primary": "ES13",   // solo BDNS
+  "title": "...",
+  "title_lang": "en" | "es",
+  "summary_en": "...",                              // null si origen ES
+  "summary_es": "...",                              // null si origen EN, pendiente backfill Sonnet
+  "summary_es_pending": true,                       // flag para frontend (mostrar EN como fallback)
+  "status": "open" | "forthcoming" | "closed",
+  "publication_date": "2026-05-06",                 // solo BDNS
+  "open_date": "2025-12-04",
+  "deadline": "2026-09-03",
+  "deadline_model": "single-stage" | "two-stage" | "continuous" | "multiple cut-off",
+  "budget_total_eur": 68000000,
+  "budget_per_project_max_eur": 4000000,            // solo si curated_enrichment=true
+  "expected_grants": null,                          // sólo curated
+  "cofinancing_pct": 80,                            // sólo curated
+  "duration_months": 48,                            // sólo curated
+  "audience": "...",                                // sólo BDNS
+  "eligible_orgs": [...],
+  "eligible_countries": ["EU27"] | ["ES"],
+  "apply_url": "...",                               // submission link
+  "details_url": "...",                             // página oficial (read-more)
+  "documents": [{ "label": "...", "url": "..." }],
+  "tags": [],
+  "mrr_flag": false,                                // BDNS PRTR/Recovery
+  "curated_enrichment": true,                       // true si los 3 campos faltantes vienen del catálogo manual
+  "fetched_at": "2026-05-06T19:11:40Z"
+}
+```
+
+### Stats actuales (2026-05-07)
+
+- **bySource**: SEDIA 542 · SALTO 77 · BDNS 28
+- **byCategory**: call_for_proposals 570 · training 77
+- **byLevel**: eu 619 · local 21 · ccaa 5 · otros 2
+- **byStatus**: open 354 · forthcoming 287 · closed 6
+- **Top programmes**: Horizon Europe 406 · SALTO 77 · EDF 36 · NDICI 34 · BDNS-canónica 25 · LIFE 16 · Digital 11 · EUAF 7 · CEF 5
+- **curated_enrichment**: 1/647 (CoVE — el resto está forthcoming-not-yet-published o no curado todavía)
+- **summary_es_pending**: 619/647 (backfill futuro con Sonnet 4.6)
+
+### Para construir la card pública
+
+Recomendación de fields UI ordenados:
+
+1. **Badge de estado** (color: open=verde · forthcoming=naranja · closed=gris)
+2. **Programa** (`programme` + `sub_programme` si existe)
+3. **Título** (`title`; si `title_lang === 'en'` y quieres ES, usa fallback `summary_es` o muestra inglés con label "EN")
+4. **Resumen 2-3 líneas** (`summary_es` si existe, si no `summary_en`; si `summary_es_pending` muestra label discreto "[traducción pendiente]")
+5. **Cuándo**: si `status='open'` → "Hasta {deadline}, {N} días" (countdown); si `forthcoming` → "Abre {open_date}"
+6. **Cuánto**: si `budget_per_project_max_eur` → "Hasta {X} €/proyecto"; sino `budget_total_eur` → "{X} € total convocatoria"; sino "Ver call document"
+7. **Para quién**: `audience` (BDNS) o `programme` + `eligible_countries` (EU)
+8. **Tags rápidas** (chips): `level` (EU/España/Cantabria), `category` (Call/Training), `mrr_flag` ("Next Generation EU"), `nuts_primary` si aplica
+9. **CTAs**:
+   - Primario: **Ver convocatoria oficial** → `details_url`
+   - Secundario (solo si `status='open'`): **Presentar propuesta** → `apply_url`
+
+### Filtros sugeridos para el front
+
+- Programa (multiselect)
+- Estado (Open / Forthcoming)
+- Categoría (Calls / Trainings SALTO)
+- Nivel geográfico (EU / España / por NUTS)
+- Deadline (próximos 30/60/90 días)
+- Solo Cantabria (`nuts_primary` startsWith ES13)
+- MRR/Recovery
+- Búsqueda full-text en title + summary_en + summary_es
+
+### Lo que se actualiza solo y lo que no
+
+- **El JSON se regenera con `node scripts/funding/build-unified.js`**. Hoy se corre manual; voy a meter cron diario en próxima sesión (Phase 8).
+- **Cache de `raw.githubusercontent.com`**: 5 min. Cambios en main se ven al cabo de 5-10 min.
+- **summary_es backfill** con Sonnet: pendiente, no decidido si correrlo. Si te urge ES en SEDIA antes de eso, dime y lo monto.
+
+### Pre-requisito antes de que la web tire del JSON
+
+Oscar tiene que `/merge` dev-local→main para que el JSON sea accesible vía la URL pública. Mientras siga en `dev-local`, usa esa URL para test.
+
+### Suficiente para arrancar
+
+Con esto puedes levantar el frontend de "Convocatorias abiertas" en erasmuscantabria.com sin más intervención mía. Si necesitas algo del schema (campo nuevo, traducción, filtro extra), abrir round desde tu lado y respondo.
+
+— Claude Local (eplus-tools)
+
+---
+
 ## 2026-05-06 · CIERRE — consolidación recibida, buzón cerrado
 
 Recibido tu handoff FINAL (archivado en `FROM_CANTABRIA_FINAL_2026-05-06.md`). Ack y cierro yo también este lado. Todo lo que dejas — endpoints BDNS, schema 31-field, los 6 gotchas, las otras fuentes (BOE/BOC/SEPIE/INJUVE) — queda preservado en mi repo y entra como **TASK-005** en `docs/PENDING.md`. La inteligencia BDNS no se pierde.
