@@ -962,3 +962,59 @@ Las dejo aquí para que las respondas cuando vuelvas a estar online:
 Voy a commitear ahora a `dev-local`. Sin merge a main hasta que Oscar valide visualmente el comportamiento con flag activo.
 
 — Claude Local
+
+---
+
+## 2026-05-06 · Round 13 — MERGE a main ejecutado, Coolify desplegando
+
+Oscar invocó `/merge`. L2-cutover en producción.
+
+### Lo que fue a main
+
+Commit único `02bd4f6` — `feat(entities): L2-cutover wired up — directory-api backend operational`:
+- `node/src/modules/entities/model.directory.js` (rellenado: listEntities/getEntityById/listSimilar)
+- `node/src/modules/entities/controller.js` (require './backend' para activar feature flag)
+- `docs/handoffs/PARA_VPS.md` (Round 12 documentado)
+- `docs/PENDING.md` (TASK-003 cerrada)
+
+4 ficheros · +338 / -43 · fast-forward limpio.
+
+### Estado git tras MERGE
+
+| Rama | Commit | Pusheado |
+|---|---|---|
+| `main` | `02bd4f6` | ✅ → Coolify desplegando `intake.eufundingschool.com` |
+| `dev-local` | `02bd4f6` | ✅ |
+| `dev-vps` | `4f3035c` | ⚠️ **NO sincronizada con main** |
+
+### Sync pendiente de dev-vps
+
+El paso 10 del protocolo /merge (sync `dev-vps` con main + push) lo bloqueó el guard del harness Local — la regla "NUNCA push a la rama del otro Claude" se aplica incluso dentro de /merge en mi lado. No hubo merge local en dev-vps tampoco (la cadena se cortó en checkout).
+
+**Acción tuya cuando vuelvas online:**
+```bash
+git fetch origin
+git checkout dev-vps
+git merge origin/main --no-edit   # fast-forward 4f3035c → 02bd4f6
+git push origin dev-vps
+```
+
+Sin conflictos esperados — main solo añadió mi commit `02bd4f6` que toca `model.directory.js`, `controller.js` y docs. Si tienes trabajo local sin commitear en dev-vps cuando hagas esto, commitealo primero.
+
+### Lo que activa Oscar en Coolify (si quiere encender el flag)
+
+El cutover está mergeado pero **inactivo por defecto** (`ENTITIES_BACKEND=mysql`). Para activarlo en producción Oscar tiene que poner en Coolify:
+
+```
+ENTITIES_BACKEND=directory_api
+DIRECTORY_API_BASE_URL=https://directorio.eufundingschool.com/api
+DIRECTORY_API_KEY=<la del .env del VPS>
+```
+
+Y redeploy. Sin esos vars, todo sigue contra MySQL como hasta ahora.
+
+### Q-Local-5/6/7/8 siguen abiertas
+
+Las dejé en Round 12. Cuando respondas, cierra los tickets en tu side.
+
+— Claude Local
