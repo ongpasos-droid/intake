@@ -51,6 +51,8 @@
 
 const dir = require('../../utils/directory-api');
 const mysqlModel = require('./model');
+const overrides = require('./overrides');
+const scores = require('./scores');
 
 /* ── Mapping de la respuesta de /search a la shape MySQL {rows, meta} ── */
 
@@ -136,7 +138,10 @@ async function listEntities(args = {}) {
     page: args.page,
     limit: args.limit,
   });
-  return normalizeSearchResponse(resp, limit);
+  const normalized = normalizeSearchResponse(resp, limit);
+  normalized.rows = await overrides.applyToList(normalized.rows);
+  normalized.rows = await scores.attachToList(normalized.rows);
+  return normalized;
 }
 
 /* ── getEntityById ───────────────────────────────────────────── */
@@ -145,7 +150,9 @@ async function getEntityById(oid) {
   if (!oid) return null;
   try {
     const full = await dir.getEntityFull(oid);
-    return flattenEntityFull(full);
+    const flat = flattenEntityFull(full);
+    const overridden = await overrides.applyToEntity(flat);
+    return scores.attachToEntity(overridden);
   } catch (e) {
     if (e.status === 404) return null;
     throw e;
@@ -191,7 +198,19 @@ async function listSimilar(oid, limit = 3) {
 
 async function listGeoMarkers(args = {}) {
   // TODO Sprint 2: dir.getMapMarkers(args)
-  return mysqlModel.listGeoMarkers(args);
+  // Pedimos formato raw (con oid+pic) para poder cruzar con overrides locales
+  // antes de compactar al payload final {o,a,g,c,n,t}.
+  const raw = await mysqlModel.listGeoMarkersRaw(args);
+  const withOverrides = await overrides.applyToList(raw);
+  const existingOids = new Set(withOverrides.map(m => m && m.oid).filter(Boolean));
+  const existingPics = new Set(withOverrides.map(m => m && m.pic).filter(Boolean).map(String));
+  const owned = await overrides.getOwnedMarkers();
+  for (const m of owned) {
+    const dupByOid = m.oid && existingOids.has(m.oid);
+    const dupByPic = m.pic && existingPics.has(String(m.pic));
+    if (!dupByOid && !dupByPic) withOverrides.push(m);
+  }
+  return mysqlModel.compactGeoMarkers(withOverrides);
 }
 
 async function getStat(key) {

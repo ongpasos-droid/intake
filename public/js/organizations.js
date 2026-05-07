@@ -37,6 +37,7 @@ const Organizations = (() => {
         myOrg = await API.get(`/organizations/${id}`);
         fillForm(myOrg);
         loadAllChildren();
+        setTimeout(() => initOrgMap(), 100);
       } catch (e) { Toast.show(e.message || 'Error', 'error'); }
     });
     document.getElementById('myorg-btn-new-org')?.addEventListener('click', () => {
@@ -188,6 +189,7 @@ const Organizations = (() => {
       myOrg = await API.get(`/organizations/${targetId}`);
       fillForm(myOrg);
       loadAllChildren();
+      setTimeout(() => initOrgMap(), 100);
     } catch (e) {
       console.error('loadMyOrgs', e);
       // Fallback to old single-org endpoint

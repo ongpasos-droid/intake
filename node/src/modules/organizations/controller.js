@@ -25,14 +25,18 @@ exports.getMyOrgs = async (req, res) => {
 exports.upsertMyOrg = async (req, res) => {
   try {
     const existing = await m.getOrgByUserId(req.user.id);
+    let orgId;
     if (existing) {
       await m.upsertOrg(req.body, existing.id);
-      ok(res, { id: existing.id });
+      orgId = existing.id;
     } else {
-      const id = await m.upsertOrg({ ...req.body, owner_user_id: req.user.id }, null);
-      await m.linkUserToOrg(req.user.id, id);
-      ok(res, { id });
+      orgId = await m.upsertOrg({ ...req.body, owner_user_id: req.user.id }, null);
+      await m.linkUserToOrg(req.user.id, orgId);
     }
+    // Background: si tiene PIC y no tiene OID, intentar resolver vía directory-api.
+    // No bloqueamos la respuesta: el override aplica también por PIC.
+    setImmediate(() => { m.backfillOidFromPic(orgId).catch(() => {}); });
+    ok(res, { id: orgId });
   } catch (e) { err(res, e.message, 500); }
 };
 

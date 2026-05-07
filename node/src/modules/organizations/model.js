@@ -250,8 +250,35 @@ async function updateOrgCoords(orgId, lat, lng, source) {
   );
 }
 
+/* ── Backfill OID via directory-api lookup por PIC ──────────────
+   Cuando una org se crea con PIC pero sin OID, intenta resolver el
+   OID consultando el directorio público. Idempotente. Tolerante a
+   fallos (si el directorio no responde, simplemente no hace nada). */
+async function backfillOidFromPic(orgId) {
+  const [[row]] = await pool.query(
+    `SELECT id, oid, pic, organization_name FROM organizations WHERE id = ? LIMIT 1`,
+    [orgId]
+  );
+  if (!row || !row.pic || row.oid) return null;
+  try {
+    const dir = require('../../utils/directory-api');
+    // El directory-api no expone búsqueda directa por PIC ni endpoint by-pic.
+    // Estrategia: buscar por nombre y filtrar por PIC exacto en los resultados.
+    const name = (row.organization_name || '').trim();
+    if (!name) return null;
+    const resp = await dir.search({ q: name, limit: 25 });
+    const list = (resp && Array.isArray(resp.results)) ? resp.results : [];
+    const match = list.find(r => String(r.pic) === String(row.pic) && r.oid);
+    if (!match || !match.oid) return null;
+    await pool.query(`UPDATE organizations SET oid = ? WHERE id = ? AND oid IS NULL`, [match.oid, orgId]);
+    return match.oid;
+  } catch (e) {
+    return null;
+  }
+}
+
 module.exports = {
   getOrgById, getOrgByUserId, getOrgsByUserId, upsertOrg, linkUserToOrg, deleteOrg,
   listOrgs, listChildren, upsertChild, deleteChild, isOrgOwner,
-  orsLookup, updateOrgCoords,
+  orsLookup, updateOrgCoords, backfillOidFromPic,
 };
