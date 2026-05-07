@@ -848,6 +848,12 @@ exports.aiGenerateRisks = async (req, res, next) => {
     res.json({ ok: true, data });
   } catch (err) { next(err); }
 };
+exports.aiEvaluateRisks = async (req, res, next) => {
+  try {
+    const data = await model.aiEvaluateProjectRisks(req.params.projectId, req.user.id);
+    res.json({ ok: true, data });
+  } catch (err) { next(err); }
+};
 
 // GET /v1/developer/projects/:projectId/dms/export.csv
 exports.dmsExportCsv = async (req, res, next) => {

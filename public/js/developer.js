@@ -2730,6 +2730,10 @@ const Developer = (() => {
   ];
 
   let _tipTimer = null;
+  // Layout state — persisted in localStorage. Sidebar can collapse to icons,
+  // AI panel lives in a fixed right drawer triggered by a FAB / Ctrl+I.
+  let _navCollapsed   = localStorage.getItem('developer.navCollapsed') === 'true';
+  let _aiDrawerOpen   = localStorage.getItem('developer.aiDrawerOpen') === 'true';
 
   async function renderPhase2() {
     phase = 2;
@@ -2746,6 +2750,7 @@ const Developer = (() => {
     const total = flatSections.length;
     const approved = Object.keys(cascadeApproved).length;
     const pct = Math.round((approved / total) * 100);
+    const navWidth = _navCollapsed ? 'w-14' : 'w-56';
 
     el.innerHTML = renderPhaseTabs(2) + `
       <!-- Progress bar -->
@@ -2760,34 +2765,122 @@ const Developer = (() => {
       </div>
 
       <div class="flex gap-0 -mx-4 items-start">
-        <!-- Left: Section nav -->
-        <div class="w-56 shrink-0 border-r border-outline-variant/20 px-3 py-2" id="dev-cascade-nav"></div>
-        <!-- Center: Editor -->
+        <!-- Left: Section nav (collapsible) -->
+        <div class="${navWidth} shrink-0 border-r border-outline-variant/20 py-2 transition-[width] duration-200 relative" id="dev-cascade-nav"></div>
+        <!-- Center: Editor (full width when nav collapses or AI is hidden) -->
         <div class="flex-1 min-w-0 px-6 py-2" id="dev-cascade-main"></div>
-        <!-- Right: AI panel -->
-        <div class="w-72 shrink-0 border-l border-outline-variant/20 px-4 py-2" id="dev-ai-panel"></div>
-      </div>`;
+      </div>
+
+      <!-- Floating AI button — pill, opens the drawer -->
+      <button id="dev-ai-fab" onclick="Developer._toggleAiDrawer()" title="Refinar con IA (Ctrl+I)"
+        class="fixed bottom-6 right-6 z-40 inline-flex items-center gap-2 pl-4 pr-5 py-3 rounded-full bg-[#1b1464] hover:bg-[#1b1464]/90 text-white text-sm font-bold shadow-xl transition-all hover:scale-[1.03]">
+        <span class="material-symbols-outlined text-lg text-[#fbff12]">auto_awesome</span>
+        <span>Refinar con IA</span>
+      </button>
+
+      <!-- AI Drawer overlay -->
+      <aside id="dev-ai-drawer"
+        class="fixed top-0 right-0 h-screen w-[400px] bg-white border-l border-outline-variant/20 shadow-2xl z-50 transform ${_aiDrawerOpen ? '' : 'translate-x-full'} transition-transform duration-300 overflow-y-auto flex flex-col">
+        <header class="sticky top-0 bg-white px-4 py-3 flex items-center justify-between border-b border-outline-variant/20 z-10">
+          <h3 class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">Panel de IA</h3>
+          <button onclick="Developer._toggleAiDrawer()" class="p-1.5 rounded-full hover:bg-surface-container-low transition-colors" title="Cerrar (Esc)">
+            <span class="material-symbols-outlined text-base text-on-surface-variant">close</span>
+          </button>
+        </header>
+        <div id="dev-ai-panel" class="p-4 flex-1"></div>
+      </aside>
+      <div id="dev-ai-backdrop" onclick="Developer._toggleAiDrawer()"
+        class="fixed inset-0 z-40 bg-black/10 ${_aiDrawerOpen ? '' : 'hidden'}"></div>
+    `;
 
     renderCascadeNav();
     renderCascadeSection();
     renderAIPanel();
+    _bindWriterShortcuts();
+  }
+
+  function _toggleAiDrawer() {
+    _aiDrawerOpen = !_aiDrawerOpen;
+    localStorage.setItem('developer.aiDrawerOpen', String(_aiDrawerOpen));
+    const drawer = document.getElementById('dev-ai-drawer');
+    const backdrop = document.getElementById('dev-ai-backdrop');
+    if (drawer) drawer.classList.toggle('translate-x-full', !_aiDrawerOpen);
+    if (backdrop) backdrop.classList.toggle('hidden', !_aiDrawerOpen);
+  }
+
+  // The generic "Refinar con IA" flow only applies to free-text sections.
+  // Sections backed by structured tables (WPs, staff, risks) have their own
+  // inline AI buttons, so we hide the FAB + drawer here to avoid confusion.
+  function _isStructuredTableSection(sec) {
+    if (!sec) return false;
+    if (isWpFormSection(sec)) return true;
+    return sec.fieldId === 's2_1_3_staff_table'
+        || sec.fieldId === 's2_1_5_risk_table';
+  }
+
+  // The FAB is always visible; the drawer's content adapts to the section
+  // kind (text vs structured table).
+  function _updateAiAffordance(_sec) {
+    const fab = document.getElementById('dev-ai-fab');
+    if (fab) fab.classList.remove('hidden');
+  }
+
+  function _toggleNavCollapsed() {
+    _navCollapsed = !_navCollapsed;
+    localStorage.setItem('developer.navCollapsed', String(_navCollapsed));
+    const nav = document.getElementById('dev-cascade-nav');
+    if (nav) {
+      nav.classList.toggle('w-14', _navCollapsed);
+      nav.classList.toggle('w-56', !_navCollapsed);
+    }
+    renderCascadeNav();
+  }
+
+  let _writerShortcutsBound = false;
+  function _bindWriterShortcuts() {
+    if (_writerShortcutsBound) return;
+    _writerShortcutsBound = true;
+    document.addEventListener('keydown', (e) => {
+      // Only act when we're in the Writer cascade (phase 2).
+      if (phase !== 2) return;
+      // Ctrl/Cmd + I → toggle AI drawer
+      if ((e.ctrlKey || e.metaKey) && (e.key === 'i' || e.key === 'I')) {
+        e.preventDefault();
+        _toggleAiDrawer();
+      }
+      // Esc closes drawer if open
+      if (e.key === 'Escape' && _aiDrawerOpen) {
+        _toggleAiDrawer();
+      }
+    });
   }
 
   function renderCascadeNav() {
     const nav = document.getElementById('dev-cascade-nav');
     if (!nav) return;
 
+    const collapsed = _navCollapsed;
+    const padX = collapsed ? 'px-1' : 'px-3';
+
+    // Toggle button at the top.
+    let html = `
+      <div class="flex ${collapsed ? 'justify-center' : 'justify-end'} ${padX} mb-2">
+        <button onclick="Developer._toggleNav()" title="${collapsed ? 'Expandir índice' : 'Colapsar índice'}"
+          class="p-1 rounded hover:bg-surface-container-low text-on-surface-variant transition-colors">
+          <span class="material-symbols-outlined text-base">${collapsed ? 'chevron_right' : 'chevron_left'}</span>
+        </button>
+      </div>
+    `;
+
     let currentParent = null;
-    let html = '';
     for (let i = 0; i < flatSections.length; i++) {
       const sec = flatSections[i];
       const isApproved = cascadeApproved[sec.fieldId];
       const isCurrent = i === cascadeIndex;
-      const isPending = !isApproved && !isCurrent;
       const val = fieldValues[sec.fieldId];
       const hasText = val && val.text && val.text.trim().length > 10;
 
-      if (sec.parent && sec.parent !== currentParent) {
+      if (!collapsed && sec.parent && sec.parent !== currentParent) {
         currentParent = sec.parent;
         html += `<div class="text-[9px] font-bold uppercase tracking-widest text-on-surface-variant/60 mt-4 mb-1 px-2">${sec.parentNumber}. ${esc(sec.parent)}</div>`;
       }
@@ -2796,17 +2889,22 @@ const Developer = (() => {
       const icon = isApproved ? 'check_circle' : isCurrent ? 'edit_note' : hasText ? 'edit' : 'radio_button_unchecked';
       const stateClass = isCurrent
         ? 'bg-primary/10 text-primary font-bold'
-        : isApproved
-          ? 'hover:bg-surface-container-low text-on-surface-variant'
-          : hasText
-            ? 'hover:bg-surface-container-low text-on-surface-variant'
-            : 'hover:bg-surface-container-low text-on-surface-variant/60';
+        : 'hover:bg-surface-container-low text-on-surface-variant';
 
-      html += `
-        <button onclick="Developer._cascadeGoTo(${i})" class="w-full text-left flex items-center gap-2 px-2 py-1.5 rounded-lg text-xs transition-all cursor-pointer ${stateClass}">
-          <span class="material-symbols-outlined text-xs ${dotClass}">${icon}</span>
-          <span class="truncate">${sec.number} ${esc(sec.title.substring(0, 28))}</span>
-        </button>`;
+      if (collapsed) {
+        html += `
+          <button onclick="Developer._cascadeGoTo(${i})" title="${esc(sec.number + ' ' + sec.title)}"
+            class="w-full flex flex-col items-center gap-0.5 py-1.5 rounded-lg text-[10px] transition-all cursor-pointer ${stateClass}">
+            <span class="material-symbols-outlined text-xs ${dotClass}">${icon}</span>
+            <span class="font-mono">${esc(sec.number)}</span>
+          </button>`;
+      } else {
+        html += `
+          <button onclick="Developer._cascadeGoTo(${i})" class="w-full text-left flex items-center gap-2 px-2 py-1.5 rounded-lg text-xs transition-all cursor-pointer ${stateClass}">
+            <span class="material-symbols-outlined text-xs ${dotClass}">${icon}</span>
+            <span class="truncate">${sec.number} ${esc(sec.title.substring(0, 28))}</span>
+          </button>`;
+      }
     }
     nav.innerHTML = html;
   }
@@ -2826,6 +2924,7 @@ const Developer = (() => {
     if (!sec) { showCelebration(); return; }
 
     activeFieldId = sec.fieldId;
+    _updateAiAffordance(sec);
 
     // WP sections (4.2.X) use a structured form with 5 tables instead
     // of a free-text editor. Header / Objectives / Tasks / Milestones /
@@ -3338,6 +3437,125 @@ const Developer = (() => {
     });
   }
 
+  // 2.1.5 Risks — AI evaluator (drawer flow). Loads a report and renders
+  // gaps + per-row suggestions with one-click "Apply" buttons.
+  let _risksReport = null;
+
+  async function aiEvaluateRisks() {
+    const btn = document.getElementById('ai-eval-risks-btn');
+    const target = document.getElementById('ai-risks-report');
+    if (!target) return;
+    const original = btn ? btn.innerHTML : '';
+    if (btn) {
+      btn.disabled = true;
+      btn.innerHTML = '<span class="material-symbols-outlined text-base animate-spin">progress_activity</span><span>Evaluando…</span>';
+    }
+    target.innerHTML = `
+      <div class="rounded-lg border border-outline-variant/20 p-3 text-xs text-on-surface-variant text-center">
+        <span class="material-symbols-outlined text-base animate-spin align-middle">progress_activity</span>
+        Analizando ${(_risksRows || []).length} riesgos…
+      </div>`;
+    try {
+      _risksReport = await API.post(`/developer/projects/${currentProject.id}/risks/ai-evaluate`, {});
+      _renderRisksReport();
+    } catch (err) {
+      target.innerHTML = `<div class="text-xs text-red-700 p-3 rounded-lg bg-red-50 border border-red-200">${esc(err.message || err)}</div>`;
+    } finally {
+      if (btn) { btn.disabled = false; btn.innerHTML = original; }
+    }
+  }
+
+  function _renderRisksReport() {
+    const target = document.getElementById('ai-risks-report');
+    if (!target || !_risksReport) return;
+    const r = _risksReport;
+    const scoreColor = r.score >= 8 ? 'text-green-600' : r.score >= 6 ? 'text-amber-600' : 'text-red-600';
+    const sevColor = (sev) => sev === 'high' ? 'text-red-700 bg-red-50 border-red-200'
+                              : sev === 'medium' ? 'text-amber-700 bg-amber-50 border-amber-200'
+                              : 'text-blue-700 bg-blue-50 border-blue-200';
+    target.innerHTML = `
+      <!-- Score + summary -->
+      <div class="rounded-lg bg-surface-container-lowest border border-outline-variant/20 p-3 mb-3">
+        <div class="flex items-baseline gap-2 mb-1">
+          <span class="font-headline text-2xl font-extrabold ${scoreColor}">${r.score}</span>
+          <span class="text-xs text-on-surface-variant">/ 10</span>
+          <span class="ml-auto text-[10px] text-on-surface-variant uppercase tracking-wider">${r.risks_count} riesgos</span>
+        </div>
+        <p class="text-xs text-on-surface leading-snug">${esc(r.summary || '')}</p>
+      </div>
+
+      ${r.gaps.length ? `
+        <div class="mb-3">
+          <div class="text-[10px] font-bold uppercase tracking-wider text-on-surface-variant/70 mb-1">Lagunas detectadas</div>
+          <div class="space-y-1.5">
+            ${r.gaps.map(g => `
+              <div class="rounded-lg border p-2 text-xs ${sevColor(g.severity)}">
+                <div class="font-bold leading-snug">${esc(g.title)}</div>
+                <div class="text-[11px] mt-0.5 opacity-90">${esc(g.why_critical)}</div>
+              </div>`).join('')}
+          </div>
+        </div>
+      ` : ''}
+
+      ${r.row_suggestions.length ? `
+        <div>
+          <div class="text-[10px] font-bold uppercase tracking-wider text-on-surface-variant/70 mb-1">Sugerencias por fila</div>
+          <div class="space-y-2">
+            ${r.row_suggestions.map((s, i) => {
+              const risk = (_risksRows || []).find(rr => rr.id === s.row_id);
+              const label = risk ? (risk.risk_no || s.row_id.slice(0, 4)) : s.row_id.slice(0, 4);
+              return `
+                <div class="rounded-lg border border-outline-variant/30 p-2 text-xs bg-white" data-suggestion-idx="${i}">
+                  <div class="flex items-center gap-2 mb-1">
+                    <span class="font-bold text-on-surface">${esc(label)}</span>
+                    <span class="text-[10px] uppercase tracking-wider text-on-surface-variant">campo</span>
+                    <span class="font-mono text-[11px] text-primary">${esc(s.field)}</span>
+                  </div>
+                  <div class="text-[11px] text-on-surface-variant mb-1"><b>Actual:</b> ${esc((s.current || '').slice(0, 120))}${s.current && s.current.length > 120 ? '…' : ''}</div>
+                  <div class="text-[11px] text-on-surface mb-1"><b>Sugerido:</b> ${esc((s.suggested || '').slice(0, 220))}${s.suggested && s.suggested.length > 220 ? '…' : ''}</div>
+                  <div class="text-[10px] italic text-on-surface-variant mb-2">${esc(s.why)}</div>
+                  <div class="flex items-center gap-1.5">
+                    <button data-apply-idx="${i}" class="text-[11px] px-2 py-1 rounded font-bold text-white bg-emerald-600 hover:bg-emerald-700">Aplicar</button>
+                    <button data-discard-idx="${i}" class="text-[11px] px-2 py-1 rounded font-bold text-on-surface-variant border border-outline-variant/30 hover:bg-surface-container-low">Descartar</button>
+                  </div>
+                </div>`;
+            }).join('')}
+          </div>
+        </div>
+      ` : '<p class="text-[11px] italic text-on-surface-variant">Sin sugerencias por fila.</p>'}
+    `;
+    target.querySelectorAll('[data-apply-idx]').forEach(btn => {
+      btn.addEventListener('click', () => _applyRiskSuggestion(parseInt(btn.getAttribute('data-apply-idx'), 10)));
+    });
+    target.querySelectorAll('[data-discard-idx]').forEach(btn => {
+      btn.addEventListener('click', () => _discardRiskSuggestion(parseInt(btn.getAttribute('data-discard-idx'), 10)));
+    });
+  }
+
+  async function _applyRiskSuggestion(idx) {
+    if (!_risksReport) return;
+    const s = _risksReport.row_suggestions[idx];
+    if (!s) return;
+    try {
+      await API.patch(`/developer/risks/${s.row_id}`, { [s.field]: s.suggested });
+      // Update in-memory model and re-render the on-page table.
+      const row = (_risksRows || []).find(r => r.id === s.row_id);
+      if (row) row[s.field] = s.suggested;
+      _renderRiskTableRows();
+      // Mark suggestion as applied (remove from list, re-render report).
+      _risksReport.row_suggestions.splice(idx, 1);
+      _renderRisksReport();
+    } catch (err) {
+      alert('No se pudo aplicar la sugerencia: ' + (err.message || err));
+    }
+  }
+
+  function _discardRiskSuggestion(idx) {
+    if (!_risksReport) return;
+    _risksReport.row_suggestions.splice(idx, 1);
+    _renderRisksReport();
+  }
+
   // Grow a textarea to fit its content so there's no inner scrollbar.
   // Runs twice via rAF + a delayed fallback because scrollHeight can be
   // under-reported before the browser has laid out the element (first paint
@@ -3564,21 +3782,68 @@ const Developer = (() => {
     if (!panel) return;
 
     const sec = flatSections.find(s => s.fieldId === activeFieldId);
-    if (!sec) { panel.innerHTML = ''; panel.style.display = ''; return; }
+    if (!sec) { panel.innerHTML = '<p class="text-xs text-on-surface-variant/60 italic">Selecciona una sección.</p>'; return; }
 
-    // WP form sections (4.2.X) work with structured tables — the generic
-    // "Improve / Refine" buttons don't apply. Hide the panel entirely so the
-    // tables get full horizontal width.
-    if (isWpFormSection(sec)) {
-      panel.style.display = 'none';
-      panel.innerHTML = '';
+    // Sections backed by structured tables (WPs, staff, risks) need their own
+    // AI affordances. The generic "Improve / Refine" flows operate on a single
+    // text field and don't fit here, so we surface the table-specific actions
+    // that exist today + flag the ones we're about to build.
+    const isRisks = sec.fieldId === 's2_1_5_risk_table';
+    const isStaff = sec.fieldId === 's2_1_3_staff_table';
+    const isWp    = isWpFormSection(sec);
+    if (isRisks || isStaff || isWp) {
+      let html = '';
+      if (isRisks) {
+        html = `
+          <div class="space-y-2 mb-4">
+            <button onclick="Developer._aiEvaluateRisks()" id="ai-eval-risks-btn"
+              class="w-full flex items-center gap-2 px-3 py-2 rounded-lg text-xs font-bold text-white bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 shadow-sm transition-colors">
+              <span class="material-symbols-outlined text-base text-[#fbff12]">trending_up</span>
+              <div class="text-left">
+                <div>Evaluar tabla con IA</div>
+                <div class="text-[10px] font-normal text-white/80">Diagnóstico + sugerencias por fila</div>
+              </div>
+            </button>
+            <button onclick="document.getElementById('risk-ai-btn')?.click(); Developer._toggleAiDrawer();"
+              class="w-full flex items-center gap-2 px-3 py-2 rounded-lg text-xs font-bold text-white bg-[#1b1464] hover:bg-[#1b1464]/90 shadow-sm transition-colors">
+              <span class="material-symbols-outlined text-base text-[#fbff12]">auto_awesome</span>
+              <div class="text-left">
+                <div>Autocompletar con IA</div>
+                <div class="text-[10px] font-normal text-white/75">Regenera ≥8 riesgos desde cero</div>
+              </div>
+            </button>
+          </div>
+          <div id="ai-risks-report"></div>
+        `;
+      } else if (isStaff) {
+        html = `
+          <p class="text-xs text-on-surface-variant leading-relaxed mb-3">
+            Hoy esta tabla se rellena desde <b>Consorcio → Equipo</b> (selección manual + skills propios del proyecto).
+          </p>
+          <div class="rounded-lg bg-amber-50 border border-amber-200 p-3">
+            <div class="text-[10px] font-bold uppercase tracking-wider text-amber-700 mb-1">Próxima iteración</div>
+            <p class="text-xs text-amber-900 leading-relaxed">
+              <b>Evaluar equipo con IA</b> (cobertura, balance entre partners, alineación con tareas) y
+              <b>Refinar skills fila a fila</b> aún no están conectados.
+            </p>
+          </div>`;
+      } else {
+        html = `
+          <p class="text-xs text-on-surface-variant leading-relaxed mb-3">
+            Cada Work Package tiene su botón "<b>AI fill</b>" en la card (rellena Objectives, Tasks, Milestones y Deliverables).
+          </p>
+          <div class="rounded-lg bg-amber-50 border border-amber-200 p-3">
+            <div class="text-[10px] font-bold uppercase tracking-wider text-amber-700 mb-1">Próxima iteración</div>
+            <p class="text-xs text-amber-900 leading-relaxed">
+              <b>Evaluar coherencia entre WPs</b> y <b>refinar tasks/MS/D fila a fila</b> aún no están conectados.
+            </p>
+          </div>`;
+      }
+      panel.innerHTML = html;
       return;
     }
-    panel.style.display = '';
 
     panel.innerHTML = `
-      <h3 class="text-xs font-bold uppercase tracking-widest text-on-surface-variant/60 mb-3">Panel de IA</h3>
-
       <!-- Criteria block removed by design: redundant with form guidance + AI eval pipeline -->
       ${false ? `
         <div class="mb-4">
@@ -5224,6 +5489,9 @@ const Developer = (() => {
     _generateField: generateField,
     _markReviewed: markReviewed,
     _exportFormB: exportFormPartB,
+    _toggleAiDrawer: _toggleAiDrawer,
+    _toggleNav: _toggleNavCollapsed,
+    _aiEvaluateRisks: aiEvaluateRisks,
     _aiImprove: aiImprove,
     _aiImproveCustom: aiImproveCustom,
     _aiRefine: aiRefine,

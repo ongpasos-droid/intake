@@ -120,6 +120,7 @@ router.patch ('/staff-table/:ppsId',                    requireAuth, ctrl.update
 router.get   ('/projects/:projectId/risks',             requireAuth, ctrl.listRisks);
 router.post  ('/projects/:projectId/risks',             requireAuth, ctrl.createRisk);
 router.post  ('/projects/:projectId/risks/ai-generate', requireAuth, ctrl.aiGenerateRisks);
+router.post  ('/projects/:projectId/risks/ai-evaluate', requireAuth, ctrl.aiEvaluateRisks);
 router.patch ('/risks/:id',                             requireAuth, ctrl.updateRisk);
 router.delete('/risks/:id',                             requireAuth, ctrl.deleteRisk);
 

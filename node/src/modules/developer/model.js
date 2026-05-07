@@ -1937,6 +1937,138 @@ Generate the risks JSON now.`;
   return await listProjectRisks(projectId, userId);
 }
 
+// AI evaluator for the risks table (section 2.1.5). Returns a JSON report
+// with overall score, summary, missing dimensions ("gaps") and concrete
+// per-row improvement suggestions that the UI can apply via PATCH.
+async function aiEvaluateProjectRisks(projectId, userId) {
+  await _assertProjectOwned(projectId, userId);
+
+  const [[project]] = await db.execute(
+    `SELECT id, name, full_name, type, duration_months, proposal_lang
+       FROM projects WHERE id = ?`,
+    [projectId]
+  );
+  const [wps] = await db.execute(
+    `SELECT id, code, title, summary
+       FROM work_packages WHERE project_id = ? ORDER BY order_index`,
+    [projectId]
+  );
+  const wpById = {};
+  for (const w of wps) wpById[w.id] = w;
+  const [risks] = await db.execute(
+    `SELECT id, risk_no, description, mitigation, likelihood, impact, wp_id
+       FROM project_risks WHERE project_id = ? ORDER BY sort_order, created_at`,
+    [projectId]
+  );
+  if (!risks.length) {
+    const e = new Error('La tabla de riesgos está vacía. Pulsa "Autocompletar con IA" antes de evaluar.');
+    e.status = 400; throw e;
+  }
+
+  const lang = project.proposal_lang || 'es';
+  const system = `You are an EACEA evaluator analysing the risk-management table of a European project (Application Form Part B, section 2.1.5) under the criterion "Quality of project design and implementation".
+
+Output strictly the following JSON object:
+{
+  "score": <integer 0-10>,
+  "summary": "<2-3 line overall assessment>",
+  "gaps": [
+    { "title": "<missing risk dimension>", "severity": "high|medium|low", "why_critical": "<why this matters for the evaluation>" }
+  ],
+  "row_suggestions": [
+    { "row_id": "<exact id from CURRENT RISKS>", "field": "description|mitigation|likelihood|impact", "current": "<current value, verbatim>", "suggested": "<the new value, ready to write to the DB>", "why": "<short reasoning, MAX 1-2 sentences>" }
+  ]
+}
+
+CRITICAL — what goes in "suggested":
+- For field = "likelihood" or "impact": the value MUST be EXACTLY one of "low" | "medium" | "high" (lowercase, no extra text). Do NOT put a justification here — that goes in "why".
+- For field = "description" or "mitigation": the new full text the user should paste into that cell.
+
+Guidance:
+- 0–3 GAPS: whole-table dimensions missing (e.g. "no risk on partner withdrawal", "no risk on data protection / GDPR for participant data", "no safety risk for mobility activities", "no diss/IP risk").
+- 0–5 ROW_SUGGESTIONS: highest-impact improvements on existing rows. Vague descriptions, generic mitigations, mismatched impact/likelihood, wrong WP attribution.
+- Be specific and concise. "Set up monthly meetings" is generic; prefer "Monthly steering committee with rotating chair, written minutes circulated within 48 h".
+- Score: 1-3 very poor, 4-5 mediocre, 6-7 acceptable, 8-9 strong, 10 excellent.
+- Language of summary / gaps / suggestions: ${lang === 'es' ? 'Spanish' : lang === 'en' ? 'English' : lang}.
+- Use exact row IDs from the CURRENT RISKS list — do NOT invent IDs.
+- Return only the JSON object, no markdown, no commentary.`;
+
+  const user = `PROJECT
+Name: ${project.full_name || project.name}
+Type / call: ${project.type}
+Duration: ${project.duration_months || '?'} months
+
+WORK PACKAGES
+${wps.map(w => `${w.code} — ${w.title}`).join('\n')}
+
+CURRENT RISKS (${risks.length})
+${risks.map(r => {
+  const wpCode = r.wp_id ? (wpById[r.wp_id]?.code || '?') : 'cross-cutting';
+  return `[${r.id}] ${r.risk_no || '?'} (impact=${r.impact || '?'}, likelihood=${r.likelihood || '?'}, wp=${wpCode})
+  Description: ${r.description || '(empty)'}
+  Mitigation: ${r.mitigation || '(empty)'}`;
+}).join('\n\n')}
+
+Evaluate the table now.`;
+
+  const raw = await callClaude(system, user, 4096);
+  const match = raw.match(/\{[\s\S]*\}/);
+  if (!match) throw new Error('AI did not return JSON');
+  let parsed;
+  try { parsed = JSON.parse(match[0]); }
+  catch (e) { throw new Error('AI JSON parse error: ' + e.message); }
+
+  // Sanitize: keep only known fields, filter row_suggestions to existing IDs.
+  const validIds = new Set(risks.map(r => r.id));
+  const allowedFields = new Set(['description', 'mitigation', 'likelihood', 'impact']);
+  const score = Math.max(0, Math.min(10, parseInt(parsed.score, 10) || 0));
+  const gaps = Array.isArray(parsed.gaps) ? parsed.gaps.slice(0, 5).map(g => ({
+    title: String(g.title || '').trim(),
+    severity: ['high', 'medium', 'low'].includes(String(g.severity || '').toLowerCase()) ? String(g.severity).toLowerCase() : 'medium',
+    why_critical: String(g.why_critical || '').trim(),
+  })).filter(g => g.title) : [];
+  // For enum columns (likelihood / impact), `suggested` must be exactly one
+  // of low|medium|high — the AI sometimes returns a full-prose justification
+  // instead. Coerce when possible, drop the suggestion when not.
+  const enumFields = new Set(['likelihood', 'impact']);
+  const coerceEnum = (raw) => {
+    const s = String(raw || '').toLowerCase();
+    // Accept explicit values; otherwise try to find a clean keyword in prose.
+    if (s === 'low' || s === 'medium' || s === 'high') return s;
+    const tokens = s.match(/\b(low|medium|high)\b/g) || [];
+    if (tokens.length === 1) return tokens[0];
+    return null;  // ambiguous or none → drop
+  };
+
+  const row_suggestions = Array.isArray(parsed.row_suggestions) ? parsed.row_suggestions
+    .filter(s => validIds.has(s.row_id) && allowedFields.has(s.field))
+    .map(s => {
+      const out = {
+        row_id: s.row_id,
+        field: s.field,
+        current: String(s.current || '').trim(),
+        suggested: String(s.suggested || '').trim(),
+        why: String(s.why || '').trim(),
+      };
+      if (enumFields.has(s.field)) {
+        const v = coerceEnum(s.suggested);
+        if (!v) return null;  // drop suggestion if we cannot resolve a clean value
+        out.suggested = v;
+      }
+      return out;
+    })
+    .filter(Boolean)
+    .slice(0, 8) : [];
+
+  return {
+    score,
+    summary: String(parsed.summary || '').trim(),
+    gaps,
+    row_suggestions,
+    risks_count: risks.length,
+  };
+}
+
 // Wipe + re-seed wp_tasks for a WP (used by resync button).
 // Cascades: wp_task_participants are removed via FK ON DELETE CASCADE.
 async function resyncWpTasks(wpId, userId) {
@@ -3669,6 +3801,7 @@ module.exports = {
   updateProjectRisk,
   deleteProjectRisk,
   aiGenerateProjectRisks,
+  aiEvaluateProjectRisks,
   // Phase 4 — project-level Deliverables & Milestones (v2 generator lives in dms-generator.js)
   listProjectDeliverables,
   listProjectMilestones,
