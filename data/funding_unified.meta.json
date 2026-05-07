@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-07T11:35:55.818Z",
+  "generatedAt": "2026-05-07T12:06:51.403Z",
   "total": 3207,
   "bySource": {
     "sedia": 664,
@@ -18,8 +18,8 @@
     "otros": 217
   },
   "byStatus": {
-    "open": 2865,
-    "forthcoming": 338,
+    "open": 2872,
+    "forthcoming": 331,
     "closed": 4
   },
   "byProgramme": {
