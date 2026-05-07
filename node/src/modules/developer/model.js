@@ -3536,6 +3536,7 @@ module.exports = {
   createProjectRisk,
   updateProjectRisk,
   deleteProjectRisk,
+  aiGenerateProjectRisks,
   // Phase 4 — project-level Deliverables & Milestones (v2 generator lives in dms-generator.js)
   listProjectDeliverables,
   listProjectMilestones,
