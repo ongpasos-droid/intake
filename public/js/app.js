@@ -289,6 +289,7 @@ const App = (() => {
       'my-documents':   'My Documents',
       research:         'Research',
       movilidades:      'Movilidades',
+      convocatorias:    'Convocatorias',
       'my-org':         'Mi Organización',
       organizations:    'Partner Engine',
       shortlists:       'Mi Pool',
@@ -313,6 +314,7 @@ const App = (() => {
     if (route === 'atlas-stats' && typeof AtlasStats !== 'undefined') AtlasStats.init();
     if (route === 'research' && typeof Research !== 'undefined') Research.init();
     if (route === 'movilidades' && typeof Movilidades !== 'undefined') Movilidades.init();
+    if (route === 'convocatorias' && typeof Convocatorias !== 'undefined') Convocatorias.init();
     if (route === 'developer' && typeof Developer !== 'undefined') Developer.init();
     if (route === 'evaluator' && typeof Evaluator !== 'undefined') Evaluator.init();
     if (route === 'budget' && typeof Budget !== 'undefined') Budget.init();

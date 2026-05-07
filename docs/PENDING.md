@@ -115,7 +115,7 @@ Oscar planteó si copiar 150 GB completos. Descartado: la BD que pesa 150 GB es 
 - **Fase 5 SEPIE / INJUVE** (pendiente, condicional): solo si la BD necesita plazos por agencia nacional Erasmus+ que SEDIA central no detalla.
 - **Fase 6 ❌ DESCARTADA — Schema Postgres**: Oscar eligió arquitectura B' (dump JSON estático), no Postgres + API REST. La Fase 6 original queda para v2 si la web crece.
 - **Fase 7 ❌ DESCARTADA — API REST**: idem, B' no requiere endpoint backend. La web consume `data/funding_unified.json` vía `raw.githubusercontent.com` (CORS habilitado).
-- **Fase 8 Refresh diario** (pendiente): cron diario que (a) corre `sedia/sync.js` + `bdns/sync.js`, (b) corre `funding/build-unified.js`, (c) opcionalmente copia el JSON al repo de WordPress y commitea/pushea.
+- **Fase 8 ✅ Refresh diario** (hecha 2026-05-07): `scripts/refresh-all.js` orquesta SALTO scrape+enrich + SEDIA + BDNS + unifier; commit+push a rama dedicada `data-auto`. Systemd timer en VPS host (`/etc/systemd/system/eplus-data-refresh.{service,timer}`), 06:00 Europe/Madrid. Smoke test E2E confirmado (commit `5e20ba63` en data-auto). Doc canónico: `docs/REFRESH_PIPELINE.md`. **Política de publicación**: cron escribe SOLO a `data-auto`, nunca a main/dev-local/dev-vps. Para llegar a Live, hace falta merger `data-auto` en `/merge`.
 - **Fase 9 Backfill traducción ES** (pendiente, opcional): correr Sonnet 4.6 sobre `summary_en` de SEDIA/SALTO (619 records) para poblar `summary_es`. Coste estimado: ~$0.50.
 - **Fase 10 Curado manual catálogo** (pendiente): completar `data/erasmus_plus_2026_calls.clean.json` con LIFE 16 calls + el resto que vaya saliendo, para que el `curated_enrichment` ratio suba.
 
