@@ -9,7 +9,7 @@ const Convocatorias = (() => {
   let allItems = [];
   let loaded   = false;
   let bound    = false;
-  const state  = { q: '', status: 'open', programme: '', sort: 'deadline' };
+  const state  = { q: '', status: '', programme: '', sort: 'deadline' };
 
   /* ── helpers ─────────────────────────────────────────────── */
 
@@ -87,14 +87,25 @@ const Convocatorias = (() => {
       // pedimos todas (limit alto), filtramos client-side para velocidad
       const res = await API.get('/convocatorias?limit=2000');
       const data = (res && res.data) || res || {};
-      allItems = data.items || [];
+      const raw = data.items || [];
+
+      // Defensa en profundidad: aplicamos los mismos filtros que el backend
+      // (por si el servidor todavía no está reiniciado con la nueva versión).
+      const today = todayISO();
+      allItems = raw.filter(r => {
+        if (String(r.source || '').toLowerCase() === 'salto') return false;
+        if (String(r.status || '').toLowerCase() === 'closed') return false;
+        if (r.deadline && String(r.deadline) < today) return false;
+        return true;
+      });
+
       loaded = true;
       const meta = document.getElementById('convocatorias-meta');
-      if (meta && data.meta) {
-        const ts = data.meta.generatedAt ? new Date(data.meta.generatedAt).toISOString().slice(0, 10) : null;
-        const open = (data.meta.byStatus && data.meta.byStatus.open) || 0;
-        const fc   = (data.meta.byStatus && data.meta.byStatus.forthcoming) || 0;
-        meta.textContent = `Fuente: SEDIA + SALTO + BDNS · ${data.meta.total || allItems.length} convocatorias · ${open} abiertas · ${fc} próximas${ts ? ' · actualizado ' + ts : ''}`;
+      if (meta) {
+        const open = allItems.filter(r => String(r.status || '').toLowerCase() === 'open').length;
+        const fc   = allItems.filter(r => String(r.status || '').toLowerCase() === 'forthcoming').length;
+        const ts   = data.meta && data.meta.generatedAt ? new Date(data.meta.generatedAt).toISOString().slice(0, 10) : null;
+        meta.textContent = `Fuente: SEDIA + BDNS · ${open} abiertas · ${fc} próximas${ts ? ' · actualizado ' + ts : ''}`;
       }
     } catch (err) {
       list.innerHTML = `<div class="col-span-full text-center text-red-600 py-12 text-sm">No se pudieron cargar las convocatorias: ${escapeHtml(err.message || 'error desconocido')}</div>`;
@@ -197,8 +208,35 @@ const Convocatorias = (() => {
     const id        = escapeHtml(item.call_id);
     const programme = item.sub_programme || item.programme || '';
     const summary   = item.summary_es || item.summary_en || '';
-    const budget    = fmtMoney(item.budget_total_eur);
+    const totalBudget = fmtMoney(item.budget_total_eur);
     const perProj   = fmtMoney(item.budget_per_project_max_eur || item.budget_per_project_min_eur);
+
+    // Línea destacada: deadline a la izquierda, €/proyecto a la derecha
+    const deadlineCell = item.deadline
+      ? `<div class="flex items-center gap-1.5 text-on-surface">
+           <span class="material-symbols-outlined text-[16px] text-primary">schedule</span>
+           <span class="text-[12px]"><span class="text-on-surface-variant">Deadline:</span> <strong>${escapeHtml(fmtDate(item.deadline))}</strong></span>
+         </div>`
+      : '';
+
+    const perProjCell = perProj
+      ? `<div class="flex items-center gap-1.5 text-emerald-700">
+           <span class="material-symbols-outlined text-[16px]" style="font-variation-settings:'FILL' 1">euro</span>
+           <span class="text-[12px] font-bold">Hasta ${escapeHtml(perProj)}/proyecto</span>
+         </div>`
+      : (totalBudget
+          ? `<div class="flex items-center gap-1.5 text-emerald-700">
+               <span class="material-symbols-outlined text-[16px]" style="font-variation-settings:'FILL' 1">euro</span>
+               <span class="text-[12px] font-bold">${escapeHtml(totalBudget)} total</span>
+             </div>`
+          : '');
+
+    const moneyRow = (deadlineCell || perProjCell)
+      ? `<div class="flex items-center justify-between gap-2 flex-wrap mt-auto pt-2 border-t border-outline-variant/15">
+           ${deadlineCell}
+           ${perProjCell}
+         </div>`
+      : '';
 
     return `
     <article data-call-id="${id}"
@@ -215,13 +253,9 @@ const Convocatorias = (() => {
 
       ${summary ? `<p class="text-xs text-on-surface-variant" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">${escapeHtml(summary)}</p>` : ''}
 
-      <div class="text-[12px] text-on-surface-variant space-y-1 mt-auto">
-        ${item.deadline ? `<div class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[14px]">schedule</span><span>Deadline: <strong>${escapeHtml(fmtDate(item.deadline))}</strong></span></div>` : ''}
-        ${budget ? `<div class="flex items-center gap-1.5 text-emerald-700"><span class="material-symbols-outlined text-[14px]" style="font-variation-settings:'FILL' 1">euro</span><span class="font-semibold">${budget} total${perProj ? ` · hasta ${perProj}/proyecto` : ''}</span></div>` : (perProj ? `<div class="flex items-center gap-1.5 text-emerald-700"><span class="material-symbols-outlined text-[14px]" style="font-variation-settings:'FILL' 1">euro</span><span class="font-semibold">Hasta ${perProj}/proyecto</span></div>` : '')}
-        ${item.deadline_model ? `<div class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[14px]">tune</span><span>${escapeHtml(item.deadline_model)}</span></div>` : ''}
-      </div>
+      ${moneyRow}
 
-      <div class="flex items-center justify-between pt-3 border-t border-outline-variant/20">
+      <div class="flex items-center justify-between pt-2 border-t border-outline-variant/20">
         <span class="text-[11px] text-on-surface-variant truncate font-mono">${escapeHtml(item.source_id || '')}</span>
         <span class="text-[11px] font-bold text-primary whitespace-nowrap">Ver →</span>
       </div>
@@ -288,7 +322,6 @@ const Convocatorias = (() => {
           <div class="flex items-center gap-2 flex-wrap mb-2">
             ${sourceBadge(item.source)}
             ${deadlinePill(item)}
-            ${item.deadline_model ? `<span class="inline-flex items-center text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded border bg-gray-50 text-gray-700 border-gray-200">${escapeHtml(item.deadline_model)}</span>` : ''}
           </div>
           <h2 class="text-xl font-bold text-on-surface leading-tight pr-12">${escapeHtml(item.title || '')}</h2>
           ${programme ? `<div class="text-[12px] font-semibold text-primary uppercase tracking-wider mt-1">${escapeHtml(programme)}</div>` : ''}

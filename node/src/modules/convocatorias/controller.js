@@ -69,7 +69,18 @@ exports.list = (req, res, next) => {
     const limit    = Math.min(parseInt(req.query.limit, 10) || 1000, 2000);
     const offset   = Math.max(parseInt(req.query.offset, 10) || 0, 0);
 
-    let rows = all;
+    // Reglas duras (no opcionales):
+    //  - Nunca mostramos calls cerradas (no se pueden solicitar).
+    //  - Nunca mostramos calls con deadline pasado, aunque su status sea 'open'
+    //    (los datos de SEDIA/BDNS a veces tardan en marcarse 'closed').
+    //  - Excluimos source='salto' porque las movilidades tienen su propia pestaña.
+    const today = new Date().toISOString().slice(0, 10);
+    let rows = all.filter(r => {
+      if (String(r.source || '').toLowerCase() === 'salto') return false;
+      if (String(r.status || '').toLowerCase() === 'closed') return false;
+      if (r.deadline && String(r.deadline) < today) return false;
+      return true;
+    });
     if (status)    rows = rows.filter(r => String(r.status || '').toLowerCase() === status);
     if (programme) rows = rows.filter(r => String(r.programme || '').toLowerCase().includes(programme));
     if (source)    rows = rows.filter(r => String(r.source || '').toLowerCase() === source);
