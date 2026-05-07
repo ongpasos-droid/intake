@@ -3177,14 +3177,19 @@ const Developer = (() => {
         </div>
       </details>
 
-      <div class="mb-3 flex items-center justify-between">
+      <div class="mb-3 flex items-center justify-between flex-wrap gap-2">
         <h3 class="font-headline text-sm font-bold text-on-surface">Critical risks and risk-management strategy</h3>
-        <button id="risk-add-btn" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-bold text-white bg-[#1b1464] hover:bg-[#1b1464]/90 transition-colors">
-          <span class="material-symbols-outlined text-sm">add</span> Añadir riesgo
-        </button>
+        <div class="flex items-center gap-2">
+          <button id="risk-ai-btn" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-bold text-[#1b1464] bg-secondary-fixed border border-[#1b1464]/20 hover:bg-secondary-fixed/80 transition-colors">
+            <span class="material-symbols-outlined text-sm">auto_awesome</span> Autocompletar con IA
+          </button>
+          <button id="risk-add-btn" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-bold text-white bg-[#1b1464] hover:bg-[#1b1464]/90 transition-colors">
+            <span class="material-symbols-outlined text-sm">add</span> Añadir riesgo
+          </button>
+        </div>
       </div>
 
-      <div id="risk-table-container" class="bg-white rounded-xl border border-outline-variant/30 overflow-hidden mb-6">
+      <div id="risk-table-container" class="voice-skip bg-white rounded-xl border border-outline-variant/30 overflow-hidden mb-6">
         <div class="px-4 py-6 text-center text-xs text-on-surface-variant">Cargando…</div>
       </div>
 
@@ -3211,6 +3216,24 @@ const Developer = (() => {
         _risksRows.push(r);
         _renderRiskTableRows();
       } catch (err) { alert('No se pudo crear el riesgo: ' + (err.message || err)); }
+    });
+
+    document.getElementById('risk-ai-btn').addEventListener('click', async () => {
+      const btn = document.getElementById('risk-ai-btn');
+      if (_risksRows.length && !confirm(`Esto reemplazará los ${_risksRows.length} riesgo(s) existentes con un nuevo borrador generado por IA. ¿Continuar?`)) return;
+      const original = btn.innerHTML;
+      btn.disabled = true;
+      btn.innerHTML = '<span class="material-symbols-outlined text-sm animate-spin">progress_activity</span> Generando…';
+      try {
+        const rows = await API.post(`/developer/projects/${currentProject.id}/risks/ai-generate`, {});
+        _risksRows = rows || [];
+        _renderRiskTableRows();
+      } catch (err) {
+        alert('Error generando riesgos: ' + (err.message || err));
+      } finally {
+        btn.disabled = false;
+        btn.innerHTML = original;
+      }
     });
 
     try {
