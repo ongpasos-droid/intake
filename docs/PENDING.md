@@ -54,6 +54,30 @@ Sesión auditando el desajuste Consortium↔Directorio en LIVE. Confirmado contr
 
 ## 2 · Pendientes sin bloqueante (cuando se quiera)
 
+### TASK-006 — Experience RAG (auto-redacción de Capacity con proyectos pasados)
+**Status:** DISEÑADO · BLOQUEADO en VPS Claude (Pieza 1)
+**Owner del bloqueo:** VPS Claude (Pieza 1+2+3) · Local Claude (Pieza 4 cuando llegue)
+**Doc canónico:** `docs/EXPERIENCE_RAG.md`
+**Handoff:** `docs/handoffs/PARA_VPS.md` 2026-05-07
+**Fecha plan:** 2026-05-07
+
+**Caso de uso:** cuando el usuario redacta un proyecto nuevo en el Writer, la app le sugiere automáticamente 4-5 proyectos pasados de su entidad relevantes para el actual y le auto-redacta el párrafo de Capacity / Relevant Experience. "Tu app conoce mejor tu palmarés que tú mismo".
+
+**Tres piezas en VPS:**
+1. **Resumen completo del proyecto** — hoy `directory-api` trunca `project_summary` a ~199 chars. VPS verifica si la BD tiene el texto íntegro; si no, scraper offline al portal Erasmus+ Project Results Platform. Bloquea todo lo demás.
+2. **Vectorización 317k proyectos** — pgvector + `text-embedding-3-small` OpenAI (~$3.20 una vez, ~2 GB storage).
+3. **Endpoint retrieve** — `POST /retrieve/projects-similar { entity_oid, query_text, k, exclude_identifiers }`.
+
+**Una pieza en Local Claude (cuando VPS termine las 3):**
+4. Botón "✨ Sugerir proyectos pasados relevantes" en Writer → Capacity, modal con checkboxes, párrafo auto-redactado por LLM.
+
+**Decisiones cerradas:**
+- Vectorizar todos los 317k (no solo los de la entidad del usuario).
+- Modelo: `text-embedding-3-small` multilingüe, sin traducción previa.
+- Usuario revisa antes de aceptar el párrafo.
+
+**Decisiones abiertas en VPS:** Q-VPS-30 (¿BD tiene summary completo?), Q-VPS-31 (¿VPS corre el embedding worker?), Q-VPS-32 (timing).
+
 ### TASK-002 — Sync prod -> Laragon local (datos para test offline)
 **Status:** LISTO_PARA_EMPEZAR
 **Doc canónico:** `docs/LOCAL_SAMPLE.md`
