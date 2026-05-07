@@ -1805,6 +1805,138 @@ async function deleteProjectRisk(riskId, userId) {
   return { id: riskId, deleted: true };
 }
 
+// AI-generate at least 8 risks from the project context (problem, partners,
+// WPs, activities). Replaces existing rows for this project — user is meant
+// to call this when the table is empty or wants a fresh draft, then edit.
+async function aiGenerateProjectRisks(projectId, userId) {
+  await _assertProjectOwned(projectId, userId);
+
+  // Load context.
+  const [[project]] = await db.execute(
+    `SELECT id, name, full_name, type, description, duration_months, proposal_lang
+       FROM projects WHERE id = ?`,
+    [projectId]
+  );
+  const [partners] = await db.execute(
+    `SELECT id, name, country, role FROM partners WHERE project_id = ? ORDER BY role DESC, order_index`,
+    [projectId]
+  );
+  const [wps] = await db.execute(
+    `SELECT id, code, title, summary, order_index
+       FROM work_packages WHERE project_id = ? ORDER BY order_index`,
+    [projectId]
+  );
+  const [activities] = wps.length ? await db.execute(
+    `SELECT a.wp_id, a.label, a.subtype, a.type
+       FROM activities a JOIN work_packages w ON w.id = a.wp_id
+      WHERE w.project_id = ? ORDER BY w.order_index, a.order_index`,
+    [projectId]
+  ) : [[]];
+  const [[ctxRow]] = await db.execute(
+    `SELECT problem, target_groups, approach FROM intake_contexts WHERE project_id = ? LIMIT 1`,
+    [projectId]
+  );
+
+  const wpsForPrompt = wps.map(w => ({
+    code: w.code,
+    title: w.title,
+    summary: (w.summary || '').slice(0, 400),
+    activities: activities.filter(a => a.wp_id === w.id).map(a => `${a.label}${a.subtype ? ' ('+a.subtype+')' : ''}`),
+  }));
+  const wpCodes = wps.map(w => w.code).join(', ');
+  const lang = project.proposal_lang || 'es';
+
+  const system = `You are an EACEA-grade evaluator and senior project manager analysing risks for a European project. You produce risk-management tables that meet EACEA/Erasmus+ standards.
+
+Output a JSON object with shape:
+{
+  "risks": [
+    {
+      "risk_no": "R1",
+      "description": "<concise risk description, INCLUDING impact and likelihood as 'Impact: <low|medium|high> · Likelihood: <low|medium|high>' inline>",
+      "wp_code": "<WP code from the list, or null if cross-cutting>",
+      "likelihood": "<low|medium|high>",
+      "impact": "<low|medium|high>",
+      "mitigation": "<concrete preventive AND corrective actions>"
+    }
+  ]
+}
+
+Rules:
+- Return at LEAST 8 risks. 10-12 is the sweet spot for a balanced project.
+- Cover the four main risk families: management/governance, technical/methodological, partnership/consortium, dissemination/sustainability.
+- Mix likelihoods and impacts realistically (don't make every risk "high/high").
+- Mitigation must be actionable, not generic ("set up monthly meetings" beats "ensure good communication").
+- Description language: ${lang === 'es' ? 'Spanish' : lang === 'en' ? 'English' : lang}.
+- Numbering: R1, R2, R3, ... in order of priority (most critical first).
+- Only output the JSON object, no markdown, no commentary.`;
+
+  const user = `PROJECT
+Name: ${project.full_name || project.name}
+Type / call: ${project.type}
+Duration: ${project.duration_months || '?'} months
+
+CONTEXT
+Problem: ${(ctxRow?.problem || '').slice(0, 800)}
+Target groups: ${(ctxRow?.target_groups || '').slice(0, 400)}
+Approach: ${(ctxRow?.approach || '').slice(0, 400)}
+
+PARTNERS (${partners.length})
+${partners.map(p => `- ${p.name} [${p.country}, ${p.role}]`).join('\n')}
+
+WORK PACKAGES (use exact codes: ${wpCodes})
+${wpsForPrompt.map(w => `- ${w.code} — ${w.title}\n  ${w.summary}\n  Activities: ${w.activities.join(' · ') || '—'}`).join('\n')}
+
+Generate the risks JSON now.`;
+
+  const raw = await callClaude(system, user, 4096);
+  // Extract JSON object from the response.
+  const match = raw.match(/\{[\s\S]*\}/);
+  if (!match) throw new Error('AI did not return JSON');
+  let parsed;
+  try { parsed = JSON.parse(match[0]); }
+  catch (e) { throw new Error('AI JSON parse error: ' + e.message); }
+  const list = Array.isArray(parsed.risks) ? parsed.risks : [];
+  if (list.length < 4) throw new Error('AI returned too few risks (' + list.length + ')');
+
+  const wpByCode = {};
+  for (const w of wps) wpByCode[(w.code || '').toUpperCase()] = w.id;
+  const norm = (v) => {
+    const s = String(v || '').toLowerCase();
+    if (['low', 'medium', 'high'].includes(s)) return s;
+    return null;
+  };
+
+  const conn = await db.getConnection();
+  try {
+    await conn.beginTransaction();
+    await conn.execute(`DELETE FROM project_risks WHERE project_id = ?`, [projectId]);
+    let i = 0;
+    for (const r of list) {
+      const id = genUUID();
+      const wpId = r.wp_code ? wpByCode[String(r.wp_code).toUpperCase()] || null : null;
+      await conn.execute(
+        `INSERT INTO project_risks
+           (id, project_id, wp_id, risk_no, description, mitigation,
+            likelihood, impact, sort_order)
+         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+        [id, projectId, wpId, r.risk_no || `R${i+1}`,
+         r.description || null, r.mitigation || null,
+         norm(r.likelihood), norm(r.impact), i]
+      );
+      i++;
+    }
+    await conn.commit();
+  } catch (err) {
+    await conn.rollback(); throw err;
+  } finally {
+    conn.release();
+  }
+
+  // Return the freshly-stored rows.
+  return await listProjectRisks(projectId, userId);
+}
+
 // Wipe + re-seed wp_tasks for a WP (used by resync button).
 // Cascades: wp_task_participants are removed via FK ON DELETE CASCADE.
 async function resyncWpTasks(wpId, userId) {
