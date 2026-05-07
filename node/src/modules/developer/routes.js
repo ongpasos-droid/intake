@@ -116,9 +116,10 @@ router.get   ('/projects/:projectId/dms/export.csv',    requireAuth, ctrl.dmsExp
 router.get   ('/projects/:projectId/staff-table',       requireAuth, ctrl.listStaffTable);
 router.patch ('/staff-table/:ppsId',                    requireAuth, ctrl.updateStaffTable);
 
-// 2.1.5 Project risks — CRUD
+// 2.1.5 Project risks — CRUD + AI bulk generator
 router.get   ('/projects/:projectId/risks',             requireAuth, ctrl.listRisks);
 router.post  ('/projects/:projectId/risks',             requireAuth, ctrl.createRisk);
+router.post  ('/projects/:projectId/risks/ai-generate', requireAuth, ctrl.aiGenerateRisks);
 router.patch ('/risks/:id',                             requireAuth, ctrl.updateRisk);
 router.delete('/risks/:id',                             requireAuth, ctrl.deleteRisk);
 
