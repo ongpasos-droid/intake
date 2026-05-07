@@ -19,7 +19,10 @@ NoNewPrivileges=true
 PrivateTmp=true
 ProtectSystem=strict
 ReadWritePaths=/opt/eplus-tools-cron
-ProtectHome=true
+# read-only (not true) so SSH can read ~/.ssh/{id_ed25519,known_hosts} for git push.
+# Confirmed in 2026-05-07 setup: ProtectHome=true broke `git push` with
+# "hostkeys_foreach failed for /home/eplusbot/.ssh/known_hosts: Permission denied".
+ProtectHome=read-only
 ProtectKernelTunables=true
 ProtectKernelModules=true
 ProtectControlGroups=true
