@@ -1377,6 +1377,53 @@ const Developer = (() => {
     'Cartas de compromiso firmadas',
   ];
 
+  // P2: short labels shown next to the EACEA acronym (chips legibles sin hover)
+  const PREP_TYPE_SHORT = {
+    R: 'Report', DEM: 'Prototipo', DEC: 'Difusión', DATA: 'Data',
+    DMP: 'DMP', ETHICS: 'Ethics', SECURITY: 'Security', OTHER: 'Otro',
+  };
+  const PREP_DL_SHORT = {
+    PU: 'Público', SEN: 'Sensible',
+    'R-UE/EU-R': 'UE-R', 'C-UE/EU-C': 'UE-C', 'S-UE/EU-S': 'UE-S',
+  };
+  // P2: color por categoría (Tailwind) — aplicado al select para que el chip se vea coloreado
+  const PREP_TYPE_COLOR = {
+    R:        'bg-blue-100 text-blue-800',
+    DEM:      'bg-purple-100 text-purple-800',
+    DEC:      'bg-pink-100 text-pink-800',
+    DATA:     'bg-teal-100 text-teal-800',
+    DMP:      'bg-teal-100 text-teal-800',
+    ETHICS:   'bg-amber-100 text-amber-800',
+    SECURITY: 'bg-amber-100 text-amber-800',
+    OTHER:    'bg-gray-100 text-gray-700',
+  };
+  const PREP_DL_COLOR = {
+    PU:           'bg-green-100 text-green-800',
+    SEN:          'bg-amber-100 text-amber-800',
+    'R-UE/EU-R':  'bg-orange-100 text-orange-800',
+    'C-UE/EU-C':  'bg-red-100 text-red-800',
+    'S-UE/EU-S':  'bg-red-200 text-red-900',
+  };
+  const _classTokens = (m) => Object.values(m).join(' ').split(/\s+/).filter(Boolean);
+  const PREP_TYPE_COLOR_ALL = _classTokens(PREP_TYPE_COLOR);
+  const PREP_DL_COLOR_ALL   = _classTokens(PREP_DL_COLOR);
+
+  // P4: placeholder de Description según Type (texto literal del Part B EACEA, Sección 4.2)
+  const PREP_DESC_TPL_EVENT = 'Invitación, agenda, lista de asistencia firmada, target group, nº participantes estimado, duración del evento, informe del evento, material formativo, presentaciones, evaluación, cuestionario de feedback.';
+  const PREP_DESC_TPL_PUBLICATION = 'Formato (electrónico/impreso), idioma(s), nº de páginas aprox, nº de copias estimadas (si aplica).';
+  const PREP_DESC_TPL_DEM = 'Función del prototipo/demo, especificaciones técnicas, formato de entrega, idioma.';
+  const PREP_DESC_TPL_DEC = 'Formato (URL, vídeo, podcast, web), idioma(s), audiencia objetivo, canal de distribución.';
+  const PREP_DESC_TPL_GENERIC = 'Descripción del entregable (formato, idioma, longitud, modo de entrega).';
+  const PREP_EVENT_KEYWORDS = /(taller|conferencia|congreso|evento|webinar|seminar|formaci[oó]n|training|workshop|encuentro|networking|kick-?off|jornada|reuni[oó]n)/i;
+
+  function prepDescPlaceholder(type, title) {
+    const t = String(title || '');
+    if (type === 'DEC') return PREP_EVENT_KEYWORDS.test(t) ? PREP_DESC_TPL_EVENT : PREP_DESC_TPL_DEC;
+    if (type === 'DEM') return PREP_EVENT_KEYWORDS.test(t) ? PREP_DESC_TPL_EVENT : PREP_DESC_TPL_DEM;
+    if (['R','DMP','DATA','ETHICS','SECURITY'].includes(type)) return PREP_DESC_TPL_PUBLICATION;
+    return PREP_DESC_TPL_GENERIC;
+  }
+
   // Pinned: programme meta + validation snapshot per project (refreshed lazily)
   const _dmsState = { programme: null, validation: null, lastScore: null };
 
@@ -1397,6 +1444,50 @@ const Developer = (() => {
           </button>
         </div>
         <div id="prep-dms-banner" class="hidden mb-3"></div>
+
+        <!-- P1: Leyenda EACEA — qué significa cada código -->
+        <details open class="rounded-xl border border-amber-200/70 bg-amber-50/40 p-3 mb-4">
+          <summary class="cursor-pointer text-xs font-bold flex items-center gap-2 select-none">
+            <span class="material-symbols-outlined text-base text-amber-700">info</span>
+            <span>Leyenda EACEA — qué significa cada código del formulario</span>
+            <span class="ml-auto text-[10px] text-on-surface-variant font-normal italic">click para colapsar</span>
+          </summary>
+          <div class="mt-3 grid grid-cols-1 md:grid-cols-3 gap-x-6 gap-y-3 text-[11px]">
+            <div>
+              <p class="font-bold text-[10px] uppercase tracking-wider text-on-surface-variant mb-1.5">Tipo de entregable</p>
+              <ul class="space-y-1 leading-snug">
+                <li><span class="font-mono font-bold text-blue-700 inline-block w-16">R</span> Report — informe escrito</li>
+                <li><span class="font-mono font-bold text-purple-700 inline-block w-16">DEM</span> Demonstrator — prototipo o demo</li>
+                <li><span class="font-mono font-bold text-pink-700 inline-block w-16">DEC</span> Dissemination — material de difusión, eventos, vídeos</li>
+                <li><span class="font-mono font-bold text-teal-700 inline-block w-16">DATA</span> Conjunto de datos / microdatos</li>
+                <li><span class="font-mono font-bold text-teal-700 inline-block w-16">DMP</span> Data Management Plan</li>
+                <li><span class="font-mono font-bold text-amber-700 inline-block w-16">ETHICS</span> Cumplimiento ético</li>
+                <li><span class="font-mono font-bold text-amber-700 inline-block w-16">SECURITY</span> Entregable de seguridad</li>
+                <li><span class="font-mono font-bold text-gray-700 inline-block w-16">OTHER</span> No listado en las categorías anteriores</li>
+              </ul>
+            </div>
+            <div>
+              <p class="font-bold text-[10px] uppercase tracking-wider text-on-surface-variant mb-1.5">Nivel de difusión (Dissemination Level)</p>
+              <ul class="space-y-1 leading-snug">
+                <li><span class="font-mono font-bold text-green-700 inline-block w-20">PU</span> Público — automáticamente publicado en EU Project Results Platform</li>
+                <li><span class="font-mono font-bold text-amber-700 inline-block w-20">SEN</span> Sensible — acceso limitado bajo el Grant Agreement</li>
+                <li><span class="font-mono font-bold text-orange-700 inline-block w-20">R-UE/EU-R</span> EU Restringido (Decisión 2015/444)</li>
+                <li><span class="font-mono font-bold text-red-700 inline-block w-20">C-UE/EU-C</span> EU Confidencial</li>
+                <li><span class="font-mono font-bold text-red-800 inline-block w-20">S-UE/EU-S</span> EU Secreto</li>
+              </ul>
+            </div>
+            <div>
+              <p class="font-bold text-[10px] uppercase tracking-wider text-on-surface-variant mb-1.5">Convención de numeración y plazos</p>
+              <ul class="space-y-1.5 leading-snug">
+                <li><span class="font-mono font-bold text-primary inline-block">D{WP}.{N}</span> &nbsp;Entregables, ligados a su WP (D1.1, D1.2, D2.1…)</li>
+                <li><span class="font-mono font-bold text-secondary inline-block">MS{N}</span> &nbsp;Milestones, numeración continua no ligada a WP (MS1, MS2…)</li>
+                <li class="pt-1.5 text-on-surface-variant italic">El mes 1 marca el inicio del proyecto. Todos los plazos se cuentan desde ahí.</li>
+                <li class="text-on-surface-variant italic">Recomendado: máximo 10–15 entregables totales. Por encima del cap, EACEA puede pedir reducirlos en grant preparation.</li>
+              </ul>
+            </div>
+          </div>
+        </details>
+
         <div id="prep-del-content" class="space-y-6"></div>
       </div>`;
 
@@ -2348,12 +2439,12 @@ const Developer = (() => {
                       class="flex-1 min-w-[200px] text-sm font-semibold px-1 py-0.5 bg-transparent border-0 hover:bg-surface-container focus:bg-white focus:ring-1 focus:ring-primary/30 rounded resize-none"
                       style="overflow:hidden">${esc(d.title || '')}</textarea>
             <select data-prep-d="type" data-id="${esc(d.id)}" title="${esc(PREP_TYPE_LABELS[d.type] || 'Tipo')}"
-                    class="text-[10px] px-1 py-0.5 rounded bg-surface-container border-0 focus:ring-1 focus:ring-primary/30">
-              ${PREP_DEL_TYPES.map(t => `<option value="${t}" title="${esc(PREP_TYPE_LABELS[t])}" ${d.type === t ? 'selected' : ''}>${t}</option>`).join('')}
+                    class="text-[10px] font-medium px-2 py-1 rounded border-0 focus:ring-1 focus:ring-primary/30 ${PREP_TYPE_COLOR[d.type] || PREP_TYPE_COLOR.OTHER}">
+              ${PREP_DEL_TYPES.map(t => `<option value="${t}" title="${esc(PREP_TYPE_LABELS[t])}" ${d.type === t ? 'selected' : ''}>${t} · ${PREP_TYPE_SHORT[t]}</option>`).join('')}
             </select>
             <select data-prep-d="dissemination_level" data-id="${esc(d.id)}" title="${esc(PREP_DL_LABELS[d.dissemination_level] || 'Nivel difusión')}"
-                    class="text-[10px] px-1 py-0.5 rounded bg-surface-container border-0 focus:ring-1 focus:ring-primary/30">
-              ${PREP_DEL_DISSEM_LEVELS.map(l => `<option value="${l}" title="${esc(PREP_DL_LABELS[l])}" ${d.dissemination_level === l ? 'selected' : ''}>${l}</option>`).join('')}
+                    class="text-[10px] font-medium px-2 py-1 rounded border-0 focus:ring-1 focus:ring-primary/30 ${PREP_DL_COLOR[d.dissemination_level] || PREP_DL_COLOR.PU}">
+              ${PREP_DEL_DISSEM_LEVELS.map(l => `<option value="${l}" title="${esc(PREP_DL_LABELS[l])}" ${d.dissemination_level === l ? 'selected' : ''}>${l} · ${PREP_DL_SHORT[l]}</option>`).join('')}
             </select>
             <span class="text-[10px] text-on-surface-variant">M</span>
             <input type="number" min="1" max="60" data-prep-d="due_month" data-id="${esc(d.id)}" value="${d.due_month || ''}"
@@ -2363,10 +2454,10 @@ const Developer = (() => {
             <button data-prep-d-del="${esc(d.id)}" class="text-on-surface-variant hover:text-error" title="Eliminar"><span class="material-symbols-outlined text-sm">close</span></button>
           </div>
 
-          <!-- Description -->
+          <!-- Description (placeholder dinámico según Type — guidance literal del Part B EACEA) -->
           <textarea data-no-voice="1" data-prep-d="description" data-id="${esc(d.id)}" rows="1"
                     class="w-full text-[11px] text-on-surface-variant px-1 py-0.5 bg-transparent border-0 hover:bg-surface-container focus:bg-white focus:ring-1 focus:ring-primary/30 rounded resize-none"
-                    style="overflow:hidden" placeholder="Descripción del entregable (formato, idioma, longitud, modo de entrega)">${esc(d.description || '')}</textarea>
+                    style="overflow:hidden" placeholder="${esc(prepDescPlaceholder(d.type, d.title))}">${esc(d.description || '')}</textarea>
 
           <!-- Footer row: source tasks · KPI · rationale -->
           <div class="flex items-center gap-3 flex-wrap mt-1.5 text-[10px]">
@@ -2463,6 +2554,13 @@ const Developer = (() => {
 
     // Wire inline editing
     const blockEnter = (e) => { if (e.key === 'Enter') { e.preventDefault(); e.target.blur(); } };
+    const refreshDescPlaceholder = (card) => {
+      if (!card) return;
+      const typeSel = card.querySelector('select[data-prep-d="type"]');
+      const titleEl = card.querySelector('textarea[data-prep-d="title"]');
+      const descEl  = card.querySelector('textarea[data-prep-d="description"]');
+      if (descEl) descEl.placeholder = prepDescPlaceholder(typeSel?.value || '', titleEl?.value || '');
+    };
     host.querySelectorAll('[data-prep-d]').forEach(el => {
       const handler = () => _prepSaveDeliverable(el.dataset.id, el.dataset.prepD, el.value).then(() => _dmsRunValidation(pid, false));
       el.addEventListener('change', handler);
@@ -2470,7 +2568,26 @@ const Developer = (() => {
       if (el.tagName === 'TEXTAREA') {
         autoGrow(el);
         el.addEventListener('input', () => autoGrow(el));
-        if (el.dataset.prepD === 'title') el.addEventListener('keydown', blockEnter);
+        if (el.dataset.prepD === 'title') {
+          el.addEventListener('keydown', blockEnter);
+          // P4: refrescar placeholder de Description al teclear el título (detección "evento")
+          el.addEventListener('input', () => refreshDescPlaceholder(el.closest('[data-prep-d-row]')));
+        }
+      }
+      // P2 + P4: al cambiar Type, swap del color del chip y actualizar placeholder
+      if (el.tagName === 'SELECT' && el.dataset.prepD === 'type') {
+        el.addEventListener('change', () => {
+          PREP_TYPE_COLOR_ALL.forEach(c => el.classList.remove(c));
+          (PREP_TYPE_COLOR[el.value] || PREP_TYPE_COLOR.OTHER).split(/\s+/).forEach(c => c && el.classList.add(c));
+          refreshDescPlaceholder(el.closest('[data-prep-d-row]'));
+        });
+      }
+      // P2: al cambiar Dissemination Level, swap del color del chip
+      if (el.tagName === 'SELECT' && el.dataset.prepD === 'dissemination_level') {
+        el.addEventListener('change', () => {
+          PREP_DL_COLOR_ALL.forEach(c => el.classList.remove(c));
+          (PREP_DL_COLOR[el.value] || PREP_DL_COLOR.PU).split(/\s+/).forEach(c => c && el.classList.add(c));
+        });
       }
     });
     host.querySelectorAll('[data-prep-m]').forEach(el => {
