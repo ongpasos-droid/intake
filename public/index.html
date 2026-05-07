@@ -1407,9 +1407,9 @@ tailwind.config = {
 
           <!-- Status chips -->
           <div class="flex items-center gap-2 mb-4 flex-wrap" id="convocatorias-status-chips">
-            <button type="button" data-status="open" class="conv-chip is-active">Abiertas</button>
+            <button type="button" data-status="" class="conv-chip is-active">Todas</button>
+            <button type="button" data-status="open" class="conv-chip">Abiertas</button>
             <button type="button" data-status="forthcoming" class="conv-chip">Próximas</button>
-            <button type="button" data-status="" class="conv-chip">Todas</button>
           </div>
 
           <!-- Toolbar -->
@@ -2321,14 +2321,16 @@ tailwind.config = {
               </div>
             </div>
 
-            <!-- EU Projects (inside Experience tab) -->
+            <!-- EU Projects (unificada: directorio Erasmus+ + extras manuales) -->
             <div class="bg-white rounded-xl border border-outline-variant/30 overflow-hidden mt-5">
               <div class="flex items-center justify-between px-5 py-3 border-b border-outline-variant/20">
                 <h3 class="text-sm font-bold text-primary flex items-center gap-2">
-                  <span class="material-symbols-outlined text-lg">public</span> Proyectos UE concedidos
+                  <span class="material-symbols-outlined text-lg">public</span>
+                  Proyectos europeos
+                  <span id="org-projects-unified-count" class="ml-1 text-[11px] font-bold px-2 py-0.5 rounded-full bg-secondary-fixed text-primary"></span>
                 </h3>
                 <button data-org-add="eu-projects" class="flex items-center gap-1 text-xs font-semibold text-primary hover:text-primary/80">
-                  <span class="material-symbols-outlined text-[18px]">add_circle</span> Añadir
+                  <span class="material-symbols-outlined text-[18px]">add_circle</span> Añadir extra
                 </button>
               </div>
               <div class="overflow-x-auto">
@@ -2336,16 +2338,18 @@ tailwind.config = {
                   <thead class="bg-surface-container-low text-xs text-on-surface-variant uppercase">
                     <tr>
                       <th class="px-3 py-2 text-left">Programa</th>
-                      <th class="px-3 py-2 text-left">Año</th>
+                      <th class="px-3 py-2 text-left w-16">Año</th>
                       <th class="px-3 py-2 text-left">ID Contrato</th>
-                      <th class="px-3 py-2 text-left">Rol</th>
+                      <th class="px-3 py-2 text-left w-24">Rol</th>
                       <th class="px-3 py-2 text-left">Título</th>
-                      <th class="px-3 py-2 text-right">Acciones</th>
+                      <th class="px-3 py-2 text-right w-28">Acciones</th>
                     </tr>
                   </thead>
-                  <tbody id="org-eu-projects-tbody">
-                    <tr><td colspan="6" class="py-4 text-center text-on-surface-variant text-sm">Cargando...</td></tr>
+                  <tbody id="org-projects-unified-tbody">
+                    <tr><td colspan="6" class="py-4 text-center text-on-surface-variant text-sm">Cargando proyectos…</td></tr>
                   </tbody>
+                  <!-- Tabla manual legacy oculta (los handlers de edición existentes la siguen leyendo) -->
+                  <tbody id="org-eu-projects-tbody" class="hidden"></tbody>
                 </table>
               </div>
             </div>
@@ -2682,6 +2686,20 @@ tailwind.config = {
     class="absolute right-0 top-0 bottom-0 w-full max-w-3xl bg-white shadow-2xl overflow-y-auto
            transform transition-transform duration-300">
     <div id="entity-ficha-content" class="min-h-full"></div>
+  </aside>
+</div>
+
+<!-- ═══ ORG PROJECT DRAWER (detalle de proyecto UE en Mi Organización) ═══ -->
+<div id="org-project-drawer-overlay" class="hidden fixed inset-0 z-40">
+  <div id="org-project-drawer-backdrop" class="absolute inset-0 bg-primary/30 backdrop-blur-sm"></div>
+  <aside id="org-project-drawer-panel"
+    class="absolute right-0 top-12 bottom-0 w-full max-w-3xl bg-white shadow-2xl overflow-y-auto
+           transform transition-transform duration-300">
+    <button id="org-project-drawer-close" type="button"
+      class="absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-surface-container hover:bg-surface-container-high flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors">
+      <span class="material-symbols-outlined text-[20px]">close</span>
+    </button>
+    <div id="org-project-drawer-content" class="min-h-full p-6 sm:p-8"></div>
   </aside>
 </div>
 

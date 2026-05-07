@@ -162,6 +162,14 @@ async function getEntitySimilar(oid, params = {}) {
   return fetchJson('/entity/' + encodeURIComponent(oid) + '/similar', { query: params });
 }
 
+// GET /entity/:oid/projects?limit=300&offset=0
+// Devuelve { pic, count, limit, offset, projects: [...] } con campos completos
+// (programme, action_type, funding_year, start_date, end_date, eu_grant_eur,
+// coordinator_name, coordinator_country, project_summary, is_good_practice, role).
+async function getEntityProjects(oid, params = {}) {
+  return fetchJson('/entity/' + encodeURIComponent(oid) + '/projects', { query: params });
+}
+
 // GET /entities?ids=...&fields=...   (bulk lookup, max 100 IDs)
 async function bulkLookup(ids, fields) {
   if (!Array.isArray(ids) || !ids.length) return { rows: [] };
@@ -218,6 +226,7 @@ module.exports = {
   getEntity,
   getEntityFull,
   getEntitySimilar,
+  getEntityProjects,
   bulkLookup,
   getFacets,
   getStatsBreakdown,
