@@ -801,6 +801,48 @@ exports.dmsDeleteComment = async (req, res, next) => {
   } catch (err) { next(err); }
 };
 
+// GET /v1/developer/projects/:projectId/staff-table
+exports.listStaffTable = async (req, res, next) => {
+  try {
+    const data = await model.listStaffTable(req.params.projectId, req.user.id);
+    res.json({ ok: true, data });
+  } catch (err) { next(err); }
+};
+
+// PATCH /v1/developer/staff-table/:ppsId
+exports.updateStaffTable = async (req, res, next) => {
+  try {
+    const data = await model.updateStaffTableRow(req.params.ppsId, req.user.id, req.body || {});
+    res.json({ ok: true, data });
+  } catch (err) { next(err); }
+};
+
+// 2.1.5 Project risks — CRUD
+exports.listRisks = async (req, res, next) => {
+  try {
+    const data = await model.listProjectRisks(req.params.projectId, req.user.id);
+    res.json({ ok: true, data });
+  } catch (err) { next(err); }
+};
+exports.createRisk = async (req, res, next) => {
+  try {
+    const data = await model.createProjectRisk(req.params.projectId, req.user.id, req.body || {});
+    res.json({ ok: true, data });
+  } catch (err) { next(err); }
+};
+exports.updateRisk = async (req, res, next) => {
+  try {
+    const data = await model.updateProjectRisk(req.params.id, req.user.id, req.body || {});
+    res.json({ ok: true, data });
+  } catch (err) { next(err); }
+};
+exports.deleteRisk = async (req, res, next) => {
+  try {
+    const data = await model.deleteProjectRisk(req.params.id, req.user.id);
+    res.json({ ok: true, data });
+  } catch (err) { next(err); }
+};
+
 // GET /v1/developer/projects/:projectId/dms/export.csv
 exports.dmsExportCsv = async (req, res, next) => {
   try {

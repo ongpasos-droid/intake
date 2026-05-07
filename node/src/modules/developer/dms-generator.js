@@ -37,6 +37,7 @@
 const db = require('../../utils/db');
 const genUUID = require('../../utils/uuid');
 const ai = require('../../utils/ai');
+const { seedWpTasksFromProject } = require('./model');
 
 const HARD_CAP = 15;
 const MAX_REPAIR_ATTEMPTS = 2;
@@ -109,6 +110,19 @@ async function _loadProjectContext(projectId, userId) {
        FROM work_packages WHERE project_id = ? ORDER BY order_index`,
     [projectId]
   );
+
+  // Seed wp_tasks from project_tasks for any WP that has none.
+  // Mirrors the lazy-seed in listWpTasks so the generator works even when
+  // the per-WP pages haven't been visited yet.
+  const [emptyWps] = await db.execute(
+    `SELECT wp.id FROM work_packages wp
+      WHERE wp.project_id = ?
+        AND NOT EXISTS (SELECT 1 FROM wp_tasks t WHERE t.work_package_id = wp.id)`,
+    [projectId]
+  );
+  for (const row of emptyWps) {
+    await seedWpTasksFromProject(row.id);
+  }
 
   const [tasks] = await db.execute(
     `SELECT t.id, t.work_package_id, t.code, t.title, t.description, t.sort_order,

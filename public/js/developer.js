@@ -123,6 +123,7 @@ const Developer = (() => {
       // spawn one cascade step per WP (dynamic count based on Intake data)
       // instead of a single monolithic section.
       const projectWps = (ctx && Array.isArray(ctx.wps)) ? ctx.wps : [];
+      window.__projectWps = projectWps;  // exposed for risk-table dropdown etc.
       if (instance.template_json) {
         templateJson = typeof instance.template_json === 'string' ? JSON.parse(instance.template_json) : instance.template_json;
         flatSections = flattenSections(templateJson, projectWps);
@@ -2833,6 +2834,17 @@ const Developer = (() => {
       return renderWpFormSection(sec);
     }
 
+    // 2.1.3 Project teams uses an editable 4-column table populated from
+    // project_partner_staff (staff selected in the Consortium tab).
+    if (sec.fieldId === 's2_1_3_staff_table') {
+      return renderStaffTableSection(sec);
+    }
+
+    // 2.1.5 Risk management — editable 4-column table over project_risks.
+    if (sec.fieldId === 's2_1_5_risk_table') {
+      return renderRiskTableSection(sec);
+    }
+
     const val = fieldValues[sec.fieldId];
     const text = val?.text || '';
     const hasText = text.trim().length > 10;
@@ -2979,6 +2991,328 @@ const Developer = (() => {
         }, 1500);
       });
     }
+  }
+
+  // 2.1.3 Project teams — editable staff table (mirrors EACEA form Part B).
+  // Rows are loaded from /v1/developer/projects/:id/staff-table; project_role
+  // and custom_skills are autosaved via PATCH /staff-table/:ppsId. The
+  // textarea below holds free-text on Outside resources / subcontracting and
+  // is autosaved as the s2_1_3_staff_table form field (same key as before so
+  // existing prose is preserved).
+  let _staffTableRows = [];
+
+  async function renderStaffTableSection(sec) {
+    const main = document.getElementById('dev-cascade-main');
+    if (!main) return;
+
+    const val = fieldValues[sec.fieldId] || {};
+    const outsideText = val.text || '';
+    const isApproved = cascadeApproved[sec.fieldId];
+
+    main.innerHTML = `
+      <div class="mb-4">
+        <div class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant/60 mb-1">${sec.parentNumber ? sec.parentNumber + '. ' + esc(sec.parent) : ''}</div>
+        <h2 class="font-headline text-lg font-bold text-on-surface">${sec.number} ${esc(sec.title)}</h2>
+      </div>
+
+      <details class="mb-4 group">
+        <summary class="text-xs font-bold text-primary cursor-pointer flex items-center gap-1">
+          <span class="material-symbols-outlined text-xs group-open:rotate-90 transition-transform">chevron_right</span> Guía del formulario
+        </summary>
+        <div class="mt-2 text-xs text-on-surface-variant leading-relaxed bg-primary/5 rounded-lg p-3 border border-primary/10">
+          <p class="mb-1"><b>Project teams and staff:</b> Lista el equipo del proyecto (categoría A del presupuesto) por función/perfil. Esta tabla es exactamente la del formulario oficial.</p>
+          <p class="mb-1"><b>Outside resources:</b> Si necesitas competencias o recursos externos (subcontratación, secondments, contribuciones in-kind), explícalo en el campo de texto al final.</p>
+        </div>
+      </details>
+
+      <div class="mb-3 flex items-center justify-between">
+        <h3 class="font-headline text-sm font-bold text-on-surface">Project teams and staff</h3>
+        <span class="text-[11px] text-on-surface-variant">Editable · autoguardado</span>
+      </div>
+
+      <div id="staff-table-container" class="bg-white rounded-xl border border-outline-variant/30 overflow-hidden mb-6">
+        <div class="px-4 py-6 text-center text-xs text-on-surface-variant">Cargando…</div>
+      </div>
+
+      <div class="mb-3">
+        <h3 class="font-headline text-sm font-bold text-on-surface">Outside resources (subcontracting, seconded staff, etc)</h3>
+        <p class="text-[11px] text-on-surface-variant mb-2">Si vais a obtener competencias fuera del consorcio (contribuciones de miembros, organizaciones socias, subcontratación), descríbelo aquí.</p>
+        <textarea id="staff-outside-textarea" class="w-full px-4 py-3 text-sm bg-white border border-outline-variant/30 rounded-xl resize-none focus:outline-none focus:ring-2 focus:ring-primary/15 focus:border-primary/30 leading-relaxed" style="min-height:160px" placeholder="Describe contribuciones externas, subcontratación, recursos en especie...">${esc(outsideText)}</textarea>
+        <div class="text-[11px] text-on-surface-variant mt-1" id="staff-outside-wc">${wordCount(outsideText)} palabras</div>
+      </div>
+
+      <div class="flex items-center gap-3">
+        ${cascadeIndex < flatSections.length - 1 ? `
+          <button onclick="Developer._cascadeApprove()" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-bold text-white bg-[#1b1464] hover:bg-[#1b1464]/90 shadow-lg hover:shadow-xl transition-all">
+            <span class="material-symbols-outlined text-lg">check</span> Aprobar y siguiente
+          </button>
+          <button onclick="Developer._cascadeSkip()" class="inline-flex items-center gap-2 px-4 py-3 rounded-xl text-xs font-bold text-on-surface-variant border border-outline-variant/30 hover:bg-surface-container-low transition-colors">
+            Saltar
+          </button>
+        ` : `
+          <button onclick="Developer._cascadeApprove()" class="inline-flex items-center gap-2 px-8 py-3 rounded-xl text-sm font-bold text-white bg-gradient-to-r from-green-500 to-emerald-600 shadow-lg hover:shadow-xl transition-all">
+            <span class="material-symbols-outlined text-lg">celebration</span> Finalizar borrador
+          </button>
+        `}
+        ${isApproved ? '<span class="text-xs text-green-600 font-bold flex items-center gap-1"><span class="material-symbols-outlined text-sm">check_circle</span> Aprobada</span>' : ''}
+      </div>
+    `;
+
+    // Bind the outside-resources textarea (uses the same field_id as the old
+    // free-text 2.1.3, so existing prose stays where it was).
+    const ta = document.getElementById('staff-outside-textarea');
+    if (ta) {
+      autoGrow(ta);
+      ta.addEventListener('input', () => {
+        autoGrow(ta);
+        const wc = document.getElementById('staff-outside-wc');
+        if (wc) wc.textContent = wordCount(ta.value) + ' palabras';
+        clearTimeout(_saveTimer);
+        _saveTimer = setTimeout(() => {
+          const newText = ta.value;
+          if (!fieldValues[sec.fieldId]) fieldValues[sec.fieldId] = {};
+          fieldValues[sec.fieldId].text = newText;
+          API.put('/developer/instances/' + currentInstance.id + '/field', {
+            field_id: sec.fieldId, section_path: sec.id, text: newText,
+          }).catch(err => console.error('autosave outside resources:', err));
+        }, 1500);
+      });
+    }
+
+    // Load staff rows.
+    try {
+      _staffTableRows = await API.get(`/developer/projects/${currentProject.id}/staff-table`);
+    } catch (err) {
+      const c = document.getElementById('staff-table-container');
+      if (c) c.innerHTML = `<div class="px-4 py-4 text-xs text-red-700">Error al cargar el equipo: ${esc(err.message || err)}</div>`;
+      return;
+    }
+    _renderStaffTableRows();
+  }
+
+  function _renderStaffTableRows() {
+    const c = document.getElementById('staff-table-container');
+    if (!c) return;
+    if (!_staffTableRows.length) {
+      c.innerHTML = `
+        <div class="px-4 py-6 text-center">
+          <p class="text-sm text-on-surface-variant mb-2">No hay personas seleccionadas para este proyecto todavía.</p>
+          <p class="text-xs text-on-surface-variant/70">Ve a <button class="text-primary font-bold underline" onclick="Developer._prepTab('consorcio')">Consorcio → Equipo</button> y marca al menos una persona por organización.</p>
+        </div>`;
+      return;
+    }
+    c.innerHTML = `
+      <table class="w-full text-sm">
+        <thead class="bg-surface-container-lowest border-b border-outline-variant/30">
+          <tr>
+            <th class="text-left px-3 py-2 text-[10px] font-bold uppercase tracking-wider text-on-surface-variant" style="width:22%">Name and function</th>
+            <th class="text-left px-3 py-2 text-[10px] font-bold uppercase tracking-wider text-on-surface-variant" style="width:18%">Organisation</th>
+            <th class="text-left px-3 py-2 text-[10px] font-bold uppercase tracking-wider text-on-surface-variant" style="width:20%">Role / tasks</th>
+            <th class="text-left px-3 py-2 text-[10px] font-bold uppercase tracking-wider text-on-surface-variant" style="width:40%">Professional profile and expertise</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${_staffTableRows.map(r => `
+            <tr class="border-b border-outline-variant/10 align-top">
+              <td class="px-3 py-3">
+                <div class="font-bold text-sm text-on-surface">${esc(r.full_name || '—')}</div>
+                ${r.directory_role ? `<div class="text-xs italic text-on-surface-variant/70">${esc(r.directory_role)}</div>` : ''}
+              </td>
+              <td class="px-3 py-3 text-xs text-on-surface-variant">
+                ${esc(r.partner_legal_name || r.partner_name || '—')}
+                ${r.partner_role === 'applicant' ? '<div class="text-[10px] mt-1 inline-block px-1.5 py-0.5 rounded bg-primary/10 text-primary font-bold uppercase tracking-wider">Coordinator</div>' : ''}
+              </td>
+              <td class="px-2 py-2">
+                <input type="text" data-pps-id="${r.id}" data-field="project_role" value="${esc(r.project_role || '')}" placeholder="ej. Project Manager — coord WP1, riesgo"
+                  class="w-full px-2 py-1.5 text-xs bg-surface-container-lowest border border-outline-variant/30 rounded-md focus:outline-none focus:ring-2 focus:ring-primary/15 focus:border-primary/30">
+              </td>
+              <td class="px-2 py-2">
+                <textarea data-pps-id="${r.id}" data-field="custom_skills" rows="4" placeholder="Skills, experiencia y aporte al proyecto"
+                  class="w-full px-2 py-1.5 text-xs bg-surface-container-lowest border border-outline-variant/30 rounded-md resize-y focus:outline-none focus:ring-2 focus:ring-primary/15 focus:border-primary/30 leading-snug">${esc(r.custom_skills || '')}</textarea>
+              </td>
+            </tr>
+          `).join('')}
+        </tbody>
+      </table>
+    `;
+    // Wire autosave per cell.
+    c.querySelectorAll('[data-pps-id]').forEach(input => {
+      let timer = null;
+      input.addEventListener('input', () => {
+        clearTimeout(timer);
+        timer = setTimeout(() => {
+          const ppsId = input.getAttribute('data-pps-id');
+          const field = input.getAttribute('data-field');
+          API.patch(`/developer/staff-table/${ppsId}`, { [field]: input.value })
+             .catch(err => console.error('staff-table autosave:', err));
+        }, 800);
+      });
+    });
+  }
+
+  // 2.1.5 Risk management — editable 4-column table.
+  let _risksRows = [];
+  let _risksWpsCache = [];
+
+  async function renderRiskTableSection(sec) {
+    const main = document.getElementById('dev-cascade-main');
+    if (!main) return;
+
+    const isApproved = cascadeApproved[sec.fieldId];
+
+    main.innerHTML = `
+      <div class="mb-4">
+        <div class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant/60 mb-1">${sec.parentNumber ? sec.parentNumber + '. ' + esc(sec.parent) : ''}</div>
+        <h2 class="font-headline text-lg font-bold text-on-surface">${sec.number} ${esc(sec.title)}</h2>
+      </div>
+
+      <details class="mb-4 group">
+        <summary class="text-xs font-bold text-primary cursor-pointer flex items-center gap-1">
+          <span class="material-symbols-outlined text-xs group-open:rotate-90 transition-transform">chevron_right</span> Guía del formulario
+        </summary>
+        <div class="mt-2 text-xs text-on-surface-variant leading-relaxed bg-primary/5 rounded-lg p-3 border border-primary/10">
+          <p class="mb-1">Describe los riesgos críticos, incertidumbres o dificultades de implementación, y la estrategia para abordarlos.</p>
+          <p class="mb-1">Para cada riesgo indica <b>impacto</b> y <b>probabilidad</b> (low/medium/high), incluso después de aplicar las medidas mitigadoras.</p>
+          <p>Una buena gestión de riesgos es esencial para una buena gestión del proyecto.</p>
+        </div>
+      </details>
+
+      <div class="mb-3 flex items-center justify-between">
+        <h3 class="font-headline text-sm font-bold text-on-surface">Critical risks and risk-management strategy</h3>
+        <button id="risk-add-btn" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-bold text-white bg-[#1b1464] hover:bg-[#1b1464]/90 transition-colors">
+          <span class="material-symbols-outlined text-sm">add</span> Añadir riesgo
+        </button>
+      </div>
+
+      <div id="risk-table-container" class="bg-white rounded-xl border border-outline-variant/30 overflow-hidden mb-6">
+        <div class="px-4 py-6 text-center text-xs text-on-surface-variant">Cargando…</div>
+      </div>
+
+      <div class="flex items-center gap-3">
+        ${cascadeIndex < flatSections.length - 1 ? `
+          <button onclick="Developer._cascadeApprove()" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-bold text-white bg-[#1b1464] hover:bg-[#1b1464]/90 shadow-lg hover:shadow-xl transition-all">
+            <span class="material-symbols-outlined text-lg">check</span> Aprobar y siguiente
+          </button>
+          <button onclick="Developer._cascadeSkip()" class="inline-flex items-center gap-2 px-4 py-3 rounded-xl text-xs font-bold text-on-surface-variant border border-outline-variant/30 hover:bg-surface-container-low transition-colors">
+            Saltar
+          </button>
+        ` : `
+          <button onclick="Developer._cascadeApprove()" class="inline-flex items-center gap-2 px-8 py-3 rounded-xl text-sm font-bold text-white bg-gradient-to-r from-green-500 to-emerald-600 shadow-lg hover:shadow-xl transition-all">
+            <span class="material-symbols-outlined text-lg">celebration</span> Finalizar borrador
+          </button>
+        `}
+        ${isApproved ? '<span class="text-xs text-green-600 font-bold flex items-center gap-1"><span class="material-symbols-outlined text-sm">check_circle</span> Aprobada</span>' : ''}
+      </div>
+    `;
+
+    document.getElementById('risk-add-btn').addEventListener('click', async () => {
+      try {
+        const r = await API.post(`/developer/projects/${currentProject.id}/risks`, {});
+        _risksRows.push(r);
+        _renderRiskTableRows();
+      } catch (err) { alert('No se pudo crear el riesgo: ' + (err.message || err)); }
+    });
+
+    try {
+      const [risks, wps] = await Promise.all([
+        API.get(`/developer/projects/${currentProject.id}/risks`),
+        _risksWpsCache.length ? Promise.resolve(_risksWpsCache) : API.get(`/developer/projects/${currentProject.id}/partners`).then(() => null).catch(() => null),
+      ]);
+      _risksRows = risks || [];
+      // Use the WPs the cascade already has loaded.
+      _risksWpsCache = (window.__projectWps || []).slice();
+    } catch (err) {
+      const c = document.getElementById('risk-table-container');
+      if (c) c.innerHTML = `<div class="px-4 py-4 text-xs text-red-700">Error al cargar riesgos: ${esc(err.message || err)}</div>`;
+      return;
+    }
+    _renderRiskTableRows();
+  }
+
+  function _renderRiskTableRows() {
+    const c = document.getElementById('risk-table-container');
+    if (!c) return;
+    if (!_risksRows.length) {
+      c.innerHTML = `
+        <div class="px-4 py-8 text-center">
+          <span class="material-symbols-outlined text-3xl text-on-surface-variant/40 mb-2 block">warning</span>
+          <p class="text-sm text-on-surface-variant mb-1">No hay riesgos registrados todavía.</p>
+          <p class="text-xs text-on-surface-variant/70">Pulsa "Añadir riesgo" para empezar.</p>
+        </div>`;
+      return;
+    }
+    const wpOptions = (window.__projectWps || _risksWpsCache || [])
+      .map(w => `<option value="${esc(w.id)}">${esc(w.code || w.title || '')}</option>`)
+      .join('');
+    c.innerHTML = `
+      <table class="w-full text-sm">
+        <thead class="bg-surface-container-lowest border-b border-outline-variant/30">
+          <tr>
+            <th class="text-left px-3 py-2 text-[10px] font-bold uppercase tracking-wider text-on-surface-variant" style="width:6%">Risk No</th>
+            <th class="text-left px-3 py-2 text-[10px] font-bold uppercase tracking-wider text-on-surface-variant" style="width:42%">Description (incluye impacto + probabilidad)</th>
+            <th class="text-left px-3 py-2 text-[10px] font-bold uppercase tracking-wider text-on-surface-variant" style="width:10%">WP</th>
+            <th class="text-left px-3 py-2 text-[10px] font-bold uppercase tracking-wider text-on-surface-variant" style="width:38%">Mitigation measures</th>
+            <th class="px-2 py-2" style="width:4%"></th>
+          </tr>
+        </thead>
+        <tbody>
+          ${_risksRows.map(r => `
+            <tr class="border-b border-outline-variant/10 align-top" data-risk-id="${esc(r.id)}">
+              <td class="px-2 py-2">
+                <input type="text" data-risk-id="${esc(r.id)}" data-field="risk_no" value="${esc(r.risk_no || '')}" placeholder="R1"
+                  class="w-full px-2 py-1.5 text-xs font-mono bg-surface-container-lowest border border-outline-variant/30 rounded-md focus:outline-none focus:ring-2 focus:ring-primary/15 focus:border-primary/30">
+              </td>
+              <td class="px-2 py-2">
+                <textarea data-risk-id="${esc(r.id)}" data-field="description" rows="3" placeholder="Describe el riesgo. Indica impacto (low/med/high) y probabilidad."
+                  class="w-full px-2 py-1.5 text-xs bg-surface-container-lowest border border-outline-variant/30 rounded-md resize-y focus:outline-none focus:ring-2 focus:ring-primary/15 focus:border-primary/30 leading-snug">${esc(r.description || '')}</textarea>
+              </td>
+              <td class="px-2 py-2">
+                <select data-risk-id="${esc(r.id)}" data-field="wp_id" class="w-full px-2 py-1.5 text-xs bg-surface-container-lowest border border-outline-variant/30 rounded-md focus:outline-none focus:ring-2 focus:ring-primary/15">
+                  <option value="">(cross)</option>
+                  ${wpOptions.replace(`value="${esc(r.wp_id)}"`, `value="${esc(r.wp_id)}" selected`)}
+                </select>
+              </td>
+              <td class="px-2 py-2">
+                <textarea data-risk-id="${esc(r.id)}" data-field="mitigation" rows="3" placeholder="Acciones para prevenir o mitigar este riesgo."
+                  class="w-full px-2 py-1.5 text-xs bg-surface-container-lowest border border-outline-variant/30 rounded-md resize-y focus:outline-none focus:ring-2 focus:ring-primary/15 focus:border-primary/30 leading-snug">${esc(r.mitigation || '')}</textarea>
+              </td>
+              <td class="px-1 py-2 text-center">
+                <button data-risk-del="${esc(r.id)}" class="text-on-surface-variant/50 hover:text-red-600 transition-colors" title="Eliminar riesgo">
+                  <span class="material-symbols-outlined text-base">delete</span>
+                </button>
+              </td>
+            </tr>
+          `).join('')}
+        </tbody>
+      </table>
+    `;
+    // Wire autosave per cell.
+    c.querySelectorAll('[data-risk-id][data-field]').forEach(input => {
+      let timer = null;
+      const handler = () => {
+        clearTimeout(timer);
+        timer = setTimeout(() => {
+          const id = input.getAttribute('data-risk-id');
+          const field = input.getAttribute('data-field');
+          API.patch(`/developer/risks/${id}`, { [field]: input.value })
+             .catch(err => console.error('risk autosave:', err));
+        }, 700);
+      };
+      input.addEventListener('input', handler);
+      input.addEventListener('change', handler);
+    });
+    // Delete buttons.
+    c.querySelectorAll('[data-risk-del]').forEach(btn => {
+      btn.addEventListener('click', async () => {
+        const id = btn.getAttribute('data-risk-del');
+        if (!confirm('¿Eliminar este riesgo?')) return;
+        try {
+          await API.del(`/developer/risks/${id}`);
+          _risksRows = _risksRows.filter(r => r.id !== id);
+          _renderRiskTableRows();
+        } catch (err) { alert('No se pudo eliminar: ' + (err.message || err)); }
+      });
+    });
   }
 
   // Grow a textarea to fit its content so there's no inner scrollbar.
@@ -3340,9 +3674,12 @@ const Developer = (() => {
         </div>
 
         <!-- Actions -->
-        <div class="flex justify-end gap-3">
+        <div class="flex justify-end gap-3 flex-wrap">
           <button onclick="Developer._phase(2)" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-bold text-on-surface-variant border border-outline-variant hover:bg-surface-container-low transition-colors">
             <span class="material-symbols-outlined text-sm">edit_note</span> Seguir editando
+          </button>
+          <button id="btn-export-form-b" onclick="Developer._exportFormB()" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-bold text-white bg-on-surface hover:bg-on-surface/90 shadow-lg transition-all">
+            <span class="material-symbols-outlined text-sm">description</span> Exportar Application Form (Part B) — DOCX
           </button>
           <button onclick="Developer._sendToEvaluator()" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-bold text-white bg-primary hover:bg-primary/90 shadow-lg transition-all ${completed < totalSections ? 'opacity-50' : ''}">
             <span class="material-symbols-outlined text-sm">verified</span> Enviar al evaluador
@@ -3380,6 +3717,38 @@ const Developer = (() => {
     if (!fieldValues[fieldId]) fieldValues[fieldId] = {};
     fieldValues[fieldId].reviewed = !fieldValues[fieldId].reviewed;
     if (phase === 2) { renderCascadeSection(); renderCascadeNav(); }
+  }
+
+  async function exportFormPartB() {
+    if (!currentProject?.id) return;
+    const btn = document.getElementById('btn-export-form-b');
+    const original = btn ? btn.innerHTML : '';
+    if (btn) { btn.disabled = true; btn.innerHTML = '<span class="material-symbols-outlined text-sm animate-spin">progress_activity</span> Generando…'; }
+    try {
+      const token = API.getToken();
+      const url = `/v1/exporter/projects/${currentProject.id}/form-part-b.docx`;
+      const headers = token ? { 'Authorization': `Bearer ${token}` } : {};
+      let res = await fetch(url, { credentials: 'include', headers });
+      if (res.status === 401) {
+        if (await API.tryRefresh()) {
+          const t2 = API.getToken();
+          res = await fetch(url, { credentials: 'include', headers: t2 ? { 'Authorization': `Bearer ${t2}` } : {} });
+        }
+      }
+      if (!res.ok) throw new Error(`HTTP ${res.status} ${res.statusText}`);
+      const blob = await res.blob();
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = `${(currentProject.name || 'project').replace(/[^a-z0-9._-]/gi, '_')}_FormPartB.docx`;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(a.href);
+    } catch (err) {
+      alert('Error generando el formulario: ' + (err.message || err));
+    } finally {
+      if (btn) { btn.disabled = false; btn.innerHTML = original; }
+    }
   }
 
   function goPhase(p) {
@@ -4831,6 +5200,7 @@ const Developer = (() => {
     _selectSection: selectSection,
     _generateField: generateField,
     _markReviewed: markReviewed,
+    _exportFormB: exportFormPartB,
     _aiImprove: aiImprove,
     _aiImproveCustom: aiImproveCustom,
     _aiRefine: aiRefine,

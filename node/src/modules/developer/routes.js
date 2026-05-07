@@ -112,6 +112,16 @@ router.post  ('/dms/snapshots/:id/restore',             requireAuth, ctrl.dmsRes
 router.get   ('/projects/:projectId/dms/ai-history',    requireAuth, ctrl.dmsAiHistory);
 router.get   ('/projects/:projectId/dms/export.csv',    requireAuth, ctrl.dmsExportCsv);
 
+// 2.1.3 Project teams — editable staff table (rows = project_partner_staff selected=1)
+router.get   ('/projects/:projectId/staff-table',       requireAuth, ctrl.listStaffTable);
+router.patch ('/staff-table/:ppsId',                    requireAuth, ctrl.updateStaffTable);
+
+// 2.1.5 Project risks — CRUD
+router.get   ('/projects/:projectId/risks',             requireAuth, ctrl.listRisks);
+router.post  ('/projects/:projectId/risks',             requireAuth, ctrl.createRisk);
+router.patch ('/risks/:id',                             requireAuth, ctrl.updateRisk);
+router.delete('/risks/:id',                             requireAuth, ctrl.deleteRisk);
+
 // Comments thread on D / MS rows
 router.get   ('/projects/:projectId/dms/comments',  requireAuth, ctrl.dmsListComments);
 router.post  ('/projects/:projectId/dms/comments',  requireAuth, ctrl.dmsCreateComment);

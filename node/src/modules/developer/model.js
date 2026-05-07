@@ -1668,6 +1668,143 @@ async function seedWpTasksFromProject(wpId) {
   return seedRows.length;
 }
 
+// 2.1.3 Project teams — list/update the editable staff table.
+// Rows = project_partner_staff with selected=1, joined with the staffer's
+// directory record (name, generic role, default skills) and partner.
+async function listStaffTable(projectId, userId) {
+  const [[proj]] = await db.execute(
+    `SELECT id FROM projects WHERE id = ? AND user_id = ?`,
+    [projectId, userId]
+  );
+  if (!proj) { const e = new Error('Project not found'); e.status = 404; throw e; }
+  const [rows] = await db.execute(
+    `SELECT pps.id, pps.staff_id, pps.partner_id, pps.project_role, pps.custom_skills,
+            ks.name AS full_name, ks.role AS directory_role, ks.skills_summary AS directory_bio,
+            p.name AS partner_name, p.legal_name AS partner_legal_name, p.country, p.role AS partner_role
+       FROM project_partner_staff pps
+       JOIN org_key_staff ks ON ks.id = pps.staff_id
+       JOIN partners p       ON p.id  = pps.partner_id
+      WHERE pps.project_id = ? AND pps.selected = 1
+      ORDER BY p.role DESC, p.order_index, ks.name`,
+    [projectId]
+  );
+  return rows;
+}
+
+async function updateStaffTableRow(ppsId, userId, body) {
+  // Verify ownership: pps row belongs to a project owned by this user.
+  const [[row]] = await db.execute(
+    `SELECT pps.id, pps.project_id
+       FROM project_partner_staff pps
+       JOIN projects p ON p.id = pps.project_id
+      WHERE pps.id = ? AND p.user_id = ?`,
+    [ppsId, userId]
+  );
+  if (!row) { const e = new Error('Staff row not found'); e.status = 404; throw e; }
+
+  const fields = [];
+  const values = [];
+  if (Object.prototype.hasOwnProperty.call(body, 'project_role')) {
+    fields.push('project_role = ?');
+    values.push(body.project_role || null);
+  }
+  if (Object.prototype.hasOwnProperty.call(body, 'custom_skills')) {
+    fields.push('custom_skills = ?');
+    values.push(body.custom_skills || null);
+  }
+  if (!fields.length) return { id: ppsId, changed: 0 };
+  values.push(ppsId);
+  await db.execute(
+    `UPDATE project_partner_staff SET ${fields.join(', ')} WHERE id = ?`,
+    values
+  );
+  return { id: ppsId, changed: fields.length };
+}
+
+// 2.1.5 Project risks — CRUD over project_risks (one row per risk).
+async function _assertProjectOwned(projectId, userId) {
+  const [[row]] = await db.execute(
+    `SELECT id FROM projects WHERE id = ? AND user_id = ?`,
+    [projectId, userId]
+  );
+  if (!row) { const e = new Error('Project not found'); e.status = 404; throw e; }
+}
+
+async function listProjectRisks(projectId, userId) {
+  await _assertProjectOwned(projectId, userId);
+  const [rows] = await db.execute(
+    `SELECT id, project_id, wp_id, risk_no, description, mitigation,
+            likelihood, impact, sort_order
+       FROM project_risks
+      WHERE project_id = ?
+      ORDER BY sort_order, created_at`,
+    [projectId]
+  );
+  return rows;
+}
+
+async function createProjectRisk(projectId, userId, body = {}) {
+  await _assertProjectOwned(projectId, userId);
+  const id = genUUID();
+  const [[{ next_order }]] = await db.execute(
+    `SELECT COALESCE(MAX(sort_order), -1) + 1 AS next_order FROM project_risks WHERE project_id = ?`,
+    [projectId]
+  );
+  const [[{ next_no }]] = await db.execute(
+    `SELECT COALESCE(COUNT(*), 0) + 1 AS next_no FROM project_risks WHERE project_id = ?`,
+    [projectId]
+  );
+  const code = body.risk_no || `R${next_no}`;
+  await db.execute(
+    `INSERT INTO project_risks
+       (id, project_id, wp_id, risk_no, description, mitigation, likelihood, impact, sort_order)
+     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+    [id, projectId, body.wp_id || null, code,
+     body.description || null, body.mitigation || null,
+     body.likelihood || null, body.impact || null,
+     body.sort_order != null ? body.sort_order : next_order]
+  );
+  const [[row]] = await db.execute(`SELECT * FROM project_risks WHERE id = ?`, [id]);
+  return row;
+}
+
+async function _assertRiskOwned(riskId, userId) {
+  const [[row]] = await db.execute(
+    `SELECT r.id, r.project_id FROM project_risks r
+       JOIN projects p ON p.id = r.project_id
+      WHERE r.id = ? AND p.user_id = ?`,
+    [riskId, userId]
+  );
+  if (!row) { const e = new Error('Risk not found'); e.status = 404; throw e; }
+  return row;
+}
+
+async function updateProjectRisk(riskId, userId, body = {}) {
+  await _assertRiskOwned(riskId, userId);
+  const allowed = ['risk_no', 'wp_id', 'description', 'mitigation', 'likelihood', 'impact', 'sort_order'];
+  const fields = [];
+  const values = [];
+  for (const k of allowed) {
+    if (Object.prototype.hasOwnProperty.call(body, k)) {
+      fields.push(`${k} = ?`);
+      values.push(body[k] === '' ? null : body[k]);
+    }
+  }
+  if (!fields.length) return { id: riskId, changed: 0 };
+  values.push(riskId);
+  await db.execute(
+    `UPDATE project_risks SET ${fields.join(', ')} WHERE id = ?`,
+    values
+  );
+  return { id: riskId, changed: fields.length };
+}
+
+async function deleteProjectRisk(riskId, userId) {
+  await _assertRiskOwned(riskId, userId);
+  await db.execute(`DELETE FROM project_risks WHERE id = ?`, [riskId]);
+  return { id: riskId, deleted: true };
+}
+
 // Wipe + re-seed wp_tasks for a WP (used by resync button).
 // Cascades: wp_task_participants are removed via FK ON DELETE CASCADE.
 async function resyncWpTasks(wpId, userId) {
@@ -3392,6 +3529,13 @@ module.exports = {
   listProjectPartners,
   aiFillWp,
   resyncWpTasks,
+  seedWpTasksFromProject,
+  listStaffTable,
+  updateStaffTableRow,
+  listProjectRisks,
+  createProjectRisk,
+  updateProjectRisk,
+  deleteProjectRisk,
   // Phase 4 — project-level Deliverables & Milestones (v2 generator lives in dms-generator.js)
   listProjectDeliverables,
   listProjectMilestones,
