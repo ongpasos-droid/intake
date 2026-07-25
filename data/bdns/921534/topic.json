@@ -1,0 +1,65 @@
+{
+  "source": "bdns",
+  "source_id": "921534",
+  "source_lang": "es",
+  "level": "local",
+  "programme": "Concurrencia competitiva - canónica",
+  "sub_programme": null,
+  "publishing_authority_code": "LOCAL / HOSPITALET DE LLOBREGAT, L' / AYUNTAMIENTO DE HOSPITALET DE LLOBREGAT, L'",
+  "nuts_codes": [
+    "ES511"
+  ],
+  "nuts_primary": "ES511",
+  "title": "APROBAR LA CONVOCATORIA DE LA 40ª EDICIÓN DE LAS BECAS DE INVESTIGACIÓN DE LA CIUDAD DE L'HOSPITALET PARA LICENCIADOS/AS O GRADUADOS/AS UNIVERSITARIOS/ARIAS, Y LAS BASES QUE REGULAN SU CONCESIÓN PARA EL EJERCICIO 2026",
+  "title_lang": "es",
+  "summary": "Cultura",
+  "status": "open",
+  "publication_date": "2026-07-24",
+  "open_date": null,
+  "deadline": null,
+  "deadline_model": "continuous",
+  "deadlines_extra": null,
+  "budget_total_eur": 15000,
+  "budget_per_project_min_eur": null,
+  "budget_per_project_max_eur": null,
+  "expected_grants": null,
+  "cofinancing_pct": null,
+  "duration_months": null,
+  "audience": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA",
+  "eligible_orgs": [
+    "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+  ],
+  "eligible_countries": [
+    "ES"
+  ],
+  "sectores": [
+    {
+      "codigo": "Q",
+      "descripcion": "EDUCACIÓN"
+    }
+  ],
+  "apply_url": "https://seuelectronica.l-h.cat/tramits/r/detallTramit.aspx?1jcWXh1JeQeSGhIRtMTZDF1fU7DDNMKYIvfTMMvOU2WoqazB",
+  "details_url": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatoria/921534",
+  "documents": [
+    {
+      "label": "Documento de la convocatoria en lengua cooficial",
+      "url": null
+    },
+    {
+      "label": "Documento de la convocatoria en español",
+      "url": null
+    }
+  ],
+  "bases_reguladoras_url": "https://seu-e.cat/ca/web/hospitaletdellobregat/govern-obert-i-transparencia/contractes-convenis-i-subvencions",
+  "text_inicio": "El dia siguiente a la publicación del extracto de la convocatoria en en BOPB",
+  "text_fin": "20 días hábiles desde el día siguiente a la publicación del extracto en el BOPB",
+  "se_publica_diario_oficial": true,
+  "ayuda_estado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectores_productos": [],
+  "anuncios": [],
+  "mrr_flag": false,
+  "fetchedAt": "2026-07-25T04:07:27.360Z"
+}

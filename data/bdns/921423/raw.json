@@ -1,0 +1,72 @@
+{
+  "id": 1122984,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "TERRASSA",
+    "nivel3": "AYUNTAMIENTO DE TERRASSA"
+  },
+  "sedeElectronica": null,
+  "codigoBDNS": "921423",
+  "fechaRecepcion": "2026-07-24",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 19000,
+  "mrr": false,
+  "descripcion": "Decreto número 23420/2026 de fecha 23 de julio de 2026, del del Teniente de Alcalde \ndel Área de Proyección de la Ciudad, por el que se abre la convocatoria para la concesión de becas a la excelencia de investigación, transferencia y nuevos formatos para",
+  "descripcionLeng": "Decret número 23420/2026, de 23 de juliol del  Tinent d’Alcalde de l’Àrea de \nProjecció de la Ciutat, pel que s’obre la convocatòria per a la concessió de beques de recerca a l’excel·lència per a estudiants dels centres universitaris amb seu a Terrassa, ",
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "EDUCACIÓN",
+      "codigo": "Q"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES511 - Barcelona"
+    }
+  ],
+  "descripcionFinalidad": "Educación",
+  "descripcionBasesReguladoras": "Bases específicas que han de regir el otorgamiento de Becas a la excelencia de investigación, transferencia y nuevos formatos para estudiantes de centros universitarios con sede en Terrassa",
+  "urlBasesReguladoras": "https://bop.diba.cat/anunci/3655300/aprovacio-inicial-de-la-modificacio-de-les-bases-especifiques-que-han-de-regir-l-atorgament-de-beques-a-l-excel-lencia-de-recerca-transferencia-i-nous-formats-per-a-estudiants-dels-centres-universitaris-amb-seu-al-munic",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": null,
+  "fechaFinSolicitud": "2026-10-12",
+  "textInicio": "A partir del día siguiente de la publicación de esta convocatoria en el BOP",
+  "textFin": null,
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1499900,
+      "descripcion": "Documento de la convocatoria en lengua cooficial",
+      "nombreFic": "BDNS_Convocatoria27.pdf",
+      "long": 149647,
+      "datMod": "2026-07-24",
+      "datPublicacion": "2026-07-24"
+    },
+    {
+      "id": 1499899,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "BDNS_Convocatoria27Cast.pdf",
+      "long": 87560,
+      "datMod": "2026-07-24",
+      "datPublicacion": "2026-07-24"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

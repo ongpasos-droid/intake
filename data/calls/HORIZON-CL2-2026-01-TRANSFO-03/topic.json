@@ -35,8 +35,8 @@
     "Social structure, inequalities, social mobility, interethnic relations"
   ],
   "crossCuttingPriorities": [
-    "AI",
     "SocInnov",
+    "AI",
     "SSH",
     "DigitalAgenda"
   ],
@@ -178,5 +178,5 @@
       "is_downloadable": false
     }
   ],
-  "fetchedAt": "2026-07-24T04:05:11.162Z"
+  "fetchedAt": "2026-07-25T04:04:06.821Z"
 }

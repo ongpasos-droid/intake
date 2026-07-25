@@ -1,0 +1,75 @@
+{
+  "id": 1122909,
+  "organo": {
+    "nivel1": "AUTONOMICA",
+    "nivel2": "GALICIA",
+    "nivel3": "CONSELLERÍA DE POLÍTICA SOCIAL E IGUALDAD"
+  },
+  "sedeElectronica": null,
+  "codigoBDNS": "921348",
+  "fechaRecepcion": "2026-07-24",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 537296.8,
+  "mrr": false,
+  "descripcion": "ORDEN de 10 de julio de 2026,  por la que se regulan las bases que regirán el procedimiento de concesión de ayudas para la puesta en marcha de casas del mayor, para los años 2026 y 2027 y si procede a su convocatoria (código de procedimiento BS212A).",
+  "descripcionLeng": "ORDE do 10 de xullo de 2026, pola que se regulan as bases que rexerá o procedemento de concesión de axudas para a posta en marcha de casas do maior, para os anos 2026 e 2027 e se procede á súa convocatoria (código de procedemento BS212A).",
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PYME Y PERSONAS FÍSICAS QUE DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "Actividades de servicios sociales sin alojamiento para personas mayores o con discapacidad",
+      "codigo": "88.1"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES11 - GALICIA"
+    }
+  ],
+  "descripcionFinalidad": "Servicios Sociales y Promoción Social",
+  "descripcionBasesReguladoras": "ORDEN de 10 de julio de 2026,  por la que se regulan las bases que regirán el procedimiento de concesión de ayudas para la puesta en marcha de casas del mayor, para los años 2026 y 2027 y si procede a su convocatoria (código de procedimiento BS212A).",
+  "urlBasesReguladoras": "https://www.xunta.gal/diario-oficial-galicia/portalPublicoHome.do?fecha=20260724&ruta=Indice138_es.html&lang=es",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": null,
+  "fechaFinSolicitud": null,
+  "textInicio": "dIa seguinte ao da publicación da solicitude",
+  "textFin": "1 mes día seguinte ao da publicación",
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": {
+    "descripcion": "REG (UE) 2023/2831 de minimis, General",
+    "orden": null
+  },
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1499668,
+      "descripcion": "Texto en otra lengua de la convocatoria",
+      "nombreFic": "1. Orde  Casa do maior 2026  formato DOG_gal_20260724_083455.pdf",
+      "long": 532251,
+      "datMod": "2026-07-24",
+      "datPublicacion": "2026-07-24"
+    },
+    {
+      "id": 1499666,
+      "descripcion": "Texto en castellano de la convocatoria",
+      "nombreFic": "2 Orde Casa do maior 2026 formato DOG_es_20260724_083415.pdf",
+      "long": 567103,
+      "datMod": "2026-07-24",
+      "datPublicacion": "2026-07-24"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

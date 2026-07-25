@@ -1,0 +1,64 @@
+{
+  "id": 1123159,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "ARONA",
+    "nivel3": "ORGANISMO AUTÓNOMO DE DEPORTES"
+  },
+  "sedeElectronica": "https://www.arona.org/Sede-Electronica",
+  "codigoBDNS": "921598",
+  "fechaRecepcion": "2026-07-24",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 48000,
+  "mrr": false,
+  "descripcion": "Convocatoria para el otorgamiento de subvenciones a los desplazamientos de los equipos y deportistas de Arona por participar en competiciones oficiales para la temporada 2026.",
+  "descripcionLeng": null,
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "ACTIVIDADES ARTÍSTICAS, DEPORTIVAS Y DE ENTRETENIMIENTO",
+      "codigo": "S"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES709 - Tenerife"
+    }
+  ],
+  "descripcionFinalidad": "Servicios Sociales y Promoción Social",
+  "descripcionBasesReguladoras": "Bases específicas para el otorgamiento de subvenciones a los desplazamientos de los Equipos y Deportistas de Arona por participar en competiciones oficiales.",
+  "urlBasesReguladoras": "https://www.bopsantacruzdetenerife.es/boletines/2025/25-6-25/25-6-25.pdf",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": "2026-08-03",
+  "fechaFinSolicitud": "2026-11-13",
+  "textInicio": null,
+  "textFin": null,
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1500283,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "T.A. CONVOCATORIA DESPLAZAMIENTOS 10-07-2026.pdf",
+      "long": 780117,
+      "datMod": "2026-07-24",
+      "datPublicacion": "2026-07-24"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

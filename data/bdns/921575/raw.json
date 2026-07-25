@@ -1,0 +1,72 @@
+{
+  "id": 1123136,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "MOLLET DEL VALLÈS",
+    "nivel3": "AYUNTAMIENTO DE MOLLET DEL VALLÈS"
+  },
+  "sedeElectronica": "https://eserveis-ime.molletvalles.cat/carpetaciudadana/tramite.aspx?idtramite=659",
+  "codigoBDNS": "921575",
+  "fechaRecepcion": "2026-07-24",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 42400,
+  "mrr": false,
+  "descripcion": "CONVOCATORIA DE SUBVENCIONES EN MATERIA DE PROYECTOS EDUCATIVOS 2026",
+  "descripcionLeng": "CONVOCATÒRIA DE SUBVENCIONS EN MATÈRIA DE PROJECTES EDUCATIUS 2026",
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "Educación",
+      "codigo": "85"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES51 - CATALUÑA"
+    }
+  ],
+  "descripcionFinalidad": "Educación",
+  "descripcionBasesReguladoras": "BASES REGULADORAS PARA LA CONCESIÓN DE SUBVENCIONES EN MATÉRIA DE PROYECTOS EDUCATIVOS 2026",
+  "urlBasesReguladoras": "https://bop.diba.cat/anunci/3928158/aprovacio-inicial-de-les-bases-reguladores-especifiques-que-regulen-la-concessio-de-subvencions-en-materia-de-projectes-educatius-destinats-a-fomentar-els-projectes-i-o-activitats-educatius-ves-que-millorin-la-qualitat-de-l-educacio-ajuntament-de-mollet-del-valles",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": null,
+  "fechaFinSolicitud": null,
+  "textInicio": "Un día después de la fecha de publicación del BOPB",
+  "textFin": "Contar 20 días naturales",
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1500208,
+      "descripcion": "Texto en otra lengua de la convocatoria",
+      "nombreFic": "Extracte_convocatòria_projectes_educatius_2026_català_-_SEFYCU_252592.pdf",
+      "long": 351659,
+      "datMod": "2026-07-24",
+      "datPublicacion": "2026-07-24"
+    },
+    {
+      "id": 1500207,
+      "descripcion": "Texto en castellano de la convocatoria",
+      "nombreFic": "Extracte_convocatòria_projectes_educatius_2026_castellà.pdf",
+      "long": 339822,
+      "datMod": "2026-07-24",
+      "datPublicacion": "2026-07-24"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

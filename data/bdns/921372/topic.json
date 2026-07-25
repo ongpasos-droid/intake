@@ -1,0 +1,81 @@
+{
+  "source": "bdns",
+  "source_id": "921372",
+  "source_lang": "es",
+  "level": "local",
+  "programme": "Concurrencia competitiva - canónica",
+  "sub_programme": null,
+  "publishing_authority_code": "LOCAL / SANTA CRUZ DE LA PALMA / AYUNTAMIENTO DE SANTA CRUZ DE LA PALMA",
+  "nuts_codes": [
+    "ES707"
+  ],
+  "nuts_primary": "ES707",
+  "title": "Convocatoria pública para la concesión de subvenciones en régimen de concurrencia competitiva destinadas a la Dinamización del Comercio Local en Santa Cruz de La Palma, para la anualidad 2026.",
+  "title_lang": "es",
+  "summary": "Comercio, Turismo y Pymes",
+  "status": "open",
+  "publication_date": "2026-07-24",
+  "open_date": null,
+  "deadline": null,
+  "deadline_model": "continuous",
+  "deadlines_extra": null,
+  "budget_total_eur": 14000,
+  "budget_per_project_min_eur": null,
+  "budget_per_project_max_eur": null,
+  "expected_grants": null,
+  "cofinancing_pct": null,
+  "duration_months": null,
+  "audience": "PYME Y PERSONAS FÍSICAS QUE DESARROLLAN ACTIVIDAD ECONÓMICA",
+  "eligible_orgs": [
+    "PYME Y PERSONAS FÍSICAS QUE DESARROLLAN ACTIVIDAD ECONÓMICA"
+  ],
+  "eligible_countries": [
+    "ES"
+  ],
+  "sectores": [
+    {
+      "codigo": "47",
+      "descripcion": "Comercio al por menor"
+    }
+  ],
+  "apply_url": "https://sede.santacruzdelapalma.es/",
+  "details_url": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatoria/921372",
+  "documents": [
+    {
+      "label": "ANEXO II MEMORIA TÉCNICA",
+      "url": null
+    },
+    {
+      "label": "ANEXO I SOLICITUD DE SUBVENCIÓN",
+      "url": null
+    },
+    {
+      "label": "ANEXO V JUSTIFICACIÓN ANÁLISIS DAFO",
+      "url": null
+    },
+    {
+      "label": "ANEXO III ACEPTACIÓN DE SUBVENCIÓN",
+      "url": null
+    },
+    {
+      "label": "ANEXO IV JUSTIFICACIÓN MEMORIA TÉCNICA Y ECONÓMICA",
+      "url": null
+    },
+    {
+      "label": "Documento de la convocatoria en español",
+      "url": null
+    }
+  ],
+  "bases_reguladoras_url": "https://www.bopsantacruzdetenerife.es/boletines/2026/17-6-26/17-6-26.pdf",
+  "text_inicio": "Día siguiente a la publicación de la convocatoria en BOP",
+  "text_fin": "Diez (10) días hábiles, a partir del día siguiente a la publicación en BOP",
+  "se_publica_diario_oficial": true,
+  "ayuda_estado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectores_productos": [],
+  "anuncios": [],
+  "mrr_flag": false,
+  "fetchedAt": "2026-07-25T04:07:27.326Z"
+}

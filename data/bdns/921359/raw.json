@@ -1,0 +1,84 @@
+{
+  "id": 1122920,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "SARRIÀ DE TER",
+    "nivel3": "AYUNTAMIENTO DE SARRIÀ DE TER"
+  },
+  "sedeElectronica": "https://seu-e.cat/ca/web/sarriadeter/tramits-i-gestions/-/tramits/destacats?p_auth=9d86HxAS",
+  "codigoBDNS": "921359",
+  "fechaRecepcion": "2026-07-24",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 10000,
+  "mrr": false,
+  "descripcion": "CONVOCATORIA DE AYUDAS A FAMILIAS QUE SE ENCUENTRAN EN SITUACIÓN SOCIOECONÓMICA DESFAVORABLE Y CON HIJOS/SE QUE REALIZAN ACTIVIDADES EXTRAESCOLARES DURANTE EL CURSO 2026-2027",
+  "descripcionLeng": "CONVOCATÒRIA D’AJUTS A FAMÍLIES QUE ES TROBEN EN SITUACIÓ SOCIOECONÒMICA DESFAVORABLE I AMB FILLS/ES QUE REALITZEN ACTIVITATS EXTRAESCOLARS DURANT EL CURS 2026-2027",
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "OTROS SERVICIOS",
+      "codigo": "T"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES512 - Girona"
+    }
+  ],
+  "descripcionFinalidad": "Servicios Sociales y Promoción Social",
+  "descripcionBasesReguladoras": "Bases generals ajuts a famílies en situació socioeconòmica desfavorida",
+  "urlBasesReguladoras": "https://www.ddgi.cat/bop/mostra-bop/2025-05-16/2025/93",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": null,
+  "fechaFinSolicitud": null,
+  "textInicio": "Iniciará al día siguiente a la publicación en el BOP",
+  "textFin": "18/09/2026",
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1499698,
+      "descripcion": "Documento de la convocatoria en lengua cooficial",
+      "nombreFic": "Convocatòria extraescolars 2026_27.pdf",
+      "long": 463061,
+      "datMod": "2026-07-24",
+      "datPublicacion": "2026-07-24"
+    },
+    {
+      "id": 1499697,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "Convocatoria extraescolares 2026_27.pdf",
+      "long": 421569,
+      "datMod": "2026-07-24",
+      "datPublicacion": "2026-07-24"
+    }
+  ],
+  "anuncios": [
+    {
+      "numAnuncio": 217945,
+      "titulo": "CONVOCATORIA DE AYUDAS A FAMILIAS QUE SE ENCUENTRAN EN SITUACIÓN SOCIOECONÓMICA DESFAVORABLE Y CON HIJOS/SE QUE REALIZAN ACTIVIDADES EXTRAESCOLARES DURANTE EL CURSO 2026-2027",
+      "tituloLeng": "CONVOCATÒRIA D’AJUTS A FAMÍLIES QUE ES TROBEN EN SITUACIÓ SOCIOECONÒMICA DESFAVORABLE I AMB FILLS/ES QUE REALITZEN ACTIVITATS EXTRAESCOLARS DURANT EL CURS 2026-2027",
+      "texto": "<p>Extracto de la Resolución de 16 de julio de 2026 de la Junta de Gobierno Local, por la que se convocan las ayudas a familias familias de Sarrià de Ter que se encuentran en situación socioeconómica desfavorecida y con hijos/as que realizan actividades extraescolares durante el curso 2026-2027</p><p>Primero. Beneficiarios:</p><p>Podrán tener la condición de beneficiarios de las ayudas de acuerdo con el artículo 5 de las bases generales publicadas.</p><p>Segundo. Finalidad:</p><p>El objeto de estas bases es la regulación del procedimiento para la concesión en régimen de libre concurrencia de las ayudas dirigidas a las familias de Sarrià de Ter que se encuentran en situación socioeconómica desfavorecida y con hijos/as que realizan actividades extraescolares durante el curso 2026-2027. Las ayudas son por menores de 16 años y por una sola actividad</p><p>Tercero. Bases:</p><p>Bases específicas publicadas en el BOP 93 edicto 4304 de 16 de mayo de 2025</p><p>Cuarto. Cuantía:</p><p>El gasto máximo previsto en esta convocatoria para la concesión de estas ayudas será de 10.000 euros. El crédito presupuestario corre a cargo de la aplicación presupuestaria Ayudas a particulares, becas - 6/2310/480000, del presupuesto de la corporación para el ejercicio 2026</p><p>Quinto. Plazo de presentación:</p><p>El plazo de presentación de solicitudes se iniciará al día siguiente de la publicación del extracto de la convocatoria en el Boletín Oficial de la Provincia de Girona y finalizará el día 18 de setiembre de 2026..</p><p>Sexto. Presentación de la solicitud</p><p>La presentación de la solicitud se hará de forma electrónica mediante formulario normalizado, a través del enlace https://www.seu-e.cat/ca/web/sarriadeter/tramits-i-gestions/-/tramits/tots</p>",
+      "textoLeng": "<p>Extracte de la Resolució de 16 de juliol de 2026 de la Junta de Govern Local, per la qual es convoquen les ajudes a famílies famílies de Sarrià de Ter que es troben en situació socioeconòmica desafavorida i amb fills/es que realitzen activitats extraescolars durant el curs 2026-2027</p><p>Primer. Beneficiaris: Podran tenir la condició de beneficiaris de les ajudes dacord amb larticle 5 de les bases generals publicades.</p><p>Segon. Finalitat: L'objecte d'aquestes bases és la regulació del procediment per a la concessió en règim de lliure concurrència dels ajuts adreçats a les famílies de Sarrià de Ter que es troben en situació socioeconòmica desafavorida i amb fills/es que realitzen activitats extraescolars durant el curs 2026-2027. Els ajuts són per menors de 16 anys i per una sola activitat</p><p>Tercer. Bases: Bases específiques publicades al BOP 93 edicte 4304 de 16 de maig de 2025</p><p>Quart. Quantia: La despesa màxima prevista en aquesta convocatòria per a la concessió daquests ajuts serà de 10.000 euros. El crèdit pressupostari és a càrrec de l'aplicació pressupostària Ajuts a particulars, beques - 6/2310/480000, del pressupost de la corporació per a l'exercici 2026</p><p>Cinquè. Termini de presentació: El termini de presentació de sol·licituds s'iniciarà l'endemà de la publicació de l'extracte de la convocatòria al Butlletí Oficial de la Província de Girona i finalitzarà el dia 18 de setembre de 2026.</p><p>Sisè. Presentació de la sol·licitud La presentació de la sol·licitud es farà de manera electrònica mitjançant formulari normalitzat, a través de l'enllaç https://www.seu-e.cat/ca/web/sarriadeter/tramits-i-gestions/-/tramits/tots</p>",
+      "url": "https://ssl4.ddgi.cat/bopV1/pdf/2026/144/202614406695.pdf",
+      "cve": null,
+      "desDiarioOficial": "B.O.P. DE GIRONA",
+      "datPublicacion": "2026-07-29"
+    }
+  ],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

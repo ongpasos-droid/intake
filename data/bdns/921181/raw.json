@@ -1,0 +1,64 @@
+{
+  "id": 1122742,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "CASTRO-URDIALES",
+    "nivel3": "AYUNTAMIENTO DE CASTRO-URDIALES"
+  },
+  "sedeElectronica": "https://sedeelectronica.castro-urdiales.net/esigecu2011/",
+  "codigoBDNS": "921181",
+  "fechaRecepcion": "2026-07-23",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 35000,
+  "mrr": false,
+  "descripcion": "Decreto de Alcaldía 3840 de 23 de julio de 2026 de aprobación CONVOCATORIA DE SUBVENCIONES PARA ASOCIACIONES Y ENTIDADES SIN ÁNIMO DE LUCRO DESTINADAS A LA REALIZACIÓN DE PROGRAMAS DE CARACTER SOCIAL DURANTE EL EJERCICIO 2026",
+  "descripcionLeng": null,
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "Actividades asociativas",
+      "codigo": "94"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES130 - Cantabria"
+    }
+  ],
+  "descripcionFinalidad": "Servicios Sociales y Promoción Social",
+  "descripcionBasesReguladoras": "Aprobación definitiva de la Ordenanza reguladora de Subvenciones a Asociaciones y Entidades sin Ánimo de Lucro para la Realización de Programas de Carácter Social. Expediente SOC/854/2016",
+  "urlBasesReguladoras": "https://boc.cantabria.es/boces/verAnuncioAction.do?idAnuBlob=323065",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": null,
+  "fechaFinSolicitud": null,
+  "textInicio": "Día siguiente a la publicación del extracto de la Convocatoria en el Boletín Oficial de Cantabria",
+  "textFin": "20 días naturales a contar desde la publicación en el BOC del Extracto de la Convocatoria",
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1499221,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "DECRETO DE ALCALDIA 3840 de 23 de julio de 2026.pdf",
+      "long": 391228,
+      "datMod": "2026-07-23",
+      "datPublicacion": "2026-07-24"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

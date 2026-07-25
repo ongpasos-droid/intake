@@ -1,0 +1,60 @@
+{
+  "source": "bdns",
+  "source_id": "921564",
+  "source_lang": "es",
+  "level": "ccaa",
+  "programme": "Concurrencia competitiva - canónica",
+  "sub_programme": null,
+  "publishing_authority_code": "AUTONOMICA / COMUNIDAD FORAL DE NAVARRA / DEPARTAMENTO DE CULTURA, DEPORTE Y TURISMO",
+  "nuts_codes": [
+    "ES22"
+  ],
+  "nuts_primary": "ES22",
+  "title": "Subvenciones destinadas a entidades privadas sin ánimo de lucro para la promoción de intervenciones en le patrimonio mobiliario durante 2026",
+  "title_lang": "es",
+  "summary": "Cultura",
+  "status": "open",
+  "publication_date": "2026-07-24",
+  "open_date": null,
+  "deadline": null,
+  "deadline_model": "continuous",
+  "deadlines_extra": null,
+  "budget_total_eur": 65000,
+  "budget_per_project_min_eur": null,
+  "budget_per_project_max_eur": null,
+  "expected_grants": null,
+  "cofinancing_pct": null,
+  "duration_months": null,
+  "audience": "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA",
+  "eligible_orgs": [
+    "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+  ],
+  "eligible_countries": [
+    "ES"
+  ],
+  "sectores": [
+    {
+      "codigo": "91",
+      "descripcion": "Actividades de bibliotecas, archivos, museos y otras actividades culturales"
+    },
+    {
+      "codigo": "01.3",
+      "descripcion": "Propagación de plantas"
+    }
+  ],
+  "apply_url": "www.navarra.es",
+  "details_url": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatoria/921564",
+  "documents": [],
+  "bases_reguladoras_url": "https://bon.navarra.es",
+  "text_inicio": "SEGÚN INDICAN LAS BASES REGULADORAS",
+  "text_fin": "SEGÚN INDICAN LAS BASES REGULADORAS",
+  "se_publica_diario_oficial": true,
+  "ayuda_estado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectores_productos": [],
+  "anuncios": [],
+  "mrr_flag": false,
+  "fetchedAt": "2026-07-25T04:07:27.366Z"
+}
