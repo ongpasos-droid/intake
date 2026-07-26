@@ -1,0 +1,55 @@
+{
+  "id": 1123170,
+  "organo": {
+    "nivel1": "AUTONOMICA",
+    "nivel2": "ILLES BALEARS",
+    "nivel3": "INSTITUTO BALEAR DE LA MUJER"
+  },
+  "sedeElectronica": null,
+  "codigoBDNS": "921609",
+  "fechaRecepcion": "2026-07-26",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 300000,
+  "mrr": false,
+  "descripcion": "convocatoria de subvenciones para proyectos que, en el ámbito de la salud mental y/o discapacidad, contribuyan al fomento y apoyo a la igualdad de oportunidades entre mujeres y hombres, y de prevención y erradicación de las violencias machistas 2026",
+  "descripcionLeng": "convocatòria de subvencions per a projectes que, dins l’àmbit de la salut mental i/o discapacitat, contribueixin al foment i suport a la igualtat d’oportunitats entre dones i homes, i de prevenció i erradicació de les violències masclistes 2026",
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "Prestación de servicios a la comunidad en general",
+      "codigo": "84.2"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES53 - ILLES BALEARS"
+    }
+  ],
+  "descripcionFinalidad": "Servicios Sociales y Promoción Social",
+  "descripcionBasesReguladoras": "Ordre de la consellera d'Afers Socials, Promoció i Immigració de 18 de maig de 2009 per la qual s'estableixen les bases reguladores de les subvencions, els certàmens i els premis en matèria de polítiques d'igualtat envers les dones",
+  "urlBasesReguladoras": "http://www.caib.es/eboibfront/es/2009/7282?&p_numero=7282",
+  "sePublicaDiarioOficial": true,
+  "abierto": true,
+  "fechaInicioSolicitud": null,
+  "fechaFinSolicitud": null,
+  "textInicio": "A partir de l'endemà de la publicació al Butlletí de les Illes Balears (BOIB)",
+  "textFin": "Vint dies naturals a partir de l'endemà de la publicació de la Resolució al BOIB",
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}
