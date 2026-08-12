@@ -1,0 +1,72 @@
+{
+  "id": 1124534,
+  "organo": {
+    "nivel1": "AUTONOMICA",
+    "nivel2": "EXTREMADURA",
+    "nivel3": "DIRECCIÓN GENERAL DE FORMACIÓN PROFESIONAL, INNOVACIÓN E INCLUSIÓN EDUCATIVA"
+  },
+  "sedeElectronica": "https://www.juntaex.es/w0730325",
+  "codigoBDNS": "922973",
+  "fechaRecepcion": "2026-07-31",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 693807.25,
+  "mrr": false,
+  "descripcion": "Subvenciones 2026 a centros concertados Extremadura para la adquisición de equipamiento  de robótica educativa y pensamiento computacional por Resolución del 7 de julio 2026",
+  "descripcionLeng": null,
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PYME Y PERSONAS FÍSICAS QUE DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "Educación primaria",
+      "codigo": "85.2"
+    },
+    {
+      "descripcion": "Educación secundaria y educación postsecundaria no terciaria",
+      "codigo": "85.3"
+    },
+    {
+      "descripcion": "Otra educación",
+      "codigo": "85.5"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES43 - EXTREMADURA"
+    }
+  ],
+  "descripcionFinalidad": "Educación",
+  "descripcionBasesReguladoras": "Decreto 191/2025, de 16 de diciembre, de bases reguladoras para subvenciones a centros privados concertados de Extremadura para adquisición de equipamiento de robótica educativa y pensamiento computacional, en el marco del programa \"Código Escuela 4.0\" im",
+  "urlBasesReguladoras": "https://doe.juntaex.es/pdfs/doe/2025/2450o/25040317.pdf",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": null,
+  "fechaFinSolicitud": null,
+  "textInicio": "al día siguiente de la publicación en DOE",
+  "textFin": "15 días desde el inicio de la solicitud",
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1503749,
+      "descripcion": "Texto en castellano de la convocatoria",
+      "nombreFic": "Resolución 7/7/2026 a centros concertados Extremadura para la adquisición de equipamiento  de robótica educativa y pensamiento computacional.PDF",
+      "long": 901691,
+      "datMod": "2026-07-31",
+      "datPublicacion": "2026-07-31"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

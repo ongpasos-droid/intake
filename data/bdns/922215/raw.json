@@ -1,0 +1,72 @@
+{
+  "id": 1123776,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "MOLLET DEL VALLÈS",
+    "nivel3": "AYUNTAMIENTO DE MOLLET DEL VALLÈS"
+  },
+  "sedeElectronica": null,
+  "codigoBDNS": "922215",
+  "fechaRecepcion": "2026-07-29",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 25000,
+  "mrr": false,
+  "descripcion": "CONVOCATORIA PARA LA CONCESIÓN DE SUBVENCIONES PARA LA EMANCIPACIÓN DE LAS PERSONAS JOVENES DE MOLLET DEL VALLES",
+  "descripcionLeng": null,
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "Servicios personales",
+      "codigo": "96"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES511 - Barcelona"
+    }
+  ],
+  "descripcionFinalidad": "Acceso a la vivienda y fomento de la edificación",
+  "descripcionBasesReguladoras": "BASES REGULADORAS PARA EL OTORGAMIENTO DE SUBVENCIONES PARA LA EMANCIPACION  DE LAS PERSONAS JOVENES DE MOLLET DEL VALLES AÑO 2026.",
+  "urlBasesReguladoras": "https://www.molletvalles.cat/",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": null,
+  "fechaFinSolicitud": null,
+  "textInicio": "Un dia despues de la fecha de publicación del BOPB",
+  "textFin": "Hasta el 30 de septiembre de 2026",
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1501915,
+      "descripcion": "Texto en otra lengua de la convocatoria",
+      "nombreFic": "Anunci_relatiu_a_obertura_convocatòria_subvenció_emancipació_joves_CATALÀ_-_SEFYCU_254253.pdf",
+      "long": 442799,
+      "datMod": "2026-07-29",
+      "datPublicacion": "2026-07-29"
+    },
+    {
+      "id": 1501914,
+      "descripcion": "Texto en castellano de la convocatoria",
+      "nombreFic": "Anuncio_relativo_a_apertura_convocatoria_subvención_emancipación_jovenes_CASTELLANO_-_SEFYCU_254257.pdf",
+      "long": 346350,
+      "datMod": "2026-07-29",
+      "datPublicacion": "2026-07-29"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

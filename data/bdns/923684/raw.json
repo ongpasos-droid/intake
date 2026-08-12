@@ -1,0 +1,80 @@
+{
+  "id": 1125245,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "CAMAS",
+    "nivel3": "AYUNTAMIENTO DE CAMAS"
+  },
+  "sedeElectronica": null,
+  "codigoBDNS": "923684",
+  "fechaRecepcion": "2026-08-06",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 7000,
+  "mrr": false,
+  "descripcion": "Convocatoria de Ayudas para la adquisición de libros de texto de segundo ciclo de Educación Infantil (3-6 años), curso escolar 2026-2027, dirigidas a familias socio-económicamente desfavorecidas",
+  "descripcionLeng": null,
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "ACTIVIDADES SANITARIAS Y DE SERVICIOS SOCIALES",
+      "codigo": "R"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES618 - Sevilla"
+    }
+  ],
+  "descripcionFinalidad": "Servicios Sociales y Promoción Social",
+  "descripcionBasesReguladoras": "Convocatoria de Ayudas para la adquisición de libros de texto de segundo ciclo de Educación Infantil (3-6 años), curso escolar 2026-2027, dirigidas a familias socio-económicamente desfavorecidas",
+  "urlBasesReguladoras": "https://bopsevilla.dipusevilla.es/publica/buscador-anuncios/anuncio/Aprobacion-inicial-de-la-modificacion-del-reglamento-para-la-concesion-de-ayudas-sociales-municipales-de-emergencia-social/",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": "2026-01-01",
+  "fechaFinSolicitud": "2026-12-31",
+  "textInicio": null,
+  "textFin": null,
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1505793,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "20260623_Otros_ANEXO I BASES LIBROS INFANTIL 2026-27 (3).pdf",
+      "long": 369577,
+      "datMod": "2026-08-06",
+      "datPublicacion": "2026-08-12"
+    },
+    {
+      "id": 1505796,
+      "descripcion": "Resolución convocatoria",
+      "nombreFic": "20260805_Resolución_DECRETO 2026-2996 [Resolución PR_2026_3427 - Convocatoria] (1).pdf",
+      "long": 579304,
+      "datMod": "2026-08-06",
+      "datPublicacion": "2026-08-12"
+    },
+    {
+      "id": 1505794,
+      "descripcion": "Modelo de solicitud y anexos",
+      "nombreFic": "20260730_Otros_ANEXO II   y III MODELO SOLICITUD LIBROS INFANTIL CURSO 2026-27.pdf",
+      "long": 350269,
+      "datMod": "2026-08-06",
+      "datPublicacion": "2026-08-12"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

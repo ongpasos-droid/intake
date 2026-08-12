@@ -1,0 +1,73 @@
+{
+  "source": "bdns",
+  "source_id": "922689",
+  "source_lang": "es",
+  "level": "local",
+  "programme": "Concurrencia competitiva - canónica",
+  "sub_programme": null,
+  "publishing_authority_code": "LOCAL / CHIPIONA / AYUNTAMIENTO DE CHIPIONA",
+  "nuts_codes": [
+    "ES612"
+  ],
+  "nuts_primary": "ES612",
+  "title": "SUBVENCIONES A DEPORTISTAS LOCALES INDIVIDUALES POR SU PARTICIPACIÓN EN CAMPEONATOS FEDERADOS OFICIALES EN 2025",
+  "title_lang": "es",
+  "summary": "Servicios Sociales y Promoción Social",
+  "status": "open",
+  "publication_date": "2026-07-30",
+  "open_date": null,
+  "deadline": null,
+  "deadline_model": "continuous",
+  "deadlines_extra": null,
+  "budget_total_eur": 3000,
+  "budget_per_project_min_eur": null,
+  "budget_per_project_max_eur": null,
+  "expected_grants": null,
+  "cofinancing_pct": null,
+  "duration_months": null,
+  "audience": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA",
+  "eligible_orgs": [
+    "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+  ],
+  "eligible_countries": [
+    "ES"
+  ],
+  "sectores": [
+    {
+      "codigo": "S",
+      "descripcion": "ACTIVIDADES ARTÍSTICAS, DEPORTIVAS Y DE ENTRETENIMIENTO"
+    }
+  ],
+  "apply_url": "www.aytochipiona.es",
+  "details_url": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatoria/922689",
+  "documents": [
+    {
+      "label": "Documento de la convocatoria en español",
+      "url": null
+    }
+  ],
+  "bases_reguladoras_url": "https://gobiernoabierto.dipucadiz.es/uploads/indicadores/1582636855568.pdf",
+  "text_inicio": "Día siguiente al de su publicación en el Boletín Oficial de la Provincia de Cádiz",
+  "text_fin": "20 días tras el siguiente a su publicación en el Boletín Oficial de la Provincia de Cádiz",
+  "se_publica_diario_oficial": true,
+  "ayuda_estado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectores_productos": [],
+  "anuncios": [
+    {
+      "numAnuncio": 218413,
+      "titulo": "EXTRACTO DEL ACUERDO DE JUNTA DE GOBIERNO LOCAL DE 23 DE JULIO DE 2026 POR EL QUE SE APRUEBA LA CONVOCATORIA DE SUBVENCIONES A DEPORTISTAS INDIVIDUALES POR SU PARTICIPACIÓN EN CAMPEONATOS OFICIALES EN 2025.",
+      "tituloLeng": null,
+      "texto": "<p>Primero. Beneficiarios: Deportistas locales, que reúnan los siguientes requisitos: &#61623; Participar en un Campeonato Oficial por méritos clasificatorios o en los que, sin precisar previa clasificación, haya finalizado entre los diez primeros de la clasificación final. &#61623; Que el deportista esté empadronado en la localidad con una antigüedad mínima de tres años en el momento de la convocatoria. &#61623; No ser deportista profesional. &#61623; En caso de Campeonato compuesto por varias jornadas o días, deberá concurrir mínimo al 75% de las jornadas. Quedan excluidas de este cómputo aquellas jornadas o pruebas a las que el beneficiario no haya podido concurrir por lesión deportiva acreditada. Segundo. Objeto: Ayudas económicas, en régimen de concurrencia competitiva, a deportistas individuales locales por su participación en campeonatos oficiales de carácter federado celebrados durante el año 2025. Tercero. Bases reguladoras: Las bases específicas reguladoras fueron aprobadas por la Junta de Gobierno Local el 7 de febrero de 2019 y se encuentran publicadas en el tablón electrónico de anuncios y edictos del Ayuntamiento de Chipiona (documento de bases reguladoras). Cuarto. Cuantía: El importe global de la convocatoria asciende a 3.000,00 €, con cargo a la aplicación presupuestaria 340/48101 del presupuesto municipal de 2026. El importe individual se establecerá de acuerdo con los criterios de concesión y valoración de las bases de la convocatoria. Quinto. Plazo de presentación de solicitudes: El plazo de presentación de solicitudes es de 20 días naturales, contados a partir del día siguiente al de la publicación del presente anuncio en el Boletín Oficial de la Provincia de Cádiz.</p>",
+      "textoLeng": null,
+      "url": "https://www.bopcadiz.es/export/sites/default/.boletines_pdf/2026/08_agosto/BOP153_11-08-26.pdf#page=7",
+      "cve": null,
+      "desDiarioOficial": "B.O.P. DE CÁDIZ",
+      "datPublicacion": "2026-08-11"
+    }
+  ],
+  "mrr_flag": false,
+  "fetchedAt": "2026-08-12T18:13:53.291Z"
+}

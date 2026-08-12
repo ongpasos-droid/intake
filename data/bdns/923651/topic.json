@@ -1,0 +1,421 @@
+{
+  "source": "bdns",
+  "source_id": "923651",
+  "source_lang": "es",
+  "level": "local",
+  "programme": "Concurrencia competitiva - canónica",
+  "sub_programme": null,
+  "publishing_authority_code": "LOCAL / SANTIAGO DE COMPOSTELA / AYUNTAMIENTO DE SANTIAGO DE COMPOSTELA",
+  "nuts_codes": [
+    "ES111"
+  ],
+  "nuts_primary": "ES111",
+  "title": "BASES DE LA CONVOCATORIA DE AYUDAS DESTINADAS A APOYAR A LAS EMPRESAS DE ECONOMÍA SOCIAL DE SANTIAGO DE COMPOSTELA 2026",
+  "title_lang": "es",
+  "summary": "Otras actuaciones de carácter económico",
+  "status": "open",
+  "publication_date": "2026-08-05",
+  "open_date": null,
+  "deadline": null,
+  "deadline_model": "continuous",
+  "deadlines_extra": null,
+  "budget_total_eur": 140000,
+  "budget_per_project_min_eur": null,
+  "budget_per_project_max_eur": null,
+  "expected_grants": null,
+  "cofinancing_pct": null,
+  "duration_months": null,
+  "audience": "PYME Y PERSONAS FÍSICAS QUE DESARROLLAN ACTIVIDAD ECONÓMICA",
+  "eligible_orgs": [
+    "PYME Y PERSONAS FÍSICAS QUE DESARROLLAN ACTIVIDAD ECONÓMICA"
+  ],
+  "eligible_countries": [
+    "ES"
+  ],
+  "sectores": [
+    {
+      "codigo": "82",
+      "descripcion": "Actividades administrativas de oficina y otras actividades auxiliares a las empresas"
+    },
+    {
+      "codigo": "94",
+      "descripcion": "Actividades asociativas"
+    },
+    {
+      "codigo": "66",
+      "descripcion": "Actividades auxiliares a los servicios financieros y a los seguros"
+    },
+    {
+      "codigo": "79",
+      "descripcion": "Actividades de agencias de viajes, operadores turísticos, servicios de reservas y actividades relacionadas "
+    },
+    {
+      "codigo": "77",
+      "descripcion": "Actividades de alquiler"
+    },
+    {
+      "codigo": "09",
+      "descripcion": "Actividades de apoyo a las industrias extractivas"
+    },
+    {
+      "codigo": "91",
+      "descripcion": "Actividades de bibliotecas, archivos, museos y otras actividades culturales"
+    },
+    {
+      "codigo": "43",
+      "descripcion": "Actividades de construcción especializada"
+    },
+    {
+      "codigo": "90",
+      "descripcion": "Actividades de creación artística y artes escénicas"
+    },
+    {
+      "codigo": "39",
+      "descripcion": "Actividades de descontaminación y otros servicios de gestión de residuos"
+    },
+    {
+      "codigo": "92",
+      "descripcion": "Actividades de juegos de azar y apuestas"
+    },
+    {
+      "codigo": "70",
+      "descripcion": "Actividades de las sedes centrales y consultoría de gestión empresarial"
+    },
+    {
+      "codigo": "97",
+      "descripcion": "Actividades de los hogares como empleadores de personal doméstico"
+    },
+    {
+      "codigo": "98",
+      "descripcion": "Actividades de los hogares como productores de bienes y servicios para uso propio"
+    },
+    {
+      "codigo": "99",
+      "descripcion": "Actividades de organizaciones y organismos extraterritoriales"
+    },
+    {
+      "codigo": "60",
+      "descripcion": "Actividades de programación, radiodifusión, agencias de noticias y otras actividades de distribución de contenidos"
+    },
+    {
+      "codigo": "73",
+      "descripcion": "Actividades de publicidad, estudios de mercado y relaciones públicas "
+    },
+    {
+      "codigo": "38",
+      "descripcion": "Actividades de recogida, tratamiento y eliminación de residuos "
+    },
+    {
+      "codigo": "88",
+      "descripcion": "Actividades de servicios sociales sin alojamiento"
+    },
+    {
+      "codigo": "93",
+      "descripcion": "Actividades deportivas, recreativas y de entretenimiento"
+    },
+    {
+      "codigo": "68",
+      "descripcion": "Actividades inmobiliarias "
+    },
+    {
+      "codigo": "69",
+      "descripcion": "Actividades jurídicas y de contabilidad"
+    },
+    {
+      "codigo": "53",
+      "descripcion": "Actividades postales y de mensajería"
+    },
+    {
+      "codigo": "78",
+      "descripcion": "Actividades relacionadas con el empleo"
+    },
+    {
+      "codigo": "86",
+      "descripcion": "Actividades sanitarias"
+    },
+    {
+      "codigo": "75",
+      "descripcion": "Actividades veterinarias"
+    },
+    {
+      "codigo": "84",
+      "descripcion": "Administración pública y defensa; seguridad social obligatoria"
+    },
+    {
+      "codigo": "01",
+      "descripcion": "Agricultura, ganadería, caza y servicios relacionados con las mismas"
+    },
+    {
+      "codigo": "18",
+      "descripcion": "Artes gráficas y reproducción de soportes grabados"
+    },
+    {
+      "codigo": "87",
+      "descripcion": "Asistencia en establecimientos residenciales"
+    },
+    {
+      "codigo": "36",
+      "descripcion": "Captación, depuración y distribución de agua"
+    },
+    {
+      "codigo": "46",
+      "descripcion": "Comercio al por mayor"
+    },
+    {
+      "codigo": "47",
+      "descripcion": "Comercio al por menor"
+    },
+    {
+      "codigo": "14",
+      "descripcion": "Confección de prendas de vestir"
+    },
+    {
+      "codigo": "41",
+      "descripcion": "Construcción de edificios"
+    },
+    {
+      "codigo": "19",
+      "descripcion": "Coquerías y refino de petróleo"
+    },
+    {
+      "codigo": "52",
+      "descripcion": "Depósito, almacenamiento y actividades auxiliares del transporte "
+    },
+    {
+      "codigo": "58",
+      "descripcion": "Edición"
+    },
+    {
+      "codigo": "85",
+      "descripcion": "Educación"
+    },
+    {
+      "codigo": "05",
+      "descripcion": "Extracción de antracita, hulla, y lignito"
+    },
+    {
+      "codigo": "06",
+      "descripcion": "Extracción de crudo de petróleo y gas natural"
+    },
+    {
+      "codigo": "07",
+      "descripcion": "Extracción de minerales metálicos"
+    },
+    {
+      "codigo": "11",
+      "descripcion": "Fabricación de bebidas"
+    },
+    {
+      "codigo": "28",
+      "descripcion": "Fabricación de maquinaria y equipo n.c.o.p."
+    },
+    {
+      "codigo": "27",
+      "descripcion": "Fabricación de material y equipo eléctrico"
+    },
+    {
+      "codigo": "31",
+      "descripcion": "Fabricación de muebles"
+    },
+    {
+      "codigo": "30",
+      "descripcion": "Fabricación de otro material de transporte"
+    },
+    {
+      "codigo": "23",
+      "descripcion": "Fabricación de otros productos minerales no metálicos"
+    },
+    {
+      "codigo": "22",
+      "descripcion": "Fabricación de productos de caucho y plásticos"
+    },
+    {
+      "codigo": "21",
+      "descripcion": "Fabricación de productos farmacéuticos"
+    },
+    {
+      "codigo": "26",
+      "descripcion": "Fabricación de productos informáticos, electrónicos y ópticos"
+    },
+    {
+      "codigo": "25",
+      "descripcion": "Fabricación de productos metálicos, excepto maquinaria y equipo"
+    },
+    {
+      "codigo": "29",
+      "descripcion": "Fabricación de vehículos de motor, remolques y semirremolques"
+    },
+    {
+      "codigo": "10",
+      "descripcion": "Industria alimentaria"
+    },
+    {
+      "codigo": "16",
+      "descripcion": "Industria de la madera y del corcho, excepto muebles; cestería y espartería"
+    },
+    {
+      "codigo": "15",
+      "descripcion": "Industria del cuero y productos relacionados de otros materiales"
+    },
+    {
+      "codigo": "17",
+      "descripcion": "Industria del papel"
+    },
+    {
+      "codigo": "12",
+      "descripcion": "Industria del tabaco"
+    },
+    {
+      "codigo": "20",
+      "descripcion": "Industria química"
+    },
+    {
+      "codigo": "13",
+      "descripcion": "Industria textil"
+    },
+    {
+      "codigo": "63",
+      "descripcion": "Infraestructura informática, tratamiento de datos, alojamiento de datos y otras actividades de servicios de información"
+    },
+    {
+      "codigo": "42",
+      "descripcion": "Ingeniería civil"
+    },
+    {
+      "codigo": "72",
+      "descripcion": "Investigación y desarrollo"
+    },
+    {
+      "codigo": "24",
+      "descripcion": "Metalurgia"
+    },
+    {
+      "codigo": "74",
+      "descripcion": "Otras actividades profesionales, científicas y técnicas"
+    },
+    {
+      "codigo": "08",
+      "descripcion": "Otras industrias extractivas"
+    },
+    {
+      "codigo": "32",
+      "descripcion": "Otras industrias manufactureras"
+    },
+    {
+      "codigo": "03",
+      "descripcion": "Pesca y acuicultura"
+    },
+    {
+      "codigo": "59",
+      "descripcion": "Producción cinematográfica, de vídeo y de programas de televisión, grabación de sonido y edición musical"
+    },
+    {
+      "codigo": "62",
+      "descripcion": "Programación, consultoría y otras actividades relacionadas con la informática"
+    },
+    {
+      "codigo": "37",
+      "descripcion": "Recogida y tratamiento de aguas residuales"
+    },
+    {
+      "codigo": "33",
+      "descripcion": "Reparación, mantenimiento e instalación de maquinaria y equipos"
+    },
+    {
+      "codigo": "95",
+      "descripcion": "Reparación y mantenimiento de ordenadores, artículos personales y enseres domésticos y vehículos de motor y motocicletas"
+    },
+    {
+      "codigo": "65",
+      "descripcion": "Seguros, reaseguros y planes de pensiones, excepto seguridad social obligatoria"
+    },
+    {
+      "codigo": "81",
+      "descripcion": "Servicios a edificios y actividades de jardinería"
+    },
+    {
+      "codigo": "55",
+      "descripcion": "Servicios de alojamiento"
+    },
+    {
+      "codigo": "56",
+      "descripcion": "Servicios de comidas y bebidas"
+    },
+    {
+      "codigo": "80",
+      "descripcion": "Servicios de investigación y seguridad"
+    },
+    {
+      "codigo": "64",
+      "descripcion": "Servicios financieros, excepto seguros y fondos de pensiones"
+    },
+    {
+      "codigo": "96",
+      "descripcion": "Servicios personales"
+    },
+    {
+      "codigo": "71",
+      "descripcion": "Servicios técnicos de arquitectura e ingeniería; ensayos y análisis técnicos"
+    },
+    {
+      "codigo": "02",
+      "descripcion": "Silvicultura y explotación forestal"
+    },
+    {
+      "codigo": "35",
+      "descripcion": "Suministro de energía eléctrica, gas, vapor y aire acondicionado"
+    },
+    {
+      "codigo": "61",
+      "descripcion": "Telecomunicaciones"
+    },
+    {
+      "codigo": "51",
+      "descripcion": "Transporte aéreo"
+    },
+    {
+      "codigo": "50",
+      "descripcion": "Transporte marítimo y por vías navegables interiores"
+    },
+    {
+      "codigo": "49",
+      "descripcion": "Transporte terrestre y por tubería"
+    }
+  ],
+  "apply_url": null,
+  "details_url": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatoria/923651",
+  "documents": [
+    {
+      "label": "Texto en otra lengua de la convocatoria",
+      "url": null
+    },
+    {
+      "label": "Texto en castellano de la convocatoria",
+      "url": null
+    }
+  ],
+  "bases_reguladoras_url": "https://santiagodecompostela.gal",
+  "text_inicio": "A partir do día seguinte ao da publicación do extracto da convocatoria no BOP A Coruña",
+  "text_fin": "1 de outubro de 2026",
+  "se_publica_diario_oficial": true,
+  "ayuda_estado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectores_productos": [],
+  "anuncios": [
+    {
+      "numAnuncio": 218773,
+      "titulo": "Acuerdo de fecha 27 de julio de 2026 de la Junta de Gobierno Local del Ayuntamiento de Santiago de Compostela por el que se aprueban las bases reguladoras y convocatoria de ayudas destinadas a apoyar a las empresas de Economía Social de Santiago de Compostela 2026",
+      "tituloLeng": null,
+      "texto": "<p>TÍTULO:\nExtracto del Acuerdo de fecha 27/07/2026 de la Junta de Gobierno Local del Ayuntamiento de Santiago de Compostela por el que se aprueban las bases reguladoras y convocatoria de AYUDAS DESTINADAS A APOYAR A LAS EMPRESAS DE ECONOMÍA SOCIAL DE SANTIAGO DE COMPOSTELA 2026\n\nTexto\nDe conformidad con lo previsto en los artículos 17.3.b y 20.8. de la Ley 38/2003, de 17 de noviembre, General de Subvenciones, se publica el extracto de la CONVOCATORIA DE SUBVENCIONES DESTINADAS A APOYAR A LAS EMPRESAS DE ECONOMÍA SOCIAL DE SANTIAGO DE COMPOSTELA 2026 cuyo texto completo puede consultarse en la Base de datos Nacional de Subvenciones https://www.pap.hacienda.gob.es/bdnstrans/GE/es/convocatorias\n\nPrimero-- Objeto y finalidad\n1.1 Objeto\nSe establecen las bases reguladoras de las “Ayudas a empresas de Economía Social” para la concesión, en régimen de concurrencia competitiva, de ayudas destinadas a la consolidación y el mantenimiento de pequeñas y medianas empresas con forma jurídica de cooperativa, sociedad laboral, centro especial de empleo o empresa de inserción definidas como tales según lo establecido en la Ley de Economía Social de Galicia. \n1.2 Finalidad\nLa finalidad de estas ayudas es contribuir a la consolidación y desarrollo del tejido empresarial en el Ayuntamiento apoyando a pequeñas y medianas empresas de economía social mediante ayudas al gasto corriente en el que incurren para desarrollar su actividad empresarial.\nSegundo-- Personas beneficiarias\nPodrán resultar beneficiarios de las ayudas previstas en esta convocatoria las pequeñas y medianas empresas con forma jurídica de cooperativas, sociedades laborales, centros especiales de empleo, y empresas de inserción (definida cómo tal según lo establecido en la Ley de economía Social de Galicia), que cumplan los siguientes requisitos: \n•\tTener iniciada la actividad el 1 de enero de 2026 o bien iniciarla dentro del período subvencionable, y mantenerse en activo durante el año de la convocatoria. \n•\tA los efectos de este programa se entiende como fecha de inicio de actividad aquella en la que la persona solicitante cause alta en el IAE o, en su caso, en el censo de obligados tributarios. \n•\tTener su sede social, fiscal y, por lo menos, un centro de trabajo, en el Ayuntamiento de Santiago. \n•\tQue su actividad empresarial sea viable económica, financiera y técnicamente. \nNo podrán ser beneficiarias aquellas empresas participadas por alguna Administración Pública.\nTercero--Bases reguladoras. \nBases de ejecución del presupuesto del Ayuntamiento de Santiago de Compostela vigentes, y las bases reguladoras incorporadas a esta Convocatoria. \nCuarto--Cuantía de la subvención\nLa cuantía de la subvención será la menor entre las siguientes:\n•\tEl 80% de los gastos subvencionables debidamente justificados, con un tope máximo, por beneficiario, de 5.000 euros.\n•\tLa resultante de la aplicación de la siguiente fórmula:\nImporte por beneficiario=(Puntos conseguidos por el beneficiario/total de puntos de los beneficiarios) x 140.000€\nEn caso de existir remanente en la partida presupuestaria, este se repartirá entre los beneficiarios cuya ayuda inicial no alcanzara el 80% de los gastos subvencionables debidamente justificados, con un tope máximo, por beneficiario, de 5.000 euros de forma proporcional a la puntuación obtenida. En este caso se aplicaría la siguiente fórmula:\nImporte del remanente por beneficiario = (Puntos conseguidos por el beneficiario / total de puntos de los beneficiarios) x remanente total\nEl importe final de la subvención, no podrá superar el importe máximo de 5.000 euros por beneficiario, ni el importe total del 80% de los gastos subvencionables debidamente justificados. \nEn ningún caso el importe de las ayudas concedidas a cargo de esta convocatoria podrá ser de tal cuantía que, aisladamente o en concurrencia con las concedidas por otras administraciones o entes públicos o personales, nacionales o internacionales, supere el costo total de la actividad que vaya a desarrollar el beneficiario.\nQuinto: Plazo de presentación de solicitudes y justificación\nEl plazo general de presentación de solicitudes y justificación comenzará a partir del siguiente al de la publicación del extracto de esta convocatoria en el boletín oficial de la provincia (BOP) de A Coruña y finalizará el 1 de octubre de 2026. \nJunto con la solicitud deberá presentarse toda la documentación precisa para adoptar la correspondiente resolución de concesión y aprobación de la justificación de la ayuda a conceder, en su caso, por lo que el plazo de justificación coincide con el de presentación de solicitudes.\nEl Formulario normalizado CS006ES, dispone de un apartado específico para declarar la relación de las facturas y gastos de personal que se presentan para justificar la subvención solicitada.\nSi existen otras subvenciones para los mismos gastos para los que se solicita la presente ayuda, el importe que es necesario justificar será la suma de todas las subvenciones concedidas para los mismos.\nSexto--Otros datos.\nConsulte las bases completas de la convocatoria en la web de la Base de datos Nacional de Subvenciones: https://www.pap.hacienda.gob.es/bdnstrans/GE/es/convocatorias, en la página web del Ayuntamiento de Santiago de Compostela http://www.santiagodecompostela.gal/ y en la página web del CERSIA www.cersiaempresa. gal.\n\nMaría Rozas Pérez\nConcejala de Derechos y Servicios Sociales, Promoción Económica y Juventud. Primera tenienta de Alcaldesa.\n \nTÍTULO:\nExtracto do Acordo de data 27/07/2026 da Xunta de Goberno Local do Concello de Santiago de Compostela polo que se aproban as bases reguladoras e convocatoria de AXUDAS DESTINADAS A APOIAR ÁS EMPRESAS DE ECONOMÍA SOCIAL DE SANTIAGO DE COMPOSTELA 2026\n\nTexto\nDe conformidade co previsto nos artigos 17.3.b e 20.8.a de a Lei 38/2003, de 17 de novembro, Xeneral de Subvencións, publícase o extracto da CONVOCATORIA SUBVENCIÓNS DESTINADAS A APOIAR ÁS EMPRESAS DE ECONOMÍA SOCIAL DE SANTIAGO DE COMPOSTELA 2026 cuxo texto completo pode consultarse na Base de Datos Nacional de Subvencións (https://www.pap.hacienda.gob.es/bdnstrans/GE/es/convocatorias):\n\nPrimeiro- Obxecto e finalidade\n1.1 Obxecto\nEstablécense as bases reguladoras das “Axudas a empresas de Economía Social” para a concesión, en réxime de concorrencia competitiva, de axudas destinadas á consolidación e o mantemento de pequenas y medianas empresas con forma xurídica de cooperativa, sociedade laboral, centro especial de emprego ou empresa de inserción definida como tal segundo o establecido na Lei de Economía Social de Galicia. \n1.2 Finalidade\nA finalidade destas axudas é contribuír á consolidación e desenvolvemento do tecido empresarial no Concello apoiando a pequenas e medianas empresas de economía social mediante axudas ao gasto corrente no que incorren para desenvolver a súa actividade empresarial.\nSegundo- Persoas beneficiarias\nPoderán resultar beneficiarios das axudas previstas nesta convocatoria as pequenas e medianas empresas con forma xurídica de cooperativas, sociedades laborais, centros especiais de emprego, e empresas de inserción (definidas como tal segundo o establecido na Lei de Economía Social de Galicia), que cumpran os seguintes requisitos: \n•\tTer iniciada a actividade o 1 de xaneiro de 2026 ou ben iniciala dentro do período subvencionable, e manterse en activo durante o ano da convocatoria. \n•\tPara os efectos deste programa enténdese como data de inicio de actividade aquela en a que a persoa solicitante cause alta no IAE ou, no seu caso, no censo de obrigados tributarios. \n•\tTer a súa sede social, fiscal e, polo menos, un centro de traballo, no Concello de Santiago. \n•\tQue a súa actividade empresarial sexa viable económica, financeira e tecnicamente. \nNon poderán ser beneficiarias aquelas empresas participadas por algunha Administración Pública. \nTerceiro--Bases reguladoras. \nBases de execución do orzamento do Concello de Santiago de Compostela vixentes, e as bases reguladoras incorporadas a esta Convocatoria. \nCuarto--Contía da subvención\nA contía de subvención será a menor entre as seguintes:\n•\tO 80% dos gastos subvencionables debidamente xustificados, cun tope máximo, por beneficiario, de 5.000 euros.\n•\tA resultante da aplicación da seguinte fórmula:\nImporte por beneficiario= (Puntos conseguidos polo beneficiario/total de puntos dos beneficiarios) x 140.000€\nEn caso de existir remanente na partida orzamentaria, este repartirase entre os beneficiarios cuxa axuda inicial non acadase o 80% dos gastos subvencionables debidamente xustificados, cun tope máximo, por beneficiario, de 5.000 euros de forma proporcional á puntuación obtida. Neste caso aplicaríase a seguinte fórmula:\nImporte do remanente por beneficiario=(Puntos conseguidos polo beneficiario/total de puntos dos beneficiarios) x remanente total.\nO importe final da subvención, non poderá superar o importe máximo de 5.000 euros por beneficiario, nin o importe total do 80% dos gastos subvencionables debidamente xustificados. \nEn ningún caso o importe das axudas concedidas a cargo desta convocatoria poderá ser de tal contía que, illadamente ou en concorrencia coas concedidas por outras administracións ou entes públicos ou privados, nacionais ou internacionais, supere o custo total da actividade que vaia a desenvolver o beneficiario.\nQuinto: Prazo de presentación de solicitudes e xustificación\nO prazo xeral de presentación de solicitudes e xustificación comezará a partir do día seguinte ao da publicación do extracto desta convocatoria no boletín oficial da provincia (BOP) da Coruña e rematará o 1 de outubro de 2026\nXunto coa solicitude deberá achegarse toda a documentación precisa para adoptar a correspondente resolución de concesión e a aprobación da xustificación da axuda a conceder, no seu caso, polo que o prazo de xustificación coincide co de presentación de solicitudes.\nO formulario normalizado CS006ES, dispón dun apartado específico para declarar a relación das facturas e gastos de persoal que se presentan para xustificar a subvención solicitada.\nSe existen outras subvencións para os mesmos gastos para os que se solicita a presente axuda, o importe que compre xustificar será a suma de todas as subvencións concedidas para os mesmos.\nSexto--Outros datos.\nConsulte as bases completas da convocatoria na web da Base de Datos Nacional de Subvencións: https://www.pap.hacienda.gob.es/bdnstrans/GE/es/convocatorias, na páxina web do Concello de Santiago de Compostela http://www.santiagodecompostela.gal/ e páxina web do CERSIA www.cersiaempresa. gal.\n\nMaría Rozas Pérez\nConcelleira de Dereitos e Servizos Sociais, Promoción Económica e Xuventude. Primeira Tenenta de Alcaldesa.</p>",
+      "textoLeng": null,
+      "url": "https://bop.dacoruna.gal/bopportal/descargarPdf.do?fecha=20260811&numRegistro=2026/0000005220.pdf",
+      "cve": "2026/5220",
+      "desDiarioOficial": "B.O.P. DE A CORUÑA",
+      "datPublicacion": "2026-08-11"
+    }
+  ],
+  "mrr_flag": false,
+  "fetchedAt": "2026-08-12T18:13:53.502Z"
+}

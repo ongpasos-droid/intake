@@ -1,0 +1,82 @@
+{
+  "source": "bdns",
+  "source_id": "921706",
+  "source_lang": "es",
+  "level": "ccaa",
+  "programme": "Concesión directa - canónica",
+  "sub_programme": null,
+  "publishing_authority_code": "AUTONOMICA / CATALUÑA / CONSORCIO DE LA VIVIENDA DE BARCELONA",
+  "nuts_codes": [
+    "ES511"
+  ],
+  "nuts_primary": "ES511",
+  "title": "CONVOCATORIA PARA LA CONCESIÓN DE SUBVENCIONES A LA REHABILITACIÓN Y MEJORA DE LAS VIVIENDAS EN LA CIUDAD DE BARCELONA",
+  "title_lang": "es",
+  "summary": "Acceso a la vivienda y fomento de la edificación",
+  "status": "open",
+  "publication_date": "2026-07-27",
+  "open_date": null,
+  "deadline": "2026-12-31",
+  "deadline_model": "continuous",
+  "deadlines_extra": null,
+  "budget_total_eur": 6000000,
+  "budget_per_project_min_eur": null,
+  "budget_per_project_max_eur": null,
+  "expected_grants": null,
+  "cofinancing_pct": null,
+  "duration_months": null,
+  "audience": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA; PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA",
+  "eligible_orgs": [
+    "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA",
+    "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+  ],
+  "eligible_countries": [
+    "ES"
+  ],
+  "sectores": [
+    {
+      "codigo": "78",
+      "descripcion": "Actividades relacionadas con el empleo"
+    },
+    {
+      "codigo": "91.3",
+      "descripcion": "Conservación, restauración y otras actividades de apoyo al patrimonio cultural"
+    },
+    {
+      "codigo": "41.0",
+      "descripcion": "Construcción de edificios"
+    },
+    {
+      "codigo": "43.9",
+      "descripcion": "Otras actividades de construcción especializada"
+    },
+    {
+      "codigo": "71",
+      "descripcion": "Servicios técnicos de arquitectura e ingeniería; ensayos y análisis técnicos"
+    }
+  ],
+  "apply_url": "https://habitatge.barcelona/ca   i   http://www.bcn.cat/consorcihabitatge/ca/home.html",
+  "details_url": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatoria/921706",
+  "documents": [
+    {
+      "label": "Texto en otra lengua de la convocatoria",
+      "url": null
+    },
+    {
+      "label": "Texto en castellano de la convocatoria",
+      "url": null
+    }
+  ],
+  "bases_reguladoras_url": "https://dogc.gencat.cat/es/document-del-dogc/index.html?documentId=900131",
+  "text_inicio": "Des de l’endemà de la publicació en el diari oficial de la convocatòria inicial",
+  "text_fin": null,
+  "se_publica_diario_oficial": true,
+  "ayuda_estado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectores_productos": [],
+  "anuncios": [],
+  "mrr_flag": false,
+  "fetchedAt": "2026-08-12T18:13:53.115Z"
+}

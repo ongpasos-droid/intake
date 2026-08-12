@@ -1,0 +1,84 @@
+{
+  "id": 1125352,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "DIPUTACIÓN PROV. DE A CORUÑA",
+    "nivel3": "DIPUTACIÓN PROVINCIAL DE CORUÑA, A"
+  },
+  "sedeElectronica": "https://sede.dacoruna.gal/",
+  "codigoBDNS": "923791",
+  "fechaRecepcion": "2026-08-06",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 24000,
+  "mrr": false,
+  "descripcion": "XXXIV Copa Diputación de la Coruña de Fútbol Aficionado. (PREM-FA/2026)",
+  "descripcionLeng": "XXXIV Copa Deputación da Coruña de fútbol afeccionado. (PREM-FA/2026)",
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "ACTIVIDADES ADMINISTRATIVAS Y SERVICIOS AUXILIARES",
+      "codigo": "O"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES111 - A Coruña"
+    }
+  ],
+  "descripcionFinalidad": "Otras actuaciones de carácter económico",
+  "descripcionBasesReguladoras": "Ordenanza general de subvenciones y transferencias de la Diputación Provincial de A Coruña",
+  "urlBasesReguladoras": "https://bop.dacoruna.gal/bopportal/publicado/2025/09/29/2025_0000006296.pdf",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": null,
+  "fechaFinSolicitud": null,
+  "textInicio": "Al día siguiente de la publicación del extracto en el BOP",
+  "textFin": "Siete (7) días naturales antes de la correspondiente competición",
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1506094,
+      "descripcion": "Documento de la convocatoria en lengua cooficial",
+      "nombreFic": "Bases e convocatoria PREM-FA - 2026.pdf",
+      "long": 257170,
+      "datMod": "2026-08-06",
+      "datPublicacion": "2026-08-06"
+    },
+    {
+      "id": 1506093,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "Bases y convocatoria PREM-FA - 2026.pdf",
+      "long": 257170,
+      "datMod": "2026-08-06",
+      "datPublicacion": "2026-08-06"
+    }
+  ],
+  "anuncios": [
+    {
+      "numAnuncio": 218827,
+      "titulo": "Extracto de la Resolución número 29173, de 30 de junio de 2026 de la Presidencia de la Diputación de A Coruña, por la que se convocan ayudas destinadas a la XXXIV Copa Diputación de la Coruña de Fútbol Aficionado (PREM-FA/2026)",
+      "tituloLeng": "Extracto da Resolución número 29173, do 30 de xuño de 2026 da Presidencia da Deputación da Coruña, pola que se convocan axudas destinadas á XXXIV Copa Deputación da Coruña de fútbol afeccionado  (PREM-FA/2026)",
+      "texto": "<p>Primero. Beneficiarios</p><p>Equipos de la categoría aficionados, masculina y femenina, ganadores de las Copas Oficiales de la Real Federación Gallega de Fútbol en la provincia de A Coruña.</p><p>Segundo. Objeto</p><p>La “XXXIV Copa Deputación da Coruña de Fútbol Afeccionado” tiene por objeto:</p><p>- Promover la actividad física y el deporte entre la población.</p><p>- Impulsar la cohesión social y la participación ciudadana en la provincia, utilizando el deporte como instrumento de integración y dinamización.</p><p>- Promover la provincia y sus municipios como territorios activos, contribuyendo a su desarrollo económico y social a través del deporte.</p><p>Tercero. Bases reguladoras</p><p>La presente convocatoria se regirá por las Bases reguladoras publicadas en el BOP número 131 del 14 de julio de 2026 disponibles en:</p><p>https://bop.dacoruna.gal/bopportal/publicado/2026/07/14/2026_0000004680.pdf</p><p>Cuarto. Cuantía</p><p>Se destinará un importe total de 24.000 € en premios a los equipos participantes, distribuidos de la siguiente manera:</p><p>Equipo campeón masculino: 5.000 €</p><p>Equipo campeón femenino: 5.000 €</p><p>Equipo subcampeón masculino: 4.000 €</p><p>Equipo subcampeón femenino: 4.000 €</p><p>Equipo participante perdedor en la 1ª semifinal masculina: 1.500,00 €</p><p>Equipo participante perdedor en la 2ª semifinal masculina: 1.500,00 €</p><p>Equipo participante perdedor en la 1ª semifinal femenina: 1.500€</p><p>Equipo participante perdedor en la 2ª semifinal femenina: 1.500 €</p><p>Quinto. Plazo de presentación de solicitudes</p><p>El plazo de presentación de solicitudes comenzará al día siguiente de la publicación del extracto de esta convocatoria en el Boletín Oficial da Provincia da Coruña, a través de la Base de Datos Nacional de Subvenciones (BDNS) y finalizará siete (7) días naturales antes de la correspondiente competición, a través de la plataforma habilitada para tal fin por la Real Federación Gallega de Fútbol.</p>",
+      "textoLeng": "<p>Primeiro. Beneficiarios</p><p>Equipos da categoría afeccionados, masculina e femenina, gañadores das Copas Oficiais da Real Federación Galega de Fútbol na provincia da Coruña.</p><p>Segundo. Obxecto</p><p>A XXXIV Copa Deputación da Coruña de Fútbol Afeccionado ten por obxecto:</p><p>- Promover a actividade física e o deporte entre a poboación.</p><p>- Impulsar a cohesión social e a participación cidadá na provincia, utilizando o deporte como instrumento de integración e dinamización.</p><p>- Promover a provincia e os seus municipios como territorios activos, contribuíndo ao seu desenvolvemento económico e social a través do deporte.</p><p>Terceiro. Bases reguladoras</p><p>A presente convocatoria rexerase polas Bases reguladoras publicadas no BOP número 131 do 14 de xullo de 2026 dispoñibles en:</p><p>https://bop.dacoruna.gal/bopportal/publicado/2026/07/14/2026_0000004680.pdf</p><p>Cuarto. Contía</p><p>Destinarase un importe total de 24.000 € en premios aos equipos participantes, distribuídos da seguinte maneira:</p><p>Equipo Campión masculino: 5.000 €</p><p>Equipo Campión feminino: 5.000 €</p><p>Equipo Subcampión masculino: 4.000 €</p><p>Equipo Subcampión feminino: 4.000 €</p><p>Equipo participante perdedor na 1ª semifinal masculina: 1.500,00 €</p><p>Equipo participante perdedor na 2ª semifinal masculina: 1.500,00 €</p><p>Equipo participante perdedor na 1ª semifinal feminina: 1.500€</p><p>Equipo participante perdedor na 2ª semifinal feminina: 1.500 €</p><p>Quinto. Prazo de presentación de solicitudes</p><p>O prazo de presentación de solicitudes comezará ao día seguinte da publicación do extracto desta convocatoria no Boletín Oficial da Provincia da Coruña, a través da Base de Datos Nacional de Subvencións (BDNS) e rematará sete (7) días naturais antes da correspondente competición, a través da plataforma habilitada para tal fin pola Real Federación Galega de Fútbol.</p>",
+      "url": "https://bop.dacoruna.gal/bopportal/descargarPdf.do?fecha=20260811&numRegistro=2026/0000005246.pdf",
+      "cve": "2026/5246",
+      "desDiarioOficial": "B.O.P. DE A CORUÑA",
+      "datPublicacion": "2026-08-11"
+    }
+  ],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

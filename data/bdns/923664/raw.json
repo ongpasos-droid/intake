@@ -1,0 +1,91 @@
+{
+  "id": 1125225,
+  "organo": {
+    "nivel1": "AUTONOMICA",
+    "nivel2": "GALICIA",
+    "nivel3": "CONSELLERÍA DEL MAR"
+  },
+  "sedeElectronica": null,
+  "codigoBDNS": "923664",
+  "fechaRecepcion": "2026-08-05",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 800000,
+  "mrr": false,
+  "descripcion": "ORDEN de 29 de julio de 2026 por la que se establecen las bases reguladoras generales y la convocatoria para el año 2026 para la concesión, en régimen de concurrencia no competitiva, de ayudas a proyectos que permitan paliar las pérdidas por mortalidad de",
+  "descripcionLeng": null,
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    },
+    {
+      "descripcion": "PYME Y PERSONAS FÍSICAS QUE DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "Pesca",
+      "codigo": "03.1"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES11 - GALICIA"
+    }
+  ],
+  "descripcionFinalidad": "Agricultura, Pesca y Alimentación",
+  "descripcionBasesReguladoras": "ORDEN de 29 de julio de 2026 por la que se establecen las bases reguladoras generales y la convocatoria para el año 2026 para la concesión, en régimen de concurrencia no competitiva, de ayudas a proyectos que permitan paliar las pérdidas por mortalidad de",
+  "urlBasesReguladoras": "https://www.xunta.gal/dog/Publicados/2023/20231016/AnuncioG0427-061023-0001_es.html",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": "2026-08-14",
+  "fechaFinSolicitud": "2026-09-14",
+  "textInicio": null,
+  "textFin": null,
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1505637,
+      "descripcion": "Texto en castellano de la convocatoria",
+      "nombreFic": "Orden mortandad de moluscos PE209Q_20260805_143437.pdf",
+      "long": 137479,
+      "datMod": "2026-08-05",
+      "datPublicacion": "2026-08-05"
+    },
+    {
+      "id": 1505640,
+      "descripcion": "Anexos galego",
+      "nombreFic": "PE209Q-Gal_20260805_143618.pdf",
+      "long": 378499,
+      "datMod": "2026-08-05",
+      "datPublicacion": "2026-08-05"
+    },
+    {
+      "id": 1505639,
+      "descripcion": "Anexos castelán",
+      "nombreFic": "PE209Q-Cast_20260805_143543.pdf",
+      "long": 380410,
+      "datMod": "2026-08-05",
+      "datPublicacion": "2026-08-05"
+    },
+    {
+      "id": 1505638,
+      "descripcion": "Texto en otra lengua de la convocatoria",
+      "nombreFic": "Orde mortandade de moluscos PE209Q_20260805_143510.pdf",
+      "long": 134630,
+      "datMod": "2026-08-05",
+      "datPublicacion": "2026-08-05"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

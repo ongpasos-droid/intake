@@ -1,0 +1,84 @@
+{
+  "id": 1125424,
+  "organo": {
+    "nivel1": "AUTONOMICA",
+    "nivel2": "GALICIA",
+    "nivel3": "CONSELLERÍA DE POLÍTICA SOCIAL E IGUALDAD"
+  },
+  "sedeElectronica": null,
+  "codigoBDNS": "923863",
+  "fechaRecepcion": "2026-08-06",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 1537809.19,
+  "mrr": false,
+  "descripcion": "ORDEN AT TEMPRANA 2026-2028-Orden de 22 de julio de 2026 por la que se establecen las bases reguladoras para la concesión de subvenciones a las entidades locales de la Comunidad Autónoma de Galicia para la prestación de servicios en el marco de la Red gal",
+  "descripcionLeng": "ORDEN AT TEMPRANA 2026-2028-Orden de 22 de julio de 2026 por la que se establecen las bases reguladoras para la concesión de subvenciones a las entidades locales de la Comunidad Autónoma de Galicia para la prestación de servicios en el marco de la Red gal",
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "Actividades de servicios sociales sin alojamiento",
+      "codigo": "88"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES11 - GALICIA"
+    }
+  ],
+  "descripcionFinalidad": "Servicios Sociales y Promoción Social",
+  "descripcionBasesReguladoras": "ORDEN AT TEMPRANA 2026-2028-Orden de 22 de julio de 2026 por la que se establecen las bases reguladoras para la concesión de subvenciones a las entidades locales de la Comunidad Autónoma de Galicia para la prestación de servicios en el marco de la Red gal",
+  "urlBasesReguladoras": "WWW.XUNTA.ES",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": "2026-08-10",
+  "fechaFinSolicitud": "2026-09-10",
+  "textInicio": "10/08/2026",
+  "textFin": "10/09/2026",
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [
+    {
+      "descripcion": "FSE+ - FONDO SOCIAL EUROPEO PLUS"
+    }
+  ],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1506293,
+      "descripcion": "Texto en castellano de la convocatoria",
+      "nombreFic": "01Orde AT 202-2026 formato DOG castelán_20260806_123325.pdf",
+      "long": 431946,
+      "datMod": "2026-08-06",
+      "datPublicacion": "2026-08-06"
+    },
+    {
+      "id": 1506295,
+      "descripcion": "ANEXOS-ORDEN AT TEMPRANA 2026-2028-Orden de 22 de julio de 2026 por la que se establecen las bases reguladoras para la concesión de subvenciones a las entidades locales de la Comunidad Autónoma de Galicia para la prestación de servicios en el",
+      "nombreFic": "BS700A  ANEXOS _20260806_123115.pdf",
+      "long": 596809,
+      "datMod": "2026-08-06",
+      "datPublicacion": "2026-08-06"
+    },
+    {
+      "id": 1506294,
+      "descripcion": "Texto en otra lengua de la convocatoria",
+      "nombreFic": "01.Orde AT 202-2026 formato DOG galego_20260806_123347.pdf",
+      "long": 422661,
+      "datMod": "2026-08-06",
+      "datPublicacion": "2026-08-06"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

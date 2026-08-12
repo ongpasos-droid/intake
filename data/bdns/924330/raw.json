@@ -1,0 +1,64 @@
+{
+  "id": 1125891,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "CARTAGENA",
+    "nivel3": "AYUNTAMIENTO DE CARTAGENA"
+  },
+  "sedeElectronica": "https://www.cartagena.es/becas_ayudas_subvenciones.asp?c=29&texto=&organismo=3",
+  "codigoBDNS": "924330",
+  "fechaRecepcion": "2026-08-10",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 220000,
+  "mrr": false,
+  "descripcion": "EDU Concesion de subvenciones a centros sostenidos con fondos publicos por el procedimiento de concurrencia competitiva para la realizacion de una experiencia de presupuestos participativos en centros edcativos ene el curso academico 2026-2027",
+  "descripcionLeng": null,
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "Educación",
+      "codigo": "85"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES62 - REGION DE MURCIA"
+    }
+  ],
+  "descripcionFinalidad": "Educación",
+  "descripcionBasesReguladoras": "Ley 38/2003, de 17 de noviembre, General de Subvenciones LGS y Bases de ejecución del presupuesto",
+  "urlBasesReguladoras": "https://www.boe.es/buscar/pdf/2003/BOE-A-2003-20977-consolidado.pdf",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": null,
+  "fechaFinSolicitud": null,
+  "textInicio": "Al dia siguiente de su publicacion en eel BORM",
+  "textFin": "Un mes desde de su publicacion",
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1507554,
+      "descripcion": "Texto en castellano de la convocatoria",
+      "nombreFic": "CERTIFICADO JG BASES.pdf",
+      "long": 735836,
+      "datMod": "2026-08-10",
+      "datPublicacion": "2026-08-10"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

@@ -1,0 +1,84 @@
+{
+  "source": "bdns",
+  "source_id": "923958",
+  "source_lang": "es",
+  "level": "ccaa",
+  "programme": "Concurrencia competitiva - canónica",
+  "sub_programme": null,
+  "publishing_authority_code": "AUTONOMICA / PRINCIPADO DE ASTURIAS / SERVICIO PÚBLICO DE EMPLEO DEL PRINCIPADO DE ASTURIAS",
+  "nuts_codes": [
+    "ES120"
+  ],
+  "nuts_primary": "ES120",
+  "title": "Convocatoria para la concesión de subvenciones para las Unidades de Apoyo a la actividad profesional de los Centros Especiales de Empleo Convocatoria 2025 2026 (Julio 2026 a Junio 2027)",
+  "title_lang": "es",
+  "summary": "Fomento del Empleo",
+  "status": "open",
+  "publication_date": "2026-08-06",
+  "open_date": null,
+  "deadline": null,
+  "deadline_model": "continuous",
+  "deadlines_extra": null,
+  "budget_total_eur": 660000,
+  "budget_per_project_min_eur": null,
+  "budget_per_project_max_eur": null,
+  "expected_grants": null,
+  "cofinancing_pct": null,
+  "duration_months": null,
+  "audience": "PYME Y PERSONAS FÍSICAS QUE DESARROLLAN ACTIVIDAD ECONÓMICA",
+  "eligible_orgs": [
+    "PYME Y PERSONAS FÍSICAS QUE DESARROLLAN ACTIVIDAD ECONÓMICA"
+  ],
+  "eligible_countries": [
+    "ES"
+  ],
+  "sectores": [
+    {
+      "codigo": "53",
+      "descripcion": "Actividades postales y de mensajería"
+    },
+    {
+      "codigo": "52",
+      "descripcion": "Depósito, almacenamiento y actividades auxiliares del transporte "
+    },
+    {
+      "codigo": "81",
+      "descripcion": "Servicios a edificios y actividades de jardinería"
+    },
+    {
+      "codigo": "96",
+      "descripcion": "Servicios personales"
+    },
+    {
+      "codigo": "49",
+      "descripcion": "Transporte terrestre y por tubería"
+    }
+  ],
+  "apply_url": null,
+  "details_url": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatoria/923958",
+  "documents": [
+    {
+      "label": "Texto en castellano de la convocatoria",
+      "url": null
+    }
+  ],
+  "bases_reguladoras_url": "https://sede.asturias.es/bopa/2024/10/14/2024-08774.pdf",
+  "text_inicio": "DIA SIGUIENTE PUBLICACION EXTRACTO EN BOPA",
+  "text_fin": "10 DÍAS HÁBILES",
+  "se_publica_diario_oficial": true,
+  "ayuda_estado": "SA.116265",
+  "fondos": [],
+  "reglamento": {
+    "descripcion": "REG (UE) 651/2014, DE 17 DE JUNIO, de exención de notificación",
+    "orden": null
+  },
+  "objetivos": [
+    {
+      "descripcion": "ART. 34 AYUDAS AL EMPLEO. PARA COMPENSAR LOS COSTES ADICIONALES DEL EMPLEO DE TRABAJADORES CON DISCAPACIDAD."
+    }
+  ],
+  "sectores_productos": [],
+  "anuncios": [],
+  "mrr_flag": false,
+  "fetchedAt": "2026-08-12T18:13:53.565Z"
+}

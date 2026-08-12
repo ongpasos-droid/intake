@@ -1,0 +1,82 @@
+{
+  "id": 1124501,
+  "organo": {
+    "nivel1": "AUTONOMICA",
+    "nivel2": "REGIÓN DE MURCIA",
+    "nivel3": "SERVICIO REGIONAL DE EMPLEO Y FORMACIÓN (SEF)"
+  },
+  "sedeElectronica": "https://sede.carm.es/web/pagina?IDCONTENIDO=2242&IDTIPO=240&RASTRO=c$m40288",
+  "codigoBDNS": "922940",
+  "fechaRecepcion": "2026-07-31",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 13868166,
+  "mrr": false,
+  "descripcion": "ACCIONES FORMATIVAS 2026 (MODALIDAD 2) - FORMACIÓN PROFESIONAL PARA EL EMPLEO - EDUCACIÓN",
+  "descripcionLeng": null,
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "GRAN EMPRESA"
+    },
+    {
+      "descripcion": "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    },
+    {
+      "descripcion": "PYME Y PERSONAS FÍSICAS QUE DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "Otra educación",
+      "codigo": "85.5"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES62 - REGION DE MURCIA"
+    }
+  ],
+  "descripcionFinalidad": "Desempleo",
+  "descripcionBasesReguladoras": "Orden EFP/942/2022, de 23 de septiembre, por la que se regula la oferta formativa del sistema de Formación profesional en el ámbito laboral asociada al Catálogo Nacional de Cualificaciones Profesionales efectuada por las administraciones competentes, se e",
+  "urlBasesReguladoras": "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2022-16196",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": null,
+  "fechaFinSolicitud": "2026-09-20",
+  "textInicio": "Desde el día siguiente a la publicación de la convocatoria en BORM",
+  "textFin": null,
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1503659,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "2. 31-7-2026 Resoluc convoc mod. 2 EDUCACIÓN (COPIA).pdf",
+      "long": 1449575,
+      "datMod": "2026-07-31",
+      "datPublicacion": "2026-07-31"
+    }
+  ],
+  "anuncios": [
+    {
+      "numAnuncio": 218494,
+      "titulo": "Extracto de la Resolución de 31 de julio de 2026 de la Dirección General del SEF de convocatoria de subvenciones destinadas a la realización de acciones formativas, correspondientes a la formación de oferta dirigida a personas trabajadoras desempleadas en el ámbito de la Comunidad Autónoma de la Región de Murcia para 2026 (Educación).",
+      "tituloLeng": null,
+      "texto": "<p>Descripción de la convocatoria.</p><p>Las subvenciones que se concedan al amparo de esta convocatoria tendrán como finalidad la financiación de acciones formativas dirigidas principalmente a personas desempleadas con necesidades formativas especiales o con dificultades para su inserción por su situación de vulnerabilidad, a fomentar el empleo en sectores emergentes y la creación de empresas.</p><p>De esta manera, las acciones formativas que se financian por esta convocatoria tienen por finalidad ofrecer a los trabajadores desempleados una formación ajustada a las necesidades de formación individuales y del sistema productivo, que les permita adquirir las competencias requeridas en el mercado de trabajo y mejorar su empleabilidad, así como la subvención de acciones formativas que respondan a las necesidades de formación específicas de las empresas en atención a las demandas de cualificación provenientes de los sistemas propios de producción, de la tecnología particular que empleen o de las aplicaciones de gestión que utilicen estas empresas, entre otros aspectos, contribuyendo a la mejora de la competitividad de las empresas de la Región de Murcia al tiempo que se impulsa la inserción laboral de trabajadores desempleados.</p><p>Primero. Beneficiarios.</p><p>Podrán ser beneficiarias de estas subvenciones las entidades de formación pública o privada, acreditada en el Registro de Entidades de Formación del SEF y en el Registro Estatal de Entidades de Formación, para impartir las especialidades formativas objeto de esta convocatoria, en la modalidad presencial y con presencia en el ámbito territorial de la Región de Murcia.</p><p>Segundo. Objeto.</p><p>La presente resolución tiene por objeto convocar, en régimen de concurrencia competitiva, las subvenciones para la realización de acciones formativas dirigidas a personas trabajadoras desempleadas a desarrollar en el ámbito de la Comunidad Autónoma de la Región de Murcia para 2026.</p><p>Tercero. Bases reguladoras.</p><p>Orden EFP/942/2022, de 23 de septiembre, por la que se regula la oferta formativa del sistema de Formación profesional en el ámbito laboral asociada al Catálogo Nacional de Cualificaciones Profesionales efectuada por las administraciones competentes, se establecen bases reguladoras, así como las condiciones para su financiación.</p><p>Cuarto. Cuantía.</p><p>El importe total convocado es de 13.868.166,00 euros</p><p>Quinto. Plazo de presentación de solicitudes</p><p>El plazo de presentación de la solicitud será desde el siguiente a la publicación del extracto de esta resolución en el Boletín Oficial de la Región de Murcia hasta el 20 de septiembre de 2026.</p>",
+      "textoLeng": null,
+      "url": "https://www.borm.es/services/anuncio/ano/2026/numero/3874/pdf",
+      "cve": "A-040826-3874",
+      "desDiarioOficial": "BORM. B.O. DE LA REGIÓN DE MURCIA",
+      "datPublicacion": "2026-08-04"
+    }
+  ],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

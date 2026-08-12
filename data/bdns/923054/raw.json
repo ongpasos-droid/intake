@@ -1,0 +1,84 @@
+{
+  "id": 1124615,
+  "organo": {
+    "nivel1": "OTROS",
+    "nivel2": "UNIVERSITAT DE VALÈNCIA (ESTUDI GENERAL)",
+    "nivel3": null
+  },
+  "sedeElectronica": "https://go.uv.es/Q030eUx",
+  "codigoBDNS": "923054",
+  "fechaRecepcion": "2026-07-31",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 1500,
+  "mrr": false,
+  "descripcion": "Premios estatales de Investigación Tomás y Valiente de la Facultad de Derecho de la Universitat de València a los mejores trabajos de investigación 2026",
+  "descripcionLeng": "Premis estatals d'Investigació Tomás i Valiente de la Facultat de Dret de la Universitat de València als millors treballs d'investigació 2026",
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "Otra educación",
+      "codigo": "85.5"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES - ESPAÑA "
+    }
+  ],
+  "descripcionFinalidad": "Educación",
+  "descripcionBasesReguladoras": "Premio estatal de investigación Tomas y Valiente de la Facultad de Derecho de la Universitat de València a los mejores trabajos de investigación 2026",
+  "urlBasesReguladoras": "https://go.uv.es/qsTl8Rb",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": null,
+  "fechaFinSolicitud": null,
+  "textInicio": "Inicia al día siguiente de la publicación en el DOGV",
+  "textFin": "Finaliza el 15 de septiembre de 2026",
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1503884,
+      "descripcion": "Texto en otra lengua de la convocatoria",
+      "nombreFic": "resolucio_26_valencia_signada.pdf",
+      "long": 572373,
+      "datMod": "2026-07-31",
+      "datPublicacion": "2026-07-31"
+    },
+    {
+      "id": 1503883,
+      "descripcion": "Texto en castellano de la convocatoria",
+      "nombreFic": "resolucion_26_castellano_signada.pdf",
+      "long": 559559,
+      "datMod": "2026-07-31",
+      "datPublicacion": "2026-07-31"
+    }
+  ],
+  "anuncios": [
+    {
+      "numAnuncio": 218534,
+      "titulo": "Extracto de la Resolución por el que se convocan los \"Premios estatales de Investigación Tomás y Valiente\" de la Facultad de Derecho de la Universitat de València a los mejores trabajos de investigación 2026",
+      "tituloLeng": "Extracte de la Resolució per el que es convoquen els \"Premis estatals d'Investigació Tomás y Valiente\" de la Facultat de Dret de la Universitat de València als millors treballs d'investigació 2026",
+      "texto": "<p>Primero. Beneficiarios:\n</p><p>Estudiantes/as de doctorado que esté actualmente matriculado, como mínimo en su segundo año de doctorado dentro de un programa vinculado a las áreas de investigación jurídica, criminológica o politológica o que tenga inscrita, y no leída, la tesis doctoral en alguno de los programas que cumpla los requisitos de la base primera de esta convocatoria en alguna universidad española.\n</p><p>\n</p><p>Segundo. Objeto:\n</p><p>Fomentar la participación del estudiantado en la investigación\n</p><p>\n</p><p>Tercero. Bases reguladoras:\n</p><p>https://go.uv.es/qsTl8Rb\n</p><p>\n</p><p>Cuarto. Cuantía:\n</p><p>Se establece un 1er. premio de 1000 € y una mención especial de 500 € para la persona que, reúna los mismos requísitos pero no pertenezca al estudiantado de los programas de doctorado de la Facultat de Dret. \n</p><p>Ambos premios estaran, sujetos, si procede, a la retención del IRPF\n</p><p>\n</p><p>Quinto. Plazo de presentación de solicitudes:\n</p><p>El plazo para la presentación de solicitudes comienza al día siguiente de su publicación en el DOGV y acaba el 15 de septiembre de 2026.\n</p>",
+      "textoLeng": "<p>Primer. Beneficiaris:\n</p><p>Estudiants i estudiantes que estiguen actualment matriculats, com a mínim en el segon any de doctorat dins d’un programa vinculat a les àrees d’investigació jurídica, criminològica o politológica i en qualsevol cas, que no tinga el títol de doctor/a\n</p><p>\n</p><p>Segon. Objecte\n</p><p>Fomentar la participació de l’estudiantat en la investigació\n</p><p>\n</p><p>Tercer. Bases reguladores:\n</p><p>https://go.uv.es/qsTl8Rb \n</p><p>\n</p><p>Quarta. Quantia:\n</p><p>S’estableix un 1er. premi de 1000 euros i una menció especial de 500 € per a la persona que reunisca els mateixos requisits però no siga estudiantat del programes de doctorat de la Facultat de Dret.\n</p><p>Els dues premis estaran subjetes, si escau, a la retenció de l’IRPF.\n</p><p>\n</p><p>Cinquè. Termini de presentació de sol·licituds:\n</p><p>El termini per a la presentació de sol.licituds comença l’endemà de la seua publicació en el DOGV i acaba el 15 de setembre de 2026</p>",
+      "url": "https://dogv.gva.es/va/resultat-dogv?signatura=2026/26181",
+      "cve": "DOGV-V-2026-26181",
+      "desDiarioOficial": "DOCV. D.O. DE LA COMUNITAT VALENCIANA",
+      "datPublicacion": "2026-08-04"
+    }
+  ],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

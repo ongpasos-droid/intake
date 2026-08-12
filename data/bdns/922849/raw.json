@@ -1,0 +1,72 @@
+{
+  "id": 1124410,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "ONDA",
+    "nivel3": "AYUNTAMIENTO DE ONDA"
+  },
+  "sedeElectronica": "https://seu.onda.es/OpenSEA/ciudadano/catalogoTramites?access=8a4882c57407e048017407ecac5f0003",
+  "codigoBDNS": "922849",
+  "fechaRecepcion": "2026-07-31",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 30000,
+  "mrr": false,
+  "descripcion": "SUBVENCIONES A DEPORTISTAS DE ELITE, PROMESAS Y MUJERES CATEGORIA SENIOR 2026",
+  "descripcionLeng": "SUBVENCIONS A ESPORTISTES D'ELIT PROMESES I DONES CATEGORIA SENIOR 2026",
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "Actividades deportivas, recreativas y de entretenimiento",
+      "codigo": "93"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES522 - Castellón / Castelló"
+    }
+  ],
+  "descripcionFinalidad": "Cultura",
+  "descripcionBasesReguladoras": "SUBVENCIONES A DEPORTISTAS DE ELITE, PROMESAS Y MUJERES CATEGORIA SENIOR 2026",
+  "urlBasesReguladoras": "https://www.onda.es/ond/web_php/index.php?contenido=subapartados_woden&id_boto=627",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": "2026-09-01",
+  "fechaFinSolicitud": "2026-09-20",
+  "textInicio": "Conforme a la bases de la convocatoria",
+  "textFin": "Conforme a la bases de la convocatoria",
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1503422,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "08-Bases elite 2026.pdf",
+      "long": 380952,
+      "datMod": "2026-07-31",
+      "datPublicacion": "2026-07-31"
+    },
+    {
+      "id": 1503430,
+      "descripcion": "Acuerdo JGL 17072026 aprobacion bases subv deportistas 2026",
+      "nombreFic": "07-Acuerdo JGL 17072026 bases deportistas elite 2026.pdf",
+      "long": 362455,
+      "datMod": "2026-07-31",
+      "datPublicacion": "2026-07-31"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

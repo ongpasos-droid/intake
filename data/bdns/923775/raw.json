@@ -1,0 +1,80 @@
+{
+  "id": 1125336,
+  "organo": {
+    "nivel1": "AUTONOMICA",
+    "nivel2": "CATALUÑA",
+    "nivel3": "CONSORCIO DE LA VIVIENDA DE BARCELONA"
+  },
+  "sedeElectronica": "https://habitatge.barcelona/cat   i   http://www.bcn.cat/consorcihabitatge/ca/home.html",
+  "codigoBDNS": "923775",
+  "fechaRecepcion": "2026-08-06",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 4350000,
+  "mrr": false,
+  "descripcion": "Convocatoria plurianual para la concesión de las prestaciones para el pago del alquiler en la ciudad de Barcelona del año 2026, con cargo a los presupuestos de los años 2026 y 2027",
+  "descripcionLeng": "Convocatòria plurianual per a la concessió de prestacions per al pagament del lloguer a la ciutat de Barcelona de l’any 2026, amb càrrec als pressupostos dels anys 2026 i 2027",
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "Administración pública y de la política económica, social y medioambiental",
+      "codigo": "84.1"
+    },
+    {
+      "descripcion": "Alquiler de bienes inmobiliarios por cuenta propia",
+      "codigo": "68.2"
+    },
+    {
+      "descripcion": "Otros alojamientos",
+      "codigo": "55.9"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES511 - Barcelona"
+    }
+  ],
+  "descripcionFinalidad": "Acceso a la vivienda y fomento de la edificación",
+  "descripcionBasesReguladoras": "Text refós de les Bases Reguladores per a la concessió de les prestacions per al pagament del lloguer a la ciutat de Barcelona",
+  "urlBasesReguladoras": "https://dogc.gencat.cat/es/document-del-dogc/index.html?documentId=979719",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": "2026-09-07",
+  "fechaFinSolicitud": "2026-10-16",
+  "textInicio": null,
+  "textFin": null,
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1506025,
+      "descripcion": "Texto en otra lengua de la convocatoria",
+      "nombreFic": "Anunci sobre la convocatoria de Renovacions 2026 signat.pdf",
+      "long": 520072,
+      "datMod": "2026-08-06",
+      "datPublicacion": "2026-08-06"
+    },
+    {
+      "id": 1506024,
+      "descripcion": "Texto en castellano de la convocatoria",
+      "nombreFic": "Anuncio sobre la convocatoria de Renovaciones 2026 signat.pdf",
+      "long": 443152,
+      "datMod": "2026-08-06",
+      "datPublicacion": "2026-08-06"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

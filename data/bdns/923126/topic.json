@@ -1,0 +1,65 @@
+{
+  "source": "bdns",
+  "source_id": "923126",
+  "source_lang": "es",
+  "level": "local",
+  "programme": "Concesión directa - canónica",
+  "sub_programme": null,
+  "publishing_authority_code": "LOCAL / SANTA BÁRBARA DE CASA / SANTA BÁRBARA DE CASA",
+  "nuts_codes": [
+    "ES61"
+  ],
+  "nuts_primary": "ES61",
+  "title": "AYUDAS A LA NATALIDAD AÑO 2026, PARA NIÑOS/AS NACIDOS/AS DURANTE EL AÑO 2025",
+  "title_lang": "es",
+  "summary": "Otras Prestaciones económicas",
+  "status": "open",
+  "publication_date": "2026-08-03",
+  "open_date": null,
+  "deadline": null,
+  "deadline_model": "continuous",
+  "deadlines_extra": null,
+  "budget_total_eur": 4500,
+  "budget_per_project_min_eur": null,
+  "budget_per_project_max_eur": null,
+  "expected_grants": null,
+  "cofinancing_pct": null,
+  "duration_months": null,
+  "audience": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA",
+  "eligible_orgs": [
+    "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+  ],
+  "eligible_countries": [
+    "ES"
+  ],
+  "sectores": [
+    {
+      "codigo": "R",
+      "descripcion": "ACTIVIDADES SANITARIAS Y DE SERVICIOS SOCIALES"
+    }
+  ],
+  "apply_url": "www.santabarbaradecasa.es",
+  "details_url": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatoria/923126",
+  "documents": [
+    {
+      "label": "Documento de la convocatoria en español",
+      "url": null
+    }
+  ],
+  "bases_reguladoras_url": "www.santabarbaradecasa.es",
+  "text_inicio": "A partir del día siguiente al de publicación del extracto de la convocatoria en en el BOP de Huelva",
+  "text_fin": "10 días hábiles a contar desde el día siguiente al de publicación del anuncio en el BOP de Huelva",
+  "se_publica_diario_oficial": true,
+  "ayuda_estado": null,
+  "fondos": [
+    {
+      "descripcion": "FEAD - FONDO DE AYUDA A LOS MÁS DESFAVORECIDOS"
+    }
+  ],
+  "reglamento": null,
+  "objetivos": [],
+  "sectores_productos": [],
+  "anuncios": [],
+  "mrr_flag": false,
+  "fetchedAt": "2026-08-12T18:13:53.410Z"
+}

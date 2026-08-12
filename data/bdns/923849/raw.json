@@ -1,0 +1,72 @@
+{
+  "id": 1125410,
+  "organo": {
+    "nivel1": "AUTONOMICA",
+    "nivel2": "GALICIA",
+    "nivel3": "CONSELLERÍA DE POLÍTICA SOCIAL E IGUALDAD"
+  },
+  "sedeElectronica": "si",
+  "codigoBDNS": "923849",
+  "fechaRecepcion": "2026-08-06",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 314333.34,
+  "mrr": false,
+  "descripcion": "bases que regirán el procedimiento de concesión de ayudas para la puesta en marcha de casas nido durante los años 2026, 2027 y 2028, y se procede a su convocatoria ",
+  "descripcionLeng": "bases que regirán el procedimiento de concesión de ayudas para la puesta en marcha de casas nido durante los años 2026, 2027 y 2028, y se procede a su convocatoria ",
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "Educación preprimaria",
+      "codigo": "85.1"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES11 - GALICIA"
+    }
+  ],
+  "descripcionFinalidad": "Educación",
+  "descripcionBasesReguladoras": "ases que regirán el procedimiento de concesión de ayudas para la puesta en marcha de casas nido durante los años 2026, 2027 y 2028, y se procede a su convocatoria ",
+  "urlBasesReguladoras": "https://www.xunta.gal/diario-oficial-galicia",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": "2026-08-11",
+  "fechaFinSolicitud": "2026-09-10",
+  "textInicio": "Día seguinte publicación DOG",
+  "textFin": "10/09/2026",
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1506252,
+      "descripcion": "Texto en otra lengua de la convocatoria",
+      "nombreFic": "Orde_Casas_Nino_2026_DOG_gal_20260806_115203.pdf",
+      "long": 168497,
+      "datMod": "2026-08-06",
+      "datPublicacion": "2026-08-06"
+    },
+    {
+      "id": 1506251,
+      "descripcion": "Texto en castellano de la convocatoria",
+      "nombreFic": "Orde_Casas_Nino_2026_DOG_es_20260806_115117.pdf",
+      "long": 173917,
+      "datMod": "2026-08-06",
+      "datPublicacion": "2026-08-06"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

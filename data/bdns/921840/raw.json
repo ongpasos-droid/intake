@@ -1,0 +1,79 @@
+{
+  "id": 1123401,
+  "organo": {
+    "nivel1": "OTROS",
+    "nivel2": "UNIVERSIDAD DE CASTILLA-LA MANCHA",
+    "nivel3": null
+  },
+  "sedeElectronica": null,
+  "codigoBDNS": "921840",
+  "fechaRecepcion": "2026-07-27",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 9000,
+  "mrr": false,
+  "descripcion": "Convocatoria de premios cultura, patrimonio e innovación en el medio rural de la Cátedra Fundación Eurocaja Rural – Universidad de Castilla-La Mancha. Año 2026",
+  "descripcionLeng": null,
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    },
+    {
+      "descripcion": "PYME Y PERSONAS FÍSICAS QUE DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "EDUCACIÓN",
+      "codigo": "Q"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES42 - CASTILLA LA MANCHA"
+    }
+  ],
+  "descripcionFinalidad": "Cultura",
+  "descripcionBasesReguladoras": "Bases reguladoras que forman parte del texto íntegro de la convocatoria.",
+  "urlBasesReguladoras": "https://www.uclm.es/empresas/mecenazgo/catedrasaulasempresa/catedra_culturaydesarrollorural",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": "2026-07-28",
+  "fechaFinSolicitud": "2026-10-30",
+  "textInicio": null,
+  "textFin": null,
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1501044,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "Conv Premios CAT Eurocaja-Cultura_Patrim_Innov 26.pdf",
+      "long": 315849,
+      "datMod": "2026-07-28",
+      "datPublicacion": "2026-07-28"
+    }
+  ],
+  "anuncios": [
+    {
+      "numAnuncio": 218158,
+      "titulo": "Extracto de la convocatoria de premios cultura, patrimonio e innovación en el medio rural de la Cátedra Fundación Eurocaja Rural – Universidad de Castilla-La Mancha. Año 2026",
+      "tituloLeng": null,
+      "texto": "<p>Primero. Beneficiarios/as.</p><p>Podrán participar en la presente convocatoria las entidades y colectivos que cumplan los siguientes requisitos:</p><p>1. Ser entidades y colectivos públicos o privados que deberán tener su sede en municipios de Castilla-La Mancha.</p><p>2. Mantener su actividad durante en el año 2026.</p><p>3. No estar incurso en alguna de las prohibiciones para obtener la condición de beneficiarias recogidas en el art. 13 de la Ley 38/2003, de 17 de noviembre, General de Subvenciones. Las entidades beneficiarias han de estar al corriente de sus obligaciones legales, tributarias y ante la Seguridad Social.</p><p>Segundo. Objeto.</p><p>Se dotan fondos económicos para los premios cultura, patrimonio e innovación en el medio rural de la Cátedra de la Fundación Eurocaja Rural – UCLM: Cultura y Desarrollo Rural para el año 2026 con la finalidad de reconocer a aquellas entidades o colectivos que hayan realizado actuaciones relevantes para el ámbito rural castellanomanchego relacionadas con las siguientes categorías:</p><p>- Cultura: destinado a iniciativas relacionadas con los diversos ámbitos de la cultura implementados en el medio rural de Castilla-La Mancha, que hayan repercutido en la mejora a distintos niveles de su entorno local o comarcal.</p><p>- Patrimonio: para actuaciones o proyectos ejecutados que sean de especial relevancia en la preservación y/o difusión del patrimonio en contextos rurales de Castilla-La Mancha.</p><p>- Innovación: destinado a proyectos que incorporen nuevas tecnologías como elemento dinamizador en el entorno rural, o a aquellas iniciativas que, por su carácter creativo o novedoso, contribuyan de forma significativa al desarrollo rural de Castilla-La Mancha.</p><p>Las candidaturas sólo podrán presentarse a una única categoría.</p><p>Se concederá un premio económico para cada una de las tres categorías indicadas: Cultura, Patrimonio e Innovación.</p><p>Tercero. Bases reguladoras.</p><p>Bases reguladoras que forman parte del texto íntegro de la convocatoria.</p><p>Cuarto. Cuantía de las ayudas.</p><p>El presupuesto de esta convocatoria asciende a 9.000 euros.</p><p>Cada uno de esos premios estará dotado con 3.000 € brutos. En el caso de que alguna de las categorías no tuviese ninguna candidatura al premio, o existiendo no se adaptase al nivel o a las categorías temáticas definidas, se podrá reasignar la dotación del premio a la categoría con mayor número de candidaturas en primer lugar o, a criterio del jurado, a la propuesta de mayor interés y calidad.</p><p>Quinto. Plazo de presentación de solicitudes.</p><p>El plazo de presentación de solicitudes permanecerá abierto desde el día siguiente a la firma de la convocatoria y hasta el 30 de octubre de 2026.</p>",
+      "textoLeng": null,
+      "url": "https://docm.jccm.es/portaldocm/detalleDocumento.do?idDisposicion=1785239529668910213",
+      "cve": null,
+      "desDiarioOficial": "DOCM. D.O. DE CASTILLA-LA MANCHA",
+      "datPublicacion": "2026-08-03"
+    }
+  ],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

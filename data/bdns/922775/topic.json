@@ -1,0 +1,73 @@
+{
+  "source": "bdns",
+  "source_id": "922775",
+  "source_lang": "es",
+  "level": "otros",
+  "programme": "Concurrencia competitiva - canónica",
+  "sub_programme": null,
+  "publishing_authority_code": "OTROS / UNIVERSIDAD DE CASTILLA-LA MANCHA",
+  "nuts_codes": [
+    "ES42"
+  ],
+  "nuts_primary": "ES42",
+  "title": "Convocatoria de becas de colaboración para apoyo en actividades organizadas por la Escuela Técnica Superior de Ingeniería Industrial de Ciudad Real de la Universidad de Castilla la Mancha. Curso académico 2026/2027",
+  "title_lang": "es",
+  "summary": "Educación",
+  "status": "open",
+  "publication_date": "2026-07-30",
+  "open_date": "2026-07-28",
+  "deadline": "2026-09-21",
+  "deadline_model": "single-stage",
+  "deadlines_extra": null,
+  "budget_total_eur": 4931.81,
+  "budget_per_project_min_eur": null,
+  "budget_per_project_max_eur": null,
+  "expected_grants": null,
+  "cofinancing_pct": null,
+  "duration_months": null,
+  "audience": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA",
+  "eligible_orgs": [
+    "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+  ],
+  "eligible_countries": [
+    "ES"
+  ],
+  "sectores": [
+    {
+      "codigo": "Q",
+      "descripcion": "EDUCACIÓN"
+    }
+  ],
+  "apply_url": null,
+  "details_url": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatoria/922775",
+  "documents": [
+    {
+      "label": "Documento de la convocatoria en español",
+      "url": null
+    }
+  ],
+  "bases_reguladoras_url": "https://www.uclm.es/ciudad-real/ETSII",
+  "text_inicio": null,
+  "text_fin": null,
+  "se_publica_diario_oficial": true,
+  "ayuda_estado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectores_productos": [],
+  "anuncios": [
+    {
+      "numAnuncio": 218440,
+      "titulo": "Extracto de la convocatoria de becas de colaboración para apoyo en actividades organizadas por la Escuela Técnica Superior de Ingeniería Industrial de Ciudad Real de la Universidad de Castilla la Mancha. Curso académico 2026/2027",
+      "tituloLeng": null,
+      "texto": "<p>Primero. Beneficiarios/as.</p><p>Podrán presentarse a esta convocatoria las personas matriculadas en enseñanza oficial de Grado en Ingeniería Mecánica, Ingeniería Eléctrica o Ingeniería Electrónica Industrial y Automática, de la Universidad de Castilla-La Mancha (UCLM) durante el curso 2026/2027, siendo necesario que el/la estudiante continúe con dichos estudios durante el período de disfrute de la beca y que siga cumpliendo el resto de los requisitos de la convocatoria.</p><p>Segundo. Objeto.</p><p>Se dotan fondos económicos para dos becas de colaboración destinadas a que las personas beneficiarias presten su colaboración, en régimen de compatibilidad con sus estudios, en la Escuela Técnica Superior de Ingeniería Industrial de Ciudad Real para apoyo en actividades organizadas por la E.T.S. de Ingeniería Industrial de Ciudad Real, conforme al plan formativo de la beca previsto en el anexo I y la planificación de las actividades del listado de tareas y su programación recogidos en el anexo II.</p><p>La persona beneficiaria de la beca quedará adscrita a la E.T.S. de Ingeniería Industrial de Ciudad Real.</p><p>La actividad que conlleva esta beca se realizará desde la fecha de alta de la persona beneficiaria en la seguridad social hasta el 30 de septiembre de 2027, con una dedicación global de 10 horas semanales. El mes de agosto se considera inhábil a todos los efectos y no se tendrá en cuenta en el cómputo de la duración efectiva de la beca, si estuviese comprendido en el período de disfrute de la beca.</p><p>Tercero. Bases reguladoras.</p><p>Normativa Reguladora de las Becas de Colaboración de la UCLM aprobada por el Consejo de Gobierno el 20-12-2021, DOCM de 28-12-2021, y modificada por el Consejo de Gobierno de 23-5-2022, DOCM de 1-6-2022, y bases de la convocatoria.</p><p>Cuarto. Cuantía de las ayudas.</p><p>El presupuesto de esta convocatoria asciende a 4.931,81 euros. El importe mensual bruto de la beca es de 213,33 euros.</p><p>Quinto. Plazo de presentación de solicitudes.</p><p>El plazo para la presentación de solicitudes permanecerá abierto desde la fecha de la firma de la convocatoria hasta las 14:00 horas del 21 de septiembre de 2026.</p>",
+      "textoLeng": null,
+      "url": "https://docm.jccm.es/portaldocm/detalleDocumento.do?idDisposicion=1785482337904620170",
+      "cve": null,
+      "desDiarioOficial": "DOCM. D.O. DE CASTILLA-LA MANCHA",
+      "datPublicacion": "2026-08-05"
+    }
+  ],
+  "mrr_flag": false,
+  "fetchedAt": "2026-08-12T18:13:53.309Z"
+}

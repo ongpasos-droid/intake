@@ -1,0 +1,72 @@
+{
+  "id": 1123910,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "CALVIÀ",
+    "nivel3": "AYUNTAMIENTO DE CALVIÀ"
+  },
+  "sedeElectronica": "https://www.calvia.com/",
+  "codigoBDNS": "922349",
+  "fechaRecepcion": "2026-07-29",
+  "instrumentos": [
+    {
+      "descripcion": "OTROS INSTRUMENTOS DE AYUDA"
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 6970,
+  "mrr": false,
+  "descripcion": "CONVOCATORIA Y BASES REGULADORAS DE LAS CONDICIONES Y REQUISITOS PARA LA CONCESIÓN DE BECAS DE COOPERACIÓN DEL INSTITUTO MUNICIPAL DE EDUCACIÓN Y BIBLIOTECAS DE CALVIÀ (GET EXPERIENCE 2026/2027)",
+  "descripcionLeng": "CONVOCATÒRIA I BASES REGULADORES DE LES CONDICIONS I REQUISITS PER A LA CONCESSIÓ DE BEQUES DE COOPERACIÓ DE L'INSTITUT MUNICIPAL D'EDUCACIÓ I BIBLIOTEQUES DE CALVIÀ (GET EXPERIENCE 2026/2027)",
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "EDUCACIÓN",
+      "codigo": "Q"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES - ESPAÑA "
+    }
+  ],
+  "descripcionFinalidad": "Educación",
+  "descripcionBasesReguladoras": "CONVOCATORIA Y BASES REGULADORAS DE LAS CONDICIONES Y REQUISITOS PARA LA CONCESIÓN DE BECAS DE COOPERACIÓN DEL INSTITUTO MUNICIPAL DE EDUCACIÓN Y BIBLIOTECAS DE CALVIÀ (GET EXPERIENCE 2026/2027)",
+  "urlBasesReguladoras": "https://www.caib.es/eboibfront/es/2026/12294/717163/convocatoria-y-bases-reguladoras-de-las-condicione",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": null,
+  "fechaFinSolicitud": null,
+  "textInicio": "01/10/2026",
+  "textFin": "23/10/2026",
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1502200,
+      "descripcion": "Documento de la convocatoria en lengua cooficial",
+      "nombreFic": "Bases Get Cat.pdf",
+      "long": 339592,
+      "datMod": "2026-07-29",
+      "datPublicacion": "2026-07-29"
+    },
+    {
+      "id": 1502201,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "Bases Get Cast.pdf",
+      "long": 341144,
+      "datMod": "2026-07-29",
+      "datPublicacion": "2026-07-29"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

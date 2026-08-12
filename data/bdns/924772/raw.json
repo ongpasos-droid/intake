@@ -1,0 +1,88 @@
+{
+  "id": 1126333,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "ALGINET",
+    "nivel3": "AYUNTAMIENTO DE ALGINET"
+  },
+  "sedeElectronica": "https://alginet.sede.dival.es/",
+  "codigoBDNS": "924772",
+  "fechaRecepcion": "2026-08-12",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 20000,
+  "mrr": false,
+  "descripcion": "Resolución de Alcaldía núm. 1496, de 10 de agosto de 2026, por la que se aprueba la convocatoria de ayudas municipales a la promoción económica en el municipio de Alginet.",
+  "descripcionLeng": "Resolució d'Alcaldia núm. 1496, de 10 d'agost de 2026, on s'aprova la convocatòria d'ajudes municipals a la promoció econòmica al municipi d'Alginet.",
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PYME Y PERSONAS FÍSICAS QUE DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "ACTIVIDADES SANITARIAS Y DE SERVICIOS SOCIALES",
+      "codigo": "R"
+    },
+    {
+      "descripcion": "COMERCIO AL POR MAYOR Y AL POR MENOR",
+      "codigo": "G"
+    },
+    {
+      "descripcion": "HOSTELERÍA",
+      "codigo": "I"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES523 - Valencia / València"
+    }
+  ],
+  "descripcionFinalidad": "Fomento del Empleo",
+  "descripcionBasesReguladoras": "Convocatoria de ayudas municipales a la promoción económica Alginet 2026",
+  "urlBasesReguladoras": "https://alginet.sede.dival.es/tablondeanuncios/",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": "2026-08-24",
+  "fechaFinSolicitud": "2026-09-30",
+  "textInicio": "24 de agosto de 2026",
+  "textFin": "30 de septiembre de 2026",
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1508882,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "Resolución Nº 1496 de 10_08_2026 _Aprob.pdf",
+      "long": 538165,
+      "datMod": "2026-08-12",
+      "datPublicacion": "2026-08-12"
+    },
+    {
+      "id": 1508886,
+      "descripcion": "Ordenanza General de Subvenciones",
+      "nombreFic": "ORDENANZA GENERAL DE SUBVENCIONES.pdf",
+      "long": 256668,
+      "datMod": "2026-08-12",
+      "datPublicacion": "2026-08-12"
+    },
+    {
+      "id": 1508883,
+      "descripcion": "Anuncio BDNS convocatoria",
+      "nombreFic": "Anuncio BDNS Convocatoria ayudas a la promoción económica 2026 - SEFYCU 8504961.pdf",
+      "long": 291764,
+      "datMod": "2026-08-12",
+      "datPublicacion": "2026-08-12"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

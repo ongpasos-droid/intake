@@ -1,0 +1,220 @@
+{
+  "id": 1124487,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "MAIRENA DEL ALJARAFE",
+    "nivel3": "INSTITUTO MUNICIPAL DE DINAMIZACIÓN CIUDADANA"
+  },
+  "sedeElectronica": "https://sedeimdc.mairenadelaljarafe.es/opencms/opencms/sede",
+  "codigoBDNS": "922926",
+  "fechaRecepcion": "2026-07-31",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 90000,
+  "mrr": false,
+  "descripcion": "Resolución nº 2026-0327 de fecha 31/07/2026 del C.D. del Área de Promoción Deportiva por la que se convocan subvenciones para deportistas destacados/as, entidades y clubes deportivos locales que hayan participado en competiciones federadas.",
+  "descripcionLeng": null,
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "Actividades deportivas, recreativas y de entretenimiento",
+      "codigo": "93"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES618 - Sevilla"
+    }
+  ],
+  "descripcionFinalidad": "Servicios Sociales y Promoción Social",
+  "descripcionBasesReguladoras": "ORDENANZA GENERAL DE SUBVENCIONES BOP. Nº 26 DE 2 DE FEBRERO DE 2021.",
+  "urlBasesReguladoras": "http://transparencia.mairenadelaljarafe.es/export/sites/mairenadelaljarafe/es/transparencia/.galleries/IND-83-/AYUNTAMIENTO/BOP-ORDENANZA-GENERAL-DE-SUBVENCIONES.pdf",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": "2026-08-05",
+  "fechaFinSolicitud": "2026-08-18",
+  "textInicio": null,
+  "textFin": null,
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1503572,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "08 RESOL. 0327-2026 APROBACION CONVOCATORIA.pdf",
+      "long": 3854536,
+      "datMod": "2026-07-31",
+      "datPublicacion": "2026-07-31"
+    },
+    {
+      "id": 1503575,
+      "descripcion": "ANEXO II. A) MEMORIA DEPORTIVA ENTIDADES TEMPORADA 2025-2026",
+      "nombreFic": "02 Anexo II-A -Memoria Deportiva -Entidades 25-26.pdf",
+      "long": 107891,
+      "datMod": "2026-07-31",
+      "datPublicacion": "2026-07-31"
+    },
+    {
+      "id": 1503576,
+      "descripcion": "ANEXOII. B) MEMORIA TECNICA EVENTOS TEMPORADA 2025-2026",
+      "nombreFic": "02 Anexo II-B -Memoria Deportiva -Eventos 25-26.pdf",
+      "long": 104137,
+      "datMod": "2026-07-31",
+      "datPublicacion": "2026-07-31"
+    },
+    {
+      "id": 1503577,
+      "descripcion": "ANEXO II. C) MEMORIA TECNICA DE DEPORTISTAS TEMPORADA 2025-2026",
+      "nombreFic": "02 Anexo II-C -Memoria Deportiva -Deportistas 25-26.pdf",
+      "long": 98108,
+      "datMod": "2026-07-31",
+      "datPublicacion": "2026-07-31"
+    },
+    {
+      "id": 1503578,
+      "descripcion": "ANEXO III. A) ENTIDADES. MEMORIA Y JUSTIFICACION ECONOMICA TEMPORADA 2025-2026",
+      "nombreFic": "02 Anexo III-A -Memoria Y Justificación Económica-Entidades 25-26.pdf",
+      "long": 130071,
+      "datMod": "2026-07-31",
+      "datPublicacion": "2026-07-31"
+    },
+    {
+      "id": 1503583,
+      "descripcion": "ANEXO III. B) EVENTOS. MEMORIA Y JUSTIFICACION ECONOMICA TEMPORADA 2025-2026",
+      "nombreFic": "02 Anexo III-B -Memoria y justificación Económica-Eventos 25-26.pdf",
+      "long": 118015,
+      "datMod": "2026-07-31",
+      "datPublicacion": "2026-07-31"
+    },
+    {
+      "id": 1503585,
+      "descripcion": "ANEXO III. C) DEPORTISTAS. MEMORIA Y JUSTIFICACION ECONOMICA TEMPORADA 2025-2026",
+      "nombreFic": "02 Anexo III-C -Memoria y justificación Económica -Deportistas 25-26.pdf",
+      "long": 105725,
+      "datMod": "2026-07-31",
+      "datPublicacion": "2026-07-31"
+    },
+    {
+      "id": 1503586,
+      "descripcion": "ANEXO IV. A) PROYECTO DEPORTIVO ENTIDADES TEMPORADA 2026-2027",
+      "nombreFic": "02 Anexo IV-A -Proyecto Deportivo -Entidades 26-27.pdf",
+      "long": 103146,
+      "datMod": "2026-07-31",
+      "datPublicacion": "2026-07-31"
+    },
+    {
+      "id": 1503589,
+      "descripcion": "ANEXO IV. B) PROYECTO DEPORTIVO EVENTOS TEMPORADA 2026-2027",
+      "nombreFic": "02 Anexo IV-B -Proyecto Deportivo -Eventos 26-27.pdf",
+      "long": 104798,
+      "datMod": "2026-07-31",
+      "datPublicacion": "2026-07-31"
+    },
+    {
+      "id": 1503592,
+      "descripcion": "ANEXO IV. C) PROYECTO DEPORTIVO DEPORTISTAS TEMPORADA 2026-2027",
+      "nombreFic": "02 Anexo IV-C - Proyecto Deportivo -Deportistas 26-27.pdf",
+      "long": 99623,
+      "datMod": "2026-07-31",
+      "datPublicacion": "2026-07-31"
+    },
+    {
+      "id": 1503600,
+      "descripcion": "ANEXO V. A) DECLARACION RESPONSABLE ACTIVIDADES FEDERACION ANDALUZA 2025-2026",
+      "nombreFic": "02 Anexo V-A Declara Responsable Activ. Federación Andaluza 25-26.pdf",
+      "long": 64415,
+      "datMod": "2026-07-31",
+      "datPublicacion": "2026-07-31"
+    },
+    {
+      "id": 1503601,
+      "descripcion": "ANEXO V. B) DECLARACION RESPONSABLE ACTIVIDADES FEDERACION ESPAÑOLA 2025-2026",
+      "nombreFic": "02 Anexo V-B Declara Responsable Activ. Federación Española 25-26.pdf",
+      "long": 64270,
+      "datMod": "2026-07-31",
+      "datPublicacion": "2026-07-31"
+    },
+    {
+      "id": 1503614,
+      "descripcion": "ANEXO VII. C) DEPORTISTAS. DECLARACION RESPONSABLE",
+      "nombreFic": "02 Anexo VII-C -Declaración Responsable.-Deportistas.pdf",
+      "long": 105885,
+      "datMod": "2026-07-31",
+      "datPublicacion": "2026-07-31"
+    },
+    {
+      "id": 1503574,
+      "descripcion": "ANEXO I. SOLICITUD DE SUBVENCION",
+      "nombreFic": "02 Anexo I -Solicitud Subvencion 2026.pdf",
+      "long": 85236,
+      "datMod": "2026-07-31",
+      "datPublicacion": "2026-07-31"
+    },
+    {
+      "id": 1503607,
+      "descripcion": "ANEXO VI. B) EVENTOS. MODELO AUTOEVALUACION",
+      "nombreFic": "02 Anexo VI-B -Autoevaluación -Eventos.pdf",
+      "long": 123215,
+      "datMod": "2026-07-31",
+      "datPublicacion": "2026-07-31"
+    },
+    {
+      "id": 1503608,
+      "descripcion": "ANEXO VI. C) DEPORTISTAS. MODELO AUTOEVALUACION",
+      "nombreFic": "02 Anexo VI-C -Autoevaluación -Deportistas.pdf",
+      "long": 124730,
+      "datMod": "2026-07-31",
+      "datPublicacion": "2026-07-31"
+    },
+    {
+      "id": 1503609,
+      "descripcion": "ANEXO VII. A) ENTIDADES. DECLARACION RESPONSABLE",
+      "nombreFic": "02 Anexo VII-A -Declaración Responsable.-Entidades.pdf",
+      "long": 101933,
+      "datMod": "2026-07-31",
+      "datPublicacion": "2026-07-31"
+    },
+    {
+      "id": 1503611,
+      "descripcion": "ANEXO VII B) EVENTOS. DECLARACION RESPONSABLE",
+      "nombreFic": "02 Anexo VII-B -Declaración Responsable. Eventos.pdf",
+      "long": 100619,
+      "datMod": "2026-07-31",
+      "datPublicacion": "2026-07-31"
+    },
+    {
+      "id": 1503605,
+      "descripcion": "ANEXO VI. A) ENTIDADES. MODELO AUTOEVALUACION",
+      "nombreFic": "02 Anexo VI-A -Autoevaluación -Entidades.pdf",
+      "long": 120508,
+      "datMod": "2026-07-31",
+      "datPublicacion": "2026-07-31"
+    }
+  ],
+  "anuncios": [
+    {
+      "numAnuncio": 218491,
+      "titulo": "Resolución nº 2026-0327 de fecha 31/07/2026 del C.D. del Área de Promoción Deportiva por la que se convocan subvenciones para deportistas destacados/as, entidades y clubes deportivos locales que hayan participado en competiciones federadas 2025-2026",
+      "tituloLeng": null,
+      "texto": "<p>Y en la Web municipal: http://www.mairenadelaljarafe.es/es/ayuntamiento/organismos-y-sociedades/IMDC</p><p>Primero. Beneficiarios.</p><p>Deportistas, entidades y clubes deportivos locales que han participado en competiciones federadas de carácter provincial, autonómico, nacional o internacional durante la temporada 2025-2026.</p><p>Segundo. Objeto.</p><p>Esta convocatoria tiene por objeto la concesión de subvenciones en régimen de concurrencia competitiva a deportistas, entidades y clubes deportivos locales que han participado en competiciones federadas de carácter provincial, autonómico, nacional o internacional durante la temporada 2025-2026 correspondiente a las siguientes líneas:</p><p>PROGRAMAS DE FORMACIÓN Y TECNIFICACIÓN DEPORTIVA.</p><p>            1. PROYECTOS DEPORTE BASE: ESCUELAS DEPORTIVAS.</p><p>            2. PROYECTOS DEPORTIVOS DE FORMACIÓN Y TECNIFICACIÓN EN COMPETICIONES OFICIALES.</p><p>                                  2.A EQUIPOS Y ENTIDADES DEPORTIVAS</p><p>                                  2.B DEPORTISTAS DESTACADOS.</p><p>            3. ORGANIZACIÓN DE EVENTOS DEPORTIVOS</p><p>          Tercero. Bases Reguladoras.</p><p>El procedimiento de concesión de las ayudas reguladas en esta convocatoria será conforme a lo establecido en la citada convocatoria de subvenciones en régimen de concurrencia competitiva a deportistas, entidades y clubes deportivos locales que han participado en competiciones federadas de carácter provincial, autonómico, nacional o internacional durante la temporada 2025-2026 y supletoriamente por la Ordenanza General de Subvenciones publicada en el BOP número 26, de 2 de febrero de 2021 http://transparencia.mairenadelaljarafe.es/export/sites/mairenadelaljarafe/es/transparencia/.galleries/IND-83-/AYUNTAMIENTO/BOP-ORDENANZA-GENERAL-DE SUBVENCIONES.pdf  </p><p>Cuarto. Subvención e importe de las ayudas.</p><p>La subvención se imputará a la partida presupuestaria 005-34110-48101 “SUBVENCIONES DEPORTIVAS” del presente ejercicio, siendo el importe máximo disponible para la subvención convocada de 90.000,00 € de los cuales:</p><p>Línea 1 y 2.a – ENTIDADES DEPORTIVAS (Escuelas y Equipos) (Hasta 15.000€ son finalistas para adquisición de equipos DEA/DESA y su formación)                 75.000,00 €</p><p>Línea 3 – EVENTOS DEPORTIVOS                                                                                                                                                                                                         12.000,00 €</p><p>Línea 2.b – DEPORTISTAS DESTACADOS (Alto Nivel)                                                                                                                                                                            3.000,00 €</p><p>Quinto. Plazo de presentación de solicitudes.</p><p>Las solicitudes se tramitarán, utilizando la sede electrónica del IMDC:</p><p>https://sedeimdc.mairenadelaljarafe.es/opencms/opencms/sede, adjuntando cada uno de los anexos y la documentación requerida.</p><p>El plazo de presentación de solicitudes será, de 10 días hábiles desde la publicación del extracto de la convocatoria en el BOP de Sevilla realizado a través de la Base de Datos Nacional de Subvenciones (BDNS) y en la Sede Electrónica del Ayuntamiento.</p>",
+      "textoLeng": null,
+      "url": "https://bopsevilla.dipusevilla.es/publica/buscador-anuncios/anuncio/Extracto-num-218491-de-la-convocatoria-de-subvenciones-para-deportistas-destacados-entidades-y-clubes-deportivos-locales-que-hayan-participado-en-competiciones-federadas-durante-la-temporada-2025-20/",
+      "cve": "BOP-SE-2026-149013",
+      "desDiarioOficial": "B.O.P. DE SEVILLA",
+      "datPublicacion": "2026-08-04"
+    }
+  ],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

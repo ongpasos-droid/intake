@@ -1,0 +1,87 @@
+{
+  "id": 1123405,
+  "organo": {
+    "nivel1": "ESTADO",
+    "nivel2": "MINISTERIO DE INDUSTRIA Y TURISMO",
+    "nivel3": "DIRECCIÓN GENERAL DE PROGRAMAS INDUSTRIALES"
+  },
+  "sedeElectronica": "https://sede.serviciosmin.gob.es",
+  "codigoBDNS": "921844",
+  "fechaRecepcion": "2026-07-28",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 600000000,
+  "mrr": false,
+  "descripcion": "Mecanismo de compensación de costes de emisiones indirectas de CO2 – 2026",
+  "descripcionLeng": null,
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "GRAN EMPRESA"
+    },
+    {
+      "descripcion": "PYME Y PERSONAS FÍSICAS QUE DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "INDUSTRIA MANUFACTURERA",
+      "codigo": "C"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES - ESPAÑA "
+    }
+  ],
+  "descripcionFinalidad": "Industria y Energía",
+  "descripcionBasesReguladoras": "Real Decreto 309/2022, de 3 de mayo, por el que se establece mecanismo de compensación costes indirectos para los sectores y subsectores industriales expuestos a un riesgo significativo de fuga de carbono durante el periodo 2021-2030.",
+  "urlBasesReguladoras": "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2022-7190",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": "2026-07-30",
+  "fechaFinSolicitud": "2026-08-26",
+  "textInicio": null,
+  "textFin": null,
+  "ayudaEstado": "SA.122532",
+  "urlAyudaEstado": "https://competition-cases.ec.europa.eu/cases/SA.122532",
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1501382,
+      "descripcion": "Orden de tramitación de urgencia",
+      "nombreFic": "Orden tramitación urgencia ayudas CO2 2026.pdf",
+      "long": 187750,
+      "datMod": "2026-07-28",
+      "datPublicacion": "2026-07-28"
+    },
+    {
+      "id": 1501059,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "Orden convocatoria CO2 2026.pdf",
+      "long": 664487,
+      "datMod": "2026-07-28",
+      "datPublicacion": "2026-07-28"
+    }
+  ],
+  "anuncios": [
+    {
+      "numAnuncio": 218165,
+      "titulo": "Extracto de la Orden de 24 de julio de 2026 por la que se convocan para el año 2026 las subvenciones dispuestas en el Real Decreto 309/2022, de 3 de mayo.",
+      "tituloLeng": null,
+      "texto": "<p>Primero.- Beneficiarios.</p><p>Personas jurídicas del sector privado, incluidas o no en el Régimen de Comercio de Derechos de Emisión de la Unión Europea, cualquiera que sea su forma jurídica y que:</p><p>a. Estén válidamente constituidas en el momento de presentar la solicitud.</p><p>b. Realicen una o varias actividades, o fabriquen productos destinados a comercialización y beneficio empresarial, en los sectores enumerados en el anexo I de la Orden de convocatoria.</p><p>c. Hayan incurrido en costes de emisiones indirectas de CO2, en el año 2025, debido a los costes indirectos soportados en los gastos de suministro eléctrico destinados a los procesos productivos.</p><p>Segundo.- Objeto.</p><p>Compensación, en forma de subvención, de los costes indirectos imputables a las emisiones de gases de efecto invernadero repercutidos en los precios de la electricidad del año 2025, conforme al Real Decreto 309/2022 de 3 de mayo, y al amparo de lo establecido en la Directiva (UE) 2018/410 del Parlamento Europeo y del Consejo de 14 de marzo de 2018, por la que se modifica la Directiva 2003/87/CE para intensificar las reducciones de emisiones de forma eficaz en relación con los costes y facilitar las inversiones en tecnologías hipocarbónicas.</p><p>Tercero.- Bases reguladoras.</p><p>Real Decreto 309/2022, de 3 de mayo, por el que se establece el mecanismo de compensación de costes indirectos para los sectores y subsectores industriales a los que se considera expuestos a un riesgo significativo de fuga de carbono durante el periodo 2021-2030.</p><p>Cuarto.- Cuantía.</p><p>La cuantía máxima de las ayudas que podrán otorgarse al conjunto de todos los beneficiarios será de 600.000.000 euros. Las ayudas adoptarán la forma de subvención. El importe global máximo destinado a las subvenciones en la presente convocatoria se prorrateará entre todos los beneficiarios de las mismas.</p><p>Quinto.- Plazo de presentación de solicitudes.</p><p>El plazo de presentación de solicitudes y de la correspondiente documentación será de veinte días hábiles, contados a partir del día siguiente al de la publicación del extracto de la Orden de convocatoria en el «Boletín Oficial del Estado».</p>",
+      "textoLeng": null,
+      "url": "http://www.boe.es/diario_boe/verifica.php?acc=Verificar&c=BOE-B-2026-25588",
+      "cve": "BOE-B-2026-25588",
+      "desDiarioOficial": "BOE. BOLETÍN OFICIAL DEL ESTADO",
+      "datPublicacion": "2026-07-29"
+    }
+  ],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

@@ -1,0 +1,85 @@
+{
+  "source": "bdns",
+  "source_id": "922822",
+  "source_lang": "es",
+  "level": "local",
+  "programme": "Concurrencia competitiva - canónica",
+  "sub_programme": null,
+  "publishing_authority_code": "LOCAL / GUÍA DE ISORA / AYUNTAMIENTO DE GUÍA DE ISORA",
+  "nuts_codes": [
+    "ES709"
+  ],
+  "nuts_primary": "ES709",
+  "title": "CONVOCATORIA DE CONCESIÓN DE SUBVENCIONES DESTINADAS A LA PARTICIPACIÓN DE PERSONAS MAYORES DEL MUNICIPIO DE GUÍA DE ISORA EN VIAJES DE OCIO ACTIVO, CULTURAL Y SALUDABLE EN EL AÑO 2026",
+  "title_lang": "es",
+  "summary": "Servicios Sociales y Promoción Social",
+  "status": "open",
+  "publication_date": "2026-07-31",
+  "open_date": null,
+  "deadline": null,
+  "deadline_model": "continuous",
+  "deadlines_extra": null,
+  "budget_total_eur": 32000,
+  "budget_per_project_min_eur": null,
+  "budget_per_project_max_eur": null,
+  "expected_grants": null,
+  "cofinancing_pct": null,
+  "duration_months": null,
+  "audience": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA",
+  "eligible_orgs": [
+    "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+  ],
+  "eligible_countries": [
+    "ES"
+  ],
+  "sectores": [
+    {
+      "codigo": "R",
+      "descripcion": "ACTIVIDADES SANITARIAS Y DE SERVICIOS SOCIALES"
+    }
+  ],
+  "apply_url": "https://guiadeisora.sedeelectronica.es ",
+  "details_url": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatoria/922822",
+  "documents": [
+    {
+      "label": "Documento de la convocatoria en español",
+      "url": null
+    },
+    {
+      "label": "ACUERDO DE LA JUNTA LOCAL",
+      "url": null
+    },
+    {
+      "label": "ANEXO I: MODELO DE SOLICITUD",
+      "url": null
+    },
+    {
+      "label": "ANEXO V: MODELO DE JUSTIFICACIÓN",
+      "url": null
+    },
+    {
+      "label": "ANEXO III: ACEPTACIÓN DE SUBVENCIÓN",
+      "url": null
+    },
+    {
+      "label": "ANEXO IV: DECLARACIÓN JURADA",
+      "url": null
+    },
+    {
+      "label": "ANEXO II: ALTA A TERCEROS",
+      "url": null
+    }
+  ],
+  "bases_reguladoras_url": "https://www.guiadeisora.org/corp/areas-municipales/servicios-sociales/ayudas-y-subvenciones/",
+  "text_inicio": "A PARTIR DE 20 DÍAS HÁBILES DE LA PUBLICACIÓN EN EL BOLETÍN OFICIAL  PROVINCIA DE SC DE TENERIFE",
+  "text_fin": "CUANDO FINALICEN LOS 20 DÍAS HÁBILES",
+  "se_publica_diario_oficial": true,
+  "ayuda_estado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectores_productos": [],
+  "anuncios": [],
+  "mrr_flag": false,
+  "fetchedAt": "2026-08-12T18:13:53.317Z"
+}

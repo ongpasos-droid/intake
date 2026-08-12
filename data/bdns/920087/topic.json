@@ -1,0 +1,77 @@
+{
+  "source": "bdns",
+  "source_id": "920087",
+  "source_lang": "es",
+  "level": "ccaa",
+  "programme": "Concurrencia competitiva - canónica",
+  "sub_programme": null,
+  "publishing_authority_code": "AUTONOMICA / ARAGÓN / DIRECCIÓN GENERAL DE FAMILIA, INFANCIA Y NATALIDAD",
+  "nuts_codes": [
+    "ES24"
+  ],
+  "nuts_primary": "ES24",
+  "title": "ORDEN DBF/     /2026, de……..de julio, por la que se convocan subvenciones para el año 2026, para el desarrollo del servicio de “Casas de Infancia en el Medio Rural Aragonés”, como servicio de conciliación y cuidado de niños y niñas de 0 a 3 años.",
+  "title_lang": "es",
+  "summary": "Servicios Sociales y Promoción Social",
+  "status": "open",
+  "publication_date": "2026-07-17",
+  "open_date": null,
+  "deadline": null,
+  "deadline_model": "continuous",
+  "deadlines_extra": null,
+  "budget_total_eur": 1074602.08,
+  "budget_per_project_min_eur": null,
+  "budget_per_project_max_eur": null,
+  "expected_grants": null,
+  "cofinancing_pct": null,
+  "duration_months": null,
+  "audience": "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA",
+  "eligible_orgs": [
+    "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+  ],
+  "eligible_countries": [
+    "ES"
+  ],
+  "sectores": [
+    {
+      "codigo": "R",
+      "descripcion": "ACTIVIDADES SANITARIAS Y DE SERVICIOS SOCIALES"
+    },
+    {
+      "codigo": "Q",
+      "descripcion": "EDUCACIÓN"
+    }
+  ],
+  "apply_url": "https://www.aragon.es/tramites  procedimiento 11650",
+  "details_url": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatoria/920087",
+  "documents": [
+    {
+      "label": "Documento de la convocatoria en español",
+      "url": null
+    },
+    {
+      "label": "Anexo B",
+      "url": null
+    },
+    {
+      "label": "Anexo C",
+      "url": null
+    },
+    {
+      "label": "Anexo A",
+      "url": null
+    }
+  ],
+  "bases_reguladoras_url": "https://www.boa.aragon.es/cgi-bin/EBOA/BRSCGI?CMD=VEROBJ&MLKOB=1191369625050",
+  "text_inicio": "Día siguiente a la publicación del extracto de la Orden en el BOA",
+  "text_fin": "Transcurridos 15 días hábiles desde el día siguiente a la publicación del extracto en BOA",
+  "se_publica_diario_oficial": true,
+  "ayuda_estado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectores_productos": [],
+  "anuncios": [],
+  "mrr_flag": false,
+  "fetchedAt": "2026-08-12T18:13:52.597Z"
+}

@@ -1,0 +1,72 @@
+{
+  "id": 1123724,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "ALCÁNTARA",
+    "nivel3": "AYUNTAMIENTO DE ALCÁNTARA"
+  },
+  "sedeElectronica": "https://alcantara.sedelectronica.es/info.0",
+  "codigoBDNS": "922163",
+  "fechaRecepcion": "2026-07-29",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concesión directa - canónica",
+  "presupuestoTotal": 70500,
+  "mrr": false,
+  "descripcion": "Línea de ayudas económicas alumnos/as de Grado y Máster Universitario. Curso 2025-2026",
+  "descripcionLeng": null,
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "EDUCACIÓN",
+      "codigo": "Q"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES432 - Cáceres"
+    }
+  ],
+  "descripcionFinalidad": "Educación",
+  "descripcionBasesReguladoras": "BASES REGULADORAS Y CONVOCATORIA DE AYUDAS ECONÓMICAS PARA LA ADQUISICIÓN DE LIBROS, MATERIAL, ALOJAMIENTO Y GASTOS DE MATRÍCULA PARA ALUMNOS DE GRADO Y MÁSTER UNIVERSITARIOS\nCORRESPONDIENTE AL CURSO ESCOLAR 2025/2026",
+  "urlBasesReguladoras": "https://alcantara.sedelectronica.es/info.0",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": "2026-07-30",
+  "fechaFinSolicitud": "2026-08-20",
+  "textInicio": null,
+  "textFin": null,
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1501775,
+      "descripcion": "Anexo I. Solicitudes.",
+      "nombreFic": "20260728_Solicitud Ayudas Grado y Máster.pdf",
+      "long": 123533,
+      "datMod": "2026-07-29",
+      "datPublicacion": "2026-07-29"
+    },
+    {
+      "id": 1501773,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "20260728_Otros_Bases Ayudas niveles de Grado y Máster-1.pdf",
+      "long": 275209,
+      "datMod": "2026-07-29",
+      "datPublicacion": "2026-07-29"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

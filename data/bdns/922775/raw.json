@@ -1,0 +1,76 @@
+{
+  "id": 1124336,
+  "organo": {
+    "nivel1": "OTROS",
+    "nivel2": "UNIVERSIDAD DE CASTILLA-LA MANCHA",
+    "nivel3": null
+  },
+  "sedeElectronica": null,
+  "codigoBDNS": "922775",
+  "fechaRecepcion": "2026-07-30",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 4931.81,
+  "mrr": false,
+  "descripcion": "Convocatoria de becas de colaboración para apoyo en actividades organizadas por la Escuela Técnica Superior de Ingeniería Industrial de Ciudad Real de la Universidad de Castilla la Mancha. Curso académico 2026/2027",
+  "descripcionLeng": null,
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "EDUCACIÓN",
+      "codigo": "Q"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES42 - CASTILLA LA MANCHA"
+    }
+  ],
+  "descripcionFinalidad": "Educación",
+  "descripcionBasesReguladoras": "Normativa Reguladora de las Becas de Colaboración de la UCLM aprobada por el Consejo de Gobierno el 20-12-2021, DOCM de 28-12-2021, y modificada por el Consejo de Gobierno de 23-5-2022, DOCM de 1-6-2022, y bases de la convocatoria.",
+  "urlBasesReguladoras": "https://www.uclm.es/ciudad-real/ETSII",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": "2026-07-28",
+  "fechaFinSolicitud": "2026-09-21",
+  "textInicio": null,
+  "textFin": null,
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1503194,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "Convocatoria 2 becas colaboracion Esc Industriales CR 26-27.pdf",
+      "long": 439407,
+      "datMod": "2026-07-30",
+      "datPublicacion": "2026-07-30"
+    }
+  ],
+  "anuncios": [
+    {
+      "numAnuncio": 218440,
+      "titulo": "Extracto de la convocatoria de becas de colaboración para apoyo en actividades organizadas por la Escuela Técnica Superior de Ingeniería Industrial de Ciudad Real de la Universidad de Castilla la Mancha. Curso académico 2026/2027",
+      "tituloLeng": null,
+      "texto": "<p>Primero. Beneficiarios/as.</p><p>Podrán presentarse a esta convocatoria las personas matriculadas en enseñanza oficial de Grado en Ingeniería Mecánica, Ingeniería Eléctrica o Ingeniería Electrónica Industrial y Automática, de la Universidad de Castilla-La Mancha (UCLM) durante el curso 2026/2027, siendo necesario que el/la estudiante continúe con dichos estudios durante el período de disfrute de la beca y que siga cumpliendo el resto de los requisitos de la convocatoria.</p><p>Segundo. Objeto.</p><p>Se dotan fondos económicos para dos becas de colaboración destinadas a que las personas beneficiarias presten su colaboración, en régimen de compatibilidad con sus estudios, en la Escuela Técnica Superior de Ingeniería Industrial de Ciudad Real para apoyo en actividades organizadas por la E.T.S. de Ingeniería Industrial de Ciudad Real, conforme al plan formativo de la beca previsto en el anexo I y la planificación de las actividades del listado de tareas y su programación recogidos en el anexo II.</p><p>La persona beneficiaria de la beca quedará adscrita a la E.T.S. de Ingeniería Industrial de Ciudad Real.</p><p>La actividad que conlleva esta beca se realizará desde la fecha de alta de la persona beneficiaria en la seguridad social hasta el 30 de septiembre de 2027, con una dedicación global de 10 horas semanales. El mes de agosto se considera inhábil a todos los efectos y no se tendrá en cuenta en el cómputo de la duración efectiva de la beca, si estuviese comprendido en el período de disfrute de la beca.</p><p>Tercero. Bases reguladoras.</p><p>Normativa Reguladora de las Becas de Colaboración de la UCLM aprobada por el Consejo de Gobierno el 20-12-2021, DOCM de 28-12-2021, y modificada por el Consejo de Gobierno de 23-5-2022, DOCM de 1-6-2022, y bases de la convocatoria.</p><p>Cuarto. Cuantía de las ayudas.</p><p>El presupuesto de esta convocatoria asciende a 4.931,81 euros. El importe mensual bruto de la beca es de 213,33 euros.</p><p>Quinto. Plazo de presentación de solicitudes.</p><p>El plazo para la presentación de solicitudes permanecerá abierto desde la fecha de la firma de la convocatoria hasta las 14:00 horas del 21 de septiembre de 2026.</p>",
+      "textoLeng": null,
+      "url": "https://docm.jccm.es/portaldocm/detalleDocumento.do?idDisposicion=1785482337904620170",
+      "cve": null,
+      "desDiarioOficial": "DOCM. D.O. DE CASTILLA-LA MANCHA",
+      "datPublicacion": "2026-08-05"
+    }
+  ],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

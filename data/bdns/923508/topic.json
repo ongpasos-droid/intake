@@ -1,0 +1,69 @@
+{
+  "source": "bdns",
+  "source_id": "923508",
+  "source_lang": "es",
+  "level": "local",
+  "programme": "Concurrencia competitiva - canónica",
+  "sub_programme": null,
+  "publishing_authority_code": "LOCAL / ONTINYENT / AYUNTAMIENTO DE ONTINYENT",
+  "nuts_codes": [
+    "ES523"
+  ],
+  "nuts_primary": "ES523",
+  "title": "CONVOCATORIA PARA LA CONCESIÓN DE SUBVENCIONES A LAS ASOCIACIONES DEL MUNICIPIO De ONTINYENT QUE DESARROLLAN PROYECTOS PARA PROMOVER LA IGUALDAD ENTRE MUJERES Y HOMBRES Y/O PREVENIR Y ERRADICAR TODO TIPOS DE VIOLENCIA DE GÉNERO. AÑO 2026",
+  "title_lang": "es",
+  "summary": "Servicios Sociales y Promoción Social",
+  "status": "open",
+  "publication_date": "2026-08-04",
+  "open_date": null,
+  "deadline": null,
+  "deadline_model": "continuous",
+  "deadlines_extra": null,
+  "budget_total_eur": 5919,
+  "budget_per_project_min_eur": null,
+  "budget_per_project_max_eur": null,
+  "expected_grants": null,
+  "cofinancing_pct": null,
+  "duration_months": null,
+  "audience": "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA",
+  "eligible_orgs": [
+    "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+  ],
+  "eligible_countries": [
+    "ES"
+  ],
+  "sectores": [
+    {
+      "codigo": "R",
+      "descripcion": "ACTIVIDADES SANITARIAS Y DE SERVICIOS SOCIALES"
+    }
+  ],
+  "apply_url": null,
+  "details_url": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatoria/923508",
+  "documents": [
+    {
+      "label": "Documento de la convocatoria en lengua cooficial",
+      "url": null
+    },
+    {
+      "label": "Documento de la convocatoria en español",
+      "url": null
+    }
+  ],
+  "bases_reguladoras_url": "(http://www.pap.minhap.gob.es/bdnstrans/index)",
+  "text_inicio": "A PARTIR DEL DIA SIGUIENTE DE LA PUBLICACION DEL EXTRACTO DE LA CONV EN EL BOP",
+  "text_fin": "30 dias naturales desde la publicación en el BOP",
+  "se_publica_diario_oficial": true,
+  "ayuda_estado": null,
+  "fondos": [
+    {
+      "descripcion": "FSUE - FONDO DE SOLIDARIDAD DE LA UNIÓN EUROPEA"
+    }
+  ],
+  "reglamento": null,
+  "objetivos": [],
+  "sectores_productos": [],
+  "anuncios": [],
+  "mrr_flag": false,
+  "fetchedAt": "2026-08-12T18:13:53.469Z"
+}

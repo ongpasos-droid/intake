@@ -1,0 +1,81 @@
+{
+  "source": "bdns",
+  "source_id": "922779",
+  "source_lang": "es",
+  "level": "local",
+  "programme": "Concurrencia competitiva - canónica",
+  "sub_programme": null,
+  "publishing_authority_code": "LOCAL / PETRER / AYUNTAMIENTO DE PETRER",
+  "nuts_codes": [
+    "ES521"
+  ],
+  "nuts_primary": "ES521",
+  "title": "CONVOCATORIA 2026 SUBVENCIONES DE TRANSPORTE PÚBLICO PARA ESTUDIANTES DE NIVELES DE FP SUPERIOR Y UNIVERSIDAD. CURSO 2025/2026",
+  "title_lang": "es",
+  "summary": "Educación",
+  "status": "open",
+  "publication_date": "2026-07-30",
+  "open_date": "2026-09-01",
+  "deadline": "2026-09-15",
+  "deadline_model": "single-stage",
+  "deadlines_extra": null,
+  "budget_total_eur": 50000,
+  "budget_per_project_min_eur": null,
+  "budget_per_project_max_eur": null,
+  "expected_grants": null,
+  "cofinancing_pct": null,
+  "duration_months": null,
+  "audience": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA",
+  "eligible_orgs": [
+    "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+  ],
+  "eligible_countries": [
+    "ES"
+  ],
+  "sectores": [
+    {
+      "codigo": "Q",
+      "descripcion": "EDUCACIÓN"
+    }
+  ],
+  "apply_url": "https://petrer.sedelectronica.es/info.0",
+  "details_url": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatoria/922779",
+  "documents": [
+    {
+      "label": "Documento de la convocatoria en español",
+      "url": null
+    },
+    {
+      "label": "Resto de anexos",
+      "url": null
+    },
+    {
+      "label": "Solicitud",
+      "url": null
+    }
+  ],
+  "bases_reguladoras_url": "https://petrer.es/wp-content/uploads/2026/07/20260723_Publicacion_Anuncio_Edicto-bases-subvencion-transporte.pdf",
+  "text_inicio": null,
+  "text_fin": null,
+  "se_publica_diario_oficial": true,
+  "ayuda_estado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectores_productos": [],
+  "anuncios": [
+    {
+      "numAnuncio": 218443,
+      "titulo": "CONVOCATORIA 2026 SUBVENCIONES DE TRANSPORTE PÚBLICO PARA ESTUDIANTES DE NIVELES DE FP SUPERIOR Y UNIVERSIDAD. CURSO 2025/2026",
+      "tituloLeng": null,
+      "texto": "<p>Primero: Beneficiarios: Personas físicas empadronadas en Petrer que utilicen el transporte público para sus desplazamientos a su centro educativo o centro universitario correspondiente y que la distancia entre éste y la población de residencia del alumnado no sea inferior a 20 kilómetros ni superior a 50 kilómetros.</p><p>Segundo: Objeto: Cofinanciar los gastos de la utilización del transporte público para los desplazamientos habituales a los centros educativos durante el curso escolar 2025-2026.</p><p>Tercero: Bases reguladoras aprobadas por la Junta de Gobierno Local del Excmo. Ayuntamiento de Petrer, en sesión celebrada el 23 de julio de 2026.</p><p>Cuarto: Cuantía: 50.000,00 euros.</p><p>Quinto: Plazo de presentación de solicitudes: del 1 al 15 de septiembre de 2026 (ambos inclusive).</p>",
+      "textoLeng": null,
+      "url": "https://www.dip-alicante.es/bop2/pdftotal/2026/08/03_144/2026_005977.pdf",
+      "cve": null,
+      "desDiarioOficial": "B.O.P. DE ALICANTE",
+      "datPublicacion": "2026-08-03"
+    }
+  ],
+  "mrr_flag": false,
+  "fetchedAt": "2026-08-12T18:13:53.312Z"
+}

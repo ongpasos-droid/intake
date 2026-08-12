@@ -1,0 +1,68 @@
+{
+  "id": 1124800,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "CENDEA DE OLZA/OLTZA ZENDEA",
+    "nivel3": "AYUNTAMIENTO DE CENDEA DE OLZA/OLTZA ZENDEA"
+  },
+  "sedeElectronica": "https://ayuntamientoolza.sedelectronica.es/",
+  "codigoBDNS": "923239",
+  "fechaRecepcion": "2026-08-03",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concesión directa - canónica",
+  "presupuestoTotal": 500,
+  "mrr": false,
+  "descripcion": "USO DEL EUSKERA EN LA ROTULACION DE ESTABLECIMIENTOS COMERCIALES - AÑO 2026",
+  "descripcionLeng": null,
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PYME Y PERSONAS FÍSICAS QUE DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "COMERCIO AL POR MAYOR Y AL POR MENOR",
+      "codigo": "G"
+    },
+    {
+      "descripcion": "HOSTELERÍA",
+      "codigo": "I"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES220 - Navarra"
+    }
+  ],
+  "descripcionFinalidad": "Comercio, Turismo y Pymes",
+  "descripcionBasesReguladoras": "USO DEL EUSKERA EN LA ROTULACION DE ESTABLECIMIENTOS COMERCIALES - AÑO 2026",
+  "urlBasesReguladoras": "https://ayuntamientoolza.sedelectronica.es/transparency/2fa1f26d-2534-4e0f-a4aa-798586de6280/",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": null,
+  "fechaFinSolicitud": "2026-10-31",
+  "textInicio": "A la fecha del día siguiente a la publicación en el Boletín Oficial de Navarra (BON)",
+  "textFin": null,
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1504391,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "Bases Convocatoria Rotulacion euskaraz 2026.pdf",
+      "long": 427060,
+      "datMod": "2026-08-03",
+      "datPublicacion": "2026-08-03"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

@@ -1,0 +1,72 @@
+{
+  "id": 1123835,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "SANT FRUITÓS DE BAGES",
+    "nivel3": "AYUNTAMIENTO DE SANT FRUITÓS DE BAGES"
+  },
+  "sedeElectronica": null,
+  "codigoBDNS": "922274",
+  "fechaRecepcion": "2026-07-29",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 3201.92,
+  "mrr": false,
+  "descripcion": "Subvenció concurrència competitiva - Ajuts servei menjador Llar d¿Infants Municipal Les Oliveres, curs 2026-2027",
+  "descripcionLeng": null,
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "Actividades auxiliares a la educación",
+      "codigo": "85.6"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES511 - Barcelona"
+    }
+  ],
+  "descripcionFinalidad": "Educación",
+  "descripcionBasesReguladoras": "BASES EXECUCIÓ PRESSUPOST 2026 (c)",
+  "urlBasesReguladoras": "https://bop.diba.cat/anunci/3886405/aprovacio-definitiva-del-pressupost-municipal-i-documentacio-complementaria-per-a-l-exercici-2026-ajuntament-de-sant-fruitos-de-bages",
+  "sePublicaDiarioOficial": true,
+  "abierto": true,
+  "fechaInicioSolicitud": null,
+  "fechaFinSolicitud": null,
+  "textInicio": "Des del dia després de la publicació de la convocatòria al BOPB",
+  "textFin": "20 de setembre de 2026",
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1502041,
+      "descripcion": "Texto en otra lengua de la convocatoria",
+      "nombreFic": "20260728_Uns_altres_Certificat_dacord_JGL_-_Aprovació_bases_i_convocatòria_subvenció_ajuts_de_suport_al_servei_de_menjador_de_la_Llar_d_Infants_municipal_Les_Oliveres,_curs_2026-2027(1).pdf",
+      "long": 837230,
+      "datMod": "2026-07-29",
+      "datPublicacion": "2026-07-29"
+    },
+    {
+      "id": 1502040,
+      "descripcion": "Texto en castellano de la convocatoria",
+      "nombreFic": "20260728_Uns_altres_Certificat_dacord_JGL_-_Aprovació_bases_i_convocatòria_subvenció_ajuts_de_suport_al_servei_de_menjador_de_la_Llar_d_Infants_municipal_Les_Oliveres,_curs_2026-2027(1).pdf",
+      "long": 837230,
+      "datMod": "2026-07-29",
+      "datPublicacion": "2026-07-29"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

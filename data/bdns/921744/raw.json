@@ -1,0 +1,88 @@
+{
+  "id": 1123305,
+  "organo": {
+    "nivel1": "AUTONOMICA",
+    "nivel2": "GALICIA",
+    "nivel3": "CONSELLERÍA DE SANIDAD"
+  },
+  "sedeElectronica": null,
+  "codigoBDNS": "921744",
+  "fechaRecepcion": "2026-07-27",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 2588866.9,
+  "mrr": false,
+  "descripcion": "Orde de convocatoria de subvención a concellos para a realización de proxectos de prevención de condutas adictivas",
+  "descripcionLeng": "Orden de convocatoria de subvenciones a ayuntamientos para la realización de proyectos de prevención de conductas adictivas",
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "Otras actividades sanitarias",
+      "codigo": "86.9"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES11 - GALICIA"
+    }
+  ],
+  "descripcionFinalidad": "Sanidad",
+  "descripcionBasesReguladoras": "Orde de convocatoria de subvención a concellos para a realización de proxectos de prevención de condutas adictivas",
+  "urlBasesReguladoras": "https://www.xunta.gal/diario-oficial-galicia/portalPublicoHome.do?fecha=20260727&ruta=Indice139_es.html&lang=es",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": "2026-08-03",
+  "fechaFinSolicitud": "2026-09-03",
+  "textInicio": null,
+  "textFin": null,
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1500717,
+      "descripcion": "Texto en castellano de la convocatoria",
+      "nombreFic": "1.orden_sub_concellos_26_cast_signed_20260727_122513.pdf",
+      "long": 550148,
+      "datMod": "2026-07-27",
+      "datPublicacion": "2026-07-27"
+    },
+    {
+      "id": 1500720,
+      "descripcion": "Anexos en galego",
+      "nombreFic": "Anexos I a VI orden castellano_20260727_123135.pdf",
+      "long": 982129,
+      "datMod": "2026-07-27",
+      "datPublicacion": "2026-07-27"
+    },
+    {
+      "id": 1500719,
+      "descripcion": "Anexos en castellano",
+      "nombreFic": "Anexos I a VI orde galego_20260727_122959.pdf",
+      "long": 980576,
+      "datMod": "2026-07-27",
+      "datPublicacion": "2026-07-27"
+    },
+    {
+      "id": 1500718,
+      "descripcion": "Texto en otra lengua de la convocatoria",
+      "nombreFic": "1.orde_sub_concellos_26_gal_signed_20260727_122432.pdf",
+      "long": 548390,
+      "datMod": "2026-07-27",
+      "datPublicacion": "2026-07-27"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

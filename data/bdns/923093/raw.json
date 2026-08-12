@@ -1,0 +1,72 @@
+{
+  "id": 1124654,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "ONDARROA",
+    "nivel3": "AYUNTAMIENTO DE ONDARROA"
+  },
+  "sedeElectronica": "www.ondarroa.eus",
+  "codigoBDNS": "923093",
+  "fechaRecepcion": "2026-08-01",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 30000,
+  "mrr": false,
+  "descripcion": "CONVOCATORIA PARA EL AÑO 2026 DE SUBVENCIONES MUNICIPALES EN RÉGIMEN DE CONCURRENCIA COMPETITIVA DESTINADAS A FINANCIAR LA REALIZACIÓN DE ACTIVIDADES EN MATERIA DE CULTURA EN EL MUNICIPIO DE ONDARROA",
+  "descripcionLeng": "2026 URTEKO NORGEHIAGOKA-DIRULAGUNTZA DEIALDIA ONDARROAKO UDALERRIAN KULTUR ARLOKO JARDUERAK EGITEA FINANTZATZEKO",
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PYME Y PERSONAS FÍSICAS QUE DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "ACTIVIDADES ARTÍSTICAS, DEPORTIVAS Y DE ENTRETENIMIENTO",
+      "codigo": "S"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES21 - PAIS VASCO"
+    }
+  ],
+  "descripcionFinalidad": "Cultura",
+  "descripcionBasesReguladoras": "CONVOCATORIA PARA EL AÑO 2026 DE SUBVENCIONES MUNICIPALES EN RÉGIMEN DE CONCURRENCIA COMPETITIVA DESTINADAS A FINANCIAR LA REALIZACIÓN DE ACTIVIDADES EN MATERIA DE CULTURA EN EL MUNICIPIO DE ONDARROA",
+  "urlBasesReguladoras": "https://www.ondarroa.eus/es-ES/Ayuntamiento/Subvenciones-convocatorias/Paginas/subvenciones.aspx",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": null,
+  "fechaFinSolicitud": "2026-09-30",
+  "textInicio": " Desde el día siguiente al de la publicación de la convocatoria en el Boletín Oficial de Bizkaia",
+  "textFin": null,
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1506472,
+      "descripcion": "Documento de la convocatoria en lengua cooficial",
+      "nombreFic": "Ondarroako Udaleko dirulaguntza deialdia kultur arloko jardueretarako 2026ko ekitaldian.pdf",
+      "long": 2616263,
+      "datMod": "2026-08-06",
+      "datPublicacion": "2026-08-06"
+    },
+    {
+      "id": 1506471,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "Convocatoria de subvenciones para actividades culturales en el municipio de ondarroa en el ejercicio 2026.pdf",
+      "long": 1315522,
+      "datMod": "2026-08-06",
+      "datPublicacion": "2026-08-06"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

@@ -1,0 +1,72 @@
+{
+  "id": 1125778,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "LORIGUILLA",
+    "nivel3": "AYUNTAMIENTO DE LORIGUILLA"
+  },
+  "sedeElectronica": "https://loriguilla.sedelectronica.es/info.0",
+  "codigoBDNS": "924217",
+  "fechaRecepcion": "2026-08-10",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 19000,
+  "mrr": false,
+  "descripcion": "ADQUISICIÓN DE MATERIAL ESCOLAR DE LOS ALUMNOS/AS ESCOLARIZADOS EN EL PRIMER Y SEGUNDO CICLO DE EDUCACIÓN INFANTIL, ASÍ COMO EN LA ETAPA EDUCATIVA OBLIGATORIA\nCURSO 2026-2027",
+  "descripcionLeng": null,
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "Educación preprimaria",
+      "codigo": "85.1"
+    },
+    {
+      "descripcion": "Educación primaria",
+      "codigo": "85.2"
+    },
+    {
+      "descripcion": "Educación secundaria y educación postsecundaria no terciaria",
+      "codigo": "85.3"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES523 - Valencia / València"
+    }
+  ],
+  "descripcionFinalidad": "Educación",
+  "descripcionBasesReguladoras": "ORDENANZA GENERAL DE SUBVENCIONES DEL AYUNTAMIENTO DE LORIGUILLA",
+  "urlBasesReguladoras": "https://bop.dival.es/bop/downloads?anuncioNumReg=2020/10280&lang=va",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": null,
+  "fechaFinSolicitud": null,
+  "textInicio": "VEINTE DÍAS HÁBILES,  desde el siguiente a la publicación del extracto de la convocatoria en bop val",
+  "textFin": "VEINTE DÍAS HÁBILES,  desde el siguiente a la publicación del extracto de la convocatoria en bop val",
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1507152,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "20260706_Resolución_Decreto de Alcaldía _ Decreto de Presidencia_DECRETO 2026-0462 [CONVOCATORIA SUBVENCIÓN MATERIAL ESCOLAR 2026-2027 - DECRETO CONVOCATORIA BASES].pdf",
+      "long": 483502,
+      "datMod": "2026-08-10",
+      "datPublicacion": "2026-08-10"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

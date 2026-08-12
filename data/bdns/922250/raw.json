@@ -1,0 +1,64 @@
+{
+  "id": 1123811,
+  "organo": {
+    "nivel1": "AUTONOMICA",
+    "nivel2": "ARAGÓN",
+    "nivel3": "DIRECCIÓN GENERAL DE VIVIENDA"
+  },
+  "sedeElectronica": null,
+  "codigoBDNS": "922250",
+  "fechaRecepcion": "2026-07-29",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 500000,
+  "mrr": false,
+  "descripcion": "Convocatoria de ayudas para resarcir los daños ocasionados a los particulares en situaciones derivadas de la pérdida sobrevenida de la vivienda habitual por causas extraordinarias, situaciones de emergencia o de naturaleza catastrófica en 2026.",
+  "descripcionLeng": null,
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "CONSTRUCCIÓN",
+      "codigo": "F"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES24 - ARAGON"
+    }
+  ],
+  "descripcionFinalidad": "Acceso a la vivienda y fomento de la edificación",
+  "descripcionBasesReguladoras": "ORDEN FOM/1879/2025, de 23 de diciembre, por la que se aprueban las bases reguladoras de las subvenciones por pérdida sobrevenida de vivienda habitual por causas extraordinarias o catastróficas.",
+  "urlBasesReguladoras": "https://www.boa.aragon.es/#/resultado-detalle?item=N4Igcg8gTgJgpgOxALhAJgATwwZgGwgA0IAIhAMJgogAMNA7AJwCsALCwIxEgBicAxgAsAhgAUArgCMANgEt%2Bw-rID2SVGhpo8NDjQAc3MOIC2cKMsnLpcAC6y1IVtwDKApauoBJAHQYSsgGcAB2UA%2BRUEOACMAHFEM2FrAJcpALcI6m4%2BIWEYQJCw9wcNNGYONDQc",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": "2026-08-03",
+  "fechaFinSolicitud": "2026-09-02",
+  "textInicio": null,
+  "textFin": null,
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1501993,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "CSVJA0M4CF0LG160XFIL Convocatoria_incendios_Viviendas_2026.pdf",
+      "long": 294013,
+      "datMod": "2026-07-29",
+      "datPublicacion": "2026-07-29"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

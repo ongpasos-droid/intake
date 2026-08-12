@@ -1,0 +1,103 @@
+{
+  "id": 1125599,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "VILLAQUILAMBRE",
+    "nivel3": "AYUNTAMIENTO DE VILLAQUILAMBRE"
+  },
+  "sedeElectronica": " www.villaquilambre.es",
+  "codigoBDNS": "924038",
+  "fechaRecepcion": "2026-08-07",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 35000,
+  "mrr": false,
+  "descripcion": "BASES ESPECÍFICAS DE LA CONVOCATORIA PARA LA CONCESIÓN DE SUBVENCIONES EN RÉGIMEN DE CONCURRENCIA COMPETITIVA A CLUBES DEPORTIVOS Y DEPORTISTAS INDIVIDUALES EN EL AYUNTAMIENTO DE VILLAQUILAMBRE EN LA TEMPORADA 2025/2026",
+  "descripcionLeng": null,
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    },
+    {
+      "descripcion": "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "Actividades deportivas, recreativas y de entretenimiento",
+      "codigo": "93"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES413 - León"
+    }
+  ],
+  "descripcionFinalidad": "Educación",
+  "descripcionBasesReguladoras": "BASES ESPECÍFICAS DE LA CONVOCATORIA PARA LA CONCESIÓN DE SUBVENCIONES EN RÉGIMEN DE CONCURRENCIA COMPETITIVA A CLUBES DEPORTIVOS Y DEPORTISTAS INDIVIDUALES EN EL AYUNTAMIENTO DE VILLAQUILAMBRE EN LA TEMPORADA 2025/2026",
+  "urlBasesReguladoras": "www.villaquilambre.es",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": null,
+  "fechaFinSolicitud": null,
+  "textInicio": " a partir del siguiente a la publicación de la convocatoria en el BOP",
+  "textFin": "10 días hábiles contados a partir del siguiente a la publicación de la convocatoria en el BOP",
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [
+    {
+      "descripcion": "FEDER - FONDO EUROPEO DE DESARROLLO REGIONAL"
+    }
+  ],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1506757,
+      "descripcion": "CERTIFICADO ACUERDO",
+      "nombreFic": "20260806_Certificado JGL  06-08-2026 APROBACIÓN BASES ESPECÍFICAS SUBVENCIONES 2025-26.pdf",
+      "long": 3026207,
+      "datMod": "2026-08-07",
+      "datPublicacion": "2026-08-07"
+    },
+    {
+      "id": 1506756,
+      "descripcion": "ANEXO II",
+      "nombreFic": "20260714_ANEXO IB  SUBVENCIONES 2025-26.pdf",
+      "long": 186125,
+      "datMod": "2026-08-07",
+      "datPublicacion": "2026-08-07"
+    },
+    {
+      "id": 1506755,
+      "descripcion": "ANEXO IB",
+      "nombreFic": "20260714_ANEXO IB  SUBVENCIONES 2025-26.pdf",
+      "long": 186125,
+      "datMod": "2026-08-07",
+      "datPublicacion": "2026-08-07"
+    },
+    {
+      "id": 1506753,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "20260724_Otros_BASES ESPECÍFICAS SUBVENCIONES 2025-26.pdf",
+      "long": 607834,
+      "datMod": "2026-08-07",
+      "datPublicacion": "2026-08-07"
+    },
+    {
+      "id": 1506754,
+      "descripcion": "ANEXO IA",
+      "nombreFic": "20260714_ANEXO IA  SUBVENCIONES 2025-26.pdf",
+      "long": 220117,
+      "datMod": "2026-08-07",
+      "datPublicacion": "2026-08-07"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

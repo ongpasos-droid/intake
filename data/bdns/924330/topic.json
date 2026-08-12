@@ -1,0 +1,61 @@
+{
+  "source": "bdns",
+  "source_id": "924330",
+  "source_lang": "es",
+  "level": "local",
+  "programme": "Concurrencia competitiva - canónica",
+  "sub_programme": null,
+  "publishing_authority_code": "LOCAL / CARTAGENA / AYUNTAMIENTO DE CARTAGENA",
+  "nuts_codes": [
+    "ES62"
+  ],
+  "nuts_primary": "ES62",
+  "title": "EDU Concesion de subvenciones a centros sostenidos con fondos publicos por el procedimiento de concurrencia competitiva para la realizacion de una experiencia de presupuestos participativos en centros edcativos ene el curso academico 2026-2027",
+  "title_lang": "es",
+  "summary": "Educación",
+  "status": "open",
+  "publication_date": "2026-08-10",
+  "open_date": null,
+  "deadline": null,
+  "deadline_model": "continuous",
+  "deadlines_extra": null,
+  "budget_total_eur": 220000,
+  "budget_per_project_min_eur": null,
+  "budget_per_project_max_eur": null,
+  "expected_grants": null,
+  "cofinancing_pct": null,
+  "duration_months": null,
+  "audience": "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA",
+  "eligible_orgs": [
+    "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+  ],
+  "eligible_countries": [
+    "ES"
+  ],
+  "sectores": [
+    {
+      "codigo": "85",
+      "descripcion": "Educación"
+    }
+  ],
+  "apply_url": "https://www.cartagena.es/becas_ayudas_subvenciones.asp?c=29&texto=&organismo=3",
+  "details_url": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatoria/924330",
+  "documents": [
+    {
+      "label": "Texto en castellano de la convocatoria",
+      "url": null
+    }
+  ],
+  "bases_reguladoras_url": "https://www.boe.es/buscar/pdf/2003/BOE-A-2003-20977-consolidado.pdf",
+  "text_inicio": "Al dia siguiente de su publicacion en eel BORM",
+  "text_fin": "Un mes desde de su publicacion",
+  "se_publica_diario_oficial": true,
+  "ayuda_estado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectores_productos": [],
+  "anuncios": [],
+  "mrr_flag": false,
+  "fetchedAt": "2026-08-12T18:13:53.619Z"
+}

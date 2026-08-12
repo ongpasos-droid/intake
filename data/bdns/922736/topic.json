@@ -1,0 +1,71 @@
+{
+  "source": "bdns",
+  "source_id": "922736",
+  "source_lang": "es",
+  "level": "estado",
+  "programme": "Concurrencia competitiva - canónica",
+  "sub_programme": null,
+  "publishing_authority_code": "ESTADO / MINISTERIO DE EDUCACIÓN, FORMACIÓN PROFESIONAL Y DEPORTES / SUBSECRETARÍA DE EDUCACIÓN, FORMACIÓN PROFESIONAL Y DEPORTES",
+  "nuts_codes": [],
+  "nuts_primary": null,
+  "title": "Convocatoria de ayudas para cursos de formación dirigidos a profesores de Filipinas, Polonia y Brasil, participantes en el Programa Europrof 2026",
+  "title_lang": "es",
+  "summary": "Educación",
+  "status": "open",
+  "publication_date": "2026-07-30",
+  "open_date": "2026-08-02",
+  "deadline": "2026-08-16",
+  "deadline_model": "single-stage",
+  "deadlines_extra": null,
+  "budget_total_eur": 76580,
+  "budget_per_project_min_eur": null,
+  "budget_per_project_max_eur": null,
+  "expected_grants": null,
+  "cofinancing_pct": null,
+  "duration_months": null,
+  "audience": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA",
+  "eligible_orgs": [
+    "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+  ],
+  "eligible_countries": [
+    "ES"
+  ],
+  "sectores": [
+    {
+      "codigo": "Q",
+      "descripcion": "EDUCACIÓN"
+    }
+  ],
+  "apply_url": "https://sede.educacion.gob.es/sede/login/inicio.jjsp?idConvocatoria=1994",
+  "details_url": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatoria/922736",
+  "documents": [
+    {
+      "label": "Documento de la convocatoria en español",
+      "url": null
+    }
+  ],
+  "bases_reguladoras_url": "https://www.boe.es/eli/es/o/2005/04/20/eci1305",
+  "text_inicio": "15 días naturales a partir del día siguiente a la publicación del extracto de esta Resolución en BOE",
+  "text_fin": "15 días naturales después de su publicación en BOE",
+  "se_publica_diario_oficial": true,
+  "ayuda_estado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectores_productos": [],
+  "anuncios": [
+    {
+      "numAnuncio": 218429,
+      "titulo": "Extracto de resolución de 30 de julio de 2026 de la Subsecretaría del Ministerio de Educación, Formación Profesional y Deportes por la que se convocan ayudas para cursos de formación dirigidos a profesores de Filipinas, Polonia y Brasil participantes en el programa Europrof 2026",
+      "tituloLeng": null,
+      "texto": "<p>Primero. Beneficiarios.</p><p>Profesores en activo que imparten enseñanza reglada no universitaria en centros públicos o privados de Filipinas, Polonia y Brasil, que asuman el compromiso de ejercer como docentes de español o de enseñar en dicha lengua en sus centros educativos, o bien de actuar como formador de otros profesores de español.</p><p>Segundo. Finalidad.</p><p>Ayudas para la realización de cursos de formación y que se llevarán a cabo con el Instituto Cervantes, como entidad colaboradora.</p><p>Tercero. Bases reguladoras.</p><p>Orden ECI/1305/2005 de 20 de abril publicada en el B.O.E. del 12 de mayo por la que se establecen las bases reguladoras de la concesión de subvenciones públicas en régimen de concurrencia competitiva.</p><p>Cuarto. Importe.</p><p>Importe global máximo de 76.580 euros, con cargo a los créditos del Departamento, aplicación presupuestaria 18.08.144B.480.03. El número máximo de ayudas se cifra en 220. Las cuantías individualizadas se reflejarán en los presupuestos desarrollados en el convenio con la entidad colaboradora.</p><p>Quinto. Plazo de presentación de solicitudes.</p><p>El plazo de presentación de solicitudes será de 15 días naturales a partir del día siguiente a la publicación del extracto de esta Resolución en el Boletín Oficial del Estado.</p>",
+      "textoLeng": null,
+      "url": "http://www.boe.es/diario_boe/verifica.php?acc=Verificar&c=BOE-B-2026-25863",
+      "cve": "BOE-B-2026-25863",
+      "desDiarioOficial": "BOE. BOLETÍN OFICIAL DEL ESTADO",
+      "datPublicacion": "2026-08-01"
+    }
+  ],
+  "mrr_flag": false,
+  "fetchedAt": "2026-08-12T18:13:53.301Z"
+}

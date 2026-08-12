@@ -1,0 +1,78 @@
+{
+  "id": 1125035,
+  "organo": {
+    "nivel1": "AUTONOMICA",
+    "nivel2": "CATALUÑA",
+    "nivel3": "SERVICIO PÚBLICO DE EMPLEO DE CATALUÑA"
+  },
+  "sedeElectronica": null,
+  "codigoBDNS": "923474",
+  "fechaRecepcion": "2026-08-04",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 370484.44,
+  "mrr": false,
+  "descripcion": "Resolución EMT/    /2026, de  de , por la que se abre la convocatoria de subvenciones para el año 2026 de actuaciones de orientación dirigidas al sector agrario, enmarcadas en el programa Orienta (SOC-ORIENTA AGRARIO)",
+  "descripcionLeng": "Resolució EMT/ /2026, de de , per la qual s'obre la convocatòria de subvencions per a l'any 2026 d'actuacions d'orientació adreades al sector agrari, emmarcades en el programa Orienta (SOC-ORIENTA AGRARI)",
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "GRAN EMPRESA"
+    },
+    {
+      "descripcion": "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    },
+    {
+      "descripcion": "PYME Y PERSONAS FÍSICAS QUE DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "Actividades relacionadas con el empleo",
+      "codigo": "78"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES51 - CATALUÑA"
+    }
+  ],
+  "descripcionFinalidad": "Fomento del Empleo",
+  "descripcionBasesReguladoras": "ORDEN EMT/8/2022, de 10 de febrero, por la que se aprueban las bases reguladoras para la concesión de subvenciones destinadas a la financiación del Programa Orienta (SOC  ORIENTA).",
+  "urlBasesReguladoras": "https://portaldogc.gencat.cat/utilsEADOP/AppJava/PdfProviderServlet?documentId=920167&type=01&language=es_ES",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": null,
+  "fechaFinSolicitud": "2026-09-18",
+  "textInicio": "Des de l’endemà de la publicació en el diari oficial de la convocatòria inicial",
+  "textFin": null,
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1505016,
+      "descripcion": "Texto en otra lengua de la convocatoria",
+      "nombreFic": "SOC0072026 - ORIENTA_AGRARI_2026_ Resolució definitiva_1_1.pdf",
+      "long": 412689,
+      "datMod": "2026-08-04",
+      "datPublicacion": "2026-08-04"
+    },
+    {
+      "id": 1505015,
+      "descripcion": "Texto en castellano de la convocatoria",
+      "nombreFic": "ES_SOC0072026 - ORIENTA_AGRARI_2026_ Resolució definitiva.pdf",
+      "long": 257425,
+      "datMod": "2026-08-04",
+      "datPublicacion": "2026-08-04"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

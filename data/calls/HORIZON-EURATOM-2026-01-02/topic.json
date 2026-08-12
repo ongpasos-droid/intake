@@ -71,20 +71,6 @@
     },
     {
       "section": "Call document and annexes:",
-      "label": "Detailed budget table (HE LS)",
-      "url": "https://ec.europa.eu/info/funding-tenders/opportunities/docs/2021-2027/common/temp-form/af/detailed-budget-table_he-ls-euratom_en.xlsm",
-      "ext": ".xlsm",
-      "is_downloadable": true
-    },
-    {
-      "section": "Call document and annexes:",
-      "label": "Information on financial support to third parties (HE)",
-      "url": "https://ec.europa.eu/info/funding-tenders/opportunities/docs/2021-2027/horizon/temp-form/af/information-on-financial-support-to-third-parties_he_en.docx",
-      "ext": ".docx",
-      "is_downloadable": true
-    },
-    {
-      "section": "Call document and annexes:",
       "label": "Standard evaluation form (HE RIA IA)",
       "url": "https://ec.europa.eu/info/funding-tenders/opportunities/docs/2021-2027/horizon/temp-form/ef/ef_he-ria-ia_en.pdf",
       "ext": ".pdf",
@@ -102,6 +88,27 @@
       "label": "Lump Sum MGA",
       "url": "https://ec.europa.eu/info/funding-tenders/opportunities/docs/2021-2027/common/agr-contr/ls-mga_en.pdf",
       "ext": ".pdf",
+      "is_downloadable": true
+    },
+    {
+      "section": "Call document and annexes:",
+      "label": "Detailed budget table (HE LS)",
+      "url": "https://ec.europa.eu/info/funding-tenders/opportunities/docs/2021-2027/common/temp-form/af/detailed-budget-table_he-ls-euratom_en.xlsm",
+      "ext": ".xlsm",
+      "is_downloadable": true
+    },
+    {
+      "section": "Call document and annexes:",
+      "label": "Guidance: \"Lump sums - what do I need to know?\"",
+      "url": "https://ec.europa.eu/info/funding-tenders/opportunities/docs/2021-2027/horizon/guidance/ls-funding-what-do-i-need-to-know_he_en.pdf",
+      "ext": ".pdf",
+      "is_downloadable": true
+    },
+    {
+      "section": "Call document and annexes:",
+      "label": "Information on financial support to third parties (HE)",
+      "url": "https://ec.europa.eu/info/funding-tenders/opportunities/docs/2021-2027/horizon/temp-form/af/information-on-financial-support-to-third-parties_he_en.docx",
+      "ext": ".docx",
       "is_downloadable": true
     },
     {
@@ -154,5 +161,5 @@
       "is_downloadable": false
     }
   ],
-  "fetchedAt": "2026-07-27T04:04:44.924Z"
+  "fetchedAt": "2026-08-12T18:10:05.535Z"
 }

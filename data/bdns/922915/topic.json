@@ -1,0 +1,69 @@
+{
+  "source": "bdns",
+  "source_id": "922915",
+  "source_lang": "es",
+  "level": "local",
+  "programme": "Concurrencia competitiva - canónica",
+  "sub_programme": null,
+  "publishing_authority_code": "LOCAL / DIPUTACIÓN PROV. DE ALMERÍA / DIPUTACIÓN PROVINCIAL DE ALMERÍA",
+  "nuts_codes": [
+    "ES611"
+  ],
+  "nuts_primary": "ES611",
+  "title": "CONVOCATORIA DE SUBVENCIONES A LOS CLUBES DEPORTIVOS ALMERIENSES CON EQUIPOS EN COMPETICIONES OFICIALES DE ÁMBITO NACIONAL DE CATEGORÍA SUBMÁXIMA,  TEMPORADA 2025-2026",
+  "title_lang": "es",
+  "summary": "Otras actuaciones de carácter económico",
+  "status": "open",
+  "publication_date": "2026-07-31",
+  "open_date": null,
+  "deadline": null,
+  "deadline_model": "continuous",
+  "deadlines_extra": null,
+  "budget_total_eur": 25000,
+  "budget_per_project_min_eur": null,
+  "budget_per_project_max_eur": null,
+  "expected_grants": null,
+  "cofinancing_pct": null,
+  "duration_months": null,
+  "audience": "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA",
+  "eligible_orgs": [
+    "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+  ],
+  "eligible_countries": [
+    "ES"
+  ],
+  "sectores": [
+    {
+      "codigo": "93.1",
+      "descripcion": "Actividades deportivas"
+    }
+  ],
+  "apply_url": "www.dipalme.org",
+  "details_url": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatoria/922915",
+  "documents": [
+    {
+      "label": "Documento de la convocatoria en español",
+      "url": null
+    },
+    {
+      "label": "EXTRACTO BOP",
+      "url": null
+    },
+    {
+      "label": "ACUERDO DE CONVOCATORIA",
+      "url": null
+    }
+  ],
+  "bases_reguladoras_url": "https://www.dipalme.org/Servicios/cmsdipro/index.nsf/tablon.xsp?p=dipalme&documentId=1089B96D61779182C12587A0002F3435",
+  "text_inicio": "PENDIENTE DE PUBLICACIÓN",
+  "text_fin": "PENDIENTE DE PUBLICACIÓN",
+  "se_publica_diario_oficial": true,
+  "ayuda_estado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectores_productos": [],
+  "anuncios": [],
+  "mrr_flag": false,
+  "fetchedAt": "2026-08-12T18:13:53.335Z"
+}

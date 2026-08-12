@@ -1,0 +1,67 @@
+{
+  "id": 1125154,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "CÓRDOBA",
+    "nivel3": "INSTITUTO MUNICIPAL DE LAS ARTES ESCÉNICAS GRAN TEATRO DE CÓRDOBA"
+  },
+  "sedeElectronica": "https://www.cordoba.es/sede/tramites/tramites-generales/instancia-general",
+  "codigoBDNS": "923593",
+  "fechaRecepcion": "2026-08-05",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 1400000,
+  "mrr": false,
+  "descripcion": "BASES REGULADORAS Y CONVOCATORIA DE CONCESIÓN DE SUBVENCIONES EN RÉGIMEN DE CONCURRENCIA COMPETITIVA DEL INSTITUTO MUNICIPAL DE ARTES ESCENICAS GRAN TEATRO DE CÓRDOBA (IMAE) DESTINADAS A AYUDAS A FESTIVALES Y FERIAS CULTURALES",
+  "descripcionLeng": null,
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "GRAN EMPRESA"
+    },
+    {
+      "descripcion": "PYME Y PERSONAS FÍSICAS QUE DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "ACTIVIDADES ARTÍSTICAS, DEPORTIVAS Y DE ENTRETENIMIENTO",
+      "codigo": "S"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES613 - Córdoba"
+    }
+  ],
+  "descripcionFinalidad": "Cultura",
+  "descripcionBasesReguladoras": "BASES REGULADORAS Y CONVOCATORIA DE CONCESIÓN DE SUBVENCIONES EN RÉGIMEN DE CONCURRENCIA COMPETITIVA DEL INSTITUTO MUNICIPAL DE ARTES ESCENICAS GRAN TEATRO DE CÓRDOBA (IMAE) DESTINADAS A AYUDAS A FESTIVALES Y FERIAS CULTURALES",
+  "urlBasesReguladoras": "https://teatrocordoba.es/subvenciones/",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": "2026-08-10",
+  "fechaFinSolicitud": "2026-08-31",
+  "textInicio": "Publicación del extracto de la convocatoria en el Boletín Oficial de la Provincia de Córdoba",
+  "textFin": "Las solicitudes se presentarán en el plazo de 15 días hábiles contados a partir del día siguiente",
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1505453,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "CONVOCATORIA DE SUBVENCIONES IMAE PARA FESTIVALES 2026.pdf",
+      "long": 610288,
+      "datMod": "2026-08-05",
+      "datPublicacion": "2026-08-06"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

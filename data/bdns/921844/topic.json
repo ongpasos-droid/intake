@@ -1,0 +1,76 @@
+{
+  "source": "bdns",
+  "source_id": "921844",
+  "source_lang": "es",
+  "level": "estado",
+  "programme": "Concurrencia competitiva - canónica",
+  "sub_programme": null,
+  "publishing_authority_code": "ESTADO / MINISTERIO DE INDUSTRIA Y TURISMO / DIRECCIÓN GENERAL DE PROGRAMAS INDUSTRIALES",
+  "nuts_codes": [],
+  "nuts_primary": null,
+  "title": "Mecanismo de compensación de costes de emisiones indirectas de CO2 – 2026",
+  "title_lang": "es",
+  "summary": "Industria y Energía",
+  "status": "open",
+  "publication_date": "2026-07-28",
+  "open_date": "2026-07-30",
+  "deadline": "2026-08-26",
+  "deadline_model": "single-stage",
+  "deadlines_extra": null,
+  "budget_total_eur": 600000000,
+  "budget_per_project_min_eur": null,
+  "budget_per_project_max_eur": null,
+  "expected_grants": null,
+  "cofinancing_pct": null,
+  "duration_months": null,
+  "audience": "GRAN EMPRESA; PYME Y PERSONAS FÍSICAS QUE DESARROLLAN ACTIVIDAD ECONÓMICA",
+  "eligible_orgs": [
+    "GRAN EMPRESA",
+    "PYME Y PERSONAS FÍSICAS QUE DESARROLLAN ACTIVIDAD ECONÓMICA"
+  ],
+  "eligible_countries": [
+    "ES"
+  ],
+  "sectores": [
+    {
+      "codigo": "C",
+      "descripcion": "INDUSTRIA MANUFACTURERA"
+    }
+  ],
+  "apply_url": "https://sede.serviciosmin.gob.es",
+  "details_url": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatoria/921844",
+  "documents": [
+    {
+      "label": "Orden de tramitación de urgencia",
+      "url": null
+    },
+    {
+      "label": "Documento de la convocatoria en español",
+      "url": null
+    }
+  ],
+  "bases_reguladoras_url": "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2022-7190",
+  "text_inicio": null,
+  "text_fin": null,
+  "se_publica_diario_oficial": true,
+  "ayuda_estado": "SA.122532",
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectores_productos": [],
+  "anuncios": [
+    {
+      "numAnuncio": 218165,
+      "titulo": "Extracto de la Orden de 24 de julio de 2026 por la que se convocan para el año 2026 las subvenciones dispuestas en el Real Decreto 309/2022, de 3 de mayo.",
+      "tituloLeng": null,
+      "texto": "<p>Primero.- Beneficiarios.</p><p>Personas jurídicas del sector privado, incluidas o no en el Régimen de Comercio de Derechos de Emisión de la Unión Europea, cualquiera que sea su forma jurídica y que:</p><p>a. Estén válidamente constituidas en el momento de presentar la solicitud.</p><p>b. Realicen una o varias actividades, o fabriquen productos destinados a comercialización y beneficio empresarial, en los sectores enumerados en el anexo I de la Orden de convocatoria.</p><p>c. Hayan incurrido en costes de emisiones indirectas de CO2, en el año 2025, debido a los costes indirectos soportados en los gastos de suministro eléctrico destinados a los procesos productivos.</p><p>Segundo.- Objeto.</p><p>Compensación, en forma de subvención, de los costes indirectos imputables a las emisiones de gases de efecto invernadero repercutidos en los precios de la electricidad del año 2025, conforme al Real Decreto 309/2022 de 3 de mayo, y al amparo de lo establecido en la Directiva (UE) 2018/410 del Parlamento Europeo y del Consejo de 14 de marzo de 2018, por la que se modifica la Directiva 2003/87/CE para intensificar las reducciones de emisiones de forma eficaz en relación con los costes y facilitar las inversiones en tecnologías hipocarbónicas.</p><p>Tercero.- Bases reguladoras.</p><p>Real Decreto 309/2022, de 3 de mayo, por el que se establece el mecanismo de compensación de costes indirectos para los sectores y subsectores industriales a los que se considera expuestos a un riesgo significativo de fuga de carbono durante el periodo 2021-2030.</p><p>Cuarto.- Cuantía.</p><p>La cuantía máxima de las ayudas que podrán otorgarse al conjunto de todos los beneficiarios será de 600.000.000 euros. Las ayudas adoptarán la forma de subvención. El importe global máximo destinado a las subvenciones en la presente convocatoria se prorrateará entre todos los beneficiarios de las mismas.</p><p>Quinto.- Plazo de presentación de solicitudes.</p><p>El plazo de presentación de solicitudes y de la correspondiente documentación será de veinte días hábiles, contados a partir del día siguiente al de la publicación del extracto de la Orden de convocatoria en el «Boletín Oficial del Estado».</p>",
+      "textoLeng": null,
+      "url": "http://www.boe.es/diario_boe/verifica.php?acc=Verificar&c=BOE-B-2026-25588",
+      "cve": "BOE-B-2026-25588",
+      "desDiarioOficial": "BOE. BOLETÍN OFICIAL DEL ESTADO",
+      "datPublicacion": "2026-07-29"
+    }
+  ],
+  "mrr_flag": false,
+  "fetchedAt": "2026-08-12T18:13:53.148Z"
+}

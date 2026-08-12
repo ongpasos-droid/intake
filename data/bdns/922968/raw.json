@@ -1,0 +1,140 @@
+{
+  "id": 1124529,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "ÉPILA",
+    "nivel3": "AYUNTAMIENTO DE ÉPILA"
+  },
+  "sedeElectronica": "https://epila.sedelectronica.es",
+  "codigoBDNS": "922968",
+  "fechaRecepcion": "2026-07-31",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 3000,
+  "mrr": false,
+  "descripcion": "Resolución de Alcaldía N.º 2026-0877, de fecha 29/07/2026, por la que se convocan subvenciones para la concesión de becas universitarias del Ecxmo. Ayuntamiento de Épila para el Curso 2026-2027.",
+  "descripcionLeng": null,
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "EDUCACIÓN",
+      "codigo": "Q"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES243 - Zaragoza"
+    }
+  ],
+  "descripcionFinalidad": "Educación",
+  "descripcionBasesReguladoras": "ORDENANZA GENERAL POR LA QUE SE APRUEBAN LAS BASES REGULADORAS PARA LA CONCESIÓN DE SUBVENCIONES DEL AYUNTAMIENTO DE ÉPILA",
+  "urlBasesReguladoras": "https://bop.dpz.es/BOPZ/obtenerContenidoEdicto.do?idEdicto=767551&numBop=105&fechaPub=jueves%2012%20de%20mayo%20de%202022",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": null,
+  "fechaFinSolicitud": null,
+  "textInicio": "A partir del día siguiente al de la publicación del extracto de convocatoria en el BOPZ",
+  "textFin": "20 días hábiles a partir del día siguiente a la publicación extracto convocatoria en BOPZ",
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1503716,
+      "descripcion": "ANEXO III- FICHA DE TERCEROS",
+      "nombreFic": "ANEXO III- FICHA DE TERCEROS.docx",
+      "long": 47444,
+      "datMod": "2026-07-31",
+      "datPublicacion": "2026-07-31"
+    },
+    {
+      "id": 1503720,
+      "descripcion": "ANEXO VI. DECLARACIÓN RESPONSABLE CUENTA JUSTIFICATIVA",
+      "nombreFic": "ANEXO VI- DECLARACIÓN RESPONSABLE CUENTA JUSTIFICATIVA.docx",
+      "long": 38628,
+      "datMod": "2026-07-31",
+      "datPublicacion": "2026-07-31"
+    },
+    {
+      "id": 1503719,
+      "descripcion": "ANEXO V- MEMORIA ECONÓMICA JUSTIFICATIVA",
+      "nombreFic": "ANEXO V- MEMORIA ECONÓMICA JUSTIFICATIVA.docx",
+      "long": 47948,
+      "datMod": "2026-07-31",
+      "datPublicacion": "2026-07-31"
+    },
+    {
+      "id": 1503717,
+      "descripcion": "ANEXO IV- MEMORIA DE ACTUACIÓN JUSTIFICATIVA",
+      "nombreFic": "ANEXO IV- MEMORIA DE ACTUACIÓN JUSTIFICATIVA.docx",
+      "long": 37118,
+      "datMod": "2026-07-31",
+      "datPublicacion": "2026-07-31"
+    },
+    {
+      "id": 1503721,
+      "descripcion": "ANEXO VII- RELACIÓN GASTO TOTAL SUBVENCIONABLE Y ORIGEN DE SU FINANCIACIÓN",
+      "nombreFic": "ANEXO VII- RELACIÓN GASTOS SUBVENCIONABLE Y ORIGEN DE SU FINANCIACIÓN.docx",
+      "long": 44015,
+      "datMod": "2026-07-31",
+      "datPublicacion": "2026-07-31"
+    },
+    {
+      "id": 1503708,
+      "descripcion": "ANEXO II- DECLARACIÓN RESPONSABLE ART. 13 LGS",
+      "nombreFic": "ANEXO II- DECLARACIÓN RESPONSABLE ARTÍCULO 13 LGS.docx",
+      "long": 40041,
+      "datMod": "2026-07-31",
+      "datPublicacion": "2026-07-31"
+    },
+    {
+      "id": 1503707,
+      "descripcion": "ANEXO I- SOLICITUD",
+      "nombreFic": "ANEXO I- SOLICITUD.docx",
+      "long": 44581,
+      "datMod": "2026-07-31",
+      "datPublicacion": "2026-07-31"
+    },
+    {
+      "id": 1503706,
+      "descripcion": "ORDENANZA GENERAL DE SUBVENCIONES DEL AYUNTAMIENTO DE ÉPILA",
+      "nombreFic": "ORDENANZA GENERAL DE SUBVENCIONES DEL AYUNTAMIENTO DE ÉPILA.pdf",
+      "long": 353441,
+      "datMod": "2026-07-31",
+      "datPublicacion": "2026-07-31"
+    },
+    {
+      "id": 1503703,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "DECRETO 2026-0877 [Resolución de Alcaldía-Aprobación Convocatoria Becas Universitarias 2026-2027].pdf",
+      "long": 1022425,
+      "datMod": "2026-07-31",
+      "datPublicacion": "2026-07-31"
+    }
+  ],
+  "anuncios": [
+    {
+      "numAnuncio": 218516,
+      "titulo": "Extracto de la Resolución de Alcaldía N.º 2026-0877, de 29/07/2026, por la que se convocan subvenciones para la concesión de becas universitarias del Excmo. Ayuntamiento de Épila para el curso 2026-2027",
+      "tituloLeng": null,
+      "texto": "<p>Primero.- Beneficiarios.</p><p>Podrán tener la consideración de beneficiarios de las ayudas reguladas en la presente convocatoria, el estudiante que cumpla las siguientes reglas: </p><p>1) Estar empadronado en el Municipio de Épila, a fecha 01 de enero de 2026.</p><p>2) Estar matriculado durante el curso 2025-2026 en 2º de Bachiller, en el IES Rodanas (Épila), en la totalidad de las asignaturas (mínimo ocho asignaturas), y habiendo cursado en el año 2024-2025, 1º de Bachillerato. </p><p>3) Que la nota media del expediente académico del estudio que da acceso a la Universidad sea al menos de cinco. </p><p>4) Formalizar para el curso 2026-2027, matrícula a tiempo completo en alguno de los grados de las Universidades del Sistema Universitario, conducente a la obtención del título oficial de grado.</p><p>5) El solicitante deberá estar al corriente de sus obligaciones tributarias y con la Seguridad Social, así como no tener deuda pendiente de pago, con el Ayuntamiento de Épila. </p><p>Adicionalmente, se deberá cumplir lo establecido en el artículo 13 de la Ley 38/2003, de 17 de noviembre, General de Subvenciones, para tener la condición de beneficiario. </p><p>Segundo.- Objeto.</p><p>El objeto de la presente convocatoria es la concesión, en régimen de concurrencia competitiva, de ayudas para la realización de estudios universitarios durante el curso académico 2026-2027, con la finalidad de alentar la dedicación al estudio, impulsar el talento y destacar el esfuerzo, el trabajo y los excelentes resultados académicos de los estudiantes epilenses, así como fomentar la realización de estudios universitarios de grado entre los jóvenes de Épla. </p><p>La ayuda tendrá por objeto potenciar el acceso de tres estudiantes de 2º de Bachiller a los estudios universitarios, con el fin de financiar los gastos y actuaciones que resulten estrictamente necesarios y responsadan de manera indubitada a la naturaleza de la actividad subvencionada. </p><p>Tercero.- Bases reguladoras. </p><p>Ordenanza General por la que se aprueban las bases reguladoras para la concesión de subvenciones en el Ayuntamiento de Épila (BOPZ Núm. 105, de fecha 12 de mayo de 2022).</p><p>Cuarto.- Cuantía.</p><p>La presente subvención se imputa a la aplicación presupuestaria 2026.3200.48000 \"Subvención becas para el estudio\" por importe de 3.000,00 euros. El importe de la subvención no será incrementable. </p><p>Se otorgarán 3 becas de 1.000,00 euros cada una, a los mejores expedientes de 2º de Bachiller. </p><p>Quinto.- Plazo de presentación de solicitudes. </p><p>El plazo de presentación de solicitudes será de veinte días hábiles, a partir del día siguiente al de la publicación de la convocatoria y su extracto en el Boletín Oficial de la Provincia de Zaragoza (BOPZ). </p><p>Sexto.- Otros datos. </p><p>La solicitud deberá presentarse de acuerdo al modelo del Anexo I, acompañada de la documentación a que se refiere el punto 6.3. de la convocatoria.</p><p>No cabe la reformulación de solicitudes. </p><p>Se prevé la realización de un pago anticipado del 50% de la subvención. </p>",
+      "textoLeng": null,
+      "url": "https://boletin.dpz.es/BOPZ/obtenerContenidoEdicto.do?idEdicto=896991&numBop=180",
+      "cve": null,
+      "desDiarioOficial": "B.O.P. DE ZARAGOZA",
+      "datPublicacion": "2026-08-07"
+    }
+  ],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

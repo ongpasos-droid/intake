@@ -1,0 +1,72 @@
+{
+  "id": 1122406,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "SANT CELONI",
+    "nivel3": "AYUNTAMIENTO DE SANT CELONI"
+  },
+  "sedeElectronica": null,
+  "codigoBDNS": "920845",
+  "fechaRecepcion": "2026-07-22",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 96600,
+  "mrr": false,
+  "descripcion": "Convocatoria 1/2026 per la concesión de subvenciones en régimen de concurrencia competitiva para actividades de interés comunitario en el término municipal de Sant Celoni i la Batllòria_Entitades 2026",
+  "descripcionLeng": null,
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "ACTIVIDADES ARTÍSTICAS, DEPORTIVAS Y DE ENTRETENIMIENTO",
+      "codigo": "S"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES511 - Barcelona"
+    }
+  ],
+  "descripcionFinalidad": "Otras Prestaciones económicas",
+  "descripcionBasesReguladoras": "BASES REGULADORES DE SUBVENCIONS DESTINADES A ASSOCIACIONS SENSE AFANY DE LUCRE DE SANT CELONI I LA BATLLÒRIA",
+  "urlBasesReguladoras": "http://bop.diba.cat/anunci/3956596/aprovacio-definitiva-de-les-bases-reguladores-per-a-l-atorgament-de-subvencions-en-regim-de-concurrencia-competitiva-per-a-activitats-d-interes-comunitari-dins-el-terme-municipal-de-sant-celoni-i-la-batlloria-ajuntament-de-sant-celoni",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": "2026-07-28",
+  "fechaFinSolicitud": "2026-08-27",
+  "textInicio": null,
+  "textFin": null,
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1504919,
+      "descripcion": "resolución rectificativa plazos sol·licitudes",
+      "nombreFic": "RESOLUCIÓN_DEL_ALCALDIA_RECTIFICATIVA_CONNVOCATORIA_1_ENTIDADES.docx",
+      "long": 873212,
+      "datMod": "2026-08-04",
+      "datPublicacion": "2026-08-04"
+    },
+    {
+      "id": 1504918,
+      "descripcion": "Texto en castellano de la convocatoria",
+      "nombreFic": "RESOLUCIÓN_DE_ALCALDÍA_subvenciones_1_2026.docx",
+      "long": 920762,
+      "datMod": "2026-08-04",
+      "datPublicacion": "2026-08-04"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

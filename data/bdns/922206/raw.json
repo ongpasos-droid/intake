@@ -1,0 +1,64 @@
+{
+  "id": 1123767,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "MENDAVIA",
+    "nivel3": "AYUNTAMIENTO DE MENDAVIA"
+  },
+  "sedeElectronica": "https://sedeelectronica.mendavia.es/",
+  "codigoBDNS": "922206",
+  "fechaRecepcion": "2026-07-29",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 18000,
+  "mrr": false,
+  "descripcion": "Acuerdo de 23 de julio de 2026 por la que se convocan subvenciones para la compra de libros de texto, material para proyectos en Infantil y para el acceso al comedor escolar, curso 2026-27.",
+  "descripcionLeng": null,
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "EDUCACIÓN",
+      "codigo": "Q"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES22 - COMUNIDAD FORAL DE NAVARRA"
+    }
+  ],
+  "descripcionFinalidad": "Educación",
+  "descripcionBasesReguladoras": "CONVOCATORIA PARA LA CONCESIÓN DE SUBVENCIONES PARA LA COMPRA DE LIBROS DE TEXTO, MATERIAL PARA PROYECTOS EN INFANTIL Y COMEDOR ESCOLAR, CURSO 2026/2027",
+  "urlBasesReguladoras": "https://sedeelectronica.mendavia.es/segex/documentoexpediente.aspx?id=5838716&abrir=True",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": "2026-07-31",
+  "fechaFinSolicitud": "2027-06-30",
+  "textInicio": null,
+  "textFin": null,
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1501873,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "BASES PARA  LA CONCESIÓN DE LA AYUDA ECONÓMICA  MUNICIPAL PARA  LA COMPRA DE LIBROS DE TEXTO COMEDOR ESCOLAR curso 2026-27.pdf",
+      "long": 783095,
+      "datMod": "2026-07-29",
+      "datPublicacion": "2026-07-29"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

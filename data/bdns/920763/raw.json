@@ -1,0 +1,76 @@
+{
+  "id": 1122324,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "ALHAURÍN EL GRANDE",
+    "nivel3": "AYUNTAMIENTO DE ALHAURÍN EL GRANDE"
+  },
+  "sedeElectronica": "https://alhaurinelgrande.sedelectronica.es",
+  "codigoBDNS": "920763",
+  "fechaRecepcion": "2026-07-22",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 202100,
+  "mrr": false,
+  "descripcion": "Convocatoria para la concesión de subvenciones a asociaciones y entidades sin ánimo de lucro en régimen de concurrencia competitiva",
+  "descripcionLeng": null,
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "OTROS SERVICIOS",
+      "codigo": "T"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES617 - Málaga"
+    }
+  ],
+  "descripcionFinalidad": "Servicios Sociales y Promoción Social",
+  "descripcionBasesReguladoras": "Subvenciones a asociaciones y entidades sin ánimo de lucro en régimen de concurrencia competitiva",
+  "urlBasesReguladoras": "https://alhaurinelgrande.sedelectronica.es/preview-document/c61cb3ea-3438-4a92-8a85-a816cda845bb/",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": "2026-08-03",
+  "fechaFinSolicitud": "2026-09-11",
+  "textInicio": null,
+  "textFin": null,
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1500908,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "20260723_Publicación_OFICIO REMISIÓN Y ANUNCIO CONVOCATORIA PARA EL BOPMA.pdf",
+      "long": 236614,
+      "datMod": "2026-07-27",
+      "datPublicacion": "2026-07-27"
+    }
+  ],
+  "anuncios": [
+    {
+      "numAnuncio": 218147,
+      "titulo": "EXTRACTO DE LA CONVOCATORIA DE SUBVENCIONES A ASOCIACIONES Y ENTIDADES SIN ÁNIMO DE LUCRO EN RÉGIMEN DE CONCURRENCIA COMPETITIVA, 2026.",
+      "tituloLeng": null,
+      "texto": "<p>NºExpte. 11078/2026Bases que han de regir la convocatoria: Código 919058 BDNS, BOPMA nº138 de 20 de julio de 2026. Convocatoria: Código 920763 BDNS.Aplicación Presupuestaria: 924.48902- Participación Ciudadana- Subvenciones por concurrencia competitivaImporte total: 202.100 €Forma de tramitación: exclusivamente telemática a través de la sede electrónica del Ayuntamiento de Alhaurín el Grande, www.alhaurinelgrande.esPlazo de presentación de solicitudes: 30 días hábiles contados desde el día siguiente al de la publicación del extracto de la convocatoria en el tablón de anuncios del Ayuntamiento.Plazo de ejecución: del 01/01/2026 al 31/12/2026.Plazo de justificación: del 01/01/2027 al 30/06/2027.Destino de las subvenciones: apoyo a las asociaciones y entidades sin ánimo de lucro inscritas en el Registro Municipal de Asociaciones y Entidades, para colaborar en la financiación de proyectos que suponen importantes actuaciones en los múltiples ámbitos de la vida de la sociedad alhaurina, potencian los servicios de interés general y complementan las competencias municipales, todos ellos promovidos por los colectivos del municipio.Líneas de actuación:Línea 1. Actividades de asociaciones, clubes o peñas del municipioLínea 2. Igualdad de la mujer o del colectivo LGTBI+Línea 3. Actividades asistenciales de asociaciones sin ánimo de lucroLínea 4. Promoción de empresas, comercios, productos autóctonos e industriaLínea 5. Cultura y patrimonio del municipioLínea 6. Deporte de clubes o asociaciones del municipioLínea 7. Programas para jóvenes del municipioLínea 8. Protección del medio ambiente y los animalesLínea 9. Educación o asociaciones de padres y madres de alumnosLínea 10. Fomento del asociacionismo a nivel municipalLínea 11. Actividad cofradeLínea 12. Proyectos de interés general para el municipioÓrganos competentes:- Instrucción: la Concejalía de Participación Ciudadana.- Resolución:Subvención por importe inferior a 600€- Concejala de Participación Ciudadana.Subvención por importe igual o superior a 600€- Junta de Gobierno Local.Resolución: pone fin a la vía administrativa.Plazo de resolución: plazo máximo 6 meses desde el día siguiente al día de finalización del plazo de solicitud, incluido.Medio de notificación: electrónico, por correo electrónico.</p>",
+      "textoLeng": null,
+      "url": "https://www.bopmalaga.es/sumario.php?fecha=03-08-2026",
+      "cve": "20260803-02990-2026",
+      "desDiarioOficial": "B.O.P. DE MÁLAGA",
+      "datPublicacion": "2026-08-03"
+    }
+  ],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

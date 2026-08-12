@@ -1,0 +1,116 @@
+{
+  "source": "bdns",
+  "source_id": "921765",
+  "source_lang": "es",
+  "level": "ccaa",
+  "programme": "Concurrencia competitiva - canónica",
+  "sub_programme": null,
+  "publishing_authority_code": "AUTONOMICA / GALICIA / AGENCIA GALLEGA DE INNOVACIÓN",
+  "nuts_codes": [
+    "ES11"
+  ],
+  "nuts_primary": "ES11",
+  "title": "Bases de las ayudas destinadas al apoyo de entidades que superaron los umbrales mínimos de los programas de nuevos proyectos empresariales de empresas innovadoras del CDTI (Recuperación Excelencia Neotec)",
+  "title_lang": "es",
+  "summary": "Investigación, desarrollo e innovación",
+  "status": "open",
+  "publication_date": "2026-07-27",
+  "open_date": "2026-08-07",
+  "deadline": "2026-09-30",
+  "deadline_model": "single-stage",
+  "deadlines_extra": null,
+  "budget_total_eur": 2625000,
+  "budget_per_project_min_eur": null,
+  "budget_per_project_max_eur": null,
+  "expected_grants": null,
+  "cofinancing_pct": null,
+  "duration_months": null,
+  "audience": "PYME Y PERSONAS FÍSICAS QUE DESARROLLAN ACTIVIDAD ECONÓMICA",
+  "eligible_orgs": [
+    "PYME Y PERSONAS FÍSICAS QUE DESARROLLAN ACTIVIDAD ECONÓMICA"
+  ],
+  "eligible_countries": [
+    "ES"
+  ],
+  "sectores": [
+    {
+      "codigo": "72",
+      "descripcion": "Investigación y desarrollo"
+    }
+  ],
+  "apply_url": null,
+  "details_url": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatoria/921765",
+  "documents": [
+    {
+      "label": "Anexo III_cas",
+      "url": null
+    },
+    {
+      "label": "Anexo II_bis_gal",
+      "url": null
+    },
+    {
+      "label": "Anexo II_gal",
+      "url": null
+    },
+    {
+      "label": "Texto en otra lengua de la convocatoria",
+      "url": null
+    },
+    {
+      "label": "Anexo I_cas",
+      "url": null
+    },
+    {
+      "label": "Anexo II_cas",
+      "url": null
+    },
+    {
+      "label": "Anexo II bis_cas",
+      "url": null
+    },
+    {
+      "label": "Anexo IV_cas",
+      "url": null
+    },
+    {
+      "label": "Anexo I_gal",
+      "url": null
+    },
+    {
+      "label": "Anexo III_gal",
+      "url": null
+    },
+    {
+      "label": "Anexo IV_gal",
+      "url": null
+    },
+    {
+      "label": "Texto en castellano de la convocatoria",
+      "url": null
+    }
+  ],
+  "bases_reguladoras_url": "https://www.xunta.gal/dog/Publicados/2026/20260730/AnuncioG0198-160726-0001_es.html",
+  "text_inicio": "Transcurridos 5 días hábiles contados a partir del día siguiente a su publicación en DOG",
+  "text_fin": "30.09.2026",
+  "se_publica_diario_oficial": true,
+  "ayuda_estado": "SA.000000",
+  "fondos": [
+    {
+      "descripcion": "FEDER - FONDO EUROPEO DE DESARROLLO REGIONAL"
+    }
+  ],
+  "reglamento": {
+    "descripcion": "REG (UE) 651/2014, DE 17 DE JUNIO, de exención de notificación",
+    "orden": null
+  },
+  "objetivos": [
+    {
+      "descripcion": "ART. 22 AYUDAS A LAS PYME. AYUDAS DESTINADAS A NUEVOS PROYECTOS EMPRESARIALES."
+    }
+  ],
+  "sectores_productos": [],
+  "anuncios": [],
+  "mrr_flag": false,
+  "fetchedAt": "2026-08-12T18:13:53.125Z"
+}

@@ -1,0 +1,80 @@
+{
+  "id": 1123619,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "DIPUTACIÓN PROV. DE BURGOS",
+    "nivel3": "DIPUTACIÓN PROVINCIAL DE BURGOS"
+  },
+  "sedeElectronica": "https://registro.diputaciondeburgos.es/",
+  "codigoBDNS": "922058",
+  "fechaRecepcion": "2026-07-28",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 17714.4,
+  "mrr": false,
+  "descripcion": "Convocatoria del programa provincial de bonificación de servicios de movilidad rural mediante taxi (Proyecto Piloto de transporte público a la demanda, Movilidad y Accesibilidad Rural “MAR” en la comarca de Belorado), año 2026",
+  "descripcionLeng": null,
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PYME Y PERSONAS FÍSICAS QUE DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "TRANSPORTE Y ALMACENAMIENTO",
+      "codigo": "H"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES412 - Burgos"
+    }
+  ],
+  "descripcionFinalidad": "Subvenciones al transporte",
+  "descripcionBasesReguladoras": "Ordenanza General reguladora de la concesión de subvenciones por parte de la Diputación Provincial de Burgos",
+  "urlBasesReguladoras": "https://burgos.es/diputacion/informacion/documentos/ordenanza-general-de-subvenciones",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": null,
+  "fechaFinSolicitud": "2026-12-30",
+  "textInicio": "Día siguiente a publicación del extracto en BOP",
+  "textFin": null,
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1501532,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "MAR_Bases.pdf",
+      "long": 221981,
+      "datMod": "2026-07-28",
+      "datPublicacion": "2026-07-28"
+    },
+    {
+      "id": 1501538,
+      "descripcion": "Anexo I. Solicitud",
+      "nombreFic": "MAR_Anexo I Solicitud.pdf",
+      "long": 165653,
+      "datMod": "2026-07-28",
+      "datPublicacion": "2026-07-28"
+    },
+    {
+      "id": 1501537,
+      "descripcion": "Anexo A. Ambito territorial",
+      "nombreFic": "MAR_Anexo A. Ambito territorial.pdf",
+      "long": 426265,
+      "datMod": "2026-07-28",
+      "datPublicacion": "2026-07-28"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

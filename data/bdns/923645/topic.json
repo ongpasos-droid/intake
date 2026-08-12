@@ -1,0 +1,65 @@
+{
+  "source": "bdns",
+  "source_id": "923645",
+  "source_lang": "es",
+  "level": "local",
+  "programme": "Concurrencia competitiva - canónica",
+  "sub_programme": null,
+  "publishing_authority_code": "LOCAL / GETAFE / AYUNTAMIENTO DE GETAFE",
+  "nuts_codes": [
+    "ES30"
+  ],
+  "nuts_primary": "ES30",
+  "title": "CONVOCATORIA DE SUBVENCIONES PARA LOS PROYECTOS Y/O ACTIVIDADES A REALIZAR POR LAS ASOCIACIONES VECINALES DE GETAFE EN EL AÑO 2026",
+  "title_lang": "es",
+  "summary": "Servicios Sociales y Promoción Social",
+  "status": "open",
+  "publication_date": "2026-08-05",
+  "open_date": null,
+  "deadline": null,
+  "deadline_model": "continuous",
+  "deadlines_extra": null,
+  "budget_total_eur": 20000,
+  "budget_per_project_min_eur": null,
+  "budget_per_project_max_eur": null,
+  "expected_grants": null,
+  "cofinancing_pct": null,
+  "duration_months": null,
+  "audience": "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA",
+  "eligible_orgs": [
+    "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+  ],
+  "eligible_countries": [
+    "ES"
+  ],
+  "sectores": [
+    {
+      "codigo": "94",
+      "descripcion": "Actividades asociativas"
+    }
+  ],
+  "apply_url": null,
+  "details_url": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatoria/923645",
+  "documents": [
+    {
+      "label": "Anexos",
+      "url": null
+    },
+    {
+      "label": "Texto en castellano de la convocatoria",
+      "url": null
+    }
+  ],
+  "bases_reguladoras_url": "https://www.bocm.es/boletin/CM_Orden_BOCM/2013/02/16/BOCM-20130216-16.PDF     https://www.bocm.es/boletin/CM_Orden_BOCM/2013/03/12/BOCM-20130312-47.PDF",
+  "text_inicio": "20 DÍAS HABILES DESDE EL SIGUIENTE PUBLICACIÓN CONVOCATORIA BOCM",
+  "text_fin": "TRANSCURRIDOS 20 DÍAS HABILES CONTADOS A PARTIR DEL SIGUIENTE AL DE PUBLICACIÓN DE LA CONVOCATORIA",
+  "se_publica_diario_oficial": true,
+  "ayuda_estado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectores_productos": [],
+  "anuncios": [],
+  "mrr_flag": false,
+  "fetchedAt": "2026-08-12T18:13:53.498Z"
+}

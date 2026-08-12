@@ -1,0 +1,73 @@
+{
+  "source": "bdns",
+  "source_id": "923570",
+  "source_lang": "es",
+  "level": "local",
+  "programme": "Concurrencia competitiva - canónica",
+  "sub_programme": null,
+  "publishing_authority_code": "LOCAL / ARUCAS / AYUNTAMIENTO DE ARUCAS",
+  "nuts_codes": [
+    "ES705"
+  ],
+  "nuts_primary": "ES705",
+  "title": "CONVOCATORIA 2026 PARA LA CONCESIÓN DE SUBVENCIONES A PROYECTOS DE COOPERACIÓN AL DESARROLLO DE PAÍSES EMPOBRECIDOS.",
+  "title_lang": "es",
+  "summary": "Otras Prestaciones económicas",
+  "status": "open",
+  "publication_date": "2026-08-05",
+  "open_date": null,
+  "deadline": null,
+  "deadline_model": "continuous",
+  "deadlines_extra": null,
+  "budget_total_eur": 15500,
+  "budget_per_project_min_eur": null,
+  "budget_per_project_max_eur": null,
+  "expected_grants": null,
+  "cofinancing_pct": null,
+  "duration_months": null,
+  "audience": "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA",
+  "eligible_orgs": [
+    "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+  ],
+  "eligible_countries": [
+    "ES"
+  ],
+  "sectores": [
+    {
+      "codigo": "T",
+      "descripcion": "OTROS SERVICIOS"
+    }
+  ],
+  "apply_url": null,
+  "details_url": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatoria/923570",
+  "documents": [
+    {
+      "label": "ORDENANZA ESPECIFICA REGULADORA DE LA CONCESION DE SUBVENCIONES A PROYECTOS DE COOPERACIÓN AL DESARROLLO DE PAISES EMPOBRECIDOS",
+      "url": null
+    },
+    {
+      "label": "ANEXO II - FORMULARIO DE PROYECTOS",
+      "url": null
+    },
+    {
+      "label": "ANEXO I - SOLICITUD",
+      "url": null
+    },
+    {
+      "label": "Documento de la convocatoria en español",
+      "url": null
+    }
+  ],
+  "bases_reguladoras_url": "www.arucas.org",
+  "text_inicio": "30 DIAS NATURALES A CONTAR DESDE EL DIA SIGUIENTE A LA PUBLICACIÓN EN EL BOP LAS PALMAS",
+  "text_fin": "FINALIZADOS LOS 30 DÍAS NATURALES DESDE EL DIA SIGUIENTE A LA PUBLICACIÓN EN EL BOP LAS PALMAS",
+  "se_publica_diario_oficial": true,
+  "ayuda_estado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectores_productos": [],
+  "anuncios": [],
+  "mrr_flag": false,
+  "fetchedAt": "2026-08-12T18:13:53.485Z"
+}

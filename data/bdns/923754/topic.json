@@ -1,0 +1,73 @@
+{
+  "source": "bdns",
+  "source_id": "923754",
+  "source_lang": "es",
+  "level": "ccaa",
+  "programme": "Concurrencia competitiva - canónica",
+  "sub_programme": null,
+  "publishing_authority_code": "AUTONOMICA / ARAGÓN / DIRECCIÓN GENERAL DE INNOVACIÓN Y PROMOCIÓN AGROALIMENTARIA",
+  "nuts_codes": [
+    "ES24"
+  ],
+  "nuts_primary": "ES24",
+  "title": "ORDEN AGA/ /2026, de 5 de agosto, por la que se convocan subvenciones para inversiones en transformación, comercialización y desarrollo de productos agrícolas (industrias agroalimentarias), en el marco del PEPAC para el periodo 2023-2027 para el año 2027",
+  "title_lang": "es",
+  "summary": "Agricultura, Pesca y Alimentación",
+  "status": "open",
+  "publication_date": "2026-08-06",
+  "open_date": null,
+  "deadline": null,
+  "deadline_model": "continuous",
+  "deadlines_extra": null,
+  "budget_total_eur": 18985067.08,
+  "budget_per_project_min_eur": null,
+  "budget_per_project_max_eur": null,
+  "expected_grants": null,
+  "cofinancing_pct": null,
+  "duration_months": null,
+  "audience": "GRAN EMPRESA; PYME Y PERSONAS FÍSICAS QUE DESARROLLAN ACTIVIDAD ECONÓMICA",
+  "eligible_orgs": [
+    "GRAN EMPRESA",
+    "PYME Y PERSONAS FÍSICAS QUE DESARROLLAN ACTIVIDAD ECONÓMICA"
+  ],
+  "eligible_countries": [
+    "ES"
+  ],
+  "sectores": [
+    {
+      "codigo": "A",
+      "descripcion": "AGRICULTURA, GANADERÍA, SILVICULTURA Y PESCA"
+    }
+  ],
+  "apply_url": "https://www.aragon.es/tramites",
+  "details_url": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatoria/923754",
+  "documents": [
+    {
+      "label": "Documento de la convocatoria en español",
+      "url": null
+    }
+  ],
+  "bases_reguladoras_url": "https://www.boa.aragon.es/cgi-bin/EBOA/BRSCGI?CMD=VEROBJ&MLKOB=1324541020303",
+  "text_inicio": "el día siguiente al de la publicación de la presente orden en el Boletín Oficial de Aragón",
+  "text_fin": "27/11/2026",
+  "se_publica_diario_oficial": true,
+  "ayuda_estado": "SA.64213",
+  "fondos": [
+    {
+      "descripcion": "FEADER - FONDO EUROPEO AGRÍCOLA DE DESARROLLO RURAL "
+    }
+  ],
+  "reglamento": {
+    "descripcion": "REG (UE) 651/2014, DE 17 DE JUNIO, de exención de notificación",
+    "orden": null
+  },
+  "objetivos": [
+    {
+      "descripcion": "ART. 17 AYUDAS A LAS PYME. A LA INVERSIÓN EN FAVOR DE LAS PYME."
+    }
+  ],
+  "sectores_productos": [],
+  "anuncios": [],
+  "mrr_flag": false,
+  "fetchedAt": "2026-08-12T18:13:53.519Z"
+}

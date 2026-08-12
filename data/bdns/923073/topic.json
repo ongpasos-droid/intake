@@ -1,0 +1,104 @@
+{
+  "source": "bdns",
+  "source_id": "923073",
+  "source_lang": "es",
+  "level": "estado",
+  "programme": "Concurrencia competitiva - canónica",
+  "sub_programme": null,
+  "publishing_authority_code": "ESTADO / MINISTERIO DE DEFENSA / INSPECCIÓN GENERAL DE SANIDAD DE LA DEFENSA",
+  "nuts_codes": [],
+  "nuts_primary": null,
+  "title": "Premios Sanidad Militar 2026",
+  "title_lang": "es",
+  "summary": "Defensa",
+  "status": "open",
+  "publication_date": "2026-07-31",
+  "open_date": null,
+  "deadline": null,
+  "deadline_model": "continuous",
+  "deadlines_extra": null,
+  "budget_total_eur": 12000,
+  "budget_per_project_min_eur": null,
+  "budget_per_project_max_eur": null,
+  "expected_grants": null,
+  "cofinancing_pct": null,
+  "duration_months": null,
+  "audience": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA; PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA",
+  "eligible_orgs": [
+    "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA",
+    "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+  ],
+  "eligible_countries": [
+    "ES"
+  ],
+  "sectores": [
+    {
+      "codigo": "N",
+      "descripcion": "ACTIVIDADES PROFESIONALES, CIENTÍFICAS Y TÉCNICAS"
+    },
+    {
+      "codigo": "R",
+      "descripcion": "ACTIVIDADES SANITARIAS Y DE SERVICIOS SOCIALES"
+    },
+    {
+      "codigo": "P",
+      "descripcion": "ADMINISTRACIÓN PÚBLICA Y DEFENSA; SEGURIDAD SOCIAL OBLIGATORIA"
+    }
+  ],
+  "apply_url": null,
+  "details_url": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatoria/923073",
+  "documents": [
+    {
+      "label": "EXTRACTO CONVOCATORIA BOE",
+      "url": null
+    },
+    {
+      "label": "ANEXO I",
+      "url": null
+    },
+    {
+      "label": "Documento de la convocatoria en español",
+      "url": null
+    },
+    {
+      "label": "ANEXO II",
+      "url": null
+    },
+    {
+      "label": "ANEXO III",
+      "url": null
+    },
+    {
+      "label": "ANEXO IV",
+      "url": null
+    },
+    {
+      "label": "ANEXO V",
+      "url": null
+    }
+  ],
+  "bases_reguladoras_url": "https://www.boe.es/eli/es/o/2025/04/15/def410",
+  "text_inicio": "El día siguiente al de la publicación del extracto de esta orden ministerial en el BOE",
+  "text_fin": "30 días hábiles desde el día siguiente al de la publicación extracto de orden ministerial en el BOE",
+  "se_publica_diario_oficial": true,
+  "ayuda_estado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectores_productos": [],
+  "anuncios": [
+    {
+      "numAnuncio": 218546,
+      "titulo": "Extracto de la Orden Ministerial 36/2026, de 6 de julio, por la que se convocan los Premios Sanidad Militar 2026.",
+      "tituloLeng": null,
+      "texto": "<p>Primero. Beneficiarios.</p><p>Podrán concurrir a estos premios las personas físicas y jurídicas, españolas o extranjeras, a título individual o integradas en grupos de trabajo. En la modalidad Premio «Revista Sanidad Militar» los participantes deberán, además, ser autores de artículos publicados en la revista Sanidad Militar durante el año 2025.</p><p>Segundo. Objeto.</p><p>Los Premios Sanidad Militar tienen por objeto incentivar el estudio y la investigación en ciencias de la salud y en ciencia histórica relacionadas con la Sanidad Militar, así como fomentar el conocimiento y la difusión de la cultura sanitaria militar española en la sociedad.</p><p>El Ministerio de Defensa convoca los Premios Sanidad Militar correspondientes al año 2026, en las modalidades de premio «Fidel Pagés Miravé» y premio «Revista Sanidad Militar».</p><p>Tercero. Bases reguladoras.</p><p>Las bases reguladoras se encuentran en la Orden DEF/410/2025, de 15 de abril, por la que se establecen las bases reguladoras para la concesión de los Premios Sanidad Militar (BOE núm. 104, de 30 de abril de 2025).</p><p>Cuarto. Premios.</p><p>La dotación económica de los Premios Sanidad Militar 2026 se financiará con cargo a la aplicación presupuestaria 14.01.312A1.485.03. La cuantía total máxima de los premios convocados asciende a doce mil euros (12.000 €), sujeta a lo estipulado en el Plan Estratégico de Subvenciones del Ministerio de Defensa 2024-2026. Queda condicionada la actual convocatoria de los premios a la existencia de crédito adecuada y suficiente.</p><p>Quinto. Plazo de presentación.</p><p>El plazo de presentación de solicitudes de participación finalizará en el plazo de treinta días hábiles contados a partir del día siguiente al de la presente publicación.</p>",
+      "textoLeng": null,
+      "url": "http://www.boe.es/diario_boe/verifica.php?acc=Verificar&c=BOE-B-2026-26053",
+      "cve": "BOE-B-2026-26053",
+      "desDiarioOficial": "BOE. BOLETÍN OFICIAL DEL ESTADO",
+      "datPublicacion": "2026-08-04"
+    }
+  ],
+  "mrr_flag": false,
+  "fetchedAt": "2026-08-12T18:13:53.390Z"
+}

@@ -1,0 +1,76 @@
+{
+  "id": 1124888,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "SIERO",
+    "nivel3": "AYUNTAMIENTO DE SIERO"
+  },
+  "sedeElectronica": null,
+  "codigoBDNS": "923327",
+  "fechaRecepcion": "2026-08-04",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 13000,
+  "mrr": false,
+  "descripcion": "Convocatoria del XXII Certamen Nacional de Pintura Contemporánea \"Casimiro Baragaña\".",
+  "descripcionLeng": null,
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "Actividades de creación artística y artes escénicas",
+      "codigo": "90"
+    },
+    {
+      "descripcion": "Administración pública y defensa; seguridad social obligatoria",
+      "codigo": "84"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES12 - PRINCIPADO DE ASTURIAS"
+    }
+  ],
+  "descripcionFinalidad": "Cultura",
+  "descripcionBasesReguladoras": "Ordenanza reguladora de subvenciones del Concejo de Siero",
+  "urlBasesReguladoras": "https://sede.asturias.es/bopa/2015/11/30/2015-17166.pdf",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": null,
+  "fechaFinSolicitud": null,
+  "textInicio": "Día siguiente al de publicación del extracto de la convocatoria en el BOPA",
+  "textFin": "Hasta el 30 de septiembre de 2026",
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1506605,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "Bases reguladoras y convocatoria diligenciadas.pdf",
+      "long": 315256,
+      "datMod": "2026-08-07",
+      "datPublicacion": "2026-08-07"
+    },
+    {
+      "id": 1504760,
+      "descripcion": "Boletín de participacion y declaración responsable-editable-",
+      "nombreFic": "Boletín de participación Casimiro 2026 editable.pdf",
+      "long": 267987,
+      "datMod": "2026-08-04",
+      "datPublicacion": "2026-08-07"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

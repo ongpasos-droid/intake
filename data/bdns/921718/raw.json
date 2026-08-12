@@ -1,0 +1,88 @@
+{
+  "id": 1123279,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "LASARTE-ORIA",
+    "nivel3": "AYUNTAMIENTO DE LASARTE-ORIA"
+  },
+  "sedeElectronica": "https://www.lasarte-oria.eus",
+  "codigoBDNS": "921718",
+  "fechaRecepcion": "2026-07-27",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concesión directa - canónica",
+  "presupuestoTotal": 4000,
+  "mrr": false,
+  "descripcion": "Convocatoria 2026 de las subvenciones para premiar la obtención en euskera del apartado teórico del permiso de conducir en las autoescuelas",
+  "descripcionLeng": "Autoeskoletan gidabaimenaren atal teorikoa euskaraz ateratzeko 2026ko dirulaguntzen deialdia",
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "EDUCACIÓN",
+      "codigo": "Q"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES212 - Gipuzkoa"
+    }
+  ],
+  "descripcionFinalidad": "Educación",
+  "descripcionBasesReguladoras": "Euskara Saileko dirulaguntzak arautzeko oinarriak / Bases reguladoras de las subvencines del Area de Euskera",
+  "urlBasesReguladoras": "https://egoitza.gipuzkoa.eus/gaobog/ castell/bog/2026/04/17/c2602062.htm",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": "2025-09-01",
+  "fechaFinSolicitud": "2026-09-30",
+  "textInicio": null,
+  "textFin": null,
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [
+    {
+      "descripcion": "FEDER - FONDO EUROPEO DE DESARROLLO REGIONAL"
+    }
+  ],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1500664,
+      "descripcion": "Documento de la convocatoria en lengua cooficial",
+      "nombreFic": "BDNS_deialdia_sinatuta (1).pdf",
+      "long": 980766,
+      "datMod": "2026-07-27",
+      "datPublicacion": "2026-07-27"
+    },
+    {
+      "id": 1500663,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "BDNS_deialdia_sinatuta (1).pdf",
+      "long": 980766,
+      "datMod": "2026-07-27",
+      "datPublicacion": "2026-07-27"
+    }
+  ],
+  "anuncios": [
+    {
+      "numAnuncio": 218119,
+      "titulo": "Subvenciones para premiar la obtención en euskera del apartado teórico del permiso de conducir en autorescuelas",
+      "tituloLeng": "Autoeskoletan gidabaimenaren atal teorikoa euskaraz ateratzeko 2026ko dirulaguntzak",
+      "texto": "<p>Aprobar la convocatoria del año 2026 de las subvenciones para premiar la obtención en euskera de apartado teórico del permiso de conducir en las autoescuelas.2.- Proveer dicha convocatoria con 4.000€ de la partida 1.6000.480.01.335.10 2026.3.- Gestionar dicha convocatoria de acuerdo con las “Bases reguladoras de las subvenciones del área de euskera” aprobadas por Decreto de Alcaldía 2026/703 de 18 de marzo de 2026 (BOG 17/04/2026).4.- La convocatoria se remitirá a la BDNS yposteriormente se publicará en el BOG.</p>",
+      "textoLeng": "<p>1.- Autoeskoletan gidabaimenaren atal teorikoa euskaraz ateratzeko 2026ko dirulaguntzen deialdia onestea.2.- Deialdi hori 1.6000.480.01.335.10 2026 kontusaileko 4.000 €-rekin hornitzea.3.- Deialdi hori 2026ko martxoaren 18ko 2026/703 Alkate Dekretuaren bidez onartutako “Euskara saileko diru-laguntzak arautzeko oinarrien\" arabera kudeatzea (GAO, 2026ko apirilak 17).4.- Aipatutako deialdia BDNSra bidaliko da eta ondoren GAOn argitaratuko dira.</p>",
+      "url": "https://egoitza.gipuzkoa.eus/gao-bog/castell/bog/2026/08/04/c2605163.pdf",
+      "cve": "GAO-I-2026-05163",
+      "desDiarioOficial": "B.O. DE GIPUZKOA",
+      "datPublicacion": "2026-08-04"
+    }
+  ],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

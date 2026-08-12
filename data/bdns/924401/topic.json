@@ -1,0 +1,72 @@
+{
+  "source": "bdns",
+  "source_id": "924401",
+  "source_lang": "es",
+  "level": "local",
+  "programme": "Concurrencia competitiva - canónica",
+  "sub_programme": null,
+  "publishing_authority_code": "LOCAL / VALDEPEÑAS / AYUNTAMIENTO DE VALDEPEÑAS",
+  "nuts_codes": [],
+  "nuts_primary": null,
+  "title": "X  CONCURSO DE “LIMONÁ” PARA PEÑAS\nFiestas de la Vendimia y el Vino 2026",
+  "title_lang": "es",
+  "summary": "Cultura",
+  "status": "open",
+  "publication_date": "2026-08-11",
+  "open_date": "2026-08-20",
+  "deadline": "2026-08-23",
+  "deadline_model": "single-stage",
+  "deadlines_extra": null,
+  "budget_total_eur": 59.6,
+  "budget_per_project_min_eur": null,
+  "budget_per_project_max_eur": null,
+  "expected_grants": null,
+  "cofinancing_pct": null,
+  "duration_months": null,
+  "audience": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA; PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA",
+  "eligible_orgs": [
+    "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA",
+    "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+  ],
+  "eligible_countries": [
+    "ES"
+  ],
+  "sectores": [
+    {
+      "codigo": "S",
+      "descripcion": "ACTIVIDADES ARTÍSTICAS, DEPORTIVAS Y DE ENTRETENIMIENTO"
+    }
+  ],
+  "apply_url": "https://www.valdepenas.es/festejos/",
+  "details_url": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatoria/924401",
+  "documents": [
+    {
+      "label": "Documento de la convocatoria en español",
+      "url": null
+    }
+  ],
+  "bases_reguladoras_url": "https://www.valdepenas.es/festejos/",
+  "text_inicio": null,
+  "text_fin": null,
+  "se_publica_diario_oficial": true,
+  "ayuda_estado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectores_productos": [],
+  "anuncios": [
+    {
+      "numAnuncio": 219058,
+      "titulo": "Bases Concurso Limoná Peñas Fiestas de la Vendimia y el vino 2026",
+      "tituloLeng": null,
+      "texto": "<p>Podrán participar las Peñas de las Fiestas del Vino inscritas en la relación de peñas de la Concejalía de Festejos, o que estén en posesión de matrícula o autorización, o que organicen alguna actividad durante las fiestas del Vino. También podrán participar asociaciones inscritas en el Registro Municipal de Asociaciones.</p><p>PREMIOS</p><p>1º.- Trofeo, queso, caña de lomo y estuche de vino</p><p> 2º.- Trofeo, queso y estuche de vino.</p><p>3º.- Trofeo, y  estuche de vino.</p><p> </p>",
+      "textoLeng": null,
+      "url": "https://se1.dipucr.es:4443/SIGEM_BuscadorDocsWeb/getDocument.do?entidad=005&doc=7714769",
+      "cve": "mcLQD5KEdvKVsjPS2zHJ",
+      "desDiarioOficial": "B.O.P. DE CIUDAD REAL",
+      "datPublicacion": "2026-08-12"
+    }
+  ],
+  "mrr_flag": false,
+  "fetchedAt": "2026-08-12T18:13:53.630Z"
+}

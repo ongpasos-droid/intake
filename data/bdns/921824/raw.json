@@ -1,0 +1,84 @@
+{
+  "id": 1123385,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "SANTANYÍ",
+    "nivel3": "AYUNTAMIENTO DE SANTANYÍ"
+  },
+  "sedeElectronica": null,
+  "codigoBDNS": "921824",
+  "fechaRecepcion": "2026-07-27",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 7700,
+  "mrr": false,
+  "descripcion": "Convocatoria que regula la concesión de subvenciones para deportistas individuales del municipio de Santanyí para actividades realizadas durante el año 2025",
+  "descripcionLeng": "Convocatòria que regula la concessió de subvencions per a esportistes individuals del municipi de Santanyí per a activitats realitzades durant l’any 2025",
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "Actividades deportivas, recreativas y de entretenimiento",
+      "codigo": "93"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES532 - Mallorca"
+    }
+  ],
+  "descripcionFinalidad": "Educación",
+  "descripcionBasesReguladoras": "Bases generales reguladoras de la concesión de subvenciones del Ajuntament de Santanyí, aprobadas el 23 de diciembre de 2025 en el marco de las Bases de ejecución del presupuesto",
+  "urlBasesReguladoras": "https://www.caib.es/eboibfront/es/2026/12224/",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": null,
+  "fechaFinSolicitud": null,
+  "textInicio": "Dia siguiente a la publicación extracto en BOIB",
+  "textFin": "15 días hábiles des de la publicación del extracto en el BOIB",
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1500949,
+      "descripcion": "Documento de la convocatoria en lengua cooficial",
+      "nombreFic": "CONVOCATÒRIA INDIVIDUALS BDNS.pdf",
+      "long": 294901,
+      "datMod": "2026-07-27",
+      "datPublicacion": "2026-08-04"
+    },
+    {
+      "id": 1500942,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "CONVOCATORIA INDIVIDUALES BDNS.pdf",
+      "long": 299052,
+      "datMod": "2026-07-27",
+      "datPublicacion": "2026-08-04"
+    }
+  ],
+  "anuncios": [
+    {
+      "numAnuncio": 218714,
+      "titulo": "Convocatoria a regularizar",
+      "tituloLeng": null,
+      "texto": "Convocatoria a regularizar",
+      "textoLeng": null,
+      "url": "https://www.caib.es/eboibfront/ca/2026/12308/seccio-iii-altres-disposicions-i-actes-administrat/472",
+      "cve": null,
+      "desDiarioOficial": "BOIB. B.O. DE LAS ISLAS BALEARES",
+      "datPublicacion": "2026-07-30"
+    }
+  ],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

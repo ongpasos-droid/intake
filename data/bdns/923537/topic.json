@@ -1,0 +1,71 @@
+{
+  "source": "bdns",
+  "source_id": "923537",
+  "source_lang": "es",
+  "level": "ccaa",
+  "programme": "Concurrencia competitiva - canónica",
+  "sub_programme": null,
+  "publishing_authority_code": "AUTONOMICA / PRINCIPADO DE ASTURIAS / CONSEJERÍA DE DERECHOS SOCIALES Y BIENESTAR",
+  "nuts_codes": [],
+  "nuts_primary": null,
+  "title": "Premio a la promoción de los derechos humanos",
+  "title_lang": "es",
+  "summary": "Cooperación internacional para el desarrollo y cultural",
+  "status": "open",
+  "publication_date": "2026-08-04",
+  "open_date": null,
+  "deadline": "2026-11-04",
+  "deadline_model": "continuous",
+  "deadlines_extra": null,
+  "budget_total_eur": 6000,
+  "budget_per_project_min_eur": null,
+  "budget_per_project_max_eur": null,
+  "expected_grants": null,
+  "cofinancing_pct": null,
+  "duration_months": null,
+  "audience": "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA",
+  "eligible_orgs": [
+    "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+  ],
+  "eligible_countries": [
+    "ES"
+  ],
+  "sectores": [
+    {
+      "codigo": "99",
+      "descripcion": "Actividades de organizaciones y organismos extraterritoriales"
+    }
+  ],
+  "apply_url": "https://miprincipado.asturias.es/",
+  "details_url": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatoria/923537",
+  "documents": [
+    {
+      "label": "Texto en castellano de la convocatoria",
+      "url": null
+    }
+  ],
+  "bases_reguladoras_url": "https://miprincipado.asturias.es/bopa/2021/08/17/2021-07599.pdf",
+  "text_inicio": "Día siguiente a la publicación del extracto",
+  "text_fin": null,
+  "se_publica_diario_oficial": true,
+  "ayuda_estado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectores_productos": [],
+  "anuncios": [
+    {
+      "numAnuncio": 218712,
+      "titulo": "Extracto de la Resolución de la Consejería de Derechos Sociales y Bienestar de 3 de agosto de 2026 por la que se aprueba la convocatoria del Premio a la promoción de los derechos humanos 2026.",
+      "tituloLeng": null,
+      "texto": "<p>Primero.- Objeto:</p><p>La concesión, en régimen de concurrencia competitiva, de un premio a la promoción de los derechos humanos, que reconozca los valores cívicos de personas o entidades que se hayan distinguido por su lucha en pro de la libertad y los derechos humanos y especialmente, de quienes, injustamente, son o han sido objeto de persecución o sufren o han sufrido detenciones, condenas o castigos a causa de su compromiso con la libertad, la tolerancia y la humanidad, promoviendo así en la sociedad asturiana los valores de justicia social y defensa de los derechos humanos.</p><p>Segundo.- Requisitos:</p><p>Podrán participar las personas, entidades o instituciones destacadas por la lucha por la libertad y la defensa de los derechos humanos.</p><p>Podrá proponer una candidatura al premio cualquier entidad o institución con sede o delegación en el Principado de Asturias.</p><p>Tercero.- Bases reguladoras:</p><p>Resolución de 30 de julio de 2021, de la Consejería de Presidencia por la que se aprueban las bases reguladoras para la concesión del premio a la promoción de los derechos humanos (BOPA nº 158, de 17-VIII-2021).</p><p>Cuarto.- Premio:</p><p>El premio está dotado con seis mil euros (6.000,00 €).</p><p>Quinto.- Plazo de presentación:</p><p>El plazo de presentación de solicitudes comienza el día siguiente a la publicación del presente extracto y finaliza el 4 de noviembre, incluido.</p><p>Sexto.- Otros datos:</p><p>En la sede electrónica del Principado de Asturias (https://miprincipado.asturias.es) está publicada la Ficha de información administrativa, que se podrá localizar introduciendo el código PREM0028T01 en el buscador, en la que se encontrará información complementaria, el formulario y la posibilidad de iniciar electrónicamente la solicitud.</p>",
+      "textoLeng": null,
+      "url": "https://miprincipado.asturias.es/bopa/disposiciones?p_p_id=pa_sede_bopa_web_portlet_SedeBopaDispositionWeb&p_p_lifecycle=0&_pa_sede_bopa_web_portlet_SedeBopaDispositionWeb_mvcRenderCommandName=%2Fdisposition%2Fdetail&p_r_p_dispositionText=2026-06660&p_r_p_dispositionReference=2026-06660&p_r_p_dispositionDate=11%2F08%2F2026",
+      "cve": null,
+      "desDiarioOficial": "BOPA. B.O. DEL PRINCIPADO DE ASTURIAS",
+      "datPublicacion": "2026-08-11"
+    }
+  ],
+  "mrr_flag": false,
+  "fetchedAt": "2026-08-12T18:13:53.475Z"
+}

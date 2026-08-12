@@ -1,0 +1,93 @@
+{
+  "id": 1124247,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "DIPUTACIÓN PROV. DE GIRONA",
+    "nivel3": "DIPUTACIÓN PROVINCIAL DE GIRONA"
+  },
+  "sedeElectronica": null,
+  "codigoBDNS": "922686",
+  "fechaRecepcion": "2026-07-30",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 40000,
+  "mrr": false,
+  "descripcion": "Convocatòria de la subvenció per l`aquisició d`equips amb tecnologia RFID per a la gestió de les biblioteques públiques",
+  "descripcionLeng": null,
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "GRAN EMPRESA"
+    },
+    {
+      "descripcion": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    },
+    {
+      "descripcion": "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    },
+    {
+      "descripcion": "PYME Y PERSONAS FÍSICAS QUE DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "Actividades de bibliotecas, archivos, museos y otras actividades culturales",
+      "codigo": "91"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES512 - Girona"
+    }
+  ],
+  "descripcionFinalidad": "Cultura",
+  "descripcionBasesReguladoras": "Bases reguladores de la subvenció per l`adquisició d`equips amb tecnologia RFID per a la gestió de biblioteques públiques",
+  "urlBasesReguladoras": "https://www.ddgi.cat/basescast/2025/bases_subvenciones_adquisicion_equipos_tecnologia_RFID.pdf",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": "2026-07-03",
+  "fechaFinSolicitud": "2027-12-31",
+  "textInicio": "El termini de presentació de sol·licituds és de 15 dies naturals des de l`endemà de la publicació.",
+  "textFin": "El termini de presentació de sol·licituds és de 15 dies naturals des de l`endemà de la publicació.",
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1502956,
+      "descripcion": "Texto en otra lengua de la convocatoria",
+      "nombreFic": "convocatòria_subvencions_adquisició_equips_tecnologia_RFID_794743484_(CORR_CAT)_T_30_6.docx",
+      "long": 21360,
+      "datMod": "2026-07-30",
+      "datPublicacion": "2026-07-30"
+    },
+    {
+      "id": 1502955,
+      "descripcion": "Texto en castellano de la convocatoria",
+      "nombreFic": "convocatòria_subvencions_adquisició_equips_tecnologia_RFID_822332917_(TRAD_CAST)_T_3_7.docx",
+      "long": 21346,
+      "datMod": "2026-07-30",
+      "datPublicacion": "2026-07-30"
+    }
+  ],
+  "anuncios": [
+    {
+      "numAnuncio": 218409,
+      "titulo": "Convocatoria de subvenciones para la adquisición de equipos con tecnología RFID para la gestión de las bibliotecas públicas 2026",
+      "tituloLeng": "Convocatòria de subvencions per a l¿adquisició d¿equips amb tecnologia RFID per a la gestió de les biblioteques públiques 2026",
+      "texto": "<p>1. Objeto y finalidad</p><p>Subvenciones en régimen de concurrencia competitiva para ayuntamientos con bibliotecas integradas en el Sistema de Lectura Pública de Catalunya destinadas a la financiación de la implantación inicial de un sistema completo de tecnología RFID (radio frequency identification) o la renovación integral de un sistema existente que resulte obsoleto, incompatible con los estándares vigentes o insuficiente para garantizar un funcionamiento adecuado, de acuerdo con las bases específicas reguladoras aprobadas inicialmente por el Pleno de la Diputació en la sesión de 17 de marzo de 2026 y posteriormente por el Pleno el 21 de abril de 2026, con la aprobación de una modificación sustancial, y publicadas en el Boletín Oficial de la Provincia de Girona (BOPG) número 84, de fecha 5 de mayo de 2026.</p><p>No son objeto de esta convocatoria las actuaciones parciales o complementarias (ampliaciones de equipamientos, reposiciones de etiquetas o actuaciones parciales).</p><p>?\tCriterios de valoración</p><p></p><p>Las solicitudes se evaluarán a partir de la documentación presentada por las entidades peticionarias, de acuerdo con la puntuación que corresponda en función de los siguientes parámetros: </p><p></p><p>a)\tIndicadores de préstamo y usuarios activos por habitante (hasta 20 puntos). </p><p></p><p>Se valorará la media anual provincial publicada de los siguientes indicadores:</p><p></p><p>o\tPréstamo por habitante</p><p>o\tUsuarios activos por habitante</p><p></p><p>Cada indicador se puntuará de forma independiente, con un máximo de 10 puntos por indicador. La biblioteca con el valor más alto en cada uno de los indicadores obtendrá 10 puntos. Para el resto de solicitudes, se hará un reparto proporcional a partir de estos 10 puntos por cada uno de los conceptos. </p><p></p><p>b)\tPorcentaje de propuesta de cofinanciación (hasta 10 puntos). </p><p></p><p>A la solicitud con el porcentaje más alto con cargo al presupuesto municipal dedicado al proyecto para el que se solicita la subvención, se le darán automáticamente 10 puntos. Para el resto de solicitudes, se hará un reparto proporcional a partir de estos 10 puntos. </p><p></p><p>c)\tAdecuación total del municipio a los parámetros del Mapa de Lectura Pública en el momento de la solicitud (hasta 30 puntos). </p><p></p><p>Superficie\t5 puntos</p><p>Fondo\t5 puntos</p><p>Recursos humanos\t10 puntos</p><p>Horario\t10 puntos</p><p></p><p>El 100 % de la adecuación a los mínimos que, por cada uno de los conceptos, establece el Mapa de Lectura Pública obtendrá la máxima puntuación. El porcentaje de cumplimiento se traducirá en una puntuación proporcional en cada caso.</p><p></p><p>d)\tGastos subvencionables solicitados (hasta 30 puntos). </p><p></p><p>Arcos antihurto\t8 puntos</p><p>Máquinas de autopréstamo\t8 puntos</p><p>Estaciones de trabajo\t6 puntos</p><p>Etiquetas\t4 puntos</p><p>Servicio de etiquetado\t4 puntos</p><p></p><p>e)\tConcesión de subvenciones para la adquisición de equipos con tecnología RFID para la gestión de las bibliotecas públicas de la Diputació de Girona (hasta 10 puntos). </p><p></p><p>Se valorará si la biblioteca objeto de solicitud ha recibido anteriormente una subvención para la implantación de tecnología RFID.</p><p></p><p>Si se ha concedido alguna subvención por el mismo concepto\t0 puntos</p><p>Sí no se ha concedido nunca ninguna subvención por el mismo concepto  \t10 puntos</p><p></p><p>2. Dotación económica y determinación de la aplicación presupuestaria</p><p>El importe total destinado a la convocatoria es de 40.000,00 euros. La aplicación presupuestaria a la que se carga el crédito presupuestario y el importe son los que se detallan a continuación: </p><p>Aplicación presupuestaria\tImporte (en €)</p><p>301 33210 7620200\t40.000,00 €</p><p>Total\t40.000,00 €</p><p></p><p>El pago se realizará por adelantado en un 70% tras la concesión y del 30% restante tras la justificación tras un informe favorable del centro gestor.</p><p>3. Plazo de presentación de solicitudes</p><p>El plazo de presentación de solicitudes es de quince días naturales a partir del día siguiente al de la publicación del extracto de la convocatoria en el BOPG.</p><p>Será necesario formular las solicitudes mediante el modelo normalizado disponible en la web de la Diputació de Girona, acompañado de la documentación a que hace referencia el artículo 7 de las bases reguladoras.</p><p>Las solicitudes deberán presentarse telemáticamente (EACAT), y deberán estar firmadas electrónicamente mediante un certificado validado en la plataforma PSIS del Consorci d?Administració Oberta de Catalunya.</p><p>?\tÁmbito temporal de las acciones subvencionables</p><p></p><p>Se subvencionaran las acciones, actividades o inversiones realizadas un año antes de la fecha de publicación de la convocatoria y hasta seis meses después del día siguiente a la fecha de concesión. </p><p></p><p>?\tPlazo para justificar las subvenciones</p><p></p><p>El plazo para justificar las subvenciones es desde el día siguiente a la fecha de concesión y hasta treinta días desde el día siguiente al final del periodo de ejecución.</p><p></p><p>4. Plazo de resolución y notificación </p><p>4.1. Plazo de resolución</p><p>El plazo para resolver sobre la convocatoria es el que determinan las bases. Una vez transcurrido dicho plazo sin que se haya adoptado una resolución, los solicitantes podrán entender desestimadas sus solicitudes por silencio administrativo.</p><p>4.2. Plazo de notificación</p><p>La resolución se notificará de forma individualizada a todos los beneficiarios, tal como se prevé en el artículo 41.1 de la Ley 39/2015, de 1 de octubre, del Procedimiento Administrativo Común de las Administraciones Públicas, y también a los peticionarios cuya solicitud se haya desestimado, en el plazo máximo de diez días hábiles a contar desde la fecha de adopción del acuerdo. </p><p></p><p>5. Régimen de recursos</p><p>La resolución de la convocatoria pone fin a la vía administrativa. Contra esta resolución cabe recurso contencioso-administrativo ante la sección contencioso-administrativa de los tribunales de instancia de Girona en el plazo de dos meses a contar del día siguiente a su notificación. Alternativamente, y de forma potestativa, se puede interponer recurso de reposición ante el presidente de la Diputació de Girona en el plazo de un mes a contar desde el día siguiente a su notificación. </p><p></p><p>6. Publicidad</p><p>Esta convocatoria se publicará en el tablón de anuncios de la Diputació y en la web, y, de acuerdo con lo establecido en el artículo 17.3 b de la Ley 38/2003, de 17 de noviembre, General de Subvenciones, su extracto se publicará en el BOPG.</p>",
+      "textoLeng": "<p>1. Objecte i finalitat</p><p>Subvencions en règim de concurrència competitiva per a ajuntaments amb biblioteques integrades al Sistema de Lectura Pública de Catalunya destinades al finançament de la implantació inicial d?un sistema complet de tecnologia RFID (radio frequency identification) o de la renovació integral d?un sistema existent que resulti obsolet, incompatible amb els estàndards vigents o insuficient per garantir un funcionament adequat, d?acord amb les bases específiques reguladores aprovades inicialment pel Ple de la Diputació en la sessió de 17 de març de 2026 i posteriorment pel Ple el 21 d?abril de 2026, amb l?aprovació d?una modificació substancial, i publicades al Butlletí Oficial de la Província de Girona (BOPG) número 84, de data 5 de maig de 2026.</p><p>No són objecte d?aquesta convocatòria les actuacions parcials o complementàries (ampliacions d?equipaments, reposicions d?etiquetes o actuacions parcials).</p><p>?\tCriteris de valoració</p><p></p><p>Les sol·licituds s?avaluaran a partir de la documentació presentada per les entitats peticionàries, d?acord amb la puntuació que correspongui en funció dels paràmetres següents: </p><p></p><p>a)\tIndicadors de préstec i usuaris actius per habitant (fins a 20 punts). </p><p></p><p>Es valorarà la mitjana anual provincial publicada dels indicadors següents:</p><p></p><p>o\tPréstec per habitant</p><p>o\tUsuaris actius per habitant</p><p></p><p>Cada indicador es puntuarà de manera independent, amb un màxim de 10 punts per indicador. La biblioteca amb el valor més alt en cadascun dels indicadors obtindrà 10 punts. Per a la resta de sol·licituds, es fa un repartiment proporcional a partir d?aquests 10 punts per cadascun dels conceptes. </p><p></p><p>b)\tPercentatge de proposta de cofinançament (fins a 10 punts). </p><p></p><p>A la sol·licitud amb el percentatge més alt a càrrec del pressupost municipal dedicat al projecte per al qual es demana la subvenció, se li donen automàticament 10 punts. Per a la resta de sol·licituds, es fa un repartiment proporcional a partir d?aquests 10 punts. </p><p></p><p>c)\tAdequació total del municipi als paràmetres del Mapa de Lectura Pública en el moment de la sol·licitud (fins a 30 punts). </p><p></p><p>Superfície\t5 punts</p><p>Fons\t5 punts</p><p>Recursos humans\t10 punts</p><p>Horari\t10 punts</p><p></p><p>El 100 % de l?adequació als mínims que, per cadascun dels conceptes, estableix el Mapa de Lectura Pública obtindrà la màxima puntuació. El percentatge de compliment es tradueix en una puntuació proporcional en cada cas.</p><p></p><p>d)\tDespeses subvencionables sol·licitades (fins a 30 punts). </p><p></p><p>Arcs antifurt\t8 punts</p><p>Màquines d?autopréstec\t8 punts</p><p>Estacions de treball\t6 punts</p><p>Etiquetes\t4 punts</p><p>Servei d?etiquetatge\t4 punts</p><p></p><p>e)\tConcessió de subvencions per a l?adquisició d?equips amb tecnologia RFID per a la gestió de les biblioteques públiques de la Diputació de Girona (fins a 10 punts). </p><p></p><p>Es valorarà si la biblioteca objecte de sol·licitud ha rebut anteriorment una subvenció per a la implantació de tecnologia RFID.</p><p></p><p>Si s?ha concedit alguna subvenció pel mateix concepte\t0 punts</p><p>Si no s?ha concedit mai cap subvenció pel mateix concepte  \t10 punts</p><p></p><p>2. Dotació econòmica i determinació de l?aplicació pressupostària</p><p>L?import total destinat a la convocatòria és de 40.000,00 euros. L?aplicació pressupostària a què es carrega el crèdit pressupostari i l?import són els que es detallen a continuació: </p><p>Aplicació pressupostària\tImport (en €)</p><p>301 33210 7620200\t40.000,00 €</p><p>Total\t40.000,00 €</p><p></p><p>El pagament es realitzarà amb bestreta del 70% posterior a la concessió i el 30% restant posterior a la justificació previ informe favorable del centre gestor.</p><p>3. Termini de presentació de sol·licituds</p><p>El termini de presentació de sol·licituds és de quinze dies naturals a partir de l?endemà de la publicació de l?extracte de la convocatòria al BOPG.</p><p>Cal formular les sol·licituds mitjançant el model normalitzat disponible al web de la Diputació de Girona, que s?ha d?acompanyar de la documentació a què fa referència l?article 7 de les bases reguladores.</p><p>Les sol·licituds s?han de presentar telemàticament (EACAT), i han d?estar signades electrònicament mitjançant un certificat validat en la plataforma PSIS del Consorci d?Administració Oberta de Catalunya.</p><p>?\tÀmbit temporal de les accions subvencionables</p><p></p><p>Se subvencionaran actuacions, activitats o inversions dutes a terme un any abans de la data de publicació de la convocatòria i fins a sis mesos després de l?endemà de la data de concessió. </p><p></p><p>?\tTermini per justificar les subvencions</p><p></p><p>El termini per justificar les subvencions és des de l?endemà de la data de concessió i fins a  trenta dies a comptar de l?endemà de l?acabament del termini d?execució.</p><p></p><p>4. Termini de resolució i notificació </p><p>4.1. Termini de resolució</p><p>El termini per resoldre sobre la convocatòria és el que determinen les bases. Una vegada transcorregut el termini sense que s?hagi adoptat una resolució, els sol·licitants podran entendre desestimades les seves sol·licituds per silenci administratiu.</p><p>4.2. Termini de notificació</p><p>Es notificarà la resolució a tots els beneficiaris de manera individualitzada, tal com estableix l?article 41.1 de la Llei 39/2015, d?1 d?octubre, del procediment administratiu comú de les administracions públiques, i també als peticionaris la sol·licitud dels quals hagi estat desestimada, en el termini màxim de deu dies hàbils, a comptar de la data en què s?adopti l?acord. </p><p></p><p>5. Règim de recursos</p><p>La resolució de la convocatòria posa fi a la via administrativa. Contra aquesta resolució escau interposar un recurs contenciós administratiu davant la secció contenciosa administrativa dels tribunals d?instància de Girona en el termini de dos mesos a comptar de l?endemà de la notificació. Alternativament, i de manera potestativa, s?hi pot interposar un recurs de reposició davant del President de la Diputació de Girona en el termini d?un mes a comptar de l?endemà de la notificació. </p><p></p><p>6. Publicitat</p><p>Aquesta convocatòria es publicarà al tauler electrònic d?anuncis de la Diputació i al web, i, d?acord amb el que estableix l?article 17.3 b de la Llei 38/2003, de 17 de novembre, general de subvencions, se?n publicarà l?extracte al BOPG.</p>",
+      "url": "https://ssl4.ddgi.cat/bopV1/pdf/2026/148/202614806955.pdf",
+      "cve": null,
+      "desDiarioOficial": "B.O.P. DE GIRONA",
+      "datPublicacion": "2026-08-04"
+    }
+  ],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

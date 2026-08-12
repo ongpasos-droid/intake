@@ -1,0 +1,76 @@
+{
+  "source": "bdns",
+  "source_id": "920119",
+  "source_lang": "es",
+  "level": "otros",
+  "programme": "Concurrencia competitiva - canónica",
+  "sub_programme": null,
+  "publishing_authority_code": "OTROS / CÁMARA DE COMERCIO DE BARCELONA",
+  "nuts_codes": [
+    "ES51"
+  ],
+  "nuts_primary": "ES51",
+  "title": "PROGRAMA PYME GLOBAL: FERIA MEDICA-COMPAMED DÜSSELFORF 2026 para empresas de la Comunidad Autónoma de Cataluña (Cámara de Comercio de Barcelona)",
+  "title_lang": "es",
+  "summary": "Otras actuaciones de carácter económico",
+  "status": "open",
+  "publication_date": "2026-07-17",
+  "open_date": "2026-07-28",
+  "deadline": "2026-10-15",
+  "deadline_model": "single-stage",
+  "deadlines_extra": null,
+  "budget_total_eur": 4060.65,
+  "budget_per_project_min_eur": null,
+  "budget_per_project_max_eur": null,
+  "expected_grants": null,
+  "cofinancing_pct": null,
+  "duration_months": null,
+  "audience": "PYME Y PERSONAS FÍSICAS QUE DESARROLLAN ACTIVIDAD ECONÓMICA",
+  "eligible_orgs": [
+    "PYME Y PERSONAS FÍSICAS QUE DESARROLLAN ACTIVIDAD ECONÓMICA"
+  ],
+  "eligible_countries": [
+    "ES"
+  ],
+  "sectores": [
+    {
+      "codigo": "86.2",
+      "descripcion": "Actividades médicas y odontológicas"
+    },
+    {
+      "codigo": "86.9",
+      "descripcion": "Otras actividades sanitarias"
+    }
+  ],
+  "apply_url": "https://sede.camara.es/sede/barcelona",
+  "details_url": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatoria/920119",
+  "documents": [
+    {
+      "label": "2026_Declaraciones Responsables Convocatoria Ayuda Fira Médica",
+      "url": null
+    },
+    {
+      "label": "Documento de la convocatoria en español",
+      "url": null
+    }
+  ],
+  "bases_reguladoras_url": "https://cambrabcn.org/es/programa-pyme-global/",
+  "text_inicio": "A las 12:00",
+  "text_fin": "A las 12:00",
+  "se_publica_diario_oficial": true,
+  "ayuda_estado": null,
+  "fondos": [
+    {
+      "descripcion": "FEDER - FONDO EUROPEO DE DESARROLLO REGIONAL"
+    }
+  ],
+  "reglamento": {
+    "descripcion": "REG (UE) 2023/2831 de minimis, General",
+    "orden": null
+  },
+  "objetivos": [],
+  "sectores_productos": [],
+  "anuncios": [],
+  "mrr_flag": false,
+  "fetchedAt": "2026-08-12T18:13:52.604Z"
+}

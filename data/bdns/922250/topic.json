@@ -1,0 +1,61 @@
+{
+  "source": "bdns",
+  "source_id": "922250",
+  "source_lang": "es",
+  "level": "ccaa",
+  "programme": "Concurrencia competitiva - canónica",
+  "sub_programme": null,
+  "publishing_authority_code": "AUTONOMICA / ARAGÓN / DIRECCIÓN GENERAL DE VIVIENDA",
+  "nuts_codes": [
+    "ES24"
+  ],
+  "nuts_primary": "ES24",
+  "title": "Convocatoria de ayudas para resarcir los daños ocasionados a los particulares en situaciones derivadas de la pérdida sobrevenida de la vivienda habitual por causas extraordinarias, situaciones de emergencia o de naturaleza catastrófica en 2026.",
+  "title_lang": "es",
+  "summary": "Acceso a la vivienda y fomento de la edificación",
+  "status": "open",
+  "publication_date": "2026-07-29",
+  "open_date": "2026-08-03",
+  "deadline": "2026-09-02",
+  "deadline_model": "single-stage",
+  "deadlines_extra": null,
+  "budget_total_eur": 500000,
+  "budget_per_project_min_eur": null,
+  "budget_per_project_max_eur": null,
+  "expected_grants": null,
+  "cofinancing_pct": null,
+  "duration_months": null,
+  "audience": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA",
+  "eligible_orgs": [
+    "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+  ],
+  "eligible_countries": [
+    "ES"
+  ],
+  "sectores": [
+    {
+      "codigo": "F",
+      "descripcion": "CONSTRUCCIÓN"
+    }
+  ],
+  "apply_url": null,
+  "details_url": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatoria/922250",
+  "documents": [
+    {
+      "label": "Documento de la convocatoria en español",
+      "url": null
+    }
+  ],
+  "bases_reguladoras_url": "https://www.boa.aragon.es/#/resultado-detalle?item=N4Igcg8gTgJgpgOxALhAJgATwwZgGwgA0IAIhAMJgogAMNA7AJwCsALCwIxEgBicAxgAsAhgAUArgCMANgEt%2Bw-rID2SVGhpo8NDjQAc3MOIC2cKMsnLpcAC6y1IVtwDKApauoBJAHQYSsgGcAB2UA%2BRUEOACMAHFEM2FrAJcpALcI6m4%2BIWEYQJCw9wcNNGYONDQc",
+  "text_inicio": null,
+  "text_fin": null,
+  "se_publica_diario_oficial": true,
+  "ayuda_estado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectores_productos": [],
+  "anuncios": [],
+  "mrr_flag": false,
+  "fetchedAt": "2026-08-12T18:13:53.228Z"
+}

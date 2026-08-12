@@ -22,6 +22,6 @@ Plans for the exploitation and dissemination of results for proposals submitted 
 
 This topic requires the effective contribution of SSH disciplines and the involvement of SSH experts, institutions as well as the inclusion of relevant SSH expertise, SSH research should look specifically at how synergies can be enhanced to achieve the topic’s objective in respect of socioeconomic sustainability. A gender-sensitive and intersectional approach can inform the development of inclusive solutions in solid biofuel supply and CHP, by identifying specific needs, developing solutions that address these needs, and monitoring their impacts on diverse groups.
 
-## null
+## Technology Readiness Level - Technology readiness level expected from completed projects
 
 Activities are expected to achieve TRL 6-7 by the end of the project – see General Annex B. Activities may start at any TRL.

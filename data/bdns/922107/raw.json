@@ -1,0 +1,64 @@
+{
+  "id": 1123668,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "CREVILLENT",
+    "nivel3": "AYUNTAMIENTO DE CREVILLENT"
+  },
+  "sedeElectronica": "WWW.CREVILLENT.ES",
+  "codigoBDNS": "922107",
+  "fechaRecepcion": "2026-07-28",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 5000,
+  "mrr": false,
+  "descripcion": "Ayudas a deportistas individuales locales de las categorías del deporte base o promesas de Crevillent por la participación en competiciones federadas/oficiales autonómicas, nacionales e internacionales durante la temporada 2025/2026 (BASE Nº5).",
+  "descripcionLeng": null,
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "ACTIVIDADES ARTÍSTICAS, DEPORTIVAS Y DE ENTRETENIMIENTO",
+      "codigo": "S"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES521 - Alicante / Alacant"
+    }
+  ],
+  "descripcionFinalidad": "Otras Prestaciones económicas",
+  "descripcionBasesReguladoras": "Ayudas a deportistas individuales locales de las categorías del deporte base o promesas de Crevillent por la participación en competiciones federadas/oficiales autonómicas, nacionales e internacionales durante la temporada 2025/2026 (BASE Nº5).",
+  "urlBasesReguladoras": "www.crevillent.es",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": null,
+  "fechaFinSolicitud": null,
+  "textInicio": "DÍA SIGUIENTE A LA PUBLICACIÓN DE LA CONVOCATORIA",
+  "textFin": "20 DÍAS NATURALES",
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1501634,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "Resolución Nº 1784 de 28_07_2026 _RESOLUCION AVOCACIÓN COMPETENCIA JGL APROBACIÓN BASES Y CONVOCATORIA BASE Nº5 AYUDAS A DEPORTISTAS_ - SEGRA 1047036.pdf",
+      "long": 372676,
+      "datMod": "2026-07-28",
+      "datPublicacion": "2026-07-28"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

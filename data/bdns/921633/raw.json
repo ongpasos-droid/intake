@@ -1,0 +1,64 @@
+{
+  "id": 1123194,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "LEÓN",
+    "nivel3": "AYUNTAMIENTO DE LEÓN"
+  },
+  "sedeElectronica": null,
+  "codigoBDNS": "921633",
+  "fechaRecepcion": "2026-07-27",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 1400,
+  "mrr": false,
+  "descripcion": "CONVOCATORIA CONCURSO CARTEL ANUNCIADOR FIESTAS DE SAN FROILÁN 2026",
+  "descripcionLeng": null,
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "Actividades de creación artística y artes escénicas",
+      "codigo": "90"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES413 - León"
+    }
+  ],
+  "descripcionFinalidad": "Cultura",
+  "descripcionBasesReguladoras": "CONVOCATORIA CONCURSO CARTEL ANUNCIADOR FIESTAS DE SAN FROILÁN LEÓN 2026",
+  "urlBasesReguladoras": "https://www.dipuleon.es/bopSearchAction/Ciudadanos/Boletin_Oficial_Provincia/?dateFrom=18%2F12%2F12&dateTo=18%2F12%2F12&numBulletin&allSearchField=https://www.dipuleon.es/bopSearchAction/Ciudadanos/Boletin_Oficial_Provincia/?dateFrom=18%2F12%2F12&dateTo=18%2F12%2F12&numBulletin&allSearchField=https:",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": null,
+  "fechaFinSolicitud": null,
+  "textInicio": "AL DÍA SIGUIENTE DE LA PUBLICACIÓN EN EL BOP",
+  "textFin": "A LAS 14:00 HORAS DEL DÍA 2 DE SEPTIEMBRE DE 2026",
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1500495,
+      "descripcion": "Texto en castellano de la convocatoria",
+      "nombreFic": "CONVOCATORIA_CONCURSO_CARTEL_ANUNCIADOR_FIESTAS_DE_SAN_FROILÁN.pdf",
+      "long": 221924,
+      "datMod": "2026-07-27",
+      "datPublicacion": "2026-07-27"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

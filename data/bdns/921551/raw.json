@@ -1,0 +1,71 @@
+{
+  "id": 1123112,
+  "organo": {
+    "nivel1": "AUTONOMICA",
+    "nivel2": "CANTABRIA",
+    "nivel3": "SERVICIO CÁNTABRO DE EMPLEO"
+  },
+  "sedeElectronica": null,
+  "codigoBDNS": "921551",
+  "fechaRecepcion": "2026-07-24",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 500000,
+  "mrr": false,
+  "descripcion": "Orden IND/37/2026, de 27 de julio, de convocatoria de subvenciones 2026 correspondiente al programa “Talento y Empleo”: formación profesional a medida de las empresas en sectores estratégicos:  Industria de los electrodomésticos y utensilios de cocina",
+  "descripcionLeng": null,
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PYME Y PERSONAS FÍSICAS QUE DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "ADMINISTRACIÓN PÚBLICA Y DEFENSA; SEGURIDAD SOCIAL OBLIGATORIA",
+      "codigo": "P"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES13 - CANTABRIA"
+    }
+  ],
+  "descripcionFinalidad": "Fomento del Empleo",
+  "descripcionBasesReguladoras": "Orden EPS/21/2021, de 10 de junio, por la que se establecen las bases reguladoras del Programa Talento y Empleo: Formación profesional a medida de las empresas en sectores estratégicos.",
+  "urlBasesReguladoras": "chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://boc.cantabria.es/boces/verAnuncioAction.do?idAnuBlob=362873",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": "2026-08-04",
+  "fechaFinSolicitud": "2026-09-04",
+  "textInicio": null,
+  "textFin": null,
+  "ayudaEstado": "SA.123456",
+  "urlAyudaEstado": "https://competition-cases.ec.europa.eu/cases/SA.123456",
+  "fondos": [],
+  "reglamento": {
+    "descripcion": "REG (UE) 651/2014, DE 17 DE JUNIO, de exención de notificación",
+    "orden": null
+  },
+  "objetivos": [
+    {
+      "descripcion": "ART. 31 AYUDAS A LA FORMACIÓN."
+    }
+  ],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1500951,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "37_Convocatoria_Talento_y_Empleo_ELECTRO_2026_scc.report.pdf",
+      "long": 540135,
+      "datMod": "2026-07-27",
+      "datPublicacion": "2026-07-27"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

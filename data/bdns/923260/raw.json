@@ -1,0 +1,128 @@
+{
+  "id": 1124821,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "LANGREO",
+    "nivel3": "AYUNTAMIENTO DE LANGREO"
+  },
+  "sedeElectronica": "https://langreo.sedelectronica.es/",
+  "codigoBDNS": "923260",
+  "fechaRecepcion": "2026-08-03",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 1000,
+  "mrr": false,
+  "descripcion": "AYUDAS AL DEPORTE FEMENINO 2025",
+  "descripcionLeng": null,
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "ACTIVIDADES ARTÍSTICAS, DEPORTIVAS Y DE ENTRETENIMIENTO",
+      "codigo": "S"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES12 - PRINCIPADO DE ASTURIAS"
+    }
+  ],
+  "descripcionFinalidad": "Servicios Sociales y Promoción Social",
+  "descripcionBasesReguladoras": "CONVOCATORIA DE AYUDAS AL DEPORTE FEMENINO 2025",
+  "urlBasesReguladoras": "www.ayto-langreo.es",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": null,
+  "fechaFinSolicitud": null,
+  "textInicio": "El día siguiente a la publicación del extracto de la convocatoria en el BOPA",
+  "textFin": "A los 20 días hábiles contados desde el día siguiente al de  la publicación en el BOPA",
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1504543,
+      "descripcion": "FICHA CRITERIOS DE VALORACION",
+      "nombreFic": "FICHA VALORACION DEPORTE FEMENINO.pdf",
+      "long": 475356,
+      "datMod": "2026-08-03",
+      "datPublicacion": "2026-08-03"
+    },
+    {
+      "id": 1504408,
+      "descripcion": "SOLICITUD AYUDAS DEPORTE FEMENINO",
+      "nombreFic": "SOLICITUD DEPORTE FEMENINO 2025.pdf",
+      "long": 422736,
+      "datMod": "2026-08-03",
+      "datPublicacion": "2026-08-03"
+    },
+    {
+      "id": 1504412,
+      "descripcion": "DECLARACION NO DEUDAS",
+      "nombreFic": "DECLARACIÓN NO DEUDAS (ANEXO III).pdf",
+      "long": 286216,
+      "datMod": "2026-08-03",
+      "datPublicacion": "2026-08-03"
+    },
+    {
+      "id": 1504444,
+      "descripcion": "DECLARACION OTRAS AYUDAS",
+      "nombreFic": "DECLARACIÓN RESPONSABLE OTRAS AYUDAS (ANEXO II).pdf",
+      "long": 340901,
+      "datMod": "2026-08-03",
+      "datPublicacion": "2026-08-03"
+    },
+    {
+      "id": 1504417,
+      "descripcion": "DECLARACION TERCEROS",
+      "nombreFic": "DECLARACIÓN FICHA ACREEDORES (ANEXO V).pdf",
+      "long": 234937,
+      "datMod": "2026-08-03",
+      "datPublicacion": "2026-08-03"
+    },
+    {
+      "id": 1504422,
+      "descripcion": "PROYECTO-ACTIVIDAD",
+      "nombreFic": "PROYECTO - ACTIVIDAD (ANEXO VI).pdf",
+      "long": 455251,
+      "datMod": "2026-08-03",
+      "datPublicacion": "2026-08-03"
+    },
+    {
+      "id": 1504428,
+      "descripcion": "JUSTIFICACION ECONOMICA",
+      "nombreFic": "JUSTIFICACIÓN ECONÓMICA.docx.pdf",
+      "long": 475942,
+      "datMod": "2026-08-03",
+      "datPublicacion": "2026-08-03"
+    },
+    {
+      "id": 1504406,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "BASES DEPORTE FEMENINO 2025.pdf",
+      "long": 688051,
+      "datMod": "2026-08-03",
+      "datPublicacion": "2026-08-03"
+    },
+    {
+      "id": 1504414,
+      "descripcion": "FICHA ALTA TERCEROS",
+      "nombreFic": "FICHA DE TERCEROS.pdf",
+      "long": 125399,
+      "datMod": "2026-08-03",
+      "datPublicacion": "2026-08-03"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

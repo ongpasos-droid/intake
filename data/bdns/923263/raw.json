@@ -1,0 +1,84 @@
+{
+  "id": 1124824,
+  "organo": {
+    "nivel1": "AUTONOMICA",
+    "nivel2": "CATALUÑA",
+    "nivel3": "AGÈNCIA CATALANA DE L'AIGUA (ACA)"
+  },
+  "sedeElectronica": null,
+  "codigoBDNS": "923263",
+  "fechaRecepcion": "2026-08-03",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 1000000,
+  "mrr": false,
+  "descripcion": "Subvenciones  para cofinanciar los gastos realizados por entes locales y agrupaciones de entes locales generadas por el transporte de agua destinada al abastecimiento de poblaciones",
+  "descripcionLeng": "Subvencions per cofinanar les despeses extraordinàries realitzades pels ens locals i agrupacions de ens locals generades pel transport d'aigua destinada a l'abastament de poblacions",
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "Captación, depuración y distribución de agua",
+      "codigo": "36"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES51 - CATALUÑA"
+    }
+  ],
+  "descripcionFinalidad": "Otras actuaciones de carácter económico",
+  "descripcionBasesReguladoras": "Base de la subvención para vehículos cisterna o obras de emergencia",
+  "urlBasesReguladoras": "https://dogc.gencat.cat/es/document-del-dogc/index.html?documentId=939894",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": "2026-08-11",
+  "fechaFinSolicitud": "2026-10-01",
+  "textInicio": "Des de l’endemà de la publicació en el diari oficial de la convocatòria inicial",
+  "textFin": null,
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1507188,
+      "descripcion": "Texto en otra lengua de la convocatoria",
+      "nombreFic": "Resolucio_conv_ca_CIS016rev.mod_signed.pdf",
+      "long": 369416,
+      "datMod": "2026-08-10",
+      "datPublicacion": "2026-08-10"
+    },
+    {
+      "id": 1507187,
+      "descripcion": "Texto en castellano de la convocatoria",
+      "nombreFic": "Resolucio_conv_es_CIS016rev_mod_signed.pdf",
+      "long": 250642,
+      "datMod": "2026-08-10",
+      "datPublicacion": "2026-08-10"
+    }
+  ],
+  "anuncios": [
+    {
+      "numAnuncio": 218977,
+      "titulo": "Procedimiento Beta",
+      "tituloLeng": null,
+      "texto": "Procedimiento Beta",
+      "textoLeng": null,
+      "url": "https://dogc.gencat.cat/es/document-del-dogc/index.html?documentId=1052255",
+      "cve": null,
+      "desDiarioOficial": "DOGC. D.O. DE LA GENERALITAT DE CATALUNYA",
+      "datPublicacion": "2026-08-10"
+    }
+  ],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

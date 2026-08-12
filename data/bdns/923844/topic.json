@@ -1,0 +1,69 @@
+{
+  "source": "bdns",
+  "source_id": "923844",
+  "source_lang": "es",
+  "level": "local",
+  "programme": "Concesión directa - canónica",
+  "sub_programme": null,
+  "publishing_authority_code": "LOCAL / VITORIA-GASTEIZ / AYUNTAMIENTO DE VITORIA-GASTEIZ",
+  "nuts_codes": [
+    "ES211"
+  ],
+  "nuts_primary": "ES211",
+  "title": "Ayudas a la Contratación. Plan de empleo sectores emergentes 2026.",
+  "title_lang": "es",
+  "summary": "Fomento del Empleo",
+  "status": "open",
+  "publication_date": "2026-08-06",
+  "open_date": "2026-08-12",
+  "deadline": "2027-05-08",
+  "deadline_model": "single-stage",
+  "deadlines_extra": null,
+  "budget_total_eur": 285570,
+  "budget_per_project_min_eur": null,
+  "budget_per_project_max_eur": null,
+  "expected_grants": null,
+  "cofinancing_pct": null,
+  "duration_months": null,
+  "audience": "PYME Y PERSONAS FÍSICAS QUE DESARROLLAN ACTIVIDAD ECONÓMICA",
+  "eligible_orgs": [
+    "PYME Y PERSONAS FÍSICAS QUE DESARROLLAN ACTIVIDAD ECONÓMICA"
+  ],
+  "eligible_countries": [
+    "ES"
+  ],
+  "sectores": [
+    {
+      "codigo": "43",
+      "descripcion": "Actividades de construcción especializada"
+    },
+    {
+      "codigo": "41",
+      "descripcion": "Construcción de edificios"
+    },
+    {
+      "codigo": "42.9",
+      "descripcion": "Construcción de otros proyectos de ingeniería civil"
+    }
+  ],
+  "apply_url": "https://sedeelectronica.vitoria-gasteiz.org",
+  "details_url": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatoria/923844",
+  "documents": [
+    {
+      "label": "Texto en castellano de la convocatoria",
+      "url": null
+    }
+  ],
+  "bases_reguladoras_url": "http://www.araba.eus/botha/Boletines/2023/088/2023_088_02293_C.pdf",
+  "text_inicio": "A partir del día siguiente de la publicación en BOTHA",
+  "text_fin": "-",
+  "se_publica_diario_oficial": true,
+  "ayuda_estado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectores_productos": [],
+  "anuncios": [],
+  "mrr_flag": false,
+  "fetchedAt": "2026-08-12T18:13:53.541Z"
+}

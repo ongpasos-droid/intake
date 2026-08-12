@@ -1,0 +1,85 @@
+{
+  "source": "bdns",
+  "source_id": "923531",
+  "source_lang": "es",
+  "level": "local",
+  "programme": "Concurrencia competitiva - canónica",
+  "sub_programme": null,
+  "publishing_authority_code": "LOCAL / GUARDAMAR DEL SEGURA / AYUNTAMIENTO DE GUARDAMAR DEL SEGURA",
+  "nuts_codes": [
+    "ES521"
+  ],
+  "nuts_primary": "ES521",
+  "title": "Bases reguladoras y convocatoria para la concesión de ayudas al comedor escolar de la E.M.I. L'Escoleta para el curso 2025-2026.",
+  "title_lang": "es",
+  "summary": "Educación",
+  "status": "open",
+  "publication_date": "2026-08-04",
+  "open_date": "2026-08-07",
+  "deadline": "2026-08-21",
+  "deadline_model": "single-stage",
+  "deadlines_extra": null,
+  "budget_total_eur": 4000,
+  "budget_per_project_min_eur": null,
+  "budget_per_project_max_eur": null,
+  "expected_grants": null,
+  "cofinancing_pct": null,
+  "duration_months": null,
+  "audience": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA",
+  "eligible_orgs": [
+    "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+  ],
+  "eligible_countries": [
+    "ES"
+  ],
+  "sectores": [
+    {
+      "codigo": "85",
+      "descripcion": "Educación"
+    }
+  ],
+  "apply_url": null,
+  "details_url": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatoria/923531",
+  "documents": [
+    {
+      "label": "Anexo III",
+      "url": null
+    },
+    {
+      "label": "Anexo I",
+      "url": null
+    },
+    {
+      "label": "Anexo II",
+      "url": null
+    },
+    {
+      "label": "Edicto publicación bases y convocatoria",
+      "url": null
+    },
+    {
+      "label": "Anexo IV",
+      "url": null
+    },
+    {
+      "label": "Anexo V",
+      "url": null
+    },
+    {
+      "label": "Texto en castellano de la convocatoria",
+      "url": null
+    }
+  ],
+  "bases_reguladoras_url": "https://guardamardelsegura.sedelectronica.es/transparency/3695f53e-c6a9-42c1-8807-6331f2a8fc20/",
+  "text_inicio": "desde el día siguiente a la publicación en el BOP",
+  "text_fin": "15 días naturales a partir del día siguiente a la publicación en el BOP",
+  "se_publica_diario_oficial": true,
+  "ayuda_estado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectores_productos": [],
+  "anuncios": [],
+  "mrr_flag": false,
+  "fetchedAt": "2026-08-12T18:13:53.473Z"
+}

@@ -1,0 +1,65 @@
+{
+  "source": "bdns",
+  "source_id": "923619",
+  "source_lang": "es",
+  "level": "local",
+  "programme": "Concurrencia competitiva - canónica",
+  "sub_programme": null,
+  "publishing_authority_code": "LOCAL / CABEZAS DE SAN JUAN, LAS / AYUNTAMIENTO DE CABEZAS DE SAN JUAN, LAS",
+  "nuts_codes": [
+    "ES618"
+  ],
+  "nuts_primary": "ES618",
+  "title": "PROGRAMA DE AYUDAS PARA EL FOMENTO DE LA ADQUISICIÓN Y ACREDITACIÓN DE NIVELES DE COMPETENCIA LINGÜÍSTICA EN UNA LENGUA EXTRANJERA  DIRIGIDO A JÓVENES UNIVERSITARIOS/AS.",
+  "title_lang": "es",
+  "summary": "Educación",
+  "status": "open",
+  "publication_date": "2026-08-05",
+  "open_date": null,
+  "deadline": null,
+  "deadline_model": "continuous",
+  "deadlines_extra": null,
+  "budget_total_eur": 5000,
+  "budget_per_project_min_eur": null,
+  "budget_per_project_max_eur": null,
+  "expected_grants": null,
+  "cofinancing_pct": null,
+  "duration_months": null,
+  "audience": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA",
+  "eligible_orgs": [
+    "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+  ],
+  "eligible_countries": [
+    "ES"
+  ],
+  "sectores": [
+    {
+      "codigo": "Q",
+      "descripcion": "EDUCACIÓN"
+    }
+  ],
+  "apply_url": "www.lascabezasdesanjuan.es",
+  "details_url": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatoria/923619",
+  "documents": [
+    {
+      "label": "Documento de la convocatoria en español",
+      "url": null
+    },
+    {
+      "label": "SOLICITUD PROGRAMA AYUDA LENGUA EXTRANJERA",
+      "url": null
+    }
+  ],
+  "bases_reguladoras_url": "https://lascabezasdesanjuan.sedelectronica.es/dossier.1",
+  "text_inicio": "DIA SIGUIENTE DE SU PUBLICACION EN EL BOP DE SEVILLA",
+  "text_fin": "DIEZ DIAS DESPUES DE SU PUBLICACIÓN",
+  "se_publica_diario_oficial": true,
+  "ayuda_estado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectores_productos": [],
+  "anuncios": [],
+  "mrr_flag": false,
+  "fetchedAt": "2026-08-12T18:13:53.490Z"
+}

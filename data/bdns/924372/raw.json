@@ -1,0 +1,72 @@
+{
+  "id": 1125933,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "ARZÚA",
+    "nivel3": "AYUNTAMIENTO DE ARZÚA"
+  },
+  "sedeElectronica": "https://sede.concellodearzua.com",
+  "codigoBDNS": "924372",
+  "fechaRecepcion": "2026-08-10",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 18900,
+  "mrr": false,
+  "descripcion": "Convocatoria de subvenciones para la celebración de las fiestas parroquiales en el municipio de Arzúa durante el año 2026",
+  "descripcionLeng": "Convocatoria de subvencións para a celebración das festas parroquiais no municipio de Arzúa durante o ano 2026",
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "ACTIVIDADES ARTÍSTICAS, DEPORTIVAS Y DE ENTRETENIMIENTO",
+      "codigo": "S"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES111 - A Coruña"
+    }
+  ],
+  "descripcionFinalidad": "Cultura",
+  "descripcionBasesReguladoras": "Bases reguladoras y convocatoria para la concesión de Subvenciones para la celebración de fiestas parroquiales en el municipio de Arzúa durante el año 2026",
+  "urlBasesReguladoras": "https://sede.concellodearzua.com/sxc/es/informacion/tablon/2026/ANUNCIO_PROG_20260810130009211.html",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": null,
+  "fechaFinSolicitud": null,
+  "textInicio": "El día siguiente al de la publicación del extracto de la convocatoria en el BOP A Coruña.",
+  "textFin": "20 días hábiles después del inicio",
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1507635,
+      "descripcion": "Documento de la convocatoria en lengua cooficial",
+      "nombreFic": "ANUNCIO_PROG_20260810100011822_ANEXO_1786348812-0.pdf",
+      "long": 180806,
+      "datMod": "2026-08-10",
+      "datPublicacion": "2026-08-10"
+    },
+    {
+      "id": 1507634,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "ANUNCIO_PROG_20260810130009211_ANEXO_1786359609-0.pdf",
+      "long": 186106,
+      "datMod": "2026-08-10",
+      "datPublicacion": "2026-08-10"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

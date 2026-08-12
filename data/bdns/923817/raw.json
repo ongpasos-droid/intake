@@ -1,0 +1,64 @@
+{
+  "id": 1125378,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "BREÑA BAJA",
+    "nivel3": "AYUNTAMIENTO DE BREÑA BAJA"
+  },
+  "sedeElectronica": null,
+  "codigoBDNS": "923817",
+  "fechaRecepcion": "2026-08-06",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concesión directa - canónica",
+  "presupuestoTotal": 15000,
+  "mrr": false,
+  "descripcion": "CONVOCATORIA AYUDAS DE EMERGENCIA SOCIAL PARA UNIDADES FAMILIARES CON MENORES A CARGO DEL MUNICIPIO DE BREÑA BAJA, DE LA SUBVENCIÓN NOMINATIVA EN MATERIA DE PROYECTOS DE ACCIÓN SOCIAL DEL CABILDO INSULAR DE LA PALMA ANUALIDAD 2026.",
+  "descripcionLeng": null,
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "ACTIVIDADES SANITARIAS Y DE SERVICIOS SOCIALES",
+      "codigo": "R"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES707 - La Palma"
+    }
+  ],
+  "descripcionFinalidad": "Servicios Sociales y Promoción Social",
+  "descripcionBasesReguladoras": "BASES REGULADORAS DE LAS PRESTACIONES ECONÓMICAS DE AYUDAS\nDE EMERGENCIA SOCIAL DEL AYUNTAMIENTO DE LA MUY NOBLE Y\nHONORABLE VILLA DE BREÑA BAJA (BOC Nº 74 DE 20/06/2025)",
+  "urlBasesReguladoras": "https://www.bopsantacruzdetenerife.es/bopsc2/index.php",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": null,
+  "fechaFinSolicitud": "2026-11-30",
+  "textInicio": "Al día siguiente de la publicación convocatoria en el B.O.P. S/C Tenerife",
+  "textFin": null,
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1506167,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "20260803_Resolución_Decreto_DECRETO 2026-1074 [RESOLUCIÓN APROBACIÓN CONVOCATORIA].pdf",
+      "long": 424327,
+      "datMod": "2026-08-06",
+      "datPublicacion": "2026-08-06"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

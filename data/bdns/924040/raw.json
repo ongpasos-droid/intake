@@ -1,0 +1,84 @@
+{
+  "id": 1125601,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "SAN PEDRO DEL PINATAR",
+    "nivel3": "AYUNTAMIENTO DE SAN PEDRO DEL PINATAR"
+  },
+  "sedeElectronica": "https://sede.sanpedrodelpinatar.es/sta/CarpetaPublic/doEvent?APP_CODE=STA&PAGE_CODE=PTS2_HOME",
+  "codigoBDNS": "924040",
+  "fechaRecepcion": "2026-08-07",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 3750,
+  "mrr": false,
+  "descripcion": "PREMIOS Y AYUDAS DE CONVOCATORIA XII EDICION DE LA MUESTRA NACIONAL DE TEATRO AFICIONADO DE SAN PEDRO DEL PINATAR",
+  "descripcionLeng": null,
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "ACTIVIDADES ARTÍSTICAS, DEPORTIVAS Y DE ENTRETENIMIENTO",
+      "codigo": "S"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES620 - Murcia"
+    }
+  ],
+  "descripcionFinalidad": "Cultura",
+  "descripcionBasesReguladoras": "BASES REGULADORAS DE LOS PREMIOS Y AYUDAS DE CONVOCATORIA XII EDICION DE LA MUESTRA NACIONAL DE TEATRO AFICIONADO DE SAN PEDRO DEL PINATAR",
+  "urlBasesReguladoras": "https://sede.sanpedrodelpinatar.es/sta/CarpetaPublic/doEvent?APP_CODE=STA&PAGE_CODE=PTS2_TABLON&KEY=3223500907167373707601",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": null,
+  "fechaFinSolicitud": null,
+  "textInicio": "Día siguiente a la publicación del extracto de la convocatoria en el BORM",
+  "textFin": "Diez días hábiles a partir de la publicación de un extracto de la convocatoria en el BORM",
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1506761,
+      "descripcion": "BASES REGULADORAS Y ANEXOS",
+      "nombreFic": "Bases_reguladoras_y_convocatoria_de_la_XII_edicion_Muestra_Nacional_de_Teatro_Aficionado_de_San_Pedro_del_Pinatar.docx",
+      "long": 108640,
+      "datMod": "2026-08-07",
+      "datPublicacion": "2026-08-07"
+    },
+    {
+      "id": 1506760,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "Certificado_acuerdo_FASE_II (10).pdf",
+      "long": 222550,
+      "datMod": "2026-08-07",
+      "datPublicacion": "2026-08-07"
+    }
+  ],
+  "anuncios": [
+    {
+      "numAnuncio": 218916,
+      "titulo": "PREMIOS Y AYUDAS DE LA CONVOCATORIA XII EDICION DE LA MUESTRA NACIONAL DE TEATRO AFICIONADO DE SAN PEDRO DEL PINATAR",
+      "tituloLeng": null,
+      "texto": "<p>Extracto del Acuerdo de la Junta de Gobierno Local de 23 de julio de 2026, por el que se aprueban la convocatoria y bases de Premios y Ayudas del Ayuntamiento de San Pedro del Pinatar para la XII Edición de la Muestra Nacional de Teatro Aficionado de San Pedro del Pinatar. De conformidad con lo previsto en los arts. 17.3 y 20.8.a), de la Ley 38/2003, de 17 de noviembre, General de Subvenciones, se publica el extracto de la convocatoria cuyo texto completo puede consultarse en la web municipal www.sanpedrodelpinatar.es</p><p>Primero. Beneficiarios.</p><p>Podrán presentarse a esta convocatoria Grupos de teatro aficionado de adultos, a nivel nacional, no profesionales de todo el ámbito nacional, que se encuentren legalmente constituidos como Asociación Cultural sin ánimo de lucro o similar, interesados en participar en el certamen.</p><p>Segundo. Objeto.</p><p>La convocatoria y bases de Premios y Ayudas del Ayuntamiento de San Pedro del Pinatar para la XII Edición de la Muestra Nacional de Teatro Aficionado de San Pedro del Pinatar.</p><p>Tercero. Bases reguladoras.</p><p>Bases reguladoras generales para la concesión de estos premios y ayudas por parte del Ayuntamiento de San Pedro del Pinatar, aprobadas por acuerdo de Junta de Gobierno Local de fecha 23 de julio de 2026.</p><p>Cuarto. Cuantía.</p><p>El Ayuntamiento de San Pedro del Pinatar, otorgará los siguientes premios y ayudas:</p><p>A Grupos de Teatro Aficionado 3.750 euros</p><p>El importe total de las subvenciones asciende a 3.750,00€ (TRES MIL SETECIENTOS CINCUENTA EUROS) se cargará en la aplicación presupuestaría 2026 3344/48900.</p><p>Quinto. Plazo de presentación de solicitudes.</p><p>Será de 10 días hábiles contados a partir de la publicación de la correspondiente convocatoria en el Boletín Oficial de la Región de Murcia.</p><p>Sexto. Otros datos.</p><p>Se presentará solicitud oficial dirigida al Alcalde Presidente del Excmo. Ayuntamiento de San Pedro del Pinatar por sede electrónica o Registro General, mediante modelo de instancia que podrá encontrar en la Sede Electrónica del Ayuntamiento de San Pedro del Pinatar https://sede.sanpedrodelpinatar.es</p>",
+      "textoLeng": null,
+      "url": "https://www.borm.es/services/anuncio/ano/2026/numero/3989/pdf",
+      "cve": "A-110826-3989",
+      "desDiarioOficial": "BORM. B.O. DE LA REGIÓN DE MURCIA",
+      "datPublicacion": "2026-08-11"
+    }
+  ],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

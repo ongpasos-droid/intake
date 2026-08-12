@@ -1,0 +1,112 @@
+{
+  "id": 1124383,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "GUÍA DE ISORA",
+    "nivel3": "AYUNTAMIENTO DE GUÍA DE ISORA"
+  },
+  "sedeElectronica": "https://guiadeisora.sedeelectronica.es ",
+  "codigoBDNS": "922822",
+  "fechaRecepcion": "2026-07-31",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 32000,
+  "mrr": false,
+  "descripcion": "CONVOCATORIA DE CONCESIÓN DE SUBVENCIONES DESTINADAS A LA PARTICIPACIÓN DE PERSONAS MAYORES DEL MUNICIPIO DE GUÍA DE ISORA EN VIAJES DE OCIO ACTIVO, CULTURAL Y SALUDABLE EN EL AÑO 2026",
+  "descripcionLeng": null,
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "ACTIVIDADES SANITARIAS Y DE SERVICIOS SOCIALES",
+      "codigo": "R"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES709 - Tenerife"
+    }
+  ],
+  "descripcionFinalidad": "Servicios Sociales y Promoción Social",
+  "descripcionBasesReguladoras": "CONVOCATORIA DE CONCESIÓN DE SUBVENCIONES DESTINADAS A LA PARTICIPACIÓN DE PERSONAS MAYORES DEL MUNICIPIO DE GUÍA DE ISORA EN VIAJES DE OCIO ACTIVO, CULTURAL Y SALUDABLE EN EL AÑO 2026",
+  "urlBasesReguladoras": "https://www.guiadeisora.org/corp/areas-municipales/servicios-sociales/ayudas-y-subvenciones/",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": null,
+  "fechaFinSolicitud": null,
+  "textInicio": "A PARTIR DE 20 DÍAS HÁBILES DE LA PUBLICACIÓN EN EL BOLETÍN OFICIAL  PROVINCIA DE SC DE TENERIFE",
+  "textFin": "CUANDO FINALICEN LOS 20 DÍAS HÁBILES",
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1503360,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "CONVOCATORIA SUBVENCIÓN 2026.pdf",
+      "long": 1521884,
+      "datMod": "2026-07-31",
+      "datPublicacion": "2026-07-31"
+    },
+    {
+      "id": 1503344,
+      "descripcion": "ACUERDO DE LA JUNTA LOCAL",
+      "nombreFic": "ACUERDO DE LA JUNTA DE GOBIERNO LOCAL.pdf",
+      "long": 2140732,
+      "datMod": "2026-07-31",
+      "datPublicacion": "2026-07-31"
+    },
+    {
+      "id": 1503345,
+      "descripcion": "ANEXO I: MODELO DE SOLICITUD",
+      "nombreFic": "ANEXO I SOLICITUD DE SUBVENCIÓN.pdf",
+      "long": 3329553,
+      "datMod": "2026-07-31",
+      "datPublicacion": "2026-07-31"
+    },
+    {
+      "id": 1503353,
+      "descripcion": "ANEXO V: MODELO DE JUSTIFICACIÓN",
+      "nombreFic": "ANEXO V -PLANTILLA DE MODELO DE JUSTIFICACIÓN DE SUBVENCIÓN A PERSONAS FÍSICAS.pdf",
+      "long": 1745180,
+      "datMod": "2026-07-31",
+      "datPublicacion": "2026-07-31"
+    },
+    {
+      "id": 1503350,
+      "descripcion": "ANEXO III: ACEPTACIÓN DE SUBVENCIÓN",
+      "nombreFic": "ANEXO III - ACEPTACIÓN DE SUBVENCIÓN.pdf",
+      "long": 1054398,
+      "datMod": "2026-07-31",
+      "datPublicacion": "2026-07-31"
+    },
+    {
+      "id": 1503351,
+      "descripcion": "ANEXO IV: DECLARACIÓN JURADA",
+      "nombreFic": "ANEXO IV DECLARACION JURADA.pdf",
+      "long": 481813,
+      "datMod": "2026-07-31",
+      "datPublicacion": "2026-07-31"
+    },
+    {
+      "id": 1503348,
+      "descripcion": "ANEXO II: ALTA A TERCEROS",
+      "nombreFic": "ANEXO II ALTA A TERCEROS.pdf",
+      "long": 805529,
+      "datMod": "2026-07-31",
+      "datPublicacion": "2026-07-31"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

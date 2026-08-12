@@ -1,0 +1,79 @@
+{
+  "id": 1124643,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "CONSEJO INSULAR DE MENORCA",
+    "nivel3": "CONSELL INSULAR DE MENORCA"
+  },
+  "sedeElectronica": null,
+  "codigoBDNS": "923082",
+  "fechaRecepcion": "2026-07-31",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concesión directa - canónica",
+  "presupuestoTotal": 200000,
+  "mrr": false,
+  "descripcion": "Acuerdo de Consejo Ejecutivo, de 27 de julio de 2026, relativ0 a la aprobación de las bases y convocatoria de las ayudas de minimis de «Bonos producto local» y «Bonos Menorca»",
+  "descripcionLeng": "Acord de Consell Executiu, de 27 de juliol de 2026, relatiu a l'aprovació de les bases i convocatòria dels ajuts de minimis de de «Bons producte local» i «Bons Menorca»",
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PYME Y PERSONAS FÍSICAS QUE DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "AGRICULTURA, GANADERÍA, SILVICULTURA Y PESCA",
+      "codigo": "A"
+    },
+    {
+      "descripcion": "Comercio al por menor",
+      "codigo": "47"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES533 - Menorca"
+    }
+  ],
+  "descripcionFinalidad": "Agricultura, Pesca y Alimentación",
+  "descripcionBasesReguladoras": "Bases de las ayudas de minimis de «Bonos producto local» y «Bonos Menorca»",
+  "urlBasesReguladoras": "https://www.caib.es/eboibfront/es/2026/12222/711017/acuerdo-del-consejo-ejecutivo-en-sesion-de-caracte",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": "2026-08-10",
+  "fechaFinSolicitud": "2026-10-23",
+  "textInicio": null,
+  "textFin": null,
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": {
+    "descripcion": "REG (UE) 717/2014 de minimis, Pesca y acuicultura",
+    "orden": null
+  },
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1503940,
+      "descripcion": "Documento de la convocatoria en lengua cooficial",
+      "nombreFic": "ANUNCI_CEX 27072026 BONS_Firmado.pdf",
+      "long": 458475,
+      "datMod": "2026-08-01",
+      "datPublicacion": "2026-08-01"
+    },
+    {
+      "id": 1503939,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "ANUNCI_CEX 27072026 BONS_castella_Firmado.pdf",
+      "long": 464818,
+      "datMod": "2026-08-01",
+      "datPublicacion": "2026-08-01"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

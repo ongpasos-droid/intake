@@ -1,0 +1,123 @@
+{
+  "id": 1125883,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "ANTIGUA",
+    "nivel3": "AYUNTAMIENTO DE ANTIGUA"
+  },
+  "sedeElectronica": "https://antigua.sedelectronica.es",
+  "codigoBDNS": "924322",
+  "fechaRecepcion": "2026-08-10",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 80000,
+  "mrr": false,
+  "descripcion": "CONVOCATORIA DE SUBVENCIONES A FAVOR DE ASOCIACIONES Y ENTIDADES DE INTERÉS SOCIAL Y SIN ÁNIMO DE LUCRO, AÑO 2026",
+  "descripcionLeng": null,
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    },
+    {
+      "descripcion": "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "OTROS SERVICIOS",
+      "codigo": "T"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES704 - Fuerteventura"
+    }
+  ],
+  "descripcionFinalidad": "Servicios Sociales y Promoción Social",
+  "descripcionBasesReguladoras": "CONVOCATORIA DE SUBVENCIONES A FAVOR DE ASOCIACIONES Y ENTIDADES DE INTERÉS SOCIAL Y SIN ÁNIMO DE LUCRO, AÑO 2026",
+  "urlBasesReguladoras": "https://www.boplaspalmas.net/nbop2/index.php",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": null,
+  "fechaFinSolicitud": null,
+  "textInicio": "DIA SIGUIENTE A LA PUBLICACIÓN EN EL BOP DE LAS PALMAS",
+  "textFin": "20 DÍAS A PARTIR DÍA SIGUIENTE A PUBLICACIÓN EN BOP LAS PALMAS",
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1507515,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "Certificado acuerdo JGL.2026.16 de 23.07.2026.pdf",
+      "long": 703073,
+      "datMod": "2026-08-10",
+      "datPublicacion": "2026-08-10"
+    },
+    {
+      "id": 1507517,
+      "descripcion": "SOLICITUD",
+      "nombreFic": "20260728_Otros_ANEXO I SOLICITUD.pdf",
+      "long": 179156,
+      "datMod": "2026-08-10",
+      "datPublicacion": "2026-08-10"
+    },
+    {
+      "id": 1507520,
+      "descripcion": "MEMORIA EXPLICATIVA",
+      "nombreFic": "20260728_Otros_ANEXO III MEMORIA EXPLICATIVA.pdf",
+      "long": 148708,
+      "datMod": "2026-08-10",
+      "datPublicacion": "2026-08-10"
+    },
+    {
+      "id": 1507523,
+      "descripcion": "CUENTA JUSTIFICATIVA",
+      "nombreFic": "20260728_Otros_ANEXO VI CUENTA JUSTIFICATIVA.pdf",
+      "long": 166416,
+      "datMod": "2026-08-10",
+      "datPublicacion": "2026-08-10"
+    },
+    {
+      "id": 1507526,
+      "descripcion": "ALTA TERCEROS",
+      "nombreFic": "20260728_Otros_ALTA TERCEROS.pdf",
+      "long": 62451,
+      "datMod": "2026-08-10",
+      "datPublicacion": "2026-08-10"
+    },
+    {
+      "id": 1507521,
+      "descripcion": "PLAN FINANCIACIÓN",
+      "nombreFic": "20260728_Otros_ANEXO IV PLAN DE FINANCIACIÓN.pdf",
+      "long": 141491,
+      "datMod": "2026-08-10",
+      "datPublicacion": "2026-08-10"
+    },
+    {
+      "id": 1507522,
+      "descripcion": "ACEPTACIÓN",
+      "nombreFic": "20260728_Otros_ANEXO V ACEPTACIÓN DE SUBVENCIÓN.pdf",
+      "long": 112556,
+      "datMod": "2026-08-10",
+      "datPublicacion": "2026-08-10"
+    },
+    {
+      "id": 1507519,
+      "descripcion": "DECLARACION RESPONSABLE",
+      "nombreFic": "20260728_Otros_ANEXO II DECLARACIÓN RESPONSABLE.pdf",
+      "long": 313362,
+      "datMod": "2026-08-10",
+      "datPublicacion": "2026-08-10"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

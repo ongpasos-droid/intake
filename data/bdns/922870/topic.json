@@ -1,0 +1,70 @@
+{
+  "source": "bdns",
+  "source_id": "922870",
+  "source_lang": "es",
+  "level": "local",
+  "programme": "Concurrencia competitiva - canónica",
+  "sub_programme": null,
+  "publishing_authority_code": "LOCAL / MANCOMUNITAT INTERMUNICIPAL VOLUNTÀRIA \"LA PLANA\" / MANCOMUNITAT INTERMUNICIPAL VOLUNTÀRIA  LA PLANA",
+  "nuts_codes": [
+    "ES511",
+    "ES512"
+  ],
+  "nuts_primary": "ES511",
+  "title": "Acuerdo Asamblea General de Mancomunitat La Plana de fecha 11 de junio de 2026, de aprobación de bases y convocatoria para concesión de ayudas para realización de actividades deportivas temporada 26-27 para niños y adolescentes de municipios mancomunados",
+  "title_lang": "es",
+  "summary": "Servicios Sociales y Promoción Social",
+  "status": "open",
+  "publication_date": "2026-07-31",
+  "open_date": "2026-07-01",
+  "deadline": "2026-09-20",
+  "deadline_model": "single-stage",
+  "deadlines_extra": null,
+  "budget_total_eur": 36155.4,
+  "budget_per_project_min_eur": null,
+  "budget_per_project_max_eur": null,
+  "expected_grants": null,
+  "cofinancing_pct": null,
+  "duration_months": null,
+  "audience": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA",
+  "eligible_orgs": [
+    "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+  ],
+  "eligible_countries": [
+    "ES"
+  ],
+  "sectores": [
+    {
+      "codigo": "R",
+      "descripcion": "ACTIVIDADES SANITARIAS Y DE SERVICIOS SOCIALES"
+    },
+    {
+      "codigo": "Q",
+      "descripcion": "EDUCACIÓN"
+    }
+  ],
+  "apply_url": null,
+  "details_url": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatoria/922870",
+  "documents": [
+    {
+      "label": "Documento de la convocatoria en lengua cooficial",
+      "url": null
+    },
+    {
+      "label": "Documento de la convocatoria en español",
+      "url": null
+    }
+  ],
+  "bases_reguladoras_url": "http://bop.diba.cat/anunci/3958943/aprovacio-inicial-de-les-bases-reguladores-per-a-la-concessio-d-ajuts-per-a-la-realitzacio-d-activitats-esportives-per-la-temporada-2026-2027-per-a-infants-i-adolescents-amb-necessitats-socioeconomiques-i-empadronats-als",
+  "text_inicio": null,
+  "text_fin": null,
+  "se_publica_diario_oficial": true,
+  "ayuda_estado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectores_productos": [],
+  "anuncios": [],
+  "mrr_flag": false,
+  "fetchedAt": "2026-08-12T18:13:53.327Z"
+}

@@ -1,0 +1,72 @@
+{
+  "id": 1125929,
+  "organo": {
+    "nivel1": "AUTONOMICA",
+    "nivel2": "COMUNITAT VALENCIANA",
+    "nivel3": "SECRETARÍA AUTONÓMICA DE EDUCACIÓN"
+  },
+  "sedeElectronica": null,
+  "codigoBDNS": "924368",
+  "fechaRecepcion": "2026-08-10",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 10461557.52,
+  "mrr": false,
+  "descripcion": "RESOLUCIÓN de 12 de agosto, por la que se aprueban las bases reguladoras y la convocatoria de subv. destinadas a conserv. municipales,  centros autorizados y centros integrados de ens. generales y ens. artísticas, elementales o prof., de música y de danza",
+  "descripcionLeng": "RESOLUCIÓ de 12 de agosto, per la qual s’aproven les bases reguladores i la convocatòria de subv. destinades a cons. municipals, centres autoritzats i centres integrats d’ens. generals i ens.artístiques, elementals o professionales,de música i dansa",
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "ADMINISTRACIÓN PÚBLICA Y DEFENSA; SEGURIDAD SOCIAL OBLIGATORIA",
+      "codigo": "P"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES52 - COMUNIDAD VALENCIANA"
+    }
+  ],
+  "descripcionFinalidad": "Educación",
+  "descripcionBasesReguladoras": "Resolución de 12 de agosto, por la que se aprueban las bases reguladoras y la convocatoria de subv. destinadas a conserv. municipales,  centros autorizados y centros integrados de ens. generales y ens. artísticas, elementales o prof., de música y de danza",
+  "urlBasesReguladoras": "https://dogv.gva.es/es/resultat-dogv?signatura=2025/19347",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": "2026-08-10",
+  "fechaFinSolicitud": "2026-09-11",
+  "textInicio": "Día hábil después de su publicación",
+  "textFin": "Día hábil después de su publicación",
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1507642,
+      "descripcion": "Texto en otra lengua de la convocatoria",
+      "nombreFic": "Resolució_EDCONV_2025_sensefirma_25-003901_rev_firmado.pdf",
+      "long": 354280,
+      "datMod": "2026-08-10",
+      "datPublicacion": "2026-08-10"
+    },
+    {
+      "id": 1507641,
+      "descripcion": "Texto en castellano de la convocatoria",
+      "nombreFic": "Resolución_EDCONV_2025_sinfirmaV1_firmado.pdf",
+      "long": 338007,
+      "datMod": "2026-08-10",
+      "datPublicacion": "2026-08-10"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

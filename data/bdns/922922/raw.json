@@ -1,0 +1,80 @@
+{
+  "id": 1124483,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "SABIÑÁNIGO",
+    "nivel3": "AYUNTAMIENTO DE SABIÑÁNIGO"
+  },
+  "sedeElectronica": null,
+  "codigoBDNS": "922922",
+  "fechaRecepcion": "2026-07-31",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 20000,
+  "mrr": false,
+  "descripcion": "Decreto de Alcaldía nº 1735 de 27 de julio de 2026, del Ayuntamiento de Sabiñánigo, por el que se aprueba la convocatoria de las Becas Carlos López Otín, año 2026",
+  "descripcionLeng": null,
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "EDUCACIÓN",
+      "codigo": "Q"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES241 - Huesca"
+    }
+  ],
+  "descripcionFinalidad": "Educación",
+  "descripcionBasesReguladoras": "Ordenanza General reguladora de la concesión de subvenciones por el Ayuntamiento de Sabiñánigo",
+  "urlBasesReguladoras": "https://bop.dphuesca.es/index.php/mod.bopanuncios/mem.visualizarpdf/relcategoria.60008/idbopanuncio.233090/chk.28861ddbe6281ee90ce816479b8f4d7d.html",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": null,
+  "fechaFinSolicitud": null,
+  "textInicio": "Al día siguiente de la publicación del Extracto en el Boletín Oficial de la provincia de Huesca",
+  "textFin": "20 DÍAS HÁBILES a contar desde el siguiente a aquél en que se publique el Extracto",
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1503610,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "Resolución aprobación Convocatoria Becas López Otín 2026.pdf",
+      "long": 426830,
+      "datMod": "2026-07-31",
+      "datPublicacion": "2026-07-31"
+    },
+    {
+      "id": 1503613,
+      "descripcion": "Anexo Declaración",
+      "nombreFic": "modelo declaración jurada.pdf",
+      "long": 135742,
+      "datMod": "2026-07-31",
+      "datPublicacion": "2026-07-31"
+    },
+    {
+      "id": 1503612,
+      "descripcion": "Anexo Solicitud",
+      "nombreFic": "modelo solicitud.pdf",
+      "long": 98569,
+      "datMod": "2026-07-31",
+      "datPublicacion": "2026-07-31"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

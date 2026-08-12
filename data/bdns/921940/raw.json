@@ -1,0 +1,88 @@
+{
+  "id": 1123501,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "SANTA BRÍGIDA",
+    "nivel3": "AYUNTAMIENTO DE SANTA BRÍGIDA"
+  },
+  "sedeElectronica": null,
+  "codigoBDNS": "921940",
+  "fechaRecepcion": "2026-07-28",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 228090.19,
+  "mrr": false,
+  "descripcion": "CONVOCATORIA QUE RIGE LAS AYUDAS AL FOMENTO DE LA REHABILITACIÓN DE VIVIENDAS DE TITULARIDAD PRIVADA DENTRO DEL PROGRAMA PARA COMBATIR LA DESPOBLACIÓN EN EL MEDIO RURAL DEL PLAN DE VIVIENDA DE CANARIAS 2020-2025",
+  "descripcionLeng": null,
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "CONSTRUCCIÓN",
+      "codigo": "F"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES705 - Gran Canaria"
+    }
+  ],
+  "descripcionFinalidad": "Acceso a la vivienda y fomento de la edificación",
+  "descripcionBasesReguladoras": "CONVOCATORIA QUE RIGE LAS AYUDAS AL FOMENTO DE LA REHABILITACIÓN DE VIVIENDAS DE TITULARIDAD PRIVADA DENTRO DEL PROGRAMA PARA COMBATIR LA DESPOBLACIÓN EN EL MEDIO RURAL DEL PLAN DE VIVIENDA DE CANARIAS 2020-2025",
+  "urlBasesReguladoras": "https://santabrigida.sedelectronica.es/board",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": null,
+  "fechaFinSolicitud": null,
+  "textInicio": "AL DÍA DE SIGUIENTE DE SU PUBLICACIÓN EN EL BOP",
+  "textFin": "UN MES DESPUÉS DE SU PUBLICACIÓN EN EL BOP LAS PALMAS",
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1501267,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "20260625_Otros_20260612_Informe_IJ_1398_2026_Bases.pdf",
+      "long": 736290,
+      "datMod": "2026-07-28",
+      "datPublicacion": "2026-07-28"
+    },
+    {
+      "id": 1501266,
+      "descripcion": "ANEXO III",
+      "nombreFic": "20260625_Otros_20260612_Informe_IJ_1398_2026_Anexo 3.pdf",
+      "long": 88477,
+      "datMod": "2026-07-28",
+      "datPublicacion": "2026-07-28"
+    },
+    {
+      "id": 1501265,
+      "descripcion": "ANEXO II",
+      "nombreFic": "20260625_Otros_20260612_Informe_IJ_1398_2026_Anexo 2.pdf",
+      "long": 330368,
+      "datMod": "2026-07-28",
+      "datPublicacion": "2026-07-28"
+    },
+    {
+      "id": 1501264,
+      "descripcion": "ANEXO I",
+      "nombreFic": "20260625_Otros_20260612_Informe_IJ_1398_2026_Anexo 1.pdf",
+      "long": 292933,
+      "datMod": "2026-07-28",
+      "datPublicacion": "2026-07-28"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

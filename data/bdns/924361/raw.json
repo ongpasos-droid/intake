@@ -1,0 +1,76 @@
+{
+  "id": 1125922,
+  "organo": {
+    "nivel1": "AUTONOMICA",
+    "nivel2": "GALICIA",
+    "nivel3": "CONSELLERÍA DE PRESIDENCIA, JUSTICIA Y DEPORTES"
+  },
+  "sedeElectronica": null,
+  "codigoBDNS": "924361",
+  "fechaRecepcion": "2026-08-10",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 297582.4,
+  "mrr": false,
+  "descripcion": "Orden del 3 de agosto de 2026 por la que se establecen las BBRR y la convocatoria de subvenciones para el año 2026, para la adjudicación de equipamientos de emergencias, en régimen de concurrencia competitiva, a ayuntamientos de menos de 50.000 habitantes",
+  "descripcionLeng": "Orde do 3 de agosto de 2026 pola que se establecen as BBRR e a convocatoria de subvencións para o ano 2026, para a adxudicación de equipamentos en emerxencias, en réxime de concurrencia competitiva, a concellos de menos de 50.000 habitantes, mancomunidade",
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "Prestación de servicios a la comunidad en general",
+      "codigo": "84.2"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES11 - GALICIA"
+    }
+  ],
+  "descripcionFinalidad": "Seguridad Ciudadana e Instituciones Penitenciarias",
+  "descripcionBasesReguladoras": "Orden del 3 de agosto de 2026 por la que se establecen las BBRR y la convocatoria de subvenciones para el año 2026, para la adjudicación de equipamientos de emergencias, en régimen de concurrencia competitiva, a ayuntamientos de menos de 50.000 habitantes",
+  "urlBasesReguladoras": "https://www.xunta.gal/diario-oficial-galicia/portalPublicoHome.do?fecha=20260810&ruta=Indice149_es.html&lang=es",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": "2026-08-14",
+  "fechaFinSolicitud": "2026-09-14",
+  "textInicio": null,
+  "textFin": null,
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [
+    {
+      "descripcion": "FEDER - FONDO EUROPEO DE DESARROLLO REGIONAL"
+    }
+  ],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1507619,
+      "descripcion": "Texto en otra lengua de la convocatoria",
+      "nombreFic": "Orde DOG 2026-PR450A_gal_20260810_133336.pdf",
+      "long": 371585,
+      "datMod": "2026-08-10",
+      "datPublicacion": "2026-08-10"
+    },
+    {
+      "id": 1507618,
+      "descripcion": "Texto en castellano de la convocatoria",
+      "nombreFic": "Orde DOG 2026-PR450A_cast_20260810_133314.pdf",
+      "long": 410042,
+      "datMod": "2026-08-10",
+      "datPublicacion": "2026-08-10"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

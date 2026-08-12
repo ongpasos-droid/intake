@@ -1,0 +1,97 @@
+{
+  "source": "bdns",
+  "source_id": "922560",
+  "source_lang": "es",
+  "level": "ccaa",
+  "programme": "Concurrencia competitiva - canónica",
+  "sub_programme": null,
+  "publishing_authority_code": "AUTONOMICA / COMUNIDAD DE MADRID / CONSEJERÍA DE MEDIO AMBIENTE, AGRICULTURA E INTERIOR",
+  "nuts_codes": [
+    "ES3"
+  ],
+  "nuts_primary": "ES3",
+  "title": "AYUDAS COOP. GRUPOS OPERATIVOS ASOC. EUROPEA INNOVACIÓN. FASE EJECUCIÓN 26",
+  "title_lang": "es",
+  "summary": "Investigación, desarrollo e innovación",
+  "status": "open",
+  "publication_date": "2026-07-30",
+  "open_date": null,
+  "deadline": null,
+  "deadline_model": "continuous",
+  "deadlines_extra": null,
+  "budget_total_eur": 1600000,
+  "budget_per_project_min_eur": null,
+  "budget_per_project_max_eur": null,
+  "expected_grants": null,
+  "cofinancing_pct": null,
+  "duration_months": null,
+  "audience": "PYME Y PERSONAS FÍSICAS QUE DESARROLLAN ACTIVIDAD ECONÓMICA",
+  "eligible_orgs": [
+    "PYME Y PERSONAS FÍSICAS QUE DESARROLLAN ACTIVIDAD ECONÓMICA"
+  ],
+  "eligible_countries": [
+    "ES"
+  ],
+  "sectores": [
+    {
+      "codigo": "A",
+      "descripcion": "AGRICULTURA, GANADERÍA, SILVICULTURA Y PESCA"
+    }
+  ],
+  "apply_url": null,
+  "details_url": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatoria/922560",
+  "documents": [
+    {
+      "label": "Texto en castellano de la convocatoria",
+      "url": null
+    },
+    {
+      "label": "Modelo de Solicitud  Modelo solicitud 3696F1_solicitud",
+      "url": null
+    },
+    {
+      "label": "Anexos  3696FA1_Datos agrupación",
+      "url": null
+    },
+    {
+      "label": "Anexos  3696FA2_ACUERDO DE ASOCIACIÓN/DOCUMENTO VINCULANTE",
+      "url": null
+    },
+    {
+      "label": "Anexos  3696FR2_Solicitud de pago anticipado",
+      "url": null
+    },
+    {
+      "label": "Anexos  3696FO1_RELACIÓN DE OFERTAS PARA MODERACIÓN DE COSTES",
+      "url": null
+    },
+    {
+      "label": "Anexos  3696FO2_ESTADO FINANCIERO RECAPITULATIVO",
+      "url": null
+    },
+    {
+      "label": "Anexos  3696FR1_Solicitud de pago de las ayudas",
+      "url": null
+    },
+    {
+      "label": "Anexos  3696FA3_DATOS TRIBUTARIOS Y DECLARACION RESPONSABLE DE LA AGRUPACIÓN",
+      "url": null
+    }
+  ],
+  "bases_reguladoras_url": "https://www.bocm.es/boletin/CM_Orden_BOCM/2024/06/17/BOCM-20240617-26.PDF",
+  "text_inicio": "AL DÍA SIGUIENTE DE LA PUBLICACIÓN DEL EXTRACTO DE LA CONVOCATORIA EN EL BOCM",
+  "text_fin": "UN MES DESDE EL DÍA SIGUIENTE DEL INICIO DEL PLAZO DE PRESENTACIÓN DE SOLICITUDES",
+  "se_publica_diario_oficial": true,
+  "ayuda_estado": null,
+  "fondos": [
+    {
+      "descripcion": "FEADER - FONDO EUROPEO AGRÍCOLA DE DESARROLLO RURAL "
+    }
+  ],
+  "reglamento": null,
+  "objetivos": [],
+  "sectores_productos": [],
+  "anuncios": [],
+  "mrr_flag": false,
+  "fetchedAt": "2026-08-12T18:13:53.275Z"
+}

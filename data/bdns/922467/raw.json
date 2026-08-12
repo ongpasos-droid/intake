@@ -1,0 +1,80 @@
+{
+  "id": 1124028,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "SABIÑÁNIGO",
+    "nivel3": "AYUNTAMIENTO DE SABIÑÁNIGO"
+  },
+  "sedeElectronica": null,
+  "codigoBDNS": "922467",
+  "fechaRecepcion": "2026-07-30",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 10000,
+  "mrr": false,
+  "descripcion": "Decreto de Alcaldía nº 1779 de 29 de julio de 2026, por el que se convocan las becas a deportistas de Sabiñánigo con proyección deportiva, año 2026",
+  "descripcionLeng": null,
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "Actividades deportivas",
+      "codigo": "93.1"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES241 - Huesca"
+    }
+  ],
+  "descripcionFinalidad": "Educación",
+  "descripcionBasesReguladoras": "Ordenanza General reguladora de la concesión de subvenciones por el Ayuntamiento de Sabiñánigo",
+  "urlBasesReguladoras": "https://bop.dphuesca.es/index.php/mod.bopanuncios/mem.visualizarpdf/relcategoria.60008/idbopanuncio.233090/chk.28861ddbe6281ee90ce816479b8f4d7d.html",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": null,
+  "fechaFinSolicitud": null,
+  "textInicio": "Día siguiente a aquél en el que se publique el Extracto de la convocatoria en el Boletín Oficial",
+  "textFin": "UN MES desde el día siguiente a aquél en el que se publique el Extracto",
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1502476,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "Resolución Nº 1779 de 29_07_2026 _Decreto convocatoria becas 2026_ - SEGRA 1046381.pdf",
+      "long": 340106,
+      "datMod": "2026-07-30",
+      "datPublicacion": "2026-07-30"
+    },
+    {
+      "id": 1502479,
+      "descripcion": "Anexo II Certificado",
+      "nombreFic": "anexo_ii_modelo_certificado_para_federacion becas a deportistas.pdf",
+      "long": 49111,
+      "datMod": "2026-07-30",
+      "datPublicacion": "2026-07-30"
+    },
+    {
+      "id": 1502477,
+      "descripcion": "Anexo I Solicitud",
+      "nombreFic": "modelo_de_solicitud___anexo_i becas a deportistas.pdf",
+      "long": 77646,
+      "datMod": "2026-07-30",
+      "datPublicacion": "2026-07-30"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

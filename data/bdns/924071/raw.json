@@ -1,0 +1,107 @@
+{
+  "id": 1125632,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "XALÓ",
+    "nivel3": "AYUNTAMIENTO DE XALÓ"
+  },
+  "sedeElectronica": "https://xalo.sedelectronica.es/info.0",
+  "codigoBDNS": "924071",
+  "fechaRecepcion": "2026-08-07",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 81474,
+  "mrr": false,
+  "descripcion": "BASES REGULADORAS Y CONVOCATORIA DE LA CAMPAÑA DE FOMENTO DEL CONSUMO EN EL COMERCIO LOCAL DE XALÓ, MEDIANTE\nLA EMISIÓN DE BONOS DE COMERCIO, anualidad 2026",
+  "descripcionLeng": "BASES REGULADORES I CONVOCATÒRIA DE LA CAMPANYA DE FOMENT DEL CONSUM AL COMERÇ LOCAL DE XALÓ, MITJANÇANT LA\nEMISSIÓ DE BONOS DE COMERÇ, anualitat 2026",
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PYME Y PERSONAS FÍSICAS QUE DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "ACTIVIDADES DE EDICIÓN, RADIODIFUSIÓN Y PRODUCCIÓN Y DISTRIBUCIÓN DE CONTENIDOS",
+      "codigo": "J"
+    },
+    {
+      "descripcion": "COMERCIO AL POR MAYOR Y AL POR MENOR",
+      "codigo": "G"
+    },
+    {
+      "descripcion": "HOSTELERÍA",
+      "codigo": "I"
+    },
+    {
+      "descripcion": "OTROS SERVICIOS",
+      "codigo": "T"
+    },
+    {
+      "descripcion": "TRANSPORTE Y ALMACENAMIENTO",
+      "codigo": "H"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES521 - Alicante / Alacant"
+    }
+  ],
+  "descripcionFinalidad": "Comercio, Turismo y Pymes",
+  "descripcionBasesReguladoras": "BASES REGULADORAS Y CONVOCATORIA DE LA CAMPAÑA DE FOMENTO DEL CONSUMO EN EL COMERCIO LOCAL DE XALÓ, MEDIANTE LA EMISIÓN DE BONOS DE COMERCIO, anualidad 2026",
+  "urlBasesReguladoras": "https://sede.diputacionalicante.es/documentos/EMERI/Convocatorias/01976.pdf",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": null,
+  "fechaFinSolicitud": null,
+  "textInicio": "De conformidad con bases 5ª y 8ª",
+  "textFin": "De conformidad con bases 5ª y 8ª",
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": {
+    "descripcion": "REG (UE) 1407/2013 de minimis, General",
+    "orden": null
+  },
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1506838,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "BASES-Bono-Comercio 2026.docx",
+      "long": 153748,
+      "datMod": "2026-08-07",
+      "datPublicacion": "2026-08-07"
+    },
+    {
+      "id": 1506829,
+      "descripcion": "Anexo IV",
+      "nombreFic": "ANEXO IV.docx",
+      "long": 125158,
+      "datMod": "2026-08-07",
+      "datPublicacion": "2026-08-07"
+    },
+    {
+      "id": 1506828,
+      "descripcion": "Anexo II",
+      "nombreFic": "ANEXO II.docx",
+      "long": 15349,
+      "datMod": "2026-08-07",
+      "datPublicacion": "2026-08-07"
+    },
+    {
+      "id": 1506827,
+      "descripcion": "Anexo I",
+      "nombreFic": "ANEXO I.docx",
+      "long": 15444,
+      "datMod": "2026-08-07",
+      "datPublicacion": "2026-08-07"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

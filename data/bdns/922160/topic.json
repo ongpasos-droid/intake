@@ -1,0 +1,61 @@
+{
+  "source": "bdns",
+  "source_id": "922160",
+  "source_lang": "es",
+  "level": "local",
+  "programme": "Concurrencia competitiva - canónica",
+  "sub_programme": null,
+  "publishing_authority_code": "LOCAL / DIPUTACIÓN PROV. DE BADAJOZ / DIPUTACIÓN PROVINCIAL DE BADAJOZ",
+  "nuts_codes": [
+    "ES431"
+  ],
+  "nuts_primary": "ES431",
+  "title": "EXTRACTO DE LA RESOLUCIÓN DE CONCESIÓN PROVISIONAL DEL PLAN DE INVERSIONES PARA LAS ENTIDADES LOCALES MENORES DE LA DIPUTACIÓN DE BADAJOZ PARA 2026",
+  "title_lang": "es",
+  "summary": "Otras actuaciones de carácter económico",
+  "status": "open",
+  "publication_date": "2026-07-29",
+  "open_date": null,
+  "deadline": null,
+  "deadline_model": "continuous",
+  "deadlines_extra": null,
+  "budget_total_eur": 1125000,
+  "budget_per_project_min_eur": null,
+  "budget_per_project_max_eur": null,
+  "expected_grants": null,
+  "cofinancing_pct": null,
+  "duration_months": null,
+  "audience": "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA",
+  "eligible_orgs": [
+    "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+  ],
+  "eligible_countries": [
+    "ES"
+  ],
+  "sectores": [
+    {
+      "codigo": "T",
+      "descripcion": "OTROS SERVICIOS"
+    }
+  ],
+  "apply_url": null,
+  "details_url": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatoria/922160",
+  "documents": [
+    {
+      "label": "Texto en castellano de la convocatoria",
+      "url": null
+    }
+  ],
+  "bases_reguladoras_url": "https://www.dip-badajoz.es",
+  "text_inicio": "A partir del día siguiente a la publicación del extracto de la convocatoria en el B.O.P.",
+  "text_fin": "Hasta el 17 de Agosto de 2026 a las 23:59 horas",
+  "se_publica_diario_oficial": true,
+  "ayuda_estado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectores_productos": [],
+  "anuncios": [],
+  "mrr_flag": false,
+  "fetchedAt": "2026-08-12T18:13:53.201Z"
+}

@@ -1,0 +1,69 @@
+{
+  "source": "bdns",
+  "source_id": "924217",
+  "source_lang": "es",
+  "level": "local",
+  "programme": "Concurrencia competitiva - canónica",
+  "sub_programme": null,
+  "publishing_authority_code": "LOCAL / LORIGUILLA / AYUNTAMIENTO DE LORIGUILLA",
+  "nuts_codes": [
+    "ES523"
+  ],
+  "nuts_primary": "ES523",
+  "title": "ADQUISICIÓN DE MATERIAL ESCOLAR DE LOS ALUMNOS/AS ESCOLARIZADOS EN EL PRIMER Y SEGUNDO CICLO DE EDUCACIÓN INFANTIL, ASÍ COMO EN LA ETAPA EDUCATIVA OBLIGATORIA\nCURSO 2026-2027",
+  "title_lang": "es",
+  "summary": "Educación",
+  "status": "open",
+  "publication_date": "2026-08-10",
+  "open_date": null,
+  "deadline": null,
+  "deadline_model": "continuous",
+  "deadlines_extra": null,
+  "budget_total_eur": 19000,
+  "budget_per_project_min_eur": null,
+  "budget_per_project_max_eur": null,
+  "expected_grants": null,
+  "cofinancing_pct": null,
+  "duration_months": null,
+  "audience": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA",
+  "eligible_orgs": [
+    "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+  ],
+  "eligible_countries": [
+    "ES"
+  ],
+  "sectores": [
+    {
+      "codigo": "85.1",
+      "descripcion": "Educación preprimaria"
+    },
+    {
+      "codigo": "85.2",
+      "descripcion": "Educación primaria"
+    },
+    {
+      "codigo": "85.3",
+      "descripcion": "Educación secundaria y educación postsecundaria no terciaria"
+    }
+  ],
+  "apply_url": "https://loriguilla.sedelectronica.es/info.0",
+  "details_url": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatoria/924217",
+  "documents": [
+    {
+      "label": "Documento de la convocatoria en español",
+      "url": null
+    }
+  ],
+  "bases_reguladoras_url": "https://bop.dival.es/bop/downloads?anuncioNumReg=2020/10280&lang=va",
+  "text_inicio": "VEINTE DÍAS HÁBILES,  desde el siguiente a la publicación del extracto de la convocatoria en bop val",
+  "text_fin": "VEINTE DÍAS HÁBILES,  desde el siguiente a la publicación del extracto de la convocatoria en bop val",
+  "se_publica_diario_oficial": true,
+  "ayuda_estado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectores_productos": [],
+  "anuncios": [],
+  "mrr_flag": false,
+  "fetchedAt": "2026-08-12T18:13:53.609Z"
+}

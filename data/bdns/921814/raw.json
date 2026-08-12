@@ -1,0 +1,96 @@
+{
+  "id": 1123375,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "CENLLE",
+    "nivel3": "AYUNTAMIENTO DE CENLLE"
+  },
+  "sedeElectronica": "https://cenlle.sedelectronica.gal",
+  "codigoBDNS": "921814",
+  "fechaRecepcion": "2026-07-27",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concesión directa - canónica",
+  "presupuestoTotal": 1400,
+  "mrr": false,
+  "descripcion": "Convocatoria y bases reguladoras de las ayudas por nacimiento y/o adopción de hijo/a durante el año 2026",
+  "descripcionLeng": "Convocatoria e bases reguladoras das axudas por nacemento e/ou adopción de fillo/a durante o ano 2025",
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "ACTIVIDADES SANITARIAS Y DE SERVICIOS SOCIALES",
+      "codigo": "R"
+    },
+    {
+      "descripcion": "EDUCACIÓN",
+      "codigo": "Q"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES113 - Ourense"
+    }
+  ],
+  "descripcionFinalidad": "Servicios Sociales y Promoción Social",
+  "descripcionBasesReguladoras": "Bases que regirán la concesión de ayudas por nacimiento y adopción de hijo/a durante el año 2026 en el Ayuntamiento de Cenlle (Ourense)",
+  "urlBasesReguladoras": "https://cenlle.sedelectronica.gal",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": null,
+  "fechaFinSolicitud": null,
+  "textInicio": "A partir del siguiente dia de la publicación en el BOP",
+  "textFin": "15/12/2026",
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1500930,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "BASES REGULADORAS CASTELLANO.pdf",
+      "long": 196214,
+      "datMod": "2026-07-27",
+      "datPublicacion": "2026-07-27"
+    },
+    {
+      "id": 1500925,
+      "descripcion": "Anexo",
+      "nombreFic": "Anexo nacemento.pdf",
+      "long": 562493,
+      "datMod": "2026-07-27",
+      "datPublicacion": "2026-07-27"
+    },
+    {
+      "id": 1500931,
+      "descripcion": "Documento de la convocatoria en lengua cooficial",
+      "nombreFic": "BASES REGULADORAS GALEGO nacemento.pdf",
+      "long": 223019,
+      "datMod": "2026-07-27",
+      "datPublicacion": "2026-07-27"
+    }
+  ],
+  "anuncios": [
+    {
+      "numAnuncio": 218149,
+      "titulo": "Ayudas por nacimiento o adopción de hijo/a para el año 2026",
+      "tituloLeng": "Axudas por nacemento ou adopción de fillo/a para o ano 2026",
+      "texto": "<p>PRIMERO.- Aprobar las bases reguladoras y convocatoria de las “Ayudas por nacimiento o adopción de hijo/a para el año 2026”, con el texto íntegro que figura anexo al presente presente.</p><p>SEGUNDO.- Aprobar el gasto de 1.400 €, con cargo a la aplicación orzamentaria 231.48 del estado de gastos del vigente presupuesto municipal del ejercicio 2026.</p><p>TERCERO.- Registrar la información a incluír en a BDNS por los medios electrónicos que esta proporciona, con la convocatoria y su extracto. Tras registrar la información la BDNS pondrá el extracto de la convocatoria a disposición del Boletín Oficial de la Provincia para su publicación.</p><p>Beneficiarios de las subvenciones:</p><p>Serán personas beneficiarias las madres o padres que tuviesen un/una hijo/a, o adoptasen un/una hijo/a menor de 4 años, así como los/las tutores/as con la patria potestad o tutela en caso de fallecimiento de los/las padres/madres, que cumplan los siguientes requisitos:</p><p>- Que el nacimiento o adopción tuviese lugar entre los días 01/12/2025 y 30/11/2026.</p><p>- Que la persoa beneficiaria sea española o extranjera con residencia legal en España.</p><p> - Que la unidad familiar beneficiaria esté empadronada en el Ayuntamiento de Cenlle con una antigüedad mínima de 1 año en el momento del nacimiento o adopción (se comprobará de oficio por el órgano instrutor del procedimiento).</p><p>- Que el/la niño/a para esté empadronado/a en el domicilio de la persoa solicitante en el momento de la solicitud (se comprobará de oficio por el órgano instrutor del procedimiento).</p><p>Objeto de las subvenciones: El objetivo de las ayudas es contribuír a satisfacer las necesidades y aspiraciones de la vecinanza  y, en particular, prestar atención a las familias, tal y como dispone la Ley 3/2011, de 30 de junio, de apoyo a la familia y convivencia de Galicia.</p><p>Bases reguladoras: Se aprobaron las bases reguladoras por la Junta de Gobierno Local de 21/04/2026.</p><p>Importe máximo: La cuntía de las ayudas será de 250,00 € por cada hijo/a nacido/a o adoptado/a, hasta agotar el crédito disponible.</p><p>Plazo de presentación de solicitudes: El plazo para la presentación de las solicitudes comienza el día siguiente al de la publicación del extracto de la convocatoria en el Boletín oficial de la provincia de Ourense y finaliza el día 15/12/2026.</p><p>CUARTO.- Las ayudas previstas para los nacimientos y adopciones del período comprendido entre el 01/12/2025 y  el 30/11/2026, de otorgarse, serán  únicas. Es decir, se otorgará exclusivamente un único pago a través de la entrega de una tarjeta “Cheque bebé”.</p><p>QUINTO.- Se designa como órgano instrutor a la Alcaldesa del Ayuntamiento de Cenlle.</p>",
+      "textoLeng": "<p>PRIMEIRO.- Aprobar as bases reguladoras e convocatoria das “Axudas por nacemento ou adopción de fillo/a para o ano 2026”, co texto íntegro que figura anexo ó presente.</p><p>SEGUNDO.- Aprobar o gasto de 1.400 €, con cargo á aplicación orzamentaria 231.48 do estado de gastos do vixente orzamento municipal do exercicio 2026.</p><p>TERCEIRO.- Rexistrar a información a incluír na BDNS polos medios electrónicos que esta proporciona, coa convocatoria e o seu extracto. Tras rexistrar a información a BDNS porá o extracto da convocatoria a disposición do Boletín Oficial da Provincia para a súa publicación.</p><p>Beneficiarios das subvencións:</p><p>Serán persoas beneficiarias as nais ou pais que tivesen un/unha fillo/a, ou adoptasen un/unha fillo/a menor de 4 anos, así como os/as titores/as coa patria potestade ou tutela en caso de falecemento de os/as pais/nais, que cumpran os seguintes requisitos:</p><p>- Que o nacemento ou a adopción tivese lugar entre os días 01/12/2025 e 30/11/2026.</p><p>- Que a persoa beneficiaria sexa española ou estranxeira con residencia legal en España.</p><p> - Que a unidade familiar beneficiaria estea empadroada no Concello de Cenlle cunha antigüidade mínima de 1 ano no momento do nacemento ou adopción (comprobarase de oficio polo órgano instrutor do procedemento).</p><p>- Que o/o neno/para estea empadroado/a en o domicilio da persoa solicitante no momento da solicitude (comprobarase de oficio polo órgano instrutor do procedemento).</p><p>Obxecto das subvencións: O obxectivo das axudas é contribuír a satisfacer as necesidades e aspiracións da veciñanza  e, en particular, prestar atención ás familias, tal e como dispón a Lei 3/2011, do 30 de xuño, de apoio á familia e convivencia de Galicia.</p><p>Bases reguladoras: Aprobáronse as bases reguladoras pola Xunta de Goberno Local do 21/04/2026.</p><p>Importe máximo: A contía das axudas será de 250,00 € por cada fillo/a nado/a ou adoptado/a, ata o esgotamento do crédito dispoñible.</p><p>Prazo de presentación de solicitudes: O prazo para a presentación das solicitudes comeza o día seguinte ao da publicación do extracto da convocatoria no Boletín oficial da provincia de Ourense e finaliza o día 15/12/2025.</p><p>CUARTO.- As axudas previstas para os nacementos e adopcións do período comprendido entre o 01/12/2024 e 30/11/2025, de outorgarse, serán  únicas. É dicir, outorgarase exclusivamente un único pago a través da entrega dunha tarxeta “Cheque bebé”.</p><p>QUINTO.- Designase como órgano instrutor á Alcaldesa do Concello de Cenlle.</p>",
+      "url": null,
+      "cve": null,
+      "desDiarioOficial": "B.O.P. DE OURENSE",
+      "datPublicacion": "2026-08-05"
+    }
+  ],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

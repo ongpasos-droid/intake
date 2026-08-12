@@ -1,0 +1,108 @@
+{
+  "id": 1124433,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "ARROYO DE LA ENCOMIENDA",
+    "nivel3": "AYUNTAMIENTO DE ARROYO DE LA ENCOMIENDA"
+  },
+  "sedeElectronica": "www.aytoarroyo.es/sede-electrónica",
+  "codigoBDNS": "922872",
+  "fechaRecepcion": "2026-07-31",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 50000,
+  "mrr": false,
+  "descripcion": "Resolución de 29 de julio de 2026,de la Concejal-Delegada de Deportes del Ayuntamiento de Arroyo de la encomienda, por la que se aprueba la convocatoria reguladora para la concesión de subvenciones a clubes deportivos de Arroyo de la Encomienda,  2026",
+  "descripcionLeng": null,
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "Actividades deportivas",
+      "codigo": "93.1"
+    },
+    {
+      "descripcion": "Otras actividades recreativas y de entretenimiento",
+      "codigo": "93.2"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES418 - Valladolid"
+    }
+  ],
+  "descripcionFinalidad": "Cultura",
+  "descripcionBasesReguladoras": "Convocatoria para la concesión de subvenciones a clubes deportivos de Arroyo de la Encomienda, para el año 2026",
+  "urlBasesReguladoras": "www.aytoarroyo.es",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": null,
+  "fechaFinSolicitud": null,
+  "textInicio": "Día siguiente al de la publicación del extracto en el Boletín Oficial de la Provincia ",
+  "textFin": "Transcurridos veinte días hábiles a contar desde el siguiente a la publicación en el BOP",
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1503453,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "Convocatoria.pdf",
+      "long": 994552,
+      "datMod": "2026-07-31",
+      "datPublicacion": "2026-07-31"
+    },
+    {
+      "id": 1503454,
+      "descripcion": "Anexo I",
+      "nombreFic": "Modelo_03_13_Anexo I Subvención Clubes Deportivos Actividades Deportivas....pdf",
+      "long": 112317,
+      "datMod": "2026-07-31",
+      "datPublicacion": "2026-07-31"
+    },
+    {
+      "id": 1503473,
+      "descripcion": "Anexo V",
+      "nombreFic": "Modelo_03_13_Anexo V Subvención Clubes Deportivos Actividades Deportivas....pdf",
+      "long": 108455,
+      "datMod": "2026-07-31",
+      "datPublicacion": "2026-07-31"
+    },
+    {
+      "id": 1503458,
+      "descripcion": "Anexo III",
+      "nombreFic": "Modelo_03_13_Anexo III Subvención Clubes Deportivos Actividades Deportiv....pdf",
+      "long": 111614,
+      "datMod": "2026-07-31",
+      "datPublicacion": "2026-07-31"
+    },
+    {
+      "id": 1503471,
+      "descripcion": "Anexo IV",
+      "nombreFic": "Modelo_03_13_Anexo IV Subvención Clubes Deportivos Actividades Deportiva....pdf",
+      "long": 145445,
+      "datMod": "2026-07-31",
+      "datPublicacion": "2026-07-31"
+    },
+    {
+      "id": 1503455,
+      "descripcion": "Anexo II",
+      "nombreFic": "Modelo_03_13_Anexo II Subvención Clubes Deportivos Actividades Deportiva....pdf",
+      "long": 109430,
+      "datMod": "2026-07-31",
+      "datPublicacion": "2026-07-31"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

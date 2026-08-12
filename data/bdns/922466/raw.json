@@ -1,0 +1,79 @@
+{
+  "id": 1124027,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "VALDEPEÑAS",
+    "nivel3": "AYUNTAMIENTO DE VALDEPEÑAS"
+  },
+  "sedeElectronica": null,
+  "codigoBDNS": "922466",
+  "fechaRecepcion": "2026-07-30",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 140,
+  "mrr": false,
+  "descripcion": "Torneo Tángana Fiestas de la Vendimia y el Vino 2026",
+  "descripcionLeng": null,
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    },
+    {
+      "descripcion": "PYME Y PERSONAS FÍSICAS QUE DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "ACTIVIDADES ARTÍSTICAS, DEPORTIVAS Y DE ENTRETENIMIENTO",
+      "codigo": "S"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES - ESPAÑA "
+    }
+  ],
+  "descripcionFinalidad": "Cultura",
+  "descripcionBasesReguladoras": "Bases Torneo  Tángana Fiestas de la Vendimia y el Vino 2026",
+  "urlBasesReguladoras": "https://www.valdepenas.es/festejos/",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": "2026-08-29",
+  "fechaFinSolicitud": "2026-08-30",
+  "textInicio": "29 de agosto de 2026",
+  "textFin": "30 de agosto de 2026",
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1502468,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "BasesTorneo  Tángana Fiestas de la Vendimia y el Vino 2026.pdf",
+      "long": 259702,
+      "datMod": "2026-07-30",
+      "datPublicacion": "2026-07-30"
+    }
+  ],
+  "anuncios": [
+    {
+      "numAnuncio": 218354,
+      "titulo": "Bases Torneo Tángana Fiestas de la Vendimia y el Vino 2026",
+      "tituloLeng": null,
+      "texto": "<p>El concurso se celebrará el día 30 de agosto de 2026 en el Parque del Este, siendo su inicio a las 9:30 horas.</p><p>Se establece un mínimo de cuatro personas para la celebración del concurso.</p><p>La inscripción al torneo es gratuita y se realizará 30 minutos antes del inicio del concurso.</p><p>Este concurso está organizado por el Excmo. Ayuntamiento de Valdepeñas y se instituyen los siguientes Premios, cuyo importe máximo asciende a 140 €.</p><p> 1º Premio: 50 € y Trofeo</p><p> 2º Premio: 40 € y Trofeo</p><p> 3º Premio: 30 € y Trofeo</p><p> 4º Premio: 20 € y Trofeo</p><p> </p><p> </p>",
+      "textoLeng": null,
+      "url": "https://se1.dipucr.es:4443/SIGEM_BuscadorDocsWeb/getDocument.do?entidad=005&doc=7699538",
+      "cve": "3HyX8ai9urBjALrqBQgQ",
+      "desDiarioOficial": "B.O.P. DE CIUDAD REAL",
+      "datPublicacion": "2026-07-31"
+    }
+  ],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

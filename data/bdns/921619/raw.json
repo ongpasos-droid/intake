@@ -1,0 +1,72 @@
+{
+  "id": 1123180,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "CASTELLBELL I EL VILAR",
+    "nivel3": "AYUNTAMIENTO DE CASTELLBELL I EL VILAR"
+  },
+  "sedeElectronica": "https://www.castellbellielvilar.cat/",
+  "codigoBDNS": "921619",
+  "fechaRecepcion": "2026-07-27",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 2100,
+  "mrr": false,
+  "descripcion": "CONVOCATORIA AYUDAS 2026 DEL PROGRAMA DE ARREGLO Y ADAPTACIÓN DE VIVIENDAS, MEDIANTE PROCEDIMIENTO DE CONCURRENCIA COMPETITIVA EN EL MUNICIPIO DE CASTELLBELL Y EL VILAR.EDICIÓN 2026.",
+  "descripcionLeng": "CONVOCATÒRIA PER A LA CONCESSIÓ SUBVENCIONS EN RÈGIM DE CONCURRÈNCIA COMPETITIVA, DINS DEL PROGRAMA D’ARRANJAMENT i ADAPTACIÓ D’HABITATGES AL MUNICIPI DE CASTELLBELL I EL VILAR. EDICIÓ 2026.",
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "Otros servicios personales",
+      "codigo": "96.9"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES511 - Barcelona"
+    }
+  ],
+  "descripcionFinalidad": "Servicios Sociales y Promoción Social",
+  "descripcionBasesReguladoras": "CONVOCATORIA DE AYUDAS 2026 PROGRAMA DE ARREGLO DE VIVIENDAS, MEDIANTE PROCEDIMIENTO DE CONCURRENCIA COMPETITIVA EN EL MUNICIPIO DE CASTELLBELL Y EL VILAR",
+  "urlBasesReguladoras": "https://bop.diba.cat/anteriors/2024-01-22?bopb_dia%5BparaulaClau%5D=Castellbell+i+el+Vilar&bopb_dia%5BtipologiaAnunciant%5D=&bopb_dia%5BtipusAnunci%5D=",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": null,
+  "fechaFinSolicitud": null,
+  "textInicio": "Dia siguiente de la publicación de la convocatoria en Diario Oficial de la Provincia de Barcelona",
+  "textFin": "1 mes a partir del día siguiente del anuncio de la convocatoria en el BOP de Barcelona",
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1500439,
+      "descripcion": "Documento de la convocatoria en lengua cooficial",
+      "nombreFic": "CONVOCATORIA AJUTS PROGRAMA ARRANJAMENT HABITATGES 2026.pdf",
+      "long": 879232,
+      "datMod": "2026-07-27",
+      "datPublicacion": "2026-07-27"
+    },
+    {
+      "id": 1500440,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "CONVOCATORIA AYUDAS PROGRAMA REHABILITACION VIVIENDA 2026.pdf",
+      "long": 983178,
+      "datMod": "2026-07-27",
+      "datPublicacion": "2026-07-27"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

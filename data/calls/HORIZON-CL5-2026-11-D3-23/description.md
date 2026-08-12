@@ -19,7 +19,7 @@ The quality of AI models depends strongly on the amount, quality, and representa
 
 Selected projects are expected to contribute to the BRIDGE initiative[4] and actively participate in its activities.
 
-## null
+## Technology Readiness Level - Technology readiness level expected from completed projects
 
 Activities are expected to achieve TRL 7-8 by the end of the project – see General Annex B. Activities may start at any TRL.
 

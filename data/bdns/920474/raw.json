@@ -1,0 +1,79 @@
+{
+  "id": 1122035,
+  "organo": {
+    "nivel1": "AUTONOMICA",
+    "nivel2": "CASTILLA Y LEÓN",
+    "nivel3": "CONSEJERÍA DE INDUSTRIA, UNIVERSIDADES, EMPLEO Y COMERCIO"
+  },
+  "sedeElectronica": "https://www.tramitacastillayleon.jcyl.es",
+  "codigoBDNS": "920474",
+  "fechaRecepcion": "2026-07-21",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concesión directa - canónica",
+  "presupuestoTotal": 1100000,
+  "mrr": false,
+  "descripcion": "Orden de 20 de julio de 2026, de la Consejería de Industria, Universidades, Empleo y Comercio por la que se convoca el Programa I de las subvenciones dirigidas a promover la comercialización y garantizar el abastecimiento en el medio rural.",
+  "descripcionLeng": null,
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PYME Y PERSONAS FÍSICAS QUE DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "Comercio al por menor",
+      "codigo": "47"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES41 - CASTILLA Y LEON"
+    }
+  ],
+  "descripcionFinalidad": "Comercio, Turismo y Pymes",
+  "descripcionBasesReguladoras": "Orden IEM/786/2025, de 14 de julio, por la que se establecen las bases reguladoras de las subvenciones dirigidas a promover la comercialización y garantizar el abastecimiento en el medio rural de la Comunidad de Castilla y León",
+  "urlBasesReguladoras": "https://bocyl.jcyl.es/boletines/2025/07/18/pdf/BOCYL-D-18072025-20.pdf",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": "2026-08-04",
+  "fechaFinSolicitud": null,
+  "textInicio": null,
+  "textFin": "Subprogramas 1 y 3: 1 de octubre de 2026  subprograma 2: 15 de octubre.de 2026       ",
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": {
+    "descripcion": "REG (UE) 2023/2831 de minimis, General",
+    "orden": null
+  },
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1497332,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "ORDEN CONV ABAST 2026 PROGR I.pdf",
+      "long": 335250,
+      "datMod": "2026-07-21",
+      "datPublicacion": "2026-07-30"
+    }
+  ],
+  "anuncios": [
+    {
+      "numAnuncio": 217556,
+      "titulo": "EXTRACTO de la Orden de 20 de julio de 2026, de la Consejería de Industria, Universidades, Empleo y Comercio por la que se convoca el Programa I de las subvenciones dirigidas a promover la comercialización y garantizar el abastecimiento en el medio rural de la comunidad Castilla y León",
+      "tituloLeng": null,
+      "texto": "<p>Asimismo, la convocatoria puede consultarse en la Sede Electrónica de la Administración de la Comunidad de Castilla y León (https://www.tramitacastillayleon.jcyl.es) utilizando el identificador BDNS.</p><p>Primero.- Objeto.</p><p>Las presentes subvenciones tienen por objeto la financiación de actuaciones dirigidas a promover la comercialización y garantizar el abastecimiento en el medio rural de la Comunidad de Castilla y León, de acuerdo con los requisitos establecidos en las bases y en la convocatoria, a través del Programa de Apoyo a las pequeñas y medianas empresas, que consta de 3 subprogramas:</p><p>Subprograma 1, de apoyo dirigido a la permanencia de establecimientos comerciales minoristas.</p><p>Subprograma 2, de apoyo dirigido a:</p><p>La apertura de establecimientos comerciales minoristas.</p><p>La reforma de establecimientos comerciales minoristas.</p><p>Subprograma 3, de apoyo dirigido a la adquisición de vehículos afectos directa y exclusivamente a la actividad comercial minorista de productos de carácter cotidiano ejercida en establecimientos comerciales.</p><p>Segundo.- Beneficiarios.</p><p>Podrán acceder a las presentes subvenciones, siempre que cumplan con los requisitos establecidos y realicen las actividades previstas, las entidades recogidas en la base segunda de la Orden IEM/786/2025, de 14 de julio.</p><p>Tercero.- Bases reguladoras.</p><p>Las presentes subvenciones se encuentran reguladas en la Orden IEM/786/2025, de 14 de julio, por la que se establecen las bases reguladoras de las subvenciones dirigidas a promover la comercialización y garantizar el abastecimiento en el medio rural de la Comunidad de Castilla y León (BOCYL nº137, de 18 de julio de 2025), modificada por la Orden IEM/539/2026, de 9 de junio (BOCYL nº111, de 11 de junio de 2026).</p><p>Cuarto.- Cuantía.</p><p>La cuantía total máxima destinada a financiar las subvenciones convocadas asciende a 1.100.000 euros.</p><p>Quintoo.- Plazo de presentación de solicitudes.</p><p>El plazo de presentación de solicitudes se extenderá desde el día siguiente a la publicación de este extracto en el Boletín Oficial de Castilla y León hasta el 1 de octubre de 2026, inclusive, excepto en el subprograma 2 dirigido a la apertura de establecimientos comerciales.</p><p>El plazo de presentación de solicitudes en el subprograma 2 dirigido a la apertura de establecimientos comerciales se extenderá desde el día siguiente a la publicación de este extracto en el Boletín Oficial de Castilla y León hasta el 15 de octubre de 2026, inclusive.</p><p> </p>",
+      "textoLeng": null,
+      "url": "https://bocyl.jcyl.es/boletines/2026/08/03/pdf/BOCYL-D-03082026-148-27.pdf",
+      "cve": "BOCYL-D-03082026-148-27",
+      "desDiarioOficial": "BOCYL. B.O. DE LA JUNTA DE CASTILLA Y LEÓN",
+      "datPublicacion": "2026-08-03"
+    }
+  ],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

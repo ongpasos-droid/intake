@@ -1,0 +1,71 @@
+{
+  "source": "bdns",
+  "source_id": "922399",
+  "source_lang": "es",
+  "level": "otros",
+  "programme": "Concurrencia competitiva - canónica",
+  "sub_programme": null,
+  "publishing_authority_code": "OTROS / UNIVERSITAT POLITÈCNICA DE VALÈNCIA",
+  "nuts_codes": [],
+  "nuts_primary": null,
+  "title": "Becas SANTANDER AYUDA ECONÓMICA 2026-2027",
+  "title_lang": "es",
+  "summary": "Educación",
+  "status": "open",
+  "publication_date": "2026-07-29",
+  "open_date": "2026-08-31",
+  "deadline": "2026-10-07",
+  "deadline_model": "single-stage",
+  "deadlines_extra": null,
+  "budget_total_eur": 114000,
+  "budget_per_project_min_eur": null,
+  "budget_per_project_max_eur": null,
+  "expected_grants": null,
+  "cofinancing_pct": null,
+  "duration_months": null,
+  "audience": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA",
+  "eligible_orgs": [
+    "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+  ],
+  "eligible_countries": [
+    "ES"
+  ],
+  "sectores": [
+    {
+      "codigo": "85.5",
+      "descripcion": "Otra educación"
+    }
+  ],
+  "apply_url": null,
+  "details_url": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatoria/922399",
+  "documents": [
+    {
+      "label": "Texto en castellano de la convocatoria",
+      "url": null
+    }
+  ],
+  "bases_reguladoras_url": "https://www.upv.es/entidades/SESTU/becas/397814normalv.html",
+  "text_inicio": null,
+  "text_fin": null,
+  "se_publica_diario_oficial": true,
+  "ayuda_estado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectores_productos": [],
+  "anuncios": [
+    {
+      "numAnuncio": 218324,
+      "titulo": "Extracto de la Resolución de 28 de julio de 2026 de la Universitat Politècnica de València, por la que se convocan Becas Santander/Ayuda Económica 2026-2027.",
+      "tituloLeng": "Extracte de la Resolució de 28 de juliol de 2026 de la Universitat Politècnica de València, per la qual es convoquen BEQUES SANTANDER ESTUDIS/AJUDA ECONÒMICA 2026-2027.",
+      "texto": "<p>Primero. Beneficiarios: \n</p><p>La convocatoria está dirigida estudiantado matriculado en estudios oficiales de Grado o Máster impartidos en la UPV, con los mejores expedientes académicos.\n</p><p>\n</p><p>Segundo. Finalidad: \n</p><p>Facilitar el acceso a la educación superior al estudiantado con los mejores expedientes académicos a nivel nacional que se encuentren cursando estudios oficiales de Grado o Máster\n</p><p>\n</p><p>Tercero. Bases reguladoras: \n</p><p>Resolución de 28 julio de 2026 de la Universitat PolItècnica de València, accesible en:\n</p><p>OTRAS CONVOCATORIAS : Servicio de Estudiantes : UPV\n</p><p>\n</p><p>Cuarto. Importe: \n</p><p>El importe de estas ayudas será atendido con cargo a los fondos que se destinen en el presupuesto de esta Universidad del ejercicio 2026, hasta un importe máximo de 114.000 euros.\n</p><p>\n</p><p>Quinto. Plazo de presentación de solicitudes: \n</p><p>El plazo de solicitudes será desde la fecha de publicación en el DOGV hasta el 7 de octubre de 2026. No obstante, el plazo que establece el Santander a través de su web dio comienzo el  21 de abril y finaliza el 7 de octubre de 2026.\n</p>",
+      "textoLeng": "<p>Primer. Beneficiaris: \n</p><p>La convocatòria està dirigida a l'estudiantat matriculat en estudis oficials de grau o màster impartits a la UPV, amb els millors expedients acadèmics.\n</p><p>\n</p><p>Segon. Finalitat: \n</p><p>Facilitar l'accés a l'educació superior a l'estudiantat amb els millors expedients acadèmics a nivell nacional que es troben cursant estudis oficials de grau o màster..\n</p><p>\n</p><p>Tercer. Bases reguladores: \n</p><p>Resolució de 28 de juliol de 2026 de la Universitat Politècnica de València accesible\n</p><p>ALTRES CONVOCATÒRIES : Servei d'Estudiants : UPV\n</p><p>\n</p><p>Quart. Import: \n</p><p>L’import d’aquestes ajudes serà atès amb càrrec als fons que es destinen en el pressupost d’aquesta Universitat de l’exercici del 2026, fins a un import màxim de 114.000 euros.\n</p><p>\n</p><p>Cinquè. Termini de presentació de sol·licituds: \n</p><p>El termini de sol·licituds serà des de la data de publicació en el DOGV fins al 7 d'octubre. No obstant això, el termini que estableix el Santander a través del seu web va donar principi el 21 d’abril i finalitza el 7 d'octubre de 2026.\n</p>",
+      "url": "https://dogv.gva.es/va/resultat-dogv?signatura=2026/25841",
+      "cve": "DOGV-V-2026-25841",
+      "desDiarioOficial": "DOCV. D.O. DE LA COMUNITAT VALENCIANA",
+      "datPublicacion": "2026-07-31"
+    }
+  ],
+  "mrr_flag": false,
+  "fetchedAt": "2026-08-12T18:13:53.247Z"
+}

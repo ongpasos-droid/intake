@@ -1,0 +1,72 @@
+{
+  "id": 1124916,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "CARBALLIÑO, O",
+    "nivel3": "AYUNTAMIENTO DE CARBALLIÑO, O"
+  },
+  "sedeElectronica": "https://carballino.sedelectronica.gal",
+  "codigoBDNS": "923355",
+  "fechaRecepcion": "2026-08-04",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 25000,
+  "mrr": false,
+  "descripcion": "Subvención entidades deportivas y entidades sin ánimo de lucro para la organización de eventos deportivos 2026",
+  "descripcionLeng": "Subvención entidades deportivas e entidades sen ánimo de lucro para a organización de eventos deportivos 2026",
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "Actividades deportivas, recreativas y de entretenimiento",
+      "codigo": "93"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES113 - Ourense"
+    }
+  ],
+  "descripcionFinalidad": "Cultura",
+  "descripcionBasesReguladoras": "Ordenanza General de Subvenciónes (BOP 49/2005)",
+  "urlBasesReguladoras": "https://carballino.sedelectronica.gal/preview-document/9d018f7f-66b4-4856-baca-541c6a6156cb",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": null,
+  "fechaFinSolicitud": null,
+  "textInicio": "Al día siguiente a la publicación del extracto en el BOP",
+  "textFin": "Un mes contado a partir del día siguiente a la publicación del extracto en el BOP",
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1504720,
+      "descripcion": "Documento de la convocatoria en lengua cooficial",
+      "nombreFic": "20260508_Outros_Bases e convocatoria para realización de eventos deportivos 2026.pdf",
+      "long": 723726,
+      "datMod": "2026-08-04",
+      "datPublicacion": "2026-08-04"
+    },
+    {
+      "id": 1504719,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "20260508_Outros_Bases y convocatoria para realización de eventos deportivos 2026.pdf",
+      "long": 596862,
+      "datMod": "2026-08-04",
+      "datPublicacion": "2026-08-04"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

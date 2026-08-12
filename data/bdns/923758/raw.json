@@ -1,0 +1,80 @@
+{
+  "id": 1125319,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "LEÓN",
+    "nivel3": "INSTITUTO LEONÉS DE DESARROLLO ECONÓMICO, FORMACIÓN Y EMPLEO"
+  },
+  "sedeElectronica": null,
+  "codigoBDNS": "923758",
+  "fechaRecepcion": "2026-08-06",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 30000,
+  "mrr": false,
+  "descripcion": "SUBVENCIÓN DE BECAS A LOS ALUMNOS DE DETERMINADOS MÁSTERES QUE SE CURSAN EN LA UNIVERSIDAD DE LEÓN DENTRO DEL \"PROGRAMA TALENTO”",
+  "descripcionLeng": null,
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "EDUCACIÓN",
+      "codigo": "Q"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES413 - León"
+    }
+  ],
+  "descripcionFinalidad": "Fomento del Empleo",
+  "descripcionBasesReguladoras": "Becas para facilitar el acceso a una formación especializada de personas empadronadas en el municipio de León interesadas en desarrollarse profesionalmente, financiando el coste de la matrícula de alguno de los másteres impartidos en la ULE",
+  "urlBasesReguladoras": "https://ildefe.es/empleo-y-formacion/becas-por-el-talento-2026-2027-estudia-un-master-en-leon/",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": "2026-08-06",
+  "fechaFinSolicitud": "2026-10-02",
+  "textInicio": null,
+  "textFin": null,
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1505968,
+      "descripcion": "Anexo II - Declaración Jurada",
+      "nombreFic": "Anexo II_BECAS-POR-EL-TALENTO-2026-2027.pdf",
+      "long": 167638,
+      "datMod": "2026-08-06",
+      "datPublicacion": "2026-08-06"
+    },
+    {
+      "id": 1505963,
+      "descripcion": "Anexo I - Protección de Datos Personales",
+      "nombreFic": "Anexo I_BECAS-POR-EL-TALENTO-2026-2027.pdf",
+      "long": 34431,
+      "datMod": "2026-08-06",
+      "datPublicacion": "2026-08-06"
+    },
+    {
+      "id": 1505957,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "BASES-BECAS-POR-EL-TALENTO-2026-2027.pdf",
+      "long": 455389,
+      "datMod": "2026-08-06",
+      "datPublicacion": "2026-08-06"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

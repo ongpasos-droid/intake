@@ -1,0 +1,65 @@
+{
+  "source": "bdns",
+  "source_id": "924518",
+  "source_lang": "es",
+  "level": "local",
+  "programme": "Concurrencia competitiva - canónica",
+  "sub_programme": null,
+  "publishing_authority_code": "LOCAL / JEREZ DE LA FRONTERA / AYUNTAMIENTO DE JEREZ DE LA FRONTERA",
+  "nuts_codes": [
+    "ES612"
+  ],
+  "nuts_primary": "ES612",
+  "title": "CONVOCATORIA PARA LA CONCESIÓN DE 10 BECAS EN LA FORMACIÓN PRÁCTICA DE LA BANDA MUNICIPAL DE MÚSICA DE JEREZ DE LA FRONTERA PARA UN PERIODO DE 20 MESES COMO MÁXIMO, ENTRE LOS CURSOS 2026 A 2028",
+  "title_lang": "es",
+  "summary": "Cultura",
+  "status": "open",
+  "publication_date": "2026-08-11",
+  "open_date": "2026-09-01",
+  "deadline": "2028-06-30",
+  "deadline_model": "single-stage",
+  "deadlines_extra": null,
+  "budget_total_eur": 122284,
+  "budget_per_project_min_eur": null,
+  "budget_per_project_max_eur": null,
+  "expected_grants": null,
+  "cofinancing_pct": null,
+  "duration_months": null,
+  "audience": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA",
+  "eligible_orgs": [
+    "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+  ],
+  "eligible_countries": [
+    "ES"
+  ],
+  "sectores": [
+    {
+      "codigo": "90.1",
+      "descripcion": "Actividades de creación artística"
+    }
+  ],
+  "apply_url": "https://www.sedeelectronica.jerez.es/tramites/registro_electronico",
+  "details_url": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatoria/924518",
+  "documents": [
+    {
+      "label": "PLAN ESTRATÉGICO DE SUBVENCIONES 2024-2026",
+      "url": null
+    },
+    {
+      "label": "Documento de la convocatoria en español",
+      "url": null
+    }
+  ],
+  "bases_reguladoras_url": "https://transparencia.jerez.es/",
+  "text_inicio": null,
+  "text_fin": null,
+  "se_publica_diario_oficial": true,
+  "ayuda_estado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectores_productos": [],
+  "anuncios": [],
+  "mrr_flag": false,
+  "fetchedAt": "2026-08-12T18:13:53.645Z"
+}

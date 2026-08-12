@@ -1,0 +1,72 @@
+{
+  "id": 1126267,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "CREVILLENT",
+    "nivel3": "AYUNTAMIENTO DE CREVILLENT"
+  },
+  "sedeElectronica": "https://crevillent.sedipualba.es/",
+  "codigoBDNS": "924706",
+  "fechaRecepcion": "2026-08-12",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 20000,
+  "mrr": false,
+  "descripcion": "BASES REGULADORAS Y CONVOCATORIA PARA LA CONCESIÓN DE SUBVENCIONES, EN RÉGIMEN DE CONCURRENCIA COMPETITIVA, DESTINADAS A LA ADQUISICIÓN DE LIBROS Y MATERIAL ESCOLAR PARA EL ALUMNADO DE EDUCACIÓN INFANTIL PERTENECIENTE A FAMILIAS CON NECESIDADES DE APOYO.",
+  "descripcionLeng": null,
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "EDUCACIÓN",
+      "codigo": "Q"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES521 - Alicante / Alacant"
+    }
+  ],
+  "descripcionFinalidad": "Educación",
+  "descripcionBasesReguladoras": "BASES REGULADORAS Y CONVOCATORIA PARA LA CONCESIÓN DE SUBVENCIONES, EN RÉGIMEN DE CONCURRENCIA COMPETITIVA, DESTINADAS A LA ADQUISICIÓN DE LIBROS Y MATERIAL ESCOLAR PARA EL ALUMNADO DE EDUCACIÓN INFANTIL PERTENECIENTE A FAMILIAS CON NECESIDADES DE APOYO.",
+  "urlBasesReguladoras": "https://crevillent.es/seccion/becas-subvenciones-convenios-y-concursos/",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": "2026-09-14",
+  "fechaFinSolicitud": "2026-09-25",
+  "textInicio": "14 de septiembre",
+  "textFin": "25 de septiembre",
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1508732,
+      "descripcion": "Certificado aprobación Junta de Gobierno Local",
+      "nombreFic": "Certificado de Junta de Gobierno Local ordinaria de 06.08.2026 punto 4 - SEFYC.pdf",
+      "long": 433585,
+      "datMod": "2026-08-12",
+      "datPublicacion": "2026-08-12"
+    },
+    {
+      "id": 1508729,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "bases y convocatoria BECAS INFANTIL.pdf",
+      "long": 118862,
+      "datMod": "2026-08-12",
+      "datPublicacion": "2026-08-12"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

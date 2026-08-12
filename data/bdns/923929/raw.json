@@ -1,0 +1,95 @@
+{
+  "id": 1125490,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "CONSELL COMARCAL DE GARRIGUES",
+    "nivel3": "CONSELL COMARCAL DE GARRIGUES"
+  },
+  "sedeElectronica": "https://ccgarrigues.eadministracio.cat/info.1",
+  "codigoBDNS": "923929",
+  "fechaRecepcion": "2026-08-06",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 8000,
+  "mrr": false,
+  "descripcion": "Convocatoria para la concesión de subvenciones para la concesión de ayudas a actividades culturales, sociales y deportivas de la comarca de Les Garrigues, para el año 2026",
+  "descripcionLeng": "Convocatòria per a la concessió de subvencions per a la concessió d’ajuts a activitats culturals, socials i esportives de la comarca de les Garrigues, per a l'any 2026",
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    },
+    {
+      "descripcion": "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "Actividades deportivas",
+      "codigo": "93.1"
+    },
+    {
+      "descripcion": "Otras actividades recreativas y de entretenimiento",
+      "codigo": "93.2"
+    },
+    {
+      "descripcion": "Prestación de servicios a la comunidad en general",
+      "codigo": "84.2"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES513 - Lleida"
+    }
+  ],
+  "descripcionFinalidad": "Cultura",
+  "descripcionBasesReguladoras": "Bases reguladoras para la concesión de ayudas a actividades culturales, sociales y deportivas de la comarca de les Garrigues",
+  "urlBasesReguladoras": "https://ebop.diputaciolleida.cat/aplicacions/bop/bopV1/fitxers/pdf/2026/127/202612705746.pdf",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": null,
+  "fechaFinSolicitud": "2026-09-30",
+  "textInicio": "Día siguiente a la publicación en el BOP",
+  "textFin": null,
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1506389,
+      "descripcion": "Documento de la convocatoria en lengua cooficial",
+      "nombreFic": "20260805_Resolució_Decret d'Alcaldia_ Decret de Presidència _DECR PRESIDENCIA 2026-0434 [DECRET PRESIDÈNCIA APROV. OBERTURA CONVOCATÒRIA].pdf",
+      "long": 286441,
+      "datMod": "2026-08-06",
+      "datPublicacion": "2026-08-06"
+    },
+    {
+      "id": 1506390,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "20260805_Resolució_ESP - DECRET PRESIDÈNCIA APROV. OBERTURA CONVOCATÒRIA ESPORTIVES 2026.pdf",
+      "long": 142516,
+      "datMod": "2026-08-06",
+      "datPublicacion": "2026-08-06"
+    }
+  ],
+  "anuncios": [
+    {
+      "numAnuncio": 218886,
+      "titulo": "Convocatoria para la concesión de subvenciones para la concesión de ayudas a actividades culturales, sociales y deportivas de la comarca de Les Garrigues, para el año 2026",
+      "tituloLeng": "Convocatòria per a la concessió de subvencions per a la concessió d’ajuts a activitats culturals, socials i esportives de la comarca de les Garrigues, per a l'any 2026",
+      "texto": "<p>Primero. Objeto.Regular el procedimiento de concesión de ayudas en actividades culturales, sociales y deportivas que se desarrollen en la comarca de las Garrigues para el año 2026.Segundo. Beneficiarias y solicitud.Las personas físicas, jurídicas y entidades sin ánimo de lucro, de la comarca de las Garrigues legalmente constituidas, que impulsen o desarrollen actividades de carácter social, cultural o deportivo en la comarca y soliciten la ayuda mediante el modelo que se encuentra en la sede electrónica del Consejo Comarcal de las Garrigues.La solicitud deberá ir acompañada de la siguiente documentación: ·         Memoria de la actuación por la cual se solicita la subvención ·         Presupuesto de la actuación ·         Copia del DNI o CIF ·         Copia de los estatutos vigentes ·         Modelo de datos bancarios, firmado y sellado por la entidad bancariaNo podrán tener la condición de beneficiarios las personas o entidades en las que concurra alguna de las circunstancias del artículo 13.2 de la Ley 38/2003, de 17 de noviembre, General de Subvenciones ni los ayuntamientos.Tercero. Régimen de otorgamiento.Concurrencia competitiva.Cuarto. Normativa reguladora.Bases reguladoras para la concesión de ayudas en actividades culturales, sociales y deportivas que se desarrollen en la comarca de las Garrigues para el año 2026, publicadas en el BOP de Lleida número 127, de 7 de julio de 2026.Quinto. Crédito presupuestario y cuantía de las subvenciones.El importe total de la convocatoria es de 8.000 euros e irá a cargo de la aplicación presupuestaria 20269 330 48004 del Consejo Comarcal de las Garrigues.Sexto. Plazo de presentación de solicitudes.La fecha máxima para presentar las solicitudes será el día 30 de septiembre de 2026.Otras datos.a) Criterios de valoración de las solicitudes.1.    Los presupuestos presentados y detallados (excluyendo siempre los gastos de infraestructuras y bienes de inversión). Hasta 1 punto2.    Las características de la actividad que se quiere llevar a cabo, actividades culturales y sociales. Hasta 2 puntos3.    Proyectos o actividades que impliquen la participación de más de una entidad y favorezcan el trabajo de colaboración entre asociaciones. Hasta 3 puntos4.    El número de beneficiarios potenciales de la actividad. Hasta 2 puntos5.    Proyección e importancia de la actividad a nivel comarcal (municipios de la comarca afectados por la actividad). Hasta 3 puntos6.    Interés general y comarcal del proyecto. Hasta 3 puntos7.    Carácter innovador y singularidad del proyecto. Hasta 2 puntos8.    Impacto social del proyecto. Se valorará que los proyectos fomenten valores como la diversidad o la inclusión social y que incorporen la perspectiva de género para contribuir a erradicar las desigualdades existentes. Hasta 1 punto9.    Duración de la actividad. Hasta 2 puntos10.    Difusión del nombre de la comarca. Hasta 1 puntob) Plazo de ejecución y justificación de las actuaciones subvencionables. Todas las subvenciones se deberán justificar mediante facturas, comprobantes bancarios de pago y acompañadas de una instancia y de los siguientes documentos:•    Ficha de datos bancarios.•    Cuenta justificativa para subvenciones, el cual incluye la memoria justificativa y económica de la actuación.•    Declaración de subvenciones recibidas.•    Acreditación gráfica de la colaboración del Consejo Comarcal de las Garrigues en lugar visible.Una vez comunicada la concesión de la ayuda, el beneficiario deberá presentar los justificantes al Consejo Comarcal de las Garrigues antes del 31 de diciembre de 2026, sin posibilidad de prórroga.El pago de la subvención se realizará mediante anticipo del 100% del importe concedido, una vez adoptado el acuerdo de concesión por parte de la Junta de Gobierno.El abono se realizará por transferencia bancaria a la cuenta designada por el beneficiario.Atendida la naturaleza de los beneficiarios y la cuantía de las ayudas, no se exigirá la constitución de garantías para la percepción del anticipo.El incumplimiento de la obligación de justificación, la justificación insuficiente del gasto o el incumplimiento de la finalidad para la cual se concedió la subvención comportará el reintegro total o parcial de las cantidades percibidas, de acuerdo con la normativa reguladora de subvenciones. En el momento de la justificación se podrán admitir desviaciones entre el presupuesto presentado con la solicitud y los gastos finalmente ejecutados, siempre que se mantenga la naturaleza y la finalidad de la actividad subvencionada. Estas desviaciones no requerirán autorización previa del Consejo Comarcal de las Garrigues y no comportarán, en ningún caso, un incremento del importe de la subvención concedida. Cuando el coste final de la actividad sea inferior al presupuesto tenido en cuenta para la concesión de la subvención, el importe de la ayuda se podrá reducir proporcionalmente a fin de garantizar que no se supere el coste efectivamente justificado de la actuación. </p>",
+      "textoLeng": "<p>Primer. Objecte.</p><p>Regular el procediment de concessió d’ajuts en activitats culturals, socials i esportives que es desenvolupin a la comarca de les Garrigues per a l’any 2026.</p><p>Segon. Beneficiàries i sol·licitud. </p><p>Les persones físiques, jurídiques i entitats sense ànim de lucre, de la comarca de les Garrigues legalment constituïdes, que impulsin o desenvolupin activitats de caire social, cultural o esportiu a la comarca i sol·licitin l’ajut mitjançant el model que es troba a la seu electrònica del Consell Comarcal  de les Garrigues. </p><p>La sol·licitud haurà d’anar acompanyada de la següent documentació:•    Memòria de l’actuació per la qual es sol·licita la subvenció•    Pressupost de l’actuació•    Còpia del DNI o CIF•    Còpia dels estatuts vigents •    Model de dades bancàries, signat i segellat per l’entitat bancària </p><p>No podran tenir la condició de beneficiaris les persones o entitats en les quals concorri alguna de les circumstàncies de l’article 13.2 de la Llei 38/2003, de 17 de novembre, General de Subvencions ni els ajuntaments. </p><p>Tercer. Règim d’atorgament. </p><p>Concurrència competitiva. </p><p>Quart. Normativa reguladora. </p><p>Bases reguladores per a la concessió d’ajuts en activitats culturals, socials i esportives que es desenvolupin a la comarca de les Garrigues per a l’any 2026, publicades al BOP de Lleida número 127, de 7 de juliol de 2026. </p><p>Cinquè. Crèdit pressupostari i quantia de les subvencions. </p><p>L’import total de la convocatòria es de 8.000 euros i anirà a càrrec de l’aplicació pressupostària 20269 330 48004 del Consell Comarcal de les Garrigues. </p><p>Sisè. Termini de presentació de sol·licituds. </p><p>La data màxima per presentar les sol·licituds serà el dia 30 de setembre de 2026. </p><p>Altres dades. </p><p>a)Criteris de valoració de les sol·licituds. 1. Els pressupostos presentats i detallats (excloent sempre les despeses d’infraestructures i béns d’inversió). Fins a 1 punt2. Les característiques de l’activitat que es vol dur a terme, activitats culturals i socials. Fins a 2 punts3. Projectes o activitats que impliquin la participació de més d’una entitat i afavoreixin el treball de col·laboració entre associacions. Fins a 3 punts4. El nombre de beneficiaris potencials de l’activitat. Fins a 2 punt5. Projecció i importància de l’activitat a nivell de comarcal (municipis de la comarca afectats per l’activitat). Fins a 3 punts6. Interès general i comarcal del projecte. Fins a 3 punts7. Caire innovador i singularitat del projecte. Fins a 2 punts8. Impacte social del projecte. Es valorarà que els projectes fomentin valors com la diversitat o la inclusió social i que incorporin la perspectiva de gènere per contribuir a erradicar les desigualtats existents. Fins a 1 punt9. Durada de l’activitat Fins a 2 punts10. Difusió del nom de la comarca. Fins a 1 punt</p><p>b)Termini d’execució i justificació de les actuacions subvencionables.   Totes les subvencions s’hauran de justificar mitjançant factures, comprovants bancaris de pagament i acompanyades d’una instància i dels següents documents: </p><p>- Fitxa de dades bancàries. - Compte justificatiu per a subvencions, el qual inclou la memòria justificativa i econòmica de l’actuació.- Declaració de subvencions rebudes. - Acreditació gràfica de la col·laboració del Consell Comarcal de les Garrigues en lloc visible. </p><p>Un cop comunicada la concessió de l’ajut, el beneficiari haurà de presentar els justificants al Consell Comarcal de les Garrigues abans del 31 de desembre de 2026, sense possibilitat de pròrroga.. </p><p>El pagament de la subvenció es realitzarà mitjançant bestreta del 100% de l'import concedit, una vegada adoptat l'acord de concessió per part de la Junta de Govern.</p><p>L'abonament es realitzarà per transferència bancària al compte designat pel beneficiari.</p><p>Atesa la naturalesa dels beneficiaris i la quantia dels ajuts, no s'exigirà la constitució de garanties per a la percepció de la bestreta.</p><p>L'incompliment de l'obligació de justificació, la justificació insuficient de la despesa o l'incompliment de la finalitat per a la qual es va concedir la subvenció comportarà el reintegrament total o parcial de les quantitats percebudes, d'acord amb la normativa reguladora de subvencions.En el moment de la justificació es podran admetre desviacions entre el pressupost presentat amb la sol·licitud i les despeses finalment executades, sempre que es mantingui la naturalesa i la finalitat de l'activitat subvencionada.Aquestes desviacions no requeriran autorització prèvia del Consell Comarcal de les Garrigues i no comportaran, en cap cas, un increment de l'import de la subvenció concedida.Quan el cost final de l'activitat sigui inferior al pressupost tingut en compte per a la concessió de la subvenció, l'import de l'ajut es podrà reduir proporcionalment per tal de garantir que no se superi el cost efectivament justificat de l'actuació. </p>",
+      "url": "https://ebop.diputaciolleida.cat/aplicacions/bop/bopV1/fitxers/pdf/2026/152/202615206900.pdf",
+      "cve": null,
+      "desDiarioOficial": "B.O.P. DE LLEIDA",
+      "datPublicacion": "2026-08-11"
+    }
+  ],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

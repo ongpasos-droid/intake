@@ -1,0 +1,73 @@
+{
+  "source": "bdns",
+  "source_id": "923775",
+  "source_lang": "es",
+  "level": "ccaa",
+  "programme": "Concurrencia competitiva - canónica",
+  "sub_programme": null,
+  "publishing_authority_code": "AUTONOMICA / CATALUÑA / CONSORCIO DE LA VIVIENDA DE BARCELONA",
+  "nuts_codes": [
+    "ES511"
+  ],
+  "nuts_primary": "ES511",
+  "title": "Convocatoria plurianual para la concesión de las prestaciones para el pago del alquiler en la ciudad de Barcelona del año 2026, con cargo a los presupuestos de los años 2026 y 2027",
+  "title_lang": "es",
+  "summary": "Acceso a la vivienda y fomento de la edificación",
+  "status": "open",
+  "publication_date": "2026-08-06",
+  "open_date": "2026-09-07",
+  "deadline": "2026-10-16",
+  "deadline_model": "single-stage",
+  "deadlines_extra": null,
+  "budget_total_eur": 4350000,
+  "budget_per_project_min_eur": null,
+  "budget_per_project_max_eur": null,
+  "expected_grants": null,
+  "cofinancing_pct": null,
+  "duration_months": null,
+  "audience": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA",
+  "eligible_orgs": [
+    "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+  ],
+  "eligible_countries": [
+    "ES"
+  ],
+  "sectores": [
+    {
+      "codigo": "84.1",
+      "descripcion": "Administración pública y de la política económica, social y medioambiental"
+    },
+    {
+      "codigo": "68.2",
+      "descripcion": "Alquiler de bienes inmobiliarios por cuenta propia"
+    },
+    {
+      "codigo": "55.9",
+      "descripcion": "Otros alojamientos"
+    }
+  ],
+  "apply_url": "https://habitatge.barcelona/cat   i   http://www.bcn.cat/consorcihabitatge/ca/home.html",
+  "details_url": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatoria/923775",
+  "documents": [
+    {
+      "label": "Texto en otra lengua de la convocatoria",
+      "url": null
+    },
+    {
+      "label": "Texto en castellano de la convocatoria",
+      "url": null
+    }
+  ],
+  "bases_reguladoras_url": "https://dogc.gencat.cat/es/document-del-dogc/index.html?documentId=979719",
+  "text_inicio": null,
+  "text_fin": null,
+  "se_publica_diario_oficial": true,
+  "ayuda_estado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectores_productos": [],
+  "anuncios": [],
+  "mrr_flag": false,
+  "fetchedAt": "2026-08-12T18:13:53.526Z"
+}

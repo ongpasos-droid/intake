@@ -1,0 +1,72 @@
+{
+  "id": 1125104,
+  "organo": {
+    "nivel1": "AUTONOMICA",
+    "nivel2": "ILLES BALEARS",
+    "nivel3": "DIRECCIÓN GENERAL DE DEPENDENCIA Y COOPERACIÓN"
+  },
+  "sedeElectronica": null,
+  "codigoBDNS": "923543",
+  "fechaRecepcion": "2026-08-05",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 1258000,
+  "mrr": false,
+  "descripcion": "Convo. subv. para entidades privadas sin ánimo de lucro que desarrollen proyectos en materia de servicios de atención, prevención y promoción de la autonomía personal 2026-2027",
+  "descripcionLeng": "Convo. subv. per a entitats privades sense ànim de lucre que desenvolupen projectes en matèria de serveis d'atenció, prevenció i promoció de l'autonomia personal 2026-2027",
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "Otras actividades de servicios sociales sin alojamiento",
+      "codigo": "88.9"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES53 - ILLES BALEARS"
+    }
+  ],
+  "descripcionFinalidad": "Servicios Sociales y Promoción Social",
+  "descripcionBasesReguladoras": "Orden de la consejera de Asuntos Sociales y Deportes de 5 de marzo de 2021 por la que se establecen las bases reguladoras de las subvenciones en materia de servicios sociales y juventud",
+  "urlBasesReguladoras": "https://www.caib.es/eboibfront/es/2021/11352/",
+  "sePublicaDiarioOficial": true,
+  "abierto": true,
+  "fechaInicioSolicitud": null,
+  "fechaFinSolicitud": null,
+  "textInicio": "Desde el día siguiente de la fecha de publicación el el BOIB",
+  "textFin": "15 días hábiles a contar desde el día siguiente de la publicación en el BOIB",
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1505257,
+      "descripcion": "Texto en otra lengua de la convocatoria",
+      "nombreFic": "Document BDNS (català).PDF",
+      "long": 380019,
+      "datMod": "2026-08-05",
+      "datPublicacion": "2026-08-05"
+    },
+    {
+      "id": 1505256,
+      "descripcion": "Texto en castellano de la convocatoria",
+      "nombreFic": "Document BDNS (castellà).PDF",
+      "long": 310789,
+      "datMod": "2026-08-05",
+      "datPublicacion": "2026-08-05"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

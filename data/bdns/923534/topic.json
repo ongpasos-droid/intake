@@ -1,0 +1,85 @@
+{
+  "source": "bdns",
+  "source_id": "923534",
+  "source_lang": "es",
+  "level": "ccaa",
+  "programme": "Concurrencia competitiva - canónica",
+  "sub_programme": null,
+  "publishing_authority_code": "AUTONOMICA / PRINCIPADO DE ASTURIAS / CONSEJERÍA DE MEDIO RURAL Y POLÍTICA AGRARIA",
+  "nuts_codes": [
+    "ES12"
+  ],
+  "nuts_primary": "ES12",
+  "title": "Subvenciones a las asociaciones de pesca fluvial para el fomento, mantenimiento y ordenado aprovechamiento de especies piscícolas en el Principado de Asturias año 2026",
+  "title_lang": "es",
+  "summary": "Agricultura, Pesca y Alimentación",
+  "status": "open",
+  "publication_date": "2026-08-04",
+  "open_date": "2026-09-10",
+  "deadline": "2026-09-24",
+  "deadline_model": "single-stage",
+  "deadlines_extra": null,
+  "budget_total_eur": 91000,
+  "budget_per_project_min_eur": null,
+  "budget_per_project_max_eur": null,
+  "expected_grants": null,
+  "cofinancing_pct": null,
+  "duration_months": null,
+  "audience": "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA",
+  "eligible_orgs": [
+    "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+  ],
+  "eligible_countries": [
+    "ES"
+  ],
+  "sectores": [
+    {
+      "codigo": "03.3",
+      "descripcion": "Actividades de apoyo a la pesca y la acuicultura"
+    },
+    {
+      "codigo": "03.2",
+      "descripcion": "Acuicultura"
+    },
+    {
+      "codigo": "03.1",
+      "descripcion": "Pesca"
+    },
+    {
+      "codigo": "01.4",
+      "descripcion": "Producción ganadera"
+    }
+  ],
+  "apply_url": null,
+  "details_url": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatoria/923534",
+  "documents": [
+    {
+      "label": "Texto en castellano de la convocatoria",
+      "url": null
+    }
+  ],
+  "bases_reguladoras_url": "https://sede.asturias.es/bopa/disposiciones/repositorio/LEGISLACION42/66/10/001U005YZG0001.pdf",
+  "text_inicio": null,
+  "text_fin": null,
+  "se_publica_diario_oficial": true,
+  "ayuda_estado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectores_productos": [],
+  "anuncios": [
+    {
+      "numAnuncio": 218710,
+      "titulo": "Extracto de la Resolución de 30 de julio de 2026, de la Consejería de Medio Rural y Política Agraria, por la que se aprueba la convocatoria de subvenciones para asociaciones de pesca fluvial destinadas al fomento, mantenimiento y ordenado aprovechamiento de especies piscícolas en el Principado de Asturias 2026",
+      "tituloLeng": null,
+      "texto": "<p>Primero.- Beneficiarios</p><p>Las Asociaciones legalmente constituidas con fines de fomento de la pesca fluvial. Federaciones de pesca fluvial.</p><p>Segundo.- Objeto</p><p>Actividades de fomento, mantenimiento y ordenado aprovechamiento de especies piscícolas en el Principado de Asturias finalizadas entre el 31 de agosto de 2025 y el 1 de septiembre de 2026.</p><p>Tercero.- Bases reguladoras</p><p>Resolución de fecha 3 de septiembre de 2018, de la Consejería de Infraestructuras, Ordenación del Territorio y Medio Ambiente, se aprueban las Bases Reguladoras que han de regir las convocatorias de subvenciones a las asociaciones de pesca fluvial para el fomento, mantenimiento y ordenado aprovechamiento de especies piscícolas en el Principado de Asturias (BOPA Nº 210, 10-IX-2018)</p><p>Cuarto.- Importe</p><p>La subvención a conceder por beneficiario no podrá superar, en ningún caso, el 20% del total disponible en la convocatoria (91.000,00 euros).</p><p>Quinto.- Plazo de presentación de solicitudes</p><p>Desde el 10 de septiembre al 24 de septiembre de 2026, ambos inclusive.</p><p>Sexto.- Otros datos</p><p>En la sede electrónica del Principado de Asturias (https://sede.asturias.es) están publicadas las Fichas de Servicio de cada Línea de subvenciones que se podrán localizar introduciendo el código AYUD0243T01 para solicitar la línea actividades de fomento, mantenimiento y ordenado aprovechamiento de especies piscícolas en el Principado de Asturias (situado en la parte superior derecha de la página) en la que encontrarán información complementaria, el formulario normalizado de solicitud y la posibilidad de iniciar electrónicamente la solicitud.</p>",
+      "textoLeng": null,
+      "url": "https://miprincipado.asturias.es/bopa/disposiciones?p_p_id=pa_sede_bopa_web_portlet_SedeBopaDispositionWeb&p_p_lifecycle=0&_pa_sede_bopa_web_portlet_SedeBopaDispositionWeb_mvcRenderCommandName=%2Fdisposition%2Fdetail&p_r_p_dispositionText=2026-06662&p_r_p_dispositionReference=2026-06662&p_r_p_dispositionDate=12%2F08%2F2026",
+      "cve": null,
+      "desDiarioOficial": "BOPA. B.O. DEL PRINCIPADO DE ASTURIAS",
+      "datPublicacion": "2026-08-12"
+    }
+  ],
+  "mrr_flag": false,
+  "fetchedAt": "2026-08-12T18:13:53.474Z"
+}

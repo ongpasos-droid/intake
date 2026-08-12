@@ -1,0 +1,72 @@
+{
+  "id": 1123718,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "ALCÁNTARA",
+    "nivel3": "AYUNTAMIENTO DE ALCÁNTARA"
+  },
+  "sedeElectronica": "https://alcantara.sedelectronica.es/info.0",
+  "codigoBDNS": "922157",
+  "fechaRecepcion": "2026-07-29",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concesión directa - canónica",
+  "presupuestoTotal": 39500,
+  "mrr": false,
+  "descripcion": "Línea de ayudas económicas alumnos/as Bachillerato y Formación Profesional 2025-2026",
+  "descripcionLeng": null,
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "EDUCACIÓN",
+      "codigo": "Q"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES432 - Cáceres"
+    }
+  ],
+  "descripcionFinalidad": "Educación",
+  "descripcionBasesReguladoras": "BASES REGULADORAS Y CONVOCATORIA DE AYUDAS ECONÓMICAS PARA LA ADQUISICIÓN DE LIBROS, MATERIAL ESCOLAR, MATERIAL DEPORTIVO Y ALOJAMIENTO PARA ALUMNOS DE BACHILLERATO Y FORMACIÓN PROFESIONAL CORRESPONDIENTE AL CURSO ESCOLAR 2025/2026",
+  "urlBasesReguladoras": "https://alcantara.sedelectronica.es/info.0",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": "2026-07-30",
+  "fechaFinSolicitud": "2026-08-20",
+  "textInicio": null,
+  "textFin": null,
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1501768,
+      "descripcion": "Anexo I.",
+      "nombreFic": "20260728_Solicitud Ayudas Bachillerato y Formación Profesional.pdf",
+      "long": 135236,
+      "datMod": "2026-07-29",
+      "datPublicacion": "2026-07-29"
+    },
+    {
+      "id": 1501762,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "20260728_Otros_Bases reguladoras Ayudas Bachillerato y Formacion Profesional-1.pdf",
+      "long": 237978,
+      "datMod": "2026-07-29",
+      "datPublicacion": "2026-07-29"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

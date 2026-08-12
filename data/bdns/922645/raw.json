@@ -1,0 +1,76 @@
+{
+  "id": 1124206,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "CHIPIONA",
+    "nivel3": "AYUNTAMIENTO DE CHIPIONA"
+  },
+  "sedeElectronica": "www.aytochipiona.es",
+  "codigoBDNS": "922645",
+  "fechaRecepcion": "2026-07-30",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 60000,
+  "mrr": false,
+  "descripcion": "SUBVENCIONES A CLUBES DEPORTIVOS POR SUS ACTIVIDADES EN EL AÑO 2026",
+  "descripcionLeng": null,
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "ACTIVIDADES ARTÍSTICAS, DEPORTIVAS Y DE ENTRETENIMIENTO",
+      "codigo": "S"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES612 - Cádiz"
+    }
+  ],
+  "descripcionFinalidad": "Servicios Sociales y Promoción Social",
+  "descripcionBasesReguladoras": "BASES REGULADORAS DE SUBVENCIONES PARA CLUBES DEPORTIVOS LOCALES",
+  "urlBasesReguladoras": "https://gobiernoabierto.dipucadiz.es/uploads/publitrans/actas/15670819411692.pdf",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": null,
+  "fechaFinSolicitud": null,
+  "textInicio": "Día siguiente al de su publicación en el Boletín Oficial de la Provincia de Cádiz",
+  "textFin": "30 días naturales tras el siguiente a su publicación en el Boletín Oficial de la Provincia de Cádiz",
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1502861,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "ACUERDO  APROBACIÓN SUBVENCIONES 2026 A CLUBES DEPORTIVOS.pdf",
+      "long": 156122,
+      "datMod": "2026-07-30",
+      "datPublicacion": "2026-07-30"
+    }
+  ],
+  "anuncios": [
+    {
+      "numAnuncio": 218403,
+      "titulo": "EXTRACTO DEL ACUERDO DE JUNTA DE GOBIERNO LOCAL DE 23 DE JULIO DE 2026 POR EL QUE SE APRUEBA LA CONVOCATORIA, EN RÉGIMEN DE CONCURRENCIA COMPETITIVA, PARA EL OTORGAMIENTO DE SUBVENCIONES DE LA DELEGACIÓN MUNICIPAL DE DEPORTES A LOS CLUBES DEPORTIVOS LOCALES POR SUS ACTIVIDADES DURANTE EL AÑO 2026.",
+      "tituloLeng": null,
+      "texto": "<p>Primero. Beneficiarios: Clubes y asociaciones deportivas que tengan su sede en Chipiona y estén legalmente constituidos e inscritos en el Registro Andaluz de Entidades Deportivas y en el Registro Municipal de Entidades Locales. Segundo. Finalidad: Financiar los gastos derivados de programas, proyectos, actividades y competiciones deportivas desarrolladas o a desarrollar durante la anualidad 2026. Tercero. Bases reguladoras: Las bases específicas reguladoras de la concesión de subvenciones de la Delegación Municipal de Deportes a clubes deportivos locales fueron aprobadas por la Junta de Gobierno Local el 22 de agosto de 2019 y se encuentran publicadas en el tablón electrónico de anuncios y edictos del Ayuntamiento de Chipiona y en su Portal de Transparencia (documento de bases reguladoras). Cuarto. Dotación económica: La cuantía máxima total de la convocatoria asciende a 60.000,00 €, con cargo a la aplicación presupuestaria 340/480 del presupuesto municipal de 2026, conforme a la siguiente distribución por líneas de actuación: LÍNEA 1. Programa de Deporte Escolar: 2.000,00 € LÍNEA 2. Programas de Promoción del Deporte Federado de Base: 39.000,00 € LÍNEA 3. Organización de competiciones y eventos de carácter popular: 15.000,00 € LÍNEA 4. Organización de eventos deportivos singulares: 3.000,00 € LÍNEA 5. Escuelas deportivas: 1.000,00 € Quinto. Plazo y lugar de presentación de solicitudes: 30 días naturales, contados a partir del día siguiente al de la publicación del presente extracto en el Boletín Oficial de la Provincia de Cádiz. Las solicitudes deberán presentarse ante el Ayuntamiento de Chipiona, de acuerdo con los modelos contemplados en las bases reguladoras.</p>",
+      "textoLeng": null,
+      "url": "https://www.bopcadiz.es/export/sites/default/.boletines_pdf/2026/08_agosto/BOP153_11-08-26.pdf#page=7",
+      "cve": null,
+      "desDiarioOficial": "B.O.P. DE CÁDIZ",
+      "datPublicacion": "2026-08-11"
+    }
+  ],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

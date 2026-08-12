@@ -1,0 +1,78 @@
+{
+  "id": 1123293,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "GUADALAJARA",
+    "nivel3": "AYUNTAMIENTO DE GUADALAJARA"
+  },
+  "sedeElectronica": "https://sedeelectronica.guadalajara.es/",
+  "codigoBDNS": "921732",
+  "fechaRecepcion": "2026-07-27",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 3000,
+  "mrr": false,
+  "descripcion": "Concurso de fotografía turística: Guadalajara en Relieve: miradas geométricas.",
+  "descripcionLeng": null,
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    },
+    {
+      "descripcion": "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    },
+    {
+      "descripcion": "PYME Y PERSONAS FÍSICAS QUE DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "ACTIVIDADES SANITARIAS Y DE SERVICIOS SOCIALES",
+      "codigo": "R"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES - ESPAÑA "
+    }
+  ],
+  "descripcionFinalidad": "Comercio, Turismo y Pymes",
+  "descripcionBasesReguladoras": "Concurso fotografía turística: Guadalajara en Relieve: miradas geométricas.",
+  "urlBasesReguladoras": "https://turismo.guadalajara.es/es/",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": null,
+  "fechaFinSolicitud": "2026-12-31",
+  "textInicio": "Día después de la publicación en el Boletín Oficial de la Provincia",
+  "textFin": null,
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1500686,
+      "descripcion": "Modelo 1179. Solicitud de participación en iniciativas de promoción turística: concurso",
+      "nombreFic": "Concurso-de-fotografia-turistica-formulario.pdf",
+      "long": 74204,
+      "datMod": "2026-07-27",
+      "datPublicacion": "2026-07-28"
+    },
+    {
+      "id": 1500679,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "202607_Bases concurso de fotografía turística .pdf",
+      "long": 430155,
+      "datMod": "2026-07-27",
+      "datPublicacion": "2026-07-28"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

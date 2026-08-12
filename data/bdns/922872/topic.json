@@ -1,0 +1,85 @@
+{
+  "source": "bdns",
+  "source_id": "922872",
+  "source_lang": "es",
+  "level": "local",
+  "programme": "Concurrencia competitiva - canónica",
+  "sub_programme": null,
+  "publishing_authority_code": "LOCAL / ARROYO DE LA ENCOMIENDA / AYUNTAMIENTO DE ARROYO DE LA ENCOMIENDA",
+  "nuts_codes": [
+    "ES418"
+  ],
+  "nuts_primary": "ES418",
+  "title": "Resolución de 29 de julio de 2026,de la Concejal-Delegada de Deportes del Ayuntamiento de Arroyo de la encomienda, por la que se aprueba la convocatoria reguladora para la concesión de subvenciones a clubes deportivos de Arroyo de la Encomienda,  2026",
+  "title_lang": "es",
+  "summary": "Cultura",
+  "status": "open",
+  "publication_date": "2026-07-31",
+  "open_date": null,
+  "deadline": null,
+  "deadline_model": "continuous",
+  "deadlines_extra": null,
+  "budget_total_eur": 50000,
+  "budget_per_project_min_eur": null,
+  "budget_per_project_max_eur": null,
+  "expected_grants": null,
+  "cofinancing_pct": null,
+  "duration_months": null,
+  "audience": "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA",
+  "eligible_orgs": [
+    "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+  ],
+  "eligible_countries": [
+    "ES"
+  ],
+  "sectores": [
+    {
+      "codigo": "93.1",
+      "descripcion": "Actividades deportivas"
+    },
+    {
+      "codigo": "93.2",
+      "descripcion": "Otras actividades recreativas y de entretenimiento"
+    }
+  ],
+  "apply_url": "www.aytoarroyo.es/sede-electrónica",
+  "details_url": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatoria/922872",
+  "documents": [
+    {
+      "label": "Documento de la convocatoria en español",
+      "url": null
+    },
+    {
+      "label": "Anexo I",
+      "url": null
+    },
+    {
+      "label": "Anexo V",
+      "url": null
+    },
+    {
+      "label": "Anexo III",
+      "url": null
+    },
+    {
+      "label": "Anexo IV",
+      "url": null
+    },
+    {
+      "label": "Anexo II",
+      "url": null
+    }
+  ],
+  "bases_reguladoras_url": "www.aytoarroyo.es",
+  "text_inicio": "Día siguiente al de la publicación del extracto en el Boletín Oficial de la Provincia ",
+  "text_fin": "Transcurridos veinte días hábiles a contar desde el siguiente a la publicación en el BOP",
+  "se_publica_diario_oficial": true,
+  "ayuda_estado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectores_productos": [],
+  "anuncios": [],
+  "mrr_flag": false,
+  "fetchedAt": "2026-08-12T18:13:53.328Z"
+}

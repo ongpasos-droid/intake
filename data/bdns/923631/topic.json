@@ -1,0 +1,63 @@
+{
+  "source": "bdns",
+  "source_id": "923631",
+  "source_lang": "es",
+  "level": "local",
+  "programme": "Concurrencia competitiva - canónica",
+  "sub_programme": null,
+  "publishing_authority_code": "LOCAL / CABRA / AYUNTAMIENTO DE CABRA",
+  "nuts_codes": [],
+  "nuts_primary": null,
+  "title": "XX CONCURSO DE FOTOGRAFIA \" CIUDAD DE CABRA \" 2026",
+  "title_lang": "es",
+  "summary": "Cultura",
+  "status": "open",
+  "publication_date": "2026-08-05",
+  "open_date": null,
+  "deadline": null,
+  "deadline_model": "continuous",
+  "deadlines_extra": null,
+  "budget_total_eur": 500,
+  "budget_per_project_min_eur": null,
+  "budget_per_project_max_eur": null,
+  "expected_grants": null,
+  "cofinancing_pct": null,
+  "duration_months": null,
+  "audience": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA",
+  "eligible_orgs": [
+    "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+  ],
+  "eligible_countries": [
+    "ES"
+  ],
+  "sectores": [
+    {
+      "codigo": "S",
+      "descripcion": "ACTIVIDADES ARTÍSTICAS, DEPORTIVAS Y DE ENTRETENIMIENTO"
+    }
+  ],
+  "apply_url": null,
+  "details_url": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatoria/923631",
+  "documents": [
+    {
+      "label": "ANEXOS I,II Y III XX CONCURSO DE FOTOGRAFIA \"CIUDAD DE CABRA\"",
+      "url": null
+    },
+    {
+      "label": "Documento de la convocatoria en español",
+      "url": null
+    }
+  ],
+  "bases_reguladoras_url": "https://bop.dipucordoba.es/visor-pdf/01-08-2024/BOP-A-2024-2818.pdf",
+  "text_inicio": "A PARTIR DEL DIA DESPUES DE LA PUBLICACION DEL EXTRACTO DE LA CONVOCATORIA EN EL BOP DE CORDOBA",
+  "text_fin": "HASTA EL DIA 2 DE OCTUBRE DE 2026 A LAS 14:15 H. AMBOS INCLUIDOS",
+  "se_publica_diario_oficial": true,
+  "ayuda_estado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectores_productos": [],
+  "anuncios": [],
+  "mrr_flag": false,
+  "fetchedAt": "2026-08-12T18:13:53.494Z"
+}

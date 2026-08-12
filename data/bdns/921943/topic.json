@@ -1,0 +1,73 @@
+{
+  "source": "bdns",
+  "source_id": "921943",
+  "source_lang": "es",
+  "level": "local",
+  "programme": "Concurrencia competitiva - canónica",
+  "sub_programme": null,
+  "publishing_authority_code": "LOCAL / JACA / AYUNTAMIENTO DE JACA",
+  "nuts_codes": [
+    "ES241"
+  ],
+  "nuts_primary": "ES241",
+  "title": "Convocatoria de subvenciones para familias con hijos/as nacidos/as de partos múltiples o procedentes de una adopción múltiple del 2025 al 2026.",
+  "title_lang": "es",
+  "summary": "Servicios Sociales y Promoción Social",
+  "status": "open",
+  "publication_date": "2026-07-28",
+  "open_date": null,
+  "deadline": null,
+  "deadline_model": "continuous",
+  "deadlines_extra": null,
+  "budget_total_eur": 2400,
+  "budget_per_project_min_eur": null,
+  "budget_per_project_max_eur": null,
+  "expected_grants": null,
+  "cofinancing_pct": null,
+  "duration_months": null,
+  "audience": "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA",
+  "eligible_orgs": [
+    "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+  ],
+  "eligible_countries": [
+    "ES"
+  ],
+  "sectores": [
+    {
+      "codigo": "88.9",
+      "descripcion": "Otras actividades de servicios sociales sin alojamiento"
+    }
+  ],
+  "apply_url": "https://jaca.sedipualba.es/",
+  "details_url": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatoria/921943",
+  "documents": [
+    {
+      "label": "Documento de la convocatoria en español",
+      "url": null
+    },
+    {
+      "label": "Ficha de terceros",
+      "url": null
+    },
+    {
+      "label": "Autorización para recabar datos",
+      "url": null
+    },
+    {
+      "label": "Solicitud",
+      "url": null
+    }
+  ],
+  "bases_reguladoras_url": "https://jaca.sedelectronica.es/preview-document/015f786f-51b2-4565-b78a-7aea3033c8ec/",
+  "text_inicio": "Desde el día siguiente a la publicación del extracto de la convocatoria en el BOPH",
+  "text_fin": "Hasta el 30 de noviembre de 2026",
+  "se_publica_diario_oficial": true,
+  "ayuda_estado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectores_productos": [],
+  "anuncios": [],
+  "mrr_flag": false,
+  "fetchedAt": "2026-08-12T18:13:53.158Z"
+}

@@ -1,0 +1,82 @@
+{
+  "id": 1124251,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "DIPUTACIÓN FORAL DE BIZKAIA",
+    "nivel3": "DIPUTACIÓN FORAL DE BIZKAIA"
+  },
+  "sedeElectronica": "https://www.ebizkaia.eus/es/catalogo-de-tramites-y-servicios",
+  "codigoBDNS": "922690",
+  "fechaRecepcion": "2026-07-30",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 1768000,
+  "mrr": false,
+  "descripcion": "DECRETO FORAL de la Diputación Foral de Bizkaia, por el que se aprueban las bases reguladoras y la convocatoria de subvenciones destinadas a la realización de proyectos culturales en el Territorio Histórico de Bizkaia durante el ejercicio 2026.",
+  "descripcionLeng": "Bizkaiko Foru Aldundiko FORU DEKRETUA. Honen bidez, Bizkaiko Lurralde Historikoan 2026ko ekitaldian kultur proiektuak egiteko dirulaguntzen oinarri arautzaileak eta deialdia onesten dira.",
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    },
+    {
+      "descripcion": "PYME Y PERSONAS FÍSICAS QUE DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "Actividades de creación artística y artes escénicas",
+      "codigo": "90"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES213 - Bizkaia"
+    }
+  ],
+  "descripcionFinalidad": "Cultura",
+  "descripcionBasesReguladoras": "DECRETO FORAL de la Diputación Foral de Bizkaia, por el que se aprueban las bases reguladoras y la convocatoria de subvenciones destinadas a la realización de proyectos culturales en el Territorio Histórico de Bizkaia durante el ejercicio 2026.",
+  "urlBasesReguladoras": "https://www.bizkaia.eus/lehendakaritza/Bao_bob/2026/08/07/I-932_cas.pdf",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": null,
+  "fechaFinSolicitud": "2026-09-11",
+  "textInicio": "Desde el día siguiente al de su publicación en el BOB",
+  "textFin": "Once de septiembre",
+  "ayudaEstado": "SA.099999",
+  "urlAyudaEstado": "https://competition-cases.ec.europa.eu/cases/SA.099999",
+  "fondos": [],
+  "reglamento": {
+    "descripcion": "REG (UE) 651/2014, DE 17 DE JUNIO, de exención de notificación",
+    "orden": null
+  },
+  "objetivos": [
+    {
+      "descripcion": "ART. 53 AYUDAS A LA CULTURA Y LA CONSERVACIÓN DEL PATRIMONIO"
+    }
+  ],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1508480,
+      "descripcion": "Texto en otra lengua de la convocatoria",
+      "nombreFic": "_DLD_KEK_2026_KULTUR PROIEKTUAK_KTS_1783423285241_20260717_010355.pdf",
+      "long": 664300,
+      "datMod": "2026-08-11",
+      "datPublicacion": "2026-08-11"
+    },
+    {
+      "id": 1508479,
+      "descripcion": "Texto en castellano de la convocatoria",
+      "nombreFic": "_DLD_KEK_2026_KULTUR PROIEKTUAK_KTS_1783423285241_20260717_010355.pdf",
+      "long": 664300,
+      "datMod": "2026-08-11",
+      "datPublicacion": "2026-08-11"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

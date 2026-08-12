@@ -1,0 +1,130 @@
+{
+  "id": 1124551,
+  "organo": {
+    "nivel1": "AUTONOMICA",
+    "nivel2": "CATALUÑA",
+    "nivel3": "AGÈNCIA CATALANA DE L'AIGUA (ACA)"
+  },
+  "sedeElectronica": null,
+  "codigoBDNS": "922990",
+  "fechaRecepcion": "2026-07-31",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 870798.49,
+  "mrr": false,
+  "descripcion": "Atribuciones de fondos dirigidas a las personas físicas y jurídicas sujetos pasivos del canon de control de vertidos que liquida la Confederación Hidrográfica del Ebro o la Confederación Hidrográfica del Júcar.",
+  "descripcionLeng": "Atribucions de fons adreçades a les persones físiques i jurídiques subjectes passius del cànon de control d'abocaments que liquida la Confederació Hidrogràfica de l'Ebre o la Confederació Hidrogràfica del Xúquer.",
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "GRAN EMPRESA"
+    },
+    {
+      "descripcion": "PYME Y PERSONAS FÍSICAS QUE DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "ACTIVIDADES ARTÍSTICAS, DEPORTIVAS Y DE ENTRETENIMIENTO",
+      "codigo": "S"
+    },
+    {
+      "descripcion": "ACTIVIDADES DE EDICIÓN, RADIODIFUSIÓN Y PRODUCCIÓN Y DISTRIBUCIÓN DE CONTENIDOS",
+      "codigo": "J"
+    },
+    {
+      "descripcion": "ACTIVIDADES SANITARIAS Y DE SERVICIOS SOCIALES",
+      "codigo": "R"
+    },
+    {
+      "descripcion": "ADMINISTRACIÓN PÚBLICA Y DEFENSA; SEGURIDAD SOCIAL OBLIGATORIA",
+      "codigo": "P"
+    },
+    {
+      "descripcion": "AGRICULTURA, GANADERÍA, SILVICULTURA Y PESCA",
+      "codigo": "A"
+    },
+    {
+      "descripcion": "COMERCIO AL POR MAYOR Y AL POR MENOR",
+      "codigo": "G"
+    },
+    {
+      "descripcion": "EDUCACIÓN",
+      "codigo": "Q"
+    },
+    {
+      "descripcion": "INDUSTRIA MANUFACTURERA",
+      "codigo": "C"
+    },
+    {
+      "descripcion": "OTROS SERVICIOS",
+      "codigo": "T"
+    },
+    {
+      "descripcion": "SUMINISTRO DE ENERGIA ELECTRICA, GAS, VAPOR Y AIRE ACONDICIONADO",
+      "codigo": "D"
+    },
+    {
+      "descripcion": "TRANSPORTE Y ALMACENAMIENTO",
+      "codigo": "H"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES513 - Lleida"
+    },
+    {
+      "descripcion": "ES514 - Tarragona"
+    }
+  ],
+  "descripcionFinalidad": "Otras actuaciones de carácter económico",
+  "descripcionBasesReguladoras": "LEY 5/2017, de 28 de marzo, de medidas fiscales, administrativas, financieras y del sector público y de creación y regulación de los impuestos sobre grandes establecimientos comerciales, sobre estancias en establecimientos turísticos, sobre elementos",
+  "urlBasesReguladoras": " https://portaljuridic.gencat.cat/eli/es-ct/l/2017/03/28/5",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": "2026-07-30",
+  "fechaFinSolicitud": "2026-09-30",
+  "textInicio": "Des de la publicació en el diari oficial de la convocatòria inicial",
+  "textFin": null,
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1505459,
+      "descripcion": "Texto en otra lengua de la convocatoria",
+      "nombreFic": "26.01.26_Resolucio_Convocatoria_Empreses_Convocatoria_2025_liquidat_2026_CHE_CHX.pdf",
+      "long": 324821,
+      "datMod": "2026-08-05",
+      "datPublicacion": "2026-08-05"
+    },
+    {
+      "id": 1505458,
+      "descripcion": "Texto en castellano de la convocatoria",
+      "nombreFic": "26.01.26 CAST Resolució Convocatòria Empreses CCA_2025 liquidat 2026 CHE_CHX.docx",
+      "long": 106795,
+      "datMod": "2026-08-05",
+      "datPublicacion": "2026-08-05"
+    }
+  ],
+  "anuncios": [
+    {
+      "numAnuncio": 218739,
+      "titulo": "Procedimiento Beta",
+      "tituloLeng": null,
+      "texto": "Procedimiento Beta",
+      "textoLeng": null,
+      "url": "https://tramits.gencat.cat/ca/tramits/tramits-temes/Atribucions-de-fons-per-al-financament-del-canon-de-control-dabocaments-meri",
+      "cve": null,
+      "desDiarioOficial": "DOGC. D.O. DE LA GENERALITAT DE CATALUNYA",
+      "datPublicacion": "2026-07-30"
+    }
+  ],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

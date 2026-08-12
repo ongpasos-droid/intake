@@ -1,0 +1,65 @@
+{
+  "source": "bdns",
+  "source_id": "921619",
+  "source_lang": "es",
+  "level": "local",
+  "programme": "Concurrencia competitiva - canónica",
+  "sub_programme": null,
+  "publishing_authority_code": "LOCAL / CASTELLBELL I EL VILAR / AYUNTAMIENTO DE CASTELLBELL I EL VILAR",
+  "nuts_codes": [
+    "ES511"
+  ],
+  "nuts_primary": "ES511",
+  "title": "CONVOCATORIA AYUDAS 2026 DEL PROGRAMA DE ARREGLO Y ADAPTACIÓN DE VIVIENDAS, MEDIANTE PROCEDIMIENTO DE CONCURRENCIA COMPETITIVA EN EL MUNICIPIO DE CASTELLBELL Y EL VILAR.EDICIÓN 2026.",
+  "title_lang": "es",
+  "summary": "Servicios Sociales y Promoción Social",
+  "status": "open",
+  "publication_date": "2026-07-27",
+  "open_date": null,
+  "deadline": null,
+  "deadline_model": "continuous",
+  "deadlines_extra": null,
+  "budget_total_eur": 2100,
+  "budget_per_project_min_eur": null,
+  "budget_per_project_max_eur": null,
+  "expected_grants": null,
+  "cofinancing_pct": null,
+  "duration_months": null,
+  "audience": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA",
+  "eligible_orgs": [
+    "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+  ],
+  "eligible_countries": [
+    "ES"
+  ],
+  "sectores": [
+    {
+      "codigo": "96.9",
+      "descripcion": "Otros servicios personales"
+    }
+  ],
+  "apply_url": "https://www.castellbellielvilar.cat/",
+  "details_url": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatoria/921619",
+  "documents": [
+    {
+      "label": "Documento de la convocatoria en lengua cooficial",
+      "url": null
+    },
+    {
+      "label": "Documento de la convocatoria en español",
+      "url": null
+    }
+  ],
+  "bases_reguladoras_url": "https://bop.diba.cat/anteriors/2024-01-22?bopb_dia%5BparaulaClau%5D=Castellbell+i+el+Vilar&bopb_dia%5BtipologiaAnunciant%5D=&bopb_dia%5BtipusAnunci%5D=",
+  "text_inicio": "Dia siguiente de la publicación de la convocatoria en Diario Oficial de la Provincia de Barcelona",
+  "text_fin": "1 mes a partir del día siguiente del anuncio de la convocatoria en el BOP de Barcelona",
+  "se_publica_diario_oficial": true,
+  "ayuda_estado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectores_productos": [],
+  "anuncios": [],
+  "mrr_flag": false,
+  "fetchedAt": "2026-08-12T18:13:53.088Z"
+}

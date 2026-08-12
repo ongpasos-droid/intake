@@ -1,0 +1,76 @@
+{
+  "id": 1123186,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "CALATAYUD",
+    "nivel3": "AYUNTAMIENTO DE CALATAYUD"
+  },
+  "sedeElectronica": null,
+  "codigoBDNS": "921625",
+  "fechaRecepcion": "2026-07-27",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 2000,
+  "mrr": false,
+  "descripcion": "CONVOCATORIA PARA LA CONCESIÓN DE SUBVENCIONES EN MATERIA DE PROTECCIÓN ANIMAL, AÑO 2026",
+  "descripcionLeng": null,
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "OTROS SERVICIOS",
+      "codigo": "T"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES243 - Zaragoza"
+    }
+  ],
+  "descripcionFinalidad": "Otras actuaciones de carácter económico",
+  "descripcionBasesReguladoras": "CONVOCATORIA PARA LA CONCESIÓN DE SUBVENCIONES EN MATERIA DE PROTECCIÓN ANIMAL, AÑO 2026",
+  "urlBasesReguladoras": "https://calatayud.sedelectronica.es/preview-document/f58928df-4ce7-4d48-b4b5-19665daadf9f/",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": null,
+  "fechaFinSolicitud": null,
+  "textInicio": "Al día siguiente al de la publicación en el BOP Zaragoza",
+  "textFin": "QUINCE DIAS HÁBILES a contar desde el siguiente a la publicación en BOPZ",
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1500475,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "20260721_Diligencia_CONVOCATORIA CONCURRENCIA COMPETITIVA ENTIDADES DE PROTECCIÓN ANIMAL 2026 (DILIGENCIADA).pdf",
+      "long": 446418,
+      "datMod": "2026-07-27",
+      "datPublicacion": "2026-07-27"
+    }
+  ],
+  "anuncios": [
+    {
+      "numAnuncio": 218083,
+      "titulo": "Extracto del acuerdo de 20 de julio de 2026 de La Junta de Gobierno Local para la concesion de subvenciones en materia de proteccion animal año 2026",
+      "tituloLeng": null,
+      "texto": "<p>Primero. — Beneficiarios</p><p>1. Ser una asociación sin ánimo de lucro legalmente constituida y debidamente registrada en el Registro Municipal de Asociaciones y en el correspondiente Registro de la Comunidad Autónoma, cuya finalidad sea la protección animal.</p><p>Esta circunstancia se acreditará mediante la inclusión de los correspondientes certificados al expediente administrativo.</p><p>La presentación de la solicitud de subvención implica la autorización al Ayuntamiento de Calatayud a comprobar esta circunstancia por el órgano instructor del procedimiento de concesión.</p><p>No obstante, el solicitante podrá denegar expresamente el consentimiento para que se recaben los expresados certificados, en cuyo caso deberá aportarlos por sí mismo junto con la solicitud.</p><p>2. Desarrollar su actividad en el municipio de Calatayud.</p><p>Esta circunstancia se acreditará mediante la presentación de una declaración responsable por parte del solicitante, sin perjuicio de las facultades de investigación y control del Ayuntamiento de Calatayud.</p><p>Segundo. — Objeto</p><p>El objeto de la presente subvención es proporcionar apoyo financiero a las entidades de protección animal de Calatayud, con el fin de fomentar y reforzar sus actuaciones en materia de bienestar animal y control poblacional.</p><p>No serán objeto de subvención cualquier actividad que no esté directamente relacionada con la finalidad de las distintas entidades de protección animal.</p><p>Tercero. — Bases reguladoras.</p><p>La presente convocatoria se realiza con sujeción a lo dispuesto en la Ordenanza General de Subvenciones (BOPZ de 25 de mayo de 2026), en su condición de bases reguladoras.</p><p>Cuarto. — Cuantía.</p><p>La cuantía total máxima de las subvenciones convocadas es de 2.000 euros que se imputa a la Aplicación Presupuestaria 17212/48000 MEJORA DEL MEDIO AMBIENTE – ASOCIACIÓN PROTECTORA DE ANIMALES en la que existe consignación presupuestaria suficiente y adecuada debidamente retenida.</p><p>Quinto. — Plazo de presentación de solicitudes.</p><p>El plazo de presentación de solicitudes será de QUINCE días desde la publicación del extracto de la convocatoria en el Boletín Oficial de la Provincia de Zaragoza.</p><p>La convocatoria íntegra será publicada en el BOPZ, de conformidad con lo establecido en el artículo 20.8 de la LGS, en la web del Ayuntamiento de Calatayud http://www.calatayud.es, en sede electrónica: http://sede.calatayud.es y en el tablón de anuncios.</p><p>Sexto. — Período subvencionable.</p><p>Las actuaciones objeto de subvención contempladas en la presente convocatoria deberán estar realizadas en el período comprendido entre el del 1 de julio de 2025 al 30 de junio de 2026.</p><p>El resto de cuestiones quedan reflejadas en las bases de la convocatoria.</p>",
+      "textoLeng": null,
+      "url": "https://boletin.dpz.es/BOPZ/obtenerContenidoEdicto.do?idEdicto=896737&numBop=174",
+      "cve": null,
+      "desDiarioOficial": "B.O.P. DE ZARAGOZA",
+      "datPublicacion": "2026-07-31"
+    }
+  ],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

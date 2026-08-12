@@ -1,0 +1,77 @@
+{
+  "source": "bdns",
+  "source_id": "923845",
+  "source_lang": "es",
+  "level": "local",
+  "programme": "Concurrencia competitiva - canónica",
+  "sub_programme": null,
+  "publishing_authority_code": "LOCAL / GRADO / AYUNTAMIENTO DE GRADO",
+  "nuts_codes": [
+    "ES120"
+  ],
+  "nuts_primary": "ES120",
+  "title": "SUBVENCIONES A CLUBES DEPORTIVOS DE GRADO EN CONCURRENCIA COMPETITIVA AÑO 2026",
+  "title_lang": "es",
+  "summary": "Sanidad",
+  "status": "open",
+  "publication_date": "2026-08-06",
+  "open_date": "2026-09-01",
+  "deadline": "2026-09-20",
+  "deadline_model": "single-stage",
+  "deadlines_extra": null,
+  "budget_total_eur": 28000,
+  "budget_per_project_min_eur": null,
+  "budget_per_project_max_eur": null,
+  "expected_grants": null,
+  "cofinancing_pct": null,
+  "duration_months": null,
+  "audience": "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA",
+  "eligible_orgs": [
+    "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+  ],
+  "eligible_countries": [
+    "ES"
+  ],
+  "sectores": [
+    {
+      "codigo": "S",
+      "descripcion": "ACTIVIDADES ARTÍSTICAS, DEPORTIVAS Y DE ENTRETENIMIENTO"
+    }
+  ],
+  "apply_url": "https://sedeelectronica.ayto-grado.es/",
+  "details_url": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatoria/923845",
+  "documents": [
+    {
+      "label": "Documento de la convocatoria en español",
+      "url": null
+    },
+    {
+      "label": "ANEXO II_ Modelo cuenta justificativa",
+      "url": null
+    },
+    {
+      "label": "ANEXO I_ Instancia de solicitud",
+      "url": null
+    },
+    {
+      "label": "ANEXO A_ Modelo de memoria de las actividades a subvencionar",
+      "url": null
+    },
+    {
+      "label": "ANEXO B_ Certificado de la federación deportiva",
+      "url": null
+    }
+  ],
+  "bases_reguladoras_url": "https://www.ayto-grado.es/documents/113029/0/PUBLICACION+BOPA+BASES+GENERALES+DE+SUBVENCIONES+GRADO.pdf/b50da5f8-f011-2191-40a6-5d69181ef4c1?t=1694691753817",
+  "text_inicio": "1 de septiembre de 2026",
+  "text_fin": "20 de septiembre de 2026",
+  "se_publica_diario_oficial": true,
+  "ayuda_estado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectores_productos": [],
+  "anuncios": [],
+  "mrr_flag": false,
+  "fetchedAt": "2026-08-12T18:13:53.541Z"
+}

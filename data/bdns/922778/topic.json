@@ -1,0 +1,73 @@
+{
+  "source": "bdns",
+  "source_id": "922778",
+  "source_lang": "es",
+  "level": "local",
+  "programme": "Concurrencia competitiva - canónica",
+  "sub_programme": null,
+  "publishing_authority_code": "LOCAL / VALENCIA / FUNDACIÓN DE LA CV PARA LA PROMOCIÓN ESTRATÉGICA, EL DESARROLLO Y LA INNOVACIÓN URBANA (INNDEA)",
+  "nuts_codes": [
+    "ES523"
+  ],
+  "nuts_primary": "ES523",
+  "title": "Bases reguladoras de la convocatoria de premios \"VLC Startup Awards 2026\"",
+  "title_lang": "es",
+  "summary": "Investigación, desarrollo e innovación",
+  "status": "open",
+  "publication_date": "2026-07-30",
+  "open_date": null,
+  "deadline": "2026-10-25",
+  "deadline_model": "continuous",
+  "deadlines_extra": null,
+  "budget_total_eur": 60000,
+  "budget_per_project_min_eur": null,
+  "budget_per_project_max_eur": null,
+  "expected_grants": null,
+  "cofinancing_pct": null,
+  "duration_months": null,
+  "audience": "PYME Y PERSONAS FÍSICAS QUE DESARROLLAN ACTIVIDAD ECONÓMICA",
+  "eligible_orgs": [
+    "PYME Y PERSONAS FÍSICAS QUE DESARROLLAN ACTIVIDAD ECONÓMICA"
+  ],
+  "eligible_countries": [
+    "ES"
+  ],
+  "sectores": [
+    {
+      "codigo": "74.9",
+      "descripcion": "Otras actividades profesionales, científicas y técnicas n.c.o.p."
+    }
+  ],
+  "apply_url": "https://valenciainnovationcapital.com/?lang=val",
+  "details_url": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatoria/922778",
+  "documents": [
+    {
+      "label": "Documento de la convocatoria en español",
+      "url": null
+    }
+  ],
+  "bases_reguladoras_url": "https://valenciainnovationcapital.com/wp-content/uploads/2026/07/260727-R229-26-Resolucion-aprobacion-bases-y-concurso_VSA-2026_firmado.pdf",
+  "text_inicio": "Desde el día siguiente a la publicación en el BOP ",
+  "text_fin": null,
+  "se_publica_diario_oficial": true,
+  "ayuda_estado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectores_productos": [],
+  "anuncios": [
+    {
+      "numAnuncio": 218442,
+      "titulo": "Bases reguladoras de la convocatoria de premios 'VLC Startup Awards 2026'",
+      "tituloLeng": null,
+      "texto": "<p>Primero. BeneficiariasPodrán participar en la presente convocatoria de premios las startups que cumplan los requisitos establecidos en las bases reguladoras, y en particular aquellas que dispongan de domicilio fiscal o centro de desarrollo de actividad en el término municipal de València o su área metropolitana, así como las que acrediten una vinculación relevante con el ecosistema innovador valenciano en los términos previstos en la convocatoria. </p><p>No podrán adquirir la condición de entidad premiada aquellas entidades en las que concurra alguna de las circunstancias previstas en el artículo 13 de la Ley 38/2003, de 17 de noviembre, General de Subvenciones.</p><p>Segundo. Objeto</p><p>La presente convocatoria tiene por objeto regular la concesión de los premios«VLC Startup Awards 2026», destinados a reconocer la excelencia, la capacidad innovadora, el potencial de crecimiento y la contribución al ecosistema de innovación de las startups vinculadas a la ciudad de València.</p><p>La convocatoria contempla las categorías especiales«Mejor Startup 2026» y«Mejor Startup Seed 2026», así como las categorías sectoriales GovTech, Agrotech, Salud Digital y Bienestar, Semiconductores, Emergencia, Seguridad y Defensa, Tecnologías Inmersivas y Videojuegos, Urban Tech y Turismo Sostenible.</p><p>Tercero. Bases reguladorasLa presente convocatoria se enmarca en el Plan de Actuación 2026 de València Innovation Capital y se rige por las bases reguladoras aprobadas por la Fundación de la Comunitat Valenciana para la Promoción Estratégica, el Desarrollo y la Innovación Urbana, cuyo texto íntegro puede consultarse en la Base de Datos Nacional de Subvenciones y en la página web corporativa de la entidad.</p><p>Cuarto. Cuantía</p><p>La cuantía máxima destinada a la presente convocatoria asciende a SESENTA MIL EUROS (60.000,00 €).</p><p>Se establecen los siguientes premios:</p><p>- Mejor Startup 2026: 10.000 euros.- Mejor Startup Seed 2026: 10.000 euros.- Ocho premios sectoriales: 5.000 euros a cada una de las siguientes categorías: GovTech, Agrotech, Salud Digital y Bienestar, Semiconductores, Emergencia, Seguridad y Defensa, Tecnologías Inmersivas y Videojuegos, Urban Tech y Turismo Sostenible.</p><p>Quinto. Plazo de presentación de candidaturas</p><p>El plazo de presentación de candidaturas comenzará el día siguiente al de la publicación del extracto de la convocatoria en el Boletín Oficial de la Provincia de València y permanecerá abierto hasta el día 25 de octubre de 2026, inclusive.</p><p>Las candidaturas deberán presentarse exclusivamente por medios electrónicos mediante el formulario habilitado al efecto por València Innovation Capital.</p><p>Sexto. Otros datos</p><p>Las candidaturas deberán presentarse junto con la documentación y declaraciones responsables exigidas en las bases reguladoras. </p><p>La concesión de los premios se realizará en régimen de concurrencia competitiva mediante un procedimiento de evaluación en dos fases: una primera evaluación sectorial por jurados especializados y una segunda evaluación final para la determinación de las categorías especiales. Las entidades propuestas como premiadas deberán acreditar, con carácter previo a la resolución definitiva y al abono del premio, que se encuentran al corriente en el cumplimiento de sus obligaciones tributarias y frente a la Seguridad Social, así como aportar la documentación administrativa exigida en las bases reguladoras.</p>",
+      "textoLeng": null,
+      "url": "https://bop.dival.es/bop/downloads?anuncioCSV=BOPV-2026/09974&lang=es",
+      "cve": "BOPV-2026/09974",
+      "desDiarioOficial": "B.O.P. DE VALENCIA",
+      "datPublicacion": "2026-08-11"
+    }
+  ],
+  "mrr_flag": false,
+  "fetchedAt": "2026-08-12T18:13:53.311Z"
+}

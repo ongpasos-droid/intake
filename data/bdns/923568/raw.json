@@ -1,0 +1,136 @@
+{
+  "id": 1125129,
+  "organo": {
+    "nivel1": "AUTONOMICA",
+    "nivel2": "CANTABRIA",
+    "nivel3": "CONSEJERÍA DE EDUCACIÓN, FORMACIÓN PROFESIONAL Y UNIVERSIDADES"
+  },
+  "sedeElectronica": null,
+  "codigoBDNS": "923568",
+  "fechaRecepcion": "2026-08-05",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 120000,
+  "mrr": false,
+  "descripcion": "Subvenciones a Entidades Locales para el Desarrollo de Programas de Enseñanzas en el marco de la Educación para las Personas Adultas en la Comunidad Autónoma de Cantabria",
+  "descripcionLeng": null,
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "Educación terciaria",
+      "codigo": "85.4"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES130 - Cantabria"
+    }
+  ],
+  "descripcionFinalidad": "Educación",
+  "descripcionBasesReguladoras": "Orden EDU/53/2025, de 2 de septiembre, por la que se establecen las bases reguladoras para la concesión de subvenciones a entidades locales para el desarrollo de actividades de aprendizaje permanente en el marco de la educación de personas adultas en la C",
+  "urlBasesReguladoras": "https://boc.cantabria.es/boces/verAnuncioAction.do?idAnuBlob=424431",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": null,
+  "fechaFinSolicitud": null,
+  "textInicio": "desde el día siguiente al de publicación en el BOC del extracto de la convocatoria",
+  "textFin": "15 días hábiles a partir del día siguiente al de la publicación del extracto en el B.O.C",
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1505316,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "32 Orden EDU-37-2026 firmado.pdf",
+      "long": 230854,
+      "datMod": "2026-08-05",
+      "datPublicacion": "2026-08-05"
+    },
+    {
+      "id": 1505317,
+      "descripcion": "Anexo I",
+      "nombreFic": "34 Anexo I Orden EDU-37-2026 firmado.pdf",
+      "long": 158051,
+      "datMod": "2026-08-05",
+      "datPublicacion": "2026-08-05"
+    },
+    {
+      "id": 1505319,
+      "descripcion": "Anexo II",
+      "nombreFic": "35 Anexo II Orden EDU-37-2026 firmado.pdf",
+      "long": 98356,
+      "datMod": "2026-08-05",
+      "datPublicacion": "2026-08-05"
+    },
+    {
+      "id": 1505320,
+      "descripcion": "Anexo III",
+      "nombreFic": "36 Anexo III Orden EDU-37-2026 firmado.pdf",
+      "long": 85265,
+      "datMod": "2026-08-05",
+      "datPublicacion": "2026-08-05"
+    },
+    {
+      "id": 1505333,
+      "descripcion": "Anexo IX",
+      "nombreFic": "42 Anexo IX Orden EDU-37-2026 firmado.pdf",
+      "long": 91507,
+      "datMod": "2026-08-05",
+      "datPublicacion": "2026-08-05"
+    },
+    {
+      "id": 1505324,
+      "descripcion": "Anexo V",
+      "nombreFic": "38 Anexo V Orden EDU-37-2026 firmado.pdf",
+      "long": 96154,
+      "datMod": "2026-08-05",
+      "datPublicacion": "2026-08-05"
+    },
+    {
+      "id": 1505326,
+      "descripcion": "Anexo VI",
+      "nombreFic": "39 Anexo VI Orden EDU-37-2026 firmado.pdf",
+      "long": 94995,
+      "datMod": "2026-08-05",
+      "datPublicacion": "2026-08-05"
+    },
+    {
+      "id": 1505328,
+      "descripcion": "Anexo VII",
+      "nombreFic": "40 Anexo VII Orden EDU-37-2026 firmado.pdf",
+      "long": 63912,
+      "datMod": "2026-08-05",
+      "datPublicacion": "2026-08-05"
+    },
+    {
+      "id": 1505329,
+      "descripcion": "Anexo VIII",
+      "nombreFic": "41 Anexo VIII Orden EDU-37-2026 firmado.pdf",
+      "long": 112293,
+      "datMod": "2026-08-05",
+      "datPublicacion": "2026-08-05"
+    },
+    {
+      "id": 1505321,
+      "descripcion": "Anexo IV",
+      "nombreFic": "37 Anexo IV Orden EDU-37-2026 firmado.pdf",
+      "long": 106235,
+      "datMod": "2026-08-05",
+      "datPublicacion": "2026-08-05"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

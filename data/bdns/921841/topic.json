@@ -1,0 +1,73 @@
+{
+  "source": "bdns",
+  "source_id": "921841",
+  "source_lang": "es",
+  "level": "otros",
+  "programme": "Concurrencia competitiva - canónica",
+  "sub_programme": null,
+  "publishing_authority_code": "OTROS / UNIVERSIDAD DE CASTILLA-LA MANCHA",
+  "nuts_codes": [
+    "ES42"
+  ],
+  "nuts_primary": "ES42",
+  "title": "Convocatoria de Premios a Trabajos Fin de Grado, Trabajos Fin de Máster y Trabajos Fin de Grado nivel MECES 3 de la Cátedra Cultura y Desarrollo Rural de la Fundación Eurocaja Rural y la Universidad de Castilla-La Mancha. Curso 2025/2026",
+  "title_lang": "es",
+  "summary": "Educación",
+  "status": "open",
+  "publication_date": "2026-07-27",
+  "open_date": "2026-07-29",
+  "deadline": "2026-10-30",
+  "deadline_model": "single-stage",
+  "deadlines_extra": null,
+  "budget_total_eur": 4500,
+  "budget_per_project_min_eur": null,
+  "budget_per_project_max_eur": null,
+  "expected_grants": null,
+  "cofinancing_pct": null,
+  "duration_months": null,
+  "audience": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA",
+  "eligible_orgs": [
+    "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+  ],
+  "eligible_countries": [
+    "ES"
+  ],
+  "sectores": [
+    {
+      "codigo": "Q",
+      "descripcion": "EDUCACIÓN"
+    }
+  ],
+  "apply_url": null,
+  "details_url": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatoria/921841",
+  "documents": [
+    {
+      "label": "Documento de la convocatoria en español",
+      "url": null
+    }
+  ],
+  "bases_reguladoras_url": "https://www.uclm.es/empresas/mecenazgo/catedrasaulasempresa/catedra_culturaydesarrollorural",
+  "text_inicio": null,
+  "text_fin": null,
+  "se_publica_diario_oficial": true,
+  "ayuda_estado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectores_productos": [],
+  "anuncios": [
+    {
+      "numAnuncio": 218337,
+      "titulo": "Extracto de la convocatoria de Premios a Trabajos Fin de Grado, Trabajos Fin de Máster y Trabajos Fin de Grado nivel MECES 3 de la Cátedra Cultura y Desarrollo Rural de la Fundación Eurocaja Rural y la Universidad de Castilla-La Mancha. Curso 2025/2026",
+      "tituloLeng": null,
+      "texto": "<p>Primero. Beneficiarios/as.</p><p>Podrán participar en esta convocatoria los/as estudiantes que cumplan los siguientes requisitos:</p><p>1. Haber estado matriculado/a durante el curso 2025/26 en alguna de las enseñanzas oficiales de Grados o Másteres Universitarios de la Universidad de Castilla-La Mancha.</p><p>2. Haber presentado y superado su Trabajo Fin de Grado, su Trabajo Fin de Máster o su Trabajos Fin de Grado MECES 3 en las convocatorias del curso 2025/26.</p><p>3. Que el trabajo sea original e inédito.</p><p>4. No estar incurso en alguna de las prohibiciones para obtener la condición de beneficiario recogidas en el art. 13 de la Ley 38/2003, de 17 de noviembre, General de Subvenciones. La persona beneficiaria ha de estar al corriente de sus obligaciones legales, tributarias y ante la Seguridad Social.</p><p>Segundo. Objeto.</p><p>Se dotan fondos económicos para premios a trabajos fin de grado, trabajos de fin de máster y trabajos fin de grado nivel MECES 3 de la Cátedra Cultura y Desarrollo Rural de la Fundación Eurocaja Rural y la Universidad de Castilla-La Mancha, con el objetivo de reconocer la calidad académica y el impacto del tema tratado conforme a las siguientes categorías, todas ellas dentro del ámbito de Castilla-La Mancha:</p><p>- Desarrollo rural en Castilla-La Mancha.</p><p>- Cultura y Patrimonio en Castilla-La Mancha.</p><p>- Transformación digital en el medio rural en Castilla-La Mancha.</p><p>Solo podrá presentarse candidatura a una única categoría.</p><p>Se dotarán tres premios para TFG y tres premios para TFM-TFG MECES 3, uno por cada una de las categorías especificadas.</p><p>Tercero. Bases reguladoras.</p><p>Bases reguladoras que forman parte del texto íntegro de la convocatoria.</p><p>Cuarto. Cuantía de las ayudas.</p><p>El presupuesto de esta convocatoria asciende a 4.500 euros.</p><p>Los premios tendrán una dotación bruta de 500 euros para cada uno de los premios a TFG y 1.000 euros para cada uno de los premios a TFM-TFG MECES 3. En el caso de que alguna de las categorías no tuviese ningún candidato/a al premio, o existiendo no se adaptase al nivel o a las categorías temáticas definidas, se podrá reasignar la dotación del premio a la categoría con mayor número de candidaturas en primer lugar o, a criterio del jurado, al trabajo de mayor interés y calidad.</p><p>Quinto. Plazo de presentación de solicitudes.</p><p>El plazo de presentación de solicitudes permanecerá abierto desde el día siguiente a la firma de la convocatoria hasta el 30 de octubre de 2026.</p>",
+      "textoLeng": null,
+      "url": "https://docm.jccm.es/portaldocm/detalleDocumento.do?idDisposicion=1785395272802310159",
+      "cve": null,
+      "desDiarioOficial": "DOCM. D.O. DE CASTILLA-LA MANCHA",
+      "datPublicacion": "2026-08-03"
+    }
+  ],
+  "mrr_flag": false,
+  "fetchedAt": "2026-08-12T18:13:53.147Z"
+}

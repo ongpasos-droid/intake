@@ -1,0 +1,78 @@
+{
+  "id": 1125383,
+  "organo": {
+    "nivel1": "AUTONOMICA",
+    "nivel2": "ILLES BALEARS",
+    "nivel3": "FUNDACIÓN ILLES BALEARS EUROPA"
+  },
+  "sedeElectronica": null,
+  "codigoBDNS": "923822",
+  "fechaRecepcion": "2026-08-06",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 100000,
+  "mrr": false,
+  "descripcion": "Resolución de la presidenta del Patronato de la Fundación Illes Balears Europa por la que se aprueba la convocatoria para la concesión de becas del Programa de Formación en Unión Europea para el año 2027",
+  "descripcionLeng": "Resolució de la presidenta del Patronat de la Fundació Illes Balears Europa per la qual s’aprova la convocatòria per a la concessió de beques del Programa de Formació en Unió Europea per a l’any 2027 ",
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "Otra educación",
+      "codigo": "85.5"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES531 - Eivissa y Formentera"
+    },
+    {
+      "descripcion": "ES532 - Mallorca"
+    },
+    {
+      "descripcion": "ES533 - Menorca"
+    }
+  ],
+  "descripcionFinalidad": "Educación",
+  "descripcionBasesReguladoras": "Orden 10/2026, de la consejera de Presidencia, Coordinación de la Acción de Gobierno y Cooperación Local, de 29 de mayo de 2026, por la que se establecen las bases que regirán las convocatorias para la concesión de becas del Programa de Formación en Unió",
+  "urlBasesReguladoras": "https://www.caib.es/eboibfront/eli/es-ib/o/2026/05/29/10/dof/spa/html",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": "2026-09-02",
+  "fechaFinSolicitud": "2026-09-22",
+  "textInicio": null,
+  "textFin": null,
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1506170,
+      "descripcion": "Documento de la convocatoria en lengua cooficial",
+      "nombreFic": "Resolució convocatòria.pdf",
+      "long": 307968,
+      "datMod": "2026-08-06",
+      "datPublicacion": "2026-08-06"
+    },
+    {
+      "id": 1506169,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "Resolución convocatoria.pdf",
+      "long": 274148,
+      "datMod": "2026-08-06",
+      "datPublicacion": "2026-08-06"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

@@ -1,0 +1,97 @@
+{
+  "source": "bdns",
+  "source_id": "922226",
+  "source_lang": "es",
+  "level": "local",
+  "programme": "Concurrencia competitiva - canónica",
+  "sub_programme": null,
+  "publishing_authority_code": "LOCAL / SANTA COMBA / AYUNTAMIENTO DE SANTA COMBA",
+  "nuts_codes": [
+    "ES111"
+  ],
+  "nuts_primary": "ES111",
+  "title": "Convocatoria pública de bolsas de estudio de Educación Infantil para el curso escolar 2026-2027",
+  "title_lang": "es",
+  "summary": "Educación",
+  "status": "open",
+  "publication_date": "2026-07-29",
+  "open_date": "2026-09-14",
+  "deadline": "2026-09-30",
+  "deadline_model": "single-stage",
+  "deadlines_extra": null,
+  "budget_total_eur": 7000,
+  "budget_per_project_min_eur": null,
+  "budget_per_project_max_eur": null,
+  "expected_grants": null,
+  "cofinancing_pct": null,
+  "duration_months": null,
+  "audience": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA",
+  "eligible_orgs": [
+    "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+  ],
+  "eligible_countries": [
+    "ES"
+  ],
+  "sectores": [
+    {
+      "codigo": "47",
+      "descripcion": "Comercio al por menor"
+    },
+    {
+      "codigo": "85",
+      "descripcion": "Educación"
+    }
+  ],
+  "apply_url": "www.santacomba.es",
+  "details_url": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatoria/922226",
+  "documents": [
+    {
+      "label": "Documento de la convocatoria en español",
+      "url": null
+    },
+    {
+      "label": "Documento de la convocatoria en lengua cooficial",
+      "url": null
+    },
+    {
+      "label": "Anexo Documentación cumplementaria: xustificación adquisición material escolar",
+      "url": null
+    },
+    {
+      "label": "Anexo II: declaración xurada",
+      "url": null
+    },
+    {
+      "label": "Anexo III: autorización comprobación datos matrícula escolar",
+      "url": null
+    },
+    {
+      "label": "Anexo I: solicitude",
+      "url": null
+    }
+  ],
+  "bases_reguladoras_url": "https://www.santacomba.es/s6-concello/c22-alcaldia/convocbolsestudomaterialescolar26.html",
+  "text_inicio": "14 de setembro de 2026",
+  "text_fin": "30 de setembro de 2026",
+  "se_publica_diario_oficial": true,
+  "ayuda_estado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectores_productos": [],
+  "anuncios": [
+    {
+      "numAnuncio": 218287,
+      "titulo": "Convocatoria pública de bolsas de estudio de Educación Infantil para el curso escolar 2026-2027",
+      "tituloLeng": "Bases de la convocatoria pública de bolsas de estudio de Educación Infantil para el curso escolar 2026-2027",
+      "texto": "<p>Convocatoria pública de bolsas de estudio de Educación Infantil para el curso escolar 2026-2027</p>",
+      "textoLeng": "<p>Convocatoria pública de bolsas de estudo de Educación Infantil para o curso escolar 2026-2027</p>",
+      "url": "https://bop.dacoruna.gal/bopportal/descargarPdf.do?fecha=20260803&numRegistro=2026/0000005037.pdf",
+      "cve": "2026/5037",
+      "desDiarioOficial": "B.O.P. DE A CORUÑA",
+      "datPublicacion": "2026-08-03"
+    }
+  ],
+  "mrr_flag": false,
+  "fetchedAt": "2026-08-12T18:13:53.224Z"
+}

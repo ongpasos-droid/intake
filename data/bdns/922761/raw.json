@@ -1,0 +1,64 @@
+{
+  "id": 1124322,
+  "organo": {
+    "nivel1": "AUTONOMICA",
+    "nivel2": "CANARIAS",
+    "nivel3": "CONSEJERÍA DE EDUCACIÓN, FORMACIÓN PROFESIONAL, ACTIVIDAD FÍSICA Y DEPORTES"
+  },
+  "sedeElectronica": "https://sede.gobiernodecanarias.org/sede/",
+  "codigoBDNS": "922761",
+  "fechaRecepcion": "2026-07-30",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 2200000,
+  "mrr": false,
+  "descripcion": "Banco de Libros centros concertados 26/27",
+  "descripcionLeng": null,
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "Educación",
+      "codigo": "85"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES7 - CANARIAS"
+    }
+  ],
+  "descripcionFinalidad": "Educación",
+  "descripcionBasesReguladoras": "Decreto 36/2009 de 31 de marzo por el que se establece el régimen general de subvenciones de la Comunidad Autónoma de Canarias",
+  "urlBasesReguladoras": "https://www.gobiernodecanarias.org/hacienda/planificacionypresupuesto/presupuestos/2026",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": "2027-01-01",
+  "fechaFinSolicitud": "2027-02-28",
+  "textInicio": "Subvención banco de libros centros concertados 26/27",
+  "textFin": "Subvención banco de libros centros concertados 26/27",
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1503158,
+      "descripcion": "Texto en castellano de la convocatoria",
+      "nombreFic": "Orden 779- Bases y convocatoria.PDF",
+      "long": 493377,
+      "datMod": "2026-07-30",
+      "datPublicacion": "2026-07-30"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

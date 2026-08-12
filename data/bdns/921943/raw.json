@@ -1,0 +1,88 @@
+{
+  "id": 1123504,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "JACA",
+    "nivel3": "AYUNTAMIENTO DE JACA"
+  },
+  "sedeElectronica": "https://jaca.sedipualba.es/",
+  "codigoBDNS": "921943",
+  "fechaRecepcion": "2026-07-28",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 2400,
+  "mrr": false,
+  "descripcion": "Convocatoria de subvenciones para familias con hijos/as nacidos/as de partos múltiples o procedentes de una adopción múltiple del 2025 al 2026.",
+  "descripcionLeng": null,
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "Otras actividades de servicios sociales sin alojamiento",
+      "codigo": "88.9"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES241 - Huesca"
+    }
+  ],
+  "descripcionFinalidad": "Servicios Sociales y Promoción Social",
+  "descripcionBasesReguladoras": "Ordenanza General Reguladora de la Concesión de Subvenciones en el Ayuntamiento de Jaca",
+  "urlBasesReguladoras": "https://jaca.sedelectronica.es/preview-document/015f786f-51b2-4565-b78a-7aea3033c8ec/",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": null,
+  "fechaFinSolicitud": null,
+  "textInicio": "Desde el día siguiente a la publicación del extracto de la convocatoria en el BOPH",
+  "textFin": "Hasta el 30 de noviembre de 2026",
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1501290,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "Convocatoria de subvenciones para familias con hijos nacidos de un mismo parto o adopción múltiple - SEFYCU 7003301.pdf",
+      "long": 271592,
+      "datMod": "2026-07-28",
+      "datPublicacion": "2026-07-28"
+    },
+    {
+      "id": 1501297,
+      "descripcion": "Ficha de terceros",
+      "nombreFic": "Ficha de terceros.pdf",
+      "long": 107279,
+      "datMod": "2026-07-28",
+      "datPublicacion": "2026-07-28"
+    },
+    {
+      "id": 1501295,
+      "descripcion": "Autorización para recabar datos",
+      "nombreFic": "Autorización para recabar datos de la Agencia Tributaria.pdf",
+      "long": 104098,
+      "datMod": "2026-07-28",
+      "datPublicacion": "2026-07-28"
+    },
+    {
+      "id": 1501292,
+      "descripcion": "Solicitud",
+      "nombreFic": "Anexo I_Solicitud.pdf",
+      "long": 91464,
+      "datMod": "2026-07-28",
+      "datPublicacion": "2026-07-28"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

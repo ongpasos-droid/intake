@@ -1,0 +1,252 @@
+{
+  "source": "bdns",
+  "source_id": "922981",
+  "source_lang": "es",
+  "level": "ccaa",
+  "programme": "Concesión directa - canónica",
+  "sub_programme": null,
+  "publishing_authority_code": "AUTONOMICA / EXTREMADURA / DIRECCIÓN GENERAL DE EMPRESA",
+  "nuts_codes": [
+    "ES43"
+  ],
+  "nuts_primary": "ES43",
+  "title": "Ayudas 2026 destinadas a favorecer el Relevo Generacional en las empresas de ámbito familiar según Decreto 140/2026, de 21 de julio que las convoca.",
+  "title_lang": "es",
+  "summary": "Fomento del Empleo",
+  "status": "open",
+  "publication_date": "2026-07-31",
+  "open_date": null,
+  "deadline": null,
+  "deadline_model": "continuous",
+  "deadlines_extra": null,
+  "budget_total_eur": 500000,
+  "budget_per_project_min_eur": null,
+  "budget_per_project_max_eur": null,
+  "expected_grants": null,
+  "cofinancing_pct": null,
+  "duration_months": null,
+  "audience": "PYME Y PERSONAS FÍSICAS QUE DESARROLLAN ACTIVIDAD ECONÓMICA",
+  "eligible_orgs": [
+    "PYME Y PERSONAS FÍSICAS QUE DESARROLLAN ACTIVIDAD ECONÓMICA"
+  ],
+  "eligible_countries": [
+    "ES"
+  ],
+  "sectores": [
+    {
+      "codigo": "O",
+      "descripcion": "ACTIVIDADES ADMINISTRATIVAS Y SERVICIOS AUXILIARES"
+    },
+    {
+      "codigo": "01.6",
+      "descripcion": "Actividades de apoyo a la agricultura, a la ganadería y de preparación posterior a la cosecha"
+    },
+    {
+      "codigo": "03.3",
+      "descripcion": "Actividades de apoyo a la pesca y la acuicultura"
+    },
+    {
+      "codigo": "91",
+      "descripcion": "Actividades de bibliotecas, archivos, museos y otras actividades culturales"
+    },
+    {
+      "codigo": "90",
+      "descripcion": "Actividades de creación artística y artes escénicas"
+    },
+    {
+      "codigo": "J",
+      "descripcion": "ACTIVIDADES DE EDICIÓN, RADIODIFUSIÓN Y PRODUCCIÓN Y DISTRIBUCIÓN DE CONTENIDOS"
+    },
+    {
+      "codigo": "93",
+      "descripcion": "Actividades deportivas, recreativas y de entretenimiento"
+    },
+    {
+      "codigo": "L",
+      "descripcion": "ACTIVIDADES FINANCIERAS Y DE SEGUROS"
+    },
+    {
+      "codigo": "M",
+      "descripcion": "ACTIVIDADES INMOBILIARIAS"
+    },
+    {
+      "codigo": "N",
+      "descripcion": "ACTIVIDADES PROFESIONALES, CIENTÍFICAS Y TÉCNICAS"
+    },
+    {
+      "codigo": "R",
+      "descripcion": "ACTIVIDADES SANITARIAS Y DE SERVICIOS SOCIALES"
+    },
+    {
+      "codigo": "18",
+      "descripcion": "Artes gráficas y reproducción de soportes grabados"
+    },
+    {
+      "codigo": "G",
+      "descripcion": "COMERCIO AL POR MAYOR Y AL POR MENOR"
+    },
+    {
+      "codigo": "14",
+      "descripcion": "Confección de prendas de vestir"
+    },
+    {
+      "codigo": "F",
+      "descripcion": "CONSTRUCCIÓN"
+    },
+    {
+      "codigo": "19",
+      "descripcion": "Coquerías y refino de petróleo"
+    },
+    {
+      "codigo": "Q",
+      "descripcion": "EDUCACIÓN"
+    },
+    {
+      "codigo": "11",
+      "descripcion": "Fabricación de bebidas"
+    },
+    {
+      "codigo": "28",
+      "descripcion": "Fabricación de maquinaria y equipo n.c.o.p."
+    },
+    {
+      "codigo": "27",
+      "descripcion": "Fabricación de material y equipo eléctrico"
+    },
+    {
+      "codigo": "31",
+      "descripcion": "Fabricación de muebles"
+    },
+    {
+      "codigo": "30",
+      "descripcion": "Fabricación de otro material de transporte"
+    },
+    {
+      "codigo": "23",
+      "descripcion": "Fabricación de otros productos minerales no metálicos"
+    },
+    {
+      "codigo": "22",
+      "descripcion": "Fabricación de productos de caucho y plásticos"
+    },
+    {
+      "codigo": "21",
+      "descripcion": "Fabricación de productos farmacéuticos"
+    },
+    {
+      "codigo": "26",
+      "descripcion": "Fabricación de productos informáticos, electrónicos y ópticos"
+    },
+    {
+      "codigo": "25",
+      "descripcion": "Fabricación de productos metálicos, excepto maquinaria y equipo"
+    },
+    {
+      "codigo": "29",
+      "descripcion": "Fabricación de vehículos de motor, remolques y semirremolques"
+    },
+    {
+      "codigo": "I",
+      "descripcion": "HOSTELERÍA"
+    },
+    {
+      "codigo": "10",
+      "descripcion": "Industria alimentaria"
+    },
+    {
+      "codigo": "16",
+      "descripcion": "Industria de la madera y del corcho, excepto muebles; cestería y espartería"
+    },
+    {
+      "codigo": "15",
+      "descripcion": "Industria del cuero y productos relacionados de otros materiales"
+    },
+    {
+      "codigo": "17",
+      "descripcion": "Industria del papel"
+    },
+    {
+      "codigo": "20",
+      "descripcion": "Industria química"
+    },
+    {
+      "codigo": "13",
+      "descripcion": "Industria textil"
+    },
+    {
+      "codigo": "B",
+      "descripcion": "INDUSTRIAS EXTRACTIVAS"
+    },
+    {
+      "codigo": "24",
+      "descripcion": "Metalurgia"
+    },
+    {
+      "codigo": "32",
+      "descripcion": "Otras industrias manufactureras"
+    },
+    {
+      "codigo": "T",
+      "descripcion": "OTROS SERVICIOS"
+    },
+    {
+      "codigo": "33",
+      "descripcion": "Reparación, mantenimiento e instalación de maquinaria y equipos"
+    },
+    {
+      "codigo": "02.4",
+      "descripcion": "Servicios de apoyo a la silvicultura"
+    },
+    {
+      "codigo": "E",
+      "descripcion": "SUMINISTRO DE AGUA, ACTIVIDADES DE SANEAMIENTO, GESTIÓN DE RESIDUOS Y DESCONTAMINACIÓN"
+    },
+    {
+      "codigo": "D",
+      "descripcion": "SUMINISTRO DE ENERGIA ELECTRICA, GAS, VAPOR Y AIRE ACONDICIONADO"
+    },
+    {
+      "codigo": "K",
+      "descripcion": "TELECOMUNICACIONES, PROGRAMACIÓN INFORMÁTICA, CONSULTORÍA, INFRAESTRUCTURA INFORMÁTICA Y OTROS SERVICIOS DE INFORMACIÓN"
+    },
+    {
+      "codigo": "H",
+      "descripcion": "TRANSPORTE Y ALMACENAMIENTO"
+    }
+  ],
+  "apply_url": "https://www.juntaex.es/w/0606822",
+  "details_url": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatoria/922981",
+  "documents": [
+    {
+      "label": "Texto en castellano de la convocatoria",
+      "url": null
+    }
+  ],
+  "bases_reguladoras_url": "https://doe.juntaex.es/",
+  "text_inicio": "El día siguiente al de la publicación de la Convocatoria junto con su extracto en el DOE",
+  "text_fin": "Transcurridos dos meses a partir del día siguiente de su publicación en el DOE",
+  "se_publica_diario_oficial": true,
+  "ayuda_estado": null,
+  "fondos": [],
+  "reglamento": {
+    "descripcion": "REG (UE) 2023/2831 de minimis, General",
+    "orden": null
+  },
+  "objetivos": [],
+  "sectores_productos": [],
+  "anuncios": [
+    {
+      "numAnuncio": 218505,
+      "titulo": "Extracto de la convocatoria incorporada en la Disposición adicional única del Decreto 148/2026, de 21 de julio, por el que se establecen las bases reguladoras de las ayudas destinadas a favorecer el relevo generacional en las empresas de ámbito familiar de Extremadura,",
+      "tituloLeng": null,
+      "texto": "<p>De conformidad con lo previsto en los artículos 17.3.b) y 20.8.a) de la</p><p>Ley 38/2003, de 17 de noviembre, General de Subvenciones, se publica el</p><p>extracto de la convocatoria cuyo texto completo puede consultarse en la</p><p>Base de Datos Nacional de Subvenciones</p><p>https://www.pap.hacienda.gob.es/bdnstrans/GE/es/convocatorias) y en el</p><p>presente DOE (https://doe.juntaex.es).</p><p></p><p>Primero. Beneficiarios.</p><p>El programa va dirigido a empresas familiares que cumplan los siguientes</p><p>requisitos:</p><p>1.Que la forma jurídica de la empresa sea Sociedad Anónima o Sociedad</p><p>Limitada, con una antigüedad de, al menos, 15 años.</p><p>2.Al menos uno de los socios o administradores tenga más de 50 años.</p><p>3.Que la empresa tenga, al menos, 7 trabajadores.</p><p>4.Que al menos, uno de los socios o administradores de la empresa haya</p><p>realizado previamente un programa formativo de, al menos 40 horas, en el</p><p>que se hayan abordado aspectos claves relacionados con la gobernanza de</p><p>la empresa familiar, la planificación del relevo, así como cuestiones</p><p>relativas en materia patrimonial, fiscal, mercantil o de cualquier otra</p><p>índole.</p><p></p><p>Segundo. Objeto.</p><p>Ayudas destinadas a favorecer el relevo generacional en las empresas de</p><p>ámbito familiar de Extremadura, a través del desarrollo e implementación</p><p>de protocolos familiares, acompañado de un servicio de asesoramiento</p><p>especializado dirigido al diseño, planificación e implantación en las</p><p>empresas de un plan de relevo en las mismas, de modo que posibiliten una</p><p>sucesión ordenada que permita su mantenimiento y la profesionalización</p><p>de su actividad empresarial.</p><p></p><p>Tercero. Bases reguladoras.</p><p>Decreto 148/2026, de 21 de julio, por el que se establecen las bases</p><p>reguladoras de las ayudas destinadas a favorecer el relevo generacional</p><p>en las empresas de ámbito familiar de Extremadura, y se aprueba la</p><p>primera convocatoria.</p><p></p><p>Cuarto. Gastos subvencionables y cuantía de la ayuda.</p><p>Son gastos subvencionables la contratación de servicios profesionales de</p><p>carácter jurídico u otros especializados necesarios para la elaboración,</p><p>revisión, actualización o adaptación del protocolo familiar de la</p><p>empresa, con un límite máximo de 10.000 euros (IVA excluido) para nuevos</p><p>protocolos y de 5.000 euros (IVA excluido) para la actualización de</p><p>protocolos existentes. Asimismo, será subvencionable la contratación de</p><p>consultoría externa especializada para el desarrollo de un programa de</p><p>acompañamiento, de al menos 12 meses de duración, destinado al diseño,</p><p>planificación e implantación de un plan de relevo empresarial, con un</p><p>límite máximo de 10.000 euros (IVA excluido).</p><p>Se subvencionará el 80 por ciento de los gastos subvencionables.</p><p>El coste de las acciones previstas en la presente convocatoria será</p><p>imputado a la aplicación presupuestaria 14004.323A.47000; Proyecto de</p><p>Gastos 20250026 Programa de Ayudas al Relevo Empresarial por un importe</p><p>total de 500.000 euros, con cargo al ejercicio 2026 financiado con</p><p>fondos propios de la Comunidad Autónoma de Extremadura.</p><p></p><p>Quinto. Plazo de presentación de solicitudes.</p><p>El plazo para presentación de solicitudes será de dos meses contando a</p><p>partir del día siguiente a la fecha de publicación de la convocatoria,</p><p>junto con el presente extracto en el Diario Oficial de Extremadura.</p><p></p><p>Sexto. Otros datos.</p><p>1.El importe total de la ayuda se abonará de manera totalmente</p><p>anticipada, una vez notificada la resolución de concesión a cada empresa</p><p>beneficiaria.</p><p></p><p>2.La tramitación de las solicitudes, así como el acceso a la totalidad</p><p>de la información sobre el procedimiento, se efectuará a través del</p><p>punto de acceso general electrónico, dentro de la ficha correspondiente</p><p>al trámite, accesible a través del siguiente enlace directo</p><p>https://www.juntaex.es/w/0606822.</p><p></p>",
+      "textoLeng": null,
+      "url": "https://doe.juntaex.es/pdfs/doe/2026/1510o/26040199.pdf",
+      "cve": null,
+      "desDiarioOficial": "DOE. D.O. DE EXTREMADURA",
+      "datPublicacion": "2026-08-06"
+    }
+  ],
+  "mrr_flag": false,
+  "fetchedAt": "2026-08-12T18:13:53.354Z"
+}

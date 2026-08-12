@@ -1,0 +1,77 @@
+{
+  "source": "bdns",
+  "source_id": "924040",
+  "source_lang": "es",
+  "level": "local",
+  "programme": "Concurrencia competitiva - canónica",
+  "sub_programme": null,
+  "publishing_authority_code": "LOCAL / SAN PEDRO DEL PINATAR / AYUNTAMIENTO DE SAN PEDRO DEL PINATAR",
+  "nuts_codes": [
+    "ES620"
+  ],
+  "nuts_primary": "ES620",
+  "title": "PREMIOS Y AYUDAS DE CONVOCATORIA XII EDICION DE LA MUESTRA NACIONAL DE TEATRO AFICIONADO DE SAN PEDRO DEL PINATAR",
+  "title_lang": "es",
+  "summary": "Cultura",
+  "status": "open",
+  "publication_date": "2026-08-07",
+  "open_date": null,
+  "deadline": null,
+  "deadline_model": "continuous",
+  "deadlines_extra": null,
+  "budget_total_eur": 3750,
+  "budget_per_project_min_eur": null,
+  "budget_per_project_max_eur": null,
+  "expected_grants": null,
+  "cofinancing_pct": null,
+  "duration_months": null,
+  "audience": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA",
+  "eligible_orgs": [
+    "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+  ],
+  "eligible_countries": [
+    "ES"
+  ],
+  "sectores": [
+    {
+      "codigo": "S",
+      "descripcion": "ACTIVIDADES ARTÍSTICAS, DEPORTIVAS Y DE ENTRETENIMIENTO"
+    }
+  ],
+  "apply_url": "https://sede.sanpedrodelpinatar.es/sta/CarpetaPublic/doEvent?APP_CODE=STA&PAGE_CODE=PTS2_HOME",
+  "details_url": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatoria/924040",
+  "documents": [
+    {
+      "label": "BASES REGULADORAS Y ANEXOS",
+      "url": null
+    },
+    {
+      "label": "Documento de la convocatoria en español",
+      "url": null
+    }
+  ],
+  "bases_reguladoras_url": "https://sede.sanpedrodelpinatar.es/sta/CarpetaPublic/doEvent?APP_CODE=STA&PAGE_CODE=PTS2_TABLON&KEY=3223500907167373707601",
+  "text_inicio": "Día siguiente a la publicación del extracto de la convocatoria en el BORM",
+  "text_fin": "Diez días hábiles a partir de la publicación de un extracto de la convocatoria en el BORM",
+  "se_publica_diario_oficial": true,
+  "ayuda_estado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectores_productos": [],
+  "anuncios": [
+    {
+      "numAnuncio": 218916,
+      "titulo": "PREMIOS Y AYUDAS DE LA CONVOCATORIA XII EDICION DE LA MUESTRA NACIONAL DE TEATRO AFICIONADO DE SAN PEDRO DEL PINATAR",
+      "tituloLeng": null,
+      "texto": "<p>Extracto del Acuerdo de la Junta de Gobierno Local de 23 de julio de 2026, por el que se aprueban la convocatoria y bases de Premios y Ayudas del Ayuntamiento de San Pedro del Pinatar para la XII Edición de la Muestra Nacional de Teatro Aficionado de San Pedro del Pinatar. De conformidad con lo previsto en los arts. 17.3 y 20.8.a), de la Ley 38/2003, de 17 de noviembre, General de Subvenciones, se publica el extracto de la convocatoria cuyo texto completo puede consultarse en la web municipal www.sanpedrodelpinatar.es</p><p>Primero. Beneficiarios.</p><p>Podrán presentarse a esta convocatoria Grupos de teatro aficionado de adultos, a nivel nacional, no profesionales de todo el ámbito nacional, que se encuentren legalmente constituidos como Asociación Cultural sin ánimo de lucro o similar, interesados en participar en el certamen.</p><p>Segundo. Objeto.</p><p>La convocatoria y bases de Premios y Ayudas del Ayuntamiento de San Pedro del Pinatar para la XII Edición de la Muestra Nacional de Teatro Aficionado de San Pedro del Pinatar.</p><p>Tercero. Bases reguladoras.</p><p>Bases reguladoras generales para la concesión de estos premios y ayudas por parte del Ayuntamiento de San Pedro del Pinatar, aprobadas por acuerdo de Junta de Gobierno Local de fecha 23 de julio de 2026.</p><p>Cuarto. Cuantía.</p><p>El Ayuntamiento de San Pedro del Pinatar, otorgará los siguientes premios y ayudas:</p><p>A Grupos de Teatro Aficionado 3.750 euros</p><p>El importe total de las subvenciones asciende a 3.750,00€ (TRES MIL SETECIENTOS CINCUENTA EUROS) se cargará en la aplicación presupuestaría 2026 3344/48900.</p><p>Quinto. Plazo de presentación de solicitudes.</p><p>Será de 10 días hábiles contados a partir de la publicación de la correspondiente convocatoria en el Boletín Oficial de la Región de Murcia.</p><p>Sexto. Otros datos.</p><p>Se presentará solicitud oficial dirigida al Alcalde Presidente del Excmo. Ayuntamiento de San Pedro del Pinatar por sede electrónica o Registro General, mediante modelo de instancia que podrá encontrar en la Sede Electrónica del Ayuntamiento de San Pedro del Pinatar https://sede.sanpedrodelpinatar.es</p>",
+      "textoLeng": null,
+      "url": "https://www.borm.es/services/anuncio/ano/2026/numero/3989/pdf",
+      "cve": "A-110826-3989",
+      "desDiarioOficial": "BORM. B.O. DE LA REGIÓN DE MURCIA",
+      "datPublicacion": "2026-08-11"
+    }
+  ],
+  "mrr_flag": false,
+  "fetchedAt": "2026-08-12T18:13:53.586Z"
+}

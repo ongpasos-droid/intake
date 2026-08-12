@@ -2,7 +2,7 @@
 
 Proposals must demonstrate their disruptive impact on defence applications in order to accelerate the creation and deployment of novel solutions for armed forces and support the uptake of new civilian innovations in the defence sector. Proposals must focus on enhancing operational readiness and effectiveness, improving strategic decision-making and addressing emerging threats through cutting-edge technologies or products. Solutions must embrace disruption to enable armed forces to gain a technological edge and adapt to rapidly evolving security challenges, ultimately ensuring radical technological superiority over potential adversaries.
 
-Proposals must address disruptive knowledge, products and technologies in any area of defence interest reaching at least TRL4 .
+Proposals must address disruptive knowledge, products and technologies in any area of defence interest from TRL4 and above.
 
 The funded actions should aim to achieve a rapid time-to-market.
 

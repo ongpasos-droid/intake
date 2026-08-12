@@ -1,0 +1,96 @@
+{
+  "id": 1125324,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "PARRES",
+    "nivel3": "AYUNTAMIENTO DE PARRES"
+  },
+  "sedeElectronica": null,
+  "codigoBDNS": "923763",
+  "fechaRecepcion": "2026-08-06",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 15000,
+  "mrr": false,
+  "descripcion": "Extracto  AYUDAS A ESTUDIANTES DEL CONCEJO DE PARRES UNIVERSITARIOS, DE CICLOS SUPERIORES Y MEDIOS DE FORMACIÓN PROFESIONAL  Y DE BACHILLER NO IMPARTIDOS EN EL CONCEJO DE PARRES EN EL CURSO 2026-2027",
+  "descripcionLeng": null,
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "EDUCACIÓN",
+      "codigo": "Q"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES120 - Asturias"
+    }
+  ],
+  "descripcionFinalidad": "Subvenciones al transporte",
+  "descripcionBasesReguladoras": "Extracto  AYUDAS A ESTUDIANTES DEL CONCEJO DE PARRES UNIVERSITARIOS, DE CICLOS SUPERIORES Y MEDIOS DE FORMACIÓN PROFESIONAL  Y DE BACHILLER NO IMPARTIDOS EN EL CONCEJO DE PARRES EN EL CURSO 2026-2027",
+  "urlBasesReguladoras": "https://www.ayto-parres.es/noticia/-/asset_publisher/bb7c8be44268/content/not-sub-ayu?_com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_bb7c8be44268_assetEntryId=5176528&_com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": null,
+  "fechaFinSolicitud": "2026-09-30",
+  "textInicio": "Desde el día siguiente a la publicación en el BOPA",
+  "textFin": null,
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1505984,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "Convocatoria_transporte_SEFYCU 150895.pdf",
+      "long": 344466,
+      "datMod": "2026-08-06",
+      "datPublicacion": "2026-08-06"
+    },
+    {
+      "id": 1505987,
+      "descripcion": "SOLICITUD",
+      "nombreFic": "Anexo I.pdf",
+      "long": 136676,
+      "datMod": "2026-08-06",
+      "datPublicacion": "2026-08-06"
+    },
+    {
+      "id": 1505990,
+      "descripcion": "ORDENAZA GENERAL DE SUBVENCIONES",
+      "nombreFic": "Ordenanza subvenciones_Bases.pdf",
+      "long": 1331731,
+      "datMod": "2026-08-06",
+      "datPublicacion": "2026-08-06"
+    },
+    {
+      "id": 1505989,
+      "descripcion": "FICHA ACREEDOR",
+      "nombreFic": "FICHA ACREEDOR TRANSPORTE_Anexo_III.pdf",
+      "long": 145352,
+      "datMod": "2026-08-06",
+      "datPublicacion": "2026-08-06"
+    },
+    {
+      "id": 1505988,
+      "descripcion": "ANEXO II",
+      "nombreFic": "Anexo II.pdf",
+      "long": 112275,
+      "datMod": "2026-08-06",
+      "datPublicacion": "2026-08-06"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

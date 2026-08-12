@@ -1,0 +1,84 @@
+{
+  "id": 1123723,
+  "organo": {
+    "nivel1": "AUTONOMICA",
+    "nivel2": "CASTILLA-LA MANCHA",
+    "nivel3": "DIRECCIÓN GENERAL DE HUMANIZACIÓN Y ATENCIÓN SOCIOSANITARIA"
+  },
+  "sedeElectronica": null,
+  "codigoBDNS": "922162",
+  "fechaRecepcion": "2026-07-29",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concesión directa - canónica",
+  "presupuestoTotal": 400000,
+  "mrr": false,
+  "descripcion": "Resolución de 27/07/2026: subvenciones, en régimen simplificado de concurrencia, para personas afectadas por la enfermedad celíaca 2026",
+  "descripcionLeng": null,
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "ACTIVIDADES SANITARIAS Y DE SERVICIOS SOCIALES",
+      "codigo": "R"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES42 - CASTILLA LA MANCHA"
+    }
+  ],
+  "descripcionFinalidad": "Sanidad",
+  "descripcionBasesReguladoras": "Orden 134/2024 de 8 de agosto de bases reguladoras, modificada por Orden 64/2026 de 7 de mayo",
+  "urlBasesReguladoras": "https://docm.jccm.es/docm/detalleDocumento.do?idDisposicion=1723196767331210056",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": null,
+  "fechaFinSolicitud": "2026-08-31",
+  "textInicio": "El día siguiente al de la publicación en el DOCM",
+  "textFin": null,
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1501777,
+      "descripcion": "Extracto Resolución convocatoria ayudas personas enfermedad celiaca 2026",
+      "nombreFic": "EXTRACTO_CONVOCATORIA_2026 CELÍACOS FIRMADO_081841.PDF",
+      "long": 162430,
+      "datMod": "2026-07-29",
+      "datPublicacion": "2026-07-29"
+    },
+    {
+      "id": 1501776,
+      "descripcion": "Texto en castellano de la convocatoria",
+      "nombreFic": "HDE_2026_4825_1_05. RESOLUCION INFORMADA_02072026_092414 FIRMADA_081726.PDF",
+      "long": 201807,
+      "datMod": "2026-07-29",
+      "datPublicacion": "2026-07-29"
+    }
+  ],
+  "anuncios": [
+    {
+      "numAnuncio": 218263,
+      "titulo": "Extracto de la Resolución de la Dirección General de Humanización y Atención Sociosanitaria, por la que se aprueba la convocatoria para el año 2026 de concesión de subvenciones, en régimen simplificado de concurrencia, para personas afectadas por la enfermedad celíaca en Castilla-La Mancha.",
+      "tituloLeng": null,
+      "texto": "<p></p><p> Primero. Personas beneficiarias</p><p> </p><p> Podrán concurrir a la convocatoria de estas subvenciones las personas que, en la fecha de presentación de su solicitud, tengan diagnosticada la enfermedad celíaca y justifiquen esta condición por los medios establecidos en el resuelvo noveno.</p><p> </p><p> Segundo. Objeto</p><p> </p><p> La convocatoria para el año 2026 de subvenciones públicas, destinadas a personas afectadas por enfermedad celiaca en Castilla-La Mancha, a fin de proporcionarles apoyo económico para el mantenimiento de una dieta libre de gluten.</p><p> </p><p> Tercero. Bases reguladoras</p><p> </p><p> Orden 134/2024, de 8 de agosto, de la Consejería de Sanidad, por la que se establecen las bases reguladoras de subvenciones, en régimen simplificado de concurrencia, para personas afectadas por la enfermedad celiaca en Castilla-La Mancha (DOCM. n.º 159, de 19 de agosto de 2024), modificada por Orden 64/2026, de 7 de mayo, de la Consejería de Sanidad (DOCM. n.º 90, de 14 de mayo de 2026).</p><p> </p><p> Cuarto. Cuantía de la ayuda.</p><p> </p><p> La cuantía total máxima destinada a esta convocatoria es de 400.000 euros.</p><p> La cuantía a conceder será de 500 euros por persona beneficiaria, con un máximo de 1.000 euros por unidad familiar.</p><p> </p><p> Quinto. Plazo de presentación de solicitudes</p><p> </p><p> El plazo de presentación de solicitudes se extenderá desde el día siguiente al de la publicación de esta convocatoria en el Diario Oficial de Castilla-La Mancha hasta el 31 de agosto de 2026.</p><p> </p><p> Sexto. Otros datos</p><p> </p><p> Las solicitudes de las ayudas se dirigirán a la Dirección General de Humanización y Atención Sociosanitaria conforme al modelo publicado en la sede electrónica y se podrán presentar de forma telemática, con firma electrónica, a través del formulario disponible en la sede electrónica de la Administración de la Junta de Comunidades de Castilla-La Mancha, o bien  de forma presencial, en cualquiera de los registros y por los medios previstos en el artículo 16.4 de la Ley 39/2015, de 1 de octubre, una vez cumplimentado e impreso el formulario habilitado en la sede electrónica.</p><p> </p><p> </p>",
+      "textoLeng": null,
+      "url": "https://docm.jccm.es/docm/descargarArchivo.do?ruta=2026/08/03/pdf/2026_5806.pdf&tipo=rutaDocm",
+      "cve": null,
+      "desDiarioOficial": "DOCM. D.O. DE CASTILLA-LA MANCHA",
+      "datPublicacion": "2026-08-03"
+    }
+  ],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

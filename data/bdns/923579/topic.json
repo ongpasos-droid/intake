@@ -1,0 +1,65 @@
+{
+  "source": "bdns",
+  "source_id": "923579",
+  "source_lang": "es",
+  "level": "local",
+  "programme": "Concurrencia competitiva - canónica",
+  "sub_programme": null,
+  "publishing_authority_code": "LOCAL / MANCOMUNIDAD DE LOS CONCEJOS DE LLANES Y RIBADEDEVA / MANCOMUNIDAD DE LOS CONCEJOS DE LLANES Y RIBADEDEVA",
+  "nuts_codes": [
+    "ES120"
+  ],
+  "nuts_primary": "ES120",
+  "title": "Extracto de la convocatoria de ayudas económicas de emergencia social para familias con menores a cargo, ejercicio 2026",
+  "title_lang": "es",
+  "summary": "Servicios Sociales y Promoción Social",
+  "status": "open",
+  "publication_date": "2026-08-05",
+  "open_date": null,
+  "deadline": null,
+  "deadline_model": "continuous",
+  "deadlines_extra": null,
+  "budget_total_eur": 17369.06,
+  "budget_per_project_min_eur": null,
+  "budget_per_project_max_eur": null,
+  "expected_grants": null,
+  "cofinancing_pct": null,
+  "duration_months": null,
+  "audience": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA",
+  "eligible_orgs": [
+    "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+  ],
+  "eligible_countries": [
+    "ES"
+  ],
+  "sectores": [
+    {
+      "codigo": "84.1",
+      "descripcion": "Administración pública y de la política económica, social y medioambiental"
+    }
+  ],
+  "apply_url": "https://www.mancomunidadllanesribadedeva.com/",
+  "details_url": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatoria/923579",
+  "documents": [
+    {
+      "label": "instancia y documentacion a presentar",
+      "url": null
+    },
+    {
+      "label": "Documento de la convocatoria en español",
+      "url": null
+    }
+  ],
+  "bases_reguladoras_url": "https://www.mancomunidadllanesribadedeva.com/",
+  "text_inicio": "desde el dia siguiente a la publicacion en el  Boletin Oficial del Principado de Asturias (BOPA)",
+  "text_fin": "30 de septiembre 2026",
+  "se_publica_diario_oficial": true,
+  "ayuda_estado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectores_productos": [],
+  "anuncios": [],
+  "mrr_flag": false,
+  "fetchedAt": "2026-08-12T18:13:53.487Z"
+}

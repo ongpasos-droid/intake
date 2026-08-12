@@ -1,0 +1,72 @@
+{
+  "id": 1124258,
+  "organo": {
+    "nivel1": "OTROS",
+    "nivel2": "UNIVERSIDAD DE VIGO",
+    "nivel3": null
+  },
+  "sedeElectronica": null,
+  "codigoBDNS": "922697",
+  "fechaRecepcion": "2026-07-30",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 18000,
+  "mrr": false,
+  "descripcion": "Resolución rectoral por la que se convocan \"Becas Santander ayuda económica 2026 - premios a la excelencia académica\" para el estudiantado que inició estudios de doctorado en la Universidad de Vigo en el curso 2025/2026",
+  "descripcionLeng": "Resolución reitoral pola que se convocan “Bolsas Santander axuda económica 2026 - Premios á excelencia académica” para o estudantado que iniciou estudos de doutoramento na Universidade de Vigo no curso 2025/2026",
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "EDUCACIÓN",
+      "codigo": "Q"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES11 - GALICIA"
+    }
+  ],
+  "descripcionFinalidad": "Educación",
+  "descripcionBasesReguladoras": "Resolución rectoral por la que se convocan \"Becas Santander ayuda económica 2026 - premios a la excelencia académica\" para el estudiantado que inició estudios de doctorado en la Universidad de Vigo en el curso 2025/2026",
+  "urlBasesReguladoras": "https://secretaria.uvigo.gal/uv/web/convocatoria/public/show/1909",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": "2026-07-31",
+  "fechaFinSolicitud": "2026-10-15",
+  "textInicio": null,
+  "textFin": null,
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1502997,
+      "descripcion": "Documento de la convocatoria en lengua cooficial",
+      "nombreFic": "20260730_convoc_excelen_inicio_doutor.pdf",
+      "long": 456110,
+      "datMod": "2026-07-30",
+      "datPublicacion": "2026-07-30"
+    },
+    {
+      "id": 1502996,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "convoc_excelen_inicio_doutor (castellano).pdf",
+      "long": 392953,
+      "datMod": "2026-07-30",
+      "datPublicacion": "2026-07-30"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

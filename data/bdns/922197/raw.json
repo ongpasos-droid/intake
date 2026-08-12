@@ -1,0 +1,84 @@
+{
+  "id": 1123758,
+  "organo": {
+    "nivel1": "OTROS",
+    "nivel2": "UNIVERSIDAD DE ALICANTE",
+    "nivel3": null
+  },
+  "sedeElectronica": null,
+  "codigoBDNS": "922197",
+  "fechaRecepcion": "2026-07-29",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 10500,
+  "mrr": false,
+  "descripcion": "AYUDAS ECONÓMICAS AL ESTUDIANTADO DE NUEVO INGRESO EN LOS MÁSTERES OFICIALES DE LA FACULTAD DE CIENCIAS DE LA UNIVERSIDAD DE ALICANTE  CURSO 2026-2027",
+  "descripcionLeng": null,
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "Educación terciaria",
+      "codigo": "85.4"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES - ESPAÑA "
+    }
+  ],
+  "descripcionFinalidad": "Educación",
+  "descripcionBasesReguladoras": "AYUDAS ECONÓMICAS AL ESTUDIANTADO DE NUEVO INGRESO EN LOS MÁSTERES OFICIALES DE LA FACULTAD DE CIENCIAS DE LA UNIVERSIDAD DE ALICANTE  CURSO 2026-2027",
+  "urlBasesReguladoras": "https://www.boua.ua.es/Acuerdos/DescargarAcuerdo/68861",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": "2026-09-01",
+  "fechaFinSolicitud": "2026-10-10",
+  "textInicio": null,
+  "textFin": null,
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1501870,
+      "descripcion": "Texto en otra lengua de la convocatoria",
+      "nombreFic": "2027SBV003_conv.pdf",
+      "long": 234666,
+      "datMod": "2026-07-29",
+      "datPublicacion": "2026-07-29"
+    },
+    {
+      "id": 1501869,
+      "descripcion": "Texto en castellano de la convocatoria",
+      "nombreFic": "2027SBV003_conv.pdf",
+      "long": 234666,
+      "datMod": "2026-07-29",
+      "datPublicacion": "2026-07-29"
+    }
+  ],
+  "anuncios": [
+    {
+      "numAnuncio": 218274,
+      "titulo": "Extracto de la Resolución de 24 de julio de 2026, del Rectorado, por la que se convocan AYUDAS ECONÓMICAS AL ESTUDIANTADO DE NUEVO INGRESO EN LOS MÁSTERES OFICIALES DE LA FACULTAD DE CIENCIAS DE LA UNIVERSIDAD DE ALICANTE CURSO 2026-2027",
+      "tituloLeng": "Extracte de la Resolució de 24 de juliol de 2026, del Rectorat, per la qual es convoquen AJUDES ECONÒMIQUES A L'ESTUDIANTAT DE NOU INGRÉS EN ELS MÀSTERS OFICIALS DE LA FACULTAT DE CIÈNCIES DE LA UNIVERSITAT D'ALACANT CURS 2026-2027",
+      "texto": "<p>Primero. Objeto:\n</p><p>La finalidad de estas ayudas es apoyar la realización de actividades formativas en los másteres oficiales que se especifican y que se realizan fuera del centro.\n</p><p>\n</p><p>\n</p><p>Segundo. Beneficiarios:\n</p><p>Podrá solicitar esta ayuda el estudiantado que cumpla los requisitos establecidos en las bases de la convocatoria.\n</p><p>\n</p><p>\n</p><p>Tercero. Bases reguladoras:\n</p><p>Las bases reguladoras y convocatoria están publicadas de manera conjunta en el Boletín Oficial de la Universidad de Alicante de día 29 de julio de 2026 , en la siguiente URL:\n</p><p>https://www.boua.ua.es/Acuerdos/DescargarAcuerdo/68861\n</p><p>\n</p><p>Cuarto. Cuantía:\n</p><p>La dotación de esta convocatoria es de un máximo de 10.500  euros.\n</p><p>\n</p><p>Quinto. Plazo de presentación de solicitudes:\n</p><p>La convocatoria se publicará en BOUA con carácter informativo previamente a la publicación de su extracto en el DOGV.\n</p><p>El plazo de solicitud se inicia el día 1 de septiembre y finaliza el día 10 de octubre de 2026.\n</p>",
+      "textoLeng": "<p>Primer. Objecte:\n</p><p>La finalitat d'estes ajudes és donar suport a la realització d'activitats formatives en els màsters oficials que s'especifiquen i que es realitzen fora del centre.\n</p><p>\n</p><p>\n</p><p>Segon. Beneficiaris:\n</p><p>Podrà sol·licitar esta ajuda l'estudiantat que complisca els requisits establits en les bases de la convocatòria.\n</p><p>\n</p><p>\n</p><p>Tercer. Bases reguladores:\n</p><p>Les bases reguladores i convocatòria estan publicades de manera conjunta en el Butlletí Oficial de la Universitat d'Alacant de dia 29 de juliol de 2026 , en la següent URL:\n</p><p>https://www.boua.ua.es/acuerdos/descargaracuerdo/68861\n</p><p>\n</p><p>Quart. Quantia:\n</p><p>La dotació d'esta convocatòria és d'un màxim de 10.500 euros.\n</p><p>\n</p><p>Quint. Termini de presentació de sol·licituds:\n</p><p>La convocatòria es publicarà en BOUA amb caràcter informatiu prèviament a la publicació del seu extracte en el DOGV.\n</p><p>El termini de sol·licitud s'inicia el dia 1 de setembre i finalitza el dia 10 d'octubre de 2026.\n</p>",
+      "url": "https://dogv.gva.es/va/resultat-dogv?signatura=2026/25679",
+      "cve": "DOGV-V-2026-25679",
+      "desDiarioOficial": "DOCV. D.O. DE LA COMUNITAT VALENCIANA",
+      "datPublicacion": "2026-07-31"
+    }
+  ],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

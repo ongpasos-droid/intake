@@ -1,0 +1,72 @@
+{
+  "id": 1125448,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "GETXO",
+    "nivel3": "AYUNTAMIENTO DE GETXO"
+  },
+  "sedeElectronica": "www.getxo.eus",
+  "codigoBDNS": "923887",
+  "fechaRecepcion": "2026-08-06",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 95336,
+  "mrr": false,
+  "descripcion": "Convocatoria 2026 para la concesión de subvenciones para entidades que actúen en el ámbito de Cohesión social del municipio de Getxo  línea 2: Proyectos de interés en el ámbito de la cohesión social, sublínea 2_A",
+  "descripcionLeng": "Getxo udalerriko gizarte kohesioan lan egiten duten erakundeei diru-laguntzak emateko 2026ko deialdia: 2. Diru-laguntza ildoa: gizarte kohesioaren arloko intereseko proiektuak 2_A Azpi lerroa",
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "ACTIVIDADES SANITARIAS Y DE SERVICIOS SOCIALES",
+      "codigo": "R"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES213 - Bizkaia"
+    }
+  ],
+  "descripcionFinalidad": "Servicios Sociales y Promoción Social",
+  "descripcionBasesReguladoras": "Convocatoria 2026 para la concesión de subvenciones para entidades que actúen en el ámbito de Cohesión social del municipio de Getxo  línea 2: Proyectos de interés en el ámbito de la cohesión social, sublínea 2_A",
+  "urlBasesReguladoras": "www.getxo.eus",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": "2026-09-01",
+  "fechaFinSolicitud": "2026-09-20",
+  "textInicio": null,
+  "textFin": null,
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1506328,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "CONVOCATORIA 2026.pdf",
+      "long": 484731,
+      "datMod": "2026-08-06",
+      "datPublicacion": "2026-08-06"
+    },
+    {
+      "id": 1506329,
+      "descripcion": "Documento de la convocatoria en lengua cooficial",
+      "nombreFic": "2026KO DEIALDIA.pdf",
+      "long": 469885,
+      "datMod": "2026-08-06",
+      "datPublicacion": "2026-08-06"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

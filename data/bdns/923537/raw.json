@@ -1,0 +1,76 @@
+{
+  "id": 1125098,
+  "organo": {
+    "nivel1": "AUTONOMICA",
+    "nivel2": "PRINCIPADO DE ASTURIAS",
+    "nivel3": "CONSEJERÍA DE DERECHOS SOCIALES Y BIENESTAR"
+  },
+  "sedeElectronica": "https://miprincipado.asturias.es/",
+  "codigoBDNS": "923537",
+  "fechaRecepcion": "2026-08-04",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 6000,
+  "mrr": false,
+  "descripcion": "Premio a la promoción de los derechos humanos",
+  "descripcionLeng": null,
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "Actividades de organizaciones y organismos extraterritoriales",
+      "codigo": "99"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "XXX - Regiones o países no europeos, no contemplados en NUTS"
+    }
+  ],
+  "descripcionFinalidad": "Cooperación internacional para el desarrollo y cultural",
+  "descripcionBasesReguladoras": "Resolución de la Consejería de Presidencia de fecha 30 de julio de 2021",
+  "urlBasesReguladoras": "https://miprincipado.asturias.es/bopa/2021/08/17/2021-07599.pdf",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": null,
+  "fechaFinSolicitud": "2026-11-04",
+  "textInicio": "Día siguiente a la publicación del extracto",
+  "textFin": null,
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1505234,
+      "descripcion": "Texto en castellano de la convocatoria",
+      "nombreFic": "Resolucion_Consejeria_Derechos_Sociales_y_Bienestar_Firma_Consejero (16).pdf",
+      "long": 310060,
+      "datMod": "2026-08-04",
+      "datPublicacion": "2026-08-04"
+    }
+  ],
+  "anuncios": [
+    {
+      "numAnuncio": 218712,
+      "titulo": "Extracto de la Resolución de la Consejería de Derechos Sociales y Bienestar de 3 de agosto de 2026 por la que se aprueba la convocatoria del Premio a la promoción de los derechos humanos 2026.",
+      "tituloLeng": null,
+      "texto": "<p>Primero.- Objeto:</p><p>La concesión, en régimen de concurrencia competitiva, de un premio a la promoción de los derechos humanos, que reconozca los valores cívicos de personas o entidades que se hayan distinguido por su lucha en pro de la libertad y los derechos humanos y especialmente, de quienes, injustamente, son o han sido objeto de persecución o sufren o han sufrido detenciones, condenas o castigos a causa de su compromiso con la libertad, la tolerancia y la humanidad, promoviendo así en la sociedad asturiana los valores de justicia social y defensa de los derechos humanos.</p><p>Segundo.- Requisitos:</p><p>Podrán participar las personas, entidades o instituciones destacadas por la lucha por la libertad y la defensa de los derechos humanos.</p><p>Podrá proponer una candidatura al premio cualquier entidad o institución con sede o delegación en el Principado de Asturias.</p><p>Tercero.- Bases reguladoras:</p><p>Resolución de 30 de julio de 2021, de la Consejería de Presidencia por la que se aprueban las bases reguladoras para la concesión del premio a la promoción de los derechos humanos (BOPA nº 158, de 17-VIII-2021).</p><p>Cuarto.- Premio:</p><p>El premio está dotado con seis mil euros (6.000,00 €).</p><p>Quinto.- Plazo de presentación:</p><p>El plazo de presentación de solicitudes comienza el día siguiente a la publicación del presente extracto y finaliza el 4 de noviembre, incluido.</p><p>Sexto.- Otros datos:</p><p>En la sede electrónica del Principado de Asturias (https://miprincipado.asturias.es) está publicada la Ficha de información administrativa, que se podrá localizar introduciendo el código PREM0028T01 en el buscador, en la que se encontrará información complementaria, el formulario y la posibilidad de iniciar electrónicamente la solicitud.</p>",
+      "textoLeng": null,
+      "url": "https://miprincipado.asturias.es/bopa/disposiciones?p_p_id=pa_sede_bopa_web_portlet_SedeBopaDispositionWeb&p_p_lifecycle=0&_pa_sede_bopa_web_portlet_SedeBopaDispositionWeb_mvcRenderCommandName=%2Fdisposition%2Fdetail&p_r_p_dispositionText=2026-06660&p_r_p_dispositionReference=2026-06660&p_r_p_dispositionDate=11%2F08%2F2026",
+      "cve": null,
+      "desDiarioOficial": "BOPA. B.O. DEL PRINCIPADO DE ASTURIAS",
+      "datPublicacion": "2026-08-11"
+    }
+  ],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

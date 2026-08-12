@@ -1,0 +1,75 @@
+{
+  "source": "bdns",
+  "source_id": "922940",
+  "source_lang": "es",
+  "level": "ccaa",
+  "programme": "Concurrencia competitiva - canónica",
+  "sub_programme": null,
+  "publishing_authority_code": "AUTONOMICA / REGIÓN DE MURCIA / SERVICIO REGIONAL DE EMPLEO Y FORMACIÓN (SEF)",
+  "nuts_codes": [
+    "ES62"
+  ],
+  "nuts_primary": "ES62",
+  "title": "ACCIONES FORMATIVAS 2026 (MODALIDAD 2) - FORMACIÓN PROFESIONAL PARA EL EMPLEO - EDUCACIÓN",
+  "title_lang": "es",
+  "summary": "Desempleo",
+  "status": "open",
+  "publication_date": "2026-07-31",
+  "open_date": null,
+  "deadline": "2026-09-20",
+  "deadline_model": "continuous",
+  "deadlines_extra": null,
+  "budget_total_eur": 13868166,
+  "budget_per_project_min_eur": null,
+  "budget_per_project_max_eur": null,
+  "expected_grants": null,
+  "cofinancing_pct": null,
+  "duration_months": null,
+  "audience": "GRAN EMPRESA; PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA; PYME Y PERSONAS FÍSICAS QUE DESARROLLAN ACTIVIDAD ECONÓMICA",
+  "eligible_orgs": [
+    "GRAN EMPRESA",
+    "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA",
+    "PYME Y PERSONAS FÍSICAS QUE DESARROLLAN ACTIVIDAD ECONÓMICA"
+  ],
+  "eligible_countries": [
+    "ES"
+  ],
+  "sectores": [
+    {
+      "codigo": "85.5",
+      "descripcion": "Otra educación"
+    }
+  ],
+  "apply_url": "https://sede.carm.es/web/pagina?IDCONTENIDO=2242&IDTIPO=240&RASTRO=c$m40288",
+  "details_url": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatoria/922940",
+  "documents": [
+    {
+      "label": "Documento de la convocatoria en español",
+      "url": null
+    }
+  ],
+  "bases_reguladoras_url": "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2022-16196",
+  "text_inicio": "Desde el día siguiente a la publicación de la convocatoria en BORM",
+  "text_fin": null,
+  "se_publica_diario_oficial": true,
+  "ayuda_estado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectores_productos": [],
+  "anuncios": [
+    {
+      "numAnuncio": 218494,
+      "titulo": "Extracto de la Resolución de 31 de julio de 2026 de la Dirección General del SEF de convocatoria de subvenciones destinadas a la realización de acciones formativas, correspondientes a la formación de oferta dirigida a personas trabajadoras desempleadas en el ámbito de la Comunidad Autónoma de la Región de Murcia para 2026 (Educación).",
+      "tituloLeng": null,
+      "texto": "<p>Descripción de la convocatoria.</p><p>Las subvenciones que se concedan al amparo de esta convocatoria tendrán como finalidad la financiación de acciones formativas dirigidas principalmente a personas desempleadas con necesidades formativas especiales o con dificultades para su inserción por su situación de vulnerabilidad, a fomentar el empleo en sectores emergentes y la creación de empresas.</p><p>De esta manera, las acciones formativas que se financian por esta convocatoria tienen por finalidad ofrecer a los trabajadores desempleados una formación ajustada a las necesidades de formación individuales y del sistema productivo, que les permita adquirir las competencias requeridas en el mercado de trabajo y mejorar su empleabilidad, así como la subvención de acciones formativas que respondan a las necesidades de formación específicas de las empresas en atención a las demandas de cualificación provenientes de los sistemas propios de producción, de la tecnología particular que empleen o de las aplicaciones de gestión que utilicen estas empresas, entre otros aspectos, contribuyendo a la mejora de la competitividad de las empresas de la Región de Murcia al tiempo que se impulsa la inserción laboral de trabajadores desempleados.</p><p>Primero. Beneficiarios.</p><p>Podrán ser beneficiarias de estas subvenciones las entidades de formación pública o privada, acreditada en el Registro de Entidades de Formación del SEF y en el Registro Estatal de Entidades de Formación, para impartir las especialidades formativas objeto de esta convocatoria, en la modalidad presencial y con presencia en el ámbito territorial de la Región de Murcia.</p><p>Segundo. Objeto.</p><p>La presente resolución tiene por objeto convocar, en régimen de concurrencia competitiva, las subvenciones para la realización de acciones formativas dirigidas a personas trabajadoras desempleadas a desarrollar en el ámbito de la Comunidad Autónoma de la Región de Murcia para 2026.</p><p>Tercero. Bases reguladoras.</p><p>Orden EFP/942/2022, de 23 de septiembre, por la que se regula la oferta formativa del sistema de Formación profesional en el ámbito laboral asociada al Catálogo Nacional de Cualificaciones Profesionales efectuada por las administraciones competentes, se establecen bases reguladoras, así como las condiciones para su financiación.</p><p>Cuarto. Cuantía.</p><p>El importe total convocado es de 13.868.166,00 euros</p><p>Quinto. Plazo de presentación de solicitudes</p><p>El plazo de presentación de la solicitud será desde el siguiente a la publicación del extracto de esta resolución en el Boletín Oficial de la Región de Murcia hasta el 20 de septiembre de 2026.</p>",
+      "textoLeng": null,
+      "url": "https://www.borm.es/services/anuncio/ano/2026/numero/3874/pdf",
+      "cve": "A-040826-3874",
+      "desDiarioOficial": "BORM. B.O. DE LA REGIÓN DE MURCIA",
+      "datPublicacion": "2026-08-04"
+    }
+  ],
+  "mrr_flag": false,
+  "fetchedAt": "2026-08-12T18:13:53.341Z"
+}

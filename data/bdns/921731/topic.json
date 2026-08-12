@@ -1,0 +1,81 @@
+{
+  "source": "bdns",
+  "source_id": "921731",
+  "source_lang": "es",
+  "level": "local",
+  "programme": "Concesión directa - canónica",
+  "sub_programme": null,
+  "publishing_authority_code": "LOCAL / LASARTE-ORIA / AYUNTAMIENTO DE LASARTE-ORIA",
+  "nuts_codes": [
+    "ES212"
+  ],
+  "nuts_primary": "ES212",
+  "title": "Convocatoria 2026 de las subvenciones para la euskaldunización del paisaje lingüistico de empresas y asociaciones y para la realización de actividades puntuales son el objeto de promover el uso del euskera en las mismas",
+  "title_lang": "es",
+  "summary": "Educación",
+  "status": "open",
+  "publication_date": "2026-07-27",
+  "open_date": "2025-09-01",
+  "deadline": "2026-09-30",
+  "deadline_model": "single-stage",
+  "deadlines_extra": null,
+  "budget_total_eur": 8000,
+  "budget_per_project_min_eur": null,
+  "budget_per_project_max_eur": null,
+  "expected_grants": null,
+  "cofinancing_pct": null,
+  "duration_months": null,
+  "audience": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA",
+  "eligible_orgs": [
+    "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+  ],
+  "eligible_countries": [
+    "ES"
+  ],
+  "sectores": [
+    {
+      "codigo": "Q",
+      "descripcion": "EDUCACIÓN"
+    }
+  ],
+  "apply_url": "https://www.lasarte-oria.eus",
+  "details_url": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatoria/921731",
+  "documents": [
+    {
+      "label": "Documento de la convocatoria en lengua cooficial",
+      "url": null
+    },
+    {
+      "label": "Documento de la convocatoria en español",
+      "url": null
+    }
+  ],
+  "bases_reguladoras_url": "https://egoitza.gipuzkoa.eus/gaobog/ castell/bog/2026/04/17/c2602062.htm",
+  "text_inicio": null,
+  "text_fin": null,
+  "se_publica_diario_oficial": true,
+  "ayuda_estado": null,
+  "fondos": [
+    {
+      "descripcion": "FEDER - FONDO EUROPEO DE DESARROLLO REGIONAL"
+    }
+  ],
+  "reglamento": null,
+  "objetivos": [],
+  "sectores_productos": [],
+  "anuncios": [
+    {
+      "numAnuncio": 218122,
+      "titulo": "Subvenciones para la euskaldunización del paisaje lingüístico de empresas y asociaciones y para la realización de actividades puntuales con el objeto de promover el uso del euskera en las mismas",
+      "tituloLeng": "Enpresetan eta elkarteetan hizkuntza-paisaia euskalduntzeko eta bertan euskararen erabilera sustatzeko ekintza puntualak egiteko dirulaguntzak",
+      "texto": "<p>1.- Aprobar la convocatoria del año 2026 de las subvenciones para euskaldunizar el paisaje lingüístico de las empresas y asociaciones.</p><p>2.- Proveer dicha convocatoria con 8.000€ de la partida     1.6000.471.01.335.10.2026.</p><p>3.- Gestionar dicha convocatoria de acuerdo con las “Bases reguladoras de las subvenciones del área de euskera” aprobadas por Decreto de Alcaldía 2026/703 de 18 de marzo de 2026 (BOG 17/04/2026).</p><p>4.- La convocatoria se remitirá a la BDNS y posteriormente se publicará en el BOG.</p>",
+      "textoLeng": "<p>1.- Enpresetako eta elkarteetako hizkuntza-paisaia euskalduntzeko 2026ko dirulaguntzen deialdia onestea.</p><p>2.- Deialdi hori 1.6000.471.01.335.10.2026 kontu-saileko 8.000 €-rekin hornitzea.</p><p>3.- Deialdi hori 2026ko martxoaren 18ko 2026/703 Alkate Dekretuaren bidez onartutako “Euskara saileko diru-laguntzak arautzeko oinarrien\" arabera kudeatzea (GAO, 2026ko apirilak 17).</p><p>4.- Aipatutako deialdia BDNSra bidaliko da eta ondoren GAOn argitaratuko dira.</p>",
+      "url": "https://egoitza.gipuzkoa.eus/gao-bog/castell/bog/2026/08/04/c2605164.pdf",
+      "cve": "GAO-I-2026-05164",
+      "desDiarioOficial": "B.O. DE GIPUZKOA",
+      "datPublicacion": "2026-08-04"
+    }
+  ],
+  "mrr_flag": false,
+  "fetchedAt": "2026-08-12T18:13:53.119Z"
+}

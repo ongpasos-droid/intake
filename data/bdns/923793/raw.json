@@ -1,0 +1,88 @@
+{
+  "id": 1125354,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "BERMEO",
+    "nivel3": "AYUNTAMIENTO DE BERMEO"
+  },
+  "sedeElectronica": "https:// egoitza-bermeokoudala.eus",
+  "codigoBDNS": "923793",
+  "fechaRecepcion": "2026-08-06",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 300,
+  "mrr": false,
+  "descripcion": "Convocatoria de subvenciones para el año 2026 para la preparación y consecución del carnet de conducir en Euskera.",
+  "descripcionLeng": "2026. urtean gidabaimena euskaraz prestatzeko eta ateratzeko dirulaguntzaren deialdia.",
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "OTROS SERVICIOS",
+      "codigo": "T"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES213 - Bizkaia"
+    }
+  ],
+  "descripcionFinalidad": "Cultura",
+  "descripcionBasesReguladoras": "Convocatoria de subvenciones para el año 2026 para la preparación y consecución del carnet de conducir en Euskera.",
+  "urlBasesReguladoras": "http//www.bermeo.eus//1304.html",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": "2026-10-01",
+  "fechaFinSolicitud": "2026-10-30",
+  "textInicio": null,
+  "textFin": null,
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1506076,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "Erabakiaren edukia gazteleraz.pdf",
+      "long": 379672,
+      "datMod": "2026-08-06",
+      "datPublicacion": "2026-08-06"
+    },
+    {
+      "id": 1506092,
+      "descripcion": "Eskaera inprimakia",
+      "nombreFic": "251-E.11-26 Gidabimena euskaraz prestatu eta ateratzeko dirulaguntza eskaera-orria.pdf",
+      "long": 245220,
+      "datMod": "2026-08-06",
+      "datPublicacion": "2026-08-06"
+    },
+    {
+      "id": 1506091,
+      "descripcion": "Impreso solilcitud",
+      "nombreFic": "251-G.11-26 Gidabaimena euskaraz prestatu eta ateratzeko dirulaguntza eskaera-orria.pdf",
+      "long": 418150,
+      "datMod": "2026-08-06",
+      "datPublicacion": "2026-08-06"
+    },
+    {
+      "id": 1506079,
+      "descripcion": "Documento de la convocatoria en lengua cooficial",
+      "nombreFic": "Erabakiaren edukia euskeraz.pdf",
+      "long": 853333,
+      "datMod": "2026-08-06",
+      "datPublicacion": "2026-08-06"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

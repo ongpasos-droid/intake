@@ -1,0 +1,76 @@
+{
+  "id": 1125102,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "MIJAS",
+    "nivel3": "AYUNTAMIENTO DE MIJAS"
+  },
+  "sedeElectronica": "https://mijas.sedelectronica.es/info.0",
+  "codigoBDNS": "923541",
+  "fechaRecepcion": "2026-08-04",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 18000,
+  "mrr": false,
+  "descripcion": "CONVOCATORIA  PARA LA CONCESIÓN EN RÉGIMEN DE CONCURRENCIA COMPETITIVA \nDE SUBVENCIONES DEL ÁREA DE FAMILIA E IGUALDAD DE OPORTUNIDADES PARA \nENTIDADES SIN ÁNIMO DE LUCRO",
+  "descripcionLeng": null,
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "ACTIVIDADES SANITARIAS Y DE SERVICIOS SOCIALES",
+      "codigo": "R"
+    },
+    {
+      "descripcion": "OTROS SERVICIOS",
+      "codigo": "T"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES617 - Málaga"
+    }
+  ],
+  "descripcionFinalidad": "Otras actuaciones de carácter económico",
+  "descripcionBasesReguladoras": "CONVOCATORIA  PARA LA CONCESIÓN EN RÉGIMEN DE CONCURRENCIA COMPETITIVA \nDE SUBVENCIONES DEL ÁREA DE FAMILIA E IGUALDAD DE OPORTUNIDADES PARA \nENTIDADES SIN ÁNIMO DE LUCRO",
+  "urlBasesReguladoras": "20251113-04325-2025-00.pdf.",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": null,
+  "fechaFinSolicitud": null,
+  "textInicio": "SIETE DÍAS DESPUES DE LA PUBLICACIÓN DEL BOPMA ",
+  "textFin": "Terminará 15 días hábiles después del inicio",
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1505251,
+      "descripcion": "ANEXOS",
+      "nombreFic": "20251209_Otros_Anexos de Solicitud y Justificación (3).pdf",
+      "long": 574420,
+      "datMod": "2026-08-04",
+      "datPublicacion": "2026-08-04"
+    },
+    {
+      "id": 1505250,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "20251205_Otros_CONVOCATORIA SUBV. ASOCIACIONES (6).pdf",
+      "long": 360728,
+      "datMod": "2026-08-04",
+      "datPublicacion": "2026-08-04"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

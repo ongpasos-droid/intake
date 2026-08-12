@@ -1,0 +1,72 @@
+{
+  "source": "bdns",
+  "source_id": "922466",
+  "source_lang": "es",
+  "level": "local",
+  "programme": "Concurrencia competitiva - canónica",
+  "sub_programme": null,
+  "publishing_authority_code": "LOCAL / VALDEPEÑAS / AYUNTAMIENTO DE VALDEPEÑAS",
+  "nuts_codes": [],
+  "nuts_primary": null,
+  "title": "Torneo Tángana Fiestas de la Vendimia y el Vino 2026",
+  "title_lang": "es",
+  "summary": "Cultura",
+  "status": "open",
+  "publication_date": "2026-07-30",
+  "open_date": "2026-08-29",
+  "deadline": "2026-08-30",
+  "deadline_model": "single-stage",
+  "deadlines_extra": null,
+  "budget_total_eur": 140,
+  "budget_per_project_min_eur": null,
+  "budget_per_project_max_eur": null,
+  "expected_grants": null,
+  "cofinancing_pct": null,
+  "duration_months": null,
+  "audience": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA; PYME Y PERSONAS FÍSICAS QUE DESARROLLAN ACTIVIDAD ECONÓMICA",
+  "eligible_orgs": [
+    "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA",
+    "PYME Y PERSONAS FÍSICAS QUE DESARROLLAN ACTIVIDAD ECONÓMICA"
+  ],
+  "eligible_countries": [
+    "ES"
+  ],
+  "sectores": [
+    {
+      "codigo": "S",
+      "descripcion": "ACTIVIDADES ARTÍSTICAS, DEPORTIVAS Y DE ENTRETENIMIENTO"
+    }
+  ],
+  "apply_url": null,
+  "details_url": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatoria/922466",
+  "documents": [
+    {
+      "label": "Documento de la convocatoria en español",
+      "url": null
+    }
+  ],
+  "bases_reguladoras_url": "https://www.valdepenas.es/festejos/",
+  "text_inicio": "29 de agosto de 2026",
+  "text_fin": "30 de agosto de 2026",
+  "se_publica_diario_oficial": true,
+  "ayuda_estado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectores_productos": [],
+  "anuncios": [
+    {
+      "numAnuncio": 218354,
+      "titulo": "Bases Torneo Tángana Fiestas de la Vendimia y el Vino 2026",
+      "tituloLeng": null,
+      "texto": "<p>El concurso se celebrará el día 30 de agosto de 2026 en el Parque del Este, siendo su inicio a las 9:30 horas.</p><p>Se establece un mínimo de cuatro personas para la celebración del concurso.</p><p>La inscripción al torneo es gratuita y se realizará 30 minutos antes del inicio del concurso.</p><p>Este concurso está organizado por el Excmo. Ayuntamiento de Valdepeñas y se instituyen los siguientes Premios, cuyo importe máximo asciende a 140 €.</p><p> 1º Premio: 50 € y Trofeo</p><p> 2º Premio: 40 € y Trofeo</p><p> 3º Premio: 30 € y Trofeo</p><p> 4º Premio: 20 € y Trofeo</p><p> </p><p> </p>",
+      "textoLeng": null,
+      "url": "https://se1.dipucr.es:4443/SIGEM_BuscadorDocsWeb/getDocument.do?entidad=005&doc=7699538",
+      "cve": "3HyX8ai9urBjALrqBQgQ",
+      "desDiarioOficial": "B.O.P. DE CIUDAD REAL",
+      "datPublicacion": "2026-07-31"
+    }
+  ],
+  "mrr_flag": false,
+  "fetchedAt": "2026-08-12T18:13:53.259Z"
+}
