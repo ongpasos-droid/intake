@@ -1,0 +1,68 @@
+{
+  "id": 1126514,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "NULES",
+    "nivel3": "AYUNTAMIENTO DE NULES"
+  },
+  "sedeElectronica": "WWW.NULES.ES",
+  "codigoBDNS": "924953",
+  "fechaRecepcion": "2026-08-13",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 5000,
+  "mrr": false,
+  "descripcion": "Concesión de ayudas económicas para la rehabilitación y pintura de fachadas y cubiertas de casas y  edificios de Nules, para el ejercicio 2026, aprobado por Resolución de Alcaldia nº 2026-3059",
+  "descripcionLeng": null,
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "CONSTRUCCIÓN",
+      "codigo": "F"
+    },
+    {
+      "descripcion": "OTROS SERVICIOS",
+      "codigo": "T"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES522 - Castellón / Castelló"
+    }
+  ],
+  "descripcionFinalidad": "Acceso a la vivienda y fomento de la edificación",
+  "descripcionBasesReguladoras": "Concesión de ayudas económicas para la rehabilitación y pintura de fachadas y cubiertas de casas y  edificios de Nules, para el ejercicio 2026, aprobado por Resolución de Alcaldia nº 2026-3059",
+  "urlBasesReguladoras": "WWW.NULES.ES",
+  "sePublicaDiarioOficial": true,
+  "abierto": true,
+  "fechaInicioSolicitud": null,
+  "fechaFinSolicitud": null,
+  "textInicio": null,
+  "textFin": null,
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1509284,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "DECRETO FACHADAS_[Resolució PR_2026_2742 - Actuació genèrica amb fiscalització].pdf",
+      "long": 1177524,
+      "datMod": "2026-08-13",
+      "datPublicacion": "2026-08-13"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

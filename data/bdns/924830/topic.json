@@ -1,0 +1,81 @@
+{
+  "source": "bdns",
+  "source_id": "924830",
+  "source_lang": "es",
+  "level": "local",
+  "programme": "Concurrencia competitiva - canónica",
+  "sub_programme": null,
+  "publishing_authority_code": "LOCAL / ALCALÁ LA REAL / AYUNTAMIENTO DE ALCALÁ LA REAL",
+  "nuts_codes": [
+    "ES616"
+  ],
+  "nuts_primary": "ES616",
+  "title": "Convocatoria Ayudas Complementarias Erasmus + 2025/2026 Universidades Granada, Córdoba y Málaga.",
+  "title_lang": "es",
+  "summary": "Educación",
+  "status": "open",
+  "publication_date": "2026-08-13",
+  "open_date": null,
+  "deadline": null,
+  "deadline_model": "continuous",
+  "deadlines_extra": null,
+  "budget_total_eur": 2400,
+  "budget_per_project_min_eur": null,
+  "budget_per_project_max_eur": null,
+  "expected_grants": null,
+  "cofinancing_pct": null,
+  "duration_months": null,
+  "audience": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA",
+  "eligible_orgs": [
+    "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+  ],
+  "eligible_countries": [
+    "ES"
+  ],
+  "sectores": [
+    {
+      "codigo": "Q",
+      "descripcion": "EDUCACIÓN"
+    }
+  ],
+  "apply_url": "https://alcalalareal.sedelectronica.es/",
+  "details_url": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatoria/924830",
+  "documents": [
+    {
+      "label": "Documento de la convocatoria en español",
+      "url": null
+    },
+    {
+      "label": "ORDENANZA GENERAL SUBVENCIONES AYTO. ALCALA LA REAL  11.09.2020",
+      "url": null
+    },
+    {
+      "label": "DECRETO 2026-3671 aprobación bases y convocatoria BECAS ERASMUS 25-26",
+      "url": null
+    }
+  ],
+  "bases_reguladoras_url": "https://alcalalareal.sedelectronica.es/doc/935WPDR5E323A2FAFN42JQLFH/.2",
+  "text_inicio": "A partir del día siguiente al de la publicación del extracto de convocatoria en el BOP de Jaén ",
+  "text_fin": "15 días naturales",
+  "se_publica_diario_oficial": true,
+  "ayuda_estado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectores_productos": [],
+  "anuncios": [
+    {
+      "numAnuncio": 219162,
+      "titulo": "Convocatoria Ayudas Complementarias Erasmus + 2025/2026 Universidades Granada, Córdoba y Málaga.(Expte. 4516/2026)",
+      "tituloLeng": null,
+      "texto": "<p>PRIMERO.- Beneficiarios</p><p>Podrán ser beneficiarios de las ayudas reguladas en las presentes bases el alumnado de las Universidades de Granada, Córdoba y Málaga que haya obtenido beca Erasmus+ o plaza de movilidad en la convocatoria de África, América, Asia, Europa (no Erasmus) y Oceanía para el curso académico 2025-2026, que estén empadronados en el municipio de Alcalá la Real.</p><p>Se establecen dos Ayudas para alumnado procedente de la Universidad de Granada, una para alumnado de la Universidad de Málaga, y otra para alumnado de la Universidad de Córdoba.</p><p>SEGUNDO.- Finalidad</p><p>Cubrir parte de los gastos soportados por el ALUMNADO matriculado en las universidades de Granada, Córdoba y Málaga que participan en Programas Universitarios de Movilidad Internacional - ERASMUS , Africa, América, Asia, Europa ( no Erasmus), curso 2025/2026</p><p>TERCERO.- Bases reguladoras</p><p>Las bases aplicables a la presente convocatoria aparecen en la sede electrónica del Ayuntamiento de Alcalá la Real https://alcalalareal.sedelectronica.es/, en su página web https://alcalalareal.es/ y en la Base de Datos Nacional de Subvenciones (BDNS) y en el enlace https://alcalalareal.sedelectronica.es/doc/935WPDR5E323A2FAFN42JQLFH/.2</p><p>CUARTO.- Cuantía</p><p>La asignación presupuestaria para las ayudas reguladas en las presentes bases será de un importe global máximo de 2.400 €, con cargo a la aplicación presupuestaria 241 48100. (4 becas de 600,00 € cada una).</p><p>QUINTO.- Plazo y lugar de presentación de solicitudes.</p><p>El plazo de presentación de solicitudes y documentación será de 15 días naturales desde el día siguiente al de la publicación del extracto de la convocatoria en el Boletín Oficial de la Provincia de Jaén, a través de su inserción en la BDNS, de conformidad con lo previsto en el artículo 20.8.a) de la Ley 38/2003, de 17 de noviembre.</p><p>La presentación de las solicitudes fuera de plazo constituirá causa de exclusión del procedimiento de concesión de subvenciones.</p><p>La resolución de inadmisión será notificada individualmente a la persona interesada en los términos de los artículos 40 a 44 de la Ley 39/2015, de 1 de octubre.</p><p>La participación en la presente convocatoria deberá tramitarse a través de la sede electrónica de la página web del Ayuntamiento de Alcalá la Real https://alcalalareal.sedelectronica.es/ rellenando el formulario electrónico normalizado que será firmado electrónicamente y que irá acompañado de la documentación exigida en el punto 3.1. anterior.</p><p>Las solicitudes deberán formularse en el modelo oficial que figura como Anexo II a las presentes bases. La participación en esta convocatoria implica, por parte de los solicitantes, el conocimiento y la íntegra aceptación de las bases reguladoras.</p><p>Lo que se hace público para general conocimiento.</p>",
+      "textoLeng": null,
+      "url": "http://bop.dipujaen.es/validaCVE?cve=BOP-2026-3928",
+      "cve": "BOP-2026-3928",
+      "desDiarioOficial": "B.O.P. DE JAÉN",
+      "datPublicacion": "2026-08-14"
+    }
+  ],
+  "mrr_flag": false,
+  "fetchedAt": "2026-08-14T04:08:31.472Z"
+}

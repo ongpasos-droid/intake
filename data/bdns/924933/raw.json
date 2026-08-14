@@ -1,0 +1,64 @@
+{
+  "id": 1126494,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "CABILDO INSULAR DE GRAN CANARIA",
+    "nivel3": "CABILDO INSULAR DE GRAN CANARIA"
+  },
+  "sedeElectronica": null,
+  "codigoBDNS": "924933",
+  "fechaRecepcion": "2026-08-13",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 150000,
+  "mrr": false,
+  "descripcion": "Convocatoria de subvenciones en régimen de concurrencia competitiva destinadas al desarrollo de largometrajes y series y a la producción de cortometrajes en la isla de Gran Canaria. Categoría de ficción, documental o animación. Anualidad 2026.",
+  "descripcionLeng": null,
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PYME Y PERSONAS FÍSICAS QUE DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "Actividades de creación artística y artes escénicas",
+      "codigo": "90"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES705 - Gran Canaria"
+    }
+  ],
+  "descripcionFinalidad": "Cultura",
+  "descripcionBasesReguladoras": "ORDENANZA GENERAL DE SUBVENCIONES DEL CABILDO DE GRAN CANARIA",
+  "urlBasesReguladoras": "https://transparencia.grancanaria.com/documents/150668/1274749/Ordenanza+General+de+Subvenciones+del+Cabildo+de+Gran+Canaria.pdf/12857022-e8e6-c930-4d86-3b64c83a59be?t=1683101346832",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": null,
+  "fechaFinSolicitud": null,
+  "textInicio": "a partir del día siguiente al de la publicación de la convocatoria en el B.O.P.",
+  "textFin": "20 días naturales contados a partir del día siguiente al de la publicación de la convocatoria ",
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1509217,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "0 PAV26 0 Convocatoria.pdf",
+      "long": 1523006,
+      "datMod": "2026-08-13",
+      "datPublicacion": "2026-08-13"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

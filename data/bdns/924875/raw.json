@@ -1,0 +1,84 @@
+{
+  "id": 1126436,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "LLEIDA",
+    "nivel3": "AYUNTAMIENTO DE LLEIDA"
+  },
+  "sedeElectronica": null,
+  "codigoBDNS": "924875",
+  "fechaRecepcion": "2026-08-13",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 80000,
+  "mrr": false,
+  "descripcion": "CONVOCATORIA DE SUBVENCIONES DEL AÑO 2026 DE LA LÍNEA L10.3 SUBVENCIONES DESTINADAS A POTENCIAR EL ÉXITO EDUCATIVO Y LA PARTICIPACIÓN EN LAS ACTIVIDADES DEPORTIVAS EXTRAESCOLARES EN EL MARCO DEL PLAN EDUCATIVO DE ENTORNO (Línea 1 - Potenciar el éxito Educ",
+  "descripcionLeng": "CONVOCATÒRIA DE SUBVENCIONS DE L’ANY 2026 DE LA LÍNIA L10.3 SUBVENCIONS\nDESTINADES A POTENCIAR L’ÈXIT EDUCATIU I LA PARTICIPACIÓ A LES ACTIVITATS\nESPORTIVES EXTRAESCOLARS EN EL MARC DEL PLA EDUCATIU D’ENTORN (Línia 1\n- Potenciar l’èxit Educatiu).",
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "EDUCACIÓN",
+      "codigo": "Q"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES513 - Lleida"
+    }
+  ],
+  "descripcionFinalidad": "Educación",
+  "descripcionBasesReguladoras": "\"L-10.3_SUBVENCIONES DESTINADAE A MEJORAR EL ÉXITO EDUCATIVO Y LA PARTICIPACIÓN EN ACTIVIDADES DEPORTIVAS EXTRAESCOLARES DENTRO DEL MARCO DEL PLAN EDUCATIVO DE ENTORNO\"",
+  "urlBasesReguladoras": "https://seu.paeria.cat/documentPublic/download/46616",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": null,
+  "fechaFinSolicitud": null,
+  "textInicio": "Dia siguiente de la publicación",
+  "textFin": "20 dias hábiles desde el dia siguiente a la publicación en el BOP",
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [
+    {
+      "descripcion": "FEDER - FONDO EUROPEO DE DESARROLLO REGIONAL"
+    }
+  ],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1509151,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "1. CONVOCATORIA_L-10.3.1 (2ª C).pdf",
+      "long": 206812,
+      "datMod": "2026-08-13",
+      "datPublicacion": "2026-08-13"
+    },
+    {
+      "id": 1509153,
+      "descripcion": "Acuerdo junta de gobierno local",
+      "nombreFic": "2. CERTIFICAT ACORD JGL_L-10.3.1.pdf",
+      "long": 328155,
+      "datMod": "2026-08-13",
+      "datPublicacion": "2026-08-13"
+    },
+    {
+      "id": 1509152,
+      "descripcion": "Documento de la convocatoria en lengua cooficial",
+      "nombreFic": "1.CONVOCATÒRIA_L10.3.1 (2a C).pdf",
+      "long": 258203,
+      "datMod": "2026-08-13",
+      "datPublicacion": "2026-08-13"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

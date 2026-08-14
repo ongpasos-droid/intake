@@ -1,0 +1,64 @@
+{
+  "id": 1126420,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "ALOVERA",
+    "nivel3": "AYUNTAMIENTO DE ALOVERA"
+  },
+  "sedeElectronica": null,
+  "codigoBDNS": "924859",
+  "fechaRecepcion": "2026-08-13",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 300,
+  "mrr": false,
+  "descripcion": "CONCURSO “TU FOTO DE LA FIESTAS” 2026",
+  "descripcionLeng": null,
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "ACTIVIDADES ARTÍSTICAS, DEPORTIVAS Y DE ENTRETENIMIENTO",
+      "codigo": "S"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES424 - Guadalajara"
+    }
+  ],
+  "descripcionFinalidad": "Cultura",
+  "descripcionBasesReguladoras": "BASES REGULADORAS DE LA CONCESIÓN DE PREMIOS EDUCATIVOS, CULTURALES, CIENTÍFICOS O DE CUALQUIER OTRA NATURALEZA SUJETOS A PUBLICIDAD Y CONCURRENCIA DEL AYUNTAMIENTO DE ALOVERA",
+  "urlBasesReguladoras": "https://alovera.sedelectronica.es/preview-document/1e1c135b-f1b1-4d31-b670-03432532be84/",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": "2026-08-31",
+  "fechaFinSolicitud": "2026-09-13",
+  "textInicio": null,
+  "textFin": null,
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1509116,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "20260723_Otros_Extracto de la convocatoria (2).pdf",
+      "long": 214651,
+      "datMod": "2026-08-13",
+      "datPublicacion": "2026-08-13"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

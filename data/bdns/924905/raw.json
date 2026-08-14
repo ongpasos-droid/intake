@@ -1,0 +1,70 @@
+{
+  "id": 1126466,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "CABILDO INSULAR DE LANZAROTE",
+    "nivel3": "CABILDO INSULAR DE LANZAROTE"
+  },
+  "sedeElectronica": "https://cabildodelanzarote.sedelectronica.es/",
+  "codigoBDNS": "924905",
+  "fechaRecepcion": "2026-08-13",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 200000,
+  "mrr": false,
+  "descripcion": "CONVOCATORIA DE SUBVENCIONES EN RÉGIMEN DE CONCURRENCIA COMPETITIVA PARA INTERVENCIONES SOBRE BIENES INMUEBLES INTEGRANTES DEL PATRIMONIO CULTURAL DE CANARIAS EN LANZAROTE Y LA GRACIOSA - EJERCICIO 2026",
+  "descripcionLeng": null,
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    },
+    {
+      "descripcion": "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    },
+    {
+      "descripcion": "PYME Y PERSONAS FÍSICAS QUE DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "OTROS SERVICIOS",
+      "codigo": "T"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES708 - Lanzarote"
+    }
+  ],
+  "descripcionFinalidad": "Otras Prestaciones económicas",
+  "descripcionBasesReguladoras": "BASES REGULADORAS CONCESIÓN SUBVENCIONES CONCURRENCIA COMPETITIVA PARA MANTENIMIENTO, CONSERVACIÓN, RESTAURACIÓN, CONSOLIDACIÓN, REHABILITACIÓN Y RECONSTRUCCIÓN DE BIENES INMUEBLES INTEGRANTES DEL PATRIMONIO CULTURAL DE CANARIAS EN LANZAROTE Y LA GRACIOSA",
+  "urlBasesReguladoras": "https://www.boplaspalmas.net/boletines/2026/08-7-26/08-7-26.pdf",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": null,
+  "fechaFinSolicitud": null,
+  "textInicio": "Un mes desde el día siguiente al de la publicación de la convocatoria en el BOP de Las Palmas",
+  "textFin": "Un mes desde el día siguiente al de la publicación de la convocatoria en el BOP de Las Palmas",
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1509178,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "Acuerdo Consejo de Gobierno Insular - Convocatoria Subvenciones concurrencia competitiva Servicio Patrimonio Historico Cabildo Lanzarote 2026.pdf",
+      "long": 12667977,
+      "datMod": "2026-08-13",
+      "datPublicacion": "2026-08-13"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}
