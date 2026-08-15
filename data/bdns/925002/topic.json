@@ -1,0 +1,81 @@
+{
+  "source": "bdns",
+  "source_id": "925002",
+  "source_lang": "es",
+  "level": "local",
+  "programme": "Concurrencia competitiva - canónica",
+  "sub_programme": null,
+  "publishing_authority_code": "LOCAL / OLEIROS / AYUNTAMIENTO DE OLEIROS",
+  "nuts_codes": [
+    "ES111"
+  ],
+  "nuts_primary": "ES111",
+  "title": "BASES ESPECÍFICAS Y CONVOCATORIA DE SUBVENCIONES A ASOCIACIONES DE MADRES Y PADRES DE LOS CENTROS DE ENSEÑANZA PÚBLICA Y DE LAS ESCUELAS ARTÍSTICAS MUNICIPALES DEL AYUNTAMIENTO DE OLEIROS PARA LA REALIZACIÓN DE ACTIVIDADES 2026.",
+  "title_lang": "es",
+  "summary": "Educación",
+  "status": "open",
+  "publication_date": "2026-08-14",
+  "open_date": null,
+  "deadline": "2026-09-15",
+  "deadline_model": "continuous",
+  "deadlines_extra": null,
+  "budget_total_eur": 58000,
+  "budget_per_project_min_eur": null,
+  "budget_per_project_max_eur": null,
+  "expected_grants": null,
+  "cofinancing_pct": null,
+  "duration_months": null,
+  "audience": "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA",
+  "eligible_orgs": [
+    "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+  ],
+  "eligible_countries": [
+    "ES"
+  ],
+  "sectores": [
+    {
+      "codigo": "Q",
+      "descripcion": "EDUCACIÓN"
+    }
+  ],
+  "apply_url": null,
+  "details_url": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatoria/925002",
+  "documents": [
+    {
+      "label": "Anexo 2. Proxecto de actividades.",
+      "url": null
+    },
+    {
+      "label": "Anexo 3.2. Xustificación-Certificación de ingresos.",
+      "url": null
+    },
+    {
+      "label": "Anexo 3.3. Xustificación-Certificación de gastos.",
+      "url": null
+    },
+    {
+      "label": "Anexo 3.1. Xustificación-Memoria.",
+      "url": null
+    },
+    {
+      "label": "Anexo 1. Solicitude.",
+      "url": null
+    },
+    {
+      "label": "Documento de la convocatoria en español",
+      "url": null
+    }
+  ],
+  "bases_reguladoras_url": "https://bop.dicoruna.es/bopportal/publicado/2021/01/18/2021_0000000196.pdf",
+  "text_inicio": "Ao día seguinte da publicación do extracto da convocatoria no BOP.",
+  "text_fin": null,
+  "se_publica_diario_oficial": true,
+  "ayuda_estado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectores_productos": [],
+  "anuncios": [],
+  "mrr_flag": false,
+  "fetchedAt": "2026-08-15T04:05:33.590Z"
+}

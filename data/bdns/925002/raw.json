@@ -1,0 +1,104 @@
+{
+  "id": 1126563,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "OLEIROS",
+    "nivel3": "AYUNTAMIENTO DE OLEIROS"
+  },
+  "sedeElectronica": null,
+  "codigoBDNS": "925002",
+  "fechaRecepcion": "2026-08-14",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 58000,
+  "mrr": false,
+  "descripcion": "BASES ESPECÍFICAS Y CONVOCATORIA DE SUBVENCIONES A ASOCIACIONES DE MADRES Y PADRES DE LOS CENTROS DE ENSEÑANZA PÚBLICA Y DE LAS ESCUELAS ARTÍSTICAS MUNICIPALES DEL AYUNTAMIENTO DE OLEIROS PARA LA REALIZACIÓN DE ACTIVIDADES 2026.",
+  "descripcionLeng": "BASES ESPECÍFICAS E CONVOCATORIA DE SUBVENCIÓNS A ASOCIACIÓNS DE NAIS E PAIS DOS CENTROS DE ENSINO PÚBLICOS E DAS ESCOLAS ARTÍSTICAS MUNICIPAIS DO CONCELLO DE OLEIROS PARA A REALIZACIÓN DE ACTIVIDADES 2026.",
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "EDUCACIÓN",
+      "codigo": "Q"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES111 - A Coruña"
+    }
+  ],
+  "descripcionFinalidad": "Educación",
+  "descripcionBasesReguladoras": "ORDENANZA REGULADORA DE LAS BASES DE SUBVENCIONES DEL AYUNTAMIENTO DE OLEIROS.",
+  "urlBasesReguladoras": "https://bop.dicoruna.es/bopportal/publicado/2021/01/18/2021_0000000196.pdf",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": null,
+  "fechaFinSolicitud": "2026-09-15",
+  "textInicio": "Ao día seguinte da publicación do extracto da convocatoria no BOP.",
+  "textFin": null,
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1509393,
+      "descripcion": "Anexo 2. Proxecto de actividades.",
+      "nombreFic": "Modelo 2. Proxecto de actividades.pdf",
+      "long": 813759,
+      "datMod": "2026-08-14",
+      "datPublicacion": "2026-08-14"
+    },
+    {
+      "id": 1509396,
+      "descripcion": "Anexo 3.2. Xustificación-Certificación de ingresos.",
+      "nombreFic": "Modelo 3.2. Xustificación-Certificación de ingresos..pdf",
+      "long": 540637,
+      "datMod": "2026-08-14",
+      "datPublicacion": "2026-08-14"
+    },
+    {
+      "id": 1509397,
+      "descripcion": "Anexo 3.3. Xustificación-Certificación de gastos.",
+      "nombreFic": "Modelo 3.3. Xustificación-Certificación de gastos.pdf",
+      "long": 815383,
+      "datMod": "2026-08-14",
+      "datPublicacion": "2026-08-14"
+    },
+    {
+      "id": 1509394,
+      "descripcion": "Anexo 3.1. Xustificación-Memoria.",
+      "nombreFic": "Modelo 3.1. Xustificación-Memoria.pdf",
+      "long": 833544,
+      "datMod": "2026-08-14",
+      "datPublicacion": "2026-08-14"
+    },
+    {
+      "id": 1509392,
+      "descripcion": "Anexo 1. Solicitude.",
+      "nombreFic": "Modelo 1. Solicitude de subvención.pdf",
+      "long": 777026,
+      "datMod": "2026-08-14",
+      "datPublicacion": "2026-08-14"
+    },
+    {
+      "id": 1509391,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "05. Resolución convocatoria.pdf",
+      "long": 1548216,
+      "datMod": "2026-08-14",
+      "datPublicacion": "2026-08-14"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

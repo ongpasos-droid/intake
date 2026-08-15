@@ -10,7 +10,7 @@
   "status": "open",
   "statusCode": "31094502",
   "opening": "2026-05-27",
-  "deadline": "2026-08-26",
+  "deadline": "2026-09-17",
   "deadlineModel": "single-stage",
   "actionType": "Pilot Projects and Preparatory Actions",
   "actionCode": "PPPA",
@@ -132,5 +132,5 @@
       "is_downloadable": false
     }
   ],
-  "fetchedAt": "2026-08-14T04:05:15.743Z"
+  "fetchedAt": "2026-08-15T04:02:16.477Z"
 }

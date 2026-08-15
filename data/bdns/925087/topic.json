@@ -1,0 +1,77 @@
+{
+  "source": "bdns",
+  "source_id": "925087",
+  "source_lang": "es",
+  "level": "local",
+  "programme": "Concurrencia competitiva - canónica",
+  "sub_programme": null,
+  "publishing_authority_code": "LOCAL / DIPUTACIÓN PROV. DE BURGOS / DIPUTACIÓN PROVINCIAL DE BURGOS",
+  "nuts_codes": [
+    "ES412"
+  ],
+  "nuts_primary": "ES412",
+  "title": "Convocatoria para la concesión de subvenciones destinadas a la ejecución de actuaciones de urgencia y emergencia en bienes, infraestructuras e instalaciones municipales de la provincia de Burgos, años 2026 y 2027. (CUyE Agua/2026)",
+  "title_lang": "es",
+  "summary": "Agricultura, Pesca y Alimentación",
+  "status": "open",
+  "publication_date": "2026-08-14",
+  "open_date": null,
+  "deadline": null,
+  "deadline_model": "continuous",
+  "deadlines_extra": null,
+  "budget_total_eur": 1000000,
+  "budget_per_project_min_eur": null,
+  "budget_per_project_max_eur": null,
+  "expected_grants": null,
+  "cofinancing_pct": null,
+  "duration_months": null,
+  "audience": "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA",
+  "eligible_orgs": [
+    "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+  ],
+  "eligible_countries": [
+    "ES"
+  ],
+  "sectores": [
+    {
+      "codigo": "A",
+      "descripcion": "AGRICULTURA, GANADERÍA, SILVICULTURA Y PESCA"
+    }
+  ],
+  "apply_url": "https://sede.diputaciondeburgos.es",
+  "details_url": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatoria/925087",
+  "documents": [
+    {
+      "label": "Documento de la convocatoria en español",
+      "url": null
+    },
+    {
+      "label": "Anexo IV Cuenta Justificativa_CUyE Agua 2026",
+      "url": null
+    },
+    {
+      "label": "Anexo III Declaración ayudas_CUyE Agua 2026",
+      "url": null
+    },
+    {
+      "label": "Anexo I Solicitud_CUyE Agua 2026",
+      "url": null
+    },
+    {
+      "label": "Anexo II Declaración jurada_CUyE Agua 2026",
+      "url": null
+    }
+  ],
+  "bases_reguladoras_url": "https: //www.burgos.es/diputacion/informacion/documentos/ordenanza-general-de-subvenciones",
+  "text_inicio": "Día siguiente a la publicación del extracto en el Boletín Oficial de la Provincia de Burgos",
+  "text_fin": null,
+  "se_publica_diario_oficial": true,
+  "ayuda_estado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectores_productos": [],
+  "anuncios": [],
+  "mrr_flag": false,
+  "fetchedAt": "2026-08-15T04:05:33.610Z"
+}
