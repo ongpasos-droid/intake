@@ -1,0 +1,84 @@
+{
+  "id": 1126789,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "SALT",
+    "nivel3": "AYUNTAMIENTO DE SALT"
+  },
+  "sedeElectronica": "https://www.seu-e.cat/ca/web/salt/seu-electronica",
+  "codigoBDNS": "925228",
+  "fechaRecepcion": "2026-08-17",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 2000,
+  "mrr": false,
+  "descripcion": "Premio del 16ª Certamen Internacional de la Cestería Roser Albó (CICRA) de Salt, año 2026.",
+  "descripcionLeng": " Premi del 16è Certamen Internacional de la Cistelleria Roser Albó (CICRA) de Salt, any 2026.",
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PYME Y PERSONAS FÍSICAS QUE DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "HOSTELERÍA",
+      "codigo": "I"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES512 - Girona"
+    }
+  ],
+  "descripcionFinalidad": "Cultura",
+  "descripcionBasesReguladoras": "Bases reguladores per a la concessió de premis i concursos organitzats per l'Ajuntament de Salt",
+  "urlBasesReguladoras": "https://bpm.salt.cat/OAC/downloadR/45fa2dcc-255b-4843-bf94-4e2220d37fe4",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": null,
+  "fechaFinSolicitud": null,
+  "textInicio": "El día siguiente de la publicación de la convocatoria en el BOP de Girona.",
+  "textFin": "Hasta 30 dias antes del inicio de la feria",
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1509874,
+      "descripcion": "Documento de la convocatoria en lengua cooficial",
+      "nombreFic": "DecretConvocatoriaCICRACAT_amb signatures.pdf",
+      "long": 238870,
+      "datMod": "2026-08-17",
+      "datPublicacion": "2026-08-17"
+    },
+    {
+      "id": 1509872,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "DecretConvocatòriaCICRACASTdil_amb signatures.pdf",
+      "long": 284799,
+      "datMod": "2026-08-17",
+      "datPublicacion": "2026-08-17"
+    }
+  ],
+  "anuncios": [
+    {
+      "numAnuncio": 219280,
+      "titulo": "16º Certamen Internacional de Cestaría Roser Albó (CICRA), año 2026.",
+      "tituloLeng": "16è Certamen internacional de cistelleria Roser Albó (CICRA), any 2026",
+      "texto": "<p>Primero. Beneficiarios.</p><p> </p><p>Cualquier cestero o cestera que desarrolle su actividad artesanal tanto a título individual como colectivo, con las limitaciones y especificidades descritas en las Bases reguladoras del certamen objeto de la presente convocatoria. Los participantes podrán presentar un máximo de una obra para modalidad.</p><p>El Ayuntamiento de Salt dispone de un premio de 1.000 € para cada una de las modalidades a favor del participante que establezca como ganador el jurado del certamen.</p><p>Segundo. Objeto.</p><p> </p><p>El objeto del premio es incentivar la creación de piezas de cestería con especial cura, gusto o inspiración y compartir el conocimiento y la recuperación del patrimonio tradicional más allá de la competitividad requerida para la actividad profesional.</p><p>Las obras presentadas a concurso deberán estar realizadas artesanalmente.</p><p>El certamen ofrece dos modalidades: la cestería tradicional y la cestería artístico-creativa.</p><p>En la modalidad de cestería tradicional las obras presentadas se deberán basar en modelos del patrimonio de cestería tradicional y deberán estar realizadas con materiales naturales. En ningún caso se admitirán réplicas en miniatura.</p><p>En la modalidad de cestería artístico creativa las obras presentadas deberán ser realizadas con técnicas propias de la cestería, siendo de libre elección los materiales emprados, pudiendo utilizar otras materias primas, como barro, hierro, piedra, latón, entre otros. Habrá un concepto inspirador, propuesto por la Asociación de Cesteros y Cesteras de Cataluña. El concepto inspirador 2026 para la modalidad artístico – creativa es “Trashumancia”.</p><p> </p><p>Tercero. Bases reguladoras.</p><p> </p><p>Bases generales reguladoras de premios y concursos organizados por el Ayuntamiento de Salt, aprobadas por acuerdo del Pleno Municipal en sesión ordinaria de 20 de abril de 2026, y  publicadas en el BOP de Girona, número 9714, de 23 de julio de 2026 https://bpm.salt.cat/OAC/download/8241b34e-31c6-43a9-8c13-3cd9dd9cd81f</p><p> </p><p> </p><p>Cuarto. Importe.</p><p> </p><p>El importe destinado a esta convocatoria es de 2.000,00 euros con cargo a la aplicación presupuestaria 25.43110.48000 FIRA DEL CISTELL. Premis CICRA.</p><p> </p><p>Quinto. Presentación de solicitudes.</p><p> </p><p>Las solicitudes  se deberán presentar a través de los medios indicados en las bases reguladoras, hasta 30 días antes del inicio de la feria des del día siguiente a la publicación de este edicto en el BOPG.</p>",
+      "textoLeng": "<p>Primer. Beneficiaris.</p><p> </p><p>Qualsevol cisteller o cistellera que desenvolupi la seva activitat artesanal tan a títol individual com col·lectiu amb les limitacions i especificitats descrites a les Bases reguladores del certamen objecte de la present convocatòria. Els participants podran presentar un màxim d’una obra per modalitat.</p><p>L'Ajuntament de Salt disposa un premi de 1.000 € per a cadascuna de les modalitats a favor del participant que estableixi com a guanyador el jurat del certamen.</p><p> </p><p>Segon. Objecte.</p><p> </p><p>L'objecte del premi és incentivar la creació de peces de cistelleria amb especial cura, gust o inspiració i compartir el coneixement i la recuperació del patrimoni tradicional més enllà de la competitivitat requerida per l'activitat professional.</p><p>Les obres presentades a concurs hauran d'estar realitzades artesanalment.</p><p>El certamen ofereix dues modalitats: la cistelleria tradicional i la cistelleria artístico-creativa.</p><p>En la modalitat de cistelleria tradicional les obres presentades s'hauran de basar en models del patrimoni de cistelleria tradicional i hauran d'estar realitzades amb materials naturals. En cap cas s'admetran rèpliques en miniatura.</p><p>En la modalitat de cistelleria artístico-creativa les obres presentades hauran d'ésser realitzades amb tècniques pròpies de la cistelleria, essent de lliure elecció els materials emprats, podent fer servir altres matèries primeres, com ara fang, ferro, pedra, llautó entre d'altres. Hi haurà un concepte inspirador, proposat per l'Associació de Cistellers i Cistelleres de Catalunya. El concepte inspirador 2026 per a la modalitat artístico – creativa és «Transhumància».</p><p> </p><p>Tercer. Bases reguladores.</p><p> </p><p>Bases generals reguladores de premis i concursos organitzats per l’Ajuntament de Salt, aprovades per acord del Ple Municipal en sessió ordinària de data 20 d’abril de 2026, i publicades al BOP de Girona, número 9714, de 23 de juliol de 2026 https://bpm.salt.cat/OAC/download/8241b34e-31c6-43a9-8c13-3cd9dd9cd81f</p><p> </p><p>Quart. Import.</p><p> </p><p>L'import destinat a aquesta convocatòria és de 2.000,00 euros a l'aplicació pressupostària 25.43110.48000 FIRA DEL CISTELL. Premis CICRA.</p><p> </p><p>Cinquè. Presentació de sol·licituds.</p><p> </p><p>Les sol·licituds s'han de presentar a través dels mitjans indicats a les bases reguladores, fins 30 dies abans de l’inici de la fira des de l'endemà de la publicació d'aquest edicte al BOPG.</p>",
+      "url": "https://ssl4.ddgi.cat/bopV1/pdf/2026/160/202616007420.pdf",
+      "cve": null,
+      "desDiarioOficial": "B.O.P. DE GIRONA",
+      "datPublicacion": "2026-08-20"
+    }
+  ],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

@@ -10,7 +10,7 @@
   "status": "open",
   "statusCode": "31094502",
   "opening": "2026-07-07",
-  "deadline": "2026-11-03",
+  "deadline": "2026-11-05",
   "deadlineModel": "single-stage",
   "actionType": "CERV Lump Sum Grants",
   "actionCode": "CERV-LS",
@@ -126,5 +126,5 @@
       "is_downloadable": false
     }
   ],
-  "fetchedAt": "2026-08-16T04:06:05.881Z"
+  "fetchedAt": "2026-08-18T04:02:11.592Z"
 }
