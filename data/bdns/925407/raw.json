@@ -1,0 +1,175 @@
+{
+  "id": 1126968,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "EIBAR",
+    "nivel3": "AYUNTAMIENTO DE EIBAR"
+  },
+  "sedeElectronica": null,
+  "codigoBDNS": "925407",
+  "fechaRecepcion": "2026-08-18",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 200000,
+  "mrr": false,
+  "descripcion": "CONVOCATORIA DE SUBVENCIONES PARA EL APOYO AL DESARROLLO DE NUEVOS PROYECTOS EMPRESARIALES Y TRASLADO/MODERNIZACIÓN DE EMPRESAS YA EXISTENTES",
+  "descripcionLeng": "ENPRESA-PROIEKTU BERRIAK GARATZEN LAGUNTZEKO ETA LEHENDIK DAUDEN ENPRESAK LEKUZ ALDATZEKO/ MODERNIZATZEKO DIRULAGUNTZEN DEIALDIA",
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PYME Y PERSONAS FÍSICAS QUE DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "ACTIVIDADES ADMINISTRATIVAS Y SERVICIOS AUXILIARES",
+      "codigo": "O"
+    },
+    {
+      "descripcion": "ACTIVIDADES ARTÍSTICAS, DEPORTIVAS Y DE ENTRETENIMIENTO",
+      "codigo": "S"
+    },
+    {
+      "descripcion": "ACTIVIDADES DE EDICIÓN, RADIODIFUSIÓN Y PRODUCCIÓN Y DISTRIBUCIÓN DE CONTENIDOS",
+      "codigo": "J"
+    },
+    {
+      "descripcion": "ACTIVIDADES FINANCIERAS Y DE SEGUROS",
+      "codigo": "L"
+    },
+    {
+      "descripcion": "ACTIVIDADES INMOBILIARIAS",
+      "codigo": "M"
+    },
+    {
+      "descripcion": "ACTIVIDADES PROFESIONALES, CIENTÍFICAS Y TÉCNICAS",
+      "codigo": "N"
+    },
+    {
+      "descripcion": "ACTIVIDADES SANITARIAS Y DE SERVICIOS SOCIALES",
+      "codigo": "R"
+    },
+    {
+      "descripcion": "AGRICULTURA, GANADERÍA, SILVICULTURA Y PESCA",
+      "codigo": "A"
+    },
+    {
+      "descripcion": "COMERCIO AL POR MAYOR Y AL POR MENOR",
+      "codigo": "G"
+    },
+    {
+      "descripcion": "CONSTRUCCIÓN",
+      "codigo": "F"
+    },
+    {
+      "descripcion": "EDUCACIÓN",
+      "codigo": "Q"
+    },
+    {
+      "descripcion": "HOSTELERÍA",
+      "codigo": "I"
+    },
+    {
+      "descripcion": "INDUSTRIA MANUFACTURERA",
+      "codigo": "C"
+    },
+    {
+      "descripcion": "INDUSTRIAS EXTRACTIVAS",
+      "codigo": "B"
+    },
+    {
+      "descripcion": "SUMINISTRO DE AGUA, ACTIVIDADES DE SANEAMIENTO, GESTIÓN DE RESIDUOS Y DESCONTAMINACIÓN",
+      "codigo": "E"
+    },
+    {
+      "descripcion": "SUMINISTRO DE ENERGIA ELECTRICA, GAS, VAPOR Y AIRE ACONDICIONADO",
+      "codigo": "D"
+    },
+    {
+      "descripcion": "TELECOMUNICACIONES, PROGRAMACIÓN INFORMÁTICA, CONSULTORÍA, INFRAESTRUCTURA INFORMÁTICA Y OTROS SERVICIOS DE INFORMACIÓN",
+      "codigo": "K"
+    },
+    {
+      "descripcion": "TRANSPORTE Y ALMACENAMIENTO",
+      "codigo": "H"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES212 - Gipuzkoa"
+    }
+  ],
+  "descripcionFinalidad": "Otras Prestaciones económicas",
+  "descripcionBasesReguladoras": "Dirulaguntzetarako Plan Estrategikoa, indarrean dagoen dirulaguntza eranskina\nPlan Estratégico de Subvenciones, anexo de subvenciones en vigor",
+  "urlBasesReguladoras": "https://www.eibar.eus/eu/udala/sailak/arlo-ekonomikoa/kontratazioen-eta-diru-laguntzen-unitatea/diru-laguntzetarako-plan-estrategikoa/dirulaguntzen-eranskina-mai-26.pdf",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": "2026-09-07",
+  "fechaFinSolicitud": "2026-10-08",
+  "textInicio": null,
+  "textFin": null,
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": {
+    "descripcion": "REG (UE) 2023/2831 de minimis, General",
+    "orden": null
+  },
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1510435,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "Deialdia 2026 Ekintzailetza eta Iraun.pdf",
+      "long": 704704,
+      "datMod": "2026-08-18",
+      "datPublicacion": "2026-08-18"
+    },
+    {
+      "id": 1510436,
+      "descripcion": "Titular kontua / Titular cuenta",
+      "nombreFic": "EE1013_D002_Titular Kontua.pdf",
+      "long": 66664,
+      "datMod": "2026-08-18",
+      "datPublicacion": "2026-08-18"
+    },
+    {
+      "id": 1510442,
+      "descripcion": "Beste dirulaguntzak / Otras ayudas",
+      "nombreFic": "EE1013_D005_Aitorpenak beste dirulaguntzak.pdf",
+      "long": 126100,
+      "datMod": "2026-08-18",
+      "datPublicacion": "2026-08-18"
+    },
+    {
+      "id": 1510440,
+      "descripcion": "Gastuak / Gastos",
+      "nombreFic": "EE1013_D004_Gastuen zerrenda.pdf",
+      "long": 270905,
+      "datMod": "2026-08-18",
+      "datPublicacion": "2026-08-18"
+    },
+    {
+      "id": 1510441,
+      "descripcion": "Diru-sarrerak / Ingresos",
+      "nombreFic": "EE1013_D004_Diru-sarreren zerrenda.pdf",
+      "long": 223614,
+      "datMod": "2026-08-18",
+      "datPublicacion": "2026-08-18"
+    },
+    {
+      "id": 1510438,
+      "descripcion": "Bideragarritasun plana / Plan de viabilidad",
+      "nombreFic": "EE1013_D003 Bideragarritasun Plana.pdf",
+      "long": 107169,
+      "datMod": "2026-08-18",
+      "datPublicacion": "2026-08-18"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

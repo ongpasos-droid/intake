@@ -1,0 +1,100 @@
+{
+  "source": "bdns",
+  "source_id": "925374",
+  "source_lang": "es",
+  "level": "local",
+  "programme": "Concesión directa - canónica",
+  "sub_programme": null,
+  "publishing_authority_code": "LOCAL / EIBAR / AYUNTAMIENTO DE EIBAR",
+  "nuts_codes": [
+    "ES212"
+  ],
+  "nuts_primary": "ES212",
+  "title": "CONVOCATORIA DE SUBVENCIONES DEL AYUNTAMIENTO DE EIBAR PARA LA REALIZACIÓN DE ESTUDIOS Y ACCIONES CONDUCENTES A LA MEJORA COMPETITIVA DE EMPRESAS INDUSTRIALES RADICADAS EN EIBAR (RETOS TECNOLÓGICOS)",
+  "title_lang": "es",
+  "summary": "Investigación, desarrollo e innovación",
+  "status": "open",
+  "publication_date": "2026-08-18",
+  "open_date": "2026-09-07",
+  "deadline": "2026-11-13",
+  "deadline_model": "single-stage",
+  "deadlines_extra": null,
+  "budget_total_eur": 80000,
+  "budget_per_project_min_eur": null,
+  "budget_per_project_max_eur": null,
+  "expected_grants": null,
+  "cofinancing_pct": null,
+  "duration_months": null,
+  "audience": "PYME Y PERSONAS FÍSICAS QUE DESARROLLAN ACTIVIDAD ECONÓMICA",
+  "eligible_orgs": [
+    "PYME Y PERSONAS FÍSICAS QUE DESARROLLAN ACTIVIDAD ECONÓMICA"
+  ],
+  "eligible_countries": [
+    "ES"
+  ],
+  "sectores": [
+    {
+      "codigo": "N",
+      "descripcion": "ACTIVIDADES PROFESIONALES, CIENTÍFICAS Y TÉCNICAS"
+    },
+    {
+      "codigo": "G",
+      "descripcion": "COMERCIO AL POR MAYOR Y AL POR MENOR"
+    },
+    {
+      "codigo": "F",
+      "descripcion": "CONSTRUCCIÓN"
+    },
+    {
+      "codigo": "C",
+      "descripcion": "INDUSTRIA MANUFACTURERA"
+    }
+  ],
+  "apply_url": null,
+  "details_url": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatoria/925374",
+  "documents": [
+    {
+      "label": "Bidai gastuak / Gastos de desplazamiento",
+      "url": null
+    },
+    {
+      "label": "Bidai gastuen likidazioa / Liquidación de gastos de desplazamiento",
+      "url": null
+    },
+    {
+      "label": "Documento de la convocatoria en español",
+      "url": null
+    },
+    {
+      "label": "Beste dirulaguntzak / Otras ayudas",
+      "url": null
+    },
+    {
+      "label": "Gastuak / Gastos",
+      "url": null
+    },
+    {
+      "label": "Diru-sarrerak / Ingresos",
+      "url": null
+    },
+    {
+      "label": "Titular kontua / Titular cuenta",
+      "url": null
+    }
+  ],
+  "bases_reguladoras_url": "https://www.eibar.eus/eu/udala/sailak/arlo-ekonomikoa/kontratazioen-eta-diru-laguntzen-unitatea/diru-laguntzetarako-plan-estrategikoa/dirulaguntzen-eranskina-mai-26.pdf",
+  "text_inicio": null,
+  "text_fin": null,
+  "se_publica_diario_oficial": true,
+  "ayuda_estado": null,
+  "fondos": [],
+  "reglamento": {
+    "descripcion": "REG (UE) 2023/2831 de minimis, General",
+    "orden": null
+  },
+  "objetivos": [],
+  "sectores_productos": [],
+  "anuncios": [],
+  "mrr_flag": false,
+  "fetchedAt": "2026-08-19T04:08:10.235Z"
+}

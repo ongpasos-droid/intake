@@ -1,0 +1,64 @@
+{
+  "id": 1126924,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "DIPUTACIÓN PROV. DE ALICANTE",
+    "nivel3": "DIPUTACIÓN PROVINCIAL DE ALACANT/ALICANTE"
+  },
+  "sedeElectronica": "https://diputacionalicante.sedelectronica.es",
+  "codigoBDNS": "925363",
+  "fechaRecepcion": "2026-08-18",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 150000,
+  "mrr": false,
+  "descripcion": "Decreto de la Sra. Diputada de Bienestar Social e Igualdad nº 3.741, de 14 de agosto de 2026, por el que se convocan subvenciones destinadas a Entidades privadas sin fin de lucro para gastos de desplazamiento de actividades de promoción de la convivencia.",
+  "descripcionLeng": null,
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "Otras actividades de servicios sociales sin alojamiento",
+      "codigo": "88.9"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES521 - Alicante / Alacant"
+    }
+  ],
+  "descripcionFinalidad": "Servicios Sociales y Promoción Social",
+  "descripcionBasesReguladoras": "Ordenanza General de Subvenciones de la Excma. Diputación Provincial de Alicante.",
+  "urlBasesReguladoras": "https://sede.diputacionalicante.es/wp-content/uploads/2026/01/Ordenanza-General-de-concesion-de-subvenciones-Diputacion-de-Alicante.pdf",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": null,
+  "fechaFinSolicitud": null,
+  "textInicio": "Día siguiente al de la publicación del extracto de la Convocatoria en el BOP Prov. Alicante",
+  "textFin": "20 días naturales, a partir del día siguiente al de la publicación del extracto en el B.O.P.",
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1510335,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "20260812_Resolución_DECRETO 2026-3741 [Resolución PR_2026_4410 - Circuito de Resolución de Órgano Unipersonal] (2).pdf",
+      "long": 1616611,
+      "datMod": "2026-08-18",
+      "datPublicacion": "2026-08-18"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

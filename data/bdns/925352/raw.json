@@ -1,0 +1,72 @@
+{
+  "id": 1126913,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "DIPUTACIÓN PROV. DE ALMERÍA",
+    "nivel3": "DIPUTACIÓN PROVINCIAL DE ALMERÍA"
+  },
+  "sedeElectronica": "www.dipalme.org",
+  "codigoBDNS": "925352",
+  "fechaRecepcion": "2026-08-18",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concesión directa - canónica",
+  "presupuestoTotal": 7000,
+  "mrr": false,
+  "descripcion": "CONCESIÓN DIRECTA DE UNA SUBVENCIÓN A LA ASOCIACIÓN \"OVIEDO Y JORBALAN\"",
+  "descripcionLeng": null,
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "ACTIVIDADES SANITARIAS Y DE SERVICIOS SOCIALES",
+      "codigo": "R"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES611 - Almería"
+    }
+  ],
+  "descripcionFinalidad": "Servicios Sociales y Promoción Social",
+  "descripcionBasesReguladoras": "CONCESIÓN DIRECTA DE UNA SUBVENCIÓN A LA ASOCIACIÓN \"OVIEDO Y JORBALAN\"",
+  "urlBasesReguladoras": "https://ov.dipalme.org/verifirma/code/2CGx3+S9DK1p0l1BS/a88A==",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": "2026-01-01",
+  "fechaFinSolicitud": "2026-12-31",
+  "textInicio": null,
+  "textFin": null,
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1510293,
+      "descripcion": "RESOL.1902 CONCESIÓN DIRECTA",
+      "nombreFic": "Resolucion_1902_de_6-8-2026-Presidente.pdf",
+      "long": 156043,
+      "datMod": "2026-08-18",
+      "datPublicacion": null
+    },
+    {
+      "id": 1510292,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "Resolucion_1902_de_6-8-2026-Presidente.pdf",
+      "long": 156043,
+      "datMod": "2026-08-18",
+      "datPublicacion": null
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

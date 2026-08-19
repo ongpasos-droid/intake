@@ -1,0 +1,73 @@
+{
+  "source": "bdns",
+  "source_id": "925357",
+  "source_lang": "es",
+  "level": "ccaa",
+  "programme": "Concurrencia competitiva - canónica",
+  "sub_programme": null,
+  "publishing_authority_code": "AUTONOMICA / COMUNITAT VALENCIANA / AGENCIA VALENCIANA DE SEGURIDAD Y RESPUESTA A LAS EMERGENCIAS (AVSRE)",
+  "nuts_codes": [
+    "ES52"
+  ],
+  "nuts_primary": "ES52",
+  "title": "Resolución de la Presidencia de la AVSRE por la que se convocan, para el año 2026, subvenciones para la financiación de Dispositivos Electrónicos de Control destinados a los ayuntamientos de la Comunitat Valenciana con cuerpo de policía local",
+  "title_lang": "es",
+  "summary": "Seguridad Ciudadana e Instituciones Penitenciarias",
+  "status": "open",
+  "publication_date": "2026-08-18",
+  "open_date": null,
+  "deadline": null,
+  "deadline_model": "continuous",
+  "deadlines_extra": null,
+  "budget_total_eur": 100000,
+  "budget_per_project_min_eur": null,
+  "budget_per_project_max_eur": null,
+  "expected_grants": null,
+  "cofinancing_pct": null,
+  "duration_months": null,
+  "audience": "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA",
+  "eligible_orgs": [
+    "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+  ],
+  "eligible_countries": [
+    "ES"
+  ],
+  "sectores": [
+    {
+      "codigo": "O",
+      "descripcion": "ACTIVIDADES ADMINISTRATIVAS Y SERVICIOS AUXILIARES"
+    }
+  ],
+  "apply_url": "https://www.gva.es/es/inicio/procedimientos?id_proc=G112899",
+  "details_url": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatoria/925357",
+  "documents": [
+    {
+      "label": "Resolucion aprobacion gasto",
+      "url": null
+    },
+    {
+      "label": "DOCUMENTO CONTABLES",
+      "url": null
+    },
+    {
+      "label": "Texto en castellano de la convocatoria",
+      "url": null
+    },
+    {
+      "label": "Texto en otra lengua de la convocatoria",
+      "url": null
+    }
+  ],
+  "bases_reguladoras_url": "https://dogv.gva.es/es/eli/es-vc/d/2018/10/25/29/",
+  "text_inicio": "Día siguiente al de la publicación de la resolución de la convocatoria en el DOGV",
+  "text_fin": "15 de octubre de 2026",
+  "se_publica_diario_oficial": true,
+  "ayuda_estado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectores_productos": [],
+  "anuncios": [],
+  "mrr_flag": false,
+  "fetchedAt": "2026-08-19T04:08:10.232Z"
+}

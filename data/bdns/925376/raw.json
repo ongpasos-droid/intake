@@ -1,0 +1,80 @@
+{
+  "id": 1126937,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "DIPUTACIÓN PROV. DE SALAMANCA",
+    "nivel3": "DIPUTACIÓN DE SALAMANCA"
+  },
+  "sedeElectronica": "https://sede.diputaciondesalamanca.gob.es",
+  "codigoBDNS": "925376",
+  "fechaRecepcion": "2026-08-18",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 41000,
+  "mrr": false,
+  "descripcion": "CONVOCATORIA DE SUBVENCIONES PARA LOS ADJUDICATARIOS DE REPRODUCTORES SELECTOS DE GANADO EN SUBASTAS NACIONALES CELEBRADAS EN EL MERCADO REGIONAL DE GANADOS 2026",
+  "descripcionLeng": null,
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PYME Y PERSONAS FÍSICAS QUE DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "Producción ganadera",
+      "codigo": "01.4"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES - ESPAÑA "
+    }
+  ],
+  "descripcionFinalidad": "Agricultura, Pesca y Alimentación",
+  "descripcionBasesReguladoras": "Ordenanza General Reguladora de Concesión de Subvenciones",
+  "urlBasesReguladoras": "http://www.lasalina.es/presidencia/informacion/normativa/ordenanzasyreglamentos/presidencia/index.html",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": null,
+  "fechaFinSolicitud": null,
+  "textInicio": "DESDE EL DIA SIGUIENTE A LA PUBLICACION DEL EXTRACTO EN EL BOLETIN OFICIAL DE LA PROVINCIA",
+  "textFin": "10 DIAS HABILES DESDE EL DIA SIGUIENTE A LA PUBLICACION EN EL BOP",
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1510372,
+      "descripcion": "ANEXOS Y SOLICITUD",
+      "nombreFic": "2026EHAG005_ANEXOS_I_II_Censurado.pdf",
+      "long": 238403,
+      "datMod": "2026-08-18",
+      "datPublicacion": "2026-08-18"
+    },
+    {
+      "id": 1510370,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "2026EHAG005_CONVOCATORIA SUBV SUBASTAS_Cen.pdf",
+      "long": 211067,
+      "datMod": "2026-08-18",
+      "datPublicacion": "2026-08-18"
+    },
+    {
+      "id": 1510371,
+      "descripcion": "BASES DE LA CONVOCATORIA",
+      "nombreFic": "2026EHAG005_BASES_SUBASTAS_NACIONALES_Cen.pdf",
+      "long": 326646,
+      "datMod": "2026-08-18",
+      "datPublicacion": "2026-08-18"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

@@ -1,0 +1,84 @@
+{
+  "id": 1126939,
+  "organo": {
+    "nivel1": "AUTONOMICA",
+    "nivel2": "GALICIA",
+    "nivel3": "CONSELLERÍA DEL MAR"
+  },
+  "sedeElectronica": null,
+  "codigoBDNS": "925378",
+  "fechaRecepcion": "2026-08-18",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 200000,
+  "mrr": false,
+  "descripcion": "ORDEN de 28 de julio de 2026 por la que se convocan para el año 2026 ayudas destinadas a la creación y consolidación de las organizaciones de productores pesqueros y asociaciones de organizaciones de productores pesqueros, con ámbito de actuación en la ..",
+  "descripcionLeng": null,
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "Pesca",
+      "codigo": "03.1"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES11 - GALICIA"
+    }
+  ],
+  "descripcionFinalidad": "Agricultura, Pesca y Alimentación",
+  "descripcionBasesReguladoras": "Orden de 26 de septiembre de 2024 por la que se establecen las bases reguladoras para la concesión de diferentes líneas de ayudas a las organizaciones de productores del sector pesquero y de la acuicultura en el ámbito de la Comunidad Autónoma de Galicia ",
+  "urlBasesReguladoras": "https://www.xunta.gal/dog/Publicados/2024/20241007/AnuncioG0427-260924-0004_es.html",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": "2026-08-21",
+  "fechaFinSolicitud": "2026-09-21",
+  "textInicio": null,
+  "textFin": null,
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [
+    {
+      "descripcion": "FEMPA – FONDO EUROPEO MARÍTIMO, DE PESCA Y ACUICULTURA"
+    }
+  ],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1510376,
+      "descripcion": "Texto en castellano de la convocatoria",
+      "nombreFic": "Orden ayudas creación OPP PE155D Cast_20260817_133708.pdf",
+      "long": 323829,
+      "datMod": "2026-08-18",
+      "datPublicacion": "2026-08-18"
+    },
+    {
+      "id": 1510378,
+      "descripcion": "Anexos",
+      "nombreFic": "Anexos pdf CAS__20260817_134058.pdf",
+      "long": 359833,
+      "datMod": "2026-08-18",
+      "datPublicacion": "2026-08-18"
+    },
+    {
+      "id": 1510377,
+      "descripcion": "Texto en otra lengua de la convocatoria",
+      "nombreFic": "Orde axudas creación OPP PE155D GAL_20260817_133729.pdf",
+      "long": 317371,
+      "datMod": "2026-08-18",
+      "datPublicacion": "2026-08-18"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

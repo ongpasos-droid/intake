@@ -1,0 +1,72 @@
+{
+  "id": 1127054,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "CONSEJO INSULAR DE MENORCA",
+    "nivel3": "CONSELL INSULAR DE MENORCA"
+  },
+  "sedeElectronica": "www.cime.es",
+  "codigoBDNS": "925493",
+  "fechaRecepcion": "2026-08-18",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 320000,
+  "mrr": false,
+  "descripcion": "Acuerdo del Consejo Ejecutivo en sesión de carácter ordinario de 20 de julio de 2026, relativo a las bases de las ayudas del Consejo Insular de Menorca destinadas a entidades culturales y la convocatoria correspondiente a 2026",
+  "descripcionLeng": "Acord del Consell Executiu en sessió de caràcter ordinari de 20 de juliol de 2026, relatiu a les bases dels ajuts del Consell Insular de Menorca destinats a entitats culturals i la convocatòria corresponent a 2026",
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "ACTIVIDADES ARTÍSTICAS, DEPORTIVAS Y DE ENTRETENIMIENTO",
+      "codigo": "S"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES533 - Menorca"
+    }
+  ],
+  "descripcionFinalidad": "Cultura",
+  "descripcionBasesReguladoras": "Bases que regulan la concesión de ayudas del Consejo Insular de Menorca destinadas a entidades culturales",
+  "urlBasesReguladoras": "https://www.caib.es/eboibfront/es/2026/12222/711017/acuerdo-del-consejo-ejecutivo-en-sesion-de-caracte",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": null,
+  "fechaFinSolicitud": null,
+  "textInicio": "A partir del día siguiente de haberse publicado la convocatoria en el BOIB",
+  "textFin": "30 días naturales desde el día siguiente a la publicación de la convocatoria en el BOIB",
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1510559,
+      "descripcion": "Documento de la convocatoria en lengua cooficial",
+      "nombreFic": "ACORD AJUTS ENTITATS CULTURALS.pdf",
+      "long": 482258,
+      "datMod": "2026-08-18",
+      "datPublicacion": "2026-08-18"
+    },
+    {
+      "id": 1510558,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "ACUERDO AYUDAS ENTIDADES CULTURALES.pdf",
+      "long": 486335,
+      "datMod": "2026-08-18",
+      "datPublicacion": "2026-08-18"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

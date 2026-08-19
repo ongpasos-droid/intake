@@ -1,0 +1,72 @@
+{
+  "id": 1127015,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "MANRESA",
+    "nivel3": "AYUNTAMIENTO DE MANRESA"
+  },
+  "sedeElectronica": "https://www.manresa.cat/seu/menu/fitxa/1156?nocache=1",
+  "codigoBDNS": "925454",
+  "fechaRecepcion": "2026-08-18",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 59000,
+  "mrr": false,
+  "descripcion": "Convocatoria subvenciones a las asociaciones de comerciantes de Manresa por actividades realizadas durante el año 2026",
+  "descripcionLeng": "Convocatòria subvencions a les Associacions de Comerciants de Manresa per activitats realitzades durant l’any 2026",
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "COMERCIO AL POR MAYOR Y AL POR MENOR",
+      "codigo": "G"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES511 - Barcelona"
+    }
+  ],
+  "descripcionFinalidad": "Comercio, Turismo y Pymes",
+  "descripcionBasesReguladoras": "Bases especificas reguladoreas del otorgamiento  de ayudas a las Asociaciones de comerciantes de Manresa para las actividades realizadas anualmente",
+  "urlBasesReguladoras": "https://bop.diba.cat/anunci/3197090/aprovacio-inicial-de-les-bases-especifiques-reguladores-de-l-atorgament-d-ajuts-a-les-associacions-de-comerciants-per-les-activitats-realitzades-anualment-ajuntament-de-manresa",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": null,
+  "fechaFinSolicitud": null,
+  "textInicio": "Dia siguiente publicación extracto convocatòria en el BOPB",
+  "textFin": "30/09/2026",
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1510498,
+      "descripcion": "Documento de la convocatoria en lengua cooficial",
+      "nombreFic": "PUB.inf 2026000685 convocatoria cat.pdf",
+      "long": 152015,
+      "datMod": "2026-08-18",
+      "datPublicacion": "2026-08-18"
+    },
+    {
+      "id": 1510497,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "pub.inf 2026000686 convocatoria cast.pdf",
+      "long": 152604,
+      "datMod": "2026-08-18",
+      "datPublicacion": "2026-08-18"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}
