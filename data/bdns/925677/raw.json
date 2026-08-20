@@ -1,0 +1,72 @@
+{
+  "id": 1127238,
+  "organo": {
+    "nivel1": "AUTONOMICA",
+    "nivel2": "COMUNITAT VALENCIANA",
+    "nivel3": "SECRETARÍA AUTONÓMICA DE VIVIENDA"
+  },
+  "sedeElectronica": "https://sede.gva.es/es/detall-tramit?id_proc=G110699",
+  "codigoBDNS": "925677",
+  "fechaRecepcion": "2026-08-19",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 29800000,
+  "mrr": false,
+  "descripcion": "Resolución de xx de julio de 2026, de la Vicepresidencia Primera y Conselleria de Vivienda, Empleo, Juventud e Igualdad, por la que se aprueban las bases reguladoras y se convocan las ayudas del Bono Alquiler Joven para 2026",
+  "descripcionLeng": "Resolució de xx de julio de 2026, de la Vicepresidència Primera i Conselleria de Vivenda, Ocupació, Joventut i Igualtat, per la qual s'aproven les bases reguladores i es convoquen les ajudes del Bo Lloguer Jove per a 2026",
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "Actividades de alquiler",
+      "codigo": "77"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES52 - COMUNIDAD VALENCIANA"
+    }
+  ],
+  "descripcionFinalidad": "Acceso a la vivienda y fomento de la edificación",
+  "descripcionBasesReguladoras": "Resolución de xx de xxxxxxx de xxxx, de la Vicepresidencia Primera y Conselleria de Vivienda, Empleo, Juventud e Igualdad, por la que se aprueban las bases reguladoras y se convocan las ayudas del Bono Alquiler Joven para 2026",
+  "urlBasesReguladoras": ".",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": null,
+  "fechaFinSolicitud": null,
+  "textInicio": "A partir del día siguiente a la publicación del extracto en el DOGV",
+  "textFin": "Quince días hábiles posteriores a la fecha de publicación",
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1511010,
+      "descripcion": "Texto en otra lengua de la convocatoria",
+      "nombreFic": "20260625_Resolucin bases y convocatoria_26-006312_trad_REV_firmado.pdf",
+      "long": 579759,
+      "datMod": "2026-08-19",
+      "datPublicacion": "2026-08-19"
+    },
+    {
+      "id": 1511009,
+      "descripcion": "Texto en castellano de la convocatoria",
+      "nombreFic": "Resolución bases y convocatoria_después intervención_REV_firmado.pdf",
+      "long": 563457,
+      "datMod": "2026-08-19",
+      "datPublicacion": "2026-08-19"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

@@ -1,0 +1,71 @@
+{
+  "id": 1126932,
+  "organo": {
+    "nivel1": "AUTONOMICA",
+    "nivel2": "CASTILLA Y LEÓN",
+    "nivel3": "CONSEJERÍA DE AGRICULTURA, GANADERÍA, MEDIO RURAL Y POLÍTICA AMBIENTAL"
+  },
+  "sedeElectronica": "https://www.tramitacastillayleon.jcyl.es",
+  "codigoBDNS": "925371",
+  "fechaRecepcion": "2026-08-18",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 2000000,
+  "mrr": false,
+  "descripcion": "Orden de 14 de agosto de 2026, de la Consejería de Agricultura, Ganadería, Medio Rural y Política Ambiental, por la que se convocan las ayudas al fomento de la cría e inscripción de ejemplares de razas puras de Castilla y León en los libros genealógicos.",
+  "descripcionLeng": null,
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PYME Y PERSONAS FÍSICAS QUE DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "Producción ganadera",
+      "codigo": "01.4"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES41 - CASTILLA Y LEON"
+    }
+  ],
+  "descripcionFinalidad": "Agricultura, Pesca y Alimentación",
+  "descripcionBasesReguladoras": "Orden AYG/1409/2018, establece las bases reguladoras de las ayudas destinadas al fomento de la cría e inscripción de ejemplares de razas puras de Castilla y León en los libros genealógicos. Modificada por AGR/170/2022, AGR/749/2023 y AGR/636/2026",
+  "urlBasesReguladoras": "https://bocyl.jcyl.es/boletines/2018/12/31/pdf/BOCYL-D-31122018-7.pdf",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": null,
+  "fechaFinSolicitud": null,
+  "textInicio": "Día siguiente a la publicación del extracto en el BOCyL",
+  "textFin": "1 mes desde el día siguiente a la fecha de publicación del extracto en el BOCyL",
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": {
+    "descripcion": "REG (UE) 1408/2013 de minimis, Agrícola",
+    "orden": null
+  },
+  "objetivos": [],
+  "sectoresProductos": [
+    {
+      "descripcion": "Todos"
+    }
+  ],
+  "documentos": [
+    {
+      "id": 1510348,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "ORDEN RAPU2026 Y ANEXOS.pdf",
+      "long": 1367997,
+      "datMod": "2026-08-18",
+      "datPublicacion": "2026-08-19"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

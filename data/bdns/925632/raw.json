@@ -1,0 +1,72 @@
+{
+  "id": 1127193,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "PALAFRUGELL",
+    "nivel3": "AYUNTAMIENTO DE PALAFRUGELL"
+  },
+  "sedeElectronica": null,
+  "codigoBDNS": "925632",
+  "fechaRecepcion": "2026-08-19",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concesión directa - canónica",
+  "presupuestoTotal": 6310,
+  "mrr": false,
+  "descripcion": "Convocatoria 41.º Premio escolar Josep Sagrera y Corominas 2025-2026",
+  "descripcionLeng": "Convocatòria 41è Premi escolar Josep Sagrera i Corominas 2025-2026",
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "EDUCACIÓN",
+      "codigo": "Q"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES512 - Girona"
+    }
+  ],
+  "descripcionFinalidad": "Educación",
+  "descripcionBasesReguladoras": "BASES GENERALES REGULADORAS DE LA CONCESIÓN Y JUSTIFICACIÓN DE SUBVENCIONES MUNICIPALES AÑO 2026",
+  "urlBasesReguladoras": "https://ssl4.ddgi.cat/bopV1/pdf/2026/1/20261012133.pdf",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": null,
+  "fechaFinSolicitud": null,
+  "textInicio": "Des de la fecha de aprovación",
+  "textFin": "13/03/2026",
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1510853,
+      "descripcion": "Documento de la convocatoria en lengua cooficial",
+      "nombreFic": "Certificat -  Convocatòria 41è Premi escolar Josep Sagrera i Corominas 2025-2026.PDF",
+      "long": 261532,
+      "datMod": "2026-08-19",
+      "datPublicacion": "2026-08-19"
+    },
+    {
+      "id": 1510851,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "Certificat -  Convocatòria 41è Premi escolar Josep Sagrera i Corominas 2025-2026 - castellà.PDF",
+      "long": 227540,
+      "datMod": "2026-08-19",
+      "datPublicacion": "2026-08-19"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

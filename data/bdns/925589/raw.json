@@ -1,0 +1,91 @@
+{
+  "id": 1127150,
+  "organo": {
+    "nivel1": "AUTONOMICA",
+    "nivel2": "ILLES BALEARS",
+    "nivel3": "FONDO DE GARANTÍA AGRARIA Y PESQUERA DE LAS ISLAS BALEARES (FOGAIBA)"
+  },
+  "sedeElectronica": "https://www.caib.es/seucaib/ca/200/persones%20/tramites/tramite/6536010",
+  "codigoBDNS": "925589",
+  "fechaRecepcion": "2026-08-19",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 990000,
+  "mrr": false,
+  "descripcion": "Acuerdo por el cual se aprueban las Bases de la convocatoria de ayudas para el desarrollo rural de la isla de Menorca por el periodo 2023-2027, vinculadas a proyectos relacionados con los ámbitos agrario y/o ambiental y enmarcados en la Estrategia de Desa",
+  "descripcionLeng": "Acord pel qual s’aproven les Bases de la convocatòria d’ajudes pel desenvolupament rural de l’illa de Menorca pel període 2023-2027, vinculades a projectes relacionats amb els àmbits agrari i/o ambiental i emmarcats en l’Estratègia de Desenvolupament Loca",
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    },
+    {
+      "descripcion": "PYME Y PERSONAS FÍSICAS QUE DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "AGRICULTURA, GANADERÍA, SILVICULTURA Y PESCA",
+      "codigo": "A"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES533 - Menorca"
+    }
+  ],
+  "descripcionFinalidad": "Agricultura, Pesca y Alimentación",
+  "descripcionBasesReguladoras": "Orden 10/2023 de la consejera de Agricultura, Pesca y Alimentación por la cual se establecen las bases reguladoras para la concesión de subvenciones en el marco de las intervenciones para el desarrollo rural de las Islas Baleares 2023-2027",
+  "urlBasesReguladoras": "https://www.caib.es/eboibfront/eli/es-ib/o/2023/04/05/10/dof/spa/html",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": null,
+  "fechaFinSolicitud": null,
+  "textInicio": "05/08/2026",
+  "textFin": "31/08/2026",
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [
+    {
+      "descripcion": "FEADER - FONDO EUROPEO AGRÍCOLA DE DESARROLLO RURAL "
+    }
+  ],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1510737,
+      "descripcion": "Documento de la convocatoria en lengua cooficial",
+      "nombreFic": "bases-convocatoria-boib-7855-1.pdf",
+      "long": 295196,
+      "datMod": "2026-08-19",
+      "datPublicacion": "2026-08-19"
+    },
+    {
+      "id": 1510740,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "Convocatoria castellano BOIB 7855.pdf",
+      "long": 289401,
+      "datMod": "2026-08-19",
+      "datPublicacion": "2026-08-19"
+    }
+  ],
+  "anuncios": [
+    {
+      "numAnuncio": 219404,
+      "titulo": "Procedimiento Beta",
+      "tituloLeng": null,
+      "texto": "Procedimiento Beta",
+      "textoLeng": null,
+      "url": "https://www.caib.es/eboibfront/es/2026/12310/718501/acuerdo-por-el-cual-se-aprueban-las-bases-de-la-co",
+      "cve": null,
+      "desDiarioOficial": "BOIB. B.O. DE LAS ISLAS BALEARES",
+      "datPublicacion": "2026-08-04"
+    }
+  ],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

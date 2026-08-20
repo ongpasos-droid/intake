@@ -1,0 +1,72 @@
+{
+  "id": 1127174,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "MORELL, EL",
+    "nivel3": "AYUNTAMIENTO DE EL MORELL"
+  },
+  "sedeElectronica": "https://elmorell.eadministracio.cat/info.2",
+  "codigoBDNS": "925613",
+  "fechaRecepcion": "2026-08-19",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concesión directa - canónica",
+  "presupuestoTotal": 65000,
+  "mrr": false,
+  "descripcion": "Convocatoria de ayudas individuales a estudiantes del municipio del Morell curso escolar 2025-2026. (Linea 2 Ayudas para comedor escolar)",
+  "descripcionLeng": "Convocatòria d'ajuts individuals a estudiants del municipi del Morell curs escolar 2025-2026. (Linia 2 Ajuts per a menjador escolar)",
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "EDUCACIÓN",
+      "codigo": "Q"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES514 - Tarragona"
+    }
+  ],
+  "descripcionFinalidad": "Educación",
+  "descripcionBasesReguladoras": "Bases reguladoras para la concesión de ayudas individuales para los estudiantes del municipio del Morell",
+  "urlBasesReguladoras": "https://seu-e.cat/ca/web/elmorell/govern-obert-i-transparencia/contractes-convenis-i-subvencions/convenis-i-subvencions/convocatories-de-subvencions-i-ajuts",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": "2026-08-24",
+  "fechaFinSolicitud": "2026-10-06",
+  "textInicio": null,
+  "textFin": null,
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1510810,
+      "descripcion": "Documento de la convocatoria en lengua cooficial",
+      "nombreFic": "DECRET APROVACIÓ CONVOCATÒRIA AJUTS ESTUDIANTS CURS 2025-2026 LINIA 2 AJUTS PER A MENJADOR ESCOLAR].pdf",
+      "long": 355091,
+      "datMod": "2026-08-19",
+      "datPublicacion": "2026-08-19"
+    },
+    {
+      "id": 1510809,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "DECRETO APROVACIÓN CONVOCATORIA AYUDAS ESTUDIANTES CURSO 2025-2026 LINIA 2 AYUDAS PARA EL COMEDOR ESCOLAR].pdf",
+      "long": 330963,
+      "datMod": "2026-08-19",
+      "datPublicacion": "2026-08-19"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

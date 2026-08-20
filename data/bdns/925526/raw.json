@@ -1,0 +1,68 @@
+{
+  "id": 1127087,
+  "organo": {
+    "nivel1": "OTROS",
+    "nivel2": "UNIVERSIDAD DE OVIEDO",
+    "nivel3": null
+  },
+  "sedeElectronica": "https://intranet.uniovi.es/convocatorias/estudiantado",
+  "codigoBDNS": "925526",
+  "fechaRecepcion": "2026-08-19",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 40000,
+  "mrr": false,
+  "descripcion": "Res. 18-08-2026 vicerrectora de Internacionalización de la Universidad de Oviedo, de ayudas de movilidad internacional de corta duración destinada a estudiantes de Doctorado, curso 2026/27, en instituciones con acuerdos Erasmus+KA131",
+  "descripcionLeng": null,
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "EDUCACIÓN",
+      "codigo": "Q"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES12 - PRINCIPADO DE ASTURIAS"
+    }
+  ],
+  "descripcionFinalidad": "Educación",
+  "descripcionBasesReguladoras": "Res 22/03/24, que se establecen las bases reguladoras de las convocatorias para la concesión de distintas ayudas de movilidad internacional en el marco del Programa Erasmus+ y de los convenios de colaboración suscritos con instituciones extranjeras",
+  "urlBasesReguladoras": "https://sede.asturias.es/bopa/2024/04/08/2024-02717.pdf",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": null,
+  "fechaFinSolicitud": null,
+  "textInicio": "Primer plazo: Desde día siguiente a la publicación en el BOPA. Segundo plazo: 01/01/2027",
+  "textFin": "Primer plazo: 30/09/2026. Segundo plazo: 31/01/2027",
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [
+    {
+      "descripcion": "FGI - FONDOS DE GESTIÓN INDIRECTA (ART. 58.1.C RGTO. UE Nº 966/2012)"
+    }
+  ],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1510637,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "2.Resolución doctorado_2026_27.pdf",
+      "long": 379340,
+      "datMod": "2026-08-19",
+      "datPublicacion": "2026-08-19"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

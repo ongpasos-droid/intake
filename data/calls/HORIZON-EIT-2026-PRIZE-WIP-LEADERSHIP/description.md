@@ -1,0 +1,3 @@
+## Expected Impact
+
+The prize will boost public awareness of the potential, importance and contribution of women to the EU innovation ecosystem and create strong role models, inspiring more women to become innovators themselves.

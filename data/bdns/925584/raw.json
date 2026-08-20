@@ -1,0 +1,67 @@
+{
+  "id": 1127145,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "MAZARRÓN",
+    "nivel3": "AYUNTAMIENTO DE MAZARRÓN"
+  },
+  "sedeElectronica": null,
+  "codigoBDNS": "925584",
+  "fechaRecepcion": "2026-08-19",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 140000,
+  "mrr": false,
+  "descripcion": "BASES REGULADORAS Y CONVOCATORIA PARA LA CONCESIÓN DE SUBVENCIONES, EN RÉGIMEN DE CONCURRENCIA COMPETITIVA A CLUBES, ASOCIACIONES DEPORTIVAS, DEPORTISTAS Y ÉLITE.SIN ÁNIMO DE LUCRO EN EL AÑO 2026.",
+  "descripcionLeng": null,
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    },
+    {
+      "descripcion": "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "ACTIVIDADES ARTÍSTICAS, DEPORTIVAS Y DE ENTRETENIMIENTO",
+      "codigo": "S"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES62 - REGION DE MURCIA"
+    }
+  ],
+  "descripcionFinalidad": "Cultura",
+  "descripcionBasesReguladoras": "BASES REGULADORAS Y CONVOCATORIA PARA LA CONCESIÓN DE SUBVENCIONES, EN RÉGIMEN DE CONCURRENCIA COMPETITIVA A CLUBES, ASOCIACIONES DEPORTIVAS, DEPORTISTAS Y ÉLITE.SIN ÁNIMO DE LUCRO EN EL AÑO 2026.",
+  "urlBasesReguladoras": "https://sede.mazarron.es/sta/docs/GetDocumentServlet?CUD=16340501341330373306&HASH_CUD=b6faef3e0c0f3124e2340dfddb931e09331932fe&APP_CODE=STA",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": "2026-08-21",
+  "fechaFinSolicitud": "2026-09-03",
+  "textInicio": null,
+  "textFin": null,
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1510773,
+      "descripcion": "Texto en castellano de la convocatoria",
+      "nombreFic": "Certificado_acuerdo - 2026.pdf",
+      "long": 208249,
+      "datMod": "2026-08-19",
+      "datPublicacion": "2026-08-19"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

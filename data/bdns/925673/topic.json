@@ -1,0 +1,73 @@
+{
+  "source": "bdns",
+  "source_id": "925673",
+  "source_lang": "es",
+  "level": "local",
+  "programme": "Concesión directa - canónica",
+  "sub_programme": null,
+  "publishing_authority_code": "LOCAL / MORELL, EL / AYUNTAMIENTO DE EL MORELL",
+  "nuts_codes": [
+    "ES514"
+  ],
+  "nuts_primary": "ES514",
+  "title": "Convocatoria de Ayudas Individuales a Estudiantes del municipio del Morell curso escolar 2025-2026. (Línea 3 Ayudas extraordinarias de la línea 1 para estudiantes de centros de fuera del municipio. Excluidos en convocatorias anteriores.",
+  "title_lang": "es",
+  "summary": "Educación",
+  "status": "open",
+  "publication_date": "2026-08-19",
+  "open_date": "2026-08-24",
+  "deadline": "2026-10-06",
+  "deadline_model": "single-stage",
+  "deadlines_extra": null,
+  "budget_total_eur": 10000,
+  "budget_per_project_min_eur": null,
+  "budget_per_project_max_eur": null,
+  "expected_grants": null,
+  "cofinancing_pct": null,
+  "duration_months": null,
+  "audience": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA",
+  "eligible_orgs": [
+    "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+  ],
+  "eligible_countries": [
+    "ES"
+  ],
+  "sectores": [
+    {
+      "codigo": "Q",
+      "descripcion": "EDUCACIÓN"
+    }
+  ],
+  "apply_url": "https://elmorell.eadministracio.cat/info.2",
+  "details_url": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatoria/925673",
+  "documents": [
+    {
+      "label": "Documento de la convocatoria en español",
+      "url": null
+    },
+    {
+      "label": "Rectificació aprovació de la convocatòria d’Ajuts Individuals a Estudiants del municipi del Morell curs escolar 2025-2026. (Línia 3 Ajuts extraordinaris de la línia 1 per a estudiants de centres de fora del municipi.",
+      "url": null
+    },
+    {
+      "label": "Rectificación de la aprobación de la convocatoria de Ayudas Individuales a Estudiantes del municipio de El Morell, curso escolar 2025-2026. (Línea 3 Ayudas extraordinarias de la línea 1 para estudiantes de centros de fuera del municipio.",
+      "url": null
+    },
+    {
+      "label": "Documento de la convocatoria en lengua cooficial",
+      "url": null
+    }
+  ],
+  "bases_reguladoras_url": "https://seu-e.cat/ca/web/elmorell/govern-obert-itransparencia/ contractes-convenis-i-subvencions/convenis-isubvencions/ convocatories-de-subvencions-i-ajuts",
+  "text_inicio": "24/08/2026",
+  "text_fin": "06/10/2026",
+  "se_publica_diario_oficial": true,
+  "ayuda_estado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectores_productos": [],
+  "anuncios": [],
+  "mrr_flag": false,
+  "fetchedAt": "2026-08-20T04:09:19.813Z"
+}

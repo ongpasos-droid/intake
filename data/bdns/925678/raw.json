@@ -1,0 +1,72 @@
+{
+  "id": 1127239,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "NUEVA CARTEYA",
+    "nivel3": "AYUNTAMIENTO DE NUEVA CARTEYA"
+  },
+  "sedeElectronica": "https://sede.eprinsa.es/nuevacar",
+  "codigoBDNS": "925678",
+  "fechaRecepcion": "2026-08-19",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concesión directa - canónica",
+  "presupuestoTotal": 6000,
+  "mrr": false,
+  "descripcion": "Subvenciones en materia de Ayuda para material escolar para el año 2026",
+  "descripcionLeng": null,
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "EDUCACIÓN",
+      "codigo": "Q"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES613 - Córdoba"
+    }
+  ],
+  "descripcionFinalidad": "Educación",
+  "descripcionBasesReguladoras": "Ayuda para material escolar para el año 2026",
+  "urlBasesReguladoras": "https://sede.eprinsa.es/nuevacar/tablon-de-edictos",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": null,
+  "fechaFinSolicitud": null,
+  "textInicio": "Al día siguiente de su publicación en el BOP de Córdoba",
+  "textFin": "20 días naturales, contados a partir del día siguiente a la fecha de publicación en el BOP Córdoba",
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1511012,
+      "descripcion": "Anexo I. Modelo de Solicitud",
+      "nombreFic": "anexo i solicitud.pdf",
+      "long": 121005,
+      "datMod": "2026-08-19",
+      "datPublicacion": "2026-08-19"
+    },
+    {
+      "id": 1511011,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "bases firmadas.pdf",
+      "long": 200499,
+      "datMod": "2026-08-19",
+      "datPublicacion": "2026-08-19"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}
