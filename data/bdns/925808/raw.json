@@ -1,0 +1,80 @@
+{
+  "id": 1127369,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "VILLAQUILAMBRE",
+    "nivel3": "AYUNTAMIENTO DE VILLAQUILAMBRE"
+  },
+  "sedeElectronica": " www.villaquilambre.es",
+  "codigoBDNS": "925808",
+  "fechaRecepcion": "2026-08-20",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 3000,
+  "mrr": false,
+  "descripcion": "CONVOCATORIA PARA LA CONCESIÓN DE SUBVENCIONES DESTINADAS AL DESFILE DE CARROS ENGALANADOS Y PENDONES CON MOTIVO DE LA CELEBRACIÓN DE LA FESTIVIDAD DE SAN FROILÁN  2026",
+  "descripcionLeng": null,
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "Actividades de bibliotecas, archivos, museos y otras actividades culturales",
+      "codigo": "91"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES413 - León"
+    }
+  ],
+  "descripcionFinalidad": "Cultura",
+  "descripcionBasesReguladoras": "SUBVENCIONES DESTINADAS AL DESFILE DE CARROS ENGALANADOS Y PENDONES CON MOTIVO DE LA CELEBRACIÓN DE LA FESTIVIDAD DE SAN FROILÁN  2026",
+  "urlBasesReguladoras": "www.villaquilambre.es",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": null,
+  "fechaFinSolicitud": null,
+  "textInicio": " a partir del siguiente a la publicación de la convocatoria en el BOP",
+  "textFin": "5 días hábiles contados a partir del siguiente a la publicación de la convocatoria en el BOP",
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1511454,
+      "descripcion": "SOLICITUD CONVOCATORIA SAN FROILÁN 2026",
+      "nombreFic": "SOLICITUD CONVOCATORIA SAN FROILÁN 2026.pdf",
+      "long": 74772,
+      "datMod": "2026-08-20",
+      "datPublicacion": "2026-08-20"
+    },
+    {
+      "id": 1511455,
+      "descripcion": "CERTIFICADO ACUERDO JUNTA GOBIERNO LOCAL",
+      "nombreFic": "20260820_Certificado_Certificado de acuerdos_Certificado de acuerdo.pdf",
+      "long": 1032907,
+      "datMod": "2026-08-20",
+      "datPublicacion": "2026-08-20"
+    },
+    {
+      "id": 1511451,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "CONVOCATORIA SAN FROILÁN 2026.pdf",
+      "long": 114951,
+      "datMod": "2026-08-20",
+      "datPublicacion": "2026-08-20"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

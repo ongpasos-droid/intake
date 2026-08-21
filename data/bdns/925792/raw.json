@@ -1,0 +1,72 @@
+{
+  "id": 1127353,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "BARBADÁS",
+    "nivel3": "AYUNTAMIENTO DE BARBADÁS"
+  },
+  "sedeElectronica": "https://barbadas.sedelectronica.gal/info.0",
+  "codigoBDNS": "925792",
+  "fechaRecepcion": "2026-08-20",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 4000,
+  "mrr": false,
+  "descripcion": "BASES REGULADORAS DE LA CONCESIÓN DE AYUDAS ECONÓMICAS PARA LIBROS Y MATERIAL DIDÁCTICO EN LA EDUCACIÓN INFANTIL PARA El CURSO ACADÉMICO 2026-2027",
+  "descripcionLeng": "BASES REGULADORAS DA CONCESIÓN DE AXUDAS ECONÓMICAS PARA LIBROS E MATERIAL DIDÁCTICO NA EDUCACIÓN INFANTIL PARA O CURSO ACADÉMICO 2026-2027",
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "EDUCACIÓN",
+      "codigo": "Q"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES113 - Ourense"
+    }
+  ],
+  "descripcionFinalidad": "Educación",
+  "descripcionBasesReguladoras": "BASES REGULADORAS DE LA CONCESIÓN DE AYUDAS ECONÓMICAS PARA LIBROS Y MATERIAL DIDÁCTICO EN LA EDUCACIÓN INFANTIL PARA El CURSO ACADÉMICO 2026-2027",
+  "urlBasesReguladoras": "www.barbadas.es",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": null,
+  "fechaFinSolicitud": null,
+  "textInicio": "Al día siguiente de la publicación en el B.O.P. OU",
+  "textFin": "1 mes",
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1511372,
+      "descripcion": "Documento de la convocatoria en lengua cooficial",
+      "nombreFic": "Bases reguladoras concesión das axudas curso 2026-2027-GL.pdf",
+      "long": 268548,
+      "datMod": "2026-08-20",
+      "datPublicacion": "2026-08-20"
+    },
+    {
+      "id": 1511371,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "Bases reguladoras concesión de ayudas curso 2026-2027.pdf",
+      "long": 272507,
+      "datMod": "2026-08-20",
+      "datPublicacion": "2026-08-20"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

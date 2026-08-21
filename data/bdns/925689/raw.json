@@ -1,0 +1,72 @@
+{
+  "id": 1127250,
+  "organo": {
+    "nivel1": "AUTONOMICA",
+    "nivel2": "GALICIA",
+    "nivel3": "CONSELLERÍA DE CULTURA, LENGUA Y JUVENTUD"
+  },
+  "sedeElectronica": null,
+  "codigoBDNS": "925689",
+  "fechaRecepcion": "2026-08-20",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 50000,
+  "mrr": false,
+  "descripcion": "Orden de 20 de julio de 2026 por la que se establecen las bases reguladoras que regirán las ayudas destinadas a la colaboración en la financiación de intervenciones arqueológicas y se convocan para el año 2026 (código de procedimiento CT104B).",
+  "descripcionLeng": "Orde do 20 de xullo de 2026 pola que se establecen as bases reguladoras que rexerán as axudas destinadas á colaboración no financiamento de intervencións arqueolóxicas e se convocan para o ano 2026 (código de procedemento CT104B)",
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "Otras actividades profesionales, científicas y técnicas",
+      "codigo": "74"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES11 - GALICIA"
+    }
+  ],
+  "descripcionFinalidad": "Cultura",
+  "descripcionBasesReguladoras": "Orden de 20 de julio de 2026 por la que se establecen las bases reguladoras que regirán las ayudas destinadas a la colaboración en la financiación de intervenciones arqueológicas y se convocan para el año 2026 (código de procedimiento CT104B).",
+  "urlBasesReguladoras": "https://xunta.es",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": "2026-01-01",
+  "fechaFinSolicitud": "2026-12-31",
+  "textInicio": null,
+  "textFin": null,
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1511068,
+      "descripcion": "Texto en otra lengua de la convocatoria",
+      "nombreFic": "2026 ORDE ARQUEOLOXÍA GALEGO V2_20260820_084011.pdf",
+      "long": 199924,
+      "datMod": "2026-08-20",
+      "datPublicacion": "2026-08-20"
+    },
+    {
+      "id": 1511067,
+      "descripcion": "Texto en castellano de la convocatoria",
+      "nombreFic": "2026 ORDE ARQUEOLOXÍA CASTELÁN V2_20260820_084039.pdf",
+      "long": 198413,
+      "datMod": "2026-08-20",
+      "datPublicacion": "2026-08-20"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

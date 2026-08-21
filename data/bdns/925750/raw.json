@@ -1,0 +1,168 @@
+{
+  "id": 1127311,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "MANCOMUNIDAD DE LA MERINDAD DE DURANGO",
+    "nivel3": "MANCOMUNIDAD DE LA MERINDAD DE DURANGO-DURANGOKO MERINALDEAREN AMANKOMUNAZGOA"
+  },
+  "sedeElectronica": "https://www.dma.eus/es-ES/Tramites/Paginas/procedimiento-detalle.aspx?idt=1e564add-d1ac-e211-b9d8-00237d32158c",
+  "codigoBDNS": "925750",
+  "fechaRecepcion": "2026-08-20",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concesión directa - canónica",
+  "presupuestoTotal": 3000,
+  "mrr": false,
+  "descripcion": "Subvenciones para la instalación de rótulos exteriores y paginas web en euskera en el ámbito del comercio, hostelería y de servicios en los municipios de la Mancomunidad de la Merindad de Durango",
+  "descripcionLeng": "Durangoko Merinalderaren Amankomunazgoko herrietako merkataritza, ostalaritza eta zerbitzuen arloetan kanpoko errotuluak eta webguneak euskaraz jartzeagatik diru-laguntzak emateko deialdia",
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PYME Y PERSONAS FÍSICAS QUE DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "ACTIVIDADES DE EDICIÓN, RADIODIFUSIÓN Y PRODUCCIÓN Y DISTRIBUCIÓN DE CONTENIDOS",
+      "codigo": "J"
+    },
+    {
+      "descripcion": "ACTIVIDADES INMOBILIARIAS",
+      "codigo": "M"
+    },
+    {
+      "descripcion": "ACTIVIDADES SANITARIAS Y DE SERVICIOS SOCIALES",
+      "codigo": "R"
+    },
+    {
+      "descripcion": "COMERCIO AL POR MAYOR Y AL POR MENOR",
+      "codigo": "G"
+    },
+    {
+      "descripcion": "HOSTELERÍA",
+      "codigo": "I"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES213 - Bizkaia"
+    }
+  ],
+  "descripcionFinalidad": "Cultura",
+  "descripcionBasesReguladoras": "Subvenciones para la instalación de rótulos exteriores y paginas web en euskera en el ámbito del comercio, hostelería y de servicios en los municipios de la Mancomunidad de la Merindad de Durango",
+  "urlBasesReguladoras": "https://www.dma.eus/es-ES/Mancomunidad/Subvenciones/Paginas/2026_1_subvenciones-instalacion-rotulos-exteriores-comercio-hosteleria.aspx",
+  "sePublicaDiarioOficial": true,
+  "abierto": true,
+  "fechaInicioSolicitud": null,
+  "fechaFinSolicitud": null,
+  "textInicio": "DIA SIGUIENTE A LA PUBLICACION EN BOLETIN OFICIAL",
+  "textFin": "16/10/2026",
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1511197,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "4. Convocatoria CAST 1-2026.pdf",
+      "long": 291212,
+      "datMod": "2026-08-20",
+      "datPublicacion": "2026-08-20"
+    },
+    {
+      "id": 1511198,
+      "descripcion": "Documento de la convocatoria en lengua cooficial",
+      "nombreFic": "4. Convocatoria EUSK 1-2026.pdf",
+      "long": 287680,
+      "datMod": "2026-08-20",
+      "datPublicacion": "2026-08-20"
+    },
+    {
+      "id": 1511199,
+      "descripcion": "Bases Especificas reguladoras CAST 1-2026",
+      "nombreFic": "1 Bases Específicas reguladoras CAST 1-2026.pdf",
+      "long": 277569,
+      "datMod": "2026-08-20",
+      "datPublicacion": "2026-08-20"
+    },
+    {
+      "id": 1511202,
+      "descripcion": "Bases Especificas reguladoras EUSK 1-2026",
+      "nombreFic": "1 Bases Específicas reguladoras EUSK 1-2026.pdf",
+      "long": 271260,
+      "datMod": "2026-08-20",
+      "datPublicacion": "2026-08-20"
+    },
+    {
+      "id": 1511203,
+      "descripcion": "Anexo I",
+      "nombreFic": "ANEXO I.pdf",
+      "long": 91297,
+      "datMod": "2026-08-20",
+      "datPublicacion": "2026-08-20"
+    },
+    {
+      "id": 1511211,
+      "descripcion": "IV Eranskina",
+      "nombreFic": "IV ERANSKINA.pdf",
+      "long": 73523,
+      "datMod": "2026-08-20",
+      "datPublicacion": "2026-08-20"
+    },
+    {
+      "id": 1511205,
+      "descripcion": "Anexo III",
+      "nombreFic": "ANEXO III.pdf",
+      "long": 67660,
+      "datMod": "2026-08-20",
+      "datPublicacion": "2026-08-20"
+    },
+    {
+      "id": 1511206,
+      "descripcion": "Anexo IV",
+      "nombreFic": "ANEXO IV.pdf",
+      "long": 78269,
+      "datMod": "2026-08-20",
+      "datPublicacion": "2026-08-20"
+    },
+    {
+      "id": 1511207,
+      "descripcion": "I Eranskina",
+      "nombreFic": "I ERANSKINA.pdf",
+      "long": 162331,
+      "datMod": "2026-08-20",
+      "datPublicacion": "2026-08-20"
+    },
+    {
+      "id": 1511209,
+      "descripcion": "II Eranskina",
+      "nombreFic": "II ERANSKINA.pdf",
+      "long": 62057,
+      "datMod": "2026-08-20",
+      "datPublicacion": "2026-08-20"
+    },
+    {
+      "id": 1511210,
+      "descripcion": "III Eranskina",
+      "nombreFic": "III ERANSKINA.pdf",
+      "long": 65772,
+      "datMod": "2026-08-20",
+      "datPublicacion": "2026-08-20"
+    },
+    {
+      "id": 1511204,
+      "descripcion": "Anexo II",
+      "nombreFic": "ANEXO II.pdf",
+      "long": 72501,
+      "datMod": "2026-08-20",
+      "datPublicacion": "2026-08-20"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

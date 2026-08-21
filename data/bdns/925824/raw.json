@@ -1,0 +1,108 @@
+{
+  "id": 1127385,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "SAN SADURNIÑO",
+    "nivel3": "AYUNTAMIENTO DE SAN SADURNIÑO"
+  },
+  "sedeElectronica": "https://sansadurnino.sedelectronica.gal/info.0",
+  "codigoBDNS": "925824",
+  "fechaRecepcion": "2026-08-20",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 14000,
+  "mrr": false,
+  "descripcion": "Acuerdo de la Junta de Gobierno Local del fecha 21de julio de 2026 por el que se convocan subvenciones para la promoción del deporte y entidades deportivas",
+  "descripcionLeng": "Acordo da Xunta de Goberno Local de data 21 de xullo de 2026 polo que se convocan subvencións para a promoción do deporte e entidades deportivas",
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "Actividades deportivas, recreativas y de entretenimiento",
+      "codigo": "93"
+    },
+    {
+      "descripcion": "Administración pública y defensa; seguridad social obligatoria",
+      "codigo": "84"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES111 - A Coruña"
+    }
+  ],
+  "descripcionFinalidad": "Cultura",
+  "descripcionBasesReguladoras": "Ordenanza general de subvenciones",
+  "urlBasesReguladoras": "https://traductor.dacoruna.gal/fron-trad/urlTranslate.php?direccion3=gl-es&inurl=https://bop.dacoruna.gal/bopportal/publicado/2022",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": null,
+  "fechaFinSolicitud": null,
+  "textInicio": "Al día siguiente de la publicación en el BOP",
+  "textFin": "Un mes desde la publicación de la convocatoria en el BOP",
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1511513,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "Convocatoria subv entidades Deportivas 2026 - Castelán.docx",
+      "long": 139882,
+      "datMod": "2026-08-20",
+      "datPublicacion": "2026-08-20"
+    },
+    {
+      "id": 1511514,
+      "descripcion": "Documento de la convocatoria en lengua cooficial",
+      "nombreFic": "Convocatoria subv entidades Deportivas 2026.pdf",
+      "long": 272777,
+      "datMod": "2026-08-20",
+      "datPublicacion": "2026-08-20"
+    },
+    {
+      "id": 1511518,
+      "descripcion": "Justificación lengua cooficial",
+      "nombreFic": "Anexos Xustificación subv Deportes.pdf",
+      "long": 160793,
+      "datMod": "2026-08-20",
+      "datPublicacion": "2026-08-20"
+    },
+    {
+      "id": 1511516,
+      "descripcion": "Solicitud lengua cooficial",
+      "nombreFic": "Anexos Solicitude subv Deportes.pdf",
+      "long": 118036,
+      "datMod": "2026-08-20",
+      "datPublicacion": "2026-08-20"
+    },
+    {
+      "id": 1511517,
+      "descripcion": "Justificación",
+      "nombreFic": "Anexos Justificación subv Deportes castelan.docx",
+      "long": 119594,
+      "datMod": "2026-08-20",
+      "datPublicacion": "2026-08-20"
+    },
+    {
+      "id": 1511515,
+      "descripcion": "Solicitud",
+      "nombreFic": "Anexos Solicitude subv Deportes castelán.docx",
+      "long": 91766,
+      "datMod": "2026-08-20",
+      "datPublicacion": "2026-08-20"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

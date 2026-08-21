@@ -1,0 +1,121 @@
+{
+  "source": "bdns",
+  "source_id": "925809",
+  "source_lang": "es",
+  "level": "local",
+  "programme": "Concurrencia competitiva - canónica",
+  "sub_programme": null,
+  "publishing_authority_code": "LOCAL / MANCOMUNIDAD DE LA MERINDAD DE DURANGO / MANCOMUNIDAD DE LA MERINDAD DE DURANGO-DURANGOKO MERINALDEAREN AMANKOMUNAZGOA",
+  "nuts_codes": [
+    "ES213"
+  ],
+  "nuts_primary": "ES213",
+  "title": "Convocatoria de subvenciones a asociaciones sin ánimo de lucro de municipios de la Mancomunidad de la Merindad de Durango, para realización de proyectos de cooperación a desarrollo y estancias temporales de niños/as de poblaciones desfavorecidas 2026",
+  "title_lang": "es",
+  "summary": "Cooperación internacional para el desarrollo y cultural",
+  "status": "open",
+  "publication_date": "2026-08-20",
+  "open_date": null,
+  "deadline": null,
+  "deadline_model": "continuous",
+  "deadlines_extra": null,
+  "budget_total_eur": 20000,
+  "budget_per_project_min_eur": null,
+  "budget_per_project_max_eur": null,
+  "expected_grants": null,
+  "cofinancing_pct": null,
+  "duration_months": null,
+  "audience": "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA",
+  "eligible_orgs": [
+    "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+  ],
+  "eligible_countries": [
+    "ES"
+  ],
+  "sectores": [
+    {
+      "codigo": "T",
+      "descripcion": "OTROS SERVICIOS"
+    }
+  ],
+  "apply_url": "https://www.dma.eus/es-ES/Tramites/Paginas/procedimiento-detalle.aspx?idt=1e564add-d1ac-e211-b9d8-00237d32158c",
+  "details_url": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatoria/925809",
+  "documents": [
+    {
+      "label": "Documento de la convocatoria en lengua cooficial",
+      "url": null
+    },
+    {
+      "label": "VI Eranskina",
+      "url": null
+    },
+    {
+      "label": "Bases reguladores especificas 5-2025",
+      "url": null
+    },
+    {
+      "label": "Diru-laguntzak emateko oinarri arautzaileak 5-2025",
+      "url": null
+    },
+    {
+      "label": "Anexo I",
+      "url": null
+    },
+    {
+      "label": "Anexo II",
+      "url": null
+    },
+    {
+      "label": "Anexo III",
+      "url": null
+    },
+    {
+      "label": "Anexo IV",
+      "url": null
+    },
+    {
+      "label": "Anexo V",
+      "url": null
+    },
+    {
+      "label": "Anexo VI",
+      "url": null
+    },
+    {
+      "label": "I Eranskina",
+      "url": null
+    },
+    {
+      "label": "II Eranskina",
+      "url": null
+    },
+    {
+      "label": "III Eranskina",
+      "url": null
+    },
+    {
+      "label": "IV Eranskina",
+      "url": null
+    },
+    {
+      "label": "V Eranskina",
+      "url": null
+    },
+    {
+      "label": "Documento de la convocatoria en español",
+      "url": null
+    }
+  ],
+  "bases_reguladoras_url": "https://www.dma.eus/es-ES/Mancomunidad/Subvenciones/Paginas/2025_5_subvenciones-cooperacion-desarrollo-estancias-temporales.aspx",
+  "text_inicio": "DIA SIGUIENTE A LA PUBLICACION EN BOLETIN OFICIAL",
+  "text_fin": "15 DIAS HABILES TRAS LA PUBLICACIÓN EN BOLETIN OFICIAL",
+  "se_publica_diario_oficial": true,
+  "ayuda_estado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectores_productos": [],
+  "anuncios": [],
+  "mrr_flag": false,
+  "fetchedAt": "2026-08-21T04:09:16.659Z"
+}

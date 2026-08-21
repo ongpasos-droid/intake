@@ -1,0 +1,121 @@
+{
+  "source": "bdns",
+  "source_id": "925750",
+  "source_lang": "es",
+  "level": "local",
+  "programme": "Concesión directa - canónica",
+  "sub_programme": null,
+  "publishing_authority_code": "LOCAL / MANCOMUNIDAD DE LA MERINDAD DE DURANGO / MANCOMUNIDAD DE LA MERINDAD DE DURANGO-DURANGOKO MERINALDEAREN AMANKOMUNAZGOA",
+  "nuts_codes": [
+    "ES213"
+  ],
+  "nuts_primary": "ES213",
+  "title": "Subvenciones para la instalación de rótulos exteriores y paginas web en euskera en el ámbito del comercio, hostelería y de servicios en los municipios de la Mancomunidad de la Merindad de Durango",
+  "title_lang": "es",
+  "summary": "Cultura",
+  "status": "open",
+  "publication_date": "2026-08-20",
+  "open_date": null,
+  "deadline": null,
+  "deadline_model": "continuous",
+  "deadlines_extra": null,
+  "budget_total_eur": 3000,
+  "budget_per_project_min_eur": null,
+  "budget_per_project_max_eur": null,
+  "expected_grants": null,
+  "cofinancing_pct": null,
+  "duration_months": null,
+  "audience": "PYME Y PERSONAS FÍSICAS QUE DESARROLLAN ACTIVIDAD ECONÓMICA",
+  "eligible_orgs": [
+    "PYME Y PERSONAS FÍSICAS QUE DESARROLLAN ACTIVIDAD ECONÓMICA"
+  ],
+  "eligible_countries": [
+    "ES"
+  ],
+  "sectores": [
+    {
+      "codigo": "J",
+      "descripcion": "ACTIVIDADES DE EDICIÓN, RADIODIFUSIÓN Y PRODUCCIÓN Y DISTRIBUCIÓN DE CONTENIDOS"
+    },
+    {
+      "codigo": "M",
+      "descripcion": "ACTIVIDADES INMOBILIARIAS"
+    },
+    {
+      "codigo": "R",
+      "descripcion": "ACTIVIDADES SANITARIAS Y DE SERVICIOS SOCIALES"
+    },
+    {
+      "codigo": "G",
+      "descripcion": "COMERCIO AL POR MAYOR Y AL POR MENOR"
+    },
+    {
+      "codigo": "I",
+      "descripcion": "HOSTELERÍA"
+    }
+  ],
+  "apply_url": "https://www.dma.eus/es-ES/Tramites/Paginas/procedimiento-detalle.aspx?idt=1e564add-d1ac-e211-b9d8-00237d32158c",
+  "details_url": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatoria/925750",
+  "documents": [
+    {
+      "label": "Documento de la convocatoria en español",
+      "url": null
+    },
+    {
+      "label": "Documento de la convocatoria en lengua cooficial",
+      "url": null
+    },
+    {
+      "label": "Bases Especificas reguladoras CAST 1-2026",
+      "url": null
+    },
+    {
+      "label": "Bases Especificas reguladoras EUSK 1-2026",
+      "url": null
+    },
+    {
+      "label": "Anexo I",
+      "url": null
+    },
+    {
+      "label": "IV Eranskina",
+      "url": null
+    },
+    {
+      "label": "Anexo III",
+      "url": null
+    },
+    {
+      "label": "Anexo IV",
+      "url": null
+    },
+    {
+      "label": "I Eranskina",
+      "url": null
+    },
+    {
+      "label": "II Eranskina",
+      "url": null
+    },
+    {
+      "label": "III Eranskina",
+      "url": null
+    },
+    {
+      "label": "Anexo II",
+      "url": null
+    }
+  ],
+  "bases_reguladoras_url": "https://www.dma.eus/es-ES/Mancomunidad/Subvenciones/Paginas/2026_1_subvenciones-instalacion-rotulos-exteriores-comercio-hosteleria.aspx",
+  "text_inicio": "DIA SIGUIENTE A LA PUBLICACION EN BOLETIN OFICIAL",
+  "text_fin": "16/10/2026",
+  "se_publica_diario_oficial": true,
+  "ayuda_estado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectores_productos": [],
+  "anuncios": [],
+  "mrr_flag": false,
+  "fetchedAt": "2026-08-21T04:09:16.645Z"
+}
