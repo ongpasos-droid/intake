@@ -1,0 +1,104 @@
+{
+  "id": 1124892,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "TUI",
+    "nivel3": "AYUNTAMIENTO DE TUI"
+  },
+  "sedeElectronica": "https://concellotui.sedelectronica.gal/dossier.1",
+  "codigoBDNS": "923331",
+  "fechaRecepcion": "2026-08-04",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 21400,
+  "mrr": false,
+  "descripcion": "BASES REGULADORAS DE LA CONVOCATORIA DE SUBVENCIONS PARA LA PROMOCIÓN DE ACTIVIDADES LLEVADAS A CABO POR ANPAS DE LOS CENTROS EDUCATIVOS DEL AYUNTAMIENTO  DE TUI  EN El   EJERCICIO 2026",
+  "descripcionLeng": "BASES REGULADORAS DA CONVOCATORIA DE SUBVENCIONS PARA A PROMOCIÓN DE ACTIVIDADES LEVADAS A CABO POR ANPAS DOS CENTROS EDUCATIVOS DO CONCELLO DE  TUI  NO   EXERCICIO 2026",
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "EDUCACIÓN",
+      "codigo": "Q"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES114 - Pontevedra"
+    }
+  ],
+  "descripcionFinalidad": "Educación",
+  "descripcionBasesReguladoras": "BASES REGULADORAS DA CONVOCATORIA DE SUBVENCIONS PARA A PROMOCIÓN DE ACTIVIDADES LEVADAS A CABO POR ANPAS DOS CENTROS EDUCATIVOS DO CONCELLO DE  TUI  NO   EXERCICIO 2026",
+  "urlBasesReguladoras": "https://tui.gal/gl/tramites/subvencions-e-axudas",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": null,
+  "fechaFinSolicitud": null,
+  "textInicio": "Día siguiente a publicación do extracto no BOPO",
+  "textFin": "15 días naturais desde o día seguinte ao da publicación do estrato da convocatoria no BOP",
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1504640,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "Certificado de acordo Bases Convocatoria ANPAs_es.pdf",
+      "long": 718397,
+      "datMod": "2026-08-04",
+      "datPublicacion": "2026-08-21"
+    },
+    {
+      "id": 1504641,
+      "descripcion": "Documento de la convocatoria en lengua cooficial",
+      "nombreFic": "Certificado de acordo Bases Convocatoria ANPAs.pdf",
+      "long": 3356071,
+      "datMod": "2026-08-04",
+      "datPublicacion": "2026-08-21"
+    },
+    {
+      "id": 1504651,
+      "descripcion": "Anexo IV. Declaración",
+      "nombreFic": "Anexo IV anpas.pdf",
+      "long": 1074716,
+      "datMod": "2026-08-04",
+      "datPublicacion": "2026-08-21"
+    },
+    {
+      "id": 1504646,
+      "descripcion": "Anexo II. Declaracións",
+      "nombreFic": "Anexo II anpas.pdf",
+      "long": 1303235,
+      "datMod": "2026-08-04",
+      "datPublicacion": "2026-08-21"
+    },
+    {
+      "id": 1504647,
+      "descripcion": "Anexo III. Conta xustificatia",
+      "nombreFic": "Anexo III anpas.pdf",
+      "long": 1209083,
+      "datMod": "2026-08-04",
+      "datPublicacion": "2026-08-21"
+    },
+    {
+      "id": 1504645,
+      "descripcion": "Anexo I. Solicitude",
+      "nombreFic": "Anexo I anpas.pdf",
+      "long": 401285,
+      "datMod": "2026-08-04",
+      "datPublicacion": "2026-08-21"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

@@ -1,0 +1,367 @@
+{
+  "id": 1127406,
+  "organo": {
+    "nivel1": "AUTONOMICA",
+    "nivel2": "CASTILLA Y LEÓN",
+    "nivel3": "INSTITUTO PARA LA COMPETITIVIDAD EMPRESARIAL DE CASTILLA Y LEÓN"
+  },
+  "sedeElectronica": "https://www.tramitacastillayleon.jcyl.es/",
+  "codigoBDNS": "925845",
+  "fechaRecepcion": "2026-08-21",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concesión directa - canónica",
+  "presupuestoTotal": 11914000,
+  "mrr": false,
+  "descripcion": "Resolución de 19 de agosto de 2026 del Presidente del ICECYL que aprueba la convocatoria destinadas a financiar proyectos ligados a destinos turísticos de excelencia en los territorios afectados por el Fondo de Transición Justa en Castilla y León",
+  "descripcionLeng": null,
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PYME Y PERSONAS FÍSICAS QUE DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "Acabado de edificios",
+      "codigo": "43.3"
+    },
+    {
+      "descripcion": "ACTIVIDADES ARTÍSTICAS, DEPORTIVAS Y DE ENTRETENIMIENTO",
+      "codigo": "S"
+    },
+    {
+      "descripcion": "Actividades asociativas",
+      "codigo": "94"
+    },
+    {
+      "descripcion": "Actividades auxiliares del transporte",
+      "codigo": "52.2"
+    },
+    {
+      "descripcion": "Actividades de agencias de viajes, operadores turísticos, servicios de reservas y actividades relacionadas ",
+      "codigo": "79"
+    },
+    {
+      "descripcion": "Actividades de apoyo a la agricultura, a la ganadería y de preparación posterior a la cosecha",
+      "codigo": "01.6"
+    },
+    {
+      "descripcion": "Actividades de las sedes centrales y consultoría de gestión empresarial",
+      "codigo": "70"
+    },
+    {
+      "descripcion": "Actividades de los centros de llamadas",
+      "codigo": "82.2"
+    },
+    {
+      "descripcion": "ACTIVIDADES DE LOS HOGARES COMO EMPLEADORES Y COMO PRODUCTORES DE BIENES Y SERVICIOS NO DIFERENCIADOS PARA USO PROPIO",
+      "codigo": "U"
+    },
+    {
+      "descripcion": "Actividades de programación de televisión, emisión y distribución de vídeos",
+      "codigo": "60.2"
+    },
+    {
+      "descripcion": "Actividades de radiodifusión y distribución de audio",
+      "codigo": "60.1"
+    },
+    {
+      "descripcion": "ACTIVIDADES FINANCIERAS Y DE SEGUROS",
+      "codigo": "L"
+    },
+    {
+      "descripcion": "ACTIVIDADES INMOBILIARIAS",
+      "codigo": "M"
+    },
+    {
+      "descripcion": "Actividades jurídicas y de contabilidad",
+      "codigo": "69"
+    },
+    {
+      "descripcion": "Actividades postales sometidas a la obligación del servicio universal",
+      "codigo": "53.1"
+    },
+    {
+      "descripcion": "Actividades relacionadas con el empleo",
+      "codigo": "78"
+    },
+    {
+      "descripcion": "ACTIVIDADES SANITARIAS Y DE SERVICIOS SOCIALES",
+      "codigo": "R"
+    },
+    {
+      "descripcion": "Actividades veterinarias",
+      "codigo": "75"
+    },
+    {
+      "descripcion": "Acuicultura",
+      "codigo": "03.2"
+    },
+    {
+      "descripcion": "Administración pública y defensa; seguridad social obligatoria",
+      "codigo": "84"
+    },
+    {
+      "descripcion": "Alojamientos turísticos y otros alojamientos de corta estancia",
+      "codigo": "55.2"
+    },
+    {
+      "descripcion": "Alquiler de efectos personales y artículos de uso doméstico",
+      "codigo": "77.2"
+    },
+    {
+      "descripcion": "Alquiler de otra maquinaria, equipos y bienes tangibles",
+      "codigo": "77.3"
+    },
+    {
+      "descripcion": "Alquiler de vehículos de motor",
+      "codigo": "77.1"
+    },
+    {
+      "descripcion": "Arrendamiento de la propiedad intelectual y productos similares, excepto obras protegidas por derechos de autor",
+      "codigo": "77.4"
+    },
+    {
+      "descripcion": "Campings y aparcamientos para caravanas",
+      "codigo": "55.3"
+    },
+    {
+      "descripcion": "Caza, captura de animales y servicios relacionados",
+      "codigo": "01.7"
+    },
+    {
+      "descripcion": "Comercio al por menor",
+      "codigo": "47"
+    },
+    {
+      "descripcion": "Construcción de edificios",
+      "codigo": "41"
+    },
+    {
+      "descripcion": "Cultivos no perennes",
+      "codigo": "01.1"
+    },
+    {
+      "descripcion": "Cultivos perennes",
+      "codigo": "01.2"
+    },
+    {
+      "descripcion": "Demolición y preparación de terrenos",
+      "codigo": "43.1"
+    },
+    {
+      "descripcion": "Depósito y almacenamiento",
+      "codigo": "52.1"
+    },
+    {
+      "descripcion": "Edición de libros, periódicos y otras actividades editoriales, excepto la edición de programas informáticos",
+      "codigo": "58.1"
+    },
+    {
+      "descripcion": "Edición de programas informáticos",
+      "codigo": "58.2"
+    },
+    {
+      "descripcion": "Educación",
+      "codigo": "85"
+    },
+    {
+      "descripcion": "Estudios de mercado y realización de encuestas de opinión pública",
+      "codigo": "73.2"
+    },
+    {
+      "descripcion": "Explotación de la madera",
+      "codigo": "02.2"
+    },
+    {
+      "descripcion": "Hoteles y alojamientos similares",
+      "codigo": "55.1"
+    },
+    {
+      "descripcion": "INDUSTRIA MANUFACTURERA",
+      "codigo": "C"
+    },
+    {
+      "descripcion": "INDUSTRIAS EXTRACTIVAS",
+      "codigo": "B"
+    },
+    {
+      "descripcion": "Ingeniería civil",
+      "codigo": "42"
+    },
+    {
+      "descripcion": "Instalaciones eléctricas, de fontanería y otras instalaciones en obras de construcción",
+      "codigo": "43.2"
+    },
+    {
+      "descripcion": "Investigación y desarrollo",
+      "codigo": "72"
+    },
+    {
+      "descripcion": "ORGANISMOS EXTRATERRITORIALES",
+      "codigo": "V"
+    },
+    {
+      "descripcion": "Organización de convenciones y ferias de muestras",
+      "codigo": "82.3"
+    },
+    {
+      "descripcion": "Otras actividades de apoyo a las empresas n.c.o.p.",
+      "codigo": "82.9"
+    },
+    {
+      "descripcion": "Otras actividades de construcción especializada",
+      "codigo": "43.9"
+    },
+    {
+      "descripcion": "Otras actividades postales y de mensajería",
+      "codigo": "53.2"
+    },
+    {
+      "descripcion": "Otras actividades profesionales, científicas y técnicas",
+      "codigo": "74"
+    },
+    {
+      "descripcion": "Otros alojamientos",
+      "codigo": "55.9"
+    },
+    {
+      "descripcion": "Pesca",
+      "codigo": "03.1"
+    },
+    {
+      "descripcion": "Producción agrícola combinada con la producción ganadera",
+      "codigo": "01.5"
+    },
+    {
+      "descripcion": "Producción cinematográfica, de vídeo y de programas de televisión, grabación de sonido y edición musical",
+      "codigo": "59"
+    },
+    {
+      "descripcion": "Producción ganadera",
+      "codigo": "01.4"
+    },
+    {
+      "descripcion": "Propagación de plantas",
+      "codigo": "01.3"
+    },
+    {
+      "descripcion": "Publicidad",
+      "codigo": "73.1"
+    },
+    {
+      "descripcion": "Recolección de productos silvestres, excepto madera",
+      "codigo": "02.3"
+    },
+    {
+      "descripcion": "Reparación y mantenimiento de efectos personales y artículos de uso doméstico",
+      "codigo": "95.2"
+    },
+    {
+      "descripcion": "Reparación y mantenimiento de ordenadores y equipos de comunicación",
+      "codigo": "95.1"
+    },
+    {
+      "descripcion": "Restaurantes y puestos de comidas",
+      "codigo": "56.1"
+    },
+    {
+      "descripcion": "Servicios a edificios y actividades de jardinería",
+      "codigo": "81"
+    },
+    {
+      "descripcion": "Servicios de apoyo a la silvicultura",
+      "codigo": "02.4"
+    },
+    {
+      "descripcion": "Servicios de bebidas",
+      "codigo": "56.3"
+    },
+    {
+      "descripcion": "Servicios de catering y otros servicios de comidas",
+      "codigo": "56.2"
+    },
+    {
+      "descripcion": "Servicios de investigación y seguridad",
+      "codigo": "80"
+    },
+    {
+      "descripcion": "Servicios personales",
+      "codigo": "96"
+    },
+    {
+      "descripcion": "Servicios técnicos de arquitectura e ingeniería; ensayos y análisis técnicos",
+      "codigo": "71"
+    },
+    {
+      "descripcion": "Silvicultura y otras actividades forestales",
+      "codigo": "02.1"
+    },
+    {
+      "descripcion": "SUMINISTRO DE AGUA, ACTIVIDADES DE SANEAMIENTO, GESTIÓN DE RESIDUOS Y DESCONTAMINACIÓN",
+      "codigo": "E"
+    },
+    {
+      "descripcion": "SUMINISTRO DE ENERGIA ELECTRICA, GAS, VAPOR Y AIRE ACONDICIONADO",
+      "codigo": "D"
+    },
+    {
+      "descripcion": "TELECOMUNICACIONES, PROGRAMACIÓN INFORMÁTICA, CONSULTORÍA, INFRAESTRUCTURA INFORMÁTICA Y OTROS SERVICIOS DE INFORMACIÓN",
+      "codigo": "K"
+    },
+    {
+      "descripcion": "Transporte aéreo",
+      "codigo": "51"
+    },
+    {
+      "descripcion": "Transporte marítimo y por vías navegables interiores",
+      "codigo": "50"
+    },
+    {
+      "descripcion": "Transporte terrestre y por tubería",
+      "codigo": "49"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES41 - CASTILLA Y LEON"
+    }
+  ],
+  "descripcionFinalidad": "Otras actuaciones de carácter económico",
+  "descripcionBasesReguladoras": "Orden EYH/74/2024, de 31 de enero, por la que se aprueban las BBRR para la concesión de subvenciones dirigidas a financiar el desarrollo de proyectos singulares ligados a destinos turísticos de excelencia en los territorios afectados por el FTJ de España",
+  "urlBasesReguladoras": "https://bocyl.jcyl.es/boletines/2024/02/07/pdf/BOCYL-D-07022024-17.pdf",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": null,
+  "fechaFinSolicitud": null,
+  "textInicio": "DÍA SIGUIENTE A LA PUBLICACIÓN DEL EXTRACTO DE LA CONVOCATORIA EN EL BOCYL",
+  "textFin": "Dos meses desde publicación del extracto en BOCYL",
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [
+    {
+      "descripcion": "FTJ – FONDO DE TRANSICIÓN JUSTA"
+    }
+  ],
+  "reglamento": {
+    "descripcion": "REG (UE) 2023/2831 de minimis, General",
+    "orden": null
+  },
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1511625,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "Resolución convocatoria turismo FTJ 2026.pdf",
+      "long": 731730,
+      "datMod": "2026-08-21",
+      "datPublicacion": "2026-08-21"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

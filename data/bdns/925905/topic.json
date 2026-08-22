@@ -1,0 +1,65 @@
+{
+  "source": "bdns",
+  "source_id": "925905",
+  "source_lang": "es",
+  "level": "local",
+  "programme": "Concurrencia competitiva - canónica",
+  "sub_programme": null,
+  "publishing_authority_code": "LOCAL / PASO, EL / AYUNTAMIENTO DE PASO, EL",
+  "nuts_codes": [
+    "ES707"
+  ],
+  "nuts_primary": "ES707",
+  "title": "CONVOCATORIA PARA LA CONCESIÓN, EN RÉGIMEN DECONCURRENCIA COMPETITIVA, DE AYUDAS ECONÓMICAS A LOS/ASESTUDIANTES EMPADRONADOS/AS EN EL MUNICIPIO DE EL PASO QUE CURSENESTUDIOS DE PRIMER Y SEGUNDO CICLO DE EDUCACIÓN INFANTIL, EDUCACIÓNPRIMARIA, PRIMER Y SEGU",
+  "title_lang": "es",
+  "summary": "Educación",
+  "status": "open",
+  "publication_date": "2026-08-21",
+  "open_date": null,
+  "deadline": null,
+  "deadline_model": "continuous",
+  "deadlines_extra": null,
+  "budget_total_eur": 40000,
+  "budget_per_project_min_eur": null,
+  "budget_per_project_max_eur": null,
+  "expected_grants": null,
+  "cofinancing_pct": null,
+  "duration_months": null,
+  "audience": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA",
+  "eligible_orgs": [
+    "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+  ],
+  "eligible_countries": [
+    "ES"
+  ],
+  "sectores": [
+    {
+      "codigo": "S",
+      "descripcion": "ACTIVIDADES ARTÍSTICAS, DEPORTIVAS Y DE ENTRETENIMIENTO"
+    },
+    {
+      "codigo": "Q",
+      "descripcion": "EDUCACIÓN"
+    }
+  ],
+  "apply_url": "https://sede.elpaso.es/",
+  "details_url": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatoria/925905",
+  "documents": [
+    {
+      "label": "Documento de la convocatoria en español",
+      "url": null
+    }
+  ],
+  "bases_reguladoras_url": "https://sede.elpaso.es/",
+  "text_inicio": "(1) mes a contar desde la  publicación del extracto de la convocatoria en el BOP",
+  "text_fin": "Ultimo día del mes a contar desde la publicación del anuncio en el BOP",
+  "se_publica_diario_oficial": true,
+  "ayuda_estado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectores_productos": [],
+  "anuncios": [],
+  "mrr_flag": false,
+  "fetchedAt": "2026-08-22T04:06:33.812Z"
+}

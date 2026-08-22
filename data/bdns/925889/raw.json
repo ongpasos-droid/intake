@@ -1,0 +1,103 @@
+{
+  "id": 1127450,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "PARCENT",
+    "nivel3": "AYUNTAMIENTO DE PARCENT"
+  },
+  "sedeElectronica": "https://parcent.sedipualba.es/",
+  "codigoBDNS": "925889",
+  "fechaRecepcion": "2026-08-21",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 39545,
+  "mrr": false,
+  "descripcion": "BASES REGULADORAS Y CONVOCATORIA DE LA CAMPAÑA DE FOMENTO DEL CONSUMO EN EL COMERCIO LOCAL DE PARCENT,\nMEDIANTE LA EMISIÓN DE BONOS DE COMERCIO, anualidad 2026",
+  "descripcionLeng": "BASES REGULADORES I CONVOCATÒRIA DE LA CAMPANYA DE FOMENT DEL CONSUM AL COMERÇ LOCAL DE PARCENT, MITJANÇANT\nLA EMISSIÓ DE BONOS DE COMERÇ, anualitat 2026",
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PYME Y PERSONAS FÍSICAS QUE DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "ACTIVIDADES DE EDICIÓN, RADIODIFUSIÓN Y PRODUCCIÓN Y DISTRIBUCIÓN DE CONTENIDOS",
+      "codigo": "J"
+    },
+    {
+      "descripcion": "COMERCIO AL POR MAYOR Y AL POR MENOR",
+      "codigo": "G"
+    },
+    {
+      "descripcion": "HOSTELERÍA",
+      "codigo": "I"
+    },
+    {
+      "descripcion": "OTROS SERVICIOS",
+      "codigo": "T"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES521 - Alicante / Alacant"
+    }
+  ],
+  "descripcionFinalidad": "Comercio, Turismo y Pymes",
+  "descripcionBasesReguladoras": "Bases aprobadas por el área de Desarrollo económico y sectores productivos de la Excma. Diputación Provincial de Alicante, publicadas en fecha 23/07/2026 (BOPA núm. 137).",
+  "urlBasesReguladoras": "https://www.dip-alicante.es/bop2/pdftotal/2026/07/23_137/2026_005685.pdf",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": null,
+  "fechaFinSolicitud": null,
+  "textInicio": "a partir del día: publicación en BOPA para empresarios  y del 16.9.2026 para particulares",
+  "textFin": "hasta el 16.10. 2026 para particulares   empresarios hasta 11.9.2026",
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": {
+    "descripcion": "REG (UE) 1407/2013 de minimis, General",
+    "orden": null
+  },
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1511756,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "20260817 - bases-bono-comercio 2026 -V1.docx",
+      "long": 156852,
+      "datMod": "2026-08-21",
+      "datPublicacion": "2026-08-21"
+    },
+    {
+      "id": 1511760,
+      "descripcion": "Anexo IV - ficha de terceros",
+      "nombreFic": "Anexo IV.docx",
+      "long": 133474,
+      "datMod": "2026-08-21",
+      "datPublicacion": "2026-08-21"
+    },
+    {
+      "id": 1511758,
+      "descripcion": "Anexo II- particulares",
+      "nombreFic": "Anexo II.docx",
+      "long": 23968,
+      "datMod": "2026-08-21",
+      "datPublicacion": "2026-08-21"
+    },
+    {
+      "id": 1511757,
+      "descripcion": "Anexo I-empresas",
+      "nombreFic": "Anexo I.docx",
+      "long": 24609,
+      "datMod": "2026-08-21",
+      "datPublicacion": "2026-08-21"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

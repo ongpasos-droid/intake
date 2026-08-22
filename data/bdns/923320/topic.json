@@ -1,0 +1,81 @@
+{
+  "source": "bdns",
+  "source_id": "923320",
+  "source_lang": "es",
+  "level": "local",
+  "programme": "Concurrencia competitiva - canónica",
+  "sub_programme": null,
+  "publishing_authority_code": "LOCAL / TUI / AYUNTAMIENTO DE TUI",
+  "nuts_codes": [
+    "ES114"
+  ],
+  "nuts_primary": "ES114",
+  "title": "BASES REGULADORAS DE LA CONVOCATORIA DE SUBVENCIONES PARA LA REALIZACION DE ACTIVIDADES  Y GASTOS DE FUNCIONAMIENTO DE LAS ASOCIACIONES MUSICALES Y BANDAS DE GAITAS DEL AYUNTAMIENTO DE TUI EN El EJERCICIO 2026",
+  "title_lang": "es",
+  "summary": "Cultura",
+  "status": "open",
+  "publication_date": "2026-08-04",
+  "open_date": null,
+  "deadline": null,
+  "deadline_model": "continuous",
+  "deadlines_extra": null,
+  "budget_total_eur": 43000,
+  "budget_per_project_min_eur": null,
+  "budget_per_project_max_eur": null,
+  "expected_grants": null,
+  "cofinancing_pct": null,
+  "duration_months": null,
+  "audience": "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA",
+  "eligible_orgs": [
+    "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+  ],
+  "eligible_countries": [
+    "ES"
+  ],
+  "sectores": [
+    {
+      "codigo": "S",
+      "descripcion": "ACTIVIDADES ARTÍSTICAS, DEPORTIVAS Y DE ENTRETENIMIENTO"
+    }
+  ],
+  "apply_url": "https://concellotui.sedelectronica.gal/dossier.1",
+  "details_url": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatoria/923320",
+  "documents": [
+    {
+      "label": "Documento de la convocatoria en español",
+      "url": null
+    },
+    {
+      "label": "Documento de la convocatoria en lengua cooficial",
+      "url": null
+    },
+    {
+      "label": "Anexo IV. Declaración",
+      "url": null
+    },
+    {
+      "label": "Anexo II. Declaracións",
+      "url": null
+    },
+    {
+      "label": "Anexo III. Conta Xustificativa",
+      "url": null
+    },
+    {
+      "label": "Anexo I. Solicitude",
+      "url": null
+    }
+  ],
+  "bases_reguladoras_url": "https://tui.gal/gl/tramites/subvencions-e-axudas",
+  "text_inicio": "Día siguiente a publicación do extracto no BOPO",
+  "text_fin": "15 días naturais desde o día seguinte ao da publicación do estrato da convocatoria no BOP",
+  "se_publica_diario_oficial": true,
+  "ayuda_estado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectores_productos": [],
+  "anuncios": [],
+  "mrr_flag": false,
+  "fetchedAt": "2026-08-22T04:06:33.175Z"
+}
