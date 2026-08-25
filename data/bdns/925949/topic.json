@@ -1,0 +1,65 @@
+{
+  "source": "bdns",
+  "source_id": "925949",
+  "source_lang": "es",
+  "level": "local",
+  "programme": "Concurrencia competitiva - canónica",
+  "sub_programme": null,
+  "publishing_authority_code": "LOCAL / VILLAR DE ARNEDO, EL / AYUNTAMIENTO DE VILLAR DE ARNEDO, EL",
+  "nuts_codes": [
+    "ES23"
+  ],
+  "nuts_primary": "ES23",
+  "title": "PREMIOS CONCURSO DE RANCHOS FIESTAS SANTO CRISTO DE LOS BUENOS TEMPORALES 2026",
+  "title_lang": "es",
+  "summary": "Cultura",
+  "status": "open",
+  "publication_date": "2026-08-21",
+  "open_date": null,
+  "deadline": null,
+  "deadline_model": "continuous",
+  "deadlines_extra": null,
+  "budget_total_eur": 100,
+  "budget_per_project_min_eur": null,
+  "budget_per_project_max_eur": null,
+  "expected_grants": null,
+  "cofinancing_pct": null,
+  "duration_months": null,
+  "audience": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA",
+  "eligible_orgs": [
+    "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+  ],
+  "eligible_countries": [
+    "ES"
+  ],
+  "sectores": [
+    {
+      "codigo": "S",
+      "descripcion": "ACTIVIDADES ARTÍSTICAS, DEPORTIVAS Y DE ENTRETENIMIENTO"
+    }
+  ],
+  "apply_url": null,
+  "details_url": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatoria/925949",
+  "documents": [
+    {
+      "label": "FORMULARIO DE INSCRIPCIÓN Y DECLARACIÓN RESPONSABLE SIMPLIFICADA",
+      "url": null
+    },
+    {
+      "label": "Documento de la convocatoria en español",
+      "url": null
+    }
+  ],
+  "bases_reguladoras_url": "https://elvillardearnedo.sedelectronica.es/info.0",
+  "text_inicio": "21/08/2026",
+  "text_fin": "10/19/2026",
+  "se_publica_diario_oficial": true,
+  "ayuda_estado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectores_productos": [],
+  "anuncios": [],
+  "mrr_flag": false,
+  "fetchedAt": "2026-08-25T04:09:05.793Z"
+}

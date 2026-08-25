@@ -1,0 +1,96 @@
+{
+  "id": 1127618,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "SOMOZAS, AS",
+    "nivel3": "AYUNTAMIENTO DE SOMOZAS, AS"
+  },
+  "sedeElectronica": "https://assomozas.sedelectronica.gal/",
+  "codigoBDNS": "926057",
+  "fechaRecepcion": "2026-08-24",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 12000,
+  "mrr": false,
+  "descripcion": "Bases reguladoras de la convocatoria para la concesión de ayudas a familias para material escolar para el curso 2026/2027 y para gastos de desplazamientos para estudiantes de ciclos medio o superior y estudiantes de grados universitarios",
+  "descripcionLeng": "Bases reguladoras da convocatoria para a concesión de axudas a familias para material escolar para o curso 2026/2027 e para gastos de desprazamentos para estudantes de ciclos medio ou superior e estudantes de graos universitarios",
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "EDUCACIÓN",
+      "codigo": "Q"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES111 - A Coruña"
+    }
+  ],
+  "descripcionFinalidad": "Educación",
+  "descripcionBasesReguladoras": "Bases reguladoras de la convocatoria para la concesión de ayudas a familias para material escolar para el curso 2026/2027 y para gastos de desplazamientos para estudiantes de ciclos medio o superior y estudiantes de grados universitarios",
+  "urlBasesReguladoras": "https://assomozas.sedelectronica.gal/",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": "2026-08-28",
+  "fechaFinSolicitud": "2026-09-30",
+  "textInicio": null,
+  "textFin": null,
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1512202,
+      "descripcion": "Resolución",
+      "nombreFic": "20260821_Resolución_DECRETO 2026-0380 [Resolución PR_2026_446 - Fase A - Convocatoria (Subvenciones sujetas a la LGS en régimen de concurrencia competitiva)].pdf",
+      "long": 995987,
+      "datMod": "2026-08-24",
+      "datPublicacion": "2026-08-24"
+    },
+    {
+      "id": 1512197,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "bases becas 2026 2027 castellano.pdf",
+      "long": 192851,
+      "datMod": "2026-08-24",
+      "datPublicacion": "2026-08-24"
+    },
+    {
+      "id": 1512198,
+      "descripcion": "Documento de la convocatoria en lengua cooficial",
+      "nombreFic": "bases becas 2026 2027 GALLEGO.pdf",
+      "long": 159519,
+      "datMod": "2026-08-24",
+      "datPublicacion": "2026-08-24"
+    },
+    {
+      "id": 1512200,
+      "descripcion": "Anexos ciclos e universitarios",
+      "nombreFic": "Anexos ciclos e universitarios.pdf",
+      "long": 324433,
+      "datMod": "2026-08-24",
+      "datPublicacion": "2026-08-24"
+    },
+    {
+      "id": 1512201,
+      "descripcion": "Anexos infantil, primaria, secundaria e bachiller, y fb básica",
+      "nombreFic": "Anexos infantil, primaria, secundaria e bacharelato.pdf",
+      "long": 365151,
+      "datMod": "2026-08-24",
+      "datPublicacion": "2026-08-24"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

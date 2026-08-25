@@ -1,0 +1,80 @@
+{
+  "id": 1127749,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "MIGUELÁÑEZ",
+    "nivel3": "AYUNTAMIENTO DE MIGUELÁÑEZ"
+  },
+  "sedeElectronica": "https://miguelanez.sedelectronica.es/info.0",
+  "codigoBDNS": "926188",
+  "fechaRecepcion": "2026-08-24",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concesión directa - canónica",
+  "presupuestoTotal": 2500,
+  "mrr": false,
+  "descripcion": "Convocatoria para la concesión de ayudas económicas por nacimiento y empadronamiento",
+  "descripcionLeng": null,
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "ACTIVIDADES DE LOS HOGARES COMO EMPLEADORES Y COMO PRODUCTORES DE BIENES Y SERVICIOS NO DIFERENCIADOS PARA USO PROPIO",
+      "codigo": "U"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES416 - Segovia"
+    }
+  ],
+  "descripcionFinalidad": "Servicios Sociales y Promoción Social",
+  "descripcionBasesReguladoras": "Presupuesto General del Ayuntamiento de Migueláñez 2026",
+  "urlBasesReguladoras": "https://miguelanez.sedelectronica.es/preview-document/e55752d6-e6f0-411a-9851-e613e5185699/",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": null,
+  "fechaFinSolicitud": null,
+  "textInicio": "Desde el siguiente día a la publicación en el Boletín Oficial de la Provincia de Segovia",
+  "textFin": "Un mes desde la publicación de la convocatoria",
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1512402,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "20260824_Otros_Anexo I Convocatoria para la Concesión de Subvenciones.pdf",
+      "long": 321780,
+      "datMod": "2026-08-24",
+      "datPublicacion": "2026-08-24"
+    },
+    {
+      "id": 1512414,
+      "descripcion": "Declaración Responsable",
+      "nombreFic": "Modelo declaración responsable.docx",
+      "long": 19485,
+      "datMod": "2026-08-24",
+      "datPublicacion": "2026-08-24"
+    },
+    {
+      "id": 1512412,
+      "descripcion": "Modelo de solicitud de subvención",
+      "nombreFic": "Solicitud subvención.docx",
+      "long": 22894,
+      "datMod": "2026-08-24",
+      "datPublicacion": "2026-08-24"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

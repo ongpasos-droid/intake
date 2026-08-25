@@ -1,0 +1,72 @@
+{
+  "id": 1127666,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "GRANADILLA DE ABONA",
+    "nivel3": "AYUNTAMIENTO DE GRANADILLA DE ABONA"
+  },
+  "sedeElectronica": null,
+  "codigoBDNS": "926105",
+  "fechaRecepcion": "2026-08-24",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 59500,
+  "mrr": false,
+  "descripcion": "CONVOCATORIA DE SUBVENCIONES  EN RÉGIMEN DE CONCURRENCIA COMPETITIVA, DESTINADA A CLUBES Y ASOC. DEPORTIVA Y ASOCIACIONES DEPORTIVAS  DEL MUNICIPIO DE GRANADILLA DE ABONA. 2026",
+  "descripcionLeng": null,
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "Actividades deportivas",
+      "codigo": "93.1"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES709 - Tenerife"
+    }
+  ],
+  "descripcionFinalidad": "Otras Prestaciones económicas",
+  "descripcionBasesReguladoras": "BASES GENERALES REGULADORAS PARA LA CONCESIÓN DE SUBVENCIONES A CLUBES Y ASOCIACIONES DEPORTIVAS DEL MUNICIPIO DE GRANADILLA DE ABONA",
+  "urlBasesReguladoras": "https://www.bopsantacruzdetenerife.es/boletines/2026/3-7-26/3-7-26.pdf",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": null,
+  "fechaFinSolicitud": null,
+  "textInicio": "Al dia después de la publicación de la Convocatoria  en el BOP",
+  "textFin": "20 dias naturales",
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1512277,
+      "descripcion": "Anuncio_ CONVOCATORIA  PARA LA CONCESIÓN DE SUBVENCIONES A CLUBES O ASOCIACIONES DEPORTIVAS DEL MUNICIPIO DE GRANADILLA DE ABONA",
+      "nombreFic": "Anuncio_ CONVOCATORIA  PARA LA CONCESIÓN DE SUBVENCIONES A CLUBES O ASOCIACIONES DEPORTIVAS DEL MUNICIPIO DE GRANADILLA DE ABONA.PDF",
+      "long": 132575,
+      "datMod": "2026-08-24",
+      "datPublicacion": "2026-08-24"
+    },
+    {
+      "id": 1512276,
+      "descripcion": "Texto en castellano de la convocatoria",
+      "nombreFic": "Resolución- Aprobación CONVOCATORIA  PARA LA CONCESIÓN DE SUBVENCIONES A CLUBES O ASOCIACIONES DEPORTIVAS DEL MUNICIPIO DE GRANADILLA DE ABONA.PDF",
+      "long": 186044,
+      "datMod": "2026-08-24",
+      "datPublicacion": "2026-08-24"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

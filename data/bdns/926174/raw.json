@@ -1,0 +1,64 @@
+{
+  "id": 1127735,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "BAZA",
+    "nivel3": "AYUNTAMIENTO DE BAZA"
+  },
+  "sedeElectronica": null,
+  "codigoBDNS": "926174",
+  "fechaRecepcion": "2026-08-24",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 500,
+  "mrr": false,
+  "descripcion": "PREMIOS 58 CONCURSO COMARCAL DE TRACTORES \"DAMA DE BAZA\" FERIA 2026",
+  "descripcionLeng": null,
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "AGRICULTURA, GANADERÍA, SILVICULTURA Y PESCA",
+      "codigo": "A"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES61 - ANDALUCIA"
+    }
+  ],
+  "descripcionFinalidad": "Agricultura, Pesca y Alimentación",
+  "descripcionBasesReguladoras": "En  Junta de Gobierno Local del Ayuntamiento de Baza de  21/08/2026 se  aprobaron las bases reguladoras del 58 Concurso comarcal de tractores \"Dama de Baza\" 2026, asi como la convocatoria.",
+  "urlBasesReguladoras": "https://bop.dipgra.es/publica/buscador-anuncios/anuncio/APROBACION-DEFINITIVA-PRESUPUESTO-GENERAL-CONSOLIDADO-Y-PLANTILLA-DE-PERSONAL-PARA-EJERCICIO-2026/",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": null,
+  "fechaFinSolicitud": "2026-09-07",
+  "textInicio": "DÍA SIGUIENTE A SU PUBLICACION EN EL BOP ",
+  "textFin": "15 dias",
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1512394,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "concurso tractoristas.pdf",
+      "long": 204454,
+      "datMod": "2026-08-24",
+      "datPublicacion": "2026-08-24"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

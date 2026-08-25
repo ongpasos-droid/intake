@@ -1,0 +1,75 @@
+{
+  "id": 1127577,
+  "organo": {
+    "nivel1": "AUTONOMICA",
+    "nivel2": "GALICIA",
+    "nivel3": "CONSELLERÍA DE CULTURA, LENGUA Y JUVENTUD"
+  },
+  "sedeElectronica": null,
+  "codigoBDNS": "926016",
+  "fechaRecepcion": "2026-08-24",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 87900,
+  "mrr": false,
+  "descripcion": "Orden por la que se establecen las bases que rigen los premios del programa Juventud Créela y si procede a su convocatoria para el año 2026 (código de procedimiento BS310Q)",
+  "descripcionLeng": null,
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    },
+    {
+      "descripcion": "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "Otra educación",
+      "codigo": "85.5"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES11 - GALICIA"
+    }
+  ],
+  "descripcionFinalidad": "Cultura",
+  "descripcionBasesReguladoras": "Orden por la que se establecen las bases que rigen los premios del programa Juventud Créela y si procede a su convocatoria para el año 2026 (código de procedimiento BS310Q)",
+  "urlBasesReguladoras": "https://www.xunta.gal/dog/",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": "2026-08-31",
+  "fechaFinSolicitud": "2026-09-30",
+  "textInicio": "A partir del día siguiente a su publicación",
+  "textFin": "Un mes, contado desde el día siguiente al de la publicación de esta orden en el Diario Oficial de Ga",
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1512105,
+      "descripcion": "Texto en otra lengua de la convocatoria",
+      "nombreFic": "1. Orde__XC_2026_BS310Q_asinado_20260824_095826.pdf",
+      "long": 361898,
+      "datMod": "2026-08-24",
+      "datPublicacion": "2026-08-24"
+    },
+    {
+      "id": 1512104,
+      "descripcion": "Texto en castellano de la convocatoria",
+      "nombreFic": "1. Orde__XC_2026_BS310Q_asinado_es_20260824_095915.pdf",
+      "long": 1598841,
+      "datMod": "2026-08-24",
+      "datPublicacion": "2026-08-24"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}
