@@ -1,0 +1,80 @@
+{
+  "id": 1127782,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "CASTALLA",
+    "nivel3": "AYUNTAMIENTO DE CASTALLA"
+  },
+  "sedeElectronica": "carpeta.castalla.org",
+  "codigoBDNS": "926221",
+  "fechaRecepcion": "2026-08-25",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concesión directa - canónica",
+  "presupuestoTotal": 8000,
+  "mrr": false,
+  "descripcion": "CONVOCATORIA PARA LA CONCESIÓN DE AYUDAS ECONÓMICAS A DEPORTISTAS DE ÉLITE EN EL MUNICIPIO DE CASTALLA 2026.",
+  "descripcionLeng": null,
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "OTROS SERVICIOS",
+      "codigo": "T"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES521 - Alicante / Alacant"
+    }
+  ],
+  "descripcionFinalidad": "Otras Prestaciones económicas",
+  "descripcionBasesReguladoras": "CONVOCATORIA PARA LA CONCESIÓN DE AYUDAS ECONÓMICAS A DEPORTISTAS DE ÉLITE EN EL MUNICIPIO DE CASTALLA 2026.",
+  "urlBasesReguladoras": "www.castalla.org",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": null,
+  "fechaFinSolicitud": null,
+  "textInicio": "Veinte días naturales a partir del día siguiente al de la publicación  de la convocatoria en BOPA ",
+  "textFin": "Veinte días naturales después  del día siguiente al de la publicación  de la convocatoria en BOPA ",
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1512468,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "Resolucion Convocatoria.pdf",
+      "long": 241745,
+      "datMod": "2026-08-25",
+      "datPublicacion": "2026-08-25"
+    },
+    {
+      "id": 1512469,
+      "descripcion": "BASES DE LA CONVOCATORIA",
+      "nombreFic": "Bases de la convocatoria.pdf",
+      "long": 3427960,
+      "datMod": "2026-08-25",
+      "datPublicacion": "2026-08-25"
+    },
+    {
+      "id": 1512470,
+      "descripcion": "EXTRACTO DE LA CONVOCATORIA",
+      "nombreFic": "extracto convocatoria.pdf",
+      "long": 239771,
+      "datMod": "2026-08-25",
+      "datPublicacion": "2026-08-25"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

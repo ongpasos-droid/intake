@@ -1,0 +1,88 @@
+{
+  "id": 1127805,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "MAIRENA DEL ALJARAFE",
+    "nivel3": "INSTITUTO MUNICIPAL DE DINAMIZACIÓN CIUDADANA"
+  },
+  "sedeElectronica": "https://imdcmairenadelaljarafe.sedelectronica.es/info.1",
+  "codigoBDNS": "926244",
+  "fechaRecepcion": "2026-08-25",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 5900,
+  "mrr": false,
+  "descripcion": "Resol. Nº 0349/2026 de fecha 24/08/2026 del Área de Promoción y Compromiso con la Juventud y la Igualdad para el desarrollo de actividades Programa Mairena Creativa-MAIFF 2026. Concursos 2 categorías: Sección Oficial MAIFF, Local y Concurso 36 horas.",
+  "descripcionLeng": null,
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "Actividades deportivas, recreativas y de entretenimiento",
+      "codigo": "93"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES618 - Sevilla"
+    }
+  ],
+  "descripcionFinalidad": "Cultura",
+  "descripcionBasesReguladoras": "ORDENANZA GENERAL DE SUBVENCIONES BOP. Nº 26 DE 2 DE FEBRERO DE 2021.",
+  "urlBasesReguladoras": "http://transparencia.mairenadelaljarafe.es/export/sites/mairenadelaljarafe/es/transparencia/.galleries/IND-83-/AYUNTAMIENTO/BOP-ORDENANZA-GENERAL-DE-SUBVENCIONES.pdf",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": "2026-08-28",
+  "fechaFinSolicitud": "2026-09-07",
+  "textInicio": null,
+  "textFin": null,
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1512513,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "07 RESOL. 0349-2026 APROB. BASES.pdf",
+      "long": 2544006,
+      "datMod": "2026-08-25",
+      "datPublicacion": "2026-08-25"
+    },
+    {
+      "id": 1512526,
+      "descripcion": "ANEXO III. AUTORIZACION DE INSCRIPCION",
+      "nombreFic": "03.3 Anexo III - Autorizacio n MairenaCreativa-MAIFF Rellenable(1).pdf",
+      "long": 118967,
+      "datMod": "2026-08-25",
+      "datPublicacion": "2026-08-25"
+    },
+    {
+      "id": 1512524,
+      "descripcion": "ANEXO II. SOLICITUD DE INSCRIPCION",
+      "nombreFic": "03.2 Anexo II - Inscripción.pdf",
+      "long": 97256,
+      "datMod": "2026-08-25",
+      "datPublicacion": "2026-08-25"
+    },
+    {
+      "id": 1512523,
+      "descripcion": "ANEXO I. BASES DEL PREMIO CANAL SUR",
+      "nombreFic": "03.1 Anexo I Bases Canal Sur.pdf",
+      "long": 1555034,
+      "datMod": "2026-08-25",
+      "datPublicacion": "2026-08-25"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

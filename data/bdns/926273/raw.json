@@ -1,0 +1,76 @@
+{
+  "id": 1127834,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "SOTO Y AMÍO",
+    "nivel3": "AYUNTAMIENTO DE SOTO Y AMÍO"
+  },
+  "sedeElectronica": "https://aytosotoyamio.sedelectronica.es/",
+  "codigoBDNS": "926273",
+  "fechaRecepcion": "2026-08-25",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concesión directa - canónica",
+  "presupuestoTotal": 6400,
+  "mrr": false,
+  "descripcion": "AYUDAS PARA LA ADQUISICIÓN DE LIBROS Y MATERIAL ESCOLAR DEL ALUMNADO DEL AYUNTAMIENTO DE SOTO Y AMÍO 2025/2026",
+  "descripcionLeng": null,
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "ACTIVIDADES ARTÍSTICAS, DEPORTIVAS Y DE ENTRETENIMIENTO",
+      "codigo": "S"
+    },
+    {
+      "descripcion": "EDUCACIÓN",
+      "codigo": "Q"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES413 - León"
+    }
+  ],
+  "descripcionFinalidad": "Educación",
+  "descripcionBasesReguladoras": "ORDENANZA REGULADORA DE AYUDAS A FAMILIAS PARA ADQUISICIÓN DE LIBROS DE TEXTO Y MATERIAL ESCOLAR",
+  "urlBasesReguladoras": "https://aytosotoyamio.sedelectronica.es/preview-document/b5d93a6d-5466-4044-930d-6b472f0c8e09/",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": null,
+  "fechaFinSolicitud": null,
+  "textInicio": "DESDE LA PUBLICACIÓN DEL EXTRACTO EN EL BOP",
+  "textFin": "20 DÍAS HABILES DESDE LA PUBLICACIÓN DEL EXTRACTO",
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1512593,
+      "descripcion": "MODELO DE SOLICITUD",
+      "nombreFic": "MODELO DE SOLICITUD.docx",
+      "long": 192743,
+      "datMod": "2026-08-25",
+      "datPublicacion": "2026-08-25"
+    },
+    {
+      "id": 1512592,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "20260813_Otros_CONVOCATORIA PARA LA CONCESIÓN DE SUBVENCIÓN PARA LA ADQUISICIÓN DE LIBROS Y MATERIAL ESCOLAR DEL ALUMNADO DEL MUNICIPIO DE SOTO Y AMÍO 2026_2027.pdf",
+      "long": 397450,
+      "datMod": "2026-08-25",
+      "datPublicacion": "2026-08-25"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

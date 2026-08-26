@@ -1,0 +1,72 @@
+{
+  "id": 1127883,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "LAUDIO/LLODIO",
+    "nivel3": "AYUNTAMIENTO DE LAUDIO/LLODIO"
+  },
+  "sedeElectronica": "https://udalenegoitza.araba.eus/laudio/web/inicioWebc.do?opcion=noreg&entidad=LAUDIO&idioma=1",
+  "codigoBDNS": "926322",
+  "fechaRecepcion": "2026-08-25",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 10000,
+  "mrr": false,
+  "descripcion": "Acuerdo de 31 de julio de 2026, de la Junta de Gobierno Local, por la que se convocan subvenciones de libre concurrencia para la dinamización y promoción de la producción local de Llodio en el año 2026.",
+  "descripcionLeng": "Erabakia,2026ko uztailaren 31koa, Tokiko Gobernu Batzarrarena, 2026an Laudioko tokiko ekoizpena dinamizatzeko eta sustatzeko lehia askeko dirulaguntzen deialdia onartzen duena.",
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PYME Y PERSONAS FÍSICAS QUE DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "AGRICULTURA, GANADERÍA, SILVICULTURA Y PESCA",
+      "codigo": "A"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES211 - Araba/Álava"
+    }
+  ],
+  "descripcionFinalidad": "Agricultura, Pesca y Alimentación",
+  "descripcionBasesReguladoras": "Bases reguladoras para la convocatoria de subvenciones de libre concurrencia para la dinamización y promoción de la producción local con punto de venta en Llodio durante el año 2026.",
+  "urlBasesReguladoras": "https://www.laudio.eus/es/ayuntamiento/subvenciones-y-concursos",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": null,
+  "fechaFinSolicitud": null,
+  "textInicio": "Desde el día siguiente a su publicación en el BOTHA",
+  "textFin": "20 días hábiles contados a partir del día siguiente de la publicación del extracto en el BOTHA",
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1512695,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "07-Certificado_JGL_74931_69341_14.pdf",
+      "long": 362871,
+      "datMod": "2026-08-25",
+      "datPublicacion": "2026-08-25"
+    },
+    {
+      "id": 1512696,
+      "descripcion": "Documento de la convocatoria en lengua cooficial",
+      "nombreFic": "07-Certificado_JGL_74931_69341_14.pdf",
+      "long": 362871,
+      "datMod": "2026-08-25",
+      "datPublicacion": "2026-08-25"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

@@ -1,0 +1,64 @@
+{
+  "id": 1127905,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "ALJARAQUE",
+    "nivel3": "AYUNTAMIENTO DE ALJARAQUE"
+  },
+  "sedeElectronica": null,
+  "codigoBDNS": "926344",
+  "fechaRecepcion": "2026-08-25",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 240,
+  "mrr": false,
+  "descripcion": "BASES REGULADORAS CONVOCATORIA III TORNEO DE FUTBOL SALA VERANO 2026.",
+  "descripcionLeng": null,
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "EDUCACIÓN",
+      "codigo": "Q"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES615 - Huelva"
+    }
+  ],
+  "descripcionFinalidad": "Educación",
+  "descripcionBasesReguladoras": "BASES REGULADORAS CONVOCATORIA III TORNEO DE FUTBOL SALA VERANO 2026.",
+  "urlBasesReguladoras": "https://aljaraque.sedelectronica.es/preview-document/f46d777b-64cb-4528-aae2-fb76ab132008/",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": "2026-08-27",
+  "fechaFinSolicitud": "2026-09-07",
+  "textInicio": null,
+  "textFin": null,
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1512710,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "DECRETO 2026-3962. BASES III TORNEO FUTBOL SALA VERANO 2026 ALJARAQUE..pdf",
+      "long": 678784,
+      "datMod": "2026-08-25",
+      "datPublicacion": "2026-08-25"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

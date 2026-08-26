@@ -1,0 +1,88 @@
+{
+  "id": 1127902,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "INGENIO",
+    "nivel3": "AYUNTAMIENTO DE INGENIO"
+  },
+  "sedeElectronica": "https://ingenio.sedelectronica.es/info.0",
+  "codigoBDNS": "926341",
+  "fechaRecepcion": "2026-08-25",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 22500,
+  "mrr": false,
+  "descripcion": "BASES REGULADORAS DE AYUDAS ESCOLARES PARA ESTUDIANTES DEL MUNICIPIO DE INGENIO CURSO ESCOLAR 2026/2027",
+  "descripcionLeng": null,
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "Educación secundaria y educación postsecundaria no terciaria",
+      "codigo": "85.3"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES705 - Gran Canaria"
+    }
+  ],
+  "descripcionFinalidad": "Educación",
+  "descripcionBasesReguladoras": "BASES REGULADORAS DE AYUDAS ESCOLARES PARA ESTUDIANTES DEL MUNICIPIO DE INGENIO CURSO ESCOLAR 2026/2027. Dirigidas a estudiantes menores de 25 años empadronados en Ingenio para sufragar gastos corrientes de material escolar y gastos en material TIC.",
+  "urlBasesReguladoras": "https://transparencia.ingenio.es/ayudas-subvenciones/ayudas-subvenciones-previstas/",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": null,
+  "fechaFinSolicitud": null,
+  "textInicio": "A partir del día siguiente de la publicación de esta convocatoria en el BOP Las Palmas",
+  "textFin": "15 días hábiles desde el día siguiente de la publicación de esta convocatoria en el BOP Las Palmas",
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1512728,
+      "descripcion": "ALTA DE TERCEROS PERSONA FÍSICA",
+      "nombreFic": "Alta tercero Personas Física Editable (1).pdf",
+      "long": 167154,
+      "datMod": "2026-08-25",
+      "datPublicacion": "2026-08-25"
+    },
+    {
+      "id": 1512743,
+      "descripcion": "ANEXO 2",
+      "nombreFic": "ANEXO II(1).docx",
+      "long": 121194,
+      "datMod": "2026-08-25",
+      "datPublicacion": "2026-08-25"
+    },
+    {
+      "id": 1512742,
+      "descripcion": "SOLICITUD",
+      "nombreFic": "SOLICITUD(1).docx",
+      "long": 19678,
+      "datMod": "2026-08-25",
+      "datPublicacion": "2026-08-25"
+    },
+    {
+      "id": 1512731,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "20260821_Resolución_DECRETO 2026-4625 [Resolución PR_2026_5950 - Actuación genérica con fiscalización].pdf",
+      "long": 3195644,
+      "datMod": "2026-08-25",
+      "datPublicacion": "2026-08-25"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}
