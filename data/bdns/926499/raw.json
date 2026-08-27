@@ -1,0 +1,80 @@
+{
+  "id": 1128060,
+  "organo": {
+    "nivel1": "ESTADO",
+    "nivel2": "MINISTERIO DE AGRICULTURA, PESCA Y ALIMENTACIÓN",
+    "nivel3": "SECRETARÍA GENERAL DE PESCA"
+  },
+  "sedeElectronica": "https://sede.mapa.gob.es/portal/site/seMAPA/ficha-procedimiento?procedure_suborg_responsable=27&procedure_etiqueta_pdu=null&procedure_id=1079&by=theme",
+  "codigoBDNS": "926499",
+  "fechaRecepcion": "2026-08-26",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 200000,
+  "mrr": false,
+  "descripcion": "ORDEN DEL MINISTRO DE AGRICULTURA, PESCA Y ALIMENTACIÓN POR LA QUE SE CONVOCAN EN 2026 AYUDAS A LAS ORGANIZACIONES PROFESIONALES DE LA PESCA Y LA ACUICULTURA PARA SU CONSOLIDACIÓN, COFINANCIADAS POR EL FEMPA",
+  "descripcionLeng": null,
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PYME Y PERSONAS FÍSICAS QUE DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "Pesca y acuicultura",
+      "codigo": "03"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES - ESPAÑA "
+    }
+  ],
+  "descripcionFinalidad": "Agricultura, Pesca y Alimentación",
+  "descripcionBasesReguladoras": "Real Decreto 956/2017, de 3 de noviembre, por el que se establece el marco regulador de ayudas a las organizaciones profesionales del sector de la pesca y de la acuicultura, cofinanciadas por el Fondo Europeo Marítimo y de Pesca",
+  "urlBasesReguladoras": "https://www.boe.es/buscar/act.php?id=BOE-A-2017-12663",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": null,
+  "fechaFinSolicitud": null,
+  "textInicio": "Desde el día siguiente a la publicación de la Orden",
+  "textFin": "10 días hábiles desde el día siguiente a la publicación de la Orden",
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1513154,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "Orden convocatoria consolidación 2026_DEFINITIVO.pdf.xsig.pdf",
+      "long": 268258,
+      "datMod": "2026-08-26",
+      "datPublicacion": "2026-08-26"
+    },
+    {
+      "id": 1513158,
+      "descripcion": "Modelo anexo B",
+      "nombreFic": "modelo Anexo B.pdf",
+      "long": 299628,
+      "datMod": "2026-08-26",
+      "datPublicacion": "2026-08-26"
+    },
+    {
+      "id": 1513157,
+      "descripcion": "Modelo anexo A",
+      "nombreFic": "modelo Anexo A editable.pdf",
+      "long": 403682,
+      "datMod": "2026-08-26",
+      "datPublicacion": "2026-08-26"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

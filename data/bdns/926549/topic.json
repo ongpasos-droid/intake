@@ -1,0 +1,65 @@
+{
+  "source": "bdns",
+  "source_id": "926549",
+  "source_lang": "es",
+  "level": "local",
+  "programme": "Concurrencia competitiva - canónica",
+  "sub_programme": null,
+  "publishing_authority_code": "LOCAL / ARTEIXO / AYUNTAMIENTO DE ARTEIXO",
+  "nuts_codes": [
+    "ES111"
+  ],
+  "nuts_primary": "ES111",
+  "title": "Convocatoria de ayudas al estudio para familias con descendientes escolarizados en los niveles obligatorio y no obligatorio en centros sostenidos con fondos públicos convocadas por la Concejalía de Educación – Curso 2026/2027 – Línea 1 – Movilidad",
+  "title_lang": "es",
+  "summary": "Educación",
+  "status": "open",
+  "publication_date": "2026-08-26",
+  "open_date": null,
+  "deadline": null,
+  "deadline_model": "continuous",
+  "deadlines_extra": null,
+  "budget_total_eur": 13000,
+  "budget_per_project_min_eur": null,
+  "budget_per_project_max_eur": null,
+  "expected_grants": null,
+  "cofinancing_pct": null,
+  "duration_months": null,
+  "audience": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA",
+  "eligible_orgs": [
+    "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+  ],
+  "eligible_countries": [
+    "ES"
+  ],
+  "sectores": [
+    {
+      "codigo": "Q",
+      "descripcion": "EDUCACIÓN"
+    }
+  ],
+  "apply_url": "https://sede.arteixo.org/sxc/gl/",
+  "details_url": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatoria/926549",
+  "documents": [
+    {
+      "label": "Documento de la convocatoria en lengua cooficial",
+      "url": null
+    },
+    {
+      "label": "Documento de la convocatoria en español",
+      "url": null
+    }
+  ],
+  "bases_reguladoras_url": "https://traductor.dicoruna.es/fron-trad/urlTranslate.php?direccion3=gl-es&inurl=https://bop.dacoruna.gal/bopportal/publicado/2020/07/02/2020_0000004147.html",
+  "text_inicio": "9 septiembre 2026",
+  "text_fin": "9 octubre 2026",
+  "se_publica_diario_oficial": true,
+  "ayuda_estado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectores_productos": [],
+  "anuncios": [],
+  "mrr_flag": false,
+  "fetchedAt": "2026-08-27T04:10:22.103Z"
+}

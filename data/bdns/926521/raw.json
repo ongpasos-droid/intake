@@ -1,0 +1,104 @@
+{
+  "id": 1128082,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "MIJAS",
+    "nivel3": "AYUNTAMIENTO DE MIJAS"
+  },
+  "sedeElectronica": "https://mijas.sedelectronica.es/info.0",
+  "codigoBDNS": "926521",
+  "fechaRecepcion": "2026-08-26",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 100000,
+  "mrr": false,
+  "descripcion": "ACUERDO DE FECHA 24 DE AGOSTO DE 2026 DE LA JUNTA DE GOBIERNO LOCAL DEL EXCMO. AYUNTAMIENTO DE MIJAS POR EL QUE SE CONVOCAN, EN RÉGIMEN DE CONCURRENCIA COMPETITIVA, LOS PREMIOS A LA EXCELENCIA DEPORTIVA PARA MÉRITOS DEPORTIVOS CONSEGUIDOS EN EL AÑO 2025.",
+  "descripcionLeng": null,
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "Actividades deportivas, recreativas y de entretenimiento",
+      "codigo": "93"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES617 - Málaga"
+    }
+  ],
+  "descripcionFinalidad": "Cultura",
+  "descripcionBasesReguladoras": "ORDENANZA GENERAL DE SUBVENCIONES DEL EXCMO. AYUNTAMIENTO DE MIJAS. BOP Nº217 DE 13/11/2025",
+  "urlBasesReguladoras": "https://www.bopmalaga.es/sumario.php?fecha=13-11-2025",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": null,
+  "fechaFinSolicitud": null,
+  "textInicio": "AL DÍA SIGUIENTE DE LA PUBLICACIÓN EN EL BOLETÍN OFICIAL DE LA PROVINCIA DE MÁLAGA",
+  "textFin": "15 DÍAS HÁBILES",
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1513227,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "CERTIFICADO ACUERDO JGL 24-08-2026 APROBACIÓN CONVOCATORIA PREMIOS A LA EXCELENCIA DEPORTIVA.pdf",
+      "long": 14203025,
+      "datMod": "2026-08-26",
+      "datPublicacion": "2026-08-26"
+    },
+    {
+      "id": 1513232,
+      "descripcion": "TEXTO DE CONVOCATORIA",
+      "nombreFic": "TEXTO CONVOCATORIA PREMIOS A LA EXCELENCIA DEPORTIVA 2026.pdf",
+      "long": 631229,
+      "datMod": "2026-08-26",
+      "datPublicacion": "2026-08-26"
+    },
+    {
+      "id": 1513230,
+      "descripcion": "ANEXO III DECLARACIONES RESPONSABLES",
+      "nombreFic": "ANEXO III declaración responsable.pdf",
+      "long": 548015,
+      "datMod": "2026-08-26",
+      "datPublicacion": "2026-08-26"
+    },
+    {
+      "id": 1513231,
+      "descripcion": "ANEXO IV PROTECCIÓN DE DATOS",
+      "nombreFic": "ANEXO IV protección de datos.pdf",
+      "long": 467930,
+      "datMod": "2026-08-26",
+      "datPublicacion": "2026-08-26"
+    },
+    {
+      "id": 1513228,
+      "descripcion": "ANEXO I SOLICITUD",
+      "nombreFic": "ANEXO I solicitud.pdf",
+      "long": 459411,
+      "datMod": "2026-08-26",
+      "datPublicacion": "2026-08-26"
+    },
+    {
+      "id": 1513229,
+      "descripcion": "ANEXO II AUTORIZACIONES",
+      "nombreFic": "ANEXO II autorizaciones.pdf",
+      "long": 453378,
+      "datMod": "2026-08-26",
+      "datPublicacion": "2026-08-26"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

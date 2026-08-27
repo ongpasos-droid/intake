@@ -1,0 +1,77 @@
+{
+  "source": "bdns",
+  "source_id": "926503",
+  "source_lang": "es",
+  "level": "estado",
+  "programme": "Concesión directa - canónica",
+  "sub_programme": null,
+  "publishing_authority_code": "ESTADO / MINISTERIO DE TRABAJO Y ECONOMÍA SOCIAL / DIRECCIÓN PROVINCIAL DEL SEPE DE CÁDIZ",
+  "nuts_codes": [
+    "ES612"
+  ],
+  "nuts_primary": "ES612",
+  "title": "Resolución de 26 de agosto de 2026, de la Dirección Provincial del SEPE en Cádiz, por la que se convocan subvenciones para la ejecución de proyectos de interés general y social y de garantía de rentas, con cargo a los fondos del PFEA 2026 (2ª Conv.)",
+  "title_lang": "es",
+  "summary": "Fomento del Empleo",
+  "status": "open",
+  "publication_date": "2026-08-26",
+  "open_date": null,
+  "deadline": null,
+  "deadline_model": "continuous",
+  "deadlines_extra": null,
+  "budget_total_eur": 1052395.03,
+  "budget_per_project_min_eur": null,
+  "budget_per_project_max_eur": null,
+  "expected_grants": null,
+  "cofinancing_pct": null,
+  "duration_months": null,
+  "audience": "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA",
+  "eligible_orgs": [
+    "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+  ],
+  "eligible_countries": [
+    "ES"
+  ],
+  "sectores": [
+    {
+      "codigo": "F",
+      "descripcion": "CONSTRUCCIÓN"
+    }
+  ],
+  "apply_url": "https://sede.sepe.gob.es/portalSede/procedimientos-y-servicios/empresas/empleo/programa-fomento-empleo-agrario.html",
+  "details_url": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatoria/926503",
+  "documents": [
+    {
+      "label": "Documento de la convocatoria en español",
+      "url": null
+    },
+    {
+      "label": "Anexo A descriptivo de la obra GR 2026",
+      "url": null
+    },
+    {
+      "label": "Anexo D Ítem S9 incluye S9 y S11 GR 2026",
+      "url": null
+    },
+    {
+      "label": "Anexo C Memoria Económica Justificativa J26 GR 2026",
+      "url": null
+    },
+    {
+      "label": "Anexo B Memoria de actuacion GR 2026",
+      "url": null
+    }
+  ],
+  "bases_reguladoras_url": "https://www.boe.es/eli/es/l/2003/11/17/38/con",
+  "text_inicio": "Desde el día siguiente a la publicación del extracto de la convocatoria en el BOE.",
+  "text_fin": " Quince días naturales a partir del día siguiente a la publicación del extracto de esta convocatoria",
+  "se_publica_diario_oficial": true,
+  "ayuda_estado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectores_productos": [],
+  "anuncios": [],
+  "mrr_flag": false,
+  "fetchedAt": "2026-08-27T04:10:22.092Z"
+}

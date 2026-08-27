@@ -1,0 +1,90 @@
+{
+  "id": 1127996,
+  "organo": {
+    "nivel1": "AUTONOMICA",
+    "nivel2": "PAÍS VASCO",
+    "nivel3": "DEPARTAMENTO DE CULTURA Y POLITICA LINGÜISTICA"
+  },
+  "sedeElectronica": "https://www.euskadi.eus/ayuda_subvencion/2026/subvenciones-para-la-organizacion-de-competiciones-deportivas-de-alto-nivel-2026/web01-tramite/es/",
+  "codigoBDNS": "926435",
+  "fechaRecepcion": "2026-08-26",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 300000,
+  "mrr": false,
+  "descripcion": "ORGANIZACIÓN DE COMPETICIONES DEPORTIVAS (26/27)",
+  "descripcionLeng": "KIROL LEHIAKETEN ANTOLAKETA (26/27)",
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    },
+    {
+      "descripcion": "PYME Y PERSONAS FÍSICAS QUE DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "Actividades deportivas",
+      "codigo": "93.1"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES21 - PAIS VASCO"
+    }
+  ],
+  "descripcionFinalidad": "Cultura",
+  "descripcionBasesReguladoras": "ORDEN de 7 de julio de 2026 (BOPV: nº 156, 18-08-2026), de la vicepresidenta primera del Gobierno y consejera de Cultura y Política Lingüística.",
+  "urlBasesReguladoras": "https://www.euskadi.eus/web01-bopv/es/bopv2/datos/2026/08/2603641a.pdf",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": "2026-08-19",
+  "fechaFinSolicitud": "2026-09-18",
+  "textInicio": null,
+  "textFin": null,
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": {
+    "descripcion": "REG (UE) 2023/2831 de minimis, General",
+    "orden": null
+  },
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1513024,
+      "descripcion": "Texto en otra lengua de la convocatoria",
+      "nombreFic": "AGINDUA-Deialdia.PDF",
+      "long": 292744,
+      "datMod": "2026-08-26",
+      "datPublicacion": "2026-08-26"
+    },
+    {
+      "id": 1513023,
+      "descripcion": "Texto en castellano de la convocatoria",
+      "nombreFic": "ORDEN-Convocatoria.PDF",
+      "long": 308997,
+      "datMod": "2026-08-26",
+      "datPublicacion": "2026-08-26"
+    }
+  ],
+  "anuncios": [
+    {
+      "numAnuncio": 219748,
+      "titulo": "Procedimiento Beta",
+      "tituloLeng": null,
+      "texto": "Procedimiento Beta",
+      "textoLeng": null,
+      "url": "https://www.euskadi.eus/web01-bopv/es/bopv2/datos/2026/08/2603641a.pdf",
+      "cve": null,
+      "desDiarioOficial": "BOPV. B.O. DEL PAÍS VASCO",
+      "datPublicacion": "2026-08-18"
+    }
+  ],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

@@ -1,0 +1,88 @@
+{
+  "id": 1128045,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "CUNIT",
+    "nivel3": "AYUNTAMIENTO DE CUNIT"
+  },
+  "sedeElectronica": null,
+  "codigoBDNS": "926484",
+  "fechaRecepcion": "2026-08-26",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 3876,
+  "mrr": false,
+  "descripcion": "Convocatoria concesión de plazas sociales de carácter gratuito en las escuelas infantiles municipales de Cunit",
+  "descripcionLeng": "Convocatòria concessió de places socials de caràcter gratuït a les llars d’infants municipals de Cunit.",
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "Educación",
+      "codigo": "85"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES514 - Tarragona"
+    }
+  ],
+  "descripcionFinalidad": "Educación",
+  "descripcionBasesReguladoras": "Convocatòria concessió de places socials de caràcter gratuït a les llars d’infants municipals de Cunit.",
+  "urlBasesReguladoras": "www.cunit.cat",
+  "sePublicaDiarioOficial": true,
+  "abierto": true,
+  "fechaInicioSolicitud": null,
+  "fechaFinSolicitud": null,
+  "textInicio": null,
+  "textFin": null,
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1513374,
+      "descripcion": "Texto en castellano de la convocatoria",
+      "nombreFic": "ANUNCIO CONCESION PLAZAS SOCIALES DE CARACTER GRATUITO EN LAS ESCUELAS INFANTILES DE CUNIT 26-27.pdf",
+      "long": 229748,
+      "datMod": "2026-08-26",
+      "datPublicacion": "2026-08-26"
+    },
+    {
+      "id": 1513377,
+      "descripcion": "ANNEX SOL·LICITUT PLAÇA SOCIAL LLAR INFANTS 26-27",
+      "nombreFic": "ANEXX SOL·LICITUD PLAÇA SOCIAL LLAR INFANTS 26-27.pdf",
+      "long": 411685,
+      "datMod": "2026-08-26",
+      "datPublicacion": "2026-08-26"
+    },
+    {
+      "id": 1513376,
+      "descripcion": "BASES ESPECIFIQUES CONCESSIO PLACES SOCIALS LLARS INFANTS MUNICIPALS. EXP 2830-2026",
+      "nombreFic": "BASES ESPECIFIQUES CONCESSIO PLACES SOCIALS LLARS INFANTS MUNICIPALS CURS 26-27..pdf",
+      "long": 542097,
+      "datMod": "2026-08-26",
+      "datPublicacion": "2026-08-26"
+    },
+    {
+      "id": 1513375,
+      "descripcion": "Texto en otra lengua de la convocatoria",
+      "nombreFic": "ANUNCI CONVOCATORIA CONCESSIO PLACES SOCIALS DE CARACTER GRATUIT A LES LLARS MUNICIPALS DE CUNIT CURS 26-27.pdf",
+      "long": 225164,
+      "datMod": "2026-08-26",
+      "datPublicacion": "2026-08-26"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

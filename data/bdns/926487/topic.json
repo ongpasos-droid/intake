@@ -1,0 +1,77 @@
+{
+  "source": "bdns",
+  "source_id": "926487",
+  "source_lang": "es",
+  "level": "local",
+  "programme": "Concurrencia competitiva - canónica",
+  "sub_programme": null,
+  "publishing_authority_code": "LOCAL / DIPUTACIÓN PROV. DE PALENCIA / DIPUTACIÓN PROVINCIAL DE PALENCIA",
+  "nuts_codes": [
+    "ES414"
+  ],
+  "nuts_primary": "ES414",
+  "title": "AYUDAS PARA TRANSPORTE Y RESIDENCIA A JÓVENES ESTUDIANTES DE LA PROVINCIA DE PALENCIA, 2026",
+  "title_lang": "es",
+  "summary": "Educación",
+  "status": "open",
+  "publication_date": "2026-08-26",
+  "open_date": null,
+  "deadline": null,
+  "deadline_model": "continuous",
+  "deadlines_extra": null,
+  "budget_total_eur": 100000,
+  "budget_per_project_min_eur": null,
+  "budget_per_project_max_eur": null,
+  "expected_grants": null,
+  "cofinancing_pct": null,
+  "duration_months": null,
+  "audience": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA",
+  "eligible_orgs": [
+    "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+  ],
+  "eligible_countries": [
+    "ES"
+  ],
+  "sectores": [
+    {
+      "codigo": "Q",
+      "descripcion": "EDUCACIÓN"
+    }
+  ],
+  "apply_url": "https://sede.diputaciondepalencia.es",
+  "details_url": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatoria/926487",
+  "documents": [
+    {
+      "label": "Anexo A-I",
+      "url": null
+    },
+    {
+      "label": "Documento de la convocatoria en español",
+      "url": null
+    },
+    {
+      "label": "Anexo A-II",
+      "url": null
+    },
+    {
+      "label": "Anexo B-I. Solicitud de abono",
+      "url": null
+    },
+    {
+      "label": "Anexo B-V. Designación cuenta bancaria",
+      "url": null
+    }
+  ],
+  "bases_reguladoras_url": "https://www.diputaciondepalencia.es/system/files/bop/2014/20140709-bop-82-ordinario.pdf",
+  "text_inicio": "04/09/2026",
+  "text_fin": "01/10/2026",
+  "se_publica_diario_oficial": true,
+  "ayuda_estado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectores_productos": [],
+  "anuncios": [],
+  "mrr_flag": false,
+  "fetchedAt": "2026-08-27T04:10:22.089Z"
+}

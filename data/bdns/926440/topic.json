@@ -1,0 +1,61 @@
+{
+  "source": "bdns",
+  "source_id": "926440",
+  "source_lang": "es",
+  "level": "local",
+  "programme": "Concurrencia competitiva - canónica",
+  "sub_programme": null,
+  "publishing_authority_code": "LOCAL / NUEVA CARTEYA / AYUNTAMIENTO DE NUEVA CARTEYA",
+  "nuts_codes": [
+    "ES613"
+  ],
+  "nuts_primary": "ES613",
+  "title": "AYUDAS ECONÓMICAS MUNICIPALES AL ALQUILER DE VIVIENDA HABITUAL PARA JÓVENES 2026",
+  "title_lang": "es",
+  "summary": "Acceso a la vivienda y fomento de la edificación",
+  "status": "open",
+  "publication_date": "2026-08-26",
+  "open_date": null,
+  "deadline": null,
+  "deadline_model": "continuous",
+  "deadlines_extra": null,
+  "budget_total_eur": 2000,
+  "budget_per_project_min_eur": null,
+  "budget_per_project_max_eur": null,
+  "expected_grants": null,
+  "cofinancing_pct": null,
+  "duration_months": null,
+  "audience": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA",
+  "eligible_orgs": [
+    "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+  ],
+  "eligible_countries": [
+    "ES"
+  ],
+  "sectores": [
+    {
+      "codigo": "M",
+      "descripcion": "ACTIVIDADES INMOBILIARIAS"
+    }
+  ],
+  "apply_url": "https://sede.eprinsa.es/nuevacar",
+  "details_url": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatoria/926440",
+  "documents": [
+    {
+      "label": "Documento de la convocatoria en español",
+      "url": null
+    }
+  ],
+  "bases_reguladoras_url": "https://sede.eprinsa.es/nuevacar/tablon-de-edictos",
+  "text_inicio": "Al día siguiente de su publicación en el BOP de Córdoba",
+  "text_fin": " 20 días naturales, contados a partir del día siguiente a la fecha de publicación",
+  "se_publica_diario_oficial": true,
+  "ayuda_estado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectores_productos": [],
+  "anuncios": [],
+  "mrr_flag": false,
+  "fetchedAt": "2026-08-27T04:10:22.081Z"
+}

@@ -1,0 +1,72 @@
+{
+  "id": 1128010,
+  "organo": {
+    "nivel1": "AUTONOMICA",
+    "nivel2": "CATALUÑA",
+    "nivel3": "OFICINA DE SUPORT A LA INICIATIVA CULTURAL"
+  },
+  "sedeElectronica": null,
+  "codigoBDNS": "926449",
+  "fechaRecepcion": "2026-08-26",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 112500,
+  "mrr": false,
+  "descripcion": "Convocatoria de becas para incrementar el número de profesionales titulados en el ámbito de la filologia catalana y de los estudios occitanos",
+  "descripcionLeng": "Convocatòria de beques per incrementar el nombre de professionals titulats en l'àmbit de la filologia catalana i dels estudis occitans",
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "Actividades de creación artística y artes escénicas",
+      "codigo": "90"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES51 - CATALUÑA"
+    }
+  ],
+  "descripcionFinalidad": "Cultura",
+  "descripcionBasesReguladoras": "Bases específicas que han de regir la concesión de becas para incrementar el número de profesionales titulados en el ámbito de la filología catalana y de los estudios occitanos",
+  "urlBasesReguladoras": "https://portaldogc.gencat.cat/utilsEADOP/PDF/9723/2165835.pdf",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": "2026-09-15",
+  "fechaFinSolicitud": "2026-09-30",
+  "textInicio": null,
+  "textFin": null,
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1513044,
+      "descripcion": "Texto en otra lengua de la convocatoria",
+      "nombreFic": "CrrgtConvoPLG543_signed_CA.pdf",
+      "long": 255840,
+      "datMod": "2026-08-26",
+      "datPublicacion": "2026-08-26"
+    },
+    {
+      "id": 1513043,
+      "descripcion": "Texto en castellano de la convocatoria",
+      "nombreFic": "CrrgtConvoPLG543ES.pdf",
+      "long": 169766,
+      "datMod": "2026-08-26",
+      "datPublicacion": "2026-08-26"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

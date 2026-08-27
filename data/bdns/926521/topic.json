@@ -1,0 +1,81 @@
+{
+  "source": "bdns",
+  "source_id": "926521",
+  "source_lang": "es",
+  "level": "local",
+  "programme": "Concurrencia competitiva - canónica",
+  "sub_programme": null,
+  "publishing_authority_code": "LOCAL / MIJAS / AYUNTAMIENTO DE MIJAS",
+  "nuts_codes": [
+    "ES617"
+  ],
+  "nuts_primary": "ES617",
+  "title": "ACUERDO DE FECHA 24 DE AGOSTO DE 2026 DE LA JUNTA DE GOBIERNO LOCAL DEL EXCMO. AYUNTAMIENTO DE MIJAS POR EL QUE SE CONVOCAN, EN RÉGIMEN DE CONCURRENCIA COMPETITIVA, LOS PREMIOS A LA EXCELENCIA DEPORTIVA PARA MÉRITOS DEPORTIVOS CONSEGUIDOS EN EL AÑO 2025.",
+  "title_lang": "es",
+  "summary": "Cultura",
+  "status": "open",
+  "publication_date": "2026-08-26",
+  "open_date": null,
+  "deadline": null,
+  "deadline_model": "continuous",
+  "deadlines_extra": null,
+  "budget_total_eur": 100000,
+  "budget_per_project_min_eur": null,
+  "budget_per_project_max_eur": null,
+  "expected_grants": null,
+  "cofinancing_pct": null,
+  "duration_months": null,
+  "audience": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA",
+  "eligible_orgs": [
+    "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+  ],
+  "eligible_countries": [
+    "ES"
+  ],
+  "sectores": [
+    {
+      "codigo": "93",
+      "descripcion": "Actividades deportivas, recreativas y de entretenimiento"
+    }
+  ],
+  "apply_url": "https://mijas.sedelectronica.es/info.0",
+  "details_url": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatoria/926521",
+  "documents": [
+    {
+      "label": "Documento de la convocatoria en español",
+      "url": null
+    },
+    {
+      "label": "TEXTO DE CONVOCATORIA",
+      "url": null
+    },
+    {
+      "label": "ANEXO III DECLARACIONES RESPONSABLES",
+      "url": null
+    },
+    {
+      "label": "ANEXO IV PROTECCIÓN DE DATOS",
+      "url": null
+    },
+    {
+      "label": "ANEXO I SOLICITUD",
+      "url": null
+    },
+    {
+      "label": "ANEXO II AUTORIZACIONES",
+      "url": null
+    }
+  ],
+  "bases_reguladoras_url": "https://www.bopmalaga.es/sumario.php?fecha=13-11-2025",
+  "text_inicio": "AL DÍA SIGUIENTE DE LA PUBLICACIÓN EN EL BOLETÍN OFICIAL DE LA PROVINCIA DE MÁLAGA",
+  "text_fin": "15 DÍAS HÁBILES",
+  "se_publica_diario_oficial": true,
+  "ayuda_estado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectores_productos": [],
+  "anuncios": [],
+  "mrr_flag": false,
+  "fetchedAt": "2026-08-27T04:10:22.096Z"
+}

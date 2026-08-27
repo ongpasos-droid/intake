@@ -1,0 +1,67 @@
+{
+  "source": "bdns",
+  "source_id": "926499",
+  "source_lang": "es",
+  "level": "estado",
+  "programme": "Concurrencia competitiva - canónica",
+  "sub_programme": null,
+  "publishing_authority_code": "ESTADO / MINISTERIO DE AGRICULTURA, PESCA Y ALIMENTACIÓN / SECRETARÍA GENERAL DE PESCA",
+  "nuts_codes": [],
+  "nuts_primary": null,
+  "title": "ORDEN DEL MINISTRO DE AGRICULTURA, PESCA Y ALIMENTACIÓN POR LA QUE SE CONVOCAN EN 2026 AYUDAS A LAS ORGANIZACIONES PROFESIONALES DE LA PESCA Y LA ACUICULTURA PARA SU CONSOLIDACIÓN, COFINANCIADAS POR EL FEMPA",
+  "title_lang": "es",
+  "summary": "Agricultura, Pesca y Alimentación",
+  "status": "open",
+  "publication_date": "2026-08-26",
+  "open_date": null,
+  "deadline": null,
+  "deadline_model": "continuous",
+  "deadlines_extra": null,
+  "budget_total_eur": 200000,
+  "budget_per_project_min_eur": null,
+  "budget_per_project_max_eur": null,
+  "expected_grants": null,
+  "cofinancing_pct": null,
+  "duration_months": null,
+  "audience": "PYME Y PERSONAS FÍSICAS QUE DESARROLLAN ACTIVIDAD ECONÓMICA",
+  "eligible_orgs": [
+    "PYME Y PERSONAS FÍSICAS QUE DESARROLLAN ACTIVIDAD ECONÓMICA"
+  ],
+  "eligible_countries": [
+    "ES"
+  ],
+  "sectores": [
+    {
+      "codigo": "03",
+      "descripcion": "Pesca y acuicultura"
+    }
+  ],
+  "apply_url": "https://sede.mapa.gob.es/portal/site/seMAPA/ficha-procedimiento?procedure_suborg_responsable=27&procedure_etiqueta_pdu=null&procedure_id=1079&by=theme",
+  "details_url": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatoria/926499",
+  "documents": [
+    {
+      "label": "Documento de la convocatoria en español",
+      "url": null
+    },
+    {
+      "label": "Modelo anexo B",
+      "url": null
+    },
+    {
+      "label": "Modelo anexo A",
+      "url": null
+    }
+  ],
+  "bases_reguladoras_url": "https://www.boe.es/buscar/act.php?id=BOE-A-2017-12663",
+  "text_inicio": "Desde el día siguiente a la publicación de la Orden",
+  "text_fin": "10 días hábiles desde el día siguiente a la publicación de la Orden",
+  "se_publica_diario_oficial": true,
+  "ayuda_estado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectores_productos": [],
+  "anuncios": [],
+  "mrr_flag": false,
+  "fetchedAt": "2026-08-27T04:10:22.091Z"
+}

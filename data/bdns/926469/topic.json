@@ -1,0 +1,61 @@
+{
+  "source": "bdns",
+  "source_id": "926469",
+  "source_lang": "es",
+  "level": "local",
+  "programme": "Concurrencia competitiva - canónica",
+  "sub_programme": null,
+  "publishing_authority_code": "LOCAL / OVIEDO / AYUNTAMIENTO DE OVIEDO",
+  "nuts_codes": [
+    "ES12"
+  ],
+  "nuts_primary": "ES12",
+  "title": "CONVOCATORIA SUBVENCIONES A ENTIDADES SIN ANIMO DE LUCRO PARA LA CONTRATACION DE PERSONAS DESEMPLEADAS PARA LA REALIZACIÒN DE PROYECTOS DE CARACTER SOCIAL. AÑO 2026-2027",
+  "title_lang": "es",
+  "summary": "Servicios Sociales y Promoción Social",
+  "status": "open",
+  "publication_date": "2026-08-26",
+  "open_date": null,
+  "deadline": null,
+  "deadline_model": "continuous",
+  "deadlines_extra": null,
+  "budget_total_eur": 800000,
+  "budget_per_project_min_eur": null,
+  "budget_per_project_max_eur": null,
+  "expected_grants": null,
+  "cofinancing_pct": null,
+  "duration_months": null,
+  "audience": "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA",
+  "eligible_orgs": [
+    "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+  ],
+  "eligible_countries": [
+    "ES"
+  ],
+  "sectores": [
+    {
+      "codigo": "O",
+      "descripcion": "ACTIVIDADES ADMINISTRATIVAS Y SERVICIOS AUXILIARES"
+    }
+  ],
+  "apply_url": null,
+  "details_url": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatoria/926469",
+  "documents": [
+    {
+      "label": "Texto en castellano de la convocatoria",
+      "url": null
+    }
+  ],
+  "bases_reguladoras_url": "https://sede.oviedo.es/documents/25047/1520877/Texto+consolidado+contrataci%C3%B3n+desempleados+proyectos+sociales.pdf/63a4c9c8-be1a-4279-8e84-c2287bf10c1a",
+  "text_inicio": "AL DIA SIGUIENTE DE LA PUBLICACION DEL EXTRACTO DEL ANUNCIO EN EL BOPA",
+  "text_fin": "15 DIAS HABILES DESDE LA PUBLICACIÓN DEL EXTRACTO EN EL BOPA",
+  "se_publica_diario_oficial": true,
+  "ayuda_estado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectores_productos": [],
+  "anuncios": [],
+  "mrr_flag": false,
+  "fetchedAt": "2026-08-27T04:10:22.085Z"
+}

@@ -1,0 +1,85 @@
+{
+  "source": "bdns",
+  "source_id": "926505",
+  "source_lang": "es",
+  "level": "local",
+  "programme": "Concurrencia competitiva - canónica",
+  "sub_programme": null,
+  "publishing_authority_code": "LOCAL / LUGO / CONCELLO DE LUGO",
+  "nuts_codes": [
+    "ES112"
+  ],
+  "nuts_primary": "ES112",
+  "title": "BASES GENERA REGULADORAS DE CONCESIÓN DE SUBVENCIONE A  ASOCIACIONE Y ENTIDADES SIN ÁNIMO DE LUCRO, PARA A DINAMIZACIÓN ECONÓMICA, QUE DESARROLLEN  SU ACTIVIDAD EN EL  ÁREA DE LA DINAMIZACIÓN ECONÓMICA Y RELACIÓNS INSTITUCIONALES. EXERCICIO ECONOMICO 2026",
+  "title_lang": "es",
+  "summary": "Otras actuaciones de carácter económico",
+  "status": "open",
+  "publication_date": "2026-08-26",
+  "open_date": "2026-08-31",
+  "deadline": "2026-09-18",
+  "deadline_model": "single-stage",
+  "deadlines_extra": null,
+  "budget_total_eur": 28000,
+  "budget_per_project_min_eur": null,
+  "budget_per_project_max_eur": null,
+  "expected_grants": null,
+  "cofinancing_pct": null,
+  "duration_months": null,
+  "audience": "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA",
+  "eligible_orgs": [
+    "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+  ],
+  "eligible_countries": [
+    "ES"
+  ],
+  "sectores": [
+    {
+      "codigo": "99",
+      "descripcion": "Actividades de organizaciones y organismos extraterritoriales"
+    }
+  ],
+  "apply_url": "https://lugo.gal ",
+  "details_url": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatoria/926505",
+  "documents": [
+    {
+      "label": "Documento de la convocatoria en español",
+      "url": null
+    },
+    {
+      "label": "Documento de la convocatoria en lengua cooficial",
+      "url": null
+    },
+    {
+      "label": "ANEXO III",
+      "url": null
+    },
+    {
+      "label": "ANEXO I",
+      "url": null
+    },
+    {
+      "label": "ANEXO V",
+      "url": null
+    },
+    {
+      "label": "ANEXO II",
+      "url": null
+    },
+    {
+      "label": "ANEXO IV",
+      "url": null
+    }
+  ],
+  "bases_reguladoras_url": "https://concellodelugo.gal/",
+  "text_inicio": null,
+  "text_fin": null,
+  "se_publica_diario_oficial": true,
+  "ayuda_estado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectores_productos": [],
+  "anuncios": [],
+  "mrr_flag": false,
+  "fetchedAt": "2026-08-27T04:10:22.093Z"
+}

@@ -1,0 +1,86 @@
+{
+  "id": 1128106,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "VIC",
+    "nivel3": "AYUNTAMIENTO DE VIC"
+  },
+  "sedeElectronica": null,
+  "codigoBDNS": "926545",
+  "fechaRecepcion": "2026-08-26",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 90000,
+  "mrr": false,
+  "descripcion": "CONVOCATORIA PARA LA CONCESIÓN DE SUBVENCIONES PARA LA CONCESIÓN DE SUBVENCIONES MUNICIPALES POR DIVERSAS RAZONES DE INTERÉS PÚBLICO, CON DESTINO A PERSONAS Y UNIDADES DE CONVIVENCIA QUE CUMPLAN LOS REQUISITOS ESTABLECIDOS",
+  "descripcionLeng": null,
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    },
+    {
+      "descripcion": "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    },
+    {
+      "descripcion": "PYME Y PERSONAS FÍSICAS QUE DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "ACTIVIDADES ARTÍSTICAS, DEPORTIVAS Y DE ENTRETENIMIENTO",
+      "codigo": "S"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES511 - Barcelona"
+    }
+  ],
+  "descripcionFinalidad": "Otras actuaciones de carácter económico",
+  "descripcionBasesReguladoras": "BASES REGULADORAS PARA LA CONCESIÓN DE SUBVENCIONES MUNICIPALES POR DIVERSAS RAZONES DE INTERÉS PÚBLICO, CON DESTINO A PERSONAS Y UNIDADES DE CONVIVENCIA QUE CUMPLAN LOS REQUISITOS ESTABLECIDOS",
+  "urlBasesReguladoras": "https://bop.diba.cat/anunci/3968530/bases-reguladores-per-a-la-concessio-de-subvencions-municipals-per-diverses-raons-d-interes-public-destinades-a-persones-i-unitats-de-convivencia-que-compleixin-els-requisits-establerts-ajuntament-de-vic",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": "2026-09-01",
+  "fechaFinSolicitud": "2026-09-30",
+  "textInicio": null,
+  "textFin": null,
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1513314,
+      "descripcion": "Texto en castellano de la convocatoria",
+      "nombreFic": "ACUERDO_APROVACION_CONVOCATORIA_26.8.2026_PDF.pdf",
+      "long": 88835,
+      "datMod": "2026-08-26",
+      "datPublicacion": "2026-08-26"
+    },
+    {
+      "id": 1513316,
+      "descripcion": "EXTRACTO DE LA CONVOCATORIA",
+      "nombreFic": "extracte_convocatòria_ACCEDE.docx",
+      "long": 17012,
+      "datMod": "2026-08-26",
+      "datPublicacion": "2026-08-26"
+    },
+    {
+      "id": 1513315,
+      "descripcion": "Texto en otra lengua de la convocatoria",
+      "nombreFic": "DECRET_26.8.2026_APROVACIÓ_CONVOCATÒRIA.pdf",
+      "long": 1380604,
+      "datMod": "2026-08-26",
+      "datPublicacion": "2026-08-26"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

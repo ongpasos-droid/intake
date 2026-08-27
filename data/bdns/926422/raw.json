@@ -1,0 +1,64 @@
+{
+  "id": 1127983,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "EJIDO, EL",
+    "nivel3": "AYUNTAMIENTO DE EJIDO, EL"
+  },
+  "sedeElectronica": "https://sede.elejido.es/oficinavirtual/",
+  "codigoBDNS": "926422",
+  "fechaRecepcion": "2026-08-26",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 90000,
+  "mrr": false,
+  "descripcion": "Acuerdo del Consejo Rector de fecha 13/08/2026 por el que se convoca la concesión de subvenciones ordinarias para la participación de los clubes y deportistas individuales del municipio de El Ejido federados en competiciones oficiales durante el 2026.",
+  "descripcionLeng": null,
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "ACTIVIDADES ARTÍSTICAS, DEPORTIVAS Y DE ENTRETENIMIENTO",
+      "codigo": "S"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES611 - Almería"
+    }
+  ],
+  "descripcionFinalidad": "Educación",
+  "descripcionBasesReguladoras": "Ordenanza de subvenciones del Instituto Municipal de Deportes de El Ejido publicada en el BOP de Almería núm.230 de 27/11/20220.",
+  "urlBasesReguladoras": "https://www.dipalme.org/Servicios/Boletin/BOP5Anteriores.nsf/fechabop/C1257E260069CFD5C125862C0046EA33/$file/20-04462.pdf",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": null,
+  "fechaFinSolicitud": null,
+  "textInicio": "30 días hábiles una vez publicada las bases de la convocatoria en el BOP de Almería",
+  "textFin": "30 días hábiles tras la publicación en el BOP de Almería",
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1512935,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "CERTIFICADO ACUERDO CONSEJO RECTOR CONVOCATORIA SUBVENCIONES.pdf",
+      "long": 237649,
+      "datMod": "2026-08-26",
+      "datPublicacion": "2026-08-26"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

@@ -1,0 +1,61 @@
+{
+  "source": "bdns",
+  "source_id": "926498",
+  "source_lang": "es",
+  "level": "local",
+  "programme": "Concurrencia competitiva - canónica",
+  "sub_programme": null,
+  "publishing_authority_code": "LOCAL / PINSEQUE / AYUNTAMIENTO DE PINSEQUE",
+  "nuts_codes": [
+    "ES243"
+  ],
+  "nuts_primary": "ES243",
+  "title": "Becas de comedor escolar del alumnado escolarizado en el Colegio público de Pinseque, para el curso escolar 2026-2027, en régimen de concurrencia competitiva.",
+  "title_lang": "es",
+  "summary": "Educación",
+  "status": "open",
+  "publication_date": "2026-08-26",
+  "open_date": null,
+  "deadline": "2026-09-21",
+  "deadline_model": "continuous",
+  "deadlines_extra": null,
+  "budget_total_eur": 5000,
+  "budget_per_project_min_eur": null,
+  "budget_per_project_max_eur": null,
+  "expected_grants": null,
+  "cofinancing_pct": null,
+  "duration_months": null,
+  "audience": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA",
+  "eligible_orgs": [
+    "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+  ],
+  "eligible_countries": [
+    "ES"
+  ],
+  "sectores": [
+    {
+      "codigo": "Q",
+      "descripcion": "EDUCACIÓN"
+    }
+  ],
+  "apply_url": "https://pinseque.sedelectronica.es/info.0",
+  "details_url": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatoria/926498",
+  "documents": [
+    {
+      "label": "Documento de la convocatoria en español",
+      "url": null
+    }
+  ],
+  "bases_reguladoras_url": "http://bop.dpz.es/BOPZ/UploadServlet?ruta=Boletines\\2015\\271\\bop.pdf#page=5",
+  "text_inicio": "Día siguiente publicación convocatoria en BOPZ",
+  "text_fin": null,
+  "se_publica_diario_oficial": true,
+  "ayuda_estado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectores_productos": [],
+  "anuncios": [],
+  "mrr_flag": false,
+  "fetchedAt": "2026-08-27T04:10:22.091Z"
+}
