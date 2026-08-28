@@ -1,0 +1,93 @@
+{
+  "source": "bdns",
+  "source_id": "926828",
+  "source_lang": "es",
+  "level": "local",
+  "programme": "Concurrencia competitiva - canónica",
+  "sub_programme": null,
+  "publishing_authority_code": "LOCAL / MONFORTE DEL CID / AYUNTAMIENTO DE MONFORTE DEL CID",
+  "nuts_codes": [
+    "ES521"
+  ],
+  "nuts_primary": "ES521",
+  "title": "Becas transporte universitario curso 2025-2026",
+  "title_lang": "es",
+  "summary": "Educación",
+  "status": "open",
+  "publication_date": "2026-08-27",
+  "open_date": null,
+  "deadline": null,
+  "deadline_model": "continuous",
+  "deadlines_extra": null,
+  "budget_total_eur": 6000,
+  "budget_per_project_min_eur": null,
+  "budget_per_project_max_eur": null,
+  "expected_grants": null,
+  "cofinancing_pct": null,
+  "duration_months": null,
+  "audience": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA",
+  "eligible_orgs": [
+    "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+  ],
+  "eligible_countries": [
+    "ES"
+  ],
+  "sectores": [
+    {
+      "codigo": "S",
+      "descripcion": "ACTIVIDADES ARTÍSTICAS, DEPORTIVAS Y DE ENTRETENIMIENTO"
+    },
+    {
+      "codigo": "Q",
+      "descripcion": "EDUCACIÓN"
+    }
+  ],
+  "apply_url": null,
+  "details_url": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatoria/926828",
+  "documents": [
+    {
+      "label": "CERTIFICADO DE PUBLICACIÓN EN EL TABLÓN DE ANUNCIOS",
+      "url": null
+    },
+    {
+      "label": "INFORME JURÍDICO, Aprobación de la convocatoria para la concesión de becas transporte destinada a estudiantes universitarios empadronados en Monforte del Cid",
+      "url": null
+    },
+    {
+      "label": "Documento de la convocatoria en español",
+      "url": null
+    },
+    {
+      "label": "CONVOCATORIA PARA LA CONCESIÓN DE BECAS DE TRANSPORTE PARA  ESTUDIANTES UNIVERSITARIOS CURSO 2025/2026",
+      "url": null
+    },
+    {
+      "label": "SOLICITUD  DE BECA TRANSPORTE UNIVERSITARIO   Ayuntamiento de Monforte del Cid",
+      "url": null
+    },
+    {
+      "label": "ANEXO II FICHA MANTENIMIENTO DE TERCEROS",
+      "url": null
+    },
+    {
+      "label": "ANEXO IV AUTOBAREMACIÓN",
+      "url": null
+    },
+    {
+      "label": "ANEXO III DECLARACIÓN RESPONSABLE PARA LA CONCESIÓN DE SUBVENCIONES",
+      "url": null
+    }
+  ],
+  "bases_reguladoras_url": "https://www.dip-alicante.es/BOP2/PDFTOTAL/2021/03/25_57/2021_003355.PDF",
+  "text_inicio": "Desde el día siguiente a la publicación del extracto de la convocatoria en el B.O.P. de Alicante",
+  "text_fin": "20 días naturales",
+  "se_publica_diario_oficial": true,
+  "ayuda_estado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectores_productos": [],
+  "anuncios": [],
+  "mrr_flag": false,
+  "fetchedAt": "2026-08-28T04:08:09.697Z"
+}

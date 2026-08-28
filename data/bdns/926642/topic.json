@@ -1,0 +1,61 @@
+{
+  "source": "bdns",
+  "source_id": "926642",
+  "source_lang": "es",
+  "level": "local",
+  "programme": "Concurrencia competitiva - canónica",
+  "sub_programme": null,
+  "publishing_authority_code": "LOCAL / CALAFELL / AYUNTAMIENTO DE CALAFELL",
+  "nuts_codes": [
+    "ES514"
+  ],
+  "nuts_primary": "ES514",
+  "title": "CONVOCATORIA PARA LA CONCESIÓN DE SUBVENCIONES PARA LOS CENTROS EDUCATIVOS DE CALAFELL, CURSO 2025-2026",
+  "title_lang": "es",
+  "summary": "Educación",
+  "status": "open",
+  "publication_date": "2026-08-27",
+  "open_date": null,
+  "deadline": null,
+  "deadline_model": "continuous",
+  "deadlines_extra": null,
+  "budget_total_eur": 23600,
+  "budget_per_project_min_eur": null,
+  "budget_per_project_max_eur": null,
+  "expected_grants": null,
+  "cofinancing_pct": null,
+  "duration_months": null,
+  "audience": "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA",
+  "eligible_orgs": [
+    "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+  ],
+  "eligible_countries": [
+    "ES"
+  ],
+  "sectores": [
+    {
+      "codigo": "85",
+      "descripcion": "Educación"
+    }
+  ],
+  "apply_url": "Ajuts per a Centres educatius i AMPA/AFA | Ajuntament de Calafell",
+  "details_url": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatoria/926642",
+  "documents": [
+    {
+      "label": "Texto en castellano de la convocatoria",
+      "url": null
+    }
+  ],
+  "bases_reguladoras_url": "Ajuts per a Centres educatius i AMPA/AFA | Ajuntament de Calafell",
+  "text_inicio": "A PARTIR DEL DIA SIGUIENTE DE LA PUBLICACIÓN EN EL BOPT",
+  "text_fin": "20 DIAS DESPUES DE LA PUBLICACIÓN AL BOPT",
+  "se_publica_diario_oficial": true,
+  "ayuda_estado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectores_productos": [],
+  "anuncios": [],
+  "mrr_flag": false,
+  "fetchedAt": "2026-08-28T04:08:09.635Z"
+}

@@ -1,0 +1,109 @@
+{
+  "source": "bdns",
+  "source_id": "926649",
+  "source_lang": "es",
+  "level": "ccaa",
+  "programme": "Concurrencia competitiva - canónica",
+  "sub_programme": null,
+  "publishing_authority_code": "AUTONOMICA / CANTABRIA / INSTITUTO CÁNTABRO DE SERVICIOS SOCIALES",
+  "nuts_codes": [
+    "ES130"
+  ],
+  "nuts_primary": "ES130",
+  "title": "Resolución por la que se aprueba la convocatoria de subvenciones destinadas a la realización de programas de interés general para atender fines de interés social con cargo a la asignación tributaria del 0,7 % del IRPF",
+  "title_lang": "es",
+  "summary": "Servicios Sociales y Promoción Social",
+  "status": "open",
+  "publication_date": "2026-08-27",
+  "open_date": null,
+  "deadline": null,
+  "deadline_model": "continuous",
+  "deadlines_extra": null,
+  "budget_total_eur": 5762000,
+  "budget_per_project_min_eur": null,
+  "budget_per_project_max_eur": null,
+  "expected_grants": null,
+  "cofinancing_pct": null,
+  "duration_months": null,
+  "audience": "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA",
+  "eligible_orgs": [
+    "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+  ],
+  "eligible_countries": [
+    "ES"
+  ],
+  "sectores": [
+    {
+      "codigo": "R",
+      "descripcion": "ACTIVIDADES SANITARIAS Y DE SERVICIOS SOCIALES"
+    }
+  ],
+  "apply_url": "https://rec.cantabria.es/rec/bienvenida.htm",
+  "details_url": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatoria/926649",
+  "documents": [
+    {
+      "label": "ANEXO_1-A_Solicitud_de_subvención_2026_IRPF",
+      "url": null
+    },
+    {
+      "label": "ANEXO_11_-logotipo_(consejeria_de_Inclusión_social,_Juventud,_Familias_e_Igualdad)",
+      "url": null
+    },
+    {
+      "label": "ANEXO_9_Gastos_de_desplazamiento_2026_IRPF",
+      "url": null
+    },
+    {
+      "label": "ANEXO_2_Memoria_de_la_Entidad_2026_IRPF",
+      "url": null
+    },
+    {
+      "label": "ANEXO_3_Memoria_del_Programa_2026_IRPF",
+      "url": null
+    },
+    {
+      "label": "ANEXO_8_Certificado_imputación_facturas",
+      "url": null
+    },
+    {
+      "label": "Anexo_10_beneficiarios_del_Programa_concedido",
+      "url": null
+    },
+    {
+      "label": "ANEXO_4_Cronograma_de_actividades_2026_IRPF",
+      "url": null
+    },
+    {
+      "label": "Anexo_5_Memoria_de_seguimiento_programas_2026",
+      "url": null
+    },
+    {
+      "label": "ANEXO_1-B_Declaración_Responsable_2026_IRPF",
+      "url": null
+    },
+    {
+      "label": "Documento de la convocatoria en español",
+      "url": null
+    },
+    {
+      "label": "ANEXO_6_Memoria_de_actuación_justificativa_programas_2026_IRPF",
+      "url": null
+    },
+    {
+      "label": "ANEXO_7_Memoria_económica_justificativa_programas_2026_IRPF",
+      "url": null
+    }
+  ],
+  "bases_reguladoras_url": "https://boc.cantabria.es/boces/verAnuncioAction.do?idAnuBlob=438607",
+  "text_inicio": "Desde el dia siguiente a la publicación del extracto",
+  "text_fin": "Un mes a contar a partir del día siguiente al de la publicación del extracto",
+  "se_publica_diario_oficial": true,
+  "ayuda_estado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectores_productos": [],
+  "anuncios": [],
+  "mrr_flag": false,
+  "fetchedAt": "2026-08-28T04:08:09.637Z"
+}

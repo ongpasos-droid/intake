@@ -1,0 +1,72 @@
+{
+  "id": 1128354,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "CONSELL COMARCAL DE NOGUERA",
+    "nivel3": "CONSELL COMARCAL DE NOGUERA"
+  },
+  "sedeElectronica": "https://ccnoguera.eadministracio.cat/",
+  "codigoBDNS": "926793",
+  "fechaRecepcion": "2026-08-27",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concesión directa - canónica",
+  "presupuestoTotal": 45000,
+  "mrr": false,
+  "descripcion": "Acuerdo Junta de Gobierno de 30.07.2026, en el cual se aprueba la convocatoria para el otorgamiento de ayudas individuales de comedor dirigidos a alumnos residentes en núcleos agregados de la comarca de la Noguera i escolarizados en su propio municipi",
+  "descripcionLeng": "Acord de Junta de Govern de 30 .07.2026, en el qual s’aprova la  convocatòria per a l’atorgament d’ajuts individuals de menjador destinats a alumnes residents en nuclis agregats de la comarca de la Noguera i escolaritzats en el seu propi municipi",
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "EDUCACIÓN",
+      "codigo": "Q"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES513 - Lleida"
+    }
+  ],
+  "descripcionFinalidad": "Educación",
+  "descripcionBasesReguladoras": "Bases reguladores per a la concessió d'ajuts de menjador escolar destinat a alumnes residents en nuclis agregats de la comarca de la Noguera i escolaritzats en el seu propi municipi de residència. Curs escolar 2025-2026",
+  "urlBasesReguladoras": "https://ebop.diputaciolleida.cat/aplicacions/bop/bopV1/fitxers/pdf/2026/152/202615206842.pdf",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": null,
+  "fechaFinSolicitud": null,
+  "textInicio": "08/09/2026",
+  "textFin": "08/10/2026",
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1513824,
+      "descripcion": "Documento de la convocatoria en lengua cooficial",
+      "nombreFic": "EXTRACTE-BDNS -CATALA.docx",
+      "long": 131210,
+      "datMod": "2026-08-27",
+      "datPublicacion": "2026-08-27"
+    },
+    {
+      "id": 1513822,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "EXTRACTO-BDNS -CASTELLANO.docx",
+      "long": 133248,
+      "datMod": "2026-08-27",
+      "datPublicacion": "2026-08-27"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

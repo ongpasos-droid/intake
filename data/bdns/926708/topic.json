@@ -1,0 +1,61 @@
+{
+  "source": "bdns",
+  "source_id": "926708",
+  "source_lang": "es",
+  "level": "local",
+  "programme": "Concurrencia competitiva - canónica",
+  "sub_programme": null,
+  "publishing_authority_code": "LOCAL / CONSELL INSULAR D’EIVISSA / CONSELL INSULAR DE IBIZA",
+  "nuts_codes": [
+    "ES531"
+  ],
+  "nuts_primary": "ES531",
+  "title": "CONVENIO ESPECÍFICO DEL PLAN ESTRATÉGICO DE INVERSIONES MUNICIPALES DEL CONSEJO INSULAR DE IBIZA (PLA 5) PARA EL MUNICIPIO DE SANT JOSEP DE SA TALAIA CORRESPONDIENTE AL AÑO 2026",
+  "title_lang": "es",
+  "summary": "Infraestructuras",
+  "status": "open",
+  "publication_date": "2026-08-27",
+  "open_date": "2026-08-12",
+  "deadline": "2030-08-12",
+  "deadline_model": "single-stage",
+  "deadlines_extra": null,
+  "budget_total_eur": 1043971.56,
+  "budget_per_project_min_eur": null,
+  "budget_per_project_max_eur": null,
+  "expected_grants": null,
+  "cofinancing_pct": null,
+  "duration_months": null,
+  "audience": "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA",
+  "eligible_orgs": [
+    "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+  ],
+  "eligible_countries": [
+    "ES"
+  ],
+  "sectores": [
+    {
+      "codigo": "84.1",
+      "descripcion": "Administración pública y de la política económica, social y medioambiental"
+    }
+  ],
+  "apply_url": "https://seu.conselldeivissa.es/sta/CarpetaPublic/doEvent?APP_CODE=STA&PAGE_CODE=PTS2_HOME&lang=ES",
+  "details_url": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatoria/926708",
+  "documents": [
+    {
+      "label": "Texto en castellano de la convocatoria",
+      "url": null
+    }
+  ],
+  "bases_reguladoras_url": "https://www.caib.es/eboibfront/es/2026/12317/719060/acuerdo-del-consejo-ejecutivo-del-consejo-insular-",
+  "text_inicio": null,
+  "text_fin": null,
+  "se_publica_diario_oficial": true,
+  "ayuda_estado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectores_productos": [],
+  "anuncios": [],
+  "mrr_flag": false,
+  "fetchedAt": "2026-08-28T04:08:09.656Z"
+}

@@ -1,0 +1,84 @@
+{
+  "id": 1128159,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "CARRAL",
+    "nivel3": "AYUNTAMIENTO DE CARRAL"
+  },
+  "sedeElectronica": "https://sede.carral.es/sxc/gl/informacion/",
+  "codigoBDNS": "926598",
+  "fechaRecepcion": "2026-08-26",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 40400,
+  "mrr": false,
+  "descripcion": "DECRETO DE ALCALDÍA 367/2026, DE 30 DE JULIO, POR EL QUE SE APRUEBA LA CONVOCATORIA DE SUBVENCIONES A LAS ENTIDADES SIN ÁNIMO DE LUCRO DEL AYUNTAMIENTO DE CARRAL PARA LA PROMOCIÓN Y DIFUSIÓN DE LA CULTURA, EL DEPORTE Y ACTIVIDADES MEDIOAMBIENTALES 2026",
+  "descripcionLeng": "DECRETO DE ALCALDÍA 367/2026, DE 30 DE XULLO, POLO QUE SE APROBA A CONVOCATORIA DE SUBVENCIÓNS A ENTIDADES SEN ÁNIMO DE LUCRO DO CONCELLO DE CARRAL PARA A  PROMOCIÓN E DIFUSIÓN DA CULTURA, O DEPORTE E ACTIVIDADES MEDIOAMBIENTAIS 2026",
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "ACTIVIDADES ARTÍSTICAS, DEPORTIVAS Y DE ENTRETENIMIENTO",
+      "codigo": "S"
+    },
+    {
+      "descripcion": "ADMINISTRACIÓN PÚBLICA Y DEFENSA; SEGURIDAD SOCIAL OBLIGATORIA",
+      "codigo": "P"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES111 - A Coruña"
+    }
+  ],
+  "descripcionFinalidad": "Cultura",
+  "descripcionBasesReguladoras": "BASES REGULADORAS DE LA CONVOCATORIA DE SUBVENCIONES A LAS ENTIDADES SIN ÁNIMO DE LUCRO DEL AYUNTAMIENTO DE CARRAL PARA LA PROMOCIÓN Y DIFUSIÓN DE LA CULTURA Y EL DEPORTE Y PARA ACTIVIDADES MEDIOAMBIENTALES 2026",
+  "urlBasesReguladoras": "DECRETO DE ALCALDÍA 367/2026, DE 30 DE JULIO, POR EL QUE SE APRUEBA LA CONVOCATORIA DE SUBVENCIONES A LAS ENTIDADES SIN ÁNIMO DE LUCRO DEL AYUNTAMIENTO DE CARRAL PARA LA PROMOCIÓN Y DIFUSIÓN DE LA CULTURA, EL DEPORTE Y ACTIVIDADES MEDIOAMBIENTALES 2026",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": null,
+  "fechaFinSolicitud": null,
+  "textInicio": "DESDE EL DÍA SIGUIENTE A LA PUBLICACIÓN DEL EXTRACTO DE ESTA CONVOCATORIA EN EL BOP",
+  "textFin": "UN MES DESDE EL DÍA SIGUIENTE A LA PUBLICACIÓN DEL EXTRACTO DE ESTA CONVOCATORIA EN EL BOP",
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1513398,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "Bases_Subvenciones_Cultura_Medio_Ambiente_y_Deportes_2026_Castellano.docx.pdf",
+      "long": 425228,
+      "datMod": "2026-08-26",
+      "datPublicacion": "2026-08-27"
+    },
+    {
+      "id": 1513401,
+      "descripcion": "ANEXOS SUBVENCIONES",
+      "nombreFic": "DOC. ANEXOS CASTELLANO.pdf",
+      "long": 1148128,
+      "datMod": "2026-08-26",
+      "datPublicacion": "2026-08-27"
+    },
+    {
+      "id": 1513399,
+      "descripcion": "Documento de la convocatoria en lengua cooficial",
+      "nombreFic": "Bases Subvencións Cultura Medio Ambiente e Deportes 2026_Galego.docx.pdf",
+      "long": 417984,
+      "datMod": "2026-08-26",
+      "datPublicacion": "2026-08-27"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

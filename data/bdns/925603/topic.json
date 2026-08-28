@@ -1,0 +1,65 @@
+{
+  "source": "bdns",
+  "source_id": "925603",
+  "source_lang": "es",
+  "level": "local",
+  "programme": "Concesión directa - canónica",
+  "sub_programme": null,
+  "publishing_authority_code": "LOCAL / PICAMOIXONS, ENTIDAD LOCAL MENOR / PICAMOIXONS, ENTIDAD LOCAL MENOR",
+  "nuts_codes": [
+    "ES514"
+  ],
+  "nuts_primary": "ES514",
+  "title": "CONVOCATORIA DE LA CONCESIÓN DE AYUDAS INDIVIDUALES PARA EL ARREGLO DE FACHADAS EN MAL ESTADO Y FACHADAS DE NUEVA CONSTRUCCIÓN",
+  "title_lang": "es",
+  "summary": "Acceso a la vivienda y fomento de la edificación",
+  "status": "open",
+  "publication_date": "2026-08-19",
+  "open_date": null,
+  "deadline": null,
+  "deadline_model": "continuous",
+  "deadlines_extra": null,
+  "budget_total_eur": 20000,
+  "budget_per_project_min_eur": null,
+  "budget_per_project_max_eur": null,
+  "expected_grants": null,
+  "cofinancing_pct": null,
+  "duration_months": null,
+  "audience": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA",
+  "eligible_orgs": [
+    "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+  ],
+  "eligible_countries": [
+    "ES"
+  ],
+  "sectores": [
+    {
+      "codigo": "F",
+      "descripcion": "CONSTRUCCIÓN"
+    }
+  ],
+  "apply_url": "https://seu-e.cat/es/web/emdpicamoixons/seu-electronica",
+  "details_url": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatoria/925603",
+  "documents": [
+    {
+      "label": "Documento de la convocatoria en lengua cooficial",
+      "url": null
+    },
+    {
+      "label": "Documento de la convocatoria en español",
+      "url": null
+    }
+  ],
+  "bases_reguladoras_url": "https://tauler.seu-e.cat/detall?idEns=7006240003&idEdicte=598462",
+  "text_inicio": "AL DIA SIGUIENTE DE LA PUBLICACIÓN AL BOPT",
+  "text_fin": "30 DIAS NATURALES DESDE LA PUBLICACIÓN AL BOPT",
+  "se_publica_diario_oficial": true,
+  "ayuda_estado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectores_productos": [],
+  "anuncios": [],
+  "mrr_flag": false,
+  "fetchedAt": "2026-08-28T04:08:09.330Z"
+}

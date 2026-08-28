@@ -1,0 +1,72 @@
+{
+  "id": 1128186,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "VILCHES",
+    "nivel3": "AYUNTAMIENTO DE VILCHES"
+  },
+  "sedeElectronica": null,
+  "codigoBDNS": "926625",
+  "fechaRecepcion": "2026-08-27",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concesión directa - canónica",
+  "presupuestoTotal": 12000,
+  "mrr": false,
+  "descripcion": "Ayudas a familias para la adquisición de libros de texto en la etapa de Educación Infantil (3,4 y 5 años)",
+  "descripcionLeng": null,
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "EDUCACIÓN",
+      "codigo": "Q"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES616 - Jaén"
+    }
+  ],
+  "descripcionFinalidad": "Educación",
+  "descripcionBasesReguladoras": "Ayudas a familias para la adquisición de libros de texto en la Etapa de Educación Infantil (3,4 y 5 años)",
+  "urlBasesReguladoras": "https://vilches.sedelectronica.es",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": null,
+  "fechaFinSolicitud": null,
+  "textInicio": "10/09/2026",
+  "textFin": "13/10/2026",
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1513520,
+      "descripcion": "Bando",
+      "nombreFic": "Bando.pdf",
+      "long": 285584,
+      "datMod": "2026-08-27",
+      "datPublicacion": "2026-08-27"
+    },
+    {
+      "id": 1513516,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "Bases 2026_2027.pdf",
+      "long": 2582337,
+      "datMod": "2026-08-27",
+      "datPublicacion": "2026-08-27"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

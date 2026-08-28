@@ -1,0 +1,160 @@
+{
+  "id": 1128210,
+  "organo": {
+    "nivel1": "AUTONOMICA",
+    "nivel2": "CANTABRIA",
+    "nivel3": "INSTITUTO CÁNTABRO DE SERVICIOS SOCIALES"
+  },
+  "sedeElectronica": "https://rec.cantabria.es/rec/bienvenida.htm",
+  "codigoBDNS": "926649",
+  "fechaRecepcion": "2026-08-27",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 5762000,
+  "mrr": false,
+  "descripcion": "Resolución por la que se aprueba la convocatoria de subvenciones destinadas a la realización de programas de interés general para atender fines de interés social con cargo a la asignación tributaria del 0,7 % del IRPF",
+  "descripcionLeng": null,
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "ACTIVIDADES SANITARIAS Y DE SERVICIOS SOCIALES",
+      "codigo": "R"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES130 - Cantabria"
+    }
+  ],
+  "descripcionFinalidad": "Servicios Sociales y Promoción Social",
+  "descripcionBasesReguladoras": "Orden ISO/11/2026, de 20 de julio, por la que se aprueban las bases reguladoras para la concesión de subvenciones a programas de interés general con cargo a la asignación tributaria del 0,7% del\nImpuesto sobre la Renta de las Personas Físicas.",
+  "urlBasesReguladoras": "https://boc.cantabria.es/boces/verAnuncioAction.do?idAnuBlob=438607",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": null,
+  "fechaFinSolicitud": null,
+  "textInicio": "Desde el dia siguiente a la publicación del extracto",
+  "textFin": "Un mes a contar a partir del día siguiente al de la publicación del extracto",
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1513635,
+      "descripcion": "ANEXO_1-A_Solicitud_de_subvención_2026_IRPF",
+      "nombreFic": "ANEXO_1-A_Solicitud_de_subvención_2026_IRPF.pdf",
+      "long": 257277,
+      "datMod": "2026-08-27",
+      "datPublicacion": "2026-08-27"
+    },
+    {
+      "id": 1513573,
+      "descripcion": "ANEXO_11_-logotipo_(consejeria_de_Inclusión_social,_Juventud,_Familias_e_Igualdad)",
+      "nombreFic": "ANEXO_11_-logotipo_(consejeria_de_Inclusión_social,_Juventud,_Familias_e_Igualdad).pdf",
+      "long": 99697,
+      "datMod": "2026-08-27",
+      "datPublicacion": "2026-08-27"
+    },
+    {
+      "id": 1513570,
+      "descripcion": "ANEXO_9_Gastos_de_desplazamiento_2026_IRPF",
+      "nombreFic": "ANEXO_9_Gastos_de_desplazamiento_2026_IRPF.pdf",
+      "long": 325415,
+      "datMod": "2026-08-27",
+      "datPublicacion": "2026-08-27"
+    },
+    {
+      "id": 1513556,
+      "descripcion": "ANEXO_2_Memoria_de_la_Entidad_2026_IRPF",
+      "nombreFic": "ANEXO_2_Memoria_de_la_Entidad_2026_IRPF.pdf",
+      "long": 258905,
+      "datMod": "2026-08-27",
+      "datPublicacion": "2026-08-27"
+    },
+    {
+      "id": 1513558,
+      "descripcion": "ANEXO_3_Memoria_del_Programa_2026_IRPF",
+      "nombreFic": "ANEXO_3_Memoria_del_Programa_2026_IRPF.pdf",
+      "long": 267084,
+      "datMod": "2026-08-27",
+      "datPublicacion": "2026-08-27"
+    },
+    {
+      "id": 1513569,
+      "descripcion": "ANEXO_8_Certificado_imputación_facturas",
+      "nombreFic": "ANEXO_8_Certificado_imputación_facturas.pdf",
+      "long": 231226,
+      "datMod": "2026-08-27",
+      "datPublicacion": "2026-08-27"
+    },
+    {
+      "id": 1513571,
+      "descripcion": "Anexo_10_beneficiarios_del_Programa_concedido",
+      "nombreFic": "Anexo_10_beneficiarios_del_Programa_concedido.pdf",
+      "long": 168914,
+      "datMod": "2026-08-27",
+      "datPublicacion": "2026-08-27"
+    },
+    {
+      "id": 1513563,
+      "descripcion": "ANEXO_4_Cronograma_de_actividades_2026_IRPF",
+      "nombreFic": "ANEXO_4_Cronograma_de_actividades_2026_IRPF.pdf",
+      "long": 372105,
+      "datMod": "2026-08-27",
+      "datPublicacion": "2026-08-27"
+    },
+    {
+      "id": 1513565,
+      "descripcion": "Anexo_5_Memoria_de_seguimiento_programas_2026",
+      "nombreFic": "Anexo_5_Memoria_de_seguimiento_programas_2026.pdf",
+      "long": 208755,
+      "datMod": "2026-08-27",
+      "datPublicacion": "2026-08-27"
+    },
+    {
+      "id": 1513555,
+      "descripcion": "ANEXO_1-B_Declaración_Responsable_2026_IRPF",
+      "nombreFic": "ANEXO_1-B_Declaración_Responsable_2026_IRPF.pdf",
+      "long": 134798,
+      "datMod": "2026-08-27",
+      "datPublicacion": "2026-08-27"
+    },
+    {
+      "id": 1513544,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "2._RESOLUCION_CONVOCATORIA_SUBVENCIONES_IRPF_2026_-_v1.report.pdf",
+      "long": 444006,
+      "datMod": "2026-08-27",
+      "datPublicacion": "2026-08-27"
+    },
+    {
+      "id": 1513566,
+      "descripcion": "ANEXO_6_Memoria_de_actuación_justificativa_programas_2026_IRPF",
+      "nombreFic": "ANEXO_6_Memoria_de_actuación_justificativa_programas_2026_IRPF.pdf",
+      "long": 182386,
+      "datMod": "2026-08-27",
+      "datPublicacion": "2026-08-27"
+    },
+    {
+      "id": 1513568,
+      "descripcion": "ANEXO_7_Memoria_económica_justificativa_programas_2026_IRPF",
+      "nombreFic": "ANEXO_7_Memoria_económica_justificativa_programas_2026_IRPF.pdf",
+      "long": 182951,
+      "datMod": "2026-08-27",
+      "datPublicacion": "2026-08-27"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}
