@@ -1,0 +1,81 @@
+{
+  "source": "bdns",
+  "source_id": "926900",
+  "source_lang": "es",
+  "level": "otros",
+  "programme": "Concurrencia competitiva - canónica",
+  "sub_programme": null,
+  "publishing_authority_code": "OTROS / UNIVERSIDAD DE OVIEDO",
+  "nuts_codes": [
+    "ES12"
+  ],
+  "nuts_primary": "ES12",
+  "title": "Resolución 28 agosto 2026, de la vicerrectora de Transferencia y Relaciones con la Empresa, por la que autoriza el gasto y aprueba, por procedimiento de urgencia, la 3ª convocatoria de ayudas de la Universidad de Oviedo en Cátedras Institucionales 2026.",
+  "title_lang": "es",
+  "summary": "Investigación, desarrollo e innovación",
+  "status": "open",
+  "publication_date": "2026-08-28",
+  "open_date": null,
+  "deadline": null,
+  "deadline_model": "continuous",
+  "deadlines_extra": null,
+  "budget_total_eur": 5500,
+  "budget_per_project_min_eur": null,
+  "budget_per_project_max_eur": null,
+  "expected_grants": null,
+  "cofinancing_pct": null,
+  "duration_months": null,
+  "audience": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA",
+  "eligible_orgs": [
+    "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+  ],
+  "eligible_countries": [
+    "ES"
+  ],
+  "sectores": [
+    {
+      "codigo": "Q",
+      "descripcion": "EDUCACIÓN"
+    }
+  ],
+  "apply_url": "https://euniovi.uniovi.es/TramitadorSolicitudes/solicitud/privado/presentarSolicitudAutenticado. xhtml?idProcedimiento=537",
+  "details_url": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatoria/926900",
+  "documents": [
+    {
+      "label": "Documento de la convocatoria en español",
+      "url": null
+    },
+    {
+      "label": "Anexo III Salud Comunitaria- Declaración Jurada",
+      "url": null
+    },
+    {
+      "label": "Anexo III Municipalismo- Declaración Jurada",
+      "url": null
+    },
+    {
+      "label": "Anexo III Cambio Climático- Declaración Jurada",
+      "url": null
+    },
+    {
+      "label": "Anexo II- Impreso datos bancarios",
+      "url": null
+    },
+    {
+      "label": "Anexo I- Declaración responsable",
+      "url": null
+    }
+  ],
+  "bases_reguladoras_url": "https://sede.asturias.es/bopa/2023/05/12/2023-03936.pdf",
+  "text_inicio": "Desde el día siguiente a la publicación del extracto en el BOPA (a partir de las 00,00 horas)",
+  "text_fin": "10 días hábiles desde el día siguiente a la publicación del extracto en  BOPA (hasta las 23,59 horas",
+  "se_publica_diario_oficial": true,
+  "ayuda_estado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectores_productos": [],
+  "anuncios": [],
+  "mrr_flag": false,
+  "fetchedAt": "2026-08-29T04:05:44.270Z"
+}

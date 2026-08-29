@@ -1,0 +1,72 @@
+{
+  "id": 1128540,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "RIANXO",
+    "nivel3": "CONCELLO DE RIANXO"
+  },
+  "sedeElectronica": "sede.concelloderianxo.gal",
+  "codigoBDNS": "926979",
+  "fechaRecepcion": "2026-08-28",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 10000,
+  "mrr": false,
+  "descripcion": "Acuerdo del 20 de agosto de 2026 de la Junta de Gobierno Local por el que se aprueban las bases reguladoras de las subvenciones de concurrencia competitiva para AMPAS de centros escolares del Ayuntamiento de Rianxo.",
+  "descripcionLeng": "Acordo do 20 de agosto de 2026 da Xunta de Goberno Local polo que se aproban as bases reguladoras das subvencións de concorrencia competitiva para ANPAS de centros escolares do Concello de Rianxo.",
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "ACTIVIDADES ARTÍSTICAS, DEPORTIVAS Y DE ENTRETENIMIENTO",
+      "codigo": "S"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES111 - A Coruña"
+    }
+  ],
+  "descripcionFinalidad": "Servicios Sociales y Promoción Social",
+  "descripcionBasesReguladoras": "Acuerdo del 20 de agosto de 2026 de la Junta de Gobierno Local por el que se aprueban las bases reguladoras de las subvenciones de concurrencia competitiva para AMPAS de centros escolares del Ayuntamiento de Rianxo.",
+  "urlBasesReguladoras": "Pendiente de publicación",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": null,
+  "fechaFinSolicitud": null,
+  "textInicio": "Día siguiente al de la publicación del extracto de la convocatoria en BOP",
+  "textFin": "15º día hábil desde la publicación del extracto de la convocatoria en BOP",
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1514385,
+      "descripcion": "Documento de la convocatoria en lengua cooficial",
+      "nombreFic": "BR CON CONVOCATORIA.odt.pdf",
+      "long": 129652,
+      "datMod": "2026-08-28",
+      "datPublicacion": "2026-08-28"
+    },
+    {
+      "id": 1514384,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "BR AXUDAS ANPAS CASTELLANO_CON CONVOCATORIA.odt.pdf",
+      "long": 121227,
+      "datMod": "2026-08-28",
+      "datPublicacion": "2026-08-28"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

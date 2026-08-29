@@ -1,0 +1,72 @@
+{
+  "id": 1128508,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "ALCANÓ",
+    "nivel3": "AYUNTAMIENTO DE ALCANÓ"
+  },
+  "sedeElectronica": null,
+  "codigoBDNS": "926947",
+  "fechaRecepcion": "2026-08-28",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 75000,
+  "mrr": false,
+  "descripcion": "Extracto del decreto de la alcaldía del Ayuntamiento de Alcanó de fecha 28 de agosto de 2026, por el cual se convocan las ayudas para personas empresarias y autónomas al municipio de Alcanó.",
+  "descripcionLeng": "Extracte del decret d’alcaldia de l’Ajuntament d’Alcanó de data 28 d’agost de 2026, pel qual es convoquen ajuts per a persones empresàries i autònomes al municipi d’Alcanó.",
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PYME Y PERSONAS FÍSICAS QUE DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "OTROS SERVICIOS",
+      "codigo": "T"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES513 - Lleida"
+    }
+  ],
+  "descripcionFinalidad": "Otras actuaciones de carácter económico",
+  "descripcionBasesReguladoras": "Extracto del decreto de la alcaldía del Ayuntamiento de Alcanó de fecha 28 de agosto de 2026, por el cual se convocan las ayudas para personas empresarias y autónomas al municipio de Alcanó.",
+  "urlBasesReguladoras": "https://www.pap.hacienda.gob.es/bdnstrans/GE/es/inicio",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": "2026-03-18",
+  "fechaFinSolicitud": "2026-10-02",
+  "textInicio": "Dieciocho de marzo de dos mil veintiséis",
+  "textFin": "Dos de octubre de dos mil veintiséis",
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1514314,
+      "descripcion": "Documento de la convocatoria en lengua cooficial",
+      "nombreFic": "Anuncio_convocatòria_català.pdf",
+      "long": 534429,
+      "datMod": "2026-08-28",
+      "datPublicacion": "2026-08-28"
+    },
+    {
+      "id": 1514313,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "Anuncio_convocatoria_castellà.pdf",
+      "long": 536841,
+      "datMod": "2026-08-28",
+      "datPublicacion": "2026-08-28"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

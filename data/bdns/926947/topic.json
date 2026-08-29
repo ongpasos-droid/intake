@@ -1,0 +1,65 @@
+{
+  "source": "bdns",
+  "source_id": "926947",
+  "source_lang": "es",
+  "level": "local",
+  "programme": "Concurrencia competitiva - canónica",
+  "sub_programme": null,
+  "publishing_authority_code": "LOCAL / ALCANÓ / AYUNTAMIENTO DE ALCANÓ",
+  "nuts_codes": [
+    "ES513"
+  ],
+  "nuts_primary": "ES513",
+  "title": "Extracto del decreto de la alcaldía del Ayuntamiento de Alcanó de fecha 28 de agosto de 2026, por el cual se convocan las ayudas para personas empresarias y autónomas al municipio de Alcanó.",
+  "title_lang": "es",
+  "summary": "Otras actuaciones de carácter económico",
+  "status": "open",
+  "publication_date": "2026-08-28",
+  "open_date": "2026-03-18",
+  "deadline": "2026-10-02",
+  "deadline_model": "single-stage",
+  "deadlines_extra": null,
+  "budget_total_eur": 75000,
+  "budget_per_project_min_eur": null,
+  "budget_per_project_max_eur": null,
+  "expected_grants": null,
+  "cofinancing_pct": null,
+  "duration_months": null,
+  "audience": "PYME Y PERSONAS FÍSICAS QUE DESARROLLAN ACTIVIDAD ECONÓMICA",
+  "eligible_orgs": [
+    "PYME Y PERSONAS FÍSICAS QUE DESARROLLAN ACTIVIDAD ECONÓMICA"
+  ],
+  "eligible_countries": [
+    "ES"
+  ],
+  "sectores": [
+    {
+      "codigo": "T",
+      "descripcion": "OTROS SERVICIOS"
+    }
+  ],
+  "apply_url": null,
+  "details_url": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatoria/926947",
+  "documents": [
+    {
+      "label": "Documento de la convocatoria en lengua cooficial",
+      "url": null
+    },
+    {
+      "label": "Documento de la convocatoria en español",
+      "url": null
+    }
+  ],
+  "bases_reguladoras_url": "https://www.pap.hacienda.gob.es/bdnstrans/GE/es/inicio",
+  "text_inicio": "Dieciocho de marzo de dos mil veintiséis",
+  "text_fin": "Dos de octubre de dos mil veintiséis",
+  "se_publica_diario_oficial": true,
+  "ayuda_estado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectores_productos": [],
+  "anuncios": [],
+  "mrr_flag": false,
+  "fetchedAt": "2026-08-29T04:05:44.290Z"
+}

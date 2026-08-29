@@ -1,0 +1,72 @@
+{
+  "id": 1128492,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "FRANQUESES DEL VALLÈS, LES",
+    "nivel3": "AYUNTAMIENTO DE FRANQUESES DEL VALLÈS, LES"
+  },
+  "sedeElectronica": "https://lesfranqueses.eadministracio.cat/dossier.0",
+  "codigoBDNS": "926931",
+  "fechaRecepcion": "2026-08-28",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 198829,
+  "mrr": false,
+  "descripcion": "Ayuda económica para apoyar la escolarización del alumnado empadronado en el municipio, que curse desde primer curso de educación infantil de segundo ciclo (I3) hasta cuarto curso de educación secundaria obligatoria (4º ESO) para el curso 2026-2027",
+  "descripcionLeng": "Ajuts econòmics per a donar suport a l'escolarització de l’alumnat empadronat al Municipi,que cursi des de primer curs d'educació infantil de segon cicle (I3) fins a quart cursd'educació secundària obligatòria (4t ESO) pel curs 2026-2027",
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "EDUCACIÓN",
+      "codigo": "Q"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES511 - Barcelona"
+    }
+  ],
+  "descripcionFinalidad": "Educación",
+  "descripcionBasesReguladoras": "Bases de concessiód'ajuts econòmics per a donar suport a l'escolarització de l’alumnat empadronat al Municipi,que cursi des de primer curs d'educació infantil de segon cicle (I3) fins a quart cursd'educació secundària obligatòria (4t ESO)",
+  "urlBasesReguladoras": "https://bop.diba.cat/anunci/3787387/aprovacio-de-les-bases-reguladores-per-a-la-concessio-d-ajuts-economics-per-donar-suport-a-l-escolaritzacio-de-l-alumnat-empadronat-al-municipi-que-cursi-des-de-primer-a-quart-curs-d-educacio-secundaria-ajuntament-de-le",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": "2026-09-21",
+  "fechaFinSolicitud": "2026-10-04",
+  "textInicio": null,
+  "textFin": null,
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1514288,
+      "descripcion": "Documento de la convocatoria en lengua cooficial",
+      "nombreFic": "Certificat convocatoria ajuts escolarització 26-27.pdf",
+      "long": 952210,
+      "datMod": "2026-08-28",
+      "datPublicacion": "2026-08-28"
+    },
+    {
+      "id": 1514287,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "Certificado convocatoria ajudas escolarización_26_27.pdf",
+      "long": 366599,
+      "datMod": "2026-08-28",
+      "datPublicacion": "2026-08-28"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

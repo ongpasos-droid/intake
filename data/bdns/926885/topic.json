@@ -1,0 +1,77 @@
+{
+  "source": "bdns",
+  "source_id": "926885",
+  "source_lang": "es",
+  "level": "local",
+  "programme": "Concurrencia competitiva - canónica",
+  "sub_programme": null,
+  "publishing_authority_code": "LOCAL / ARUCAS / AYUNTAMIENTO DE ARUCAS",
+  "nuts_codes": [
+    "ES705"
+  ],
+  "nuts_primary": "ES705",
+  "title": "CONVOCATORIA DE CONCESIÓN DE SUBVENCIONES PARA DEPORTISTAS INDIVIDUALES DE ARUCAS 2026 - MODALIDA C -",
+  "title_lang": "es",
+  "summary": "Otras Prestaciones económicas",
+  "status": "open",
+  "publication_date": "2026-08-28",
+  "open_date": null,
+  "deadline": null,
+  "deadline_model": "continuous",
+  "deadlines_extra": null,
+  "budget_total_eur": 10000,
+  "budget_per_project_min_eur": null,
+  "budget_per_project_max_eur": null,
+  "expected_grants": null,
+  "cofinancing_pct": null,
+  "duration_months": null,
+  "audience": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA",
+  "eligible_orgs": [
+    "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+  ],
+  "eligible_countries": [
+    "ES"
+  ],
+  "sectores": [
+    {
+      "codigo": "T",
+      "descripcion": "OTROS SERVICIOS"
+    }
+  ],
+  "apply_url": null,
+  "details_url": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatoria/926885",
+  "documents": [
+    {
+      "label": "Documento de la convocatoria en español",
+      "url": null
+    },
+    {
+      "label": "ANEXO I - SOLICITUD",
+      "url": null
+    },
+    {
+      "label": "BOP LAS PALMAS, Nº 8 DE 18/01/2021 DE SUBSANACIÓN DE ERROR MATERIAL DE LA ORDENANZA REGULADORA DE LA CONCESION DE SUBVENCIONES EN MATERIA DE DEPORTES",
+      "url": null
+    },
+    {
+      "label": "ORDENANZA REGULADORA DE LAS BASES PARA LA CONCESIÓN DE SUBVENCIONEA A ENTIDADES DEPORTIVAS EN SUS DISTINTAS MODALIDADES Y A DEPORTISTAS INDIVIDUALES",
+      "url": null
+    },
+    {
+      "label": "ANEXO II - CRITERIO DE VALORACIÓN",
+      "url": null
+    }
+  ],
+  "bases_reguladoras_url": "www.arucas.org",
+  "text_inicio": "20 DIAS NATURALES  CONTADOS A PARTIR DEL DIA SIGUIENTE A LA PUBLICACIÓN EN EL BOP DE LAS PALMAS",
+  "text_fin": "FINALIZADOS LOS 20 DIAS NATURALES CONTADOS A PARTIR DEL DÍA SIGUIENTE A LA PUBLICACIÓN EN EL BOP ",
+  "se_publica_diario_oficial": true,
+  "ayuda_estado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectores_productos": [],
+  "anuncios": [],
+  "mrr_flag": false,
+  "fetchedAt": "2026-08-29T04:05:44.268Z"
+}
