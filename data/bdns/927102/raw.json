@@ -1,0 +1,72 @@
+{
+  "id": 1128663,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "ALCALÀ DE XIVERT",
+    "nivel3": "AYUNTAMIENTO DE ALCALÀ DE XIVERT"
+  },
+  "sedeElectronica": null,
+  "codigoBDNS": "927102",
+  "fechaRecepcion": "2026-08-31",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concesión directa - canónica",
+  "presupuestoTotal": 10000,
+  "mrr": false,
+  "descripcion": "BASES REGULADORAS DE LA CONVOCATORIA PARA EL OTORGAMIENTO DE SUBVENCIONES PARA LA DIGITALIZACIÓN DE LAS ACTIVIDADES ECONOMICAS DESARROLLADAS EN ALCALÀ DE XIVERT POR AUTONOMOS O MICROEMPRESAS",
+  "descripcionLeng": null,
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PYME Y PERSONAS FÍSICAS QUE DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "Comercio al por menor",
+      "codigo": "47"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES522 - Castellón / Castelló"
+    }
+  ],
+  "descripcionFinalidad": "Comercio, Turismo y Pymes",
+  "descripcionBasesReguladoras": "BASES REGULADORAS DE LA CONVOCATORIA PARA EL OTORGAMIENTO DE SUBVENCIONES PARA LA DIGITALIZACIÓN DE LAS ACTIVIDADES ECONOMICAS DESARROLLADAS EN ALCALÀ DE XIVERT POR AUTONOMOS O MICROEMPRESAS",
+  "urlBasesReguladoras": "https://alcaladexivert.sedelectronica.es/preview-document/acd7d23b-f36d-424b-a84e-d711ad4a8448",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": null,
+  "fechaFinSolicitud": null,
+  "textInicio": "AL DIA SIGUIENTE DE SU PUBLICACIÓN EN EL BOP",
+  "textFin": "30 DIAS HÁBILES",
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1514779,
+      "descripcion": "Aprobación bases",
+      "nombreFic": "20260827_Certificado_Certificado Junta de Gobierno_certi 7 aprobación bases digitalización.pdf",
+      "long": 554023,
+      "datMod": "2026-08-31",
+      "datPublicacion": "2026-08-31"
+    },
+    {
+      "id": 1514778,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "20260818_Otros_Bases_BasesDigitalización.pdf",
+      "long": 518667,
+      "datMod": "2026-08-31",
+      "datPublicacion": "2026-08-31"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

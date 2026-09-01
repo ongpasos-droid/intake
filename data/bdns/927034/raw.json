@@ -1,0 +1,72 @@
+{
+  "id": 1128595,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "REDONDELA",
+    "nivel3": "AYUNTAMIENTO DE REDONDELA"
+  },
+  "sedeElectronica": null,
+  "codigoBDNS": "927034",
+  "fechaRecepcion": "2026-08-31",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 1500,
+  "mrr": false,
+  "descripcion": "VI PREMIO SESÉ MATEO DE PERIODISMO ÉTICO EN EL TRATAMIENTO DE LA VIOLENCIA MACHISTA.",
+  "descripcionLeng": null,
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "Actividades de servicios sociales sin alojamiento",
+      "codigo": "88"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES114 - Pontevedra"
+    }
+  ],
+  "descripcionFinalidad": "Otras actuaciones de carácter económico",
+  "descripcionBasesReguladoras": "BASES REGULADORAS Y CONVOCATORIA DE LA SUBVENCIÓN PARA LA CONCESIÓN DEL VI PREMIO SESÉ MATEO DE PERIODISMO ÉTICO EN EL TRATAMIENTO DE LA VIOLENCIA MACHISTA.",
+  "urlBasesReguladoras": "https://boppo.depo.gal/web/boppo/detalle/-/boppo/2026/08/31/2026064640",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": null,
+  "fechaFinSolicitud": "2026-09-30",
+  "textInicio": "Día siguiente a la publicación del Extracto en el BOP",
+  "textFin": null,
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1514622,
+      "descripcion": "Documento de la convocatoria en lengua cooficial",
+      "nombreFic": "20260831_Outros_BASES REGULADORAS E CONVOCATORIA DA SUBVENCIÓN PARA A CONCESIÓN DO PREMIO VI PREMIO SESÉ MATEO DE XORNALISMO ÉTICO NO TRATAMENTO DA VIOLENCIA MACHISTA-1-10.pdf",
+      "long": 336690,
+      "datMod": "2026-08-31",
+      "datPublicacion": "2026-08-31"
+    },
+    {
+      "id": 1514621,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "20260831_Outros_BASES REGULADORAS E CONVOCATORIA DA SUBVENCIÓN PARA A CONCESIÓN DO PREMIO VI PREMIO SESÉ MATEO DE XORNALISMO ÉTICO NO TRATAMENTO DA VIOLENCIA MACHISTA-11-20.pdf",
+      "long": 311812,
+      "datMod": "2026-08-31",
+      "datPublicacion": "2026-08-31"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

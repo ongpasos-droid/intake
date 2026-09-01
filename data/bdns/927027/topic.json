@@ -1,0 +1,61 @@
+{
+  "source": "bdns",
+  "source_id": "927027",
+  "source_lang": "es",
+  "level": "ccaa",
+  "programme": "Concesión directa - canónica",
+  "sub_programme": null,
+  "publishing_authority_code": "AUTONOMICA / EXTREMADURA / SERVICIO EXTREMEÑO PÚBLICO DE EMPLEO (SEXPE)",
+  "nuts_codes": [
+    "ES43"
+  ],
+  "nuts_primary": "ES43",
+  "title": "Convocatoria 2026 becas y ayudas a alumnos en acciones formativas no conducentes a certificados profesionales dirigidas a personas desempleadas, según Resolución de 29 de julio de 2026 que las convoca.",
+  "title_lang": "es",
+  "summary": "Desempleo",
+  "status": "open",
+  "publication_date": "2026-08-31",
+  "open_date": null,
+  "deadline": null,
+  "deadline_model": "continuous",
+  "deadlines_extra": null,
+  "budget_total_eur": 500000,
+  "budget_per_project_min_eur": null,
+  "budget_per_project_max_eur": null,
+  "expected_grants": null,
+  "cofinancing_pct": null,
+  "duration_months": null,
+  "audience": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA",
+  "eligible_orgs": [
+    "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+  ],
+  "eligible_countries": [
+    "ES"
+  ],
+  "sectores": [
+    {
+      "codigo": "85.5",
+      "descripcion": "Otra educación"
+    }
+  ],
+  "apply_url": "https://sexpeemplea.juntaex.es/ayudas_becas_y_ayudas",
+  "details_url": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatoria/927027",
+  "documents": [
+    {
+      "label": "Texto en castellano de la convocatoria",
+      "url": null
+    }
+  ],
+  "bases_reguladoras_url": "http://doe.juntaex.es/pdfs/doe/2023/620o/23050074.pdf",
+  "text_inicio": "Día siguiente al de la publicación de la resolución de convocatoria y extracto en el DOE",
+  "text_fin": "Un año desde día siguiente publicación resolución de convocatoria y extracto en el DOE",
+  "se_publica_diario_oficial": true,
+  "ayuda_estado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectores_productos": [],
+  "anuncios": [],
+  "mrr_flag": false,
+  "fetchedAt": "2026-09-01T04:08:25.193Z"
+}

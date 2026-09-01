@@ -1,0 +1,85 @@
+{
+  "source": "bdns",
+  "source_id": "927115",
+  "source_lang": "es",
+  "level": "local",
+  "programme": "Concurrencia competitiva - canónica",
+  "sub_programme": null,
+  "publishing_authority_code": "LOCAL / CAMPEZO/KANPEZU / AYUNTAMIENTO DE CAMPEZO/KANPEZU",
+  "nuts_codes": [
+    "ES211"
+  ],
+  "nuts_primary": "ES211",
+  "title": "Convocatoria de subvenciones a las Juntas Administrativas de Campezo para financiación de gastos generales y fiestas locales año 2026",
+  "title_lang": "es",
+  "summary": "Otras actuaciones de carácter económico",
+  "status": "open",
+  "publication_date": "2026-08-31",
+  "open_date": null,
+  "deadline": "2026-11-30",
+  "deadline_model": "continuous",
+  "deadlines_extra": null,
+  "budget_total_eur": 15067.37,
+  "budget_per_project_min_eur": null,
+  "budget_per_project_max_eur": null,
+  "expected_grants": null,
+  "cofinancing_pct": null,
+  "duration_months": null,
+  "audience": "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA",
+  "eligible_orgs": [
+    "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+  ],
+  "eligible_countries": [
+    "ES"
+  ],
+  "sectores": [
+    {
+      "codigo": "T",
+      "descripcion": "OTROS SERVICIOS"
+    }
+  ],
+  "apply_url": null,
+  "details_url": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatoria/927115",
+  "documents": [
+    {
+      "label": "Documento de la convocatoria en español",
+      "url": null
+    },
+    {
+      "label": "Documento de la convocatoria en lengua cooficial",
+      "url": null
+    },
+    {
+      "label": "declaración no deudas hacienda",
+      "url": null
+    },
+    {
+      "label": "no obtención de ingreso público o privado para mismo fin",
+      "url": null
+    },
+    {
+      "label": "declaración de ingresos obtenidos para mismo fin",
+      "url": null
+    },
+    {
+      "label": "Escrito de solicitud",
+      "url": null
+    }
+  ],
+  "bases_reguladoras_url": "www.kanpezu.eus",
+  "text_inicio": "A partir del día siguiente a la publicación del anuncio de la convocatoria",
+  "text_fin": "Hasta el 30 de noviembre de 2026",
+  "se_publica_diario_oficial": true,
+  "ayuda_estado": null,
+  "fondos": [
+    {
+      "descripcion": "FEDER - FONDO EUROPEO DE DESARROLLO REGIONAL"
+    }
+  ],
+  "reglamento": null,
+  "objetivos": [],
+  "sectores_productos": [],
+  "anuncios": [],
+  "mrr_flag": false,
+  "fetchedAt": "2026-09-01T04:08:25.209Z"
+}

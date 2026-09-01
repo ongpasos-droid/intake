@@ -1,0 +1,60 @@
+{
+  "source": "bdns",
+  "source_id": "927123",
+  "source_lang": "es",
+  "level": "local",
+  "programme": "Concurrencia competitiva - canónica",
+  "sub_programme": null,
+  "publishing_authority_code": "LOCAL / OLOMBRADA / AYUNTAMIENTO DE OLOMBRADA",
+  "nuts_codes": [
+    "ES416"
+  ],
+  "nuts_primary": "ES416",
+  "title": "Resolución de Alcaldía de fecha 31/08/ de 2026, por la que se convocan ayudas para adquisición de material escolar para el alumnado que curse educación obligatoria en el colegio público de Olombrada, curso 2026-2027.",
+  "title_lang": "es",
+  "summary": "Servicios Sociales y Promoción Social",
+  "status": "open",
+  "publication_date": "2026-08-31",
+  "open_date": "2026-09-01",
+  "deadline": "2026-10-31",
+  "deadline_model": "single-stage",
+  "deadlines_extra": null,
+  "budget_total_eur": 300,
+  "budget_per_project_min_eur": null,
+  "budget_per_project_max_eur": null,
+  "expected_grants": null,
+  "cofinancing_pct": null,
+  "duration_months": null,
+  "audience": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA",
+  "eligible_orgs": [
+    "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+  ],
+  "eligible_countries": [
+    "ES"
+  ],
+  "sectores": [
+    {
+      "codigo": "85.1",
+      "descripcion": "Educación preprimaria"
+    },
+    {
+      "codigo": "85.2",
+      "descripcion": "Educación primaria"
+    }
+  ],
+  "apply_url": "https://olombrada.sedelectronica.es/ ",
+  "details_url": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatoria/927123",
+  "documents": [],
+  "bases_reguladoras_url": "https://olombrada.sedelectronica.es/transparency/208d5b9d-79d9-4422-ba32-ed7e52a651f1/",
+  "text_inicio": null,
+  "text_fin": null,
+  "se_publica_diario_oficial": true,
+  "ayuda_estado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectores_productos": [],
+  "anuncios": [],
+  "mrr_flag": false,
+  "fetchedAt": "2026-09-01T04:08:25.210Z"
+}
