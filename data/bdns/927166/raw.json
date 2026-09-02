@@ -1,0 +1,81 @@
+{
+  "id": 1128727,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "OVIEDO",
+    "nivel3": "AYUNTAMIENTO DE OVIEDO"
+  },
+  "sedeElectronica": null,
+  "codigoBDNS": "927166",
+  "fechaRecepcion": "2026-09-01",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 100000,
+  "mrr": false,
+  "descripcion": "SUBVENCIONES A ENTIDADES ORGANIZADORAS DE CONGRESOS, SEMINARIOS,CONVENIONES O CUALQUIER OTRO EVENTO RELATIVO AL TURISMO DE REUNIONES EN OVIEDO PARA EL AÑO 2026",
+  "descripcionLeng": null,
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "GRAN EMPRESA"
+    },
+    {
+      "descripcion": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    },
+    {
+      "descripcion": "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    },
+    {
+      "descripcion": "PYME Y PERSONAS FÍSICAS QUE DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "Actividades asociativas",
+      "codigo": "94"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES12 - PRINCIPADO DE ASTURIAS"
+    }
+  ],
+  "descripcionFinalidad": "Comercio, Turismo y Pymes",
+  "descripcionBasesReguladoras": "Subvenciones a entidades organizadoras de congresos, seminarios, convenciones o cualquier otro evento relativo al turismo de reuniones",
+  "urlBasesReguladoras": "https://sede.oviedo.es/documents/25047/1519956/BASES+REGULADORAS+DE+SUBVENCIONES+A+ENTIDADES+ORGANIZADORAS+DE+CONGRESOS+_EXTRA.pdf/b7b14ed2-980a-4b84-9028-faf334a4bdbd",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": null,
+  "fechaFinSolicitud": null,
+  "textInicio": "desde el día siguiente a publicación en el BOPA",
+  "textFin": "veinte días naturales desde el día siguiente al de la publicacioón en el BOPA",
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1514973,
+      "descripcion": "Certificado de Junta de Gobierno Local de 20 de Agosto de 2026",
+      "nombreFic": "CERTIFICADO_DE_JUNTA_DE_GOB_IERNO_LOCAL.CERTIFICADO_ACUERDO_JUNTA_DE_GOBIERNO_LOCAL.PDF",
+      "long": 214956,
+      "datMod": "2026-09-01",
+      "datPublicacion": "2026-09-01"
+    },
+    {
+      "id": 1514972,
+      "descripcion": "Texto en castellano de la convocatoria",
+      "nombreFic": "CONVOCATORIA_SUBVENCIONES_2026.PDF",
+      "long": 1014201,
+      "datMod": "2026-09-01",
+      "datPublicacion": "2026-09-01"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

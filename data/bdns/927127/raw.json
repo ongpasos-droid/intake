@@ -1,0 +1,88 @@
+{
+  "id": 1128688,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "VILLAQUILAMBRE",
+    "nivel3": "AYUNTAMIENTO DE VILLAQUILAMBRE"
+  },
+  "sedeElectronica": " www.villaquilambre.es",
+  "codigoBDNS": "927127",
+  "fechaRecepcion": "2026-09-01",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 8000,
+  "mrr": false,
+  "descripcion": "BASES ESPECÍFICAS DE LA CONVOCATORIA DE SUBVENCIONES EN RÉGIMEN DE CONCURRENCIA COMPETITIVA DEL AYUNTAMIENTO DE VILLAQUILAMBRE EN MATERIA DE JUVENTUD EN 2026",
+  "descripcionLeng": null,
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "Actividades deportivas, recreativas y de entretenimiento",
+      "codigo": "93"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES413 - León"
+    }
+  ],
+  "descripcionFinalidad": "Educación",
+  "descripcionBasesReguladoras": "BASES ESPECÍFICAS DE LA CONVOCATORIA DE SUBVENCIONES EN RÉGIMEN DE CONCURRENCIA COMPETITIVA DEL AYUNTAMIENTO DE VILLAQUILAMBRE EN MATERIA DE JUVENTUD EN 2026",
+  "urlBasesReguladoras": "www.villaquilambre.es",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": null,
+  "fechaFinSolicitud": null,
+  "textInicio": " a partir del siguiente a la publicación de la convocatoria en el BOP",
+  "textFin": "10 días hábiles contados a partir del siguiente a la publicación de la convocatoria en el BOP",
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1514870,
+      "descripcion": "CERTIFICADO APROBACION BASES",
+      "nombreFic": "20260828_Certificado_Certificado de acuerdos_Certificado de acuerdo.pdf",
+      "long": 2376054,
+      "datMod": "2026-09-01",
+      "datPublicacion": "2026-09-01"
+    },
+    {
+      "id": 1514869,
+      "descripcion": "ANEXO II",
+      "nombreFic": "ANEXO II.pdf",
+      "long": 825584,
+      "datMod": "2026-09-01",
+      "datPublicacion": "2026-09-01"
+    },
+    {
+      "id": 1514867,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "BASES ESPECÍFICAS SUBVENCIONES JUVENTUD 2026.pdf",
+      "long": 3395758,
+      "datMod": "2026-09-01",
+      "datPublicacion": "2026-09-01"
+    },
+    {
+      "id": 1514868,
+      "descripcion": "ANEXO I",
+      "nombreFic": "ANEXO I.pdf",
+      "long": 1000502,
+      "datMod": "2026-09-01",
+      "datPublicacion": "2026-09-01"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

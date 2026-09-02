@@ -1,0 +1,65 @@
+{
+  "source": "bdns",
+  "source_id": "927236",
+  "source_lang": "es",
+  "level": "local",
+  "programme": "Concurrencia competitiva - canónica",
+  "sub_programme": null,
+  "publishing_authority_code": "LOCAL / ALMENDRALEJO / AYUNTAMIENTO DE ALMENDRALEJO",
+  "nuts_codes": [
+    "ES431"
+  ],
+  "nuts_primary": "ES431",
+  "title": "RESOLUCIÓN DE ALCALDE-PRESIDENTE DE 31 DE AGOSTO DE 2026 POR EL QUE SE APRUEBAN LAS BASES DEL CONCURSO DE LA RUTA DE LA TAPA ROMÁNTICA",
+  "title_lang": "es",
+  "summary": "Cultura",
+  "status": "open",
+  "publication_date": "2026-09-01",
+  "open_date": null,
+  "deadline": "2026-09-15",
+  "deadline_model": "continuous",
+  "deadlines_extra": null,
+  "budget_total_eur": 850,
+  "budget_per_project_min_eur": null,
+  "budget_per_project_max_eur": null,
+  "expected_grants": null,
+  "cofinancing_pct": null,
+  "duration_months": null,
+  "audience": "PYME Y PERSONAS FÍSICAS QUE DESARROLLAN ACTIVIDAD ECONÓMICA",
+  "eligible_orgs": [
+    "PYME Y PERSONAS FÍSICAS QUE DESARROLLAN ACTIVIDAD ECONÓMICA"
+  ],
+  "eligible_countries": [
+    "ES"
+  ],
+  "sectores": [
+    {
+      "codigo": "56.1",
+      "descripcion": "Restaurantes y puestos de comidas"
+    }
+  ],
+  "apply_url": "https://almendralejo.sedelectronica.es/info.14",
+  "details_url": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatoria/927236",
+  "documents": [
+    {
+      "label": "Decreto Aprobación",
+      "url": null
+    },
+    {
+      "label": "Documento de la convocatoria en español",
+      "url": null
+    }
+  ],
+  "bases_reguladoras_url": "https://almendralejo.sedelectronica.es/transparency/da841f6e-cd11-475f-b242-68d709c284d3/",
+  "text_inicio": "Desde la Publicación",
+  "text_fin": null,
+  "se_publica_diario_oficial": true,
+  "ayuda_estado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectores_productos": [],
+  "anuncios": [],
+  "mrr_flag": false,
+  "fetchedAt": "2026-09-02T04:05:51.012Z"
+}

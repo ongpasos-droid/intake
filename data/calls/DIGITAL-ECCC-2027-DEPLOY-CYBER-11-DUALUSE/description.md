@@ -1,0 +1,40 @@
+## Expected Outcome
+
+- Secure Data Sharing Framework: Develop standardised and encrypted communication mechanisms to facilitate seamless data exchange between civilian and military stakeholders. These mechanisms should align with GDPR and other EU regulatory requirements.
+- Early Warning Systems (EWS): Establish a European-level EWS for cyber and hybrid threats. These systems should integrate real-time monitoring tools and predictive analytics to pre-emptively identify and neutralise cyber and hybrid threats targeting critical infrastructure.
+- Collaborative Training Programmes: Design joint training programmes that incorporate AI and cybersecurity scenarios for both civilian (including law enforcement) and military personnel. These programmes should address sector specific needs and hybrid threat scenarios.
+- Integrated Threat Detection Systems: Deploy unified threat detection systems leveraging AI, ZTA, and Digital Twins for cross-sectoral application, targeting current and emerging cyber and hybrid threats.
+- Cross-Sector Security Standards: Develop harmonised cybersecurity standards for dual-use technologies to ensure interoperability and scalability across EU Member States and propose EU-wide frameworks for harmonising cybersecurity standards, ensuring seamless integration of civilian and military technologies.
+- Stakeholder Collaboration and Integration: Facilitate partnerships among diverse stakeholders, including national authorities, SMEs, academia, and industry stakeholders to foster innovation and deployment of dual-use solutions.
+
+## Objective
+
+Dual-use technologies have emerged as a cornerstone in addressing both cybersecurity threats and broader cyber defence needs. The integration of advanced civilian and military technologies under a unified framework is critical to bolstering resilience across critical infrastructure, ensuring data security. In addition, addressing cybercrime and hybrid threats will contribute to maintaining societal stability.
+
+Cross fertilisation and spill-over effects from synergies between the civil and defence spheres have proven to be an important driver for innovation, industrial deployment and market uptake. Such effects should also be fostered for cybersecurity and cyber defence. The results could lead to increased resilience to cyber threats and better protection of both civilian and defence critical infrastructures.
+
+Building on Digital Europe Programme, Horizon Europe, and the European Defence Fund, the EU must prioritise collaborative pilot projects. These projects results can bridge civilian and defence sectors, fostering innovations in relevant key technologies such as quantum-safe cryptography, Zero Trust Architectures (ZTA), and AI-driven threat detection systems. Such efforts are essential to addressing emerging cyber threats while ensuring interoperability and scalability across sectors.
+
+The objective is to enhance cooperation between the civil and defence spheres regarding dual use projects, services, competences and applications in cybersecurity in line with Article 6.1(f) of the DEP Regulation and Article 5.3(g) of the ECCC Regulation.
+
+## Scope
+
+The objective is to enhance operational cooperation between the civil and defence spheres through the development of dual-use working prototypes, ready-to-market products and operational infrastructures related to cybersecurity technologies, applications and tools that have relevance in both civilian and defence context.
+
+Examples of domains of interest for this call topic are:
+- Quantum-Safe Cryptography: Develop encryption methods resistant to quantum computing attacks. These solutions will ensure secure communication and data protection for critical civilian and military infrastructures.
+- Zero Trust Architectures (ZTA): Implement ZTA frameworks to enhance endpoint security and prevent unauthorised access to critical systems. These architectures can serve both civilian applications (e.g. healthcare, finance) and defence systems.
+- AI-Driven Threat Detection and Response: Deploy advanced AI tools for real-time threat detection, mitigation and response. AI can be leveraged for anomaly detection in critical networks, adaptive defence mechanisms, and predictive risk assessments. AI-driven threat detection systems can enhance the ability of stakeholders, including Law Enforcement Authorities, to analyse large datasets and identify patterns of malicious activity. These systems also enable real-time prioritisation of actionable intelligence and can support investigations across sectors. Ethical considerations, including compliance with the GDPR and AI Act, must guide their deployment.
+- Cyber Ranges including Digital Twins for Cybersecurity: Use Cyber Ranges solutions and Digital Twin technology to simulate potential cyberattacks on civilian and military systems and networks. This enables proactive identification of vulnerabilities and the development of effective response strategies. This would enhance the capacities of a wide range of stakeholders, including Law Enforcement Authorities.
+- Advanced SOAR Tools: Develop Security Orchestration, Automation, and Response (SOAR) platforms to streamline incident response across sectors.
+
+Other cybersecurity domains where the civil and defence spheres have a common interest in developing working systems together will also fall within the scope of this call topic.
+
+The above domains are expected to be demonstrated and deployed for (but not limited to):
+- Critical Infrastructure Protection: For example, deploy dual-use AI-driven tools to monitor and secure critical infrastructures such as undersea critical infrastructure, transportation networks, communication networks, energy grids, and healthcare systems against cyber and physical threats.
+- Secure Communications: For example, utilise quantum-safe communication protocols to protect sensitive data exchanges between civilian and defence stakeholders.
+- Hybrid Threat Management: For example, design systems capable of countering hybrid threats, such as GPS jamming and spoofing, cable sabotage, ransomware attacks combined with disinformation campaigns, ensuring operational continuity.
+- Extension of SOC/CSIRT functionalities and operations that are compatible with military requirements. The defence community can benefit from stronger civilian detection and situational awareness capabilities developed for the protection of critical infrastructure.
+- Digital Fraud and Digital Violence Prevention for Public Safety: For example, dual-use technologies for the prevention of digital fraud, disinformation and identity theft through real-time monitoring and advanced digital forensics. These solutions can enhance the ability to collect and analyse digital evidence across jurisdictions, supporting victim protection and law enforcement efforts.
+
+Upon request from the ECCC, project consortia will participate in clustering activities to define common actions and to enhance synergies between the civilian and defence communities.

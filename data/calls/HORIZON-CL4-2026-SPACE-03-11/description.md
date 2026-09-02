@@ -23,6 +23,6 @@ All the activities should be complementary with national and ESA on-going or fut
 
 In this topic, the integration of the gender dimension (sex and gender analysis) in research and innovation content should be addressed only if relevant in relation to the objectives of the research effort.
 
-## null
+## Technology Readiness Level - Technology readiness level expected from completed projects
 
 Activities are expected to achieve TRL 8 by the end of the project. The reference TRL definition is the ISO 16290:2013 applicable to the space sector.

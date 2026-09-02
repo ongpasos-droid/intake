@@ -34,6 +34,6 @@ The consortium as a whole and individual beneficiaries should ensure that, for a
 
 In this topic, the integration of the gender dimension (sex and gender analysis) in research and innovation content is not relevant.
 
-## null
+## Technology Readiness Level - Technology readiness level expected from completed projects
 
 Activities are expected to achieve TRL 6 by the end of the project. The reference TRL definition is the ISO 16290:2013 applicable to the space sector.

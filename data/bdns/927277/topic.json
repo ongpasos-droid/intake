@@ -1,0 +1,81 @@
+{
+  "source": "bdns",
+  "source_id": "927277",
+  "source_lang": "es",
+  "level": "local",
+  "programme": "Concesión directa - canónica",
+  "sub_programme": null,
+  "publishing_authority_code": "LOCAL / TXORIERRIKO ZERBITZUEN MANKOMUNITATEA-MANCOMUNIDAD DE SERVICIOS DEL TXORIERRI / TXORIERRIKO ZERBITZUEN MANKOMUNITATEA-MANCOMUNIDAD DE SERVICIOS DEL TXORIERRI",
+  "nuts_codes": [
+    "ES213"
+  ],
+  "nuts_primary": "ES213",
+  "title": "SUBVENCIONES PARA EL ALUMNADO MATRICULADO EN LOS CURSOS DE EUSKERA. CURSO 2025-26",
+  "title_lang": "es",
+  "summary": "Educación",
+  "status": "open",
+  "publication_date": "2026-09-01",
+  "open_date": null,
+  "deadline": "2026-10-31",
+  "deadline_model": "continuous",
+  "deadlines_extra": null,
+  "budget_total_eur": 3000,
+  "budget_per_project_min_eur": null,
+  "budget_per_project_max_eur": null,
+  "expected_grants": null,
+  "cofinancing_pct": null,
+  "duration_months": null,
+  "audience": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA",
+  "eligible_orgs": [
+    "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+  ],
+  "eligible_countries": [
+    "ES"
+  ],
+  "sectores": [
+    {
+      "codigo": "S",
+      "descripcion": "ACTIVIDADES ARTÍSTICAS, DEPORTIVAS Y DE ENTRETENIMIENTO"
+    },
+    {
+      "codigo": "Q",
+      "descripcion": "EDUCACIÓN"
+    }
+  ],
+  "apply_url": "https://www.txorierri.eus/es-ES/Tramites/Paginas/procedimiento-detalle.aspx?idt=a67a7135-d0ac-e211-b9d8-00237d32158c",
+  "details_url": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatoria/927277",
+  "documents": [
+    {
+      "label": "Documento de la convocatoria en español",
+      "url": null
+    },
+    {
+      "label": "ARAUTEGIA",
+      "url": null
+    },
+    {
+      "label": "NORMATIVA",
+      "url": null
+    },
+    {
+      "label": "Documento de la convocatoria en lengua cooficial",
+      "url": null
+    },
+    {
+      "label": "SOLICITUD/ESKAERA",
+      "url": null
+    }
+  ],
+  "bases_reguladoras_url": "https://www.txorierri.eus/es-ES/Servicios/Euskera/Paginas/eus_subvenciones-para-el-alumnado-matriculado-en-los-cursos-de-euskera-2024-25.aspx",
+  "text_inicio": "DIA SIGUIENTE A PUBLICACIÓN EN BOLETIN OFICIAL DE BIZKAIA",
+  "text_fin": null,
+  "se_publica_diario_oficial": true,
+  "ayuda_estado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectores_productos": [],
+  "anuncios": [],
+  "mrr_flag": false,
+  "fetchedAt": "2026-09-02T04:05:51.028Z"
+}

@@ -1,45 +1,45 @@
 {
-  "generatedAt": "2026-09-01T04:08:29.434Z",
-  "total": 11230,
+  "generatedAt": "2026-09-02T04:05:54.915Z",
+  "total": 11298,
   "bySource": {
-    "sedia": 1676,
-    "bdns": 9447,
-    "salto": 107
+    "sedia": 1687,
+    "bdns": 9508,
+    "salto": 103
   },
   "byCategory": {
-    "call_for_proposals": 11123,
-    "training": 107
+    "call_for_proposals": 11195,
+    "training": 103
   },
   "byLevel": {
-    "eu": 1783,
-    "ccaa": 2117,
+    "eu": 1790,
+    "ccaa": 2127,
     "estado": 297,
-    "local": 6166,
-    "otros": 867
+    "local": 6209,
+    "otros": 875
   },
   "byStatus": {
-    "open": 10664,
-    "forthcoming": 562,
-    "closed": 4
+    "open": 10716,
+    "forthcoming": 579,
+    "closed": 3
   },
   "byProgramme": {
     "European Solidarity Corps": 3,
     "Connecting Europe Facility": 68,
     "Erasmus+": 45,
     "Just Transition": 4,
-    "Horizon Europe": 1044,
+    "Horizon Europe": 1046,
     "ERC": 7,
     "Creative Europe": 31,
-    "NDICI / EuropeAid": 151,
+    "NDICI / EuropeAid": 152,
     "Pericles IV": 2,
     "EP": 7,
     "Single Market Programme": 9,
-    "EaSI / SOCPL": 4,
+    "EaSI / SOCPL": 5,
     "CERV": 20,
     "ESF+": 9,
     "NDICI": 1,
     "ISF": 8,
-    "Digital Europe": 61,
+    "Digital Europe": 68,
     "LIFE": 61,
     "EMFAF": 4,
     "Innovation Fund": 7,
@@ -53,16 +53,16 @@
     "EUBA": 15,
     "ED": 1,
     "EU Anti-Fraud": 8,
-    "Concurrencia competitiva - canónica": 8474,
-    "Concesión directa - canónica": 973,
+    "Concurrencia competitiva - canónica": 8533,
+    "Concesión directa - canónica": 975,
     "UCPM": 2,
     "Pilot Projects": 9,
     "European Defence Fund": 70,
     "ERDFTA": 2,
-    "Erasmus+ Youth (SALTO)": 107,
+    "Erasmus+ Youth (SALTO)": 103,
     "RFCS": 7
   },
   "curatedEnrichmentCount": 1,
-  "sumBudgetEur": 303686506630.0198,
-  "summaryEsPendingCount": 1783
+  "sumBudgetEur": 304395688462.36975,
+  "summaryEsPendingCount": 1790
 }

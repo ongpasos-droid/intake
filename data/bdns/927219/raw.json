@@ -1,0 +1,76 @@
+{
+  "id": 1128780,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "FENE",
+    "nivel3": "AYUNTAMIENTO DE FENE"
+  },
+  "sedeElectronica": "WWW.FENE.GAL",
+  "codigoBDNS": "927219",
+  "fechaRecepcion": "2026-09-01",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 105100,
+  "mrr": false,
+  "descripcion": "RESOLUCIÓN DE ALCALDÍA 765, DEL 16.06.2026, POR LA QUE SE APRUEBAN LAS BASES DE LA CONVOCATORIA DE SUBVENCIONES, EN RÉGIMEN DE CONCURERENCIA COMPETITIVA, A ENTIDADES SIN FINES DE LUCRO PARA EL AÑO 2026",
+  "descripcionLeng": "RESOLUCIÓN DE ALCALDÍA 765, DO 16.06.2026, POLA QUE SE APROBAN AS BASES DA CONVOCATORIA DE SUBVENCIÓNS, EN RÉXIMEN DE CONCORRENCIA COMPETITIVA, A ENTIDADES SEN FINS DE LUCRO PARA O ANO 2026",
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "ACTIVIDADES ARTÍSTICAS, DEPORTIVAS Y DE ENTRETENIMIENTO",
+      "codigo": "S"
+    },
+    {
+      "descripcion": "EDUCACIÓN",
+      "codigo": "Q"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES111 - A Coruña"
+    }
+  ],
+  "descripcionFinalidad": "Cultura",
+  "descripcionBasesReguladoras": "ORDENANZA GENERAL DE LAS SUBVENCIONES DEL AYUNTAMIENTO DE FENE",
+  "urlBasesReguladoras": "https://bop.dacoruna.gal/bopportal/publicado/2007/06/15/6756-x.htm",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": null,
+  "fechaFinSolicitud": null,
+  "textInicio": "AL DÍA SIGUIENTE A LA PUBLICACIÓN DEL EXTRACTO DE LA CONVOCATORIA",
+  "textFin": "A LAS 14.00 HORAS DEL DÉCIMO DÍA NATURAL SIGUIENTE A LA PUBLICACIÓN DEL EXTRACTO DE LA CONVOCATORIA ",
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1515108,
+      "descripcion": "Documento de la convocatoria en lengua cooficial",
+      "nombreFic": "BASES SUBV. CONCORRENCIA 2026 galego.pdf",
+      "long": 466638,
+      "datMod": "2026-09-01",
+      "datPublicacion": "2026-09-01"
+    },
+    {
+      "id": 1515107,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "BASES SUBV. CONCORRENCIA 2026 castelán.pdf",
+      "long": 448496,
+      "datMod": "2026-09-01",
+      "datPublicacion": "2026-09-01"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

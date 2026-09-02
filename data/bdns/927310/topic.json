@@ -1,0 +1,77 @@
+{
+  "source": "bdns",
+  "source_id": "927310",
+  "source_lang": "es",
+  "level": "local",
+  "programme": "Concurrencia competitiva - canónica",
+  "sub_programme": null,
+  "publishing_authority_code": "LOCAL / REQUENA / AYUNTAMIENTO DE REQUENA",
+  "nuts_codes": [
+    "ES523"
+  ],
+  "nuts_primary": "ES523",
+  "title": "PARTICIPACIÓN EN EL PROGRAMA  “DÍA INTERNACIONAL DE LAS PERSONAS MAYORES 2026”.",
+  "title_lang": "es",
+  "summary": "Servicios Sociales y Promoción Social",
+  "status": "open",
+  "publication_date": "2026-09-01",
+  "open_date": null,
+  "deadline": null,
+  "deadline_model": "continuous",
+  "deadlines_extra": null,
+  "budget_total_eur": 0,
+  "budget_per_project_min_eur": null,
+  "budget_per_project_max_eur": null,
+  "expected_grants": null,
+  "cofinancing_pct": null,
+  "duration_months": null,
+  "audience": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA",
+  "eligible_orgs": [
+    "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+  ],
+  "eligible_countries": [
+    "ES"
+  ],
+  "sectores": [
+    {
+      "codigo": "R",
+      "descripcion": "ACTIVIDADES SANITARIAS Y DE SERVICIOS SOCIALES"
+    }
+  ],
+  "apply_url": "https://requena.sedipualba.es/carpetaciudadana/tramite.aspx?idtramite=2936",
+  "details_url": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatoria/927310",
+  "documents": [
+    {
+      "label": "Documento de la convocatoria en español",
+      "url": null
+    },
+    {
+      "label": "MODELO DE SOLICITU VIAJE A ALCALÁ DEL JÚCAR",
+      "url": null
+    },
+    {
+      "label": "MODELO DE SOLICITUD VIAJE A BENIDORM",
+      "url": null
+    },
+    {
+      "label": "EDICTO",
+      "url": null
+    }
+  ],
+  "bases_reguladoras_url": "https://requena.sedipualba.es/tablondeanuncios/anuncio.aspx?id=81884",
+  "text_inicio": "10 DÍAS NATURALES a partir del día a partir del día siguiente de la publicación de las presentes ",
+  "text_fin": "Transcurridos 20 días hábiles a partir del día siguiente a su publicación más 10 días naturales",
+  "se_publica_diario_oficial": true,
+  "ayuda_estado": null,
+  "fondos": [
+    {
+      "descripcion": "FSE - FONDO SOCIAL EUROPEO "
+    }
+  ],
+  "reglamento": null,
+  "objetivos": [],
+  "sectores_productos": [],
+  "anuncios": [],
+  "mrr_flag": false,
+  "fetchedAt": "2026-09-02T04:05:51.036Z"
+}

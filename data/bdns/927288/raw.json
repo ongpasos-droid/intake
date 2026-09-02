@@ -1,0 +1,76 @@
+{
+  "id": 1128849,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "GIJÓN",
+    "nivel3": "AYUNTAMIENTO DE GIJÓN"
+  },
+  "sedeElectronica": "https://sedeelectronica.gijon.es",
+  "codigoBDNS": "927288",
+  "fechaRecepcion": "2026-09-01",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 5850,
+  "mrr": false,
+  "descripcion": "Resolución de la FMCEYUP de 25 de agosto de 2026 por la que se aprueba la Convocatoria del Programa Corresponsales Juveniles en centros educativos de Gijón/Xixón curso 2026/2027",
+  "descripcionLeng": null,
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "ACTIVIDADES ARTÍSTICAS, DEPORTIVAS Y DE ENTRETENIMIENTO",
+      "codigo": "S"
+    },
+    {
+      "descripcion": "EDUCACIÓN",
+      "codigo": "Q"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES120 - Asturias"
+    }
+  ],
+  "descripcionFinalidad": "Cultura",
+  "descripcionBasesReguladoras": "Ordenanza general de subvenciones del Ayuntamiento de Gijón/Xixón",
+  "urlBasesReguladoras": "https://sedeelectronica.gijon.es/sta/CarpetaPublic/doEvent?APP_CODE=STA&PAGE_CODE=SEDE_NORMATIVA_DETALLE&DBOID=6263930765236991506402&REQID=4&HFC=GJ_HEADER#GJ_FOOTER&SESSION_REQUIRED=false",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": null,
+  "fechaFinSolicitud": null,
+  "textInicio": "Día siguiente a la publicación del extracto de la presente convocatoria en el BOPA",
+  "textFin": "20 días naturales desde el día siguiente a la publicación del extracto en el BOPA",
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1515321,
+      "descripcion": "BOPA ORDENANZA SUBVENCIONES GIJON 2023",
+      "nombreFic": "ORDENANZA GENERAL DE SUBVENCIONES.pdf",
+      "long": 771931,
+      "datMod": "2026-09-01",
+      "datPublicacion": "2026-09-01"
+    },
+    {
+      "id": 1515312,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "CONVOCATORIA-BASES CORRESPONSALES JUVENILES 2026-2027.pdf",
+      "long": 300182,
+      "datMod": "2026-09-01",
+      "datPublicacion": "2026-09-01"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

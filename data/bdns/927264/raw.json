@@ -1,0 +1,72 @@
+{
+  "id": 1128825,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "CAMBRILS",
+    "nivel3": "AYUNTAMIENTO DE CAMBRILS"
+  },
+  "sedeElectronica": null,
+  "codigoBDNS": "927264",
+  "fechaRecepcion": "2026-09-01",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 13000,
+  "mrr": false,
+  "descripcion": "CONVOCATORIA PROGRAMA E. CONVOCATÒRIA DE SUBVENCIONES A LOS DEPORTISTAS DE CAMBRILS DE DEPORTES INDIVIDUALES, O EN PAREJA,  QUE PARTICIPEN EN COMPETICIONES FEDERADAS EL AÑO 2026",
+  "descripcionLeng": "CONVOCATORIA PROGRAMA E. CONVOCATÒRIA DE SUBVENCIONS ALS ESPORTISTES DE CAMBRILS D'ESPORTS INDIVIDUALS, O EN PARELLA,  QUE PARTICIPEN EN COMPETICIONS FEDERADES L’ANY 2026",
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "Actividades deportivas, recreativas y de entretenimiento",
+      "codigo": "93"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES514 - Tarragona"
+    }
+  ],
+  "descripcionFinalidad": "Otras Prestaciones económicas",
+  "descripcionBasesReguladoras": "Ordenanza general de subvenciones",
+  "urlBasesReguladoras": "Ajuntament de Cambrils - Seu Electrònica",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": "2026-09-21",
+  "fechaFinSolicitud": "2026-11-30",
+  "textInicio": null,
+  "textFin": null,
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1515264,
+      "descripcion": "Documento de la convocatoria en lengua cooficial",
+      "nombreFic": "CONVO E 2026 INDIVIDUALS.docx",
+      "long": 32985,
+      "datMod": "2026-09-01",
+      "datPublicacion": "2026-09-01"
+    },
+    {
+      "id": 1515263,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "CONVO E 2026 INDIVIDUALES.docx",
+      "long": 39601,
+      "datMod": "2026-09-01",
+      "datPublicacion": "2026-09-01"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

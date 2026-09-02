@@ -1,0 +1,65 @@
+{
+  "source": "bdns",
+  "source_id": "927162",
+  "source_lang": "es",
+  "level": "local",
+  "programme": "Concurrencia competitiva - canónica",
+  "sub_programme": null,
+  "publishing_authority_code": "LOCAL / SANTA MARÍA DE ORDÁS / AYUNTAMIENTO DE SANTA MARÍA DE ORDÁS",
+  "nuts_codes": [
+    "ES413"
+  ],
+  "nuts_primary": "ES413",
+  "title": "Resolución de Alcaldía nº 2026-0165, de fecha 31 de agosto de 2026, por la que se convocan ayudas para la adquisición de libros de texto curso 2026-2027",
+  "title_lang": "es",
+  "summary": "Educación",
+  "status": "open",
+  "publication_date": "2026-09-01",
+  "open_date": null,
+  "deadline": null,
+  "deadline_model": "continuous",
+  "deadlines_extra": null,
+  "budget_total_eur": 1500,
+  "budget_per_project_min_eur": null,
+  "budget_per_project_max_eur": null,
+  "expected_grants": null,
+  "cofinancing_pct": null,
+  "duration_months": null,
+  "audience": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA",
+  "eligible_orgs": [
+    "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+  ],
+  "eligible_countries": [
+    "ES"
+  ],
+  "sectores": [
+    {
+      "codigo": "Q",
+      "descripcion": "EDUCACIÓN"
+    }
+  ],
+  "apply_url": "https://aytosantamariadeordas.sedelectronica.es/info.3",
+  "details_url": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatoria/927162",
+  "documents": [
+    {
+      "label": "ANEXO I Y II",
+      "url": null
+    },
+    {
+      "label": "Documento de la convocatoria en español",
+      "url": null
+    }
+  ],
+  "bases_reguladoras_url": "https://aytosantamariadeordas.sedelectronica.es/transparency/d116ce3d-adb8-4065-9c3e-8e12b4ad415b/",
+  "text_inicio": "A partir del día siguiente a la publicación del extracto de la subvención en el BOP de León",
+  "text_fin": "20 días hábiles ",
+  "se_publica_diario_oficial": true,
+  "ayuda_estado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectores_productos": [],
+  "anuncios": [],
+  "mrr_flag": false,
+  "fetchedAt": "2026-09-02T04:05:50.992Z"
+}

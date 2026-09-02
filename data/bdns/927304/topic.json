@@ -1,0 +1,81 @@
+{
+  "source": "bdns",
+  "source_id": "927304",
+  "source_lang": "es",
+  "level": "local",
+  "programme": "Concurrencia competitiva - canónica",
+  "sub_programme": null,
+  "publishing_authority_code": "LOCAL / ALMUDÉVAR / AYUNTAMIENTO DE ALMUDÉVAR",
+  "nuts_codes": [
+    "ES241"
+  ],
+  "nuts_primary": "ES241",
+  "title": "CONVOCATORIA PARA LA CONCESIÓN DE SUBVENCIONES EN MATERIA DE ASOCIACIONES SIN ÁNIMO DE LUCRO PARA VECINOS DE LOS PUEBLOS DEL MUNICIPIO DE ALMUDEVAR O BARRIOS DEL TÉRMINO MUNICIPAL AÑO 2026",
+  "title_lang": "es",
+  "summary": "Otras Prestaciones económicas",
+  "status": "open",
+  "publication_date": "2026-09-01",
+  "open_date": null,
+  "deadline": null,
+  "deadline_model": "continuous",
+  "deadlines_extra": null,
+  "budget_total_eur": 3000,
+  "budget_per_project_min_eur": null,
+  "budget_per_project_max_eur": null,
+  "expected_grants": null,
+  "cofinancing_pct": null,
+  "duration_months": null,
+  "audience": "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA",
+  "eligible_orgs": [
+    "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+  ],
+  "eligible_countries": [
+    "ES"
+  ],
+  "sectores": [
+    {
+      "codigo": "91",
+      "descripcion": "Actividades de bibliotecas, archivos, museos y otras actividades culturales"
+    }
+  ],
+  "apply_url": null,
+  "details_url": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatoria/927304",
+  "documents": [
+    {
+      "label": "Anexo II .3",
+      "url": null
+    },
+    {
+      "label": "Documento de la convocatoria en español",
+      "url": null
+    },
+    {
+      "label": "Anexo II .2",
+      "url": null
+    },
+    {
+      "label": "Anexo II justificacion",
+      "url": null
+    },
+    {
+      "label": "Anexo II .1",
+      "url": null
+    },
+    {
+      "label": "Anexo I modelo solicitud",
+      "url": null
+    }
+  ],
+  "bases_reguladoras_url": "https://bop.dphuesca.es/index.php/mod.bopanuncios/mem.visualizarpdf/relcategoria.60008/idbopanuncio.167313/chk.53a7fa1435c7ee40003e46ee4b224efe.html",
+  "text_inicio": "Veinte días naturales desde la publicación del extracto en Boletín Oficial de la Provincia de Huesca",
+  "text_fin": "Veinte días naturales desde la publicación del extracto en Boletín Oficial de la Provincia de Huesca",
+  "se_publica_diario_oficial": true,
+  "ayuda_estado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectores_productos": [],
+  "anuncios": [],
+  "mrr_flag": false,
+  "fetchedAt": "2026-09-02T04:05:51.035Z"
+}

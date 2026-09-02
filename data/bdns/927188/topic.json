@@ -1,0 +1,75 @@
+{
+  "source": "bdns",
+  "source_id": "927188",
+  "source_lang": "es",
+  "level": "ccaa",
+  "programme": "Concurrencia competitiva - canónica",
+  "sub_programme": null,
+  "publishing_authority_code": "AUTONOMICA / COMUNITAT VALENCIANA / SECRETARÍA AUTONÓMICA DE  FAMILIA Y SERVICIOS SOCIALES",
+  "nuts_codes": [],
+  "nuts_primary": null,
+  "title": "Convocatoria para el año 2026 de subvenciones a organizaciones no gubernamentales para el desarrollo (ONGD), para la financiación de proyectos de acción humanitaria de ayuda a las víctimas de desastres naturales y conflictos armados, o",
+  "title_lang": "es",
+  "summary": "Cooperación internacional para el desarrollo y cultural",
+  "status": "open",
+  "publication_date": "2026-09-01",
+  "open_date": "2026-09-03",
+  "deadline": "2026-09-17",
+  "deadline_model": "single-stage",
+  "deadlines_extra": null,
+  "budget_total_eur": 11504137.37,
+  "budget_per_project_min_eur": null,
+  "budget_per_project_max_eur": null,
+  "expected_grants": null,
+  "cofinancing_pct": null,
+  "duration_months": null,
+  "audience": "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA",
+  "eligible_orgs": [
+    "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+  ],
+  "eligible_countries": [
+    "ES"
+  ],
+  "sectores": [
+    {
+      "codigo": "O",
+      "descripcion": "ACTIVIDADES ADMINISTRATIVAS Y SERVICIOS AUXILIARES"
+    },
+    {
+      "codigo": "U",
+      "descripcion": "ACTIVIDADES DE LOS HOGARES COMO EMPLEADORES Y COMO PRODUCTORES DE BIENES Y SERVICIOS NO DIFERENCIADOS PARA USO PROPIO"
+    }
+  ],
+  "apply_url": "https://www.pap.hacienda.gob.es/bdnstrans/ge/ca/inicio",
+  "details_url": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatoria/927188",
+  "documents": [
+    {
+      "label": "Texto en castellano de la convocatoria",
+      "url": null
+    },
+    {
+      "label": "extracte resolució",
+      "url": null
+    },
+    {
+      "label": "extractp resolución",
+      "url": null
+    },
+    {
+      "label": "Texto en otra lengua de la convocatoria",
+      "url": null
+    }
+  ],
+  "bases_reguladoras_url": "https://dogv.gva.es/es/resultat-dogv?signatura=2021/5973",
+  "text_inicio": "Diez días hábiles a contar desde el día siguiente de publicación del extracto de la convocatoria",
+  "text_fin": "10 días hábiles a contar desde el día siguiente a la publicación del extracto de la convocatoria",
+  "se_publica_diario_oficial": true,
+  "ayuda_estado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectores_productos": [],
+  "anuncios": [],
+  "mrr_flag": false,
+  "fetchedAt": "2026-09-02T04:05:51.000Z"
+}

@@ -1,0 +1,76 @@
+{
+  "id": 1128722,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "SOPELA",
+    "nivel3": "AYUNTAMIENTO DE SOPELA"
+  },
+  "sedeElectronica": "https://sopela.egoitzaelektronikoa.eus/info.1",
+  "codigoBDNS": "927161",
+  "fechaRecepcion": "2026-09-01",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 70000,
+  "mrr": false,
+  "descripcion": "SUBVENCIONES MUNICIPALES DESTINADAS A FINANCIAR LAS DOS LÍNEAS DE SUBVENCIÓN DEL PROGRAMA ¨SOPELA GARATU¨",
+  "descripcionLeng": "¨SOPELA GARATU¨ PROGRAMAKO BI DIRULAGUNTZA-LERROAK FINANTZATZEKO UDAL DIRULAGUNTZAK",
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PYME Y PERSONAS FÍSICAS QUE DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "OTROS SERVICIOS",
+      "codigo": "T"
+    },
+    {
+      "descripcion": "TRANSPORTE Y ALMACENAMIENTO",
+      "codigo": "H"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES213 - Bizkaia"
+    }
+  ],
+  "descripcionFinalidad": "Otras Prestaciones económicas",
+  "descripcionBasesReguladoras": "SUBVENCIONES MUNICIPALES DESTINADAS A FINANCIAR LAS DOS LÍNEAS DE SUBVENCIÓN DEL PROGRAMA ¨SOPELA GARATU¨",
+  "urlBasesReguladoras": "https://sopela.egoitzaelektronikoa.eus/info.1",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": null,
+  "fechaFinSolicitud": null,
+  "textInicio": "A partir del día siguiente de la publicación en el Boletin Oficial de Bizkaia",
+  "textFin": "Quince días hábiles después del inicio del plazo de la solicitud",
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1514960,
+      "descripcion": "Documento de la convocatoria en lengua cooficial",
+      "nombreFic": "20260807_Ziurtagiria_EGIAZTAGIRIAK 2026-0287 [2026 08 07 TGB (4) Convocatoria Sopela Garatu Propuesta]-1.pdf",
+      "long": 1560463,
+      "datMod": "2026-09-01",
+      "datPublicacion": "2026-09-01"
+    },
+    {
+      "id": 1514959,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "20260807_Ziurtagiria_EGIAZTAGIRIAK 2026-0287 [2026 08 07 TGB (4) Convocatoria Sopela Garatu Propuesta]-1.pdf",
+      "long": 1560463,
+      "datMod": "2026-09-01",
+      "datPublicacion": "2026-09-01"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

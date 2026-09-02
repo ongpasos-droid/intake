@@ -7,14 +7,14 @@
   "programme": "Horizon Europe",
   "programmeCode": "43108390",
   "programmePeriod": "2021 - 2027",
-  "status": "forthcoming",
-  "statusCode": "31094501",
+  "status": "open",
+  "statusCode": "31094502",
   "opening": "2026-09-02",
   "deadline": "2026-12-01",
   "deadlineModel": "single-stage",
   "actionType": "HORIZON Recognition Prize",
-  "actionCode": null,
-  "mgaCode": null,
+  "actionCode": "HORIZON-RPr",
+  "mgaCode": "HORIZON-PR",
   "budget": {
     "total_eur": 100000,
     "by_year": {
@@ -30,7 +30,7 @@
   ],
   "crossCuttingPriorities": [],
   "supportInfoText": "The Rules of the Contest will be published on the Prize's website - See section 'How to Apply'\n\nOnline Manual is your guide on the procedures from proposal submission to managing your grant.\n\nFunding & Tenders Portal FAQ – find the answers to most frequently asked questions on submission of proposals, evaluation and grant management.\n\nResearch Enquiry Service – ask questions about any aspect of European research in general and the EU Research Framework Programmes in particular.\n\nIT Helpdesk – contact the Funding & Tenders Portal IT helpdesk for questions such as forgotten passwords, access rights and roles, technical aspects of submission of proposals, etc.",
-  "submissionUrl": null,
+  "submissionUrl": "https://ec.europa.eu/research/participants/submission/manage/screen/submission/create-draft/46095?topic=HORIZON-EIT-2026-PRIZE-WIP-LEADERSHIP",
   "topicUrl": "https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/opportunities/topic-details/HORIZON-EIT-2026-PRIZE-WIP-LEADERSHIP",
   "documents": [
     {
@@ -405,5 +405,5 @@
       "is_downloadable": false
     }
   ],
-  "fetchedAt": "2026-08-31T04:02:21.071Z"
+  "fetchedAt": "2026-09-02T04:02:35.357Z"
 }

@@ -1,0 +1,69 @@
+{
+  "source": "bdns",
+  "source_id": "927219",
+  "source_lang": "es",
+  "level": "local",
+  "programme": "Concurrencia competitiva - canónica",
+  "sub_programme": null,
+  "publishing_authority_code": "LOCAL / FENE / AYUNTAMIENTO DE FENE",
+  "nuts_codes": [
+    "ES111"
+  ],
+  "nuts_primary": "ES111",
+  "title": "RESOLUCIÓN DE ALCALDÍA 765, DEL 16.06.2026, POR LA QUE SE APRUEBAN LAS BASES DE LA CONVOCATORIA DE SUBVENCIONES, EN RÉGIMEN DE CONCURERENCIA COMPETITIVA, A ENTIDADES SIN FINES DE LUCRO PARA EL AÑO 2026",
+  "title_lang": "es",
+  "summary": "Cultura",
+  "status": "open",
+  "publication_date": "2026-09-01",
+  "open_date": null,
+  "deadline": null,
+  "deadline_model": "continuous",
+  "deadlines_extra": null,
+  "budget_total_eur": 105100,
+  "budget_per_project_min_eur": null,
+  "budget_per_project_max_eur": null,
+  "expected_grants": null,
+  "cofinancing_pct": null,
+  "duration_months": null,
+  "audience": "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA",
+  "eligible_orgs": [
+    "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+  ],
+  "eligible_countries": [
+    "ES"
+  ],
+  "sectores": [
+    {
+      "codigo": "S",
+      "descripcion": "ACTIVIDADES ARTÍSTICAS, DEPORTIVAS Y DE ENTRETENIMIENTO"
+    },
+    {
+      "codigo": "Q",
+      "descripcion": "EDUCACIÓN"
+    }
+  ],
+  "apply_url": "WWW.FENE.GAL",
+  "details_url": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatoria/927219",
+  "documents": [
+    {
+      "label": "Documento de la convocatoria en lengua cooficial",
+      "url": null
+    },
+    {
+      "label": "Documento de la convocatoria en español",
+      "url": null
+    }
+  ],
+  "bases_reguladoras_url": "https://bop.dacoruna.gal/bopportal/publicado/2007/06/15/6756-x.htm",
+  "text_inicio": "AL DÍA SIGUIENTE A LA PUBLICACIÓN DEL EXTRACTO DE LA CONVOCATORIA",
+  "text_fin": "A LAS 14.00 HORAS DEL DÉCIMO DÍA NATURAL SIGUIENTE A LA PUBLICACIÓN DEL EXTRACTO DE LA CONVOCATORIA ",
+  "se_publica_diario_oficial": true,
+  "ayuda_estado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectores_productos": [],
+  "anuncios": [],
+  "mrr_flag": false,
+  "fetchedAt": "2026-09-02T04:05:51.010Z"
+}

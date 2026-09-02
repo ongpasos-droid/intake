@@ -10,7 +10,7 @@
   "status": "open",
   "statusCode": "31094502",
   "opening": "2026-05-27",
-  "deadline": "2026-09-02",
+  "deadline": "2026-09-24",
   "deadlineModel": "single-stage",
   "actionType": "HORIZON Recognition Prize",
   "actionCode": "HORIZON-RPr",
@@ -135,5 +135,5 @@
       "is_downloadable": false
     }
   ],
-  "fetchedAt": "2026-09-01T04:05:10.519Z"
+  "fetchedAt": "2026-09-02T04:02:35.317Z"
 }

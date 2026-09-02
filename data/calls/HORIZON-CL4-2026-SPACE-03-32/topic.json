@@ -10,7 +10,7 @@
   "status": "open",
   "statusCode": "31094502",
   "opening": "2026-03-10",
-  "deadline": "2026-09-03",
+  "deadline": "2026-09-16",
   "deadlineModel": "single-stage",
   "actionType": "HORIZON Innovation Actions",
   "actionCode": "HORIZON-IA",
@@ -192,5 +192,5 @@
       "is_downloadable": false
     }
   ],
-  "fetchedAt": "2026-09-01T04:05:09.112Z"
+  "fetchedAt": "2026-09-02T04:02:35.231Z"
 }

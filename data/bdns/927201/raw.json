@@ -1,0 +1,96 @@
+{
+  "id": 1128762,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "ELORRIO",
+    "nivel3": "AYUNTAMIENTO DE ELORRIO"
+  },
+  "sedeElectronica": null,
+  "codigoBDNS": "927201",
+  "fechaRecepcion": "2026-09-01",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 10000,
+  "mrr": false,
+  "descripcion": "SUBVENCIONES PARA ASOCIACIONES QUE DESARROLLAN SU ACTIVIDAD EN EL AMBITO DE LA ACCION SOCIAL EN ELORRIO 2026",
+  "descripcionLeng": "BEREN JARDUERA ELORRION GIZARTE EKINTZETAN GARATZEN DUTEN ELKARTEEI DIRULAGUNTZAK 2026",
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "OTROS SERVICIOS",
+      "codigo": "T"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES213 - Bizkaia"
+    }
+  ],
+  "descripcionFinalidad": "Servicios Sociales y Promoción Social",
+  "descripcionBasesReguladoras": "BASES ESPECIFICAS POR LAS QUE SE ESTABLECEN LAS NORMAS PARA LA CONCESION DE SUBVENCIONES PARA ASOCIACIONES QUE DESARROLLAN SU ACTIVIDAD EN EL AMBITO DE LA ACCION SOCIAL EN ELORRIO 2026. (EXP. 2026-01739)",
+  "urlBasesReguladoras": "https://www.elorrio.eus/es-ES/Ayuntamiento/Secretaria/Subvenciones/Accion_Social/Paginas/2016_SubvencionesparaasociacionesambitoAccionSocial2016.aspx",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": null,
+  "fechaFinSolicitud": null,
+  "textInicio": "A partir del día siguiente de la publicación del anuncio en el Boletín Oficial de Bizkaia (BOB).",
+  "textFin": "Hasta el 30 de septiembre de 2026, a las 14:00 horas",
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1515045,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "2026-01739 01 Oinarriak 2026.pdf",
+      "long": 633034,
+      "datMod": "2026-09-01",
+      "datPublicacion": "2026-09-01"
+    },
+    {
+      "id": 1515044,
+      "descripcion": "Documento de la convocatoria en lengua cooficial",
+      "nombreFic": "2026-01739 01 Oinarriak 2026.pdf",
+      "long": 633034,
+      "datMod": "2026-09-01",
+      "datPublicacion": "2026-09-01"
+    },
+    {
+      "id": 1515046,
+      "descripcion": "Impreso de solicitud",
+      "nombreFic": "2026-01739 02_01 I Eranskina.pdf",
+      "long": 1233611,
+      "datMod": "2026-09-01",
+      "datPublicacion": "2026-09-01"
+    },
+    {
+      "id": 1515047,
+      "descripcion": "Alta de terceros",
+      "nombreFic": "2026-01739 02_02 Alta de terceras partes.pdf",
+      "long": 104366,
+      "datMod": "2026-09-01",
+      "datPublicacion": "2026-09-01"
+    },
+    {
+      "id": 1515048,
+      "descripcion": "Modelo de justificación",
+      "nombreFic": "2026-01739 02_03 II Eranskina.pdf",
+      "long": 470611,
+      "datMod": "2026-09-01",
+      "datPublicacion": "2026-09-01"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

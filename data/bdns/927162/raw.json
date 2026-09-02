@@ -1,0 +1,72 @@
+{
+  "id": 1128723,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "SANTA MARÍA DE ORDÁS",
+    "nivel3": "AYUNTAMIENTO DE SANTA MARÍA DE ORDÁS"
+  },
+  "sedeElectronica": "https://aytosantamariadeordas.sedelectronica.es/info.3",
+  "codigoBDNS": "927162",
+  "fechaRecepcion": "2026-09-01",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 1500,
+  "mrr": false,
+  "descripcion": "Resolución de Alcaldía nº 2026-0165, de fecha 31 de agosto de 2026, por la que se convocan ayudas para la adquisición de libros de texto curso 2026-2027",
+  "descripcionLeng": null,
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "EDUCACIÓN",
+      "codigo": "Q"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES413 - León"
+    }
+  ],
+  "descripcionFinalidad": "Educación",
+  "descripcionBasesReguladoras": "Ordenanza General de Subvenciones del Ayuntamiento de Santa María de Ordás",
+  "urlBasesReguladoras": "https://aytosantamariadeordas.sedelectronica.es/transparency/d116ce3d-adb8-4065-9c3e-8e12b4ad415b/",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": null,
+  "fechaFinSolicitud": null,
+  "textInicio": "A partir del día siguiente a la publicación del extracto de la subvención en el BOP de León",
+  "textFin": "20 días hábiles ",
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1514958,
+      "descripcion": "ANEXO I Y II",
+      "nombreFic": "ANEXO I Y II.docx",
+      "long": 46934,
+      "datMod": "2026-09-01",
+      "datPublicacion": "2026-09-01"
+    },
+    {
+      "id": 1514956,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "DECRETO 2026-0165(APROBACION CONVOCATORIA Y BASES AYUDAS ADQUISICION LIBROS DE TEXTO 2026_2027).pdf",
+      "long": 387851,
+      "datMod": "2026-09-01",
+      "datPublicacion": "2026-09-01"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}
