@@ -1,0 +1,76 @@
+{
+  "id": 1129136,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "LLÍRIA",
+    "nivel3": "AYUNTAMIENTO DE LLÍRIA"
+  },
+  "sedeElectronica": null,
+  "codigoBDNS": "927575",
+  "fechaRecepcion": "2026-09-02",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 10000,
+  "mrr": false,
+  "descripcion": "Anuncio del Ayuntamiento de Llíria sobre la convocatoria de las ayudas a asociaciones vecinales para llevar a cabo actividades de interés para toda la ciudadanía para el año 2026",
+  "descripcionLeng": "Anunci de l'Ajuntament de Llíria sobre la convocatòria de les ajudes a associacions veïnals per a dur a terme activitats d'interés per a tota la ciutadania per a l'any 2026",
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "OTROS SERVICIOS",
+      "codigo": "T"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES523 - Valencia / València"
+    }
+  ],
+  "descripcionFinalidad": "Otras Prestaciones económicas",
+  "descripcionBasesReguladoras": "convocatoria de las ayudas a asociaciones vecinales para llevar a cabo actividades de interés para toda la ciudadanía para el año 2026",
+  "urlBasesReguladoras": "lliria.es",
+  "sePublicaDiarioOficial": true,
+  "abierto": true,
+  "fechaInicioSolicitud": null,
+  "fechaFinSolicitud": null,
+  "textInicio": "Desde la publicación de la convocatoria en el BOP",
+  "textFin": "40 días hábiles desde la publicación en el BOP",
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [
+    {
+      "descripcion": "FSE - FONDO SOCIAL EUROPEO "
+    }
+  ],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1516836,
+      "descripcion": "Documento de la convocatoria en lengua cooficial",
+      "nombreFic": "05 Resolucion_Concejal-Secretario convocatoria.pdf",
+      "long": 405514,
+      "datMod": "2026-09-02",
+      "datPublicacion": "2026-09-02"
+    },
+    {
+      "id": 1516839,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "05 Resolucion_Concejal-Secretario convocatoria CAS.docx",
+      "long": 24045,
+      "datMod": "2026-09-02",
+      "datPublicacion": "2026-09-02"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

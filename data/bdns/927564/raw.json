@@ -1,0 +1,72 @@
+{
+  "id": 1129125,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "VIDRERES",
+    "nivel3": "AYUNTAMIENTO DE VIDRERES"
+  },
+  "sedeElectronica": null,
+  "codigoBDNS": "927564",
+  "fechaRecepcion": "2026-09-02",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 3000,
+  "mrr": false,
+  "descripcion": "Convocatoria de subvenciones destinada a personas propietarias de su residencia habitual que se encuentren en situación de vulnerabilidad económica, año 2025",
+  "descripcionLeng": "Convocatòria de subvencions per a l’any 2025 destinades a persones propietàries del seu habitatge habitual que es trobin en situació de vulnerabilitat econòmica\n",
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "ACTIVIDADES SANITARIAS Y DE SERVICIOS SOCIALES",
+      "codigo": "R"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES512 - Girona"
+    }
+  ],
+  "descripcionFinalidad": "Servicios Sociales y Promoción Social",
+  "descripcionBasesReguladoras": "Bases generales reguladoras de las subvenciones del Ajuntament de Vidreres año 2026",
+  "urlBasesReguladoras": "https://ssl4.ddgi.cat/bopV1/pdf/2026/41/20264101504.pdf",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": null,
+  "fechaFinSolicitud": null,
+  "textInicio": "02/09/2026",
+  "textFin": "15/10/2026",
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1516820,
+      "descripcion": "Documento de la convocatoria en lengua cooficial",
+      "nombreFic": "subvencions vulnerabilitat.pdf",
+      "long": 349684,
+      "datMod": "2026-09-02",
+      "datPublicacion": "2026-09-02"
+    },
+    {
+      "id": 1516821,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "subvenciones_vulnerabilidad_traduccion_castellano.pdf",
+      "long": 197930,
+      "datMod": "2026-09-02",
+      "datPublicacion": "2026-09-02"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

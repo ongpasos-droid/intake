@@ -1,0 +1,80 @@
+{
+  "id": 1129086,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "SANT JUST DESVERN",
+    "nivel3": "AYUNTAMIENTO DE SANT JUST DESVERN"
+  },
+  "sedeElectronica": null,
+  "codigoBDNS": "927525",
+  "fechaRecepcion": "2026-09-02",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 13800,
+  "mrr": false,
+  "descripcion": "Decreto de fecha 6/8/26, de la regidora de hacienda, para aprob. de la conv. para la concesión de subv. a los/las deportistas de St. Just D. que participan en competiciones deportivas oficiales y a escuelas o centros de danza de St. Just D. para 2026",
+  "descripcionLeng": "Decret de data 6/8/26, de la regidora d'hisenda, per l'aprov. de la conv. per a l'atorgament de subv. als/les esportistes de St. Just D. que participen en competicions esportives oficials i a escoles o centres de dansa de St. Just D. per 2026",
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "ACTIVIDADES ARTÍSTICAS, DEPORTIVAS Y DE ENTRETENIMIENTO",
+      "codigo": "S"
+    },
+    {
+      "descripcion": "ADMINISTRACIÓN PÚBLICA Y DEFENSA; SEGURIDAD SOCIAL OBLIGATORIA",
+      "codigo": "P"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES511 - Barcelona"
+    }
+  ],
+  "descripcionFinalidad": "Otras Prestaciones económicas",
+  "descripcionBasesReguladoras": "Certif. de Acuerdo de Pleno en sesión de 27/3/25, de aprob. de las bases espec. reguladoras del proced. de concesión de subv., em régimen de concurrencia competitiva, a los/las deportistas de SJD que participan en competiciones deportivas oficiales y ...",
+  "urlBasesReguladoras": "https://dogc.gencat.cat/es/document-del-dogc/?documentId=1012615",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": null,
+  "fechaFinSolicitud": null,
+  "textInicio": "20 días naturales a partir del día siguiente a la publicación en el BDNS",
+  "textFin": "20 días naturales a partir del día siguiente a la publicación en el BDNS",
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [
+    {
+      "descripcion": "FSE - FONDO SOCIAL EUROPEO "
+    }
+  ],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1516700,
+      "descripcion": "Documento de la convocatoria en lengua cooficial",
+      "nombreFic": "convocatoria cat.pdf",
+      "long": 183295,
+      "datMod": "2026-09-02",
+      "datPublicacion": "2026-09-02"
+    },
+    {
+      "id": 1516698,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "convocatoria cast.pdf",
+      "long": 221304,
+      "datMod": "2026-09-02",
+      "datPublicacion": "2026-09-02"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

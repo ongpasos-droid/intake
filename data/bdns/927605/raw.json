@@ -1,0 +1,84 @@
+{
+  "id": 1129166,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "ALCALÁ LA REAL",
+    "nivel3": "AYUNTAMIENTO DE ALCALÁ LA REAL"
+  },
+  "sedeElectronica": "https://alcalalareal.sedelectronica.es/",
+  "codigoBDNS": "927605",
+  "fechaRecepcion": "2026-09-02",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 10000,
+  "mrr": false,
+  "descripcion": "CONVOCATORIA DE SUBVENCIONES MUNICIPALES PARA PARTICIPACIÓN EN COMPETICIONES DE ESPECIAL INTERÉS Y BECAS A DEPORTISTAS 2026",
+  "descripcionLeng": null,
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "ACTIVIDADES ARTÍSTICAS, DEPORTIVAS Y DE ENTRETENIMIENTO",
+      "codigo": "S"
+    },
+    {
+      "descripcion": "EDUCACIÓN",
+      "codigo": "Q"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES616 - Jaén"
+    }
+  ],
+  "descripcionFinalidad": "Educación",
+  "descripcionBasesReguladoras": "BASES PARA LA CONCESIÓN DE SUBVENCIONES A CLUBES Y ASOCIACIONES DEPORTIVAS DE ALCALÁ LA REAL, PARA: 4) PARTICIPACIÓN EN COMPETICIONES OFICIALES FEDERADAS DE ESPECIAL INTERÉS. 5) BECAS PARA DESPLAZAMIENTOS A DEPORTISTAS FEDERADOS DE DE DEPORTE EN EQUIPO.",
+  "urlBasesReguladoras": "https://alcalalareal.sedelectronica.es/doc/5QAWR3PKL37AHMG5LGX75KM6P/.2",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": null,
+  "fechaFinSolicitud": null,
+  "textInicio": "A partir del día siguiente al de la publicación del extracto de convocatoria en el BOP de Jaén ",
+  "textFin": "15 días hábiles",
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1516911,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "Anuncio aprobación bases y convocatoria eventos y becas deportistas 2026.pdf",
+      "long": 160608,
+      "datMod": "2026-09-02",
+      "datPublicacion": "2026-09-02"
+    },
+    {
+      "id": 1516915,
+      "descripcion": "ORDENANZA GENERAL SUBVENCIONES AYTO. ALCALA LA REAL  11.09.2020",
+      "nombreFic": "ORDENANZA GENERAL SUBVENCIONES AYTO. ALCALA LA REAL  11.09.2020.pdf",
+      "long": 288013,
+      "datMod": "2026-09-02",
+      "datPublicacion": "2026-09-02"
+    },
+    {
+      "id": 1516913,
+      "descripcion": "DECRETO 2026-4003  aprobación bases y convocatoria eventos y becas deportistas",
+      "nombreFic": "DECRETO 2026-4003  aprobación bases y convocatoria eventos y becas deportistas.pdf",
+      "long": 1203580,
+      "datMod": "2026-09-02",
+      "datPublicacion": "2026-09-02"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

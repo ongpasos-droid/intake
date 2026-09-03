@@ -1,0 +1,80 @@
+{
+  "id": 1129083,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "VALLS",
+    "nivel3": "INSTITUT MUNICIPAL DE DESENVOLUPAMENT LOCAL - VALLSGENERA"
+  },
+  "sedeElectronica": null,
+  "codigoBDNS": "927522",
+  "fechaRecepcion": "2026-09-02",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 18000,
+  "mrr": false,
+  "descripcion": "CONVOCATORIA PARA LA CONCESIÓN DE SUBVENCIONES DESTINADAS A JÓVENES EMPRENDEDORES 2026",
+  "descripcionLeng": "CONVOCATORIA PER A LA CONCESSIÓ DE SUBVENCIONS DESTINADES A JOVES EMPRENEDORS. 2026",
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PYME Y PERSONAS FÍSICAS QUE DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "Actividades relacionadas con el empleo",
+      "codigo": "78"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES514 - Tarragona"
+    }
+  ],
+  "descripcionFinalidad": "Fomento del Empleo",
+  "descripcionBasesReguladoras": "CONVOCATORIA PARA LA CONCESIÓN DE SUBVENCIONES DESTINADAS A JÓVENES EMPRENDEDORES Y EMPRENDEDORAS. 2026",
+  "urlBasesReguladoras": "https://www.diputaciodetarragona.cat/ebop/index.php?op=anunci&id=8393&ebop_any=2021",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": "2026-09-09",
+  "fechaFinSolicitud": "2026-09-24",
+  "textInicio": "Endemà de la publicació de la convocatòria al BOPT",
+  "textFin": "15 dies a partir de l'endemà de la publicació de la convocatòria al BOPT",
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1516770,
+      "descripcion": "Texto en castellano de la convocatoria",
+      "nombreFic": "Resolución de presidencia de convocatoria.pdf",
+      "long": 582726,
+      "datMod": "2026-09-02",
+      "datPublicacion": "2026-09-02"
+    },
+    {
+      "id": 1516772,
+      "descripcion": "Extracto convocatoria",
+      "nombreFic": "04_EXTRACTE_CAT-CAS-JOVES2026.pdf",
+      "long": 213983,
+      "datMod": "2026-09-02",
+      "datPublicacion": "2026-09-02"
+    },
+    {
+      "id": 1516771,
+      "descripcion": "Texto en otra lengua de la convocatoria",
+      "nombreFic": "05_Resolució de presidència_SIGNAT (1).pdf",
+      "long": 547206,
+      "datMod": "2026-09-02",
+      "datPublicacion": "2026-09-02"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

@@ -1,0 +1,76 @@
+{
+  "id": 1129036,
+  "organo": {
+    "nivel1": "AUTONOMICA",
+    "nivel2": "CASTILLA-LA MANCHA",
+    "nivel3": "SECRETARÍA GENERAL DE EDUCACIÓN, CULTURA Y DEPORTES"
+  },
+  "sedeElectronica": "www.jccm.es",
+  "codigoBDNS": "927475",
+  "fechaRecepcion": "2026-09-02",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 300000,
+  "mrr": false,
+  "descripcion": "CONVOCATORIA DE AYUDAS GARANTÍA JUVENIL- AÑO 2026CONSEJERÍA DE EDUCACIÓN CULTURA Y DEPORTES Y FSE.",
+  "descripcionLeng": null,
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "ADMINISTRACIÓN PÚBLICA Y DEFENSA; SEGURIDAD SOCIAL OBLIGATORIA",
+      "codigo": "P"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES42 - CASTILLA LA MANCHA"
+    }
+  ],
+  "descripcionFinalidad": "Educación",
+  "descripcionBasesReguladoras": "Orden 96/2023, de 5 de mayo, de la Consejería de Educación, Cultura y Deportes, por la que se aprueban las bases reguladoras para la concesión de ayudas de formación al alumnado que participe en el Plan de Garantía Juvenil",
+  "urlBasesReguladoras": "https://docm.jccm.es/docm/descargarArchivo.do?ruta=2023/05/12/pdf/2023_4222.pdf&tipo=rutaDocm",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": null,
+  "fechaFinSolicitud": null,
+  "textInicio": "Desde el día siguiente a la publicación de la resolución de la convocatoria en el DOCM CLM.",
+  "textFin": "Un mes desde el día siguiente a la publicación de la resolución de la convocatoria en el DOCM CLM.",
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [
+    {
+      "descripcion": "FSE+ - FONDO SOCIAL EUROPEO PLUS"
+    }
+  ],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1516588,
+      "descripcion": "Extracto resolución de convocatoria 2026 ayudas de formación GJ",
+      "nombreFic": "EXTRACTO RESOLUCIÓN DE CONVOCATORIA 2026 AYUDAS DE FORMACIÓN GJ_101736.PDF",
+      "long": 141357,
+      "datMod": "2026-09-02",
+      "datPublicacion": "2026-09-02"
+    },
+    {
+      "id": 1516587,
+      "descripcion": "Texto en castellano de la convocatoria",
+      "nombreFic": "CONVOCATORIA AYUDAS DE FORMACIÓN GJ 2026_101415.PDF",
+      "long": 379204,
+      "datMod": "2026-09-02",
+      "datPublicacion": "2026-09-02"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

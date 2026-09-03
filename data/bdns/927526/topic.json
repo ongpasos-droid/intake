@@ -1,0 +1,68 @@
+{
+  "source": "bdns",
+  "source_id": "927526",
+  "source_lang": "es",
+  "level": "ccaa",
+  "programme": "Concesión directa - canónica",
+  "sub_programme": null,
+  "publishing_authority_code": "AUTONOMICA / CASTILLA-LA MANCHA / DIRECCIÓN GENERAL DE TRANSICIÓN ENERGÉTICA",
+  "nuts_codes": [
+    "ES42"
+  ],
+  "nuts_primary": "ES42",
+  "title": "Resolución DG de Transición Energética, por la que se aprueba la convocatoria de ayudas para aprovechamiento de energías renovables destinadas a comunidades energéticas y de propietarios. Minimis Reg (UE) 2023/2831",
+  "title_lang": "es",
+  "summary": "Industria y Energía",
+  "status": "open",
+  "publication_date": "2026-09-02",
+  "open_date": null,
+  "deadline": null,
+  "deadline_model": "continuous",
+  "deadlines_extra": null,
+  "budget_total_eur": 2133654.1,
+  "budget_per_project_min_eur": null,
+  "budget_per_project_max_eur": null,
+  "expected_grants": null,
+  "cofinancing_pct": null,
+  "duration_months": null,
+  "audience": "PYME Y PERSONAS FÍSICAS QUE DESARROLLAN ACTIVIDAD ECONÓMICA",
+  "eligible_orgs": [
+    "PYME Y PERSONAS FÍSICAS QUE DESARROLLAN ACTIVIDAD ECONÓMICA"
+  ],
+  "eligible_countries": [
+    "ES"
+  ],
+  "sectores": [
+    {
+      "codigo": "D",
+      "descripcion": "SUMINISTRO DE ENERGIA ELECTRICA, GAS, VAPOR Y AIRE ACONDICIONADO"
+    }
+  ],
+  "apply_url": "www.jccm.es",
+  "details_url": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatoria/927526",
+  "documents": [
+    {
+      "label": "Texto en castellano de la convocatoria",
+      "url": null
+    }
+  ],
+  "bases_reguladoras_url": "https://docm.jccm.es/docm/descargarArchivo.do?ruta=2026/04/22/pdf/2026_2917.pdf&tipo=rutaDocm",
+  "text_inicio": "Desde el día siguiente al de la publicación en el DOCM",
+  "text_fin": "6 meses desde el día siguiente al de la publicación en el DOCM",
+  "se_publica_diario_oficial": true,
+  "ayuda_estado": null,
+  "fondos": [
+    {
+      "descripcion": "FEDER - FONDO EUROPEO DE DESARROLLO REGIONAL"
+    }
+  ],
+  "reglamento": {
+    "descripcion": "REG (UE) 2023/2831 de minimis, General",
+    "orden": null
+  },
+  "objetivos": [],
+  "sectores_productos": [],
+  "anuncios": [],
+  "mrr_flag": false,
+  "fetchedAt": "2026-09-03T04:06:22.365Z"
+}

@@ -1,0 +1,136 @@
+{
+  "id": 1129090,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "EIBAR",
+    "nivel3": "AYUNTAMIENTO DE EIBAR"
+  },
+  "sedeElectronica": null,
+  "codigoBDNS": "927529",
+  "fechaRecepcion": "2026-09-02",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 45000,
+  "mrr": false,
+  "descripcion": "Subvenciones para asociaciones que desarrollen su actividad en el ámbito de la acción social",
+  "descripcionLeng": "Dirulaguntzak euren jarduera gizarte-ekintzaren esparruan egiten duten elkarteentzako ",
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "Actividades de servicios sociales sin alojamiento",
+      "codigo": "88"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES212 - Gipuzkoa"
+    }
+  ],
+  "descripcionFinalidad": "Servicios Sociales y Promoción Social",
+  "descripcionBasesReguladoras": "Dirulaguntzetarako Plan Estrategikoa, indarrean dagoen dirulaguntza eranskina\nPlan Estratégico de Subvenciones, anexo de subvenciones en vigor",
+  "urlBasesReguladoras": "https://www.eibar.eus/eu/udala/sailak/arlo-ekonomikoa/kontratazioen-eta-diru-laguntzen-unitatea/diru-laguntzetarako-plan-estrategikoa/dirulaguntzen-eranskina-mai-26.pdf",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": "2026-10-13",
+  "fechaFinSolicitud": "2026-11-03",
+  "textInicio": null,
+  "textFin": null,
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1516688,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "Deialdia2026DirulaguntzakGizarteElkarteak.pdf",
+      "long": 615849,
+      "datMod": "2026-09-02",
+      "datPublicacion": "2026-09-02"
+    },
+    {
+      "id": 1516692,
+      "descripcion": "Titular kontua / Titular cuenta",
+      "nombreFic": "GI3002_D002_Titular Kontua.pdf",
+      "long": 68840,
+      "datMod": "2026-09-02",
+      "datPublicacion": "2026-09-02"
+    },
+    {
+      "id": 1516694,
+      "descripcion": "Jarduera txostena / Memoria de proyecto",
+      "nombreFic": "GI3002_D003_JardueraTxostenaGizarteElkarteak.pdf",
+      "long": 274769,
+      "datMod": "2026-09-02",
+      "datPublicacion": "2026-09-02"
+    },
+    {
+      "id": 1516695,
+      "descripcion": "Aitorpena, beste dirulaguntzak / Declaración, otras ayudas",
+      "nombreFic": "GI3002_D004_Aitorpenak beste dirulaguntzak.pdf",
+      "long": 126584,
+      "datMod": "2026-09-02",
+      "datPublicacion": "2026-09-02"
+    },
+    {
+      "id": 1516715,
+      "descripcion": "Aitorpena, pertsonal gastuak / Declaración, gastos personales",
+      "nombreFic": "GI3002_D009_Aitorpena pertsonal gastuak.pdf",
+      "long": 171896,
+      "datMod": "2026-09-02",
+      "datPublicacion": "2026-09-02"
+    },
+    {
+      "id": 1516699,
+      "descripcion": "Jarduketa txostena / Memoria de actuación",
+      "nombreFic": "GI3002_D006_JarduketaTxostenaJustifikazioa.pdf",
+      "long": 312737,
+      "datMod": "2026-09-02",
+      "datPublicacion": "2026-09-02"
+    },
+    {
+      "id": 1516704,
+      "descripcion": "Dirusarrerak / Ingresos",
+      "nombreFic": "GI3002_D007_DirusarrerenZerrenda.pdf",
+      "long": 223786,
+      "datMod": "2026-09-02",
+      "datPublicacion": "2026-09-02"
+    },
+    {
+      "id": 1516705,
+      "descripcion": "Gastuak / Gastos",
+      "nombreFic": "GI3002_D007_GastuenZerrenda.pdf",
+      "long": 275233,
+      "datMod": "2026-09-02",
+      "datPublicacion": "2026-09-02"
+    },
+    {
+      "id": 1516713,
+      "descripcion": "Aitorpena, zeharkako kosteak, Declaración, costes indirectos",
+      "nombreFic": "GI3002_D008_Aitorpena zeharkako kosteak.pdf",
+      "long": 85902,
+      "datMod": "2026-09-02",
+      "datPublicacion": "2026-09-02"
+    },
+    {
+      "id": 1516696,
+      "descripcion": "Aurrekontua / Presupuesto",
+      "nombreFic": "GI3002_D005_GastuenDirusarrerenAurrekontua.pdf",
+      "long": 165305,
+      "datMod": "2026-09-02",
+      "datPublicacion": "2026-09-02"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

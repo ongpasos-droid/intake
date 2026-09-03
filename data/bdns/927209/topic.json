@@ -1,0 +1,76 @@
+{
+  "source": "bdns",
+  "source_id": "927209",
+  "source_lang": "es",
+  "level": "ccaa",
+  "programme": "Concurrencia competitiva - canónica",
+  "sub_programme": null,
+  "publishing_authority_code": "AUTONOMICA / REGIÓN DE MURCIA / INSTITUTO DE FOMENTO DE LA REGIÓN DE MURCIA (INFO)",
+  "nuts_codes": [
+    "ES620"
+  ],
+  "nuts_primary": "ES620",
+  "title": "Resolución de 1 de septiembre de 2026,  del Director del Instituto de Fomento de la Región de Murcia, por delegación, de convocatoria de ayudas a la participación en ferias, eventos y misiones comerciales. Misión Comercial México Contract 2026.",
+  "title_lang": "es",
+  "summary": "Otras actuaciones de carácter económico",
+  "status": "open",
+  "publication_date": "2026-09-01",
+  "open_date": null,
+  "deadline": null,
+  "deadline_model": "continuous",
+  "deadlines_extra": null,
+  "budget_total_eur": 40000,
+  "budget_per_project_min_eur": null,
+  "budget_per_project_max_eur": null,
+  "expected_grants": null,
+  "cofinancing_pct": null,
+  "duration_months": null,
+  "audience": "PYME Y PERSONAS FÍSICAS QUE DESARROLLAN ACTIVIDAD ECONÓMICA",
+  "eligible_orgs": [
+    "PYME Y PERSONAS FÍSICAS QUE DESARROLLAN ACTIVIDAD ECONÓMICA"
+  ],
+  "eligible_countries": [
+    "ES"
+  ],
+  "sectores": [
+    {
+      "codigo": "08",
+      "descripcion": "Otras industrias extractivas"
+    }
+  ],
+  "apply_url": "https://sede.institutofomentomurcia.es/infodirecto",
+  "details_url": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatoria/927209",
+  "documents": [
+    {
+      "label": "Documento de la convocatoria en español",
+      "url": null
+    },
+    {
+      "label": "BB.RR.",
+      "url": null
+    },
+    {
+      "label": "Corrección de errores.",
+      "url": null
+    }
+  ],
+  "bases_reguladoras_url": "https://www.borm.es/services/anuncio/ano/2024/numero/2148/pdf?id=826601",
+  "text_inicio": "Desde el día siguiente a la publicación en el BORM.",
+  "text_fin": "Hasta 6 días hábiles a partir del siguiente a la publicación de extracto de esta convocatoria.",
+  "se_publica_diario_oficial": true,
+  "ayuda_estado": null,
+  "fondos": [
+    {
+      "descripcion": "FEDER - FONDO EUROPEO DE DESARROLLO REGIONAL"
+    }
+  ],
+  "reglamento": {
+    "descripcion": "REG (UE) 2023/2831 de minimis, General",
+    "orden": null
+  },
+  "objetivos": [],
+  "sectores_productos": [],
+  "anuncios": [],
+  "mrr_flag": false,
+  "fetchedAt": "2026-09-03T04:06:22.295Z"
+}

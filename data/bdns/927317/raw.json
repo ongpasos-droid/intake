@@ -1,0 +1,76 @@
+{
+  "id": 1128878,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "LASARTE-ORIA",
+    "nivel3": "AYUNTAMIENTO DE LASARTE-ORIA"
+  },
+  "sedeElectronica": "https://www.lasarte-oria.eus",
+  "codigoBDNS": "927317",
+  "fechaRecepcion": "2026-09-02",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concesión directa - canónica",
+  "presupuestoTotal": 1000,
+  "mrr": false,
+  "descripcion": "Subvenciones para cursos en euskera de las universidades de verano",
+  "descripcionLeng": "Udako unibertsitateetako euskarazko ikastaroetarako dirulaguntzak",
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "EDUCACIÓN",
+      "codigo": "Q"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES212 - Gipuzkoa"
+    }
+  ],
+  "descripcionFinalidad": "Educación",
+  "descripcionBasesReguladoras": "Euskara Saileko dirulaguntzak arautzeko oinarriak / Bases reguladoras de las subvenciones del Area de Euskera",
+  "urlBasesReguladoras": "https://egoitza.gipuzkoa.eus/gaobog/ castell/bog/2026/04/17/c2602062.htm",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": "2025-09-01",
+  "fechaFinSolicitud": "2027-10-31",
+  "textInicio": null,
+  "textFin": null,
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [
+    {
+      "descripcion": "FEDER - FONDO EUROPEO DE DESARROLLO REGIONAL"
+    }
+  ],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1515463,
+      "descripcion": "Documento de la convocatoria en lengua cooficial",
+      "nombreFic": "BDNS_Deialdia_S.pdf",
+      "long": 226721,
+      "datMod": "2026-09-02",
+      "datPublicacion": "2026-09-02"
+    },
+    {
+      "id": 1515462,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "BDNS_Deialdia_S.pdf",
+      "long": 226721,
+      "datMod": "2026-09-02",
+      "datPublicacion": "2026-09-02"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

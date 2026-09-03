@@ -10,7 +10,7 @@
   "status": "open",
   "statusCode": "31094502",
   "opening": "2026-05-28",
-  "deadline": "2026-09-02",
+  "deadline": "2026-09-03",
   "deadlineModel": "single-stage",
   "actionType": "ESF Project Grants",
   "actionCode": "ESF-PJG",
@@ -111,5 +111,5 @@
       "is_downloadable": false
     }
   ],
-  "fetchedAt": "2026-08-31T04:02:20.798Z"
+  "fetchedAt": "2026-09-03T04:03:05.727Z"
 }

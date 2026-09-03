@@ -1,0 +1,69 @@
+{
+  "source": "bdns",
+  "source_id": "927257",
+  "source_lang": "es",
+  "level": "local",
+  "programme": "Concurrencia competitiva - canónica",
+  "sub_programme": null,
+  "publishing_authority_code": "LOCAL / SANT MARTÍ DE TOUS / AYUNTAMIENTO DE SANT MARTÍ DE TOUS",
+  "nuts_codes": [
+    "ES511"
+  ],
+  "nuts_primary": "ES511",
+  "title": "Ayudas individuales para facilitar el desplazamiento a aquellos alumnos matriculados/as en modalidad presencial en un centro educativo público, privado o concertado, que estén cursando enseñanzas postobligatorias, año 2026.",
+  "title_lang": "es",
+  "summary": "Subvenciones al transporte",
+  "status": "open",
+  "publication_date": "2026-09-01",
+  "open_date": null,
+  "deadline": null,
+  "deadline_model": "continuous",
+  "deadlines_extra": null,
+  "budget_total_eur": 1500,
+  "budget_per_project_min_eur": null,
+  "budget_per_project_max_eur": null,
+  "expected_grants": null,
+  "cofinancing_pct": null,
+  "duration_months": null,
+  "audience": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA",
+  "eligible_orgs": [
+    "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+  ],
+  "eligible_countries": [
+    "ES"
+  ],
+  "sectores": [
+    {
+      "codigo": "84",
+      "descripcion": "Administración pública y defensa; seguridad social obligatoria"
+    }
+  ],
+  "apply_url": "https://www.tous.cat/",
+  "details_url": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatoria/927257",
+  "documents": [
+    {
+      "label": "Documento de la convocatoria en lengua cooficial",
+      "url": null
+    },
+    {
+      "label": "Documento de la convocatoria en español",
+      "url": null
+    },
+    {
+      "label": "ANEXO SOLICITUD SUBVENCION",
+      "url": null
+    }
+  ],
+  "bases_reguladoras_url": "https://bop.diba.cat/anunci/3815326/aprovacio-definitiva-de-les-bases-generals-reguladores-per-a-la-concessio-d-ajuts-individuals-de-mobilitat-adrecats-als-estudiants-del-municipi-que-cursen-estudis-postobligatoris-ajuntament-de-sant-marti-de-tous",
+  "text_inicio": "20 dies hàbils a comptar des de l’endemà de la publicació de la convocatòria al BOPB",
+  "text_fin": "20 dies hàbils a comptar des de l’endemà de la publicació de la convocatòria al BOPB",
+  "se_publica_diario_oficial": true,
+  "ayuda_estado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectores_productos": [],
+  "anuncios": [],
+  "mrr_flag": false,
+  "fetchedAt": "2026-09-03T04:06:22.311Z"
+}

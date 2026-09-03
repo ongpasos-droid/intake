@@ -1,0 +1,59 @@
+{
+  "source": "bdns",
+  "source_id": "927181",
+  "source_lang": "es",
+  "level": "local",
+  "programme": "Concurrencia competitiva - canónica",
+  "sub_programme": null,
+  "publishing_authority_code": "LOCAL / MURCIA / AYUNTAMIENTO DE MURCIA",
+  "nuts_codes": [],
+  "nuts_primary": null,
+  "title": "202610602022 Subvención para gastos e intereses línea ICREF-AVALAN-AYTO FINANCIA 100, SUBLÍNEA CIMM-EMPRENDE durante el ejercicio 2026-100164",
+  "title_lang": "es",
+  "summary": "Otras Prestaciones económicas",
+  "status": "open",
+  "publication_date": "2026-09-01",
+  "open_date": "2026-08-01",
+  "deadline": "2026-12-05",
+  "deadline_model": "single-stage",
+  "deadlines_extra": null,
+  "budget_total_eur": 20000,
+  "budget_per_project_min_eur": null,
+  "budget_per_project_max_eur": null,
+  "expected_grants": null,
+  "cofinancing_pct": null,
+  "duration_months": null,
+  "audience": "PYME Y PERSONAS FÍSICAS QUE DESARROLLAN ACTIVIDAD ECONÓMICA",
+  "eligible_orgs": [
+    "PYME Y PERSONAS FÍSICAS QUE DESARROLLAN ACTIVIDAD ECONÓMICA"
+  ],
+  "eligible_countries": [
+    "ES"
+  ],
+  "sectores": [
+    {
+      "codigo": "84.1",
+      "descripcion": "Administración pública y de la política económica, social y medioambiental"
+    }
+  ],
+  "apply_url": "https://sede.murcia.es",
+  "details_url": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatoria/927181",
+  "documents": [
+    {
+      "label": "Texto en castellano de la convocatoria",
+      "url": null
+    }
+  ],
+  "bases_reguladoras_url": "https://www.borm.es/services/anuncio/ano/2023/numero/843/pdf",
+  "text_inicio": "A la fecha de la publicación",
+  "text_fin": null,
+  "se_publica_diario_oficial": true,
+  "ayuda_estado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectores_productos": [],
+  "anuncios": [],
+  "mrr_flag": false,
+  "fetchedAt": "2026-09-03T04:06:22.277Z"
+}

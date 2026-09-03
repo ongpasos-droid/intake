@@ -1,0 +1,72 @@
+{
+  "id": 1129007,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "VILADECANS",
+    "nivel3": "AYUNTAMIENTO DE VILADECANS"
+  },
+  "sedeElectronica": "https://seuelectronica.viladecans.cat/sta/CarpetaPublic/doEvent?APP_CODE=STA&PAGE_CODE=CATALOGO",
+  "codigoBDNS": "927446",
+  "fechaRecepcion": "2026-09-02",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 7500,
+  "mrr": false,
+  "descripcion": "CONVOCATORIA ESPECÍFICA DE SUBVENCIONES, EN REGIMEN DE CONCURRENCIA COMPETITIVA, PARA DEPORTISTAS INDIVIDUALES RESIDENTES EN EL MUNICIPIO DE VILADECANS CONSIDERADOS DE ÉLITE (LÍNEA 20/30000 – SUBVENCIÓN PARA DEPORTISTAS ÉLITE).",
+  "descripcionLeng": "CONVOCATÒRIA ESPECÍFICA DE SUBVENCIONS, EN RÈGIM DE CONCURRÈNCIA COMPETITIVA, PER A ESPORTISTES INDIVIDUALS RESIDENTS AL MUNICIPI DE VILADECANS CONSIDERATS D’ELIT (LÍNIA 20/30000 – SUBVENCIÓ ESPORTITES D’ELIT).\n",
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "Actividades deportivas",
+      "codigo": "93.1"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES511 - Barcelona"
+    }
+  ],
+  "descripcionFinalidad": "Otras actuaciones de carácter económico",
+  "descripcionBasesReguladoras": "BASES REGULADORAS ESPECÍFICAS PARA LA CONCESIÓN DE SUBVENCIONES, EN REGIMEN DE CONCURRENCIA COMPETITIVA, A DEPORTISTAS DE ÉLITE EN EL MUNICIPIO DE VILADECANS (LÍNEA 20/30000 – SUBVENCIÓN PARA DEPORTISTAS DE ÉLITE)",
+  "urlBasesReguladoras": "https://bop.diba.cat/anunci/3966161/bases-reguladores-especifiques-per-a-l-atorgament-de-subvencions-en-regim-de-concurrencia-competitiva-a-esportistes-d-elit-linia-20-30000-versio-en-catala-i-castella-ajuntament-de-viladecans",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": "2026-09-08",
+  "fechaFinSolicitud": "2026-09-30",
+  "textInicio": null,
+  "textFin": null,
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1516518,
+      "descripcion": "Documento de la convocatoria en lengua cooficial",
+      "nombreFic": "Anunci_convocatoria_bilingue TAO.pdf",
+      "long": 289315,
+      "datMod": "2026-09-02",
+      "datPublicacion": "2026-09-02"
+    },
+    {
+      "id": 1516516,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "Anunci_convocatoria_bilingue TAO.pdf",
+      "long": 289315,
+      "datMod": "2026-09-02",
+      "datPublicacion": "2026-09-02"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

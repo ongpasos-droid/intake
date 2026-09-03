@@ -1,0 +1,76 @@
+{
+  "id": 1129012,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "POBLETS, ELS",
+    "nivel3": "AYUNTAMIENTO DE ELS POBLETS"
+  },
+  "sedeElectronica": "https://elspoblets.sedelectronica.es/info.0",
+  "codigoBDNS": "927451",
+  "fechaRecepcion": "2026-09-02",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 75796,
+  "mrr": false,
+  "descripcion": "Subvenciones dentro de la campaña de fomento del consumo en el comercio local de Els Poblets. Anualidad 2026. \"Compra en Els Poblets anualidad 2026\"",
+  "descripcionLeng": "Subvencions dins de la campanya de foment del consum en el comerç local dels Poblets. Anualitat 2026. \"Compra en Els Poblets anualitat 2026\"",
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "COMERCIO AL POR MAYOR Y AL POR MENOR",
+      "codigo": "G"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES521 - Alicante / Alacant"
+    }
+  ],
+  "descripcionFinalidad": "Comercio, Turismo y Pymes",
+  "descripcionBasesReguladoras": "Bases para la concesión de subvenciones dentro de la campaña de fomento del consumo en el comercio local de Els Poblets. Anualidad 2026. \"Compra en Els Poblets anualidad 2026\"",
+  "urlBasesReguladoras": "https://elspoblets.sedelectronica.es/info.0",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": null,
+  "fechaFinSolicitud": null,
+  "textInicio": "Publicación del extracto de la convocatoria en el Boletín Oficial de la Provincia de Alicante",
+  "textFin": "Según Bases reguladoras",
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [
+    {
+      "descripcion": "FEDER - FONDO EUROPEO DE DESARROLLO REGIONAL"
+    }
+  ],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1516527,
+      "descripcion": "Documento de la convocatoria en lengua cooficial",
+      "nombreFic": "Bases convocatoria valencià.pdf",
+      "long": 269322,
+      "datMod": "2026-09-02",
+      "datPublicacion": "2026-09-02"
+    },
+    {
+      "id": 1516526,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "Bases convocatoria castellano.pdf",
+      "long": 294157,
+      "datMod": "2026-09-02",
+      "datPublicacion": "2026-09-02"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

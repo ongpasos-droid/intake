@@ -1,0 +1,65 @@
+{
+  "source": "bdns",
+  "source_id": "927510",
+  "source_lang": "es",
+  "level": "local",
+  "programme": "Concesión directa - canónica",
+  "sub_programme": null,
+  "publishing_authority_code": "LOCAL / CAMPONARAYA / AYUNTAMIENTO DE CAMPONARAYA",
+  "nuts_codes": [
+    "ES413"
+  ],
+  "nuts_primary": "ES413",
+  "title": "CONVOCATORIA DE BECAS PARA LA ADQUISICIÓN DE LIBROS DE TEXTO, MATERIAL DIDÁCTICO Y MATERIAL ESCOLAR PARA EL CURSO 2026/2027",
+  "title_lang": "es",
+  "summary": "Educación",
+  "status": "open",
+  "publication_date": "2026-09-02",
+  "open_date": "2026-09-01",
+  "deadline": "2026-09-30",
+  "deadline_model": "single-stage",
+  "deadlines_extra": null,
+  "budget_total_eur": 6000,
+  "budget_per_project_min_eur": null,
+  "budget_per_project_max_eur": null,
+  "expected_grants": null,
+  "cofinancing_pct": null,
+  "duration_months": null,
+  "audience": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA",
+  "eligible_orgs": [
+    "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+  ],
+  "eligible_countries": [
+    "ES"
+  ],
+  "sectores": [
+    {
+      "codigo": "85",
+      "descripcion": "Educación"
+    }
+  ],
+  "apply_url": null,
+  "details_url": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatoria/927510",
+  "documents": [
+    {
+      "label": "BASES DE BECAS PARA LA ADQUISICIÓN DE LIBROS DE TEXTO, MATERIAL DIDÁCTICO Y MATERIAL ESCOLAR PARA EL CURSO 2026/2027",
+      "url": null
+    },
+    {
+      "label": "Documento de la convocatoria en español",
+      "url": null
+    }
+  ],
+  "bases_reguladoras_url": "https://bop.dipuleon.es/publica/buscador-anuncios/anuncio/Aprobacion-de-las-Bases-y-Convocatoria-de-becas-para-la-adquisicion-de-libros-de-texto-material-didactico-y-material-escolar-para-el-curso-2026-2027/",
+  "text_inicio": null,
+  "text_fin": null,
+  "se_publica_diario_oficial": true,
+  "ayuda_estado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectores_productos": [],
+  "anuncios": [],
+  "mrr_flag": false,
+  "fetchedAt": "2026-09-03T04:06:22.361Z"
+}
