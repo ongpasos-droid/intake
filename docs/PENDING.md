@@ -112,6 +112,34 @@ Sesión auditando el desajuste Consortium↔Directorio en LIVE. Confirmado contr
 
 ## 2 · Pendientes sin bloqueante (cuando se quiera)
 
+### TASK-016 — Conector MCP de Google Sheets (`mcp-sheets/`)
+**Status:** CÓDIGO ESCRITO Y PROBADO EN LOCAL · esperando que Oscar cree las credenciales de Google y lo despliegue
+**Owner:** Local Claude (eplus-tools)
+**Doc canónico:** `mcp-sheets/README.md`
+**Fecha plan:** 2026-09-05
+
+**Qué es:** servidor MCP remoto que se añade a claude.ai como conector personalizado y da a Claude
+lectura y escritura de celdas en Google Sheets. Nace de una limitación real: el conector de Google
+Drive permite crear ficheros pero no editar celdas de una hoja existente, lo que obligó a entregar
+los 188 enlaces de guiones en un xlsx para pegar a mano.
+
+**Alcance:** servicio independiente en `mcp-sheets/`, con su `package.json`, su Dockerfile y su
+despliegue propio en Coolify. No toca `server.js` ni la BD. Seis herramientas: `sheets_whoami`,
+`sheets_list_tabs`, `sheets_read_range`, `sheets_write_range`, `sheets_append_rows`,
+`sheets_clear_range`.
+
+**Autenticación:** cuenta de servicio de Google (el permiso se da compartiendo cada hoja con su
+correo, como con una persona) + secreto en la ruta de la URL, porque el diálogo de conectores
+personalizados de claude.ai solo admite una URL, sin cabeceras. La URL completa es la credencial.
+
+**Pendiente de Oscar (§ pasos 1–4 del README):** crear el proyecto y la cuenta de servicio en
+Google Cloud, compartir las hojas, desplegar en Coolify con `MCP_SECRET` y
+`GOOGLE_SERVICE_ACCOUNT_JSON`, y añadir el conector en claude.ai.
+
+**Mejora futura:** si claude.ai llega a admitir OAuth o cabeceras en conectores personalizados,
+migrar a eso y sacar el secreto de la ruta.
+
+
 ### TASK-012 — EU Vision (asistente idea → ficha de visión)
 **Status:** **F1 (backend) + F2 (frontend) IMPLEMENTADAS Y VERIFICADAS E2E** (2026-07-11, sin commit) · F3 pulido + F4 a Diseñar siguientes
 **Owner:** Local Claude (eplus-tools)
