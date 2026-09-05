@@ -1,0 +1,80 @@
+{
+  "id": 1129340,
+  "organo": {
+    "nivel1": "OTROS",
+    "nivel2": "UNIVERSITAT DE VALÈNCIA (ESTUDI GENERAL)",
+    "nivel3": null
+  },
+  "sedeElectronica": "https://www.uv.es/sede-electronica/es/sede-electronica-uv.html",
+  "codigoBDNS": "927779",
+  "fechaRecepcion": "2026-09-03",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 6000,
+  "mrr": false,
+  "descripcion": "Ayudas para la colaboración en la investigación en astronomía y astrofísica para estudiantes del último curso del grado en Física o Matemáticas, y para estudiantes del máster en Física Avanzada, itinerario de Astrofísica, propios de la UV. Curso 2026-27",
+  "descripcionLeng": "Ajudes per a la col·laboració en la investigació en astronomia i astrofísica per a estudiants de l’últim curs del grau en Física o Matemàtiques, i per a estudiants del màster en Física Avançada, itinerari d’Astrofísica, propis de la UV. Curs 2026-27",
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "Actividades auxiliares a la educación",
+      "codigo": "85.6"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES52 - COMUNIDAD VALENCIANA"
+    }
+  ],
+  "descripcionFinalidad": "Educación",
+  "descripcionBasesReguladoras": "Resolución 20 de julio de 2026, del Vicerrector de Estudios y Calidad de la UV, por la cual se convocan ayudas para la colaboración en la investigación en astronomía y astrofísica para estudiantes de la UV para el curso 2026-27.",
+  "urlBasesReguladoras": "https://links.uv.es/qQVul9X",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": null,
+  "fechaFinSolicitud": null,
+  "textInicio": "Inicia al dia siguiente de su publicación en el DOGV",
+  "textFin": "Finaliza a los quince días hábiles desde el día siguiente de su publicación en el DOGV",
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1517440,
+      "descripcion": "Texto en castellano de la convocatoria",
+      "nombreFic": "Convocatoria_castellano.pdf",
+      "long": 392117,
+      "datMod": "2026-09-03",
+      "datPublicacion": "2026-09-03"
+    },
+    {
+      "id": 1517442,
+      "descripcion": "Modelo solicitud ayuda",
+      "nombreFic": "Modelo solicitud.pdf",
+      "long": 822225,
+      "datMod": "2026-09-03",
+      "datPublicacion": "2026-09-03"
+    },
+    {
+      "id": 1517441,
+      "descripcion": "Texto en otra lengua de la convocatoria",
+      "nombreFic": "Convocatoria_valenciano.pdf",
+      "long": 461083,
+      "datMod": "2026-09-03",
+      "datPublicacion": "2026-09-03"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

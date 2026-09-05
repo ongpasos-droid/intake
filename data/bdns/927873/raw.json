@@ -1,0 +1,72 @@
+{
+  "id": 1129434,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "SAN PEDRO DEL PINATAR",
+    "nivel3": "AYUNTAMIENTO DE SAN PEDRO DEL PINATAR"
+  },
+  "sedeElectronica": "https://sede.sanpedrodelpinatar.es/sta/CarpetaPublic/doEvent?APP_CODE=STA&PAGE_CODE=PTS2_HOME",
+  "codigoBDNS": "927873",
+  "fechaRecepcion": "2026-09-04",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 85700,
+  "mrr": false,
+  "descripcion": "Conv. y bases para la concesión de subvenciones destinadas a la adquisición de material segundo ciclo de educación infantil y ciclos grado medio/superior y bachillerato, ayuda a la movilidad, primer ciclo educación infantil y excelencia para el año 2026",
+  "descripcionLeng": null,
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "EDUCACIÓN",
+      "codigo": "Q"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES620 - Murcia"
+    }
+  ],
+  "descripcionFinalidad": "Educación",
+  "descripcionBasesReguladoras": "Bases para la concesión de subvenciones destinadas a la adquisición de material segundo ciclo de educación infantil y ciclos grado medio/superior y bachillerato, ayuda a la movilidad, primer ciclo educación infantil y excelencia para el año 2026",
+  "urlBasesReguladoras": "https://sede.sanpedrodelpinatar.es/sta/CarpetaPublic/doEvent?APP_CODE=STA&PAGE_CODE=PTS2_TABLON&KEY=3223500907167373707601",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": "2026-09-14",
+  "fechaFinSolicitud": "2026-11-06",
+  "textInicio": null,
+  "textFin": null,
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1517685,
+      "descripcion": "MODELOS Y BASES DE LA CONVOCATORIA",
+      "nombreFic": "Bases convocatoria ayudas 2026-2027.pdf",
+      "long": 512924,
+      "datMod": "2026-09-04",
+      "datPublicacion": "2026-09-04"
+    },
+    {
+      "id": 1517683,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "Certificado_acuerdo_FASE_II (2).pdf",
+      "long": 186070,
+      "datMod": "2026-09-04",
+      "datPublicacion": "2026-09-04"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

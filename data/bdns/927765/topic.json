@@ -1,0 +1,77 @@
+{
+  "source": "bdns",
+  "source_id": "927765",
+  "source_lang": "es",
+  "level": "local",
+  "programme": "Concurrencia competitiva - canónica",
+  "sub_programme": null,
+  "publishing_authority_code": "LOCAL / SAN JAVIER / AYUNTAMIENTO DE SAN JAVIER",
+  "nuts_codes": [
+    "ES62"
+  ],
+  "nuts_primary": "ES62",
+  "title": "CONVOCATORIA PARA LA CONCESIÓN DE PREMIOS EXTRAORDINARIOS DE BACHILLERATO Y CICLOS FORMATIVOS DE GRADO MEDIO\nY SUPERIOR EN EL MUNICIPIO DE SAN JAVIER, CURSO 2025/2026",
+  "title_lang": "es",
+  "summary": "Educación",
+  "status": "open",
+  "publication_date": "2026-09-03",
+  "open_date": null,
+  "deadline": null,
+  "deadline_model": "continuous",
+  "deadlines_extra": null,
+  "budget_total_eur": 6000,
+  "budget_per_project_min_eur": null,
+  "budget_per_project_max_eur": null,
+  "expected_grants": null,
+  "cofinancing_pct": null,
+  "duration_months": null,
+  "audience": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA",
+  "eligible_orgs": [
+    "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+  ],
+  "eligible_countries": [
+    "ES"
+  ],
+  "sectores": [
+    {
+      "codigo": "Q",
+      "descripcion": "EDUCACIÓN"
+    }
+  ],
+  "apply_url": "https://sanjavier.sedelectronica.es/info.0",
+  "details_url": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatoria/927765",
+  "documents": [
+    {
+      "label": "Documento de la convocatoria en español",
+      "url": null
+    },
+    {
+      "label": "ANEXO I  SOLICITUD PREMIOS EXTRAORDINARIOS DE BACHILLERATO Y CICLOS FORMATIVOS DE GRADO MEDIO Y SUPERIOR CURSO 2025_2026",
+      "url": null
+    },
+    {
+      "label": "ANEXO IV SOLICITUD DE RECLAMACIÓN _ SUBSANACIÓN PREMIOS EXTRAORDINARIOS DE BACHILLERATO Y CICLOS FORMATIVOS DE GM Y GS, CURSO 2025_2026",
+      "url": null
+    },
+    {
+      "label": "ANEXO III DECLARACIÓN DE CUMPLIR LOS REQUISITOS PARA PARTICIPAR EN LOS PREMIOS EXTRAORDINARIOS DE BACHILLERATO Y CICLOS FORMATIVOS DE GRADO MEDIO Y SUPERIOR CURSO 2025_2026",
+      "url": null
+    },
+    {
+      "label": "ANEXO II REPRESENTACIÓN DE ALUMNADO MENOR DE 18 AÑOS",
+      "url": null
+    }
+  ],
+  "bases_reguladoras_url": "https://www.borm.es/eli/es-mu-01300354/odnz/2023/10/16/(1)/dof/spa/html",
+  "text_inicio": "Al día siguiente de su publicación en el Boletín Oficial de la Región de Murcia",
+  "text_fin": "15 días hábiles después del inicio de solicitud",
+  "se_publica_diario_oficial": true,
+  "ayuda_estado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectores_productos": [],
+  "anuncios": [],
+  "mrr_flag": false,
+  "fetchedAt": "2026-09-05T04:09:06.823Z"
+}

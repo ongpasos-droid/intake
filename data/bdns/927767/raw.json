@@ -1,0 +1,90 @@
+{
+  "id": 1129328,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "GURB",
+    "nivel3": "AYUNTAMIENTO DE GURB"
+  },
+  "sedeElectronica": null,
+  "codigoBDNS": "927767",
+  "fechaRecepcion": "2026-09-03",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 30000,
+  "mrr": false,
+  "descripcion": "CONVOCATORIA SUBVENCIONS FIBRA OPTICA I INSTAL·LACIONS DE COMUNICACIONS VIA SATEL·LIT 2026",
+  "descripcionLeng": null,
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    },
+    {
+      "descripcion": "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    },
+    {
+      "descripcion": "PYME Y PERSONAS FÍSICAS QUE DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "TELECOMUNICACIONES, PROGRAMACIÓN INFORMÁTICA, CONSULTORÍA, INFRAESTRUCTURA INFORMÁTICA Y OTROS SERVICIOS DE INFORMACIÓN",
+      "codigo": "K"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES51 - CATALUÑA"
+    }
+  ],
+  "descripcionFinalidad": "Industria y Energía",
+  "descripcionBasesReguladoras": "BASES REGULADORES FIBRA OPTICA I INSTAL·LACIONS VIA SATEL·LIT 2026",
+  "urlBasesReguladoras": "https://bop.diba.cat/anunci/3967859/aprovacio-definitiva-de-les-bases-reguladores-de-les-subvencions-per-a-la-instal-lacio-de-fibra-optica-i-instal-lacions-de-comunicacions-via-satel-lit-versio-en-catala-i-castella-ajuntament-de-gurb",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": "2026-08-01",
+  "fechaFinSolicitud": "2026-10-31",
+  "textInicio": null,
+  "textFin": null,
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1517404,
+      "descripcion": "Texto en otra lengua de la convocatoria",
+      "nombreFic": "ANUNCI_BOP_CONVOCATORIA_BASES_CATALA_I_CASTELLA_13072026.pdf",
+      "long": 308510,
+      "datMod": "2026-09-03",
+      "datPublicacion": "2026-09-03"
+    },
+    {
+      "id": 1517403,
+      "descripcion": "Texto en castellano de la convocatoria",
+      "nombreFic": "ANUNCI_BOP_CONVOCATORIA_BASES_CATALA_I_CASTELLA_13072026.pdf",
+      "long": 308510,
+      "datMod": "2026-09-03",
+      "datPublicacion": "2026-09-03"
+    }
+  ],
+  "anuncios": [
+    {
+      "numAnuncio": 220249,
+      "titulo": "Procedimiento Beta",
+      "tituloLeng": null,
+      "texto": "Procedimiento Beta",
+      "textoLeng": null,
+      "url": "https://bop.diba.cat/anunci/3210160",
+      "cve": null,
+      "desDiarioOficial": "B.O.P. DE BARCELONA",
+      "datPublicacion": "2022-03-23"
+    }
+  ],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

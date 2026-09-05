@@ -1,0 +1,68 @@
+{
+  "id": 1129249,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "CONSELL INSULAR D’EIVISSA",
+    "nivel3": "CONSELL INSULAR DE IBIZA"
+  },
+  "sedeElectronica": null,
+  "codigoBDNS": "927688",
+  "fechaRecepcion": "2026-09-03",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 50000,
+  "mrr": false,
+  "descripcion": "CONVOCATORIA DE AYUDAS PARA PROFESIONALES DEL SECTOR TURÍSTICO DE LA ISLA DE IBIZA PARA CURSAR DE FORMA PRESENCIAL EN LA ISLA DE IBIZA FORMACIONES IMPARTIDAS POR LA ESCUELA DE HOSTELERÍA DE LAS ISLAS BALEARES EN LA SEDE DE LA ISLA DE IBIZA 2025-2026",
+  "descripcionLeng": null,
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "ACTIVIDADES ARTÍSTICAS, DEPORTIVAS Y DE ENTRETENIMIENTO",
+      "codigo": "S"
+    },
+    {
+      "descripcion": "HOSTELERÍA",
+      "codigo": "I"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES531 - Eivissa y Formentera"
+    }
+  ],
+  "descripcionFinalidad": "Comercio, Turismo y Pymes",
+  "descripcionBasesReguladoras": "Acuerdo del Consejo Ejecutivo del Consejo Insular de Ibiza de aprobación de la convocatoria para laconcesión de ayudas para profesionales del sector turístico de la isla de Ibiza para tomar parte de forma presencial en formaciones impartidas por la Esc",
+  "urlBasesReguladoras": "https://www.caib.es/eboibfront/es/2026/12323/719498/acuerdo-del-consejo-ejecutivo-del-consejo-insular-",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": "2026-09-07",
+  "fechaFinSolicitud": "2026-09-18",
+  "textInicio": null,
+  "textFin": null,
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1517113,
+      "descripcion": "Texto en castellano de la convocatoria",
+      "nombreFic": "Edicte BOIB bases cast.pdf",
+      "long": 256935,
+      "datMod": "2026-09-03",
+      "datPublicacion": "2026-09-03"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

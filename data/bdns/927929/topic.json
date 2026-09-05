@@ -1,0 +1,69 @@
+{
+  "source": "bdns",
+  "source_id": "927929",
+  "source_lang": "es",
+  "level": "local",
+  "programme": "Concesión directa - canónica",
+  "sub_programme": null,
+  "publishing_authority_code": "LOCAL / HOSPITALET DE LLOBREGAT, L' / AYUNTAMIENTO DE HOSPITALET DE LLOBREGAT, L'",
+  "nuts_codes": [
+    "ES511"
+  ],
+  "nuts_primary": "ES511",
+  "title": "BASES PARTICULARES Y CONVOCATORIA PARA  LA CONCESIÓN DE AYUDAS, EN RÉGIMEN DE CONCURRENCIA NO COMPETITIVA, PARA SUFRAGAR LOS GASTOS GENERALES DEL DOMICILIO HABITUAL Y FAVORECER ASÍ LA INCLUSIÓN SOCIAL PARA EL EJERCICIO 2026.",
+  "title_lang": "es",
+  "summary": "Servicios Sociales y Promoción Social",
+  "status": "open",
+  "publication_date": "2026-09-04",
+  "open_date": null,
+  "deadline": null,
+  "deadline_model": "continuous",
+  "deadlines_extra": null,
+  "budget_total_eur": 235200,
+  "budget_per_project_min_eur": null,
+  "budget_per_project_max_eur": null,
+  "expected_grants": null,
+  "cofinancing_pct": null,
+  "duration_months": null,
+  "audience": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA",
+  "eligible_orgs": [
+    "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+  ],
+  "eligible_countries": [
+    "ES"
+  ],
+  "sectores": [
+    {
+      "codigo": "T",
+      "descripcion": "OTROS SERVICIOS"
+    }
+  ],
+  "apply_url": "https://seuelectronica.l-h.cat/2298028_1.aspx?id=1",
+  "details_url": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatoria/927929",
+  "documents": [
+    {
+      "label": "Documento de la convocatoria en español",
+      "url": null
+    },
+    {
+      "label": "Publicación final BOPB",
+      "url": null
+    },
+    {
+      "label": "Documento de la convocatoria en lengua cooficial",
+      "url": null
+    }
+  ],
+  "bases_reguladoras_url": "https://seuelectronica.l-h.cat/tramits/r/detallTramit_2.aspx?2nlwp7DaQRAf5UZTYqAonLLIOPCBzDE1o09xrn3po075xaErHSkpkyQqazBqazB",
+  "text_inicio": "Al día siguiente de la publicación del extracto de la convocatoria en BOP de Barcelona",
+  "text_fin": "Treinta días hábiles a contar desde el día siguiente de la publicación del extracto",
+  "se_publica_diario_oficial": true,
+  "ayuda_estado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectores_productos": [],
+  "anuncios": [],
+  "mrr_flag": false,
+  "fetchedAt": "2026-09-05T04:09:06.859Z"
+}

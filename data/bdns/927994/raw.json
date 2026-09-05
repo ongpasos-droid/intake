@@ -1,0 +1,64 @@
+{
+  "id": 1129555,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "AZUQUECA DE HENARES",
+    "nivel3": "AYUNTAMIENTO DE AZUQUECA DE HENARES"
+  },
+  "sedeElectronica": null,
+  "codigoBDNS": "927994",
+  "fechaRecepcion": "2026-09-04",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 40000,
+  "mrr": false,
+  "descripcion": "CONVOCATORIA PARA LA CONCESIÓN DE SUBVENCIONES EN CONCURRENCIA COMPETITIVA A ENTIDADES SIN ÁNIMO DE LUCRO PARA EL DESARROLLO DE PROYECTOS DE SERVICIOS SOCIALES 2026, PARA APOYO SOCIO-LABORAL A COLECTIVOS EN RIESGO DE EXCLUSION",
+  "descripcionLeng": null,
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "EDUCACIÓN",
+      "codigo": "Q"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES424 - Guadalajara"
+    }
+  ],
+  "descripcionFinalidad": "Servicios Sociales y Promoción Social",
+  "descripcionBasesReguladoras": "Bases reguladoras Ayudas y subvenciones destinadas a la atención y apoyo socio- laboral a colectivos en riesgo de exclusión",
+  "urlBasesReguladoras": "https://azuqueca.sedelectronica.es/preview-document/a950b3c1-4c17-4ea3-a495-4f716e037cbd/",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": null,
+  "fechaFinSolicitud": null,
+  "textInicio": "Desde el día siguiente de la publicación de la convocatoria en BOP Guadalajara",
+  "textFin": "10 días naturales desde el día siguiente de la publicación de la convocatoria en BOP Guadalajara",
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1517999,
+      "descripcion": "Texto en castellano de la convocatoria",
+      "nombreFic": "CONVOCATORIA SUBV APOYO SOCIO-LABORAL A COLECTIVOS EN RIESGO DE EXCLUSION 2026.pdf",
+      "long": 902201,
+      "datMod": "2026-09-04",
+      "datPublicacion": "2026-09-04"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

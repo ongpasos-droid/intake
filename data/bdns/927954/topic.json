@@ -1,0 +1,69 @@
+{
+  "source": "bdns",
+  "source_id": "927954",
+  "source_lang": "es",
+  "level": "local",
+  "programme": "Concurrencia competitiva - canónica",
+  "sub_programme": null,
+  "publishing_authority_code": "LOCAL / AYORA / AYUNTAMIENTO DE AYORA",
+  "nuts_codes": [
+    "ES523"
+  ],
+  "nuts_primary": "ES523",
+  "title": "CONCURSO DE ESCAPARATISMO Y AMBIENTACIÓN COMERCIAL CON MOTIVO DE LA XXV EDICIÓN DEL PRIMER CORTE DE LA MIEL EN EL MUNICIPIO DE AYORA",
+  "title_lang": "es",
+  "summary": "Comercio, Turismo y Pymes",
+  "status": "open",
+  "publication_date": "2026-09-04",
+  "open_date": null,
+  "deadline": null,
+  "deadline_model": "continuous",
+  "deadlines_extra": null,
+  "budget_total_eur": 1000,
+  "budget_per_project_min_eur": null,
+  "budget_per_project_max_eur": null,
+  "expected_grants": null,
+  "cofinancing_pct": null,
+  "duration_months": null,
+  "audience": "PYME Y PERSONAS FÍSICAS QUE DESARROLLAN ACTIVIDAD ECONÓMICA",
+  "eligible_orgs": [
+    "PYME Y PERSONAS FÍSICAS QUE DESARROLLAN ACTIVIDAD ECONÓMICA"
+  ],
+  "eligible_countries": [
+    "ES"
+  ],
+  "sectores": [
+    {
+      "codigo": "G",
+      "descripcion": "COMERCIO AL POR MAYOR Y AL POR MENOR"
+    }
+  ],
+  "apply_url": null,
+  "details_url": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatoria/927954",
+  "documents": [
+    {
+      "label": "Documento de la convocatoria en español",
+      "url": null
+    },
+    {
+      "label": "Bases del concurso",
+      "url": null
+    },
+    {
+      "label": "Formulario de solicitud",
+      "url": null
+    }
+  ],
+  "bases_reguladoras_url": "https://ayora.sedelectronica.es/info.2",
+  "text_inicio": "10 días hábiles desde el día siguiente a la publicación en el BOP Valencia ",
+  "text_fin": "10 días hábiles desde el día siguiente a la publicación en el BOP Valencia ",
+  "se_publica_diario_oficial": true,
+  "ayuda_estado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectores_productos": [],
+  "anuncios": [],
+  "mrr_flag": false,
+  "fetchedAt": "2026-09-05T04:09:06.863Z"
+}

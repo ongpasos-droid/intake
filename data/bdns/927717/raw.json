@@ -1,0 +1,84 @@
+{
+  "id": 1129278,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "GRADO",
+    "nivel3": "AYUNTAMIENTO DE GRADO"
+  },
+  "sedeElectronica": "https://sedeelectronica.ayto-grado.es/",
+  "codigoBDNS": "927717",
+  "fechaRecepcion": "2026-09-03",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 20585.12,
+  "mrr": false,
+  "descripcion": "AYUDAS DE EMERGENCIA SOCIAL PARA FAMILIAS CON MENORES 2026",
+  "descripcionLeng": null,
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "ACTIVIDADES SANITARIAS Y DE SERVICIOS SOCIALES",
+      "codigo": "R"
+    },
+    {
+      "descripcion": "EDUCACIÓN",
+      "codigo": "Q"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES120 - Asturias"
+    }
+  ],
+  "descripcionFinalidad": "Sanidad",
+  "descripcionBasesReguladoras": "Bases Reguladoras del Régimen de Concesión de Subvenciones del Ayuntamiento de Grado.",
+  "urlBasesReguladoras": "https://www.ayto-grado.es/documents/113029/0/PUBLICACION+BOPA+BASES+GENERALES+DE+SUBVENCIONES+GRADO.pdf/b50da5f8-f011-2191-40a6-5d69181ef4c1?t=1694691753817",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": null,
+  "fechaFinSolicitud": null,
+  "textInicio": "día siguiente a la publicación del extracto de la convocatoria en el BOPA",
+  "textFin": "10 días hábiles a contar desde el siguiente a la publicación del extracto en el BOPA",
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1517183,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "1797_AYUDAS DE EMERGENCIA SOCIAL PARA FAMILIAS CON MENORES 2026.pdf",
+      "long": 3401802,
+      "datMod": "2026-09-03",
+      "datPublicacion": "2026-09-03"
+    },
+    {
+      "id": 1517191,
+      "descripcion": "FICHA DE TERCEROS",
+      "nombreFic": "ANEXO II_FICHA DE TERCEROS_Ayudas a familias con menores.pdf",
+      "long": 378543,
+      "datMod": "2026-09-03",
+      "datPublicacion": "2026-09-03"
+    },
+    {
+      "id": 1517190,
+      "descripcion": "INSTANCIA DE SOLICITUD",
+      "nombreFic": "ANEXO I_INSTANCIA DE SOLICITUD_Ayudas de emergencia social a familias con menores 2026.pdf",
+      "long": 757999,
+      "datMod": "2026-09-03",
+      "datPublicacion": "2026-09-03"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

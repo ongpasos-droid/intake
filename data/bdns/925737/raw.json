@@ -1,0 +1,72 @@
+{
+  "id": 1127298,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "VILADECANS",
+    "nivel3": "AYUNTAMIENTO DE VILADECANS"
+  },
+  "sedeElectronica": "https://seuelectronica.viladecans.cat/",
+  "codigoBDNS": "925737",
+  "fechaRecepcion": "2026-08-20",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 2000,
+  "mrr": false,
+  "descripcion": "CONVOCATORIA DEL 17º CONCURSO ESTATAL DE PINTURA RÁPIDA CIUDAD DE VILADECANS - EDICIÓN HOMENAJE A DIEGO FERNÁNDEZ PÉREZ (2026) 15/30000 - PREMIOS CONCURSO ESTATAL DE PINTURA RÁPIDA CIUDAD DE VILADECANS",
+  "descripcionLeng": "CONVOCATÒRIA DEL 17è CONCURS ESTATAL DE PINTURA RÀPIDA CIUTAT DE VILADECANS – EDICIÓ HOMENATGE A DIEGO FERNÁNDEZ PÉREZ (2026) 15/30000 – Premis Concurs Estatal de Pintura Ràpida Ciutat de Viladecans",
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "Actividades de creación artística",
+      "codigo": "90.1"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES511 - Barcelona"
+    }
+  ],
+  "descripcionFinalidad": "Cultura",
+  "descripcionBasesReguladoras": "BASES REGULADORAS DEL AYUNTAMIENTO DE VILADECANS DE LOS PREMIOS CONCURSO ESTATAL DE PINTURA RÁPIDA CIUDAD DE VILADECANS",
+  "urlBasesReguladoras": "https://bop.diba.cat/anuncio/3954666/bases-reguladores-de-l-ajuntament-de-viladecans-dels-premis-concurs-estatal-de-pintura-rapida-ciutat-de-viladecans-versio-en-catala-i-castella-ajuntament-de-viladecans",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": "2026-09-05",
+  "fechaFinSolicitud": null,
+  "textInicio": null,
+  "textFin": "El mismo día de solicitud",
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1511123,
+      "descripcion": "Documento de la convocatoria en lengua cooficial",
+      "nombreFic": "Anunci_convocatoria_bilingue sg.pdf",
+      "long": 181916,
+      "datMod": "2026-08-20",
+      "datPublicacion": "2026-08-20"
+    },
+    {
+      "id": 1511122,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "Anunci_convocatoria_bilingue sg.pdf",
+      "long": 181916,
+      "datMod": "2026-08-20",
+      "datPublicacion": "2026-08-20"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

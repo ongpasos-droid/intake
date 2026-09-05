@@ -1,0 +1,96 @@
+{
+  "id": 1129326,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "SAN JAVIER",
+    "nivel3": "AYUNTAMIENTO DE SAN JAVIER"
+  },
+  "sedeElectronica": "https://sanjavier.sedelectronica.es/info.0",
+  "codigoBDNS": "927765",
+  "fechaRecepcion": "2026-09-03",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 6000,
+  "mrr": false,
+  "descripcion": "CONVOCATORIA PARA LA CONCESIÓN DE PREMIOS EXTRAORDINARIOS DE BACHILLERATO Y CICLOS FORMATIVOS DE GRADO MEDIO\nY SUPERIOR EN EL MUNICIPIO DE SAN JAVIER, CURSO 2025/2026",
+  "descripcionLeng": null,
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "EDUCACIÓN",
+      "codigo": "Q"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES62 - REGION DE MURCIA"
+    }
+  ],
+  "descripcionFinalidad": "Educación",
+  "descripcionBasesReguladoras": "BASES PARA LA CONCESIÓN DE PREMIOS EXTRAORDINARIOS DE BACHILLER Y CICLOS FORMATIVOS DE GRADO MEDIO Y SUPERIOR\nEN EL MUNICIPIO DE SAN JAVIER.",
+  "urlBasesReguladoras": "https://www.borm.es/eli/es-mu-01300354/odnz/2023/10/16/(1)/dof/spa/html",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": null,
+  "fechaFinSolicitud": null,
+  "textInicio": "Al día siguiente de su publicación en el Boletín Oficial de la Región de Murcia",
+  "textFin": "15 días hábiles después del inicio de solicitud",
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1517389,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "CONVOCATORIA PREMIOS EXTRAORDINARIOS DE BACHILLERATO Y CICLOS FORMATIVOS CURSO 2025-2026.pdf",
+      "long": 243407,
+      "datMod": "2026-09-03",
+      "datPublicacion": "2026-09-03"
+    },
+    {
+      "id": 1517390,
+      "descripcion": "ANEXO I  SOLICITUD PREMIOS EXTRAORDINARIOS DE BACHILLERATO Y CICLOS FORMATIVOS DE GRADO MEDIO Y SUPERIOR CURSO 2025_2026",
+      "nombreFic": "ANEXO I SOLICITUD.pdf",
+      "long": 112255,
+      "datMod": "2026-09-03",
+      "datPublicacion": "2026-09-03"
+    },
+    {
+      "id": 1517393,
+      "descripcion": "ANEXO IV SOLICITUD DE RECLAMACIÓN _ SUBSANACIÓN PREMIOS EXTRAORDINARIOS DE BACHILLERATO Y CICLOS FORMATIVOS DE GM Y GS, CURSO 2025_2026",
+      "nombreFic": "ANEXO IV RECLAMACIÓN-SUBSANACIÓN.pdf",
+      "long": 113346,
+      "datMod": "2026-09-03",
+      "datPublicacion": "2026-09-03"
+    },
+    {
+      "id": 1517392,
+      "descripcion": "ANEXO III DECLARACIÓN DE CUMPLIR LOS REQUISITOS PARA PARTICIPAR EN LOS PREMIOS EXTRAORDINARIOS DE BACHILLERATO Y CICLOS FORMATIVOS DE GRADO MEDIO Y SUPERIOR CURSO 2025_2026",
+      "nombreFic": "ANEXO III DECLARACIÓN LEY 38-2003.pdf",
+      "long": 109884,
+      "datMod": "2026-09-03",
+      "datPublicacion": "2026-09-03"
+    },
+    {
+      "id": 1517391,
+      "descripcion": "ANEXO II REPRESENTACIÓN DE ALUMNADO MENOR DE 18 AÑOS",
+      "nombreFic": "ANEXO II REPRESENTACIÓN.pdf",
+      "long": 105571,
+      "datMod": "2026-09-03",
+      "datPublicacion": "2026-09-03"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

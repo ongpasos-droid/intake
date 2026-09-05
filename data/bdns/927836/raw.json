@@ -1,0 +1,72 @@
+{
+  "id": 1129397,
+  "organo": {
+    "nivel1": "AUTONOMICA",
+    "nivel2": "ILLES BALEARS",
+    "nivel3": "FONDO DE GARANTÍA AGRARIA Y PESQUERA DE LAS ISLAS BALEARES (FOGAIBA)"
+  },
+  "sedeElectronica": "http://www.caib.es",
+  "codigoBDNS": "927836",
+  "fechaRecepcion": "2026-09-04",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 750000,
+  "mrr": false,
+  "descripcion": "Ayudas, para el año 2026, para compensar el encarecimiento del precio del gasóleo adquirido por los productores agrarios provocado por la guerra en Oriente Medio",
+  "descripcionLeng": null,
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PYME Y PERSONAS FÍSICAS QUE DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "AGRICULTURA, GANADERÍA, SILVICULTURA Y PESCA",
+      "codigo": "A"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES53 - ILLES BALEARS"
+    }
+  ],
+  "descripcionFinalidad": "Agricultura, Pesca y Alimentación",
+  "descripcionBasesReguladoras": "Orden de la Consejera de Agricultura y Pesca, de 10 de marzo de 2005, por la que se establecen las bases reguladoras de las subvenciones a los sectores agrario y pesquero",
+  "urlBasesReguladoras": "http://boib.caib.es/pdf/2005043/mp15.pdf",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": null,
+  "fechaFinSolicitud": "2026-10-02",
+  "textInicio": "Desde el día siguiente a la publicación de la Resolución en el BOIB",
+  "textFin": null,
+  "ayudaEstado": "SA.00000",
+  "urlAyudaEstado": "https://competition-cases.ec.europa.eu/cases/SA.00000",
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1517603,
+      "descripcion": "Documento de la convocatoria en lengua cooficial",
+      "nombreFic": "AJ_42.26_-_GASOIL_AGRÍCOLA_2026_v.5_REV_OK_imprimible.pdf",
+      "long": 244092,
+      "datMod": "2026-09-04",
+      "datPublicacion": "2026-09-04"
+    },
+    {
+      "id": 1517602,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "AJ_42.26_-_GASOIL_AGRÍCOLA_2026_v.5_ES_OK_imprimible.pdf",
+      "long": 247967,
+      "datMod": "2026-09-04",
+      "datPublicacion": "2026-09-04"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

@@ -1,0 +1,73 @@
+{
+  "source": "bdns",
+  "source_id": "927737",
+  "source_lang": "es",
+  "level": "local",
+  "programme": "Concurrencia competitiva - canónica",
+  "sub_programme": null,
+  "publishing_authority_code": "LOCAL / SANTOMERA / AYUNTAMIENTO DE SANTOMERA",
+  "nuts_codes": [
+    "ES62"
+  ],
+  "nuts_primary": "ES62",
+  "title": "Convocatoria de subvenciones en regimen de concurrencia competitiva para la Acción Educativa",
+  "title_lang": "es",
+  "summary": "Educación",
+  "status": "open",
+  "publication_date": "2026-09-03",
+  "open_date": null,
+  "deadline": null,
+  "deadline_model": "continuous",
+  "deadlines_extra": null,
+  "budget_total_eur": 11000,
+  "budget_per_project_min_eur": null,
+  "budget_per_project_max_eur": null,
+  "expected_grants": null,
+  "cofinancing_pct": null,
+  "duration_months": null,
+  "audience": "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA",
+  "eligible_orgs": [
+    "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+  ],
+  "eligible_countries": [
+    "ES"
+  ],
+  "sectores": [
+    {
+      "codigo": "85",
+      "descripcion": "Educación"
+    }
+  ],
+  "apply_url": "https://santomera.es/ayudas-y-subvenciones/",
+  "details_url": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatoria/927737",
+  "documents": [
+    {
+      "label": "Texto en castellano de la convocatoria",
+      "url": null
+    },
+    {
+      "label": "Justificación Ampas",
+      "url": null
+    },
+    {
+      "label": "Solicitud Estudios Extranjero",
+      "url": null
+    },
+    {
+      "label": "Solicitud_Ampas",
+      "url": null
+    }
+  ],
+  "bases_reguladoras_url": "https://santomera.es/ayudas-y-subvenciones/",
+  "text_inicio": "15 dias habiles a partir de la publicacion",
+  "text_fin": "15 dias habiles a partir de la publicacion",
+  "se_publica_diario_oficial": true,
+  "ayuda_estado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectores_productos": [],
+  "anuncios": [],
+  "mrr_flag": false,
+  "fetchedAt": "2026-09-05T04:09:06.817Z"
+}

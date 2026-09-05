@@ -1,0 +1,65 @@
+{
+  "source": "bdns",
+  "source_id": "927998",
+  "source_lang": "es",
+  "level": "local",
+  "programme": "Concurrencia competitiva - canónica",
+  "sub_programme": null,
+  "publishing_authority_code": "LOCAL / POZUELO DE ALARCÓN / AYUNTAMIENTO DE POZUELO DE ALARCÓN",
+  "nuts_codes": [
+    "ES30"
+  ],
+  "nuts_primary": "ES30",
+  "title": "CONVOCATORIA A TRAVÉS DEL PROCEDIMIENTO DE CONCURRENCIA COMPETITIVA, PARA LA FINANCIACIÓN DE OBRAS DE CONSERVACIÓN DE LA URBANIZACIÓN Y MEJORA DE LA MISMA REALIZADAS O A REALIZAR A LO LARGO DEL AÑO 2026 EN EL DOMINIO PÚBLICO POR ENTIDADES URBANÍSTICAS",
+  "title_lang": "es",
+  "summary": "Acceso a la vivienda y fomento de la edificación",
+  "status": "open",
+  "publication_date": "2026-09-04",
+  "open_date": "2026-09-04",
+  "deadline": "2026-12-31",
+  "deadline_model": "single-stage",
+  "deadlines_extra": null,
+  "budget_total_eur": 200000,
+  "budget_per_project_min_eur": null,
+  "budget_per_project_max_eur": null,
+  "expected_grants": null,
+  "cofinancing_pct": null,
+  "duration_months": null,
+  "audience": "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA",
+  "eligible_orgs": [
+    "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+  ],
+  "eligible_countries": [
+    "ES"
+  ],
+  "sectores": [
+    {
+      "codigo": "M",
+      "descripcion": "ACTIVIDADES INMOBILIARIAS"
+    }
+  ],
+  "apply_url": "https://www.pozuelodealarcon.org/",
+  "details_url": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatoria/927998",
+  "documents": [
+    {
+      "label": "Documento de la convocatoria en español",
+      "url": null
+    }
+  ],
+  "bases_reguladoras_url": "https://sede.pozuelodealarcon.es/sede/informacionpublica/infopublica.action?edictos=1#l3",
+  "text_inicio": null,
+  "text_fin": null,
+  "se_publica_diario_oficial": true,
+  "ayuda_estado": null,
+  "fondos": [
+    {
+      "descripcion": "FSE+ - FONDO SOCIAL EUROPEO PLUS"
+    }
+  ],
+  "reglamento": null,
+  "objetivos": [],
+  "sectores_productos": [],
+  "anuncios": [],
+  "mrr_flag": false,
+  "fetchedAt": "2026-09-05T04:09:06.871Z"
+}

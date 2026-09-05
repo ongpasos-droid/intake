@@ -1,0 +1,104 @@
+{
+  "id": 1129267,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "SAN JAVIER",
+    "nivel3": "AYUNTAMIENTO DE SAN JAVIER"
+  },
+  "sedeElectronica": "https://sanjavier.sedelectronica.es/info.0",
+  "codigoBDNS": "927706",
+  "fechaRecepcion": "2026-09-03",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 55000,
+  "mrr": false,
+  "descripcion": "CONVOCATORIA PARA LA CONCESIÓN DE AYUDAS A LA MOVILIDAD A OTORGAR POR EL AYUNTAMIENTO DE SAN JAVIER AL\nALUMNADO QUE CURSE ESTUDIOS POSTOBLIGATORIOS FUERA DEL MUNICIPIO CURSO 2026/2027.",
+  "descripcionLeng": null,
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "EDUCACIÓN",
+      "codigo": "Q"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES62 - REGION DE MURCIA"
+    }
+  ],
+  "descripcionFinalidad": "Educación",
+  "descripcionBasesReguladoras": "BASES REGULADORAS PARA LA CONCESIÓN DE AYUDAS DE MOVILIDAD DEL AYUNTAMIENTO DE SAN JAVIER A ALUMNOS QUE\nCURSEN ESTUDIOS POSTOBLIGATORIOS FUERA DEL MUNICIPIO",
+  "urlBasesReguladoras": "https://www.borm.es/#/home/anuncio/23-10-2014/13325",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": null,
+  "fechaFinSolicitud": null,
+  "textInicio": "Al día siguiente de su publicación en el Boletín Oficial de la Región de Murcia",
+  "textFin": "15 días hábiles después del inicio de solicitud",
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1517144,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "CONVOCATORIA AYUDAS A LA MOVILIDAD 26-27.pdf",
+      "long": 327043,
+      "datMod": "2026-09-03",
+      "datPublicacion": "2026-09-03"
+    },
+    {
+      "id": 1517146,
+      "descripcion": "ANEXO I  SOLICITUD PARA LA CONCESIÓN DE AYUDAS A LA MOVILIDAD A OTORGAR POR EL AYUNTAMIENTO DE SAN JAVIER  AL ALUMNADO QUE CURSE ESTUDIOS POSTOBLIGATORIOS FUERA DEL MUNICIPIO CURSO 2026_2027",
+      "nombreFic": "ANEXO I SOLICITUD.pdf",
+      "long": 156344,
+      "datMod": "2026-09-03",
+      "datPublicacion": "2026-09-03"
+    },
+    {
+      "id": 1517156,
+      "descripcion": "ANEXO V  SOLICITUD DE RECLAMACIÓN SUBSANACIÓN CONVOCATORIA AYUDAS A LA MOVILIDAD CURSO 2026_2027",
+      "nombreFic": "ANEXO V SUBSANACIÓN RECLAMACIÓN.pdf",
+      "long": 118728,
+      "datMod": "2026-09-03",
+      "datPublicacion": "2026-09-03"
+    },
+    {
+      "id": 1517154,
+      "descripcion": "ANEXO III DECLARACIÓN DE CUMPLIR LOS REQUISITOS PARA OBTENER LA CONDICIÓN DE BENEFICIARIO  DE LA AYUDA DE MOVILIDAD PARA EL CURSO 2026_2027 CONVOCADA POR EL AYUNTAMIENTO DE SAN JAVIER",
+      "nombreFic": "ANEXO III DECLARACIÓN LEY 38-2003.pdf",
+      "long": 112204,
+      "datMod": "2026-09-03",
+      "datPublicacion": "2026-09-03"
+    },
+    {
+      "id": 1517155,
+      "descripcion": "ANEXO IV  ENSEÑANZAS COMPRENDIDAS EN CADA APARTADO.",
+      "nombreFic": "ANEXO IV ENSEÑANZAS COMPRENDIDAS EN LA CONVOCATORIA.pdf",
+      "long": 98357,
+      "datMod": "2026-09-03",
+      "datPublicacion": "2026-09-03"
+    },
+    {
+      "id": 1517153,
+      "descripcion": "ANEXO II REPRESENTACIÓN DE ALUMNADO MENOR DE 18 AÑOS",
+      "nombreFic": "ANEXO II REPRESENTACIÓN.pdf",
+      "long": 103943,
+      "datMod": "2026-09-03",
+      "datPublicacion": "2026-09-03"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

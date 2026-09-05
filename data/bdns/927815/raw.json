@@ -1,0 +1,140 @@
+{
+  "id": 1129376,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "ALMORADÍ",
+    "nivel3": "AYUNTAMIENTO DE ALMORADÍ"
+  },
+  "sedeElectronica": "www.almoradi.es",
+  "codigoBDNS": "927815",
+  "fechaRecepcion": "2026-09-03",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 331076,
+  "mrr": false,
+  "descripcion": "EXP. 5295/2026.- OCTAVA CONVOCATORIA PARA LA CONCESIÓN DE SUBVENCIONES DENOMINADAS \"BONOS CONSUMO COMERCIO LOCAL DE ALMORADÍ (ALMORADÍ VALE X 2)”, EN RÉGIMEN DE CONCURRENCIA COMPETITIVA, ANUALIDAD 2026.",
+  "descripcionLeng": null,
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "Actividades de agencias de viajes y operadores turísticos",
+      "codigo": "79.1"
+    },
+    {
+      "descripcion": "Actividades deportivas",
+      "codigo": "93.1"
+    },
+    {
+      "descripcion": "Comercio al por menor de artículos culturales y recreativos",
+      "codigo": "47.6"
+    },
+    {
+      "descripcion": "Comercio al por menor de equipos para las tecnologías de la información y las comunicaciones",
+      "codigo": "47.4"
+    },
+    {
+      "descripcion": "Comercio al por menor de otros artículos de uso doméstico",
+      "codigo": "47.5"
+    },
+    {
+      "descripcion": "Comercio al por menor de productos alimenticios, bebidas y tabaco",
+      "codigo": "47.2"
+    },
+    {
+      "descripcion": "Comercio al por menor de vehículos de motor, motocicletas y sus repuestos y accesorios",
+      "codigo": "47.8"
+    },
+    {
+      "descripcion": "Comercio al por menor no especializado",
+      "codigo": "47.1"
+    },
+    {
+      "descripcion": "Otras actividades recreativas y de entretenimiento",
+      "codigo": "93.2"
+    },
+    {
+      "descripcion": "Otros servicios de reservas y actividades relacionadas con los mismos",
+      "codigo": "79.9"
+    },
+    {
+      "descripcion": "Restaurantes y puestos de comidas",
+      "codigo": "56.1"
+    },
+    {
+      "descripcion": "Servicios de bebidas",
+      "codigo": "56.3"
+    },
+    {
+      "descripcion": "Servicios de catering y otros servicios de comidas",
+      "codigo": "56.2"
+    },
+    {
+      "descripcion": "Servicios personales",
+      "codigo": "96"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES521 - Alicante / Alacant"
+    }
+  ],
+  "descripcionFinalidad": "Comercio, Turismo y Pymes",
+  "descripcionBasesReguladoras": "Texto refundido de bases reguladoras de la concesión de subvenciones a personas, a través de un programa de bonos-consumo, que se convoquen por el Ayuntamiento de Almoradí.",
+  "urlBasesReguladoras": "https://almoradi.sedelectronica.es/board/",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": null,
+  "fechaFinSolicitud": null,
+  "textInicio": "Día siguiente a la publicación del extracto de la convocatoria en el B.O.P. de Alicante.",
+  "textFin": "5 días hábiles contados desde el día siguiente a la publicación del extracto en el B.O.P. Alicante.",
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1517545,
+      "descripcion": "Texto en castellano de la convocatoria",
+      "nombreFic": "DECRETO1 2026-2901 [Resolución PR_2026_2991 - Bono-consumo].pdf",
+      "long": 2168170,
+      "datMod": "2026-09-03",
+      "datPublicacion": "2026-09-03"
+    },
+    {
+      "id": 1517548,
+      "descripcion": "Bases reguladoras.",
+      "nombreFic": "Texto refundido bases reguladoras concesión subvenciones a personas a través del programa bonos-consumo.pdf",
+      "long": 191059,
+      "datMod": "2026-09-03",
+      "datPublicacion": "2026-09-03"
+    },
+    {
+      "id": 1517547,
+      "descripcion": "Actividades incluidas en la convocatoria según CNAE-2009.",
+      "nombreFic": "Anexo II listado actividades incluidas.pdf",
+      "long": 311269,
+      "datMod": "2026-09-03",
+      "datPublicacion": "2026-09-03"
+    },
+    {
+      "id": 1517546,
+      "descripcion": "Modelo solicitud adhesión comercios 8º Bonos Consumo Almoradí Vale x 2 2026.",
+      "nombreFic": "Anexo I solicitud adhesión comercios.pdf",
+      "long": 322480,
+      "datMod": "2026-09-03",
+      "datPublicacion": "2026-09-03"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

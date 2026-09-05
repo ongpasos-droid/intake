@@ -1,0 +1,72 @@
+{
+  "id": 1129257,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "VILANOVA DEL CAMÍ",
+    "nivel3": "AYUNTAMIENTO DE VILANOVA DEL CAMÍ"
+  },
+  "sedeElectronica": null,
+  "codigoBDNS": "927696",
+  "fechaRecepcion": "2026-09-03",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 6000,
+  "mrr": false,
+  "descripcion": "Convocatoria para la concesión de subvenciones para la mejora de la empleabilidad y curricular en lengua inglesa de la población de Vilanova del Camí curso escolar 2026-2027",
+  "descripcionLeng": "Convocatòria per a la concessió de subvencions per a la millora de l’ocupabilitat i curricular en llengua anglesa de la població de Vilanova del Camí curs escolar 2026-2027",
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "EDUCACIÓN",
+      "codigo": "Q"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES511 - Barcelona"
+    }
+  ],
+  "descripcionFinalidad": "Educación",
+  "descripcionBasesReguladoras": "Bases reguladoras de las subvenciones para la mejora de la ocupación y curricular en lengua inglesa de la población de Vilanova del Camí",
+  "urlBasesReguladoras": "https://bop.diba.cat/anunci/1128199/aprovaciodefinitivadela modificacio- de-les-bases-reguladores-delessubvencionsperala- millora-de-l-ocupabilitat-icurricularenllenguaanglesaajuntament- de-vilanova-del-cami",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": null,
+  "fechaFinSolicitud": null,
+  "textInicio": "Dia siguiente de la publicación de la convocatoria",
+  "textFin": "Hasta agotar el crédito disponible en la partida presupuestaria",
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1517130,
+      "descripcion": "Documento de la convocatoria en lengua cooficial",
+      "nombreFic": "Extracto convocatória.pdf",
+      "long": 505173,
+      "datMod": "2026-09-03",
+      "datPublicacion": "2026-09-03"
+    },
+    {
+      "id": 1517129,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "Extracto convocatória.pdf",
+      "long": 505173,
+      "datMod": "2026-09-03",
+      "datPublicacion": "2026-09-03"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}
