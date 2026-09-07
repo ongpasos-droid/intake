@@ -8,6 +8,22 @@
 
 ## 1 · En curso · bloqueadas en pre-requisito
 
+### TASK-011 — Payment & Design Capacity System
+**Status:** PLAN ESCRITO · esperando decisiones abiertas de Oscar (§11 del plan) para arrancar F1
+**Owner:** Local Claude (eplus-tools)
+**Doc canónico:** `docs/DESIGN_CAPACITY_SYSTEM.md`
+**Fecha plan:** 2026-07-02
+
+**Qué es:** modelo de cobro definitivo. El usuario compra **Design Capacity** (capacidad acumulada en € de presupuesto, no caduca), consumida por **banda presupuestaria** al pulsar "Activate Proposal" (= el launch actual). Supersede la mecánica del monedero 1% (`PRICING_v2_CREDITS.md`). Precios = los 3 paquetes de "Join the Club" (500k/1.200€ · 2M/4.000€ · 10M/15.000€).
+
+**Decisiones de arquitectura firmes:** saldo derivado (no almacenado) = `comprado − Σ bandas activadas + boosts` · hook único en `launchProject` (`intake/controller.js:142`) · 1 activación por proyecto (resubmissions no reconsumen) · bandas = importes lump-sum del catálogo · nivel = paquete más alto comprado · cobro real desacoplado (F1 con grant de admin).
+
+**Fases:** F1 núcleo sin cobro real (migración 121 + módulo `capacity/` + hook + admin grant + modal) → F2 dashboard/upgrade screens → F3 checkout real (pasarela + fiscal) → F4 gating niveles + School → F5 Professional Status (fuera de scope).
+
+**Superficie de UI ya montada (2026-07-03):** el workspace "Mi Cuenta" existe con una sección **Facturación** (placeholder). F2/F3 aterrizan ahí — añadir capacidad/plan/checkout es sumar contenido a esa sección, no crear pantalla nueva. Ver §3 (commit `0384fc4ca0`).
+
+**Bloqueante:** decisiones abiertas §11 (semántica de nivel, banda en budget-based, grandfathering, pasarela de pago, tramos/precio de boosts).
+
 ### TASK-007 — Diagnose & Improve (replanteo de Perfeccionar)
 **Status:** APROBADO el diseño · LISTO PARA EMPEZAR Fase 1
 **Owner:** Local Claude (eplus-tools)
@@ -96,6 +112,45 @@ Sesión auditando el desajuste Consortium↔Directorio en LIVE. Confirmado contr
 
 ## 2 · Pendientes sin bloqueante (cuando se quiera)
 
+### TASK-012 — EU Vision (asistente idea → ficha de visión)
+**Status:** **F1 (backend) + F2 (frontend) IMPLEMENTADAS Y VERIFICADAS E2E** (2026-07-11, sin commit) · F3 pulido + F4 a Diseñar siguientes
+**Owner:** Local Claude (eplus-tools)
+**Doc canónico:** `docs/EU_VISION_PLAN.md`
+**Mockup:** `scratchpad/eu-vision-mockup.html` (artifact `f24ee8ba`)
+**Fecha plan:** 2026-07-11
+
+**Qué es:** nueva pestaña `#eu-vision` (paso 0, antes de Diseñar). Asistente de 5–10 min que convierte una idea vaga en una ficha compartible + semilla de Intake. Se construye SIEMPRE sobre una convocatoria ya elegida (si no la tiene → a Convocatorias). Solo pregunta lo del usuario (reto · valor europeo "¿qué se perdería Europa?" · escala · consorcio); criterios/presupuesto/socios de la call salen autorrellenados de `call_structured`.
+
+**Reutiliza (no se construye de cero):** 193 calls desmenuzadas (`data/call_structured/`) · Experience RAG del VPS (`retrieve/projects-similar` + `project/:id/full`, ya en prod) para proyectos similares con lectura en drawer · Libro de Hechos (TASK-008) para alimentar al Writer · login-wall/guest-funnel (invitado ve, no interactúa).
+
+**Modelo de datos:** migración `123` — `visions` + `vision_references` + `vision_interests` (tabla lista, UI en v2). Módulo `node/src/modules/vision/` + `/v1/vision/*`. Falta añadir 2 wrappers a `node/src/utils/directory-api.js`.
+
+**Decisiones cerradas (2026-07-11):** nace privada, usuario publica a propósito · rama "sin call clara" vive en Convocatorias, no aquí · interés vinculado a la entidad · invitados ven pero no muestran interés ni ven quién lo hizo · comunidad/tablón = v2.
+
+**Fases:** F1 datos+backend ✅ → F2 pestaña+lista+asistente ✅ → F3 similares+lectura ✅ (incluida en F2) → F4 a Diseñar ✅ (promote básico hecho; falta wiring Libro de Hechos) → F5 comunidad (v2).
+
+**F1 hecha (2026-07-11):** migración `123_vision_tables.sql` (3 tablas, aplicada en local) · módulo `node/src/modules/vision/` (model+controller+routes) · 2 wrappers en `directory-api.js` (`retrieveProjectsSimilar`, `getProjectFull`) · registrado `/v1/vision` en `server.js`. **Verificado E2E** contra la sesión de Oscar: create→draft, autosave con status auto-`complete`, JSON roundtrip, publish exige entidad (400 ENTITY_REQUIRED) + marca `published_at`, referencias, promote idempotente crea proyecto Intake real + siembra `intake_contexts.problem`, invitado ve pública sin bloque de interés, y **suggest-projects devuelve 4 proyectos reales del VPS** (DIRECTORY_API_KEY ya en local). Datos de prueba limpiados.
+
+**F2 hecha (2026-07-11):** pestaña `#eu-vision` en topbar + workspace de sidebar (`sidebar-group-vision`) + panel `#panel-eu-vision` + módulo `public/js/vision.js` (CSS scoped `vz-`). Vistas: lista "Mis Visiones" · selector de convocatoria (lee `/convocatorias`, CTA a Convocatorias) · asistente 5 pasos con autosave por paso (PATCH) + stepper + panel derecho de contexto real de la call · proyectos similares (Experience RAG) con drawer de lectura del resumen completo (`project/:id/full`) · ficha con toggle privado/público + "Llevar a Diseñar". Router `app.js`: `VISION_ROUTES`, `updateWorkspace`, título, init, funnel de invitado. **Verificado en vivo E2E** (crear→elegir call born-digital→escribir reto→buscar similares 4 reales→abrir drawer CO-GAME→tomar referencia→escala/consorcio→ficha). Invitado ve funnel.
+
+**Mejoras 2026-07-11 (feedback Oscar):** (1) temas del paso 1 ahora **seleccionables** y guardados (migración `124_vision_themes.js` → columna `themes JSON`, `EDITABLE.themes`, chips toggle, mostrados en la ficha). (2) **Selector de países** rehecho: si la call no restringe (o trae agregados tipo "EU27"), muestra la **UE27 + países del programa** como quick-chips (bandera+nombre) + input con datalist para **añadir cualquier país del mundo** (~190, socios de otros continentes). Verificado en vivo: temas marcables en born-digital, Zimbabue añadido en call NDICI.
+
+**CTA desde Convocatorias (2026-07-11):** el botón "Solicitar" del detalle de una convocatoria (`public/js/convocatorias.js` `renderDetail`) ahora es **"Empezar mi visión"** → cierra el drawer y llama a `Vision.startForCall(call_id)` (nuevo método expuesto + `pendingCallId` en `init`), arrancando el asistente con esa call precargada. El enlace externo `apply_url` se conserva como secundario "Solicitar en el portal oficial". Además, cada **tarjeta** de la lista lleva un enlace sutil **"Visión"** (icono explore) junto a "Ver →" (`.conv-card-vision`, interceptado en la delegación de `#convocatorias-list` antes del click genérico; guarda con `App.requireLogin`). Verificado en vivo con CoVE (detalle y tarjeta).
+
+**Consorcio → desplegables (2026-07-11):** el paso 4 pasó de muros de chips a **datalists con búsqueda**. Tipo de socio = lista amplia `PARTNER_TYPES` (~44 perfiles reales de entidad europea) + texto libre. Países = datalist de ~190 países del mundo (UE incluida). Seleccionados se muestran como chips removibles; sin muros de 33 banderas. Verificado en vivo (Cooperativa añadida).
+
+**Redacción asistida por IA (2026-07-11) — vía Claude de SUSCRIPCIÓN, NO API:** botón "✨ Redactar con IA" en el asistente. Combina lo que pide la convocatoria + la idea en bruto del usuario + los proyectos de referencia marcados → genera `{title, problem, european_value}` coherentes en un modal editable (aprobar/descartar → PATCH). **Regla de negocio (Óscar 2026-07-11):** de momento se tira SIEMPRE contra el Claude Code de suscripción instalado (`claude -p` headless por stdin, `node/src/utils/claude-cli.js`), **nunca la API** (`ANTHROPIC_API_KEY`) salvo autorización expresa de Óscar. `node/src/modules/vision/` → `generateDraft` + `POST /:id/generate`. Desactivable con `VISION_AI_SUBSCRIPTION=off`. **En prod (VPS/contenedor) el CLI no existe → el endpoint devuelve 503 AI_UNAVAILABLE hasta que Óscar autorice la API u otro routing.** Verificado E2E server-side (13s) y en la UI (idea cutre → visión aprobable).
+
+**Rediseño a una sola ventana (2026-07-11):** el asistente de 5 pasos → **composer único** (`renderComposer` + `renderRefs`/`renderConsorcio`/`renderCallPanel` en `vision.js`). Flujo vertical: ① tu idea (texto sencillo + temas) → ② buscar proyectos de referencia (RAG con botón explícito, guarda la idea antes de buscar — arregla el bug de "no cargan") → ③ **Tu visión = UN SOLO TEXTO** que la IA genera (título + `vision_text`) y rellena en línea (sin modal), editable → ④ detalles (escala + consorcio) → "Revisar ficha". Panel "lo que pide la convocatoria" ahora **colapsable** a la derecha (`callPanelOpen`, cerrado por defecto). Ficha a la izquierda. Migración `125_vision_text.js` (columna `vision_text`); `isComplete` = título + vision_text; `generateDraft` devuelve `{title, vision_text}` (un párrafo cercano). Autosave por `focusout`. Verificado E2E en vivo (idea → 6 referencias RAG → generación IA de un texto coherente → ficha).
+
+**Refinamientos composer (2026-07-11):** (1) el texto de la visión ahora se genera en **2 párrafos** (prompt pide `\n\n`; la ficha los renderiza con el helper `paras()` en vez de un `<p>` aplastado). (2) La ficha final **ya no muestra los proyectos de referencia** (son solo inspiración durante la creación). (3) El panel "Lo que pide la convocatoria" pasó de columna derecha a **barra colapsable arriba** (`#vz-callpanel-top`), y el composer es una sola columna centrada (`.vz-comp-single` max-width 860px) → página más limpia. Verificado E2E.
+
+**Pendiente:** commit/MERGE · **hard-refresh (Ctrl+F5)** · F4 polish: wiring Libro de Hechos (TASK-008) en promote · tablón comunidad (v2). **Nota deploy:** endpoints/migraciones (123/124/125) se aplican solas al deploy; **el botón IA no funcionará en prod** (sin CLI de suscripción) hasta que Óscar decida el routing. Reiniciar server tras merge.
+
+**Decisiones abiertas (no bloqueantes):** entidad requerida al publicar · varias visiones por call · disparo similares (auto vs manual) · granularidad autosave · promote crea proyecto nuevo · RGPD/retención + canal de aviso (v2). Detalle en §8 del doc.
+
+**Comando para arrancar:** `continuar con EU Vision`
+
 ### TASK-010 — Ecosistema Call Center + Escribas (las dos máquinas conectadas)
 **Status:** PENSAMIENTO ESTRATÉGICO CAPTURADO (2026-06-27) · pendiente de validar y aterrizar
 **Owner:** Oscar (negocio) + Local Claude (modelo/doc)
@@ -130,7 +185,7 @@ Sesión auditando el desajuste Consortium↔Directorio en LIVE. Confirmado contr
 
 **Fases:**
 1. ✅ **HECHA (2026-06-27)** — `device_id` + tracker + `events` + `POST /v1/events`. Migración `120_events_table.sql`, módulo `node/src/modules/events/`, `public/js/track.js` (cola + sendBeacon + tiempo activo Page Visibility), hooks en `app.js` (session_start/section_view/section_time/gate_hit), `convocatorias.js` (call_opened+programme), `entities.js` (entity_opened), `movilidades.js` (mobility_opened). `optionalAuth` → user_id si logueado, device_id siempre. Verificado E2E (invitado y logueado, whitelist, tiempo activo). **Pendiente:** commit/MERGE. Hard-refresh (Ctrl+F5) para cargar el index.html nuevo.
-2. Onboarding + tabla de perfil + mapeo a GHL + lead tier (empezar por modelo de datos).
+2. Onboarding + tabla de perfil + mapeo a GHL + lead tier (empezar por modelo de datos). **Nota (2026-07-03):** el workspace "Mi Cuenta" ya existe (§3, commit `0384fc4ca0`); el perfil de cualificación puede vivir como una sección más de ese menú lateral en vez de pantalla aparte.
 3. Scoring conductual (rollup `user_engagement`, coser device→user en registro `UPDATE events SET user_id WHERE device_id`, push hitos a GHL). Eventos `project_started`/`search` ya en el whitelist, falta cablearlos.
 
 **Decisiones abiertas (no bloqueantes):** preguntas/orden exactos del onboarding · esquema final tags GHL · retención `events` + base legal RGPD · scoring cron vs on-demand.
@@ -319,6 +374,7 @@ funding_call(
 
 | Fecha | Tarea | Commit/PR |
 |---|---|---|
+| 2026-07-03 | **Área "Mi Cuenta" (tercer workspace)** creada: el botón "Mi cuenta · Nombre" del topbar + el bloque de usuario del sidebar abren un workspace propio (la barra lateral entera pasa a Perfil / Seguridad / Facturación / Preferencias, misma mecánica que Proyectos ↔ Entidades). Backend auth: `PATCH /me`, `POST /change-password`, `has_password` en `/me`. Frontend: `sidebar-group-account` + `ACCOUNT_ROUTES` + `public/js/account.js`. Facturación y Preferencias son placeholders = hogar futuro de TASK-011 y TASK-009. Probado en vivo. **Sin push.** | `0384fc4ca0` en dev-local |
 | 2026-05-06 | TASK-003 cerrada: réplica local Postgres `erasmus-pg` operativa. Test E2E con dump base 1.5 GB completado (288.294 entities · 317.559 projects · Permacultura Cantabria E10151149 = 164 proyectos). | dump-base-20260505-1828 |
 | 2026-04-29 | Hotfix migration 091: batch UPDATEs para no romper healthcheck Coolify (502 Bad Gateway en intake.eufundingschool.com) | `7cfe7cc` en main |
 

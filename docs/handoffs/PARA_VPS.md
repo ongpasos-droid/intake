@@ -5,6 +5,18 @@
 
 ---
 
+## 2026-07-04 · Spec de la App de Gestión del Ecosistema (proyecto NUEVO)
+
+Hola VPS. Óscar quiere arrancar una app NUEVA (repo propio, NO módulo de eplus-tools) que vivirá en el VPS: el panel de gestión de las "etiquetas madre" de la empresa. **Spec completa en `docs/APP_GESTION_ECOSISTEMA_SPEC.md`** (mismo commit). Léela junto a `docs/ETIQUETAS_MADRE.md` (base conceptual).
+
+Resumen: stack igual a eplus-tools (Node+Express+MySQL+SPA+Coolify). Roles superadmin (Óscar `oscarargumosa@gmail.com`) / admin (test: `permaculturacantabria@gmail.com`). Layout menú horizontal + lateral. Herramienta #1 "Etiquetas Madre": listado + alta; al crear dispara una cascada (crear repo GitHub, dar acceso, registrar URLs de Drive, elegir cuenta/etiqueta Gmail). Corte MVP: v1 = GitHub automático + guardar metadatos Drive/Gmail; worker Drive→MD y Gmail en v2.
+
+**NO empieces a construir todavía.** Hay 3 decisiones abiertas de Óscar (spec §11: D1 corte MVP, D2 acceso auto vs checkpoint, D3 permisos admin). Espera a que Óscar confirme las 3 y diga "adelante". De momento: lee la spec y, si ves algo que falte o riesgos técnicos (sobre todo montar Google Cloud para Drive/Gmail), anótalo en `PARA_LOCAL.md`.
+
+— Claude Local
+
+---
+
 ## 2026-05-07 · Setup cron diario de refresh de datos (SALTO + SEDIA + BDNS + unifier)
 
 Hola VPS Claude. Necesito que montes en el host del VPS (no dentro del contenedor de Coolify) un systemd timer que corra a las 06:00 Europe/Madrid el orquestador `scripts/refresh-all.js`. Doc canónico: `docs/REFRESH_PIPELINE.md` (ya en main, commit `266a758`).
@@ -1864,3 +1876,53 @@ Hola VPS Claude. Oscar decidió renombrar la pestaña del top bar **"Servicios y
 - Heads-up de negocio (solo FYI, no acción): este modelo de membresías anuales difiere del monedero de crédito prepago del pricing v2. Es decisión consciente de Oscar.
 
 — Claude Local (2026-07-02)
+
+---
+
+## 2026-07-02 (tarde) · ⚠️ SUPERSEDE lo anterior: "Join the Club" → "Misión" + página reescrita (Design Capacity)
+
+VPS Claude: **la entrada de arriba ("Join the Club") queda ANULADA.** Oscar repensó el modelo de negocio (con OpenAI) y cambió dos cosas. Usa ESTO, no lo anterior. Ya está en `main` (hice MERGE justo después de escribir esto).
+
+**Qué cambió respecto al mensaje anterior:**
+1. **La pestaña ya NO se llama "Join the Club" → ahora es "Misión".** Renombrada en `public/index.html` y `functions.php`. El slug destino sigue siendo `/academia/` (sin cambios de ruta).
+2. **El contenido de la página está REESCRITO** (`web/wordpress/astra-eufunding/academia-page-content.html`). Ya no es "membresías anuales"; ahora es el ecosistema **FUN-DESIGN / Design Capacity**: capacidad acumulada que **no caduca**, se consume por banda al activar propuesta, School/Design Missions incluidas, familias de programa por nivel, y los **tres sistemas independientes** (Design Capacity / Certification / Reputation). Base conceptual: `docs/DESIGN_CAPACITY_SYSTEM.md`.
+
+**Tu tarea (prod WordPress `eufundingschool.com`) — reemplaza la de arriba:**
+1. `git pull` de `main` (ya mergeado).
+2. Verifica que prod muestra la pestaña **"Misión"** (llega vía deploy del theme; si el deploy del theme aún no corrió, dará "Join the Club" o incluso "Servicios y precios" — espera al deploy).
+3. La página `/academia/`: crea la página con **slug `academia`** si no existe (título sug. "Misión"), o si ya la creaste con el contenido "Join the Club", **sustituye TODO su contenido** por el de `academia-page-content.html` actual (bloque "HTML personalizado"). Publica.
+4. Verifica render on-brand: hero "Conviértete en European Project Designer", 3 paquetes Design Capacity (500k/1.200€ · 2M/4.000€ · 10M/15.000€) con badge "La capacidad no caduca", ladder de niveles Starter/Professional/Enterprise, bloque "Tres sistemas independientes", certificación en 2 pasos. Todo navy/amarillo/lavanda + Poppins.
+
+**Reporta en `PARA_LOCAL.md`:** ¿pestaña "Misión" visible en prod? ¿página `/academia/` creada/actualizada con el contenido nuevo? ¿algún desajuste visual?
+
+**Nota:** el contenido de esta página es marketing y evolucionará según Oscar cierre el modelo (ver `docs/DESIGN_CAPACITY_SYSTEM.md`). Fuente de verdad = el fichero del repo; si editas en wp-admin, replícalo allí.
+
+— Claude Local (2026-07-02, tarde)
+
+---
+
+## 2026-07-03 · Unificar botón login en Moodle (campus) con WP + tool
+
+VPS Claude: Oscar quiere que **el CTA de login se vea igual en las tres superficies**. Ya cerré dos; falta la tuya (Moodle).
+
+**Contexto — patrón canónico (ya implementado en WP y tool):**
+- **Sin sesión →** botón amarillo **"Iniciar sesión"**.
+- **Con sesión →** se reescribe a **"Mi cuenta · Nombre"** y apunta a la home del tool.
+- La detección de sesión es vía `GET https://intake.eufundingschool.com/v1/auth/session-status` con `credentials: 'include'`. Devuelve siempre 200: `{ ok:true, data:{ logged_in:bool, first_name:string|null } }`. Código: `node/src/modules/auth/controller.js:314`.
+
+**Qué hice yo hoy (Local, ya commiteado en `dev-local`, commit `abbda3bdc5`):**
+- El tool (`public/index.html` + `public/js/app.js`) mostraba **"Volver a la web"** al visitante sin sesión (confuso, sacaba al sitio de marketing). Lo cambié a **"Iniciar sesión"** amarillo que abre `openAuth('login')`. Con sesión sigue mostrando "Mi cuenta · Nombre". Verificado en local.
+- WP (`astra-eufunding/functions.php`) ya estaba correcto: default "Iniciar sesión" + JS que reescribe a "Mi cuenta · Nombre" (líneas 239-243 el CTA, 295-322 el script de detección). **Úsalo como referencia 1:1.**
+
+**Tu tarea — Moodle (`campus.eufundingschool.com`):**
+El campus lleva la misma top bar de EFS pero su CTA está **hardcodeado a "Mi cuenta"** (no vive en este repo; está en la config del tema Moodle / HTML personalizado del header). Hay que:
+1. Que el CTA por defecto diga **"Iniciar sesión"** (amarillo, mismo estilo `.efs-topbar__login`), no "Mi cuenta".
+2. Inyectar el **mismo script** de detección que WP (functions.php:295-322): fetch a `intake.eufundingschool.com/v1/auth/session-status` con `credentials:'include'`; si `logged_in` → reescribir el enlace a `"Mi cuenta · " + first_name` y href a `https://intake.eufundingschool.com/`.
+3. El enlace debe llevar la clase `efs-app-login` para que el script lo encuentre.
+4. **También** el "Volver a Proyectos" del pie del sidebar de Moodle es el equivalente del viejo "Volver a la web" — decide con Oscar si se mantiene o se retira (a mí me pidió quitar ese patrón confuso en el tool).
+
+**Ojo cookie cross-subdominio:** para que la detección funcione desde `campus.*` hacia `intake.*`, el `refresh_token` tiene que ser compartible en `.eufundingschool.com`. Verifica que la cookie se emite con `Domain=.eufundingschool.com` y que CORS de `/v1/auth/session-status` permite el origin `https://campus.eufundingschool.com` con credenciales. Si no, el fetch no manda cookie y el campus se quedará siempre en "Iniciar sesión" aunque haya sesión en el tool.
+
+**Reporta en `PARA_LOCAL.md`:** ¿CTA de Moodle ya alterna Iniciar sesión / Mi cuenta según sesión del tool? ¿cookie cross-subdominio OK?
+
+— Claude Local (2026-07-03)

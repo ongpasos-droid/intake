@@ -255,7 +255,7 @@ const Budget = (() => {
               <p class="text-sm font-semibold text-on-surface mt-0.5">${fmt(ins.max_grant)} EUR</p>
             </div>
             <div>
-              <span class="text-[9px] font-bold uppercase tracking-widest text-on-surface-variant">Co-financing</span>
+              <span class="text-[9px] font-bold uppercase tracking-widest text-on-surface-variant">Financiado</span>
               <p class="text-sm font-semibold text-on-surface mt-0.5">${ins.cofin_pct}%</p>
             </div>
           </div>
@@ -429,7 +429,7 @@ const Budget = (() => {
       byWp[c.wp_id].push(c);
     }
 
-    const indPct = Number(current.budget.indirect_pct || 7);
+    const indPct = Number(current.budget.indirect_pct ?? 7);
 
     let html = `<div class="text-xs font-bold text-primary mb-3">${esc(ben.name)} (${esc(ben.acronym)}) — ${esc(ben.country)}</div>`;
 
@@ -545,7 +545,7 @@ const Budget = (() => {
     const el = document.getElementById('budget-tab-content');
     if (!el || !current) return;
 
-    const indPct = Number(current.budget.indirect_pct || 7);
+    const indPct = Number(current.budget.indirect_pct ?? 7);
     const maxGrant = Number(current.budget.max_grant || 0);
     const cofinPct = Number(current.budget.cofin_pct || 80);
 

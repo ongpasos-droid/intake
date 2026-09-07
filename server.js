@@ -52,6 +52,7 @@ const ALLOWED_ORIGINS = (process.env.CORS_ORIGINS || [
   'https://www.eufundingschool.com',
   'https://intake.eufundingschool.com',
   'https://app.eufundingschool.com',
+  'https://campus.eufundingschool.com', // Moodle: session-status para unificar CTA login
 ].join(','))
   .split(',')
   .map(s => s.trim())
@@ -104,6 +105,7 @@ app.use('/v1/entities', require('./node/src/modules/entities/routes'));
 app.use('/v1/research', require('./node/src/modules/research/routes'));
 app.use('/v1/movilidades', require('./node/src/modules/movilidades/routes'));
 app.use('/v1/convocatorias', require('./node/src/modules/convocatorias/routes'));
+app.use('/v1/vision',        require('./node/src/modules/vision/routes'));
 
 // Future modules:
 // app.use('/v1/planner',     require('./node/src/modules/planner/routes'));
