@@ -435,3 +435,56 @@ Oscar no estaba disponible cuando pregunté, así que decidí por defecto **reti
 **Commits míos:** `e74a1b8` (CORS, `server.js`) y este handoff, ambos en `dev-vps`. **Nada más por tu parte salvo esperar el `/merge`.**
 
 — Claude VPS (2026-07-03)
+
+---
+
+## 2026-09-07 · EU Vision está en producción, y no había nada que rehacer
+
+Óscar me trajo tu resumen de sesión. Dos cosas de ese inventario estaban desfasadas, y las corrijo
+aquí para que no rehagas trabajo que ya existe:
+
+**1. EU Vision / TASK-008 / TASK-009 no están "sin commit".** Están en `main` de los dos remotos
+desde el 16-jul (`245aabde27`):
+- TASK-012 EU Vision → `88da0257a` (11-jul): `node/src/modules/vision/*`, `public/js/vision.js`,
+  migraciones `123/124/125`, `utils/claude-cli.js`.
+- TASK-009 F1 → `migrations/120_events_table.sql` + módulo `events`.
+- TASK-008 → `migrations/117_facts_ledger_and_prompt_inspector.js`.
+
+**2. Lo que faltaba era el DEPLOY.** `intake.eufundingschool.com` corría la imagen del commit
+`914b71240d7` (**4 de julio**): dos meses por detrás de `main`. Lo comprobé con `docker exec`: el
+módulo `vision` no existía dentro del contenedor. Hoy he desplegado `main`. Las migraciones
+123/124/125 se aplicaron limpias al arrancar (el Dockerfile hace `migrate.js && server.js`), las
+tablas `visions` / `vision_references` / `vision_interests` existen en la BD de prod y
+`GET /v1/vision` responde 401 en vez de 404. Backup previo de la BD en
+`/root/backups/eplus-tools/eplus_tools-20260907-1604.sql.gz` (88 MB).
+
+**Dato que conviene que sepas: Coolify despliega `oscarargumosa/eplus-tools` rama `main`**, no el
+repo `ongpasos-droid/intake`. Mi propia memoria decía lo contrario y estaba mal.
+
+### El 503 del botón de IA: resuelto con un puente, no con la API
+
+Monté `ai-bridge`: un servicio systemd en el **host** que expone el mismo `claude -p` de la
+suscripción por HTTP, solo a la red interna de Docker (`10.0.1.1:4020`), con token, sin ninguna
+herramienta habilitada y con `cwd` en un directorio vacío. `claude-cli.js` ahora usa el puente si
+existe `AI_BRIDGE_URL` y, si no, hace el `spawn` local de siempre — **en tu entorno no cambia nada**.
+Commit `202e1e08f` en `dev-vps`, ya en `main`. Doc: `docs/AI_BRIDGE.md`.
+
+Verificado desde dentro del contenedor de producción: `runSubscription(...)` devuelve texto real.
+Falta el clic de extremo a extremo en `/v1/vision/:id/generate` con una sesión de verdad; eso lo
+prueba Óscar desde la UI.
+
+Latencia: ~6 s una respuesta corta. Tope de 2 peticiones en paralelo. Si EU Vision se usa en una
+cohorte entera, hay que subirlo o encolar.
+
+### Dos cosas que te dejo apuntadas
+
+- **Hay una `ANTHROPIC_API_KEY` real (108 chars) en las variables de producción**, y tres sitios que
+  la usan: `modules/convocatorias/rag.js`, `services/ai-parse.js`, `modules/master/anthropic-client.js`.
+  Choca con la regla de "IA solo por suscripción". No la he tocado: quitarla apagaría esas funciones
+  sin avisar. Decisión de Óscar.
+- **`main` incluye ahora `docs/PLAN-PILOTO.md`** (venía de `dev-vps`, del 8-ago). Merece lectura: fija
+  la primera cohorte —Sport Events, 22 de octubre—, dice explícitamente que **Stripe no hace falta**
+  (se factura y se cobra por transferencia) y deja TASK-007 fuera del camino crítico. Eso responde
+  ya una de las cinco decisiones del §11 de Design Capacity.
+
+— Claude VPS (2026-09-07)

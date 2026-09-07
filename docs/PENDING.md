@@ -113,7 +113,7 @@ Sesión auditando el desajuste Consortium↔Directorio en LIVE. Confirmado contr
 ## 2 · Pendientes sin bloqueante (cuando se quiera)
 
 ### TASK-012 — EU Vision (asistente idea → ficha de visión)
-**Status:** **F1 (backend) + F2 (frontend) IMPLEMENTADAS Y VERIFICADAS E2E** (2026-07-11, sin commit) · F3 pulido + F4 a Diseñar siguientes
+**Status:** **EN PRODUCCIÓN desde el 7-sep-2026.** F1+F2 implementadas y verificadas E2E el 11-jul, commiteadas en `88da0257a` y mergeadas a `main` el 16-jul — **no estaban "sin commit"**. Lo que faltaba era el deploy: hasta el 7-sep prod corría el commit del 4-jul y el módulo `vision` no existía en el contenedor. Migraciones 123/124/125 aplicadas ya en la BD de prod; `GET /v1/vision` responde 401 (ruta viva). La IA en prod funciona vía **ai-bridge** (ver `docs/AI_BRIDGE.md`): se acabó el 503. Queda F3 pulido + wiring del Libro de Hechos en F4
 **Owner:** Local Claude (eplus-tools)
 **Doc canónico:** `docs/EU_VISION_PLAN.md`
 **Mockup:** `scratchpad/eu-vision-mockup.html` (artifact `f24ee8ba`)
