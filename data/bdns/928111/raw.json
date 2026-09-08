@@ -1,0 +1,103 @@
+{
+  "id": 1129672,
+  "organo": {
+    "nivel1": "OTROS",
+    "nivel2": "CÁMARA DE COMERCIO DE MÁLAGA",
+    "nivel3": null
+  },
+  "sedeElectronica": "https://sede.camara.es/sede/malaga",
+  "codigoBDNS": "928111",
+  "fechaRecepcion": "2026-09-07",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 29104,
+  "mrr": false,
+  "descripcion": "Convocatoria Pyme Global 2026 Misión comercial sector turismo a México y Colombia para empresas de Málaga",
+  "descripcionLeng": null,
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PYME Y PERSONAS FÍSICAS QUE DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "ACTIVIDADES ARTÍSTICAS, DEPORTIVAS Y DE ENTRETENIMIENTO",
+      "codigo": "S"
+    },
+    {
+      "descripcion": "HOSTELERÍA",
+      "codigo": "I"
+    },
+    {
+      "descripcion": "OTROS SERVICIOS",
+      "codigo": "T"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES617 - Málaga"
+    }
+  ],
+  "descripcionFinalidad": "Otras actuaciones de carácter económico",
+  "descripcionBasesReguladoras": "Convocatoria Pyme Global 2026",
+  "urlBasesReguladoras": "https://camaramalaga.com/programa-pyme-global-2026/",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": null,
+  "fechaFinSolicitud": "2026-09-30",
+  "textInicio": "A las 09:00h, desde el día hábil siguiente a la publicación del extracto en el BOPMA",
+  "textFin": "A las 14:00h",
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [
+    {
+      "descripcion": "FEDER - FONDO EUROPEO DE DESARROLLO REGIONAL"
+    }
+  ],
+  "reglamento": {
+    "descripcion": "REG (UE) 2023/2831 de minimis, General",
+    "orden": null
+  },
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1518234,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "2026_Convocatoria ayudas Pyme Global_MC_TURISMO_MEXICO Y COLOMBIA.pdf",
+      "long": 531272,
+      "datMod": "2026-09-07",
+      "datPublicacion": "2026-09-07"
+    },
+    {
+      "id": 1518237,
+      "descripcion": "2026_Anexo III_Modelo de Solicitud admisión segundo participante_MC_TURISMO_MEXICO Y COLOMBIA",
+      "nombreFic": "2026_Anexo III_Modelo de Solicitud admisión segundo participante_MC_TURISMO_MEXICO Y COLOMBIA.pdf",
+      "long": 1166041,
+      "datMod": "2026-09-07",
+      "datPublicacion": "2026-09-07"
+    },
+    {
+      "id": 1518236,
+      "descripcion": "2026_Anexo II_Declaración responsable empresa Pyme Global_MC_TURISMO_MEXICO Y COLOMBIA",
+      "nombreFic": "2026_Anexo II_Declaración responsable empresa Pyme Global_MC_TURISMO_MEXICO Y COLOMBIA.pdf",
+      "long": 387859,
+      "datMod": "2026-09-07",
+      "datPublicacion": "2026-09-07"
+    },
+    {
+      "id": 1518235,
+      "descripcion": "2026_Anexo I_Tipologia Gastos Elegibles y Justificación MC_TURISMO_MEXICO Y COLOMBIA",
+      "nombreFic": "2026_Anexo I_Tipologia Gastos Elegibles y Justificación MC_TURISMO_MEXICO Y COLOMBIA.pdf",
+      "long": 453671,
+      "datMod": "2026-09-07",
+      "datPublicacion": "2026-09-07"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

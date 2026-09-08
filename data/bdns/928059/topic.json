@@ -1,0 +1,204 @@
+{
+  "source": "bdns",
+  "source_id": "928059",
+  "source_lang": "es",
+  "level": "ccaa",
+  "programme": "Concurrencia competitiva - canónica",
+  "sub_programme": null,
+  "publishing_authority_code": "AUTONOMICA / CATALUÑA / DEPARTAMENT D'EMPRESA I TREBALL  ",
+  "nuts_codes": [
+    "ES51"
+  ],
+  "nuts_primary": "ES51",
+  "title": "Subvenciones de apoyo a proyectos de reindustrialización y mantenimiento de la actividad industrial (anticipada)",
+  "title_lang": "es",
+  "summary": "Industria y Energía",
+  "status": "open",
+  "publication_date": "2026-09-07",
+  "open_date": "2026-10-07",
+  "deadline": "2027-10-07",
+  "deadline_model": "single-stage",
+  "deadlines_extra": null,
+  "budget_total_eur": 5000000,
+  "budget_per_project_min_eur": null,
+  "budget_per_project_max_eur": null,
+  "expected_grants": null,
+  "cofinancing_pct": null,
+  "duration_months": null,
+  "audience": "GRAN EMPRESA; PYME Y PERSONAS FÍSICAS QUE DESARROLLAN ACTIVIDAD ECONÓMICA",
+  "eligible_orgs": [
+    "GRAN EMPRESA",
+    "PYME Y PERSONAS FÍSICAS QUE DESARROLLAN ACTIVIDAD ECONÓMICA"
+  ],
+  "eligible_countries": [
+    "ES"
+  ],
+  "sectores": [
+    {
+      "codigo": "39",
+      "descripcion": "Actividades de descontaminación y otros servicios de gestión de residuos"
+    },
+    {
+      "codigo": "18",
+      "descripcion": "Artes gráficas y reproducción de soportes grabados"
+    },
+    {
+      "codigo": "36",
+      "descripcion": "Captación, depuración y distribución de agua"
+    },
+    {
+      "codigo": "46.5",
+      "descripcion": "Comercio al por mayor de equipos para las tecnologías de la información y las comunicaciones"
+    },
+    {
+      "codigo": "46.6",
+      "descripcion": "Comercio al por mayor de otra maquinaria, equipos y suministros"
+    },
+    {
+      "codigo": "14",
+      "descripcion": "Confección de prendas de vestir"
+    },
+    {
+      "codigo": "19",
+      "descripcion": "Coquerías y refino de petróleo"
+    },
+    {
+      "codigo": "38.3",
+      "descripcion": "Eliminación de residuos sin valorización"
+    },
+    {
+      "codigo": "11",
+      "descripcion": "Fabricación de bebidas"
+    },
+    {
+      "codigo": "28",
+      "descripcion": "Fabricación de maquinaria y equipo n.c.o.p."
+    },
+    {
+      "codigo": "27",
+      "descripcion": "Fabricación de material y equipo eléctrico"
+    },
+    {
+      "codigo": "31",
+      "descripcion": "Fabricación de muebles"
+    },
+    {
+      "codigo": "30",
+      "descripcion": "Fabricación de otro material de transporte"
+    },
+    {
+      "codigo": "23",
+      "descripcion": "Fabricación de otros productos minerales no metálicos"
+    },
+    {
+      "codigo": "22",
+      "descripcion": "Fabricación de productos de caucho y plásticos"
+    },
+    {
+      "codigo": "21",
+      "descripcion": "Fabricación de productos farmacéuticos"
+    },
+    {
+      "codigo": "26",
+      "descripcion": "Fabricación de productos informáticos, electrónicos y ópticos"
+    },
+    {
+      "codigo": "25",
+      "descripcion": "Fabricación de productos metálicos, excepto maquinaria y equipo"
+    },
+    {
+      "codigo": "29",
+      "descripcion": "Fabricación de vehículos de motor, remolques y semirremolques"
+    },
+    {
+      "codigo": "10",
+      "descripcion": "Industria alimentaria"
+    },
+    {
+      "codigo": "16",
+      "descripcion": "Industria de la madera y del corcho, excepto muebles; cestería y espartería"
+    },
+    {
+      "codigo": "15",
+      "descripcion": "Industria del cuero y productos relacionados de otros materiales"
+    },
+    {
+      "codigo": "17",
+      "descripcion": "Industria del papel"
+    },
+    {
+      "codigo": "12",
+      "descripcion": "Industria del tabaco"
+    },
+    {
+      "codigo": "20",
+      "descripcion": "Industria química"
+    },
+    {
+      "codigo": "13",
+      "descripcion": "Industria textil"
+    },
+    {
+      "codigo": "33.2",
+      "descripcion": "Instalación de máquinas y equipos industriales"
+    },
+    {
+      "codigo": "24",
+      "descripcion": "Metalurgia"
+    },
+    {
+      "codigo": "37",
+      "descripcion": "Recogida y tratamiento de aguas residuales"
+    },
+    {
+      "codigo": "33.1",
+      "descripcion": "Reparación y mantenimiento de productos metálicos, maquinaria y equipos"
+    },
+    {
+      "codigo": "35",
+      "descripcion": "Suministro de energía eléctrica, gas, vapor y aire acondicionado"
+    },
+    {
+      "codigo": "49.4",
+      "descripcion": "Transporte de mercancías por carretera y servicios de mudanza"
+    },
+    {
+      "codigo": "49.2",
+      "descripcion": "Transporte de mercancías por ferrocarril"
+    }
+  ],
+  "apply_url": null,
+  "details_url": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatoria/928059",
+  "documents": [
+    {
+      "label": "Texto en otra lengua de la convocatoria",
+      "url": null
+    },
+    {
+      "label": "Texto en castellano de la convocatoria",
+      "url": null
+    }
+  ],
+  "bases_reguladoras_url": "https://dogc.gencat.cat/es/document-del-dogc/index.html?documentId=981542",
+  "text_inicio": null,
+  "text_fin": "31 de diciembre de 2022",
+  "se_publica_diario_oficial": true,
+  "ayuda_estado": "SA.113604",
+  "fondos": [],
+  "reglamento": {
+    "descripcion": "REG (UE) 651/2014, DE 17 DE JUNIO, de exención de notificación",
+    "orden": null
+  },
+  "objetivos": [
+    {
+      "descripcion": "ART. 14 AYUDAS REGIONALES A LA INVERSIÓN "
+    },
+    {
+      "descripcion": "ART. 17 AYUDAS A LAS PYME. A LA INVERSIÓN EN FAVOR DE LAS PYME."
+    }
+  ],
+  "sectores_productos": [],
+  "anuncios": [],
+  "mrr_flag": false,
+  "fetchedAt": "2026-09-08T04:08:02.628Z"
+}

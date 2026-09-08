@@ -1,0 +1,92 @@
+{
+  "id": 1129695,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "CERCS",
+    "nivel3": "AJUNTAMENT DE CERCS"
+  },
+  "sedeElectronica": "www.cercs.cat",
+  "codigoBDNS": "928134",
+  "fechaRecepcion": "2026-09-07",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 5974.92,
+  "mrr": false,
+  "descripcion": "CONVOCATORIA POR El OTORGAMIENTO DE AYUDAS INDIVIDUALES DE MOVILIDAD DIRIGIDOS AL ALUMNADO DE ENSEÑANZAS POST\nOBLIGATORIAS DEL MUNICIPIO DE CERCS",
+  "descripcionLeng": "CONVOCATÒRIA PER L’ATORGAMENT D’AJUTS INDIVIDUALS DE MOBILITAT ADREÇATS A L’ALUMNAT D’ENSENYAMENTS POST\nOBLIGATORIS DEL MUNICIPI DE CERCS",
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "EDUCACIÓN",
+      "codigo": "Q"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES511 - Barcelona"
+    }
+  ],
+  "descripcionFinalidad": "Educación",
+  "descripcionBasesReguladoras": "BASES REGULADORAS PARA El OTORGAMIENTO DE AYUDAS INDIVIDUALES DE MOVILIDAD DIRIGIDOS AL ALUMNADO DE\nENSEÑANZAS POST OBLIGATORIAS DEL MUNICIPIO DE CERCS",
+  "urlBasesReguladoras": "https://www.cercs.cat/ajuntament/tauler-danuncis",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": "2026-09-01",
+  "fechaFinSolicitud": "2026-09-21",
+  "textInicio": null,
+  "textFin": null,
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [
+    {
+      "descripcion": "FSE - FONDO SOCIAL EUROPEO "
+    }
+  ],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1518278,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "8 ANUNCIO CONVOCATORIA AYUDAS MOBILIDAD CERCS.docx",
+      "long": 86031,
+      "datMod": "2026-09-07",
+      "datPublicacion": "2026-09-07"
+    },
+    {
+      "id": 1518294,
+      "descripcion": "Bases",
+      "nombreFic": "1 BASES AJUTS MOBILITAT CERCS.pdf",
+      "long": 106036,
+      "datMod": "2026-09-07",
+      "datPublicacion": "2026-09-07"
+    },
+    {
+      "id": 1518293,
+      "descripcion": "Model sol·licitud",
+      "nombreFic": "1 MODEL SOLICITUD AJUTS MOBILITAT CERCS.pdf",
+      "long": 230275,
+      "datMod": "2026-09-07",
+      "datPublicacion": "2026-09-07"
+    },
+    {
+      "id": 1518279,
+      "descripcion": "Documento de la convocatoria en lengua cooficial",
+      "nombreFic": "8 ANUNCI CONVOCATORIA AJUDES MOBILITAT CERCS_CAT.docx",
+      "long": 85559,
+      "datMod": "2026-09-07",
+      "datPublicacion": "2026-09-07"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

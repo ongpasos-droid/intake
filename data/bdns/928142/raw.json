@@ -1,0 +1,64 @@
+{
+  "id": 1129703,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "BAÑEZA, LA",
+    "nivel3": "AYUNTAMIENTO DE BAÑEZA, LA"
+  },
+  "sedeElectronica": "https://www.aytobaneza.es/ayuntamiento/tramites-solicitudes/ayudas-y-subvenciones/ayudas_libros_texto",
+  "codigoBDNS": "928142",
+  "fechaRecepcion": "2026-09-07",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concesión directa - canónica",
+  "presupuestoTotal": 50000,
+  "mrr": false,
+  "descripcion": "SUBVENCION AYUDAS LIBROS Y MATERIAL ESCOLAR CURSO 2026-2027",
+  "descripcionLeng": null,
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "EDUCACIÓN",
+      "codigo": "Q"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES413 - León"
+    }
+  ],
+  "descripcionFinalidad": "Educación",
+  "descripcionBasesReguladoras": "SUBVENCION AYUDAS LIBROS Y MATERIAL ESCOLAR CURSO 2026-2027",
+  "urlBasesReguladoras": "https://www.aytobaneza.es/ayuntamiento/tramites-solicitudes/ayudas-y-subvenciones/ayudas_libros_texto",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": "2026-09-14",
+  "fechaFinSolicitud": "2026-10-16",
+  "textInicio": null,
+  "textFin": null,
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1518325,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "20260724_Otros_01. BASES AYUDA LIBROS 2026-2027.pdf",
+      "long": 867038,
+      "datMod": "2026-09-07",
+      "datPublicacion": "2026-09-07"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

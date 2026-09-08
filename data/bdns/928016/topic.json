@@ -1,0 +1,77 @@
+{
+  "source": "bdns",
+  "source_id": "928016",
+  "source_lang": "es",
+  "level": "ccaa",
+  "programme": "Concesión directa - canónica",
+  "sub_programme": null,
+  "publishing_authority_code": "AUTONOMICA / COMUNIDAD DE MADRID / CONSEJERÍA ECONOMÍA, HACIENDA Y EMPLEO",
+  "nuts_codes": [
+    "ES3"
+  ],
+  "nuts_primary": "ES3",
+  "title": "MEDIDAS EXTRAORDINARIAS INCENDIOS SIERRA OESTE COMUNIDAD DE MADRID",
+  "title_lang": "es",
+  "summary": "Fomento del Empleo",
+  "status": "open",
+  "publication_date": "2026-09-07",
+  "open_date": null,
+  "deadline": null,
+  "deadline_model": "continuous",
+  "deadlines_extra": null,
+  "budget_total_eur": 8000000,
+  "budget_per_project_min_eur": null,
+  "budget_per_project_max_eur": null,
+  "expected_grants": null,
+  "cofinancing_pct": null,
+  "duration_months": null,
+  "audience": "GRAN EMPRESA; PYME Y PERSONAS FÍSICAS QUE DESARROLLAN ACTIVIDAD ECONÓMICA",
+  "eligible_orgs": [
+    "GRAN EMPRESA",
+    "PYME Y PERSONAS FÍSICAS QUE DESARROLLAN ACTIVIDAD ECONÓMICA"
+  ],
+  "eligible_countries": [
+    "ES"
+  ],
+  "sectores": [
+    {
+      "codigo": "78",
+      "descripcion": "Actividades relacionadas con el empleo"
+    }
+  ],
+  "apply_url": "www.madrid.org",
+  "details_url": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatoria/928016",
+  "documents": [
+    {
+      "label": "Texto en castellano de la convocatoria",
+      "url": null
+    },
+    {
+      "label": "Otros documentos  ACG 02/09/2026 AYUDAS INCENDIOS AUTÓNOMOS BOCM 04/09/2026",
+      "url": null
+    },
+    {
+      "label": "Otros documentos  CERTIFICADO ORDEN DE CRÉDITOS",
+      "url": null
+    },
+    {
+      "label": "Otros documentos  ACG 02/09/2026 AYUDAS EMERGENCIA INCENDIOS",
+      "url": null
+    }
+  ],
+  "bases_reguladoras_url": "https://www.bocm.es/bocm-20260904-19",
+  "text_inicio": "DESDE EL DÍA SIGUIENTE A LA PUBLICACIÓN DEL ACUERDO EN EL B.O.C.M.",
+  "text_fin": "DOS MESES DESPUÉS DE SU APERTURA.",
+  "se_publica_diario_oficial": true,
+  "ayuda_estado": null,
+  "fondos": [],
+  "reglamento": {
+    "descripcion": "REG (UE) 2023/2831 de minimis, General",
+    "orden": null
+  },
+  "objetivos": [],
+  "sectores_productos": [],
+  "anuncios": [],
+  "mrr_flag": false,
+  "fetchedAt": "2026-09-08T04:08:02.621Z"
+}

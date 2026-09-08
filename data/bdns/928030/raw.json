@@ -1,0 +1,75 @@
+{
+  "id": 1129591,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "RUBÍ",
+    "nivel3": "AYUNTAMIENTO DE RUBÍ"
+  },
+  "sedeElectronica": "https://seu.rubi.cat/",
+  "codigoBDNS": "928030",
+  "fechaRecepcion": "2026-09-07",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concesión directa - canónica",
+  "presupuestoTotal": 30271,
+  "mrr": false,
+  "descripcion": "Convocatòria 2026 dels ajuts de l¿Ajuntament de Rubí per a obres de reforma i condicionament d¿habitatges inclosos en la Borsa de mediació per al lloguer social (BMLLS).",
+  "descripcionLeng": null,
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    },
+    {
+      "descripcion": "PYME Y PERSONAS FÍSICAS QUE DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "ACTIVIDADES ARTÍSTICAS, DEPORTIVAS Y DE ENTRETENIMIENTO",
+      "codigo": "S"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES511 - Barcelona"
+    }
+  ],
+  "descripcionFinalidad": "Acceso a la vivienda y fomento de la edificación",
+  "descripcionBasesReguladoras": "BASES ESPECÍFIQUES DE SUBVENCIONS PER A OBRES DE REFORMA I CONDICIONAMENT D`HABITATGES INCLOSOS EN LA BMLLS",
+  "urlBasesReguladoras": "HTTPS:/WWW.SEU-E.CAT/ES",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": "2026-09-08",
+  "fechaFinSolicitud": "2026-11-06",
+  "textInicio": null,
+  "textFin": null,
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1518077,
+      "descripcion": "Texto en otra lengua de la convocatoria",
+      "nombreFic": "Edicte_Convo_2026_AJUTS_BMLLS_firmat.pdf",
+      "long": 342805,
+      "datMod": "2026-09-07",
+      "datPublicacion": "2026-09-07"
+    },
+    {
+      "id": 1518076,
+      "descripcion": "Texto en castellano de la convocatoria",
+      "nombreFic": "Edicto_caste__definitivo_convo_2026_REFORMA_BMLLS_firmat.pdf",
+      "long": 349269,
+      "datMod": "2026-09-07",
+      "datPublicacion": "2026-09-07"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

@@ -1,0 +1,107 @@
+{
+  "id": 1128459,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "ANDOAIN",
+    "nivel3": "AYUNTAMIENTO DE ANDOAIN"
+  },
+  "sedeElectronica": "www.andoain.eus",
+  "codigoBDNS": "926898",
+  "fechaRecepcion": "2026-08-28",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 25000,
+  "mrr": false,
+  "descripcion": "LINEA DE SUBVENCIÓN: ACTIVIDADES CULTURALES ANUALES PREVISTAS 2026. BASE ESPECÍFICA.",
+  "descripcionLeng": "DIRULAGUNTZA LERROA: AURREIKUSITAKO URTEKO KULTUR JARDUERAK 2026. OINARRI ESPEZIFIKOAK.",
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    },
+    {
+      "descripcion": "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "ACTIVIDADES ARTÍSTICAS, DEPORTIVAS Y DE ENTRETENIMIENTO",
+      "codigo": "S"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES212 - Gipuzkoa"
+    }
+  ],
+  "descripcionFinalidad": "Otras Prestaciones económicas",
+  "descripcionBasesReguladoras": "ORDENANZA GENERAL DE SUBVENCIONES DEL AYUNTAMIENTO DE ANDOAIN",
+  "urlBasesReguladoras": "https://egoitza.gipuzkoa.eus/gao-bog/castell/bog/2014/05/27/c1404879.pdf",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": null,
+  "fechaFinSolicitud": null,
+  "textInicio": "A partir del día siguiente a su publicación en el Boletín Oficial de Gipuzkoa",
+  "textFin": "20 días naturales (a partir del día siguiente a su publicación en el Boletín Oficial de Gipuzkoa)",
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1514210,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "DEIALDIAREN LABURPENA.pdf",
+      "long": 1134842,
+      "datMod": "2026-08-28",
+      "datPublicacion": "2026-09-07"
+    },
+    {
+      "id": 1514211,
+      "descripcion": "Documento de la convocatoria en lengua cooficial",
+      "nombreFic": "DEIALDIAREN LABURPENA.pdf",
+      "long": 1134842,
+      "datMod": "2026-08-28",
+      "datPublicacion": "2026-09-07"
+    },
+    {
+      "id": 1514220,
+      "descripcion": "RESOLUCION ALCALDIA",
+      "nombreFic": "ALKATEAREN EBAZPENA.pdf",
+      "long": 373326,
+      "datMod": "2026-08-28",
+      "datPublicacion": "2026-09-07"
+    },
+    {
+      "id": 1514215,
+      "descripcion": "MODELO SOLICITUD EN EUSKERA",
+      "nombreFic": "ESKAERA EUSKARAZ PDF.pdf",
+      "long": 818870,
+      "datMod": "2026-08-28",
+      "datPublicacion": "2026-09-07"
+    },
+    {
+      "id": 1514217,
+      "descripcion": "MODELO SOLICITUD EUSKERA Y CASTELLANO",
+      "nombreFic": "ESKAERA BIETARA PDF.pdf",
+      "long": 404249,
+      "datMod": "2026-08-28",
+      "datPublicacion": "2026-09-07"
+    },
+    {
+      "id": 1514213,
+      "descripcion": "CONVOCATORIA ENTERA",
+      "nombreFic": "DEIALDI OSOA.pdf",
+      "long": 964941,
+      "datMod": "2026-08-28",
+      "datPublicacion": "2026-09-07"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

@@ -22,7 +22,3 @@ The action should support applied R&D in advanced QKD systems and their integrat
 - Engagement with industry and national network operators to ensure compatibility with telecom-grade requirements and avoid duplication with EuroQCI infrastructures, focusing instead on advancing the technology readiness of next-generation systems.
 
 This action should build on the results of the QSNP Framework Partnership Agreement and align with the SRIA 2030, the Quantum Europe Strategy and EuroQCI, targeting technology readiness and practical deployment pathways for quantum-secure communications.
-
-## Technology Readiness Level - Technology readiness level expected from completed projects
-
-The rules are described in General Annex B of the Horizon Europe Work Programme 2026-2027. Activities are expected to start at TRL 4 and to achieve TRL 7 by the end of the project.

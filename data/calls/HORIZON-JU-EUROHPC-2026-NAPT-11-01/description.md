@@ -27,9 +27,3 @@ The proposal should advance the maturity and usability of neutral-atom quantum p
 - Coordination of partners activities, including training, documentation, and user engagement activities to foster adoption and ecosystem growth.
 
 The action builds upon the foundations set by the PASQuanS2 FPA and aligns with the goals of the Strategic Research and Industry Agenda (SRIA 2030), the Chips for Europe initiative contributing to Europe’s strategic autonomy in neutral atom quantum simulation and digital neutral-atom technologies.
-
-## Technology Readiness Level - Technology readiness level expected from completed projects
-
-The rules are described in General Annex B of the Horizon Europe Work Programme 2026-2027.
-
-Activities are expected to start at TRL 4 and to achieve TRL 7 by the end of the project
