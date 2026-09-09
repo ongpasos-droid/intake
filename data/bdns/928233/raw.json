@@ -1,0 +1,148 @@
+{
+  "id": 1129794,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "ALCALÁ LA REAL",
+    "nivel3": "AYUNTAMIENTO DE ALCALÁ LA REAL"
+  },
+  "sedeElectronica": "https://alcalalareal.sedelectronica.es/",
+  "codigoBDNS": "928233",
+  "fechaRecepcion": "2026-09-08",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concesión directa - canónica",
+  "presupuestoTotal": 50000,
+  "mrr": false,
+  "descripcion": "CONVOCATORIA DE AYUDAS, EN RÉGIMEN DE CONCURRENCIA NO COMPETITIVA, A LA INVERSION PARA NUEVAS EMPRESAS QUE SE ESTABLEZCAN PREFERENTEMENTE EN EL CENTRO HISTÓRICO – ZONA NORTE DE ALCALÁ LA REAL, EL NÚCLEO URBANO DE SUS ALDEAS Y EN EL RESTO DEL CASCO URBANO",
+  "descripcionLeng": null,
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PYME Y PERSONAS FÍSICAS QUE DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "ACTIVIDADES ADMINISTRATIVAS Y SERVICIOS AUXILIARES",
+      "codigo": "O"
+    },
+    {
+      "descripcion": "ACTIVIDADES ARTÍSTICAS, DEPORTIVAS Y DE ENTRETENIMIENTO",
+      "codigo": "S"
+    },
+    {
+      "descripcion": "ACTIVIDADES DE EDICIÓN, RADIODIFUSIÓN Y PRODUCCIÓN Y DISTRIBUCIÓN DE CONTENIDOS",
+      "codigo": "J"
+    },
+    {
+      "descripcion": "ACTIVIDADES FINANCIERAS Y DE SEGUROS",
+      "codigo": "L"
+    },
+    {
+      "descripcion": "ACTIVIDADES INMOBILIARIAS",
+      "codigo": "M"
+    },
+    {
+      "descripcion": "ACTIVIDADES PROFESIONALES, CIENTÍFICAS Y TÉCNICAS",
+      "codigo": "N"
+    },
+    {
+      "descripcion": "ACTIVIDADES SANITARIAS Y DE SERVICIOS SOCIALES",
+      "codigo": "R"
+    },
+    {
+      "descripcion": "AGRICULTURA, GANADERÍA, SILVICULTURA Y PESCA",
+      "codigo": "A"
+    },
+    {
+      "descripcion": "COMERCIO AL POR MAYOR Y AL POR MENOR",
+      "codigo": "G"
+    },
+    {
+      "descripcion": "CONSTRUCCIÓN",
+      "codigo": "F"
+    },
+    {
+      "descripcion": "EDUCACIÓN",
+      "codigo": "Q"
+    },
+    {
+      "descripcion": "HOSTELERÍA",
+      "codigo": "I"
+    },
+    {
+      "descripcion": "INDUSTRIA MANUFACTURERA",
+      "codigo": "C"
+    },
+    {
+      "descripcion": "OTROS SERVICIOS",
+      "codigo": "T"
+    },
+    {
+      "descripcion": "SUMINISTRO DE AGUA, ACTIVIDADES DE SANEAMIENTO, GESTIÓN DE RESIDUOS Y DESCONTAMINACIÓN",
+      "codigo": "E"
+    },
+    {
+      "descripcion": "SUMINISTRO DE ENERGIA ELECTRICA, GAS, VAPOR Y AIRE ACONDICIONADO",
+      "codigo": "D"
+    },
+    {
+      "descripcion": "TELECOMUNICACIONES, PROGRAMACIÓN INFORMÁTICA, CONSULTORÍA, INFRAESTRUCTURA INFORMÁTICA Y OTROS SERVICIOS DE INFORMACIÓN",
+      "codigo": "K"
+    },
+    {
+      "descripcion": "TRANSPORTE Y ALMACENAMIENTO",
+      "codigo": "H"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES616 - Jaén"
+    }
+  ],
+  "descripcionFinalidad": "Comercio, Turismo y Pymes",
+  "descripcionBasesReguladoras": "AYUDAS A LA INVERSION PARA NUEVAS EMPRESAS QUE SE ESTABLEZCAN PREFERENTEMENTE EN EL CENTRO HISTÓRICO – ZONA NORTE DE ALCALÁ LA REAL, EL NÚCLEO URBANO DE SUS ALDEAS Y EN EL RESTO DEL CASCO URBANO DE ALCALÁ LA REAL",
+  "urlBasesReguladoras": "https://alcalalareal.sedelectronica.es/doc/55PREAYZD9MRNJELY6GGFRWYF/.6",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": null,
+  "fechaFinSolicitud": "2026-09-30",
+  "textInicio": "A partir del día siguiente al de la publicación del extracto de convocatoria en el BOP de Jaén ",
+  "textFin": null,
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1518571,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "Anuncio aprobación bases y convocatoria ayudas empresas 2026.pdf",
+      "long": 161776,
+      "datMod": "2026-09-08",
+      "datPublicacion": "2026-09-08"
+    },
+    {
+      "id": 1518576,
+      "descripcion": "ORDENANZA GENERAL DE SUBVENCIONES",
+      "nombreFic": "ORDENANZA GENERAL SUBVENCIONES AYTO. ALCALA LA REAL  11.09.2020.pdf",
+      "long": 288013,
+      "datMod": "2026-09-08",
+      "datPublicacion": "2026-09-08"
+    },
+    {
+      "id": 1518573,
+      "descripcion": "DECRETO 2026-4088 aprobación bases y convocatoria ayudas empresas 2026",
+      "nombreFic": "DECRETO 2026-4088 aprobación bases y convocatoria ayudas empresas 2026.pdf",
+      "long": 879069,
+      "datMod": "2026-09-08",
+      "datPublicacion": "2026-09-08"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

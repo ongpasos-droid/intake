@@ -1,0 +1,72 @@
+{
+  "id": 1129821,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "ARENYS DE MUNT",
+    "nivel3": "AYUNTAMIENTO DE ARENYS DE MUNT"
+  },
+  "sedeElectronica": null,
+  "codigoBDNS": "928260",
+  "fechaRecepcion": "2026-09-08",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 4000,
+  "mrr": false,
+  "descripcion": "2026- CONVOCATORIA EN REGIMEN DE CONCURRENCIA COMPETITIVA PARA PROMOVER INVERSIONES QUE FOMENTEN VALORES PEDAGOGICOS Y EDUCACTIVOS EN EL MUNICIPIO DE ARENYS DE MUNT",
+  "descripcionLeng": "2026- CONVOCATÒRIA EN RÈGIM DE CONCORRÈNCIA COMPETITIVA PER A PROMOURE INVERSIONS QUE FOMENTIN VALORS PEDAGÒGICS I EDUCATIUS EN EL MUNICIPI D'ARENYS DE MUNT ",
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "EDUCACIÓN",
+      "codigo": "Q"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES51 - CATALUÑA"
+    }
+  ],
+  "descripcionFinalidad": "Educación",
+  "descripcionBasesReguladoras": "BASES ESPECIFICAS REGULADORAS DE SUBVENCIONES DE LA COCEJALIA DE EDUCACION PARA INVERTIR EN EL FOMENTO DE VALORES PEDAGOGICOS Y EDUCATIVOS",
+  "urlBasesReguladoras": "https://www.arenysdemunt.cat/media/repository/anys/2026/subvencions/Anunci_aprovacio_definitiva_BOPB_inversions_educacio.pdf",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": null,
+  "fechaFinSolicitud": "2026-11-01",
+  "textInicio": "al día siguiente al de la publicación de del extracto de esta convocatoria en el BOPB",
+  "textFin": null,
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1518651,
+      "descripcion": "Documento de la convocatoria en lengua cooficial",
+      "nombreFic": "CERTIFICAT - Convocatòria subv. inversions educatives exp 1532-26_JGL25082026.pdf",
+      "long": 271950,
+      "datMod": "2026-09-08",
+      "datPublicacion": "2026-09-08"
+    },
+    {
+      "id": 1518650,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "CERTIFICAT - Convocatòria subv. inversions educatives castellano-ok.docx",
+      "long": 63288,
+      "datMod": "2026-09-08",
+      "datPublicacion": "2026-09-08"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

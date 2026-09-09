@@ -1,0 +1,84 @@
+{
+  "id": 1129846,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "DIPUTACIÓN PROV. DE ALICANTE",
+    "nivel3": "DIPUTACIÓN PROVINCIAL DE ALACANT/ALICANTE"
+  },
+  "sedeElectronica": "https://diputacionalicante.sedelectronica.es/",
+  "codigoBDNS": "928285",
+  "fechaRecepcion": "2026-09-08",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 76800,
+  "mrr": false,
+  "descripcion": "CONVOCATORIA Y BASES DE OCHO BECAS DE FORMACIÓN PARA EL MUSEO ARQUEOLÓGICO DE LA DIPUTACIÓN DE ALICANTE.\nANUALIDAD 2027. DECRETP NÚMERO: 2026-3942 DE FECHA: 01/09/2026",
+  "descripcionLeng": null,
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "ACTIVIDADES PROFESIONALES, CIENTÍFICAS Y TÉCNICAS",
+      "codigo": "N"
+    },
+    {
+      "descripcion": "EDUCACIÓN",
+      "codigo": "Q"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES521 - Alicante / Alacant"
+    }
+  ],
+  "descripcionFinalidad": "Educación",
+  "descripcionBasesReguladoras": "Ordenanza General de Subvenciones de la Diputación Provincial de Alicante",
+  "urlBasesReguladoras": "https://sede.diputacionalicante.es/otros/normativa-diputacion-alicante-y-grupo-local/",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": "2026-09-11",
+  "fechaFinSolicitud": "2026-10-01",
+  "textInicio": null,
+  "textFin": null,
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1518699,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "DECRETO 2026-3942 Aprobación convocatoria 2027.pdf",
+      "long": 1254932,
+      "datMod": "2026-09-08",
+      "datPublicacion": "2026-09-08"
+    },
+    {
+      "id": 1518703,
+      "descripcion": "ANUNCIO CONVOCATARIO",
+      "nombreFic": "10-Becas 2027. Anuncio BOP.pdf",
+      "long": 348076,
+      "datMod": "2026-09-08",
+      "datPublicacion": "2026-09-08"
+    },
+    {
+      "id": 1518701,
+      "descripcion": "EXTRACTO BDNS CONVOCATORIA",
+      "nombreFic": "20260903_Publicación_Anuncio_Becas2027.Extracto BDNS.pdf",
+      "long": 407795,
+      "datMod": "2026-09-08",
+      "datPublicacion": "2026-09-08"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

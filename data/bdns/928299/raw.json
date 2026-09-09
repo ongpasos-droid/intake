@@ -1,0 +1,72 @@
+{
+  "id": 1129860,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "SENO",
+    "nivel3": "AYUNTAMIENTO DE SENO"
+  },
+  "sedeElectronica": "https://seno.sedelectronica.es/info.8",
+  "codigoBDNS": "928299",
+  "fechaRecepcion": "2026-09-08",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 2000,
+  "mrr": false,
+  "descripcion": "Decreto de 01 de julio de 2026 de la Alcaldía del Ayuntamiento de Seno, por el que se convocan subvenciones para el funcionamiento de asociaciones locales para el ejercicio 2026.",
+  "descripcionLeng": null,
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "ACTIVIDADES ARTÍSTICAS, DEPORTIVAS Y DE ENTRETENIMIENTO",
+      "codigo": "S"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES242 - Teruel"
+    }
+  ],
+  "descripcionFinalidad": "Cultura",
+  "descripcionBasesReguladoras": "Ordenanza reguladora de ayudas para el funcionameinto de asociaciones locales SENO",
+  "urlBasesReguladoras": "https://seno.sedelectronica.es/preview-document/5c93b56c-9d84-4f25-896b-bd04e03430b3/",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": null,
+  "fechaFinSolicitud": null,
+  "textInicio": "Veinte días hábiles, contados a partir del día siguiente al de su publicación en B.O.P Teruel",
+  "textFin": "Veinte días hábiles, contados a partir del día siguiente al de su publicación en B.O.P Teruel",
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1518755,
+      "descripcion": "Formualrio de solicitud de subvención",
+      "nombreFic": "Formulario solicitud subvención asociaciones_Seno.docx",
+      "long": 53177,
+      "datMod": "2026-09-08",
+      "datPublicacion": "2026-09-08"
+    },
+    {
+      "id": 1518740,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "DECRETO 2026-0118 [Convocatoria subvenciones asociaciones Seno 2026].pdf",
+      "long": 721411,
+      "datMod": "2026-09-08",
+      "datPublicacion": "2026-09-08"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

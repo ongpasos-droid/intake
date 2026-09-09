@@ -1,0 +1,64 @@
+{
+  "id": 1129763,
+  "organo": {
+    "nivel1": "LOCAL",
+    "nivel2": "MASQUEFA",
+    "nivel3": "AYUNTAMIENTO DE MASQUEFA"
+  },
+  "sedeElectronica": "https://seu-e.cat/ca/web/masquefa/tramits-i-gestions/-/tramits/tramit/14506070?p_auth=WxldNEr0",
+  "codigoBDNS": "928202",
+  "fechaRecepcion": "2026-09-08",
+  "instrumentos": [
+    {
+      "descripcion": "SUBVENCIÓN Y ENTREGA DINERARIA SIN CONTRAPRESTACIÓN "
+    }
+  ],
+  "tipoConvocatoria": "Concurrencia competitiva - canónica",
+  "presupuestoTotal": 4900,
+  "mrr": false,
+  "descripcion": "APROBACIÓN DE LA CONVOCATORIA PARA LA CONCESIÓN DE AYUDAS ECONÓMICAS PARA SUFRAGAR LOS GASTOS GENERADOS EN LA REALIZACIÓN DE ESTUDIOS POSTOBLIGATORIOS, PARA LAS PERSONAS RESIDENTES EN MASQUEFA DEL CURSO 2025-2026",
+  "descripcionLeng": "APROVACIÓ DE LA CONVOCATÒRIA PER A LA CONCESSIÓ D’AJUTS ECONÒMICS PER SUFRAGAR LES DESPESES GENERADES EN LA REALITZACIÓ D’ESTUDIS POSTOBLIGATORIS, PER A LES PERSONES RESIDENTS A MASQUEFA DEL CURS 2025-2026",
+  "tiposBeneficiarios": [
+    {
+      "descripcion": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+    }
+  ],
+  "sectores": [
+    {
+      "descripcion": "EDUCACIÓN",
+      "codigo": "Q"
+    }
+  ],
+  "regiones": [
+    {
+      "descripcion": "ES511 - Barcelona"
+    }
+  ],
+  "descripcionFinalidad": "Educación",
+  "descripcionBasesReguladoras": "TEXTO REFUNDIDO DE LAS BASES PARA LA CONCESIÓN DE AYUDAS ECONÓMICAS PARA SUFRAGAR LOS GASTOS GENERADOS EN LA REALIZACIÓN DE ESTUDIOS POSTOBLIGATORIOS, PARA LAS PERSONAS\nRESIDENTES EN MASQUEFA",
+  "urlBasesReguladoras": "https://bop.diba.cat/anunci/3816680/aprovacio-de-la-modificacio-de-les-bases-per-a-la-concessio-d-ajuts-economics-per-sufragar-les-despeses-generades-en-la-realitzacio-d-estudis-postobligatoris-per-a-les-persones-residents-versio-en-catala-i-castella-ajun",
+  "sePublicaDiarioOficial": true,
+  "abierto": false,
+  "fechaInicioSolicitud": "2026-09-11",
+  "fechaFinSolicitud": "2026-10-01",
+  "textInicio": "desde la publicación en el BOPB",
+  "textFin": "15 días a partir de la publicación en el BOPB",
+  "ayudaEstado": null,
+  "urlAyudaEstado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectoresProductos": [],
+  "documentos": [
+    {
+      "id": 1518496,
+      "descripcion": "Documento de la convocatoria en español",
+      "nombreFic": "29249883_013f9a8c_d_Resum11320929281857780938 da signat.pdf",
+      "long": 468462,
+      "datMod": "2026-09-08",
+      "datPublicacion": "2026-09-08"
+    }
+  ],
+  "anuncios": [],
+  "advertencia": "La reutilización de los datos del Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas está sujeta a una serie de restricciones y consideraciones legales. Consulte el aviso legal en https://www.infosubvenciones.es/bdnstrans/GE/es/avisolegal.Además, el usuario debe ser consciente que la información presentada es de naturaleza dinámica, y que los datos pueden ser sometidos a correcciones, inserciones, modificaciones y eliminaciones en momentos posteriores a su extracción. Accesos al API del sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas. La Administración Presupuestaria, para salvaguardar la protección del acceso libre e irrestricto de los ciudadanos a este Portal y a su información podrá adoptar medidas restrictivas de acceso al API ante situaciones de manifiesto abuso del servicio, riesgos de seguridad, o uso fraudulento de la información descargada, de acuerdo con las buenas prácticas de gestión de datos abiertos (https://datos.gob.es/es/blog/limitaciones-la-consulta-de-una-api) establecidas por el Ministerio para la Transformación Digital y de la Función Pública."
+}

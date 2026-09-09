@@ -1,0 +1,109 @@
+{
+  "source": "bdns",
+  "source_id": "928316",
+  "source_lang": "es",
+  "level": "local",
+  "programme": "Concurrencia competitiva - canónica",
+  "sub_programme": null,
+  "publishing_authority_code": "LOCAL / GETAFE / AYUNTAMIENTO DE GETAFE",
+  "nuts_codes": [
+    "ES30"
+  ],
+  "nuts_primary": "ES30",
+  "title": "CONVOCATORIA SUBVENCIONES A ASOCIACIONES Y ENTIDADES JUVENILES PARA EL AÑO 2026 - LINEA SUBVENCIONAL PROGRAMA ANUAL DE ACTIVIDADES",
+  "title_lang": "es",
+  "summary": "Servicios Sociales y Promoción Social",
+  "status": "open",
+  "publication_date": "2026-09-08",
+  "open_date": null,
+  "deadline": null,
+  "deadline_model": "continuous",
+  "deadlines_extra": null,
+  "budget_total_eur": 22000,
+  "budget_per_project_min_eur": null,
+  "budget_per_project_max_eur": null,
+  "expected_grants": null,
+  "cofinancing_pct": null,
+  "duration_months": null,
+  "audience": "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA",
+  "eligible_orgs": [
+    "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+  ],
+  "eligible_countries": [
+    "ES"
+  ],
+  "sectores": [
+    {
+      "codigo": "94",
+      "descripcion": "Actividades asociativas"
+    }
+  ],
+  "apply_url": null,
+  "details_url": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatoria/928316",
+  "documents": [
+    {
+      "label": "ANEXO IX",
+      "url": null
+    },
+    {
+      "label": "ANEXO 1 SOLICITUD",
+      "url": null
+    },
+    {
+      "label": "ANEXO II",
+      "url": null
+    },
+    {
+      "label": "ANEXO III",
+      "url": null
+    },
+    {
+      "label": "ANEXO IV",
+      "url": null
+    },
+    {
+      "label": "ANEXO IV-A",
+      "url": null
+    },
+    {
+      "label": "ANEXO VI",
+      "url": null
+    },
+    {
+      "label": "ANEXO VII-A",
+      "url": null
+    },
+    {
+      "label": "ANEXO VII-B",
+      "url": null
+    },
+    {
+      "label": "ANEXO VII-C",
+      "url": null
+    },
+    {
+      "label": "ANEXO VIII",
+      "url": null
+    },
+    {
+      "label": "Texto en castellano de la convocatoria",
+      "url": null
+    },
+    {
+      "label": "ANEXO V",
+      "url": null
+    }
+  ],
+  "bases_reguladoras_url": "http://www.bocm.es/boletin/CM_Orden_BOCM/2013/05/13/BOCM-20130513-55.PDF",
+  "text_inicio": "20 DÍAS HÁBILES A PARTIR DEL SIGUIENTE A LA PUBLICACIÓN EN EL BOLETIN DE LA COMUNIDAD DE MADRID",
+  "text_fin": "20 DIAS HÁBILES A PARTIR DEL SIGUIENTE DE LA PUBLICACIÓN EN EL BOLETIN DE LA COMUNIDAD DE MADRID",
+  "se_publica_diario_oficial": true,
+  "ayuda_estado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectores_productos": [],
+  "anuncios": [],
+  "mrr_flag": false,
+  "fetchedAt": "2026-09-09T04:07:31.842Z"
+}

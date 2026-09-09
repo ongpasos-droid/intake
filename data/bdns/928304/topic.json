@@ -1,0 +1,77 @@
+{
+  "source": "bdns",
+  "source_id": "928304",
+  "source_lang": "es",
+  "level": "local",
+  "programme": "Concurrencia competitiva - canónica",
+  "sub_programme": null,
+  "publishing_authority_code": "LOCAL / MIRANDA DE EBRO / AYUNTAMIENTO DE MIRANDA DE EBRO",
+  "nuts_codes": [
+    "ES412"
+  ],
+  "nuts_primary": "ES412",
+  "title": "X Convocatoria de ayudas municipales para la regeneración del Centro Histórico y de la Plaza de Abastos de Miranda de Ebro",
+  "title_lang": "es",
+  "summary": "Comercio, Turismo y Pymes",
+  "status": "open",
+  "publication_date": "2026-09-08",
+  "open_date": null,
+  "deadline": null,
+  "deadline_model": "continuous",
+  "deadlines_extra": null,
+  "budget_total_eur": 15000,
+  "budget_per_project_min_eur": null,
+  "budget_per_project_max_eur": null,
+  "expected_grants": null,
+  "cofinancing_pct": null,
+  "duration_months": null,
+  "audience": "PYME Y PERSONAS FÍSICAS QUE DESARROLLAN ACTIVIDAD ECONÓMICA",
+  "eligible_orgs": [
+    "PYME Y PERSONAS FÍSICAS QUE DESARROLLAN ACTIVIDAD ECONÓMICA"
+  ],
+  "eligible_countries": [
+    "ES"
+  ],
+  "sectores": [
+    {
+      "codigo": "47",
+      "descripcion": "Comercio al por menor"
+    }
+  ],
+  "apply_url": "https://sede.mirandadeebro.es/",
+  "details_url": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatoria/928304",
+  "documents": [
+    {
+      "label": "Documento de la convocatoria en español",
+      "url": null
+    },
+    {
+      "label": "ANEXO II",
+      "url": null
+    },
+    {
+      "label": "PLANO DELIMITACIÓN CENTRO HISTÓRICO",
+      "url": null
+    },
+    {
+      "label": "ANEXO III",
+      "url": null
+    },
+    {
+      "label": "ANEXO I",
+      "url": null
+    }
+  ],
+  "bases_reguladoras_url": "https://www.mirandadeebro.es/NdSite/OnLineCache/FMS/02/14/fe0c685c95de7dbf6f5eb37a39ea5ab5/Modificaci%F3n%20Ordenanza%20General%20de%20Subvenciones%20BOP%20186%20de%2029-09-21.pdf",
+  "text_inicio": "A partir del día siguiente a la publicación del anuncio de la convocatoria en el BOPBUR",
+  "text_fin": "Quince días, a contar desde el día siguiente a la publicación de las Bases en el BOPBUR. ",
+  "se_publica_diario_oficial": true,
+  "ayuda_estado": null,
+  "fondos": [],
+  "reglamento": null,
+  "objetivos": [],
+  "sectores_productos": [],
+  "anuncios": [],
+  "mrr_flag": false,
+  "fetchedAt": "2026-09-09T04:07:31.838Z"
+}
